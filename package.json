@@ -1,0 +1,20 @@
+{
+  "private": "true",
+  "name": "root0",
+  "version": "0.0.0",
+  "description": "Static files for the OpenINF website",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/openinf/openinf.github.io.git"
+  },
+  "keywords": [],
+  "author": "The OpenINF Authors",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/openinf/openinf.github.io/issues"
+  },
+  "homepage": "https://github.com/openinf/openinf.github.io#readme",
+  "engines": {
+    "node": "14.7.0"
+  }
+}
