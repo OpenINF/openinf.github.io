@@ -16,5 +16,10 @@
   "homepage": "https://github.com/openinf/openinf.github.io#readme",
   "engines": {
     "node": "14.7.0"
+  },
+  "devDependencies": {
+    "@yarnpkg/shell": "2.1.0",
+    "html-validate": "3.0.0",
+    "vnu-jar": "20.6.30"
   }
 }
