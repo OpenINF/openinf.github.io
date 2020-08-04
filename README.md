@@ -1,4 +1,4 @@
-# open.inf.is
+<h1 align="center">open.inf.is</h1>
 
 <p align="center">
   <a href="https://nodejs.org/en/download/current/"><img src="https://img.shields.io/badge/node-14.7.0-brightgreen.svg?style=plastic" alt="Node.js Version: Latest" /></a>
