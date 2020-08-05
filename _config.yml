@@ -1,3 +1,8 @@
+collections:
+  authors:
+    output: true
 exclude:
   - 'README.md'
   - 'package.json'
+plugins:
+  - jekyll-redirect-from
