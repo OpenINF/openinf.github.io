@@ -5,6 +5,4 @@ const scripts = {
   'vnu-jar': `java -jar ${vnu} --svg ./logo.svg`,
 };
 
-(async function() {
-  process.exitCode = await yarnpkgShell.execute(scripts['vnu-jar']);
-})();
+process.exitCode = await yarnpkgShell.execute(scripts['vnu-jar']);
