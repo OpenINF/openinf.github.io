@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/openinf/openinf.github.io#readme",
   "engines": {
-    "node": "14.8.0"
+    "node": "14.9.0"
   },
   "devDependencies": {
     "@yarnpkg/shell": "2.1.0",
