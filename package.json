@@ -20,7 +20,6 @@
   "devDependencies": {
     "@yarnpkg/shell": "2.1.0",
     "editorconfig-checker": "3.1.0",
-    "html-validate": "3.0.0",
     "stylelint": "13.6.1",
     "stylelint-config-standard": "20.0.0",
     "stylelint-order": "4.1.0",
