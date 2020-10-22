@@ -21,7 +21,7 @@
     "test": "for i in _tasks/*;do node \"$i\";done"
   },
   "devDependencies": {
-    "@yarnpkg/shell": "2.1.0",
+    "@yarnpkg/shell": "2.4.0",
     "editorconfig-checker": "3.3.0",
     "prettier": "2.1.2",
     "stylelint": "13.7.2",
