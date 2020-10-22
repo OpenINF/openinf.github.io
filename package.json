@@ -17,6 +17,9 @@
   "engines": {
     "node": ">=14.8.0"
   },
+  "scripts": {
+    "test": "for i in _tasks/*;do node \"$i\";done"
+  },
   "devDependencies": {
     "@yarnpkg/shell": "2.1.0",
     "editorconfig-checker": "3.1.0",
