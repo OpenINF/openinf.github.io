@@ -2,7 +2,7 @@ collections:
   authors:
     output: true
 exclude:
-  - 'babel.config.js'
+  - 'babel.config.json'
   - 'README.md'
   - 'package.json'
 plugins:
