@@ -1,10 +1,12 @@
 import yarnpkgShell from '@yarnpkg/shell';
 
+let code = 0;
 const scripts = [
   `eslint --ext=.json .`, // validate
   `prettier -c {*.json,.*.json}`, // style-check
 ];
 
 scripts.forEach(async (v, i) => {
-  await yarnpkgShell.execute(scripts[i]);
+  code = await yarnpkgShell.execute(scripts[i]);
+  process.exitCode = code > 0 ? code : 0;
 });
