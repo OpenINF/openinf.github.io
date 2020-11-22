@@ -1,3 +1,5 @@
-_site
 !.*
-node_modules
+.git/
+_site/
+node_modules/
+vendor/
