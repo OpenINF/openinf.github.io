@@ -2,8 +2,8 @@ import yarnpkgShell from '@yarnpkg/shell';
 
 let code = 0;
 const scripts = [
-  `eslint --ext=.md .`, // validate & style-check JS code blocks
-  `remark -qf .`, // check Markdown style
+  `npx eslint --ext=.md .`, // validate & style-check JS code blocks
+  `npx remark -qf .`, // check Markdown style
 ];
 
 scripts.forEach(async (v, i) => {
