@@ -1,3 +1,3 @@
 import yarnpkgShell from '@yarnpkg/shell';
 
-process.exitCode = await yarnpkgShell.execute(`eslint --ext=.js,.mjs .`);
+process.exitCode = await yarnpkgShell.execute(`npx eslint --ext=.js,.mjs .`);
