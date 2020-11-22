@@ -1,9 +1,29 @@
+# Site personalization settings accessed in templates via {{ site.myvariable }}.
+title: OpenINF
+email: code@open.inf.is
+description: >-
+  Aggregate, curate, disseminate, and apply information derived from diverse
+  sources.
+baseurl: ""
+url: "https://open.inf.is"
+twitter_username: openinf
+github_username: openinf
+
+# Site build settings.
+markdown: kramdown
+plugins:
+  - jekyll-octicons
+  - jekyll-redirect-from
+whitelist:
+  - jekyll-redirect-from
+
+# Document collections.
 collections:
   authors:
     output: true
+
+# Exclude from processing.
 exclude:
   - 'babel.config.json'
-  - 'README.md'
   - 'package.json'
-plugins:
-  - jekyll-redirect-from
+  - 'README.md'
