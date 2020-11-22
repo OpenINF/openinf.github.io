@@ -92,5 +92,12 @@ module.exports.default = {
     // Disables all rules that conflict with Prettier. Leave this preset at the
     // bottom so that it can't be overridden.
     require('remark-preset-prettier'),
+
+    // Custom plugins.
+    require('./_tools/unified-lint-rules/no-smart-quotes.js'),
+    require('./_tools/unified-lint-rules/no-dash-spaces.js'),
+    require('./_tools/unified-lint-rules/no-repeat-punctuation.js'),
+    require('./_tools/unified-lint-rules/no-smart-quotes.js'),
+    require('./_tools/unified-lint-rules/no-unescaped-template-tags.js'),
   ],
 };
