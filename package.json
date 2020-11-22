@@ -2,7 +2,7 @@
   "private": "true",
   "name": "root0",
   "version": "0.0.0",
-  "description": "Static files for the OpenINF website",
+  "description": "The OpenINF website and other static resources",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/openinf/openinf.github.io.git"
