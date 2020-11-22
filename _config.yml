@@ -24,6 +24,11 @@ collections:
 
 # Exclude from processing.
 exclude:
-  - 'babel.config.json'
-  - 'package.json'
-  - 'README.md'
+  - babel.config.json
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - package.json
+  - README.md
+  - tmp/
+  - vendor/
