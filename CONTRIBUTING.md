@@ -18,7 +18,7 @@ This project uses the following tools to organize discussion.
 ## Issue tracker
 
 If you've found a bug, would like to request a new feature or make a proposal,
-file an [issue]!
+file an [issue][]!
 
 ### Resolving open issues
 
@@ -27,8 +27,8 @@ repository, and that’s where you can find tasks to undertake. First, check the
 labels on the issue you're interested in.
 
 - Issues labeled _help wanted_ or _good first issue_ have been identified as
-  desirable for community contribution. Feel free to work on GFIs even if it is
-  not your first issue.
+  desirable for community contribution. Feel free to work on GFIs even if not
+  your first issue.
   - List of [all issues labeled _good first issue_][i-gfi]
   - List of [all issues labeled _help wanted_][i-help]
   - List of [all incomplete pull requests labeled _help wanted_][pr-help]
@@ -49,7 +49,7 @@ Once you have identified an issue you would like to work on, follow these steps:
 4.  Wait for code review and address any issues raised as soon as you can.
 
 Even if you are not done with the issue, create a [draft pull request] and push
-your code [early and often]. If we haven't heard from you in over a week and
+your code [early and often][]. If we haven't heard from you in over a week and
 someone else expresses interest in that issue, we may approve the new person's
 work.
 
