@@ -54,7 +54,7 @@ var naturalLanguage = unified().use([
   require('retext-syntax-mentions'),
   [
     require('retext-spell'),
-    { dictionary: require('dictionary-en-gb'), personal: personal },
+    { dictionary: require('dictionary-en'), personal: personal },
   ],
 ]);
 

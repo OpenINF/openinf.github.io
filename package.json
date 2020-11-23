@@ -26,7 +26,7 @@
     "@babel/plugin-syntax-top-level-await": "7.12.1",
     "@babel/preset-env": "7.12.1",
     "@yarnpkg/shell": "2.4.0",
-    "dictionary-en-gb": "2.2.2",
+    "dictionary-en": "3.0.1",
     "editorconfig-checker": "3.3.0",
     "eslint": "7.13.0",
     "eslint-config-prettier": "6.15.0",
