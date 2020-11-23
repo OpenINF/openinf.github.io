@@ -48,10 +48,10 @@ Once you have identified an issue you would like to work on, follow these steps:
     submit your PR.
 4.  Wait for code review and address any issues raised as soon as you can.
 
-Even if you are not done with the issue, create a [draft pull request] and push
-your code [early and often][]. If we haven't heard from you in over a week and
-someone else expresses interest in that issue, we may approve the new person's
-work.
+Even if you are not done with the issue, create a [draft pull request][] and
+push your code [early and often][]. If we haven't heard from you in over a week
+and someone else expresses interest in that issue, we may approve the new
+person's work.
 
 ### Opening a new issue
 
@@ -62,7 +62,7 @@ details and the rationale for the proposed change.
 
 ## Pull requests
 
-If you'd like to propose and collaborate on changes, open a [pull request]!
+If you'd like to propose and collaborate on changes, open a [pull request][]!
 
 Here are a few things you can do that will increase the likelihood of having
 your pull request merged:
@@ -72,7 +72,7 @@ your pull request merged:
 - Keep your change as focused as possible. If there are multiple changes you
   would like to make that are not dependent upon each other, consider submitting
   them as separate pull requests.
-- Write a [good commit message].
+- Write a [good commit message][].
 
 Contributions to this project are [released][contrib-license] to the public
 under the project’s open source license. The license for a project is located in
