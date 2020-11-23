@@ -58,7 +58,7 @@ var naturalLanguage = unified().use([
   ],
 ]);
 
-module.exports.default = {
+module.exports = {
   plugins: [
     require('remark-lint'),
     // Leave this preset at the top so that it can be overridden.
