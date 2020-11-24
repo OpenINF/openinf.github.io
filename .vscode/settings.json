@@ -1,0 +1,223 @@
+{
+  // See https://code.visualstudio.com/docs/getstarted/settings
+  // for the documentation about the extensions.json format.
+
+  // ---------------------------------------------------------------------------
+  // Editor
+  // ---------------------------------------------------------------------------
+
+  // Auto-fix JS files with ESLint using our custom settings. Needs
+  // https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+  "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+
+  // Auto-fix non-JS files with Prettier using our custom settings. Needs
+  // https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+  "[json]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json5]": {"editor.formatOnSave": true},
+
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {"editor.formatOnSave": true},
+
+  // Insert spaces when pressing `Tab`. This setting is overridden based on the
+  // file contents when `editor.detectIndentation` is on.
+  "editor.insertSpaces": true,
+
+  // Render vertical rulers after a certain number of monospace characters.
+  // Use multiple values for multiple rulers. No rulers are drawn if array is
+  // empty.
+  "editor.rulers": [80, 100],
+
+  // The number of spaces a tab is equal to. This setting is overridden based
+  // on the file contents when `editor.detectIndentation` is on.
+  "editor.tabSize": 2,
+
+  "editor.wordWrap": "off",
+
+  // ---------------------------------------------------------------------------
+  // Files
+  // ---------------------------------------------------------------------------
+
+  "files.associations": {
+    // Enable JSON5 syntax highlighting and auto-formatting for these files.
+    // Until VS Code adds native JSON5 support, this needs
+    // https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
+    "OWNERS": "json5",
+    ".vscode/*.json": "json5",
+
+    // Enable JSON auto-formatting for these files.
+    ".babelrc": "json",
+    ".eslintrc": "json",
+    ".prettierrc": "json",
+
+    // Enable JS auto-formatting for these files.
+    ".js": "javascript",
+    ".cjs": "javascript",
+    ".mjs": "javascript",
+    ".babelrc.js": "javascript",
+    ".eslintrc.js": "javascript",
+    ".prettierrc.js": "javascript"
+  },
+
+  // The default character set encoding to use when reading and writing files.
+  // This setting can also be configured per language.
+  "files.encoding": "utf8",
+
+  // The default end of line character.
+  //  - \n: LF
+  //  - \r\n: CRLF
+  //  - auto: Uses operating system specific end of line character.
+  "files.eol": "\n",
+
+  // When enabled, insert a final new line at the end of the file when saving
+  // it.
+  "files.insertFinalNewline": true,
+
+  // When enabled, will trim trailing whitespace when saving a file.
+  // Extension: EditorConfig known issue: trim_trailing_whitespace = false is
+  // not applied when user/workspace setting of files.trimTrailingWhitespace is
+  // set to true.
+  "files.trimTrailingWhitespace": false,
+
+  // ---------------------------------------------------------------------------
+  // Default Configuration Overrides
+  // ---------------------------------------------------------------------------
+
+  // Configure glob patterns for excluding files and folders. For example, the
+  // files explorer decides which files and folders to show or hide based on
+  // this setting. Read more about glob patterns [here][].
+  // [here]:https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options
+  "files.exclude": {
+    "!**/node_modules/": true,
+    ".git": false,
+    "**/.DS_Store": true
+  },
+
+  // Configure glob patterns for excluding files and folders in searches.
+  // Inherits all glob patterns from the `files.exclude` setting.
+  "search.exclude": {
+    "!**/node_modules": true,
+    "**/node_modules": false
+  },
+
+  // ---------------------------------------------------------------------------
+  // Git
+  // ---------------------------------------------------------------------------
+
+  // Ignores the warning when there are too many changes in a repository.
+  "git.ignoreLimitWarning": true,
+
+  // ---------------------------------------------------------------------------
+  // JavaScript
+  // ---------------------------------------------------------------------------
+
+  // Enable/disable JavaScript validation.
+  "javascript.validate.enable": false,
+  "typescript.validate.enable": false,
+
+  //----------------------------------------------------------------------------
+  // Remote
+  //----------------------------------------------------------------------------
+
+  // Fix 'EACCESS: permission denied error' trying to rename a folder in the
+  // open workspace until Windows Server adds native WSL2 support.
+  // https://code.visualstudio.com/docs/remote/troubleshooting#_i-see-eaccess-permission-denied-error-trying-to-rename-a-folder-in-the-open-workspace
+  "remote.WSL.fileWatcher.polling": true,
+  // All workspace files must be excluded from being watched otherwise the
+  // problem will persist.
+  "files.watcherExclude": {
+    "**/**/*": true
+  },
+
+  //----------------------------------------------------------------------------
+  // Extensions
+  //----------------------------------------------------------------------------
+
+  // -------
+  // ESLint
+  // -------
+
+  // Always show the ESlint status bar item.
+  "eslint.alwaysShowStatus": true,
+
+  // Whether the extension contributes a lint task to lint a whole workspace
+  // folder.
+  "eslint.lintTask.enable": true,
+
+  // ---------
+  // Prettier
+  // ---------
+
+  // A list of languages IDs to disable this extension on. Restart required.
+  // Note: Disabling a language enabled in a parent folder will prevent
+  // formatting instead of letting any other formatter to run.
+  //
+  // Prettier extension is disabled for:
+  // - JS since it is done through ESLint
+  // - Markdown since it is done through Remark
+  "prettier.disableLanguages": ["js"],
+
+  // ----------------
+  // Better Comments
+  // ----------------
+
+  // This setting will control whether multiline comments are styled using the
+  // annotation tags.
+  // When false, multiline comments will be presented without decoration.
+  "better-comments.multilineComments": true,
+
+  // -------------------
+  // Code Spell Checker
+  // -------------------
+
+  // The Language local to use when spell checking. "en" and "en-GB" are
+  // currently supported.
+  "cSpell.language": "en",
+
+  // Controls the maximum number of spelling errors per document.
+  "cSpell.maxNumberOfProblems": 100,
+
+  // Controls the number of suggestions shown.
+  "cSpell.numSuggestions": 8,
+
+  // The minimum length of a word before checking it against a dictionary.
+  "cSpell.minWordLength": 4,
+
+  // Enable / Disable the spell checker.
+  "cSpell.enabled": true,
+
+  // Display the spell checker status on the status bar.
+  "cSpell.showStatus": true,
+
+  // Enable / Disable compound words like 'errormessage'.
+  "cSpell.allowCompoundWords": true,
+
+  // Words to be ignored and not suggested.
+  "cSpell.ignoreWords": ["behaviour"],
+
+  // Specify paths/files to ignore.
+  "cSpell.ignorePaths": [
+    ".git/",
+    "node_modules/"
+  ],
+
+  // Set the delay before spell checking the document. Default is 50.
+  "cSpell.spellCheckDelayMs": 50,
+
+  // Set custom workspace dictionaries.
+  "cSpell.customWorkspaceDictionaries": [
+    {
+      "name": "project-terms", // Name of dictionary (should be unique).
+      "description": "These are words for this project.",
+      // Relative to the "client" folder in the workspace.
+      "path": "./project-terms.txt",
+      // Add Word to Workspace Dictionary will add words to this file.
+      "addWords": true
+    }
+  ]
+}
