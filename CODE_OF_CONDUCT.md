@@ -11,7 +11,7 @@ Specifically:
 
 - Respect people, their identities, their culture, and their work.
 - Be kind. Be courteous. Be welcoming.
-- Listen. Consider and acknowledge people's points before responding.
+- Listen. Consider and acknowledge people’s points before responding.
 
 If any OpenINF community member violates this code of conduct, maintainers may
 remove issues, comments, PRs, or block accounts. There is a zero tolerance
