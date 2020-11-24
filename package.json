@@ -66,9 +66,6 @@
     "stylelint": "13.8.0",
     "stylelint-config-standard": "20.0.0",
     "stylelint-order": "4.1.0",
-    "unified-lint-rule": "1.0.6",
-    "unist-util-map": "2.0.1",
-    "unist-util-to-list-of-char": "0.1.2",
     "vnu-jar": "20.6.30"
   }
 }
