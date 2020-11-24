@@ -5,7 +5,7 @@
 Want to contribute? Great! First, read this document, which is a set of
 guidelines to help you contribute to this project.
 
-Whether you're finding bugs, adding new capabilities, fixing anything broken, or
+Whether you’re finding bugs, adding new capabilities, fixing anything broken, or
 improving documentation, get started by submitting an issue or pull request.
 
 This project uses the following tools to organize discussion.
@@ -17,14 +17,14 @@ This project uses the following tools to organize discussion.
 
 ## Issue tracker
 
-If you've found a bug, would like to request a new feature or make a proposal,
+If you’ve found a bug, would like to request a new feature or make a proposal,
 file an [issue][]!
 
 ### Resolving open issues
 
 We track ongoing endeavors via the GitHub issues associated with each
 repository, and that’s where you can find tasks to undertake. First, check the
-labels on the issue you're interested in.
+labels on the issue you’re interested in.
 
 - Issues labeled _help wanted_ or _good first issue_ have been identified as
   desirable for community contribution. Feel free to work on GFIs even if not
@@ -49,9 +49,9 @@ Once you have identified an issue you would like to work on, follow these steps:
 4.  Wait for code review and address any issues raised as soon as you can.
 
 Even if you are not done with the issue, create a [draft pull request][] and
-push your code [early and often][]. If we haven't heard from you in over a week
+push your code [early and often][]. If we haven’t heard from you in over a week
 and someone else expresses interest in that issue, we may approve the new
-person's work.
+person’s work.
 
 ### Opening a new issue
 
@@ -62,7 +62,7 @@ details and the rationale for the proposed change.
 
 ## Pull requests
 
-If you'd like to propose and collaborate on changes, open a [pull request][]!
+If you’d like to propose and collaborate on changes, open a [pull request][]!
 
 Here are a few things you can do that will increase the likelihood of having
 your pull request merged:
@@ -81,8 +81,8 @@ a file named `LICENSE` in the root directory of the repository.
 ## Project documentation
 
 The `README` in the root of the repository should contain or link to project
-documentation. If you cannot find the documentation you're looking for, please
-file a GitHub issue with details of what you'd like to see documented.
+documentation. If you cannot find the documentation you’re looking for, please
+file a GitHub issue with details of what you’d like to see documented.
 
 ## Questions or thoughts?
 
