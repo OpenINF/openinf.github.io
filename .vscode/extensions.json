@@ -1,19 +1,6 @@
 {
-  "name": "Jekyll (Community)",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "args": {
-      "NODE_VERSION": "lts/*"
-    }
-  },
-
-  // Set *default* container specific settings.json values on container create.
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
-
-  // Add the IDs of extensions you want installed when the container is created.
-  "extensions": [
+  // List of extensions which should be recommended for users of this workspace.
+  "recommendations": [
     // https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments
     "aaron-bond.better-comments",
     // https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense
@@ -49,13 +36,7 @@
     // https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
     "yzhang.markdown-all-in-one"
   ],
-
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [4000],
-
-  // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "bundle config set --local path 'vendor/bundle' && bundle install && npm install",
-
-  // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-  "remoteUser": "vscode"
+  // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
+  "unwantedRecommendations": [
+  ]
 }
