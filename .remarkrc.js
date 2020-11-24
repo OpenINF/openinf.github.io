@@ -39,7 +39,7 @@ var fs = require('fs');
 var strip = require('strip-comments');
 var unified = require('unified');
 
-var personal = strip(fs.readFileSync('./dictionary.txt', 'utf8'));
+var projectTerms = strip(fs.readFileSync('./project-terms.txt', 'utf8'));
 
 var naturalLanguage = unified().use([
   require('retext-english'),
@@ -54,7 +54,7 @@ var naturalLanguage = unified().use([
   require('retext-syntax-mentions'),
   [
     require('retext-spell'),
-    { dictionary: require('dictionary-en'), personal: personal },
+    { dictionary: require('dictionary-en'), personal: projectTerms },
   ],
 ]);
 
