@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<section class="docs container">
+  <div class="grid">
+    <div class="unit four-fifths">
+      <article>
+        {% if page.editable != false %}
+        <div class="improve right">
+          <a href="https://github.com/openinf/openinf.github.io/edit/HEAD/{{ page.path }}">Edit</a>
+        </div>
+        {% endif %}
+        <h1>{{ page.title }}</h1>
+        {{ content }}
+      </article>
+    </div>
+  </div>
+</section>

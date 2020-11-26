@@ -1,0 +1,138 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,maximum-scale=1,minimum-scale=1,initial-scale=1,user-scalable=no">
+  <link type="image/svg+xml" rel="shortcut icon" href="https://raw.github.com/openinf/openinf.github.io/HEAD/logo.svg?sanitize=true">
+  <meta name="description" content="Aggregate, curate, disseminate, and apply information derived from diverse sources.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      background-color: #E9E9E2;
+      color: #1D1916;
+      display: block;
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+      font-size: 14px;
+      height: 100%;
+      line-height: 1.5;
+      margin-bottom: 8rem;
+      min-height: 100%;
+      position: relative;
+      width: 100%;
+    }
+
+    .container {
+      margin: 0 auto;
+      max-width: 1400px;
+      padding: 0 1.5rem;
+    }
+
+    .docs {
+      padding-bottom: 3rem;
+    }
+
+    .improve {
+      margin: .67em .67em 0 0;
+    }
+
+    .icon {
+      line-height: 24px;
+    }
+
+    .improve a {
+      border: 1px solid #77675A;
+      padding: .75rem;
+      border-radius: 5px;
+      text-decoration: none;
+      color: #77675A;
+    }
+
+    .improve a:hover {
+      border: 1px solid #089;
+      text-decoration: none;
+      color: #089;
+    }
+
+    .right {
+      float: right;
+    }
+
+    :focus {
+      outline-color: rgba(0, 0, 0, .5);
+      outline-offset: .125rem;
+      outline-style: solid;
+      outline-width: .125rem;
+    }
+
+    .xlinkable {
+      display: none;
+    }
+
+    .grid-container {
+      display: grid;
+    }
+
+    .grid-start {
+      justify-self: start;
+    }
+
+    .grid-end {
+      justify-self: end;
+    }
+
+    footer {
+      color: #77675A;
+      height: 4.5rem;
+      padding: 0 1.5rem;
+      width: 100%;
+    }
+
+    a {
+      color: #089;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    footer div {
+      text-align: center;
+      width: 100%;
+    }
+
+    footer div:nth-child(2) {
+      line-height: 3em;
+    }
+
+    footer .grid-container {
+      border-top: 1px solid #A7978B;
+      grid-template-rows: 1fr 1fr;
+      padding-top: 1.5rem;
+    }
+
+    @media only screen and (min-width: 768px) {
+      footer .grid-container {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      footer .grid-start {
+        justify-self: start;
+        text-align: left;
+      }
+
+      footer .grid-end {
+        justify-self: end;
+        text-align: right;
+      }
+    }
+  </style>
+  <link rel="canonical" href=".">
+  <title>{% if page.path != index.html %}{{ page.title }} • {% endif %}{{ site.title }}</title>
+</head>
