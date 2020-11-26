@@ -18,6 +18,13 @@
     "node": ">=14.15.0"
   },
   "scripts": {
+    "verify:css": "node _tasks/verify-css.mjs",
+    "verify:editorconfig-compliance": "node _tasks/verify-editorconfig-compliance.mjs",
+    "verify:html": "node _tasks/verify-html.mjs",
+    "verify:js": "node _tasks/verify-js.mjs",
+    "verify:json": "node _tasks/verify-json.mjs",
+    "verify:markdown": "node _tasks/verify-markdown.mjs",
+    "verify:svg": "node _tasks/verify-svg.mjs",
     "test": "for i in _tasks/*.mjs; do node \"$i\"; done"
   },
   "devDependencies": {
