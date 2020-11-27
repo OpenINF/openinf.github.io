@@ -14,8 +14,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '14.x'
+      - name: Set up Ruby 2.7
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
       - name: Install
-        run: npm install
+        run: |
+          npm install
+          gem install bundler && bundle config set --local path 'vendor/bundle'
+          bundle install
 
       # Checks to see if any files in the PR match one of the listed file types.
       # We can use this filter to decide whether or not to run linters or tests.
