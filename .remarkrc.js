@@ -33,6 +33,7 @@ const infoStrings = [
   'tex',
   'text',
   'typescript',
+  'yaml',
 ];
 
 var fs = require('fs');
