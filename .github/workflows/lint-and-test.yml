@@ -38,6 +38,9 @@ jobs:
               - '**/*.css'
             svg:
               - '**/*.svg'
+            yaml:
+              - '**/*.yml'
+              - '**/*.yaml'
 
       # Use the filter to check if files with a specific file type were changed
       # in the PR. If they were, run the relevant linters. Otherwise, skip.
@@ -65,6 +68,10 @@ jobs:
       - name: Verify SVG
         if: ${{ steps.filter.outputs.svg == 'true' }}
         run: npm run verify:svg
+
+      - name: Verify YAML
+        if: ${{ steps.filter.outputs.yaml == 'true' }}
+        run: npm run verify:yaml
 
       # Only run tests if the PR touches behavior related files.
       - name: Test
