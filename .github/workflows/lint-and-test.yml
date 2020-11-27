@@ -26,21 +26,47 @@ jobs:
         id: filter
         with:
           filters: |
-            css:
-              - '**/*.css'
+            html:
+              - '**/*.html'
+            md:
+              - '**/*.md'
             js:
               - '**/*.js'
             json:
               - '**/*.json'
-            md:
-              - '**/*.md'
-            njk:
-              - '**/*.njk'
+            css:
+              - '**/*.css'
             svg:
               - '**/*.svg'
-            yml:
-              - '**/*.yml'
 
+      # Use the filter to check if files with a specific file type were changed
+      # in the PR. If they were, run the relevant linters. Otherwise, skip.
+
+      - name: Verify CSS
+        if: ${{ steps.filter.outputs.css == 'true' }}
+        run: npm run verify:css
+
+      - name: Verify HTML
+        if: ${{ steps.filter.outputs.html == 'true' }}
+        run: npm run verify:html
+
+      - name: Verify JavaScript
+        if: ${{ steps.filter.outputs.js == 'true' || steps.filter.outputs.json == 'true' }}
+        run: npm run verify:js
+
+      - name: Verify JSON
+        if: ${{ steps.filter.outputs.json == 'true' }}
+        run: npm run verify:json
+
+      - name: Verify Markdown
+        if: ${{ steps.filter.outputs.md == 'true' }}
+        run: npm run verify:md
+
+      - name: Verify SVG
+        if: ${{ steps.filter.outputs.svg == 'true' }}
+        run: npm run verify:svg
+
+      # Only run tests if the PR touches behavior related files.
       - name: Test
-        if: ${{ steps.filter.outputs.css == 'true' || steps.filter.outputs.js == 'true' || steps.filter.outputs.json == 'true' || steps.filter.outputs.md == 'true' || steps.filter.outputs.njk == 'true' || steps.filter.outputs.svg == 'true' || steps.filter.outputs.yml == 'true' }}
+        if: ${{ steps.filter.outputs.js == 'true' || steps.filter.outputs.json == 'true' }}
         run: npm run test
