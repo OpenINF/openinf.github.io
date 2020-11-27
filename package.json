@@ -25,6 +25,7 @@
     "verify:json": "node _tasks/verify-json.mjs",
     "verify:markdown": "node _tasks/verify-markdown.mjs",
     "verify:svg": "node _tasks/verify-svg.mjs",
+    "verify:yaml": "node _tasks/verify-yaml.mjs",
     "test": "for i in _tasks/*.mjs; do node \"$i\"; done"
   },
   "devDependencies": {
