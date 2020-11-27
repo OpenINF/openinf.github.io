@@ -34,7 +34,9 @@
     // https://marketplace.visualstudio.com/items?itemName=travisthetechie.write-good-linter
     "travisthetechie.write-good-linter",
     // https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
-    "yzhang.markdown-all-in-one"
+    "yzhang.markdown-all-in-one",
+    // https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml
+    "redhat.vscode-yaml"
   ],
   // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
   "unwantedRecommendations": [
