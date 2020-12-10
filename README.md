@@ -6,3 +6,11 @@
   <img src="https://img.shields.io/badge/status-under%20construction-yellow?style=plastic" alt="Status: Under construction" />
   <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/github/license/openinf/openinf.github.io?color=brightgreen&style=plastic" alt="License: Apache-2.0" /></a>
 </p>
+
+<p align="center">
+  <a title="Roadmap" href="./doc/roadmap.md">Roadmap</a> |
+  <a title="Development" href="./doc/development.md">Development</a> |
+  <a title="Issue Tracker" href="https://github.com/DerekNonGeneric/loader339/issues">Issue Tracker</a> |
+  <a title="Changelog" href="https://github.com/DerekNonGeneric/loader339/commits/master">Changelog</a> |
+  <a title="Credits" href="https://github.com/DerekNonGeneric/loader339/graphs/contributors">Credits</a>
+</p>
