@@ -8,8 +8,8 @@
 </p>
 
 _The high-level goal of open.inf.is is to build and maintain a current website serving content and assets. Although this site is currently experimental,
-its employment has become necessary to solve for use cases that were, judging by outstanding user needs, certain tasks have been prohibitive to the separation
-of concerns. As is the case with any software project in continuous development, omissions and errors may exist, for which contributions are welcome!_
+its employment has become necessary to solve for use cases that were, judging by outstanding user needs, been deemed necessary for separation of concerns.
+As is the case with any software project in continuous development, omissions and errors may exist, for which contributions are welcome!_
 
 ---
 
