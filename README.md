@@ -7,7 +7,15 @@
   <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/github/license/openinf/openinf.github.io?color=brightgreen&style=plastic" alt="License: Apache-2.0" /></a>
 </p>
 
+The high level goal of open.inf.is is to build a website.
 
+Short-term non-goals:
+
+- Use an environment different from `github-pages`
+
+Long-term non-goals:
+
+- Use `github-pages` or their static site generator
 
 <p align="center">
   <a title="Roadmap" href="./doc/roadmap.md">Roadmap</a> |
