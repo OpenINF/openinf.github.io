@@ -27,7 +27,7 @@ Long-term non-goals:
   <a title="Roadmap" href="./doc/roadmap.md">Roadmap</a> |
   <a title="Development" href="./doc/development.md">Development</a> |
   <a title="Issue Tracker" href="https://github.com/openinf/openinf.github.io/issues">Issue Tracker</a> |
-  <a title="Changelog" href="https://github.com/openinf/openinf.github.io/commits/master">Changelog</a> |
+  <a title="Changelog" href="https://github.com/openinf/openinf.github.io/commits/live">Changelog</a> |
   <a title="Credits" href="https://github.com/openinf/openinf.github.io/graphs/contributors">Credits</a>
 </p>
 
