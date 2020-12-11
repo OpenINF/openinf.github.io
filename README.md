@@ -14,6 +14,8 @@ that were, judging by outstanding user needs, certain tasks have been prohibitiv
 concerns. As is the case with any software project in continuous development, omissions and errors may exist,
 for which contributions are welcome!_
 
+---
+
 Short-term non-goals:
 
 - Use an environment different from `github-pages`
