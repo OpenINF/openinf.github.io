@@ -29,7 +29,6 @@ Long-term non-goals:
   <a title="Credits" href="https://github.com/openinf/openinf.github.io/graphs/contributors">Credits</a>
 </p>
 
-
 <p align="center">
   <img src="https://img.shields.io/badge/type-prototype-brightgreen.svg?style=plastic" alt="Project Type: Prototype" /> <img src="https://img.shields.io/badge/scheme-evolutionary-brightgreen.svg?style=plastic" alt="Prototyping Scheme: Evolutionary" /> <img src="https://img.shields.io/badge/status-planned-lightgrey?style=plastic" alt="Project Status: Planned" />
 </p>
