@@ -21,6 +21,8 @@ Long-term non-goals:
 
 - Use `github-pages` or their static site generator
 
+---
+
 <p align="center">
   <a title="Roadmap" href="./doc/roadmap.md">Roadmap</a> |
   <a title="Development" href="./doc/development.md">Development</a> |
