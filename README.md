@@ -9,6 +9,18 @@
 
 The high level goal of open.inf.is is to build a website.
 
+_The high-level goal of open.inf.is is to build and maintain a website a current
+website serving content, and maintenance tools using the Node.js ES module loader
+hooks API. Although this site is currently experimental, its employment has become
+necessary to solve for use cases that were, judging by outstanding user needs, certain
+tasks have been prohibitive to separation of concerns. As is the case with any software
+project in continuous development, omissions and errors may exist, for which contributions
+are welcome!_
+
+<p align="center">
+  <a href="https://nodejs.org/en/about/"><img src="https://img.shields.io/badge/Node.js-black?logo=Node.js&logoColor=green&style=plastic" alt="Platform: Node.js" /></a> <a href="https://github.com/nodejs/modules"> <img src="https://img.shields.io/badge/group-modules-brightgreen.svg?style=plastic" alt="Group: Modules" /></a> <img src="https://img.shields.io/badge/type-prototype-brightgreen.svg?style=plastic" alt="Project Type: Prototype" /> <img src="https://img.shields.io/badge/scheme-evolutionary-brightgreen.svg?style=plastic" alt="Prototyping Scheme: Evolutionary" /> <img src="https://img.shields.io/badge/status-planned-lightgrey?style=plastic" alt="Project Status: Planned" />
+</p>
+
 Short-term non-goals:
 
 - Use an environment different from `github-pages`
