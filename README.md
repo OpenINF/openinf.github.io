@@ -7,6 +7,8 @@
   <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/github/license/openinf/openinf.github.io?color=brightgreen&style=plastic" alt="License: Apache-2.0" /></a>
 </p>
 
+---
+
 _The high-level goal of open.inf.is is to build and maintain a current website serving content,
 and maintenance tools using the Node.js ES module loader, hooks API. Although this site is
 currently experimental, its employment has become necessary to solve for use cases that were,
