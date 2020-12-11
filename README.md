@@ -14,10 +14,6 @@ judging by outstanding user needs, certain tasks have been prohibitive to the se
 As is the case with any software project in continuous development, omissions and errors may exist,
 for which contributions are welcome!_
 
-<p align="center">
-  <a href="https://nodejs.org/en/about/"><img src="https://img.shields.io/badge/Node.js-black?logo=Node.js&logoColor=green&style=plastic" alt="Platform: Node.js" /></a> <a href="https://github.com/nodejs/modules"> <img src="https://img.shields.io/badge/group-modules-brightgreen.svg?style=plastic" alt="Group: Modules" /></a> <img src="https://img.shields.io/badge/type-prototype-brightgreen.svg?style=plastic" alt="Project Type: Prototype" /> <img src="https://img.shields.io/badge/scheme-evolutionary-brightgreen.svg?style=plastic" alt="Prototyping Scheme: Evolutionary" /> <img src="https://img.shields.io/badge/status-planned-lightgrey?style=plastic" alt="Project Status: Planned" />
-</p>
-
 Short-term non-goals:
 
 - Use an environment different from `github-pages`
@@ -25,6 +21,10 @@ Short-term non-goals:
 Long-term non-goals:
 
 - Use `github-pages` or their static site generator
+
+<p align="center">
+  <a href="https://nodejs.org/en/about/"><img src="https://img.shields.io/badge/Node.js-black?logo=Node.js&logoColor=green&style=plastic" alt="Platform: Node.js" /></a> <a href="https://github.com/nodejs/modules"> <img src="https://img.shields.io/badge/group-modules-brightgreen.svg?style=plastic" alt="Group: Modules" /></a> <img src="https://img.shields.io/badge/type-prototype-brightgreen.svg?style=plastic" alt="Project Type: Prototype" /> <img src="https://img.shields.io/badge/scheme-evolutionary-brightgreen.svg?style=plastic" alt="Prototyping Scheme: Evolutionary" /> <img src="https://img.shields.io/badge/status-planned-lightgrey?style=plastic" alt="Project Status: Planned" />
+</p>
 
 <p align="center">
   <a title="Roadmap" href="./doc/roadmap.md">Roadmap</a> |
