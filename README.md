@@ -1,9 +1,9 @@
 <h1 align="center">open.inf.is</h1>
 
 <p align="center">
-  <a href="https://nodejs.org/en/download/current/"><img src="https://img.shields.io/badge/node-%3E=14.15.0-brightgreen.svg?style=plastic" alt="Node.js Version: Latest" /></a>
-  <img src="https://img.shields.io/github/languages/top/openinf/openinf.github.io?color=brightgreen&style=plastic" alt="Language: HTML5" />
-  <img src="https://img.shields.io/badge/status-under%20construction-yellow?style=plastic" alt="Status: Under construction" />
+  <a href="https://nodejs.org/en/download/current/"><img src="https://img.shields.io/badge/node-14.15.0-brightgreen.svg?style=plastic" alt="Node.js Version: 14.15.0" /></a>
+  <a href="https://www.ruby-lang.org/en/downloads/"><img src="https://img.shields.io/badge/ruby-2.7.1-brightgreen.svg?style=plastic" alt="Ruby Version: 2.7.1" /></a>
+  <img src="https://img.shields.io/github/languages/top/openinf/openinf.github.io?color=brightgreen&style=plastic" />
   <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/github/license/openinf/openinf.github.io?color=brightgreen&style=plastic" alt="License: Apache-2.0" /></a>
 </p>
 
@@ -32,5 +32,5 @@ Long-term non-goals:
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/type-prototype-brightgreen.svg?style=plastic" alt="Project Type: Prototype" /> <img src="https://img.shields.io/badge/scheme-evolutionary-brightgreen.svg?style=plastic" alt="Prototyping Scheme: Evolutionary" /> <img src="https://img.shields.io/badge/status-planned-lightgrey?style=plastic" alt="Project Status: Planned" />
+  <img src="https://img.shields.io/badge/type-prototype-brightgreen.svg?style=plastic" alt="Project Type: Prototype" /> <img src="https://img.shields.io/badge/scheme-evolutionary-brightgreen.svg?style=plastic" alt="Prototyping Scheme: Evolutionary" /> <img src="https://img.shields.io/badge/status-under%20construction-yellow?style=plastic" alt="Status: Under construction" />
 </p>
