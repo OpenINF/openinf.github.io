@@ -24,3 +24,6 @@ gem "wdm", "~> 0.1.0", :install_if => Gem.win_platform?
 gem "kramdown-parser-gfm"
 
 gem 'yaml-lint', '~> 0.0.10'
+
+# Fix for https://github.com/github/pages-gem/issues/399.
+gem 'dotenv'
