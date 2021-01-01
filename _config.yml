@@ -8,6 +8,7 @@ baseurl: ""
 url: "https://open.inf.is"
 twitter_username: openinf
 github_username: openinf
+repository: openinf/openinf.github.io
 
 # Site build settings.
 markdown: kramdown
