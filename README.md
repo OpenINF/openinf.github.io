@@ -11,9 +11,11 @@
 
 <br />
 
-_The high-level goal of open.inf.is is to build and maintain a current website serving content and assets. Although this site is still in its infancy,
-it is intended to support separation of concerns. As is the case with any software project in continuous development, omissions and errors may exist, for
-which contributions are welcome._
+_The high-level goal of open.inf.is is to build and maintain a current website
+serving content and assets. Although this site is still in its infancy, it is
+intended to support separation of concerns. As is the case with any software
+project in continuous development, omissions and errors may exist, for which
+contributions are welcome._
 
 <br />
 
@@ -28,6 +30,13 @@ Short-term non-goals:
 Long-term non-goals:
 
 - Use `github-pages` or their static site generator
+
+<br />
+
+The rationale for this approach is that we would like to hang our website code
+on this framework initially. It has a good form and structure, yet, due to the
+underlying technologies (`scss` & `html+liquid`) being of limited power,
+evolution becomes necessary while retaining the same codebase layout.
 
 <br />
 
