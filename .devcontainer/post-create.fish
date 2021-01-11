@@ -27,4 +27,5 @@ if test package.json
     npm install
 end
 
-# Once the shell launches, run `rbenv rehash` and `nvm use`.
+echo 'rbenv rehash && nvm use' >> ~/.config/fish/config.fish
+echo 'set -Ux fish_user_paths ~/.rbenv/shims/ $fish_user_paths' >> ~/.config/fish/config.fish
