@@ -6,7 +6,7 @@
   <a href="https://nodejs.org/en/download/current/"><img src="https://img.shields.io/badge/node-14.15.0-blue.svg?style=plastic" alt="Node.js Version: 14.15.0" /></a>
   <a href="https://www.ruby-lang.org/en/downloads/"><img src="https://img.shields.io/badge/ruby-2.7.1-blue.svg?style=plastic" alt="Ruby Version: 2.7.1" /></a>
   <img src="https://img.shields.io/github/languages/top/openinf/openinf.github.io?color=blue&style=plastic" />
-  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/github/license/openinf/openinf.github.io?color=blue&style=plastic" alt="License: Apache-2.0" /></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/github/license/openinf/openinf.github.io?color=blue&style=plastic" alt="License: MIT" /></a>
 </p>
 
 <br />
