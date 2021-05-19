@@ -9,10 +9,10 @@ Having trouble? Please consult these official resources in order of appearance.
 **[open.inf.is][docs-site] on the Web:** The OpenINF website. It has docs and
 tutorial resources.
 
-**[`#openinf`][irc-channel] on freenode:** The OpenINF support channel on the
+<!-- **[`#openinf`][irc-channel] on freenode:** The OpenINF support channel on the
 _freenode_ IRC network. It’s a synchronous chat channel for lightweight
 communication. Good uses of it are for asking questions, casual conversation,
-collaboration, and quick exchanges.
+collaboration, and quick exchanges. -->
 
 **[@openinf][twitter-account] on Twitter:** The OpenINF support account on
 Twitter.
