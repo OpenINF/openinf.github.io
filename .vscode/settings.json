@@ -6,6 +6,13 @@
   // Editor
   // ---------------------------------------------------------------------------
 
+  // Terminal
+  "terminal.integrated.profiles.linux": {
+    "fish (login)": {
+      "path": "/usr/bin/fish"
+    }
+  },
+
   // Auto-fix JS files with ESLint using our custom settings. Needs
   // https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
   "editor.codeActionsOnSave": { "source.fixAll.eslint": true },

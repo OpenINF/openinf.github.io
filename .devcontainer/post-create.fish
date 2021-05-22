@@ -8,14 +8,8 @@ end
 # Install Bundler and set local gem install path.
 sudo gem install bundler && bundle config set --local path 'vendor/bundle'
 
-# If there's a Gemfile, then run `bundle install`.
-# It's assumed that the Gemfile will install Jekyll too.
-if test -e Gemfile
-    bundle install
-else
-    # If there's no Gemfile, install Jekyll.
-    sudo gem install jekyll
-end
+# Install gems specified in Gemfile.
+bundle install
 
 # If there's a .node-version, then run `nvm install`.
 if test -e .node-version

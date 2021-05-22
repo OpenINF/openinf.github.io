@@ -49,7 +49,7 @@ RUN su vscode -c "git clone --depth=1 \
 RUN su vscode -c "sudo ~/.rbenv/bin/plugins/ruby-build/install.sh"
 
 # Install Fisher and plugins.
-RUN su vscode -c "fish --command 'curl -s https://raw.githubusercontent.com/jorgebucaran/fisher/main/fisher.fish | source && fisher install jorgebucaran/{fisher,nvm.fish@2.0.1}'"
+RUN su vscode -c "fish --command 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/{fisher,nvm.fish@2.0.1}'"
 
 # Configure Git.
 RUN su vscode -c "echo 'set -Ux GIT_EDITOR vim' >> ~/.config/fish/config.fish"

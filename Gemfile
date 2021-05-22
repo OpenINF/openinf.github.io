@@ -2,6 +2,8 @@
 
 source "https://rubygems.org"
 
+gem "jekyll"
+
 gem "github-pages", group: :jekyll_plugins
 
 # Whitelisted plugins not included in runtime dependencies.
