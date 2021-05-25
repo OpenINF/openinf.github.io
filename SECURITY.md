@@ -1,5 +1,3 @@
-<!-- https://help.github.com/en/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository -->
-
 # Security
 
 The OpenINF team takes the security of OpenINF and the applications created with
@@ -22,3 +20,5 @@ In the rare event that you find a vulnerability in the OpenINF SDK itself,
   to specific versions for your dependencies. If you do, make sure you check
   periodically to see if your dependencies have had security updates and update
   the pin accordingly.
+
+<!-- https://help.github.com/en/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository -->

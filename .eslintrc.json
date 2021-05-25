@@ -39,6 +39,18 @@
       "rules": {
         "compat/compat": "error"
       }
+    },
+    {
+      // Enable the Markdown processor for all .md files.
+      "files": ["**/*.md"],
+      "processor": "markdown/markdown"
+    },
+    {
+      // Configuration ESLint uses for ```js fenced code blocks inside .md files.
+      "files": ["**/*.md/*.js"],
+      "rules": {
+        // ...
+      }
     }
   ]
 }

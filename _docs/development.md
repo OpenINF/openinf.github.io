@@ -12,10 +12,10 @@ Coming soonish.
 1. [Download and install the latest version of Git](https://git-scm.com/downloads)
 1. [Download and install the latest version of VS Code](https://code.visualstudio.com/)
 
-### Git setup
+### Git user setup
 
 1. [Set username in Git](https://docs.github.com/en/free-pro-team@latest/github/using-git/setting-your-username-in-git)
-1. [Set commit email address in Git](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address)
+1. [Set commit email in Git](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address)
 
 ### [Connect to GitHub with SSH](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh)
 
@@ -25,7 +25,7 @@ Coming soonish.
 
    Start a local Administrator PowerShell and run the following commands.
 
-   ```
+   ```powershell
    # Make sure you're running as an Administrator
    Set-Service ssh-agent -StartupType Automatic
    Start-Service ssh-agent
@@ -34,7 +34,7 @@ Coming soonish.
 
    Add local SSH keys to the agent by using the ssh-add command.
 
-   ```
+   ```powershell
    ssh-add $HOME/.ssh/id_ed25519
    ```
 
@@ -54,28 +54,33 @@ Coming soonish.
 
 ### Git Setup
 
-1. Create your own fork of the [openinf website repository](https://github.com/openinf/openinf.github.io) by clicking "Fork" in the Web UI. During local development, this will be referred to by `git` as `origin`.
+1. Create your own fork of the
+   [openinf website repository](https://github.com/openinf/openinf.github.io) by
+   clicking "Fork" in the Web UI. During local development, this will be
+   referred to by `git` as `origin`.
 1. Download your fork to a local repository.
 
-   ```shell
+   ```bash
    git clone git@github.com:<your username>/openinf.github.io.git
    ```
 
-1. Add an alias called `upstream` to refer to the main `openinf/openinf.github.io` repository. Go to the root directory of the newly created local repository directory and run the following.
+1. Add an alias called `upstream` to refer to the main
+   `openinf/openinf.github.io` repository. Go to the root directory of the newly
+   created local repository directory and run the following.
 
-   ```shell
+   ```bash
    git remote add upstream git@github.com:openinf/openinf.github.io.git
    ```
 
 1. Fetch data from the `upstream` remote:
 
-   ```shell
+   ```bash
    git fetch upstream live
    ```
 
-1. Set up your local `live` branch to track `upstream/live` instead of `origin/live` (which will rapidly become
-   outdated).
+1. Set up your local `live` branch to track `upstream/live` instead of
+   `origin/live` (which will rapidly become outdated).
 
-   ```shell
+   ```bash
    git branch -u upstream/live live
    ```

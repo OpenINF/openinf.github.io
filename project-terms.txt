@@ -3,3 +3,14 @@ freenode
 GFIs
 OpenINF
 SDK
+codebase
+macOS
+soonish
+PowerShell
+https
+code.visualstudio.com
+Gpg4win
+gpg4win
+gpg
+openinf
+UI
