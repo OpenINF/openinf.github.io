@@ -29,7 +29,7 @@
     "test": "for i in _tasks/*.mjs; do node \"$i\"; done"
   },
   "devDependencies": {
-    "@babel/core": "7.14.3",
+    "@babel/core": "7.14.6",
     "@babel/eslint-parser": "7.14.3",
     "@babel/plugin-syntax-jsx": "7.12.13",
     "@babel/plugin-syntax-top-level-await": "7.12.13",
