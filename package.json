@@ -44,7 +44,7 @@
     "eslint-plugin-json": "3.0.0",
     "eslint-plugin-markdown": "2.1.0",
     "eslint-plugin-prettier": "3.4.0",
-    "prettier": "2.3.0",
+    "prettier": "2.3.2",
     "remark-cli": "9.0.0",
     "remark-frontmatter": "3.0.0",
     "remark-lint": "8.0.0",
