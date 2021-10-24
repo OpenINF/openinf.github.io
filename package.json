@@ -49,7 +49,7 @@
     "remark-frontmatter": "3.0.0",
     "remark-lint": "8.0.0",
     "remark-lint-are-links-valid": "1.0.3",
-    "remark-lint-checkbox-character-style": "3.0.0",
+    "remark-lint-checkbox-character-style": "4.1.0",
     "remark-lint-checkbox-content-indent": "3.0.0",
     "remark-lint-code-block-style": "2.0.1",
     "remark-lint-definition-spacing": "2.0.1",
