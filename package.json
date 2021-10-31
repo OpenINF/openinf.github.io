@@ -33,7 +33,7 @@
     "@babel/eslint-parser": "7.16.0",
     "@babel/plugin-syntax-jsx": "7.16.0",
     "@babel/plugin-syntax-top-level-await": "7.12.13",
-    "@babel/preset-env": "7.15.8",
+    "@babel/preset-env": "7.16.0",
     "@yarnpkg/shell": "3.1.0",
     "cspell": "5.12.3",
     "dictionary-en": "3.1.0",
