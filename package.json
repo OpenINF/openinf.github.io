@@ -70,7 +70,7 @@
     "retext-readability": "7.1.0",
     "retext-simplify": "7.1.0",
     "retext-spell": "5.1.0",
-    "retext-syntax-mentions": "3.0.0",
+    "retext-syntax-mentions": "3.1.0",
     "strip-comments": "2.0.1",
     "stylelint": "14.0.1",
     "stylelint-config-standard": "22.0.0",
