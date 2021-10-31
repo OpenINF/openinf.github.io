@@ -5,11 +5,28 @@ if test -e .ruby-version
     rbenv install
 end
 
-# Install Bundler and set local gem install path.
-sudo gem install bundler && bundle config set --local path 'vendor/bundle'
+rbenv rehash
 
-# Install gems specified in Gemfile.
-bundle install
+echo 'set -Ux fish_user_paths ~/.rbenv/shims/ $fish_user_paths' >> ~/.config/fish/config.fish
+
+source ~/.config/fish/config.fish
+
+# Install Bundler.
+gem install bundler
+
+rbenv rehash
+
+# Configure Bundler setting local gem install path to avoid permission errors.
+bundle config set --local path 'vendor/bundle'
+
+# If there's a Gemfile, then run `bundle install`.
+# It's assumed that the Gemfile will install Jekyll too.
+if test -e Gemfile
+    bundle install
+else
+    # If there's no Gemfile, install Jekyll.
+    gem install jekyll
+end
 
 # If there's a .node-version, then run `nvm install`.
 if test -e .node-version
@@ -22,4 +39,3 @@ if test package.json
 end
 
 echo 'rbenv rehash && nvm use' >> ~/.config/fish/config.fish
-echo 'set -Ux fish_user_paths ~/.rbenv/shims/ $fish_user_paths' >> ~/.config/fish/config.fish
