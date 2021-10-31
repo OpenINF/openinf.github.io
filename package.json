@@ -74,7 +74,7 @@
     "strip-comments": "2.0.1",
     "stylelint": "14.0.1",
     "stylelint-config-standard": "22.0.0",
-    "stylelint-order": "4.1.0",
+    "stylelint-order": "5.0.0",
     "vnu-jar": "21.10.12"
   }
 }
