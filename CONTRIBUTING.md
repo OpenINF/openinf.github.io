@@ -13,7 +13,8 @@ This project uses the following tools to organize discussion.
 - **Issue tracker:** For discussing issues related to the project.
 - **Pull requests:** For discussing and reviewing changes that are in progress.
 - **Synchronous chat channel:** For casual conversation, collaboration, quick
-  exchanges, and questions. [This activity has temporarily been suspended&hellip;]
+  exchanges, and questions. [This activity has temporarily been
+  suspended&hellip;]
 
 ## Issue tracker
 
@@ -86,8 +87,9 @@ file a GitHub issue with details of what you’d like to see documented.
 
 ## Questions or thoughts?
 
-Support requests (e.g., asking questions) or feedback (e.g., constructive criticism)
-may be directed to the [`@openinf`][twitter-account] support account on Twitter.
+Support requests (e.g., asking questions) or feedback (e.g., constructive
+criticism) may be directed to the [`@openinf`][twitter-account] support account
+on Twitter.
 
 ## Additional resources
 
@@ -128,14 +130,24 @@ By making a contribution to this project, I certify that:
 [Developer Certificate of Origin Legal Text](https://developercertificate.org/)
 
 [code_of_conduct]: ./CODE_OF_CONDUCT.md
-[contrib-license]: https://help.github.com/articles/github-terms-of-service/#6-contributions-under-repository-license
-[draft pull request]: https://help.github.com/en/articles/about-pull-requests#draft-pull-requests
+[contrib-license]:
+  https://help.github.com/articles/github-terms-of-service/#6-contributions-under-repository-license
+[draft pull request]:
+  https://help.github.com/en/articles/about-pull-requests#draft-pull-requests
 [early and often]: https://www.worklytics.co/blog/commit-early-push-often/
-[good commit message]: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
-[i-gfi]: https://github.com/search?q=org%3Aopeninf+is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
-[i-help]: https://github.com/search?q=org%3Aopeninf+is%3Aissue+is%3Aopen+label%3A%22help+wanted%22
+[good commit message]:
+  http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+[i-gfi]:
+  https://github.com/search?q=org%3Aopeninf+is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
+[i-help]:
+  https://github.com/search?q=org%3Aopeninf+is%3Aissue+is%3Aopen+label%3A%22help+wanted%22
+
 <!-- [irc-channel]: https://webchat.freenode.net/#openinf -->
+
 [twitter-account]: https://twitter.com/openinf
-[issue]: http://help.github.com/en/github/managing-your-work-on-github/creating-an-issue
-[pr-help]: https://github.com/search?q=org%3Aopeninf+is%3Apr+is%3Aopen+label%3A%22help+wanted%22
-[pull request]: https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request
+[issue]:
+  http://help.github.com/en/github/managing-your-work-on-github/creating-an-issue
+[pr-help]:
+  https://github.com/search?q=org%3Aopeninf+is%3Apr+is%3Aopen+label%3A%22help+wanted%22
+[pull request]:
+  https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request

@@ -30,7 +30,6 @@
       "env": {
         "browser": true
       },
-      "extends": ["plugin:compat/recommended"],
       "files": ["./assets/js/main.js"],
       "parserOptions": {
         "sourceType": "script"

@@ -11,6 +11,8 @@
     "davidanson.vscode-markdownlint",
     // https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
     "dbaeumer.vscode-eslint",
+    // https://marketplace.visualstudio.com/items?itemName=drewbourne.vscode-remark-lint
+    "drewbourne.vscode-remark-lint",
     // https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens
     "eamodio.gitlens",
     // https://marketplace.visualstudio.com/items?itemName=editorconfig.editorconfig
@@ -31,6 +33,8 @@
     "mrmlnc.vscode-json5",
     // https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml
     "redhat.vscode-yaml",
+    // https://marketplace.visualstudio.com/items?itemName=sissel.shopify-liquid
+    "sissel.shopify-liquid",
     // https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
     "streetsidesoftware.code-spell-checker",
     // https://marketplace.visualstudio.com/items?itemName=travisthetechie.write-good-linter

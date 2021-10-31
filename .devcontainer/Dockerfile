@@ -1,8 +1,5 @@
 FROM debian:buster-slim
 
-# Add directory missing from `buster-slim` needed by `default-jre`.
-RUN mkdir /usr/share/man/man1/
-
 ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID

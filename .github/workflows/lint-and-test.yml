@@ -13,11 +13,11 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
-      - name: Set up Ruby 2.7
+          node-version: "16.x"
+      - name: Set up Ruby 3.0
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: '2.7'
+          ruby-version: "3.0"
       - name: Install
         run: |
           npm install
@@ -39,8 +39,10 @@ jobs:
               - '**/*.md'
             js:
               - '**/*.js'
+              - '**/*.mjs'
             json:
               - '**/*.json'
+              - '**/*.jsonc'
             css:
               - '**/*.css'
             svg:
@@ -80,7 +82,7 @@ jobs:
         if: ${{ steps.filter.outputs.yaml == 'true' }}
         run: npm run verify:yaml
 
-      # Only run tests if the PR touches behavior related files.
+      # Only run tests if the PR touches behavior-related files.
       - name: Test
         if: ${{ steps.filter.outputs.js == 'true' || steps.filter.outputs.json == 'true' }}
         run: npm run test

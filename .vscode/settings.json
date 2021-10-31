@@ -7,11 +7,22 @@
   // ---------------------------------------------------------------------------
 
   // Terminal
+
+  // The Linux profiles to present when creating a new terminal via the
+  // terminal dropdown. When set, these will override the default detected
+  // profiles. They are comprised of a `path` and optional `args`.
   "terminal.integrated.profiles.linux": {
-    "fish (login)": {
+    "fish": {
       "path": "/usr/bin/fish"
     }
   },
+
+  "editor.formatOnSave": true,
+
+  // The default profile used on Linux. This setting will currently be ignored
+  // if either `terminal.integrated.shell.linux` or
+  // `terminal.integrated.shellArgs.linux` are set.
+  "terminal.integrated.defaultProfile.linux": "fish",
 
   // Auto-fix JS files with ESLint using our custom settings. Needs
   // https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
@@ -25,11 +36,22 @@
   },
   "[json5]": {"editor.formatOnSave": true},
 
+  "json.maxItemsComputed": 10000,
+
   "[markdown]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[yaml]": {"editor.formatOnSave": true},
+
+  "[yaml]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+
+  "[html]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
 
   // Insert spaces when pressing `Tab`. This setting is overridden based on the
   // file contents when `editor.detectIndentation` is on.
@@ -156,19 +178,6 @@
   // folder.
   "eslint.lintTask.enable": true,
 
-  // ---------
-  // Prettier
-  // ---------
-
-  // A list of languages IDs to disable this extension on. Restart required.
-  // Note: Disabling a language enabled in a parent folder will prevent
-  // formatting instead of letting any other formatter to run.
-  //
-  // Prettier extension is disabled for:
-  // - JS since it is done through ESLint
-  // - Markdown since it is done through Remark
-  "prettier.disableLanguages": ["js"],
-
   // ----------------
   // Better Comments
   // ----------------
@@ -198,9 +207,6 @@
   // Enable / Disable the spell checker.
   "cSpell.enabled": true,
 
-  // Display the spell checker status on the status bar.
-  "cSpell.showStatus": true,
-
   // Enable / Disable compound words like 'errormessage'.
   "cSpell.allowCompoundWords": true,
 
@@ -213,18 +219,49 @@
     "node_modules/"
   ],
 
-  // Set the delay before spell checking the document. Default is 50.
-  "cSpell.spellCheckDelayMs": 50,
-
   // Set custom workspace dictionaries.
-  "cSpell.customWorkspaceDictionaries": [
-    {
-      "name": "project-terms", // Name of dictionary (should be unique).
+  "cSpell.customDictionaries": {
+    "project-terms": { // Name of dictionary (should be unique).
       "description": "These are words for this project.",
       // Relative to the "client" folder in the workspace.
       "path": "./project-terms.txt",
       // Add Word to Workspace Dictionary will add words to this file.
       "addWords": true
     }
-  ]
+  },
+
+  // -------
+  // Liquid
+  // -------
+
+  // Controls whether formatting is enabled or disabled
+  "liquid.format": true,
+
+  // -------
+  // Remark
+  // -------
+
+  "remark.format": {
+    "plugins": [
+      "gfm",
+      "github"
+    ],
+    "github": {
+      "repository": "https://github.com/openinf/openinf.github.io"
+    },
+    "rules": {
+      "closeAtx": true,
+      "gfm": true,
+      "emphasis": "_",
+      "fences": true,
+      "incrementListMarker": true,
+      "entities": true,
+      "listItemIndent": "1",
+      "rule": "-",
+      "ruleRepetition ": 3,
+      "ruleSpace": true,
+      "setext": false,
+      "strong": "*"
+    }
+  }
 }
