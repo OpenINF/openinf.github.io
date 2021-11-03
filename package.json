@@ -57,7 +57,7 @@
     "remark-cli": "10.0.0",
     "remark-directive": "2.0.1",
     "remark-frontmatter": "4.0.1",
-    "remark-gfm": "3.0.0",
+    "remark-gfm": "3.0.1",
     "remark-github": "11.2.1",
     "remark-heading-id": "1.0.0",
     "remark-hint": "1.0.10",
