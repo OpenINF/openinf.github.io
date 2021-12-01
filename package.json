@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/openinf/openinf.github.io#readme",
   "engines": {
-    "node": "16.13.0",
+    "node": "16.13.1",
     "npm": "8.1.4"
   },
   "scripts": {
