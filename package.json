@@ -66,7 +66,7 @@
     "remark-lint-checkbox-character-style": "4.1.0",
     "remark-lint-checkbox-content-indent": "4.1.0",
     "remark-lint-code-block-style": "3.1.0",
-    "remark-lint-definition-spacing": "3.1.0",
+    "remark-lint-definition-spacing": "3.1.1",
     "remark-lint-fenced-code-flag": "3.1.0",
     "remark-lint-first-heading-level": "3.1.0",
     "remark-lint-no-dead-urls": "1.1.0",
