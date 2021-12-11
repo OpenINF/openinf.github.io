@@ -6,14 +6,23 @@ Coming soonish.
 
 ## Windows Setup
 
+This guide is under the assumption that the user is running on the latest
+version of
+[Windows Server 2022 Standard](https://cloudblogs.microsoft.com/windowsserver/2021/09/01/windows-server-2022-now-generally-available-delivers-innovation-in-security-hybrid-and-containers/).
+
 ### Development environment dependencies
 
+#### Docker Setup
+
 1. [Download and install the latest version of Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
-1. [Download and install the latest version of Git](https://git-scm.com/downloads)
-1. [Download and install the latest version of VS Code](https://code.visualstudio.com/)
+1. Once install, go to the settings menu (General Tab) and untick the "Use the
+   WSL 2 based engine" option box.
+1. Next, go to the "Resources" tab and add the entire "C:\" volume to the list
+   of (sub)directories able to bind-mounted into Docker containers.
 
 ### Git user setup
 
+1. [Download and install the latest version of Git](https://git-scm.com/downloads)
 1. [Set username in Git](https://docs.github.com/en/free-pro-team@latest/github/using-git/setting-your-username-in-git)
 1. [Set commit email in Git](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address)
 
@@ -50,7 +59,8 @@ Coming soonish.
 
 ### VS Code Setup
 
-1. Install [Visual Studio Code Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
+1. Install
+   [Visual Studio Code Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
 
 ### Git Setup
 
@@ -84,3 +94,7 @@ Coming soonish.
    ```bash
    git branch -u upstream/live live
    ```
+
+### VSCode Setup
+
+1. [Download and install the latest version of VS Code](https://code.visualstudio.com/)
