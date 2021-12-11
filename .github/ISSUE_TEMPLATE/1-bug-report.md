@@ -58,5 +58,4 @@ may help solve the problem. -->
 <!-- Use “[x]” to check the box below if you are
 interested in contributing. -->
 
-- [ ] I would like to work on this issue and
-      submit a pull request.
+- [ ] I would like to work on this issue and submit a pull request.
