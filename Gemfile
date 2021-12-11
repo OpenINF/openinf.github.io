@@ -2,9 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "jekyll"
-
-gem "github-pages", group: :jekyll_plugins
+gem "jekyll", "~> 4.2.1"
 
 # Whitelisted plugins not included in runtime dependencies.
 group :jekyll_plugins do
@@ -27,5 +25,4 @@ gem "kramdown-parser-gfm"
 
 gem 'yaml-lint', '~> 0.0.10'
 
-# Fix for https://github.com/github/pages-gem/issues/399.
-gem 'dotenv'
+gem "webrick", "~> 1.7"

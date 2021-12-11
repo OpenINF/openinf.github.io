@@ -65,7 +65,7 @@ version of
 ### Git Setup
 
 1. Create your own fork of the
-   [openinf website repository](https://github.com/openinf/openinf.github.io) by
+   [OpenINF website repository](https://github.com/openinf/openinf.github.io) by
    clicking "Fork" in the Web UI. During local development, this will be
    referred to by `git` as `origin`.
 1. Download your fork to a local repository.

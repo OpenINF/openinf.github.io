@@ -31,6 +31,8 @@ end
 # If there's a .node-version, then run `nvm install`.
 if test -e .node-version
     nvm install
+    npm install -g npm # ensure latest version of npm is installed
+    npm audit fix # address any vulns package manager CLI app itself
 end
 
 # If there's a package.json, then run `npm install`.

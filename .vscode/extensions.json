@@ -1,46 +1,29 @@
 {
   // List of extensions which should be recommended for users of this workspace.
   "recommendations": [
-    // https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments
     "aaron-bond.better-comments",
-    // https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense
     "christian-kohler.npm-intellisense",
-    // https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense
     "christian-kohler.path-intellisense",
-    // https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
     "davidanson.vscode-markdownlint",
-    // https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
     "dbaeumer.vscode-eslint",
-    // https://marketplace.visualstudio.com/items?itemName=drewbourne.vscode-remark-lint
     "drewbourne.vscode-remark-lint",
-    // https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens
     "eamodio.gitlens",
-    // https://marketplace.visualstudio.com/items?itemName=editorconfig.editorconfig
     "editorconfig.editorconfig",
-    // https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
     "esbenp.prettier-vscode",
-    // https://marketplace.visualstudio.com/items?itemName=fknop.vscode-npm
     "fknop.vscode-npm",
-    // https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
-    "Gruntfuggly.todo-tree",
-    // https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify
+    "gruntfuggly.todo-tree",
     "hookyqr.beautify",
-    // https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete
     "ionutvmi.path-autocomplete",
-    // https://marketplace.visualstudio.com/items?itemName=KnisterPeter.vscode-commitizen
     "knisterpeter.vscode-commitizen",
-    // https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
     "mrmlnc.vscode-json5",
-    // https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml
     "redhat.vscode-yaml",
-    // https://marketplace.visualstudio.com/items?itemName=sissel.shopify-liquid
     "sissel.shopify-liquid",
-    // https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
     "streetsidesoftware.code-spell-checker",
-    // https://marketplace.visualstudio.com/items?itemName=travisthetechie.write-good-linter
     "travisthetechie.write-good-linter",
-    // https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
-    "yzhang.markdown-all-in-one"
+    "yzhang.markdown-all-in-one",
+    "ms-azuretools.vscode-docker",
+    "skyapps.fish-vscode",
+    "lunaryorn.fish-ide"
   ],
   // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
   "unwantedRecommendations": [
