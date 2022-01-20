@@ -37,7 +37,7 @@
     "test": "npm run verify:all"
   },
   "devDependencies": {
-    "@babel/core": "7.16.7",
+    "@babel/core": "7.16.10",
     "@babel/eslint-parser": "7.16.5",
     "@babel/plugin-syntax-jsx": "7.16.7",
     "@babel/plugin-syntax-top-level-await": "7.14.5",
