@@ -57,11 +57,6 @@ version of
 1. [Generate a GPG key](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-gpg-key#generating-a-gpg-key)
 1. [Add GPG key to your GitHub account](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account)
 
-### VS Code Setup
-
-1. Install
-   [Visual Studio Code Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
-
 ### Git Setup
 
 1. Create your own fork of the
@@ -98,3 +93,5 @@ version of
 ### VSCode Setup
 
 1. [Download and install the latest version of VS Code](https://code.visualstudio.com/)
+1. Install
+   [Visual Studio Code Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
