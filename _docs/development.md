@@ -18,7 +18,7 @@ version of
 1. Once installed, go to the settings menu (General Tab) and untick the "Use the
    WSL 2 based engine" option box.
 1. Next, go to the "Resources" tab and add the entire "C:\" volume to the list
-   of (sub)directories able to bind-mounted into Docker containers.
+   of (sub)directories able to be bind-mounted into Docker containers.
 
 ### Git user setup
 
