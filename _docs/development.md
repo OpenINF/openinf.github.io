@@ -15,7 +15,7 @@ version of
 #### Docker Setup
 
 1. [Download and install the latest version of Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
-1. Once install, go to the settings menu (General Tab) and untick the "Use the
+1. Once installed, go to the settings menu (General Tab) and untick the "Use the
    WSL 2 based engine" option box.
 1. Next, go to the "Resources" tab and add the entire "C:\" volume to the list
    of (sub)directories able to bind-mounted into Docker containers.
