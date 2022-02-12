@@ -15,10 +15,10 @@ version of
 #### Docker Setup
 
 1. [Download and install the latest version of Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
-1. Once installed, go to the settings menu (General Tab) and untick the "Use the
-   WSL 2 based engine" option box.
-1. Next, go to the "Resources" tab and add the entire "C:\" volume to the list
-   of (sub)directories able to be bind-mounted into Docker containers.
+1. Once installed, click on the little gear in the top right of the app to go to the settings menu (General Tab) and be sure that the
+   "Use the WSL 2 based engine" option box is unticked. If it is already ticked off, be sure to un-tick it before proceeding.
+1. Next, go to the "Resources" tab (file sharing sub-tab) and add the entire Local Disk (`C:\`) volume to the list
+   of (sub)directories able to be bind-mounted into Docker containers and click the "Apply & Restart" button.
 
 ### Git user setup
 
