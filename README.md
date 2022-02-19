@@ -2,15 +2,6 @@
 
 <br />
 
-<p align="center">
-  <a href="https://nodejs.org/en/download/current/"><img src="https://img.shields.io/badge/node-16.13.1-blue.svg?style=plastic" alt="Node.js Version: 16.13.0" /></a>
-  <a href="https://www.ruby-lang.org/en/downloads/"><img src="https://img.shields.io/badge/ruby-3.0.3-blue.svg?style=plastic" alt="Ruby Version: 3.0.2" /></a>
-  <img src="https://img.shields.io/github/languages/top/openinf/openinf.github.io?color=blue&style=plastic" />
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/github/license/openinf/openinf.github.io?color=blue&style=plastic" alt="License: MIT" /></a>
-</p>
-
-<br />
-
 _The high-level goal of open.inf.is is to build and maintain a current website
 serving content and assets. Although this site is still in its infancy, it’s
 intended to support separation of concerns. As is the case with any software
