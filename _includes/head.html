@@ -1,8 +1,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,maximum-scale=1,minimum-scale=1,initial-scale=1,user-scalable=no">
-  <link type="image/svg+xml" rel="shortcut icon" href="https://raw.github.com/openinf/openinf.github.io/HEAD/logo.svg?sanitize=true">
-  <meta name="description" content="Aggregate, curate, disseminate, and apply information derived from diverse sources.">
+  <link type="image/svg+xml" rel="shortcut icon"
+    href="https://raw.github.com/openinf/openinf.github.io/HEAD/logo.svg?sanitize=true">
+  <meta name="description"
+    content="Aggregate, curate, disseminate, and apply information derived from diverse sources.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   <style>
     * {
@@ -28,7 +30,11 @@
     }
 
     .container {
+      display: block;
       margin: 0 auto;
+      min-height: 100%;
+      overflow: auto;
+      position: relative;
       max-width: 1400px;
       padding: 0 1.5rem;
     }
@@ -132,7 +138,20 @@
         text-align: right;
       }
     }
+
+    .sigil {
+      background: none;
+      border: none;
+      height: 100px;
+      left: 50%;
+      margin-left: -50px;
+      margin-top: -50px;
+      position: absolute;
+      top: 50%;
+      width: 100px;
+    }
+
   </style>
   <link rel="canonical" href=".">
-  <title>{% if page.path != index.html %}{{ page.title }} • {% endif %}{{ site.title }}</title>
+  <title>{% if page.class != 'home' %}{{ page.title }} &middot; {% endif %}{{ site.title }}</title>
 </head>
