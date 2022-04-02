@@ -15,10 +15,13 @@ version of
 #### Docker Setup
 
 1. [Download and install the latest version of Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
-1. Once installed, click on the little gear in the upper-right corner of the app to go to the settings menu (General Tab) and be sure
-   that the "Use the WSL 2 based engine" option box is unticked. If it is already ticked off, be sure to un-tick it before proceeding.
-1. Next, go to the "Resources" tab (file sharing sub-tab) and add the entire Local Disk (`C:\`) volume to the list of (sub)directories
-   able to be bind-mounted into Docker containers and click the "Apply & Restart" button.
+1. Once installed, click on the little gear in the upper-right corner of the app
+   to go to the settings menu (General Tab) and be sure that the "Use the WSL 2
+   based engine" option box isn't ticked. If it's already ticked off, be sure to
+   un-tick it before proceeding.
+1. Next, go to the "Resources" tab (file sharing sub-tab) and add the entire
+   Local Disk (`C:\`) volume to the list of (sub)directories able to be
+   bind-mounted into Docker containers and click the "Apply & Restart" button.
 
 ### Git user setup
 
@@ -47,7 +50,8 @@ version of
    ssh-add $HOME/.ssh/id_ed25519
    ```
 
-   Source: https://code.visualstudio.com/docs/remote/containers#_using-ssh-keys
+   Source:
+   <https://code.visualstudio.com/docs/remote/containers#_using-ssh-keys>
 
 1. [Add your SSH key to your GitHub account](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
 
@@ -84,7 +88,7 @@ version of
    ```
 
 1. Set up your local `live` branch to track `upstream/live` instead of
-   `origin/live` (which will rapidly become outdated).
+   `origin/live` (which will become outdated).
 
    ```bash
    git branch -u upstream/live live
