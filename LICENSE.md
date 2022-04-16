@@ -1,5 +1,6 @@
 ---
 class: license
+editable: false
 layout: docs
 permalink: /license
 redirect_from: /LICENSE
