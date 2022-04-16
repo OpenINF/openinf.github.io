@@ -3,8 +3,7 @@ class: license
 editable: false
 layout: docs
 permalink: /license
-redirect_from: /LICENSE
-title: MIT-style License
+title: OpenINF MIT-Style License (MIT)
 ---
 
 Copyright (c) The OpenINF Authors. http://open.inf.is/license
