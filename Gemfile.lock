@@ -85,4 +85,4 @@ DEPENDENCIES
   yaml-lint (~> 0.0.10)
 
 BUNDLED WITH
-   2.2.33
+   2.3.11
