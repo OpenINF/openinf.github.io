@@ -1,4 +1,5 @@
 {
+  "name": "open.inf.is",
   "private": "true",
   "description": "The OpenINF website and other static resources",
   "repository": {
