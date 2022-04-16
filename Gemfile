@@ -6,14 +6,20 @@ gem "jekyll", "~> 4.2.1"
 
 # Whitelisted plugins not included in runtime dependencies.
 group :jekyll_plugins do
+  gem "jekyll-avatar"
+  gem "jekyll-feed"
+  gem "jekyll-mentions"
   gem "jekyll-octicons"
   gem "jekyll-redirect-from"
+  gem "jekyll-seo-tag"
+  gem "jekyll-sitemap"
+  gem "jemoji"
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-# and associated library.
-install_if -> { RUBY_PLATFORM =~ %r!mingw|mswin|java! } do
-  gem "tzinfo", "~> 2.0"
+# Windows & JRuby do not include zoneinfo files, so bundle the tzinfo-data
+# gem and associated library.
+platforms :jruby, :mswin, :mingw, :x64_mingw do
+  gem "tzinfo", ENV["TZINFO_VERSION"] if ENV["TZINFO_VERSION"]
   gem "tzinfo-data"
 end
 
