@@ -1,4 +1,6 @@
-# Development
+---
+title: Development
+---
 
 ## macOS Setup
 
