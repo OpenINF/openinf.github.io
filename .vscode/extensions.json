@@ -1,29 +1,7 @@
 {
   // List of extensions which should be recommended for users of this workspace.
   "recommendations": [
-    "aaron-bond.better-comments",
-    "christian-kohler.npm-intellisense",
-    "christian-kohler.path-intellisense",
-    "davidanson.vscode-markdownlint",
-    "dbaeumer.vscode-eslint",
-    "drewbourne.vscode-remark-lint",
-    "eamodio.gitlens",
-    "editorconfig.editorconfig",
-    "esbenp.prettier-vscode",
-    "fknop.vscode-npm",
-    "gruntfuggly.todo-tree",
-    "hookyqr.beautify",
-    "ionutvmi.path-autocomplete",
-    "knisterpeter.vscode-commitizen",
-    "mrmlnc.vscode-json5",
-    "redhat.vscode-yaml",
-    "sissel.shopify-liquid",
-    "streetsidesoftware.code-spell-checker",
-    "travisthetechie.write-good-linter",
-    "yzhang.markdown-all-in-one",
-    "ms-azuretools.vscode-docker",
-    "skyapps.fish-vscode",
-    "lunaryorn.fish-ide"
+    "ms-azuretools.vscode-docker"
   ],
   // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
   "unwantedRecommendations": [

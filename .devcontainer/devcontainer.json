@@ -24,8 +24,6 @@
     "editorconfig.editorconfig",
     // https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
     "esbenp.prettier-vscode",
-    // https://marketplace.visualstudio.com/items?itemName=fknop.vscode-npm
-    "fknop.vscode-npm",
     // https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
     "Gruntfuggly.todo-tree",
     // https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify
@@ -34,8 +32,12 @@
     "ionutvmi.path-autocomplete",
     // https://marketplace.visualstudio.com/items?itemName=KnisterPeter.vscode-commitizen
     "knisterpeter.vscode-commitizen",
+    // https://marketplace.visualstudio.com/items?itemName=lunaryorn.fish-ide
+    "lunaryorn.fish-ide",
     // https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
     "mrmlnc.vscode-json5",
+    // https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker
+    "ms-azuretools.vscode-docker",
     // https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml
     "redhat.vscode-yaml",
     // https://marketplace.visualstudio.com/items?itemName=sissel.shopify-liquid
@@ -44,6 +46,8 @@
     "streetsidesoftware.code-spell-checker",
     // https://marketplace.visualstudio.com/items?itemName=travisthetechie.write-good-linter
     "travisthetechie.write-good-linter",
+    // https://marketplace.visualstudio.com/items?itemName=travisthetechie.skyapps.fish-vscode
+    "skyapps.fish-vscode",
     // https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
     "yzhang.markdown-all-in-one"
   ],
