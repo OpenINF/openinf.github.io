@@ -14,10 +14,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16.x"
-      - name: Set up Ruby 3.0
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: "3.0"
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
       - name: Install
         run: |
           npm install
