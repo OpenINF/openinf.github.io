@@ -14,7 +14,7 @@ _Installs a set of common command line utilities and sets up a non-root user._
 ./common-debian.sh [Non-root user] [User UID] [User GID] [Upgrade packages flag]
 ```
 
-> **Note:** `common-redhat.sh` is community supported.
+> **Note:** `common-debian.sh` is community supported.
 
 | Argument              | Default     | Description                                                                                                                                                                                                                                                                                                     |
 | --------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -28,7 +28,7 @@ _Installs a set of common command line utilities and sets up a non-root user._
 **Ubuntu / Debian:**
 
 1. Add [`common-debian.sh`](../common-debian.sh) to
-   `.devcontainer/library-scripts`
+   `.devcontainer/library-scripts/`
 
 2. Add the following to your `.devcontainer/Dockerfile`:
 
