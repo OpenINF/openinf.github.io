@@ -24,7 +24,7 @@ group :html_pipeline_filter_deps do
   gem 'gemoji',             '>= 2.0'   # EmojiFilter
   gem 'RedCloth',           '~> 4.3.0' # TextileFilter
   gem 'rinku',              '~> 2.0'   # AutolinkFilter
-  gem 'sanitize',           '~> 5.2'   # SanitizationFilter
+  gem 'sanitize',           '~> 6.0'   # SanitizationFilter
   gem 'rouge',              '~> 3.1'   # SyntaxHighlightFilter
   # EmailReplyFilter PlainTextInputFilter TableOfContentsFilter
   gem 'escape_utils',       '~> 1.0'
