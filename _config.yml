@@ -21,6 +21,7 @@ repository: openinf/openinf.github.io
 plugins:
   - jekyll-avatar
   - jekyll-feed
+  - jekyll-html-pipeline
   - jekyll-mentions
   - jekyll-octicons
   - jekyll-redirect-from
@@ -30,6 +31,16 @@ plugins:
 feed:
   categories:
     - release
+markdown: HTMLPipeline
+html_pipeline:
+  filters:
+    - "markdownfilter"
+    - "sanitizationfilter"
+    - "emojifilter"
+    - "mentionfilter"
+    - "ExtendedMarkdownFilter"
+  context:
+    emf_use_blocks: true
 kramdown:
   syntax_highlighter_opts:
     default_lang: plaintext

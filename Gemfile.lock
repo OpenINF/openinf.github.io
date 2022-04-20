@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    RedCloth (4.2.9)
     activesupport (7.0.2.3)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
@@ -9,11 +10,17 @@ GEM
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     colorator (1.1.0)
+    commonmarker (0.23.4)
     concurrent-ruby (1.1.10)
+    crass (1.0.6)
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
+    email_reply_parser (0.5.10)
+    escape_utils (1.2.1)
     eventmachine (1.2.7)
+    extended-markdown-filter (0.7.0)
+      html-pipeline (~> 2.9)
     ffi (1.15.5)
     forwardable-extended (2.6.0)
     gemoji (3.0.1)
@@ -42,6 +49,9 @@ GEM
       jekyll (>= 3.0, < 5.0)
     jekyll-feed (0.16.0)
       jekyll (>= 3.7, < 5.0)
+    jekyll-html-pipeline (1.0.0)
+      html-pipeline (>= 1.0)
+      jekyll (>= 2.0)
     jekyll-mentions (1.6.0)
       html-pipeline (~> 2.3)
       jekyll (>= 3.7, < 5.0)
@@ -74,6 +84,8 @@ GEM
     minitest (5.15.0)
     nokogiri (1.13.4-x86_64-linux)
       racc (~> 1.4)
+    nokogumbo (1.5.0)
+      nokogiri
     octicons (17.0.0)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
@@ -83,8 +95,13 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rexml (3.2.5)
+    rinku (1.7.3)
     rouge (3.28.0)
     safe_yaml (1.0.5)
+    sanitize (4.6.6)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.4.4)
+      nokogumbo (~> 1.4)
     sassc (2.4.0)
       ffi (~> 1.9)
     terminal-table (2.0.0)
@@ -100,9 +117,16 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  RedCloth (~> 4.2.9)
+  commonmarker (~> 0.16)
+  email_reply_parser (~> 0.5)
+  escape_utils (~> 1.0)
+  extended-markdown-filter
+  gemoji (>= 2.0)
   jekyll (~> 4.2.1)
   jekyll-avatar
   jekyll-feed
+  jekyll-html-pipeline
   jekyll-mentions
   jekyll-octicons
   jekyll-redirect-from
@@ -110,7 +134,9 @@ DEPENDENCIES
   jekyll-sitemap
   jemoji
   kramdown-parser-gfm
-  nokogiri (~> 1.13.4)
+  rinku (~> 1.7)
+  rouge (~> 3.1)
+  sanitize (~> 4.6)
   tzinfo-data
   wdm (~> 0.1.0)
   webrick (~> 1.7)

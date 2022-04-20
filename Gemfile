@@ -4,16 +4,30 @@ source "https://rubygems.org"
 
 gem "jekyll", "~> 4.2.1"
 
-# Whitelisted plugins not included in runtime dependencies.
 group :jekyll_plugins do
   gem "jekyll-avatar"
   gem "jekyll-feed"
+  gem "jekyll-html-pipeline"
   gem "jekyll-mentions"
   gem "jekyll-octicons"
   gem "jekyll-redirect-from"
   gem "jekyll-seo-tag"
   gem "jekyll-sitemap"
   gem "jemoji"
+end
+
+# html-pipeline filter gem dependencies are not bundled; we must install
+# each of the included filter's gem dependencies prior to use.
+group :html_pipeline_filter_deps do
+  gem 'commonmarker',       '~> 0.16'  # MarkdownFilter
+  gem 'email_reply_parser', '~> 0.5'   # EmailReplyFilter
+  gem 'gemoji',             '>= 2.0'   # EmojiFilter
+  gem 'RedCloth',           '~> 4.2.9' # TextileFilter
+  gem 'rinku',              '~> 1.7'   # AutolinkFilter
+  gem 'sanitize',           '~> 4.6'   # SanitizationFilter
+  gem 'rouge',              '~> 3.1'   # SyntaxHighlightFilter
+  # EmailReplyFilter PlainTextInputFilter TableOfContentsFilter
+  gem 'escape_utils',       '~> 1.0'
 end
 
 # Windows & JRuby do not include zoneinfo files, so bundle the tzinfo-data
@@ -33,4 +47,4 @@ gem 'yaml-lint', '~> 0.0.10'
 
 gem "webrick", "~> 1.7"
 
-gem "nokogiri", "~> 1.13.4"
+gem 'extended-markdown-filter'
