@@ -60,11 +60,18 @@ sass:
   style: compressed
 strict_front_matter: true
 
-# Document collections.
+#
+# Document Collections
+#
+
+collections_dir: collections
 collections:
   authors:
     output: true
   docs:
+    permalink: "/:collection/:path/"
+    output: true
+  guides:
     permalink: "/:collection/:path/"
     output: true
   posts:
@@ -75,17 +82,22 @@ collections:
     output: true
 defaults:
   - scope:
-      path: _docs
+      path: collections/_docs
       type: docs
     values:
       layout: docs
   - scope:
-      path: _posts
+      path: collections/_guides
+      type: pages
+    values:
+      layout: docs
+  - scope:
+      path: collections/_posts
       type: posts
     values:
       layout: news_item
   - scope:
-      path: _tutorials
+      path: collections/_tutorials
       type: tutorials
     values:
       layout: tutorials

@@ -1,6 +1,6 @@
 ---
-title: Developing
-published: false
+title: Development Environment Setup
+draft: true
 ---
 
 ## macOS Setup
