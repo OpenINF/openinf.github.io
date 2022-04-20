@@ -32,3 +32,5 @@ gem "kramdown-parser-gfm"
 gem 'yaml-lint', '~> 0.0.10'
 
 gem "webrick", "~> 1.7"
+
+gem "nokogiri", "~> 1.13.4"
