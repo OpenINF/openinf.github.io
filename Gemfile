@@ -22,7 +22,7 @@ group :html_pipeline_filter_deps do
   gem 'commonmarker',       '~> 0.16'  # MarkdownFilter
   gem 'email_reply_parser', '~> 0.5'   # EmailReplyFilter
   gem 'gemoji',             '>= 2.0'   # EmojiFilter
-  gem 'RedCloth',           '~> 4.2.9' # TextileFilter
+  gem 'RedCloth',           '~> 4.3.0' # TextileFilter
   gem 'rinku',              '~> 1.7'   # AutolinkFilter
   gem 'sanitize',           '~> 5.2'   # SanitizationFilter
   gem 'rouge',              '~> 3.1'   # SyntaxHighlightFilter
