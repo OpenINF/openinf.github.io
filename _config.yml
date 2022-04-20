@@ -35,19 +35,24 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jemoji
+  - extended-markdown-filter
 feed:
   categories:
     - release
 markdown: HTMLPipeline
 html_pipeline:
   filters:
-    - "markdownfilter"
-    - "sanitizationfilter"
-    - "emojifilter"
-    - "mentionfilter"
-    - "ExtendedMarkdownFilter"
+    - ExtendedMarkdownFilter
+    - SanitizationFilter
+    - AutolinkFilter
+    - TableOfContentsFilter
+    - SyntaxHighlightFilter
+    - EmojiFilter
+    - MentionFilter
   context:
     emf_use_blocks: true
+    asset_root: https://github.githubassets.com/images/icons
+    base_url: ""
 kramdown:
   syntax_highlighter_opts:
     default_lang: plaintext
