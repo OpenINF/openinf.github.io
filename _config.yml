@@ -88,7 +88,7 @@ defaults:
       layout: docs
   - scope:
       path: collections/_guides
-      type: pages
+      type: guides
     values:
       layout: docs
   - scope:
