@@ -40,10 +40,15 @@ body {
 
 .docs {
   padding-bottom: 3rem;
+
+  article h1 {
+    display: inline-block;
+  }
 }
 
 .improve {
   margin: .67em .67em 0 0;
+  display: flex;
 }
 
 .icon {
