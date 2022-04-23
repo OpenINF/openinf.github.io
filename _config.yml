@@ -26,39 +26,46 @@ repository: openinf/openinf.github.io
 
 # Site build settings.
 plugins:
+  - extended-markdown-filter
+  - jekyll-html-pipeline
+  - jekyll-assets
   - jekyll-avatar
   - jekyll-feed
-  - jekyll-html-pipeline
   - jekyll-mentions
   - jekyll-octicons
   - jekyll-redirect-from
   - jekyll-seo-tag
   - jekyll-sitemap
   - jemoji
-  - extended-markdown-filter
 feed:
   categories:
     - release
 markdown: HTMLPipeline
 html_pipeline:
   filters:
-    - ExtendedMarkdownFilter
-    - SanitizationFilter
-    - AutolinkFilter
-    - TableOfContentsFilter
-    - SyntaxHighlightFilter
-    - EmojiFilter
-    - MentionFilter
+    - "ExtendedMarkdownFilter"
+    - "AddCssClassToTableFilter"
+    - "syntaxhighlightfilter"
+    - "autolinkfilter"
   context:
     emf_use_blocks: true
-    asset_root: https://github.githubassets.com/images/icons
+    asset_root: /static
     base_url: ""
-kramdown:
-  syntax_highlighter_opts:
-    default_lang: plaintext
+    gfm: false
 sass:
   style: compressed
+  sass_dir: _assets/styles/
+  # Where sass should look for other scss
+  load_paths:
+    - node_modules/
+  implementation: sass-embedded
 strict_front_matter: true
+assets:
+  sources:
+    - _assets/
+  cachebust: soft
+  source_maps: true
+  destination: "/static/"
 
 #
 # Document Collections
