@@ -48,13 +48,6 @@ RUN su vscode -c "sudo ~/.rbenv/bin/plugins/ruby-build/install.sh"
 # Install Fisher and plugins.
 RUN su vscode -c "fish --command 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/{fisher,nvm.fish}'"
 
-# Configure Git.
-RUN su vscode -c "echo 'set -Ux GIT_EDITOR vim' >> ~/.config/fish/config.fish"
-RUN su vscode -c "echo 'git config --global rebase.autosquash true' >> ~/.config/fish/config.fish"
-# Configure Git to use `gpg2`.
-RUN su vscode -c "echo 'git config --global gpg.program gpg2' >> ~/.config/fish/config.fish"
-RUN su vscode -c "echo 'set -gx GPG_TTY (tty)' >> ~/.config/fish/config.fish"
-
 # ENV Variables required by Jekyll.
 ENV LANG=en_US.UTF-8 \
   LANGUAGE=en_US:en \
