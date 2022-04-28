@@ -63,7 +63,7 @@
     4000,
     // Live reload server
     35729,
-    // OpenSSH server,
+    // OpenSSH server
     2222
   ],
 
