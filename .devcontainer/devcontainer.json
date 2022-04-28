@@ -62,8 +62,16 @@
     // Jekyll server
     4000,
     // Live reload server
-    35729
+    35729,
+    // OpenSSH server,
+    2222
   ],
+
+  "overrideCommand": false,
+
+  "features": {
+    "sshd": "latest"
+  },
 
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "fish .devcontainer/post-create.fish",
