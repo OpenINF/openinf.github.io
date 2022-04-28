@@ -40,3 +40,12 @@ if test package.json
 end
 
 echo 'rbenv rehash && nvm use' >>~/.config/fish/config.fish
+
+# Configure Git to use `gpg2`.
+echo 'git config --global gpg.program gpg2' >>~/.config/fish/config.fish
+echo no-autostart >~/.gnupg/gpg.conf
+
+echo 'set -gx GPG_TTY (tty)' >>~/.config/fish/config.fish
+
+echo "to enable commit signing, run"
+echo "git config --global commit.gpgsign true"

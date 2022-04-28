@@ -9,14 +9,21 @@ COPY library-scripts/*.sh /tmp/library-scripts/
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
   && /bin/bash /tmp/library-scripts/common-debian.sh "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" \
   && /bin/bash /tmp/library-scripts/fish-debian.sh "${USERNAME}" \
+  && /bin/bash /tmp/library-scripts/sshd-debian.sh "2222" "${USERNAME}" "true" "root" \
   #
   # ****************************************************************************
   # * TODO: Add any additional OS packages you want included in the definition *
   # * here. We want to do this before cleanup to keep the "layer" small.       *
   # ****************************************************************************
-  && apt-get -y install --no-install-recommends build-essential bzip2 default-jre gnupg2 zlib1g-dev zlib1g libreadline-dev libssl-dev vim \
+  && apt-get -y install --no-install-recommends build-essential bzip2 default-jre gnupg2 systemd systemd-sysv zlib1g-dev zlib1g libreadline-dev libssl-dev vim \
   #
   && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
+
+RUN echo  "StreamLocalBindUnlink yes" >> /etc/ssh/sshd_config && \
+  systemctl --global mask gpg-agent.service \
+  gpg-agent.socket gpg-agent-ssh.socket \
+  gpg-agent-extra.socket gpg-agent-browser.socket && \
+  systemctl enable ssh
 
 # Set up default Fish config.
 RUN su vscode -c "fish --command 'cp /usr/share/fish/config.fish ~/.config/fish/'"
@@ -55,3 +62,6 @@ ENV LANG=en_US.UTF-8 \
   LC_ALL=en_US.UTF-8 \
   LANG=en_US.UTF-8 \
   LANGUAGE=en_US
+
+ENTRYPOINT ["/usr/local/share/ssh-init.sh"]
+CMD ["sleep", "infinity"]
