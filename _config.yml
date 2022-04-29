@@ -18,8 +18,8 @@ email: code@open.inf.is
 description: >-
   Aggregate, curate, disseminate, and apply information derived from diverse
   sources.
-baseurl: ''
-url: 'https://open.inf.is'
+baseurl: ""
+url: "https://open.inf.is"
 twitter_username: openinf
 github_username: openinf
 repository: openinf/openinf.github.io
@@ -33,8 +33,12 @@ whitelist:
   - jekyll-redirect-from
 
 # Document collections.
+collections_dir: collections
+
 collections:
   authors:
+    output: true
+  docs:
     output: true
 
 # Exclude from processing.
