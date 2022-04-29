@@ -28,6 +28,9 @@ RUN echo  "StreamLocalBindUnlink yes" >> /etc/ssh/sshd_config && \
 # Set up default Fish config.
 RUN su vscode -c "fish --command 'cp /usr/share/fish/config.fish ~/.config/fish/'"
 
+# Configure default Git editor.
+RUN su vscode -c "echo 'set -Ux GIT_EDITOR vim' >> ~/.config/fish/config.fish"
+
 # Install rbenv.
 RUN su vscode -c "git clone --depth=1 \
   -c core.eol=lf \
