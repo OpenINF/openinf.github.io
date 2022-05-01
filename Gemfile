@@ -6,6 +6,7 @@ gem "jekyll", "~> 4.2.1"
 
 group :jekyll_plugins do
   gem "jekyll-redirect-from"
+  gem "jekyll-relative-links"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

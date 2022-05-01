@@ -28,6 +28,7 @@ repository: openinf/openinf.github.io
 markdown: kramdown
 plugins:
   - jekyll-redirect-from
+  - jekyll-relative-links
 
 # Document collections.
 collections_dir: collections
