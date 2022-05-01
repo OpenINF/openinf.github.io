@@ -27,9 +27,6 @@ repository: openinf/openinf.github.io
 # Site build settings.
 markdown: kramdown
 plugins:
-  - jekyll-octicons
-  - jekyll-redirect-from
-whitelist:
   - jekyll-redirect-from
 
 # Document collections.

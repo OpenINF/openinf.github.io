@@ -29,9 +29,6 @@ GEM
       rouge (~> 3.0)
       safe_yaml (~> 1.0)
       terminal-table (~> 2.0)
-    jekyll-octicons (16.1.1)
-      jekyll (>= 3.6, < 5.0)
-      octicons (= 16.1.1)
     jekyll-redirect-from (0.16.0)
       jekyll (>= 3.3, < 5.0)
     jekyll-sass-converter (2.1.0)
@@ -47,7 +44,6 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     mercenary (0.4.0)
-    octicons (16.1.1)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (4.0.6)
@@ -75,9 +71,7 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll (~> 4.2.1)
-  jekyll-octicons
   jekyll-redirect-from
-  kramdown-parser-gfm
   tzinfo (~> 2.0)
   tzinfo-data
   wdm (~> 0.1.0)
@@ -85,4 +79,4 @@ DEPENDENCIES
   yaml-lint (~> 0.0.10)
 
 BUNDLED WITH
-   2.2.33
+   2.3.12
