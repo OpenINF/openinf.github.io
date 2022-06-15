@@ -15,7 +15,7 @@
   "homepage": "https://github.com/openinf/openinf.github.io#readme",
   "engines": {
     "node": "16.15.1",
-    "npm": "8.12.1"
+    "npm": "8.12.2"
   },
   "scripts": {
     "verify:all": "for i in _tasks/verify/*.mjs; do node \"$i\"; done",
