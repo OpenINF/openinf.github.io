@@ -44,7 +44,7 @@
     "@babel/plugin-syntax-top-level-await": "7.14.5",
     "@babel/preset-env": "7.18.9",
     "@yarnpkg/shell": "3.2.2",
-    "cspell": "6.3.0",
+    "cspell": "6.4.0",
     "dictionary-en": "3.2.0",
     "dictionary-en-us": "3.0.0",
     "editorconfig-checker": "4.0.2",
