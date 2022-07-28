@@ -1,7 +1,8 @@
 [
   // Fixes a bug on Windows that causes path intellisense to malfunction.
   {
-    "key": ".", "command": ""
+    "key": ".",
+    "command": ""
   },
   {
     "key": "ctrl+shift+c",
