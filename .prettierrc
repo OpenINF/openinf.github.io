@@ -11,10 +11,18 @@
   "useTabs": false,
   "overrides": [
     {
-      "files": "*.md",
+      "files": "**/*.md",
       "options": {
         "parser": "markdown",
         "proseWrap": "always"
+      }
+    },
+    {
+      "files": "**/*.html",
+      "options": {
+        "bracketSameLine": true,
+        "singleAttributePerLine": false,
+        "singleQuote": false
       }
     }
   ]
