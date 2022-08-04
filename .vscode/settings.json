@@ -259,7 +259,5 @@
       "strong": "*"
     }
   },
-  "remote.SSH.defaultForwardedPorts": [
-    { "remotePort": 2222 }
-  ]
+  "remote.SSH.defaultForwardedPorts": [{ "remotePort": 2222 }]
 }
