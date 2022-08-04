@@ -2,16 +2,11 @@
   "name": "open.inf.is",
   "private": "true",
   "description": "The OpenINF website and other static resources",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/openinf/openinf.github.io.git"
-  },
+  "repository": "openinf/openinf.github.io",
   "keywords": [],
   "author": "The OpenINF Authors",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/openinf/openinf.github.io/issues"
-  },
+  "bugs": "https://github.com/openinf/openinf.github.io/issues",
   "homepage": "https://github.com/openinf/openinf.github.io#readme",
   "engines": {
     "node": "16.16.0",
