@@ -1,35 +1,35 @@
-'use strict';
+"use strict";
 
 module.exports = {
-  arrowParens: 'always',
+  arrowParens: "always",
   bracketSpacing: true,
-  endOfLine: 'lf',
+  endOfLine: "lf",
   printWidth: 80,
-  quoteProps: 'consistent',
+  quoteProps: "consistent",
   semi: true,
   singleQuote: true,
   tabWidth: 2,
-  trailingComma: 'es5',
+  trailingComma: "es5",
   useTabs: false,
   overrides: [
     {
-      files: ['.eslintrc', '.prettierrc', '.renovaterc.json', '*.json'],
-      options: { parser: 'json' },
+      files: [".eslintrc", ".prettierrc", ".renovaterc.json", "*.json"],
+      options: { parser: "json" },
     },
     {
-      files: ['*.html'],
+      files: ["*.html"],
       options: {
         bracketSameLine: true,
-        parser: 'html',
+        parser: "html",
         singleAttributePerLine: false,
         singleQuote: false,
       },
     },
     {
-      files: ['*.md'],
+      files: ["*.md"],
       options: {
-        parser: 'markdown',
-        proseWrap: 'always',
+        parser: "markdown",
+        proseWrap: "always",
       },
     },
   ],
