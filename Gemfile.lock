@@ -59,7 +59,7 @@ GEM
       ffi (~> 1.9)
     terminal-table (2.0.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
-    tzinfo (2.0.4)
+    tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2021.5)
       tzinfo (>= 1.0.0)
@@ -75,7 +75,7 @@ DEPENDENCIES
   jekyll (= 4.2.1)
   jekyll-redirect-from
   jekyll-relative-links
-  tzinfo (= 2.0.4)
+  tzinfo (= 2.0.5)
   tzinfo-data
   wdm (= 0.1.1)
   webrick (= 1.7.0)
