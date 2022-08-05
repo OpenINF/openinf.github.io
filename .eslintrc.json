@@ -23,7 +23,21 @@
   "root": true,
   "rules": {
     "json/*": ["error", "allowComments"],
-    "prettier/prettier": "error"
+    "quotes": [
+      "error",
+      "single",
+      {
+        "allowTemplateLiterals": false,
+        "avoidEscape": true
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "parser": "typescript"
+      }
+    ]
   },
   "overrides": [
     {
