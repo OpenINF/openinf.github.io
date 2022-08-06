@@ -1,7 +1,7 @@
 import yarnpkgShell from '@yarnpkg/shell';
 
 let code = 0;
-const scripts = [`npx stylelint --fix index.html`];
+const scripts = ['npx stylelint --fix _includes/head.html'];
 
 console.log('\r\nAutoformatting all CSS files using Stylelint\r\n');
 

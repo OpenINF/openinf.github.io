@@ -1,10 +1,8 @@
 {
-  "extends": ["stylelint-config-standard"],
-  "plugins": ["stylelint-order"],
   "customSyntax": "postcss-html",
-  "rules": {
-    "color-hex-case": "upper",
-    "number-leading-zero": "never",
-    "order/properties-alphabetical-order": true
-  }
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-recess-order",
+    "stylelint-config-prettier-scss"
+  ]
 }
