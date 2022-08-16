@@ -9,7 +9,7 @@
   "bugs": "https://github.com/openinf/openinf.github.io/issues",
   "homepage": "https://github.com/openinf/openinf.github.io#readme",
   "engines": {
-    "node": "16.16.0",
+    "node": "16.17.0",
     "npm": "8.17.0"
   },
   "scripts": {
