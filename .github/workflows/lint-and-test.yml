@@ -27,7 +27,7 @@ jobs:
       # You can check if a file with a listed file type is in the PR by doing:
       # if: ${{ steps.filter.outputs.md == 'true' }}
       # This will return true if there's a Markdown file the PR has changed.
-      - uses: dorny/paths-filter@v2.10.2
+      - uses: dorny/paths-filter@v2.11.1
         id: filter
         with:
           filters: |
