@@ -36,8 +36,8 @@ evolution becomes necessary while retaining the same codebase layout.
 <br />
 
 <p align="center">
-  <a title="Roadmap" href="./_docs/roadmap.md">Roadmap</a> |
-  <a title="Development" href="./_docs/development.md">Development</a> |
+  <a title="Roadmap" href="https://github.com/openinf/openinf.github.io/issues">Roadmap</a> |
+  <a title="Development" href="./collections/_docs/development.md">Development</a> |
   <a title="Issue Tracker" href="https://github.com/openinf/openinf.github.io/issues">Issue Tracker</a> |
   <a title="Changelog" href="https://github.com/openinf/openinf.github.io/commits/live">Changelog</a> |
   <a title="Credits" href="https://github.com/openinf/openinf.github.io/graphs/contributors">Credits</a>
