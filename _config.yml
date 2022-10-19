@@ -61,11 +61,7 @@ exclude:
   - Gemfile.lock
   - node_modules/
   - package.json
+  - package-lock.json
   - README.md
   - tmp/
   - vendor/
-  - CONTRIBUTING.md
-  - CODE_OF_CONDUCT.md
-  - SECURITY.md
-  - SUPPORT.md
-  - VISION.md
