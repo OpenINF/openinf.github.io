@@ -1,7 +1,7 @@
 import yarnpkgShell from '@yarnpkg/shell';
 
 let code = 0;
-const scripts = [`npx eslint --ext=.js,.cjs,.mjs . --fix`];
+const scripts = ['npx eslint --ext=.js,.cjs,.mjs . --fix'];
 
 console.log('\r\nAutoformatting all JavaScript files using Prettier\r\n');
 

@@ -1,7 +1,7 @@
 import yarnpkgShell from '@yarnpkg/shell';
 
 let code = 0;
-const scripts = [`npx prettier --write "*.svg"`];
+const scripts = ['npx prettier --write "*.svg"'];
 
 console.log('\r\nAutoformatting all SVG files using Prettier\r\n');
 

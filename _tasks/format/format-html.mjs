@@ -1,7 +1,7 @@
 import yarnpkgShell from '@yarnpkg/shell';
 
 let code = 0;
-const scripts = [`npx prettier --write "*.html"`];
+const scripts = ['npx prettier --write "*.html"'];
 
 console.log('\r\nAutoformatting all HTML files using Prettier\r\n');
 
