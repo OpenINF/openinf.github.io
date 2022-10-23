@@ -1,7 +1,7 @@
 import yarnpkgShell from '@yarnpkg/shell';
 
 let code = 0;
-const scripts = [`npx prettier --write {*.yml,*.yaml}`];
+const scripts = ['npx prettier --write {*.yml,*.yaml}'];
 
 console.log('\r\nAutoformatting all YAML files using Prettier\r\n');
 
