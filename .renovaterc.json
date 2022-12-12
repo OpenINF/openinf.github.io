@@ -1,8 +1,40 @@
 {
-  "extends": ["config:base", "github>whitesource/merge-confidence:beta"],
-  "lockFileMaintenance": { "enabled": true },
-  "postUpdateOptions": ["npmDedupe"],
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    ":gitSignOff",
+    ":preserveSemverRanges",
+    "github>whitesource/merge-confidence:beta"
+  ],
+  "vulnerabilityAlerts": {
+    "labels": ["security"],
+    "automerge": true,
+    "assignees": ["@DerekNonGeneric"]
+  },
+  "lockFileMaintenance": { "enabled": false },
   "platformCommit": true,
   "rangeStrategy": "pin",
-  "semanticCommits": "enabled"
+  "semanticCommits": "enabled",
+  "commitMessageAction": "bump",
+  "commitMessageTopic": "{{depName}}",
+  "packageRules": [
+    {
+      "packageRules": [
+        {
+          "matchDepTypes": ["dependencies"],
+          "commitMessagePrefix": "chore(deps):",
+          "labels": ["dependencies", "deps-prod"]
+        }
+      ]
+    },
+    {
+      "packageRules": [
+        {
+          "matchDepTypes": ["devDependencies"],
+          "commitMessagePrefix": "build(deps-dev):",
+          "labels": ["dependencies", "build", "deps-dev"]
+        }
+      ]
+    }
+  ]
 }
