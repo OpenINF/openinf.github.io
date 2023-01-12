@@ -10,7 +10,7 @@
   "homepage": "https://github.com/openinf/openinf.github.io#readme",
   "engines": {
     "node": "16.19.0",
-    "npm": "9.2.0"
+    "npm": "9.3.0"
   },
   "scripts": {
     "verify:all": "for i in _tasks/verify/*.mjs; do node \"$i\"; done",
