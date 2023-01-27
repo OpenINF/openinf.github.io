@@ -21,7 +21,7 @@ gem "wdm", "0.1.1", :install_if => Gem.win_platform?
 
 gem 'yaml-lint', '0.1.2'
 
-gem "webrick", "1.7.0"
+gem "webrick", "1.8.1"
 
 # Fix for https://github.com/github/pages-gem/issues/399.
 gem 'dotenv'
