@@ -65,7 +65,6 @@ var naturalLanguage = unified().use([
     { dictionary: await import('dictionary-en'), personal: projectTerms },
   ],
   await import('retext-syntax-urls'),
-  await import('retext-usage'),
 ]);
 
 export default {
