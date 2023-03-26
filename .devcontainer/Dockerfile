@@ -5,5 +5,8 @@ FROM dereknongeneric/fish:latest
 # Needed by Linguist
 # See: https://github.com/github/linguist/blob/HEAD/README.md#dependencies
 # TODO(@DerekNonGeneric): add these to shared devcontainer image and remove this
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-  && apt-get -y install --no-install-recommends build-essential cmake gnupg2 pkg-config libicu-dev zlib1g-dev libcurl4-openssl-dev libssl-dev ruby-dev
+RUN export DEBIAN_FRONTEND=noninteractive \
+  && apt-get update \
+  && apt-get -y install --no-install-recommends build-essential cmake gnupg2 pkg-config libicu-dev zlib1g-dev libcurl4-openssl-dev libssl-dev ruby-dev \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
