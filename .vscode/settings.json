@@ -28,30 +28,9 @@
   // https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
   "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
 
-  // Auto-fix non-JS files with Prettier using our custom settings. Needs
-  // https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
-  "[json]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[json5]": { "editor.formatOnSave": true },
 
   "json.maxItemsComputed": 10000,
-
-  "[markdown]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-
-  "[yaml]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "redhat.vscode-yaml"
-  },
-
-  "[html]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "HookyQR.beautify"
-  },
 
   // Insert spaces when pressing `Tab`. This setting is overridden based on the
   // file contents when `editor.detectIndentation` is on.
