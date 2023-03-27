@@ -7,6 +7,6 @@ FROM dereknongeneric/fish:latest
 # TODO(@DerekNonGeneric): add these to shared devcontainer image and remove this
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \
-  && apt-get -y install --no-install-recommends build-essential cmake gnupg2 pkg-config libicu-dev zlib1g-dev libcurl4-openssl-dev libssl-dev ruby-dev \
+  && apt-get -y install --no-install-recommends build-essential cmake gnupg2 pkg-config libicu-dev zlib1g-dev libcurl4-openssl-dev libssl-dev \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
