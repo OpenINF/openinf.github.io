@@ -233,7 +233,7 @@
   // -------
 
   // Controls whether formatting is enabled or disabled
-  "liquid.format": true,
+  "liquid.format.enable": true,
 
   // -------
   // Remark
