@@ -1,2 +1,7 @@
-node_modules
-vendor
+!.*
+.git/
+_site/
+node_modules/
+vendor/
+package.json
+pnpm-lock.yaml
