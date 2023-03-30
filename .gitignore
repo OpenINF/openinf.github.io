@@ -1,3 +1,6 @@
+# Ignore operating system files.
+.DS_Store
+
 # Ignore Node.js modules dir.
 node_modules/
 .pnpm-store/
