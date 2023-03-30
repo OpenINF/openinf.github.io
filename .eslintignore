@@ -1,6 +1,7 @@
 !.*
 .git/
 _site/
+assets/js/count.v3.js
 node_modules/
 vendor/
 package.json
