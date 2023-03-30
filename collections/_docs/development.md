@@ -2,7 +2,17 @@
 
 ## macOS Setup
 
-Coming soonish.
+This guide is under the assumption that the user is running on the latest
+version of [macOS Ventura](https://www.apple.com/macos/ventura).
+
+### Development environment dependencies
+
+#### Docker Setup
+
+Follow the installation procedures detailed in the official documentation for
+[macOS Docker Desktop installation](https://docs.docker.com/desktop/install/mac-install/).
+
+More coming soon&hellip;
 
 ## Windows Setup
 
