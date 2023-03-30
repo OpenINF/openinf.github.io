@@ -1,30 +1,12 @@
 {
-  "name": "open.inf.is",
+  "name": "@openinf/openinf.github.io",
   "private": "true",
   "description": "The OpenINF website and other static resources",
+  "homepage": "open.inf.is",
   "repository": "OpenINF/openinf.github.io",
-  "keywords": [],
-  "author": "The OpenINF Authors",
   "license": "MIT",
-  "bugs": "https://github.com/OpenINF/openinf.github.io/issues",
-  "homepage": "https://github.com/OpenINF/openinf.github.io#readme",
-  "pnpm": {
-    "peerDependencyRules": {
-      "allowAny": [
-        "stylelint"
-      ]
-    }
-  },
+  "author": "The OpenINF Authors",
   "scripts": {
-    "verify:all": "for i in _tasks/verify/*.mjs; do node \"$i\"; done",
-    "verify:css": "node _tasks/verify/verify-css.mjs",
-    "verify:editorconfig-compliance": "node _tasks/verify/verify-editorconfig-compliance.mjs",
-    "verify:html": "node _tasks/verify/verify-html.mjs",
-    "verify:js": "node _tasks/verify/verify-js.mjs",
-    "verify:json": "node _tasks/verify/verify-json.mjs",
-    "verify:md": "node _tasks/verify/verify-md.mjs",
-    "verify:svg": "node _tasks/verify/verify-svg.mjs",
-    "verify:yaml": "node _tasks/verify/verify-yaml.mjs",
     "format:all": "for i in _tasks/format/*.mjs; do node \"$i\"; done",
     "format:css": "node _tasks/format/format-css.mjs",
     "format:html": "node _tasks/format/format-html.mjs",
@@ -33,7 +15,16 @@
     "format:md": "node _tasks/format/format-md.mjs",
     "format:svg": "node _tasks/format/format-svg.mjs",
     "format:yaml": "node _tasks/format/format-yaml.mjs",
-    "test": "npm run verify:all"
+    "test": "npm run verify:all",
+    "verify:all": "for i in _tasks/verify/*.mjs; do node \"$i\"; done",
+    "verify:css": "node _tasks/verify/verify-css.mjs",
+    "verify:editorconfig-compliance": "node _tasks/verify/verify-editorconfig-compliance.mjs",
+    "verify:html": "node _tasks/verify/verify-html.mjs",
+    "verify:js": "node _tasks/verify/verify-js.mjs",
+    "verify:json": "node _tasks/verify/verify-json.mjs",
+    "verify:md": "node _tasks/verify/verify-md.mjs",
+    "verify:svg": "node _tasks/verify/verify-svg.mjs",
+    "verify:yaml": "node _tasks/verify/verify-yaml.mjs"
   },
   "devDependencies": {
     "@babel/core": "7.21.3",
@@ -94,5 +85,12 @@
     "stylelint-config-standard-scss": "7.0.1",
     "unified": "10.1.2",
     "vnu-jar": "22.9.29"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowAny": [
+        "stylelint"
+      ]
+    }
   }
 }
