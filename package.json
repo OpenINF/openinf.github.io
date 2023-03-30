@@ -8,6 +8,13 @@
   "license": "MIT",
   "bugs": "https://github.com/OpenINF/openinf.github.io/issues",
   "homepage": "https://github.com/OpenINF/openinf.github.io#readme",
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowAny": [
+        "stylelint"
+      ]
+    }
+  },
   "scripts": {
     "verify:all": "for i in _tasks/verify/*.mjs; do node \"$i\"; done",
     "verify:css": "node _tasks/verify/verify-css.mjs",
