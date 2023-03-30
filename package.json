@@ -80,17 +80,9 @@
     "retext-syntax-urls": "3.1.2",
     "strip-comments": "2.0.1",
     "stylelint": "15.3.0",
-    "stylelint-config-prettier-scss": "0.0.1",
     "stylelint-config-recess-order": "4.0.0",
     "stylelint-config-standard-scss": "7.0.1",
     "unified": "10.1.2",
     "vnu-jar": "22.9.29"
-  },
-  "pnpm": {
-    "peerDependencyRules": {
-      "allowAny": [
-        "stylelint"
-      ]
-    }
   }
 }
