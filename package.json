@@ -2,16 +2,12 @@
   "name": "open.inf.is",
   "private": "true",
   "description": "The OpenINF website and other static resources",
-  "repository": "openinf/openinf.github.io",
+  "repository": "OpenINF/openinf.github.io",
   "keywords": [],
   "author": "The OpenINF Authors",
   "license": "MIT",
-  "bugs": "https://github.com/openinf/openinf.github.io/issues",
-  "homepage": "https://github.com/openinf/openinf.github.io#readme",
-  "engines": {
-    "node": "16.19.1",
-    "npm": "9.6.2"
-  },
+  "bugs": "https://github.com/OpenINF/openinf.github.io/issues",
+  "homepage": "https://github.com/OpenINF/openinf.github.io#readme",
   "scripts": {
     "verify:all": "for i in _tasks/verify/*.mjs; do node \"$i\"; done",
     "verify:css": "node _tasks/verify/verify-css.mjs",

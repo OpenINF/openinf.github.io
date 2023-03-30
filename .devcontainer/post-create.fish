@@ -36,20 +36,20 @@ if test -e .nvmrc
 end
 
 # If there's a package.json, then run `pnpm install`.
-if test package.json
+if test -e package.json
     corepack enable
     corepack prepare pnpm@latest --activate
     pnpm install
 end
 
-echo 'rbenv rehash && nvm use' >>~/.config/fish/config.fish
+echo 'rbenv rehash && nvm use' >> ~/.config/fish/config.fish
 
 # this will populate your ~/.gnupg directory with empty keyring files
 # it will create the ~/.gnupg directory if it does not already exist (expected)
 gpg --list-keys
 
 # If there's a .gnupg directory, then perform the following setup tasks.
-if test ~/.gnupg/
+if test -e ~/.gnupg/
     # Configure Git to use `gpg2`.
     echo 'git config --global gpg.program gpg2' >> ~/.config/fish/config.fish
 
@@ -68,13 +68,8 @@ if test ~/.gnupg/
 
     # Remove an existing Unix-domain socket file for remote port forwarding before
     # creating a new one when gpgtunnel connection is made.
-    rm ~/.gnupg/S.gpg-agent
+    # rm ~/.gnupg/S.gpg-agent
 
     printf '\n%s\n\n\t%s\n\n' 'Enable commit signing:' 'git config --global commit.gpgsign true'
 end
 
-# Install moon
-# uncomment the below for moon support
-# curl -fsSL https://moonrepo.dev/install.sh | bash
-# echo 'set -Ux fish_user_paths ~/.moon/tools/moon/latest $fish_user_paths' >>~/.config/fish/config.fish
-# source ~/.config/fish/config.fish
