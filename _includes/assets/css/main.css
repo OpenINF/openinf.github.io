@@ -176,6 +176,7 @@ body.error {
   
 .error h1 {
   font-size: 4.2rem;
+  margin: 1.5em;
 }
   
 .error h2 {
