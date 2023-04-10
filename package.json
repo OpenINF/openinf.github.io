@@ -83,6 +83,6 @@
     "stylelint-config-recess-order": "4.0.0",
     "stylelint-config-standard-scss": "7.0.1",
     "unified": "10.1.2",
-    "vnu-jar": "22.9.29"
+    "vnu-jar": "23.4.10"
   }
 }
