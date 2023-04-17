@@ -1,0 +1,43 @@
+---
+title: All Collections
+body_classes:
+  - collections
+  - hide-butterbar
+layout: default
+permalink: /collections/
+---
+
+<style>
+h2 {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+h2:after {
+  content: "";
+  flex: 1;
+  border: 1px solid #c4c4c4;
+  margin-inline-start: 0.5rem;
+}
+
+body {
+  font-family: "system-ui";
+  max-width: 700px;
+  margin: 1rem auto 0;
+  padding: 1rem;
+
+  > * + * {
+    margin-top: 4rem;
+  }
+}
+</style>
+
+<h2>Collections</h2>
+
+{{ site.collections }}
+
+<!-- Here I'm adding the dir=rtl to the h2 element. However, in an actual
+  website, this should be added to the <html> element. -->
+
+<h2 dir="rtl">المجموعات</h2>
