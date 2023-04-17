@@ -32,15 +32,10 @@ body {
 }
 </style>
 
-<h2>Collections</h2>
+<h2>All Collections</h2>
 
 <ul>
 {% for collection in site.collections %}
   <li>{{ collection.label }}</li>
 {% endfor %}
 </ul>
-
-<!-- Here I'm adding the dir=rtl to the h2 element. However, in an actual
-  website, this should be added to the <html> element. -->
-
-<h2 dir="rtl">المجموعات</h2>
