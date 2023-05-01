@@ -119,8 +119,8 @@ devDependencies:
     specifier: 5.0.1
     version: 5.0.1
   remark-validate-links:
-    specifier: 12.1.0
-    version: 12.1.0
+    specifier: 12.1.1
+    version: 12.1.1
   retext-english:
     specifier: 4.1.0
     version: 4.1.0
@@ -2960,8 +2960,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /github-slugger@1.5.0:
-    resolution: {integrity: sha512-wIh+gKBI9Nshz2o46B0B3f5k/W+WI9ZAv6y5Dn5WJ5SK1t0TnDimB4WE5rmTD05ZAIn8HALCZVmCsvj0w0v0lw==}
+  /github-slugger@2.0.0:
+    resolution: {integrity: sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw==}
     dev: true
 
   /glob-parent@5.1.2:
@@ -3192,9 +3192,9 @@ packages:
       lru-cache: 6.0.0
     dev: true
 
-  /hosted-git-info@5.2.1:
-    resolution: {integrity: sha512-xIcQYMnhcx2Nr4JTjsFmwwnr9vldugPy9uVm0o87bjqqWMv9GaqsTeT+i99wTl0mk1uLxJtHxLb8kymqTENQsw==}
-    engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
+  /hosted-git-info@6.1.1:
+    resolution: {integrity: sha512-r0EI+HBMcXadMrugk0GCQ+6BQV39PiWAZVfq7oIckeGiN7sjRGyQxPdft3nQekFTCQbYxLBH+/axZMeH8UX6+w==}
+    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dependencies:
       lru-cache: 7.18.3
     dev: true
@@ -3635,7 +3635,7 @@ packages:
       '@types/mdast': 3.0.11
       '@types/unist': 2.0.6
       decode-named-character-reference: 1.0.2
-      mdast-util-to-string: 3.1.1
+      mdast-util-to-string: 3.2.0
       micromark: 3.1.0
       micromark-util-decode-numeric-character-reference: 1.0.0
       micromark-util-decode-string: 1.0.2
@@ -3757,7 +3757,7 @@ packages:
       '@types/unist': 2.0.6
       longest-streak: 3.1.0
       mdast-util-phrasing: 3.0.1
-      mdast-util-to-string: 3.1.1
+      mdast-util-to-string: 3.2.0
       micromark-util-decode-string: 1.0.2
       unist-util-visit: 4.1.2
       zwitch: 2.0.4
@@ -3781,6 +3781,12 @@ packages:
 
   /mdast-util-to-string@3.1.1:
     resolution: {integrity: sha512-tGvhT94e+cVnQt8JWE9/b3cUQZWS732TJxXHktvP+BYo62PpYD53Ls/6cC60rW21dW+txxiM4zMdc6abASvZKA==}
+    dependencies:
+      '@types/mdast': 3.0.11
+    dev: true
+
+  /mdast-util-to-string@3.2.0:
+    resolution: {integrity: sha512-V4Zn/ncyN1QNSqSBxTrMOLpjr+IKdHl2v3KVLoWmDPscP4r9GcCi71gjgvUV1SFSKh92AjAG4peFuBl2/YgCJg==}
     dependencies:
       '@types/mdast': 3.0.11
     dev: true
@@ -4944,7 +4950,7 @@ packages:
     resolution: {integrity: sha512-hTOvRDnULpu0S+k51lovT28TLBgtw8XR0qq+mECSsoyuT4C38UBjQRic5OPo68AZMH0ad/93uj6yvfFtH0K8Lg==}
     dependencies:
       '@types/mdast': 3.0.11
-      mdast-util-to-string: 3.1.1
+      mdast-util-to-string: 3.2.0
       unified: 10.1.2
       unified-lint-rule: 2.1.1
       unist-util-generated: 2.0.1
@@ -5016,7 +5022,7 @@ packages:
     resolution: {integrity: sha512-gSO/BngGkxF35Fsctzt3YMwGEZ8F7f71zx7h0Y97DylyL6WXVuWP4saCmQTlbB4FpD0UXEnRROJ6fBFDvJlzOA==}
     dependencies:
       '@types/mdast': 3.0.11
-      mdast-util-to-string: 3.1.1
+      mdast-util-to-string: 3.2.0
       unified: 10.1.2
       unified-lint-rule: 2.1.1
       unist-util-generated: 2.0.1
@@ -5092,7 +5098,7 @@ packages:
     resolution: {integrity: sha512-ZexHx4rmsjKVF1/Fvdig0yOgpWl0wFa43+sqg880HT3PW9KmEczjSRkwlMaTlVgDzC0paNn2FXfQMuEQW4YDLg==}
     dependencies:
       '@types/mdast': 3.0.11
-      mdast-util-to-string: 3.1.1
+      mdast-util-to-string: 3.2.0
       unified: 10.1.2
       unified-lint-rule: 2.1.1
       unist-util-generated: 2.0.1
@@ -5113,7 +5119,7 @@ packages:
     resolution: {integrity: sha512-++IMm6ohOPKNOrybqjP9eiclEtVX/Rd2HpF2UD9icrC1X5nvrI6tlfN55tePaFvWAB7pe6MW4LzNEMnWse61Lw==}
     dependencies:
       '@types/mdast': 3.0.11
-      mdast-util-to-string: 3.1.1
+      mdast-util-to-string: 3.2.0
       unified: 10.1.2
       unified-lint-rule: 2.1.1
       unist-util-generated: 2.0.1
@@ -5124,7 +5130,7 @@ packages:
     resolution: {integrity: sha512-tZZ4gtZMA//ZAf7GJTE8S9yjzqXUfUTlR/lvU7ffc7NeSurqCBwAtHqeXVCHiD39JnlHVSW2MLYhvHp53lBGvA==}
     dependencies:
       '@types/mdast': 3.0.11
-      mdast-util-to-string: 3.1.1
+      mdast-util-to-string: 3.2.0
       unified: 10.1.2
       unified-lint-rule: 2.1.1
       unist-util-generated: 2.0.1
@@ -5449,13 +5455,13 @@ packages:
       unified: 10.1.2
     dev: true
 
-  /remark-validate-links@12.1.0:
-    resolution: {integrity: sha512-+QhcQmu4WhUhxSduRbSInrFAMAFyNVX7QP0OW5AX8C6NzxMweJnwPBsCfWsV77ivIpC5L6sPbZfMLoW85UoMHQ==}
+  /remark-validate-links@12.1.1:
+    resolution: {integrity: sha512-nk/CkcZ3u8QntoMCqZ+JzUzFub36E+mNFMMbYqqN+yQViUHbRLqirCG1qOI4E38RyKZ8abjFUv0JGB7skKa41A==}
     dependencies:
       '@types/mdast': 3.0.11
-      github-slugger: 1.5.0
-      hosted-git-info: 5.2.1
-      mdast-util-to-string: 3.1.1
+      github-slugger: 2.0.0
+      hosted-git-info: 6.1.1
+      mdast-util-to-string: 3.2.0
       propose: 0.0.5
       to-vfile: 7.2.4
       trough: 2.1.0
