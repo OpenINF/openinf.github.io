@@ -1,4 +1,6 @@
-// For format details, see https://aka.ms/devcontainer.json.
+// For format details, see https://aka.ms/devcontainer.json. For config options,
+// see documentation located at the following URL:
+// https://github.com/OpenINF/openinf-docker-fish/tree/main/library-scripts/docs
 {
   "name": "Jekyll (OpenINF Community)",
   "build": {
@@ -25,21 +27,32 @@
       },
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
+        // https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments
         "aaron-bond.better-comments",
-        "christian-kohler.npm-intellisense",
-        "christian-kohler.path-intellisense",
+        // https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
         "davidanson.vscode-markdownlint",
+        // https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
         "dbaeumer.vscode-eslint",
+        // https://marketplace.visualstudio.com/items?itemName=dprint.dprint
+        // "dprint.dprint",
+        // https://marketplace.visualstudio.com/items?itemName=editorconfig.editorconfig
         "editorconfig.editorconfig",
+        // https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+        "esbenp.prettier-vscode",
+        // https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
         "Gruntfuggly.todo-tree",
-        "ionutvmi.path-autocomplete",
+        // https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker
         "ms-azuretools.vscode-docker",
-        "ms-vscode-remote.vscode-remote-extensionpack",
+        // https://marketplace.visualstudio.com/items?itemName=KatjanaKosic.vscode-json5
+        "KatjanaKosic.vscode-json5",
+        // https://marketplace.visualstudio.com/items?itemName=sissel.shopify-liquid
         "sissel.shopify-liquid",
+        // https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
         "streetsidesoftware.code-spell-checker",
+        // https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml
         "tamasfe.even-better-toml",
-        "unifiedjs.vscode-remark",
-        "yzhang.markdown-all-in-one"
+        // https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-remark
+        "unifiedjs.vscode-remark"
       ]
     }
   },

@@ -2,26 +2,20 @@
 
 source "https://rubygems.org"
 
-gem "jekyll", "4.3.2"
+gem "github-linguist", "~> 7.24"
+
+gem "jekyll", "~> 4.3"
 
 group :jekyll_plugins do
   gem "jekyll-redirect-from"
   gem "jekyll-relative-links"
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-# and associated library.
-install_if -> { RUBY_PLATFORM =~ %r!mingw|mswin|java! } do
-  gem "tzinfo", "2.0.6"
-  gem "tzinfo-data"
-end
+gem 'yaml-lint'
 
-# Performance-booster for watching directories on Windows.
-gem "wdm", "0.1.1", :install_if => Gem.win_platform?
-
-gem 'yaml-lint', '0.1.2'
-
-gem "webrick", "1.8.1"
+gem "webrick"
 
 # Fix for https://github.com/github/pages-gem/issues/399.
 gem 'dotenv'
+
+gem 'rb-inotify'
