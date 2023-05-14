@@ -34,15 +34,13 @@
         // https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
         "dbaeumer.vscode-eslint",
         // https://marketplace.visualstudio.com/items?itemName=dprint.dprint
-        // "dprint.dprint",
+        "dprint.dprint",
         // https://marketplace.visualstudio.com/items?itemName=editorconfig.editorconfig
         "editorconfig.editorconfig",
         // https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
         "esbenp.prettier-vscode",
         // https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
         "Gruntfuggly.todo-tree",
-        // https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker
-        "ms-azuretools.vscode-docker",
         // https://marketplace.visualstudio.com/items?itemName=KatjanaKosic.vscode-json5
         "KatjanaKosic.vscode-json5",
         // https://marketplace.visualstudio.com/items?itemName=sissel.shopify-liquid
