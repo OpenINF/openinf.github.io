@@ -92,8 +92,8 @@ devDependencies:
     specifier: 3.1.1
     version: 3.1.1
   remark-lint-fenced-code-flag:
-    specifier: 3.1.1
-    version: 3.1.1
+    specifier: 3.1.2
+    version: 3.1.2
   remark-lint-first-heading-level:
     specifier: 3.1.1
     version: 3.1.1
@@ -4838,8 +4838,8 @@ packages:
       unist-util-visit: 4.1.2
     dev: true
 
-  /remark-lint-fenced-code-flag@3.1.1:
-    resolution: {integrity: sha512-FFVZmYsBccKIIEgOtgdZEpQdARtAat1LTLBydnIpyNIvcntzWwtrtlj9mtjL8ZoSRre8HtwmEnBFyOfmM/NWaA==}
+  /remark-lint-fenced-code-flag@3.1.2:
+    resolution: {integrity: sha512-yh4m3dlPmRsqM/BFhpqHYfrmBvFQ+D5dZZKDDYP2rf3YEoXlEVt8T8lWQueTTSxcq6yXAqL/XQL/iqqUHlLcHw==}
     dependencies:
       '@types/mdast': 3.0.11
       unified: 10.1.2
@@ -5399,7 +5399,7 @@ packages:
       remark-lint-definition-case: 3.1.1
       remark-lint-definition-spacing: 3.1.1
       remark-lint-emphasis-marker: 3.1.1
-      remark-lint-fenced-code-flag: 3.1.1
+      remark-lint-fenced-code-flag: 3.1.2
       remark-lint-fenced-code-marker: 3.1.1
       remark-lint-file-extension: 2.1.1
       remark-lint-final-definition: 3.1.1
