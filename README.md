@@ -72,21 +72,41 @@ The [SPDX](https://spdx.dev) license identifier for this project is
 
 <br />
 
-<p align="center">
-  <a title="Roadmap" href="https://github.com/openinf/openinf.github.io/issues">Roadmap</a> |
-  <a title="Development" href="./collections/_docs/development.md">Development</a> |
-  <a title="Issue Tracker" href="https://github.com/openinf/openinf.github.io/issues">Issue Tracker</a> |
-  <a title="Changelog" href="https://github.com/openinf/openinf.github.io/commits/live">Changelog</a> |
-  <a title="Credits" href="https://github.com/openinf/openinf.github.io/graphs/contributors">Credits</a>
-</p>
+<div align="center">
+
+[Roadmap][] |
+[Development][] |
+[Issue Tracker][] |
+[Changelog][] |
+[Credits][]
 
 <br />
 
-<p align="center">
-  <img src="https://img.shields.io/badge/type-prototype-blue.svg?style=plastic" alt="Project Type: Prototype" /> <img src="https://img.shields.io/badge/scheme-evolutionary-blue.svg?style=plastic" alt="Prototyping Scheme: Evolutionary" /> <img src="https://img.shields.io/badge/status-under%20construction-yellow?style=plastic" alt="Status: Under construction" />
-</p>
+[!['Project Type: Prototype'][project-type-badge--shields]](##)
+[!['Prototyping Scheme: Evolutionary'][prototyping-scheme-badge--shields]](##)
+[!['Status: Under construction'][project-status-badge--shields]](##)
+  
+<br /><br />
 
+<a title="The OpenINF website" href="https://open.inf.is" rel="author">
+  <img alt="The OpenINF logo" height="32px" width="32px" src="https://raw.githubusercontent.com/openinf/openinf.github.io/live/assets/img/svg/logo.svg?sanitize=true" />
+</a>
+
+</div>
+
+<br /><br />
+  
 <!-- BEGIN LINK DEFINITIONS -->
+
+[Roadmap]: https://github.com/OpenINF/openinf.github.io/issues 'Roadmap'
+[Development]: ./collections/_docs/development.md 'Development'
+[Issue Tracker]: https://github.com/OpenINF/openinf.github.io/issues 'Issue Tracker'
+[Changelog]: https://github.com/OpenINF/openinf.github.io/commits/live 'Changelog'
+[Credits]: https://github.com/OpenINF/openinf.github.io/graphs/contributors 'Credits'
+
+[project-type-badge--shields]: https://img.shields.io/badge/type-prototype-blue.svg
+[prototyping-scheme-badge--shields]: https://img.shields.io/badge/scheme-evolutionary-blue.svg
+[project-status-badge--shields]: https://img.shields.io/badge/status-under%20construction-yellow.svg
 
 [license-badge--shields]:
   https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg?logo=github
