@@ -5,6 +5,8 @@
 
 ## `open.inf.is`
 
+> The OpenINF website and other static resources
+
 <br />
 
 [!['License: MIT/Apache-2.0'][license-badge--shields]][license-badge-url]
