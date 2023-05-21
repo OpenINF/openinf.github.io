@@ -15,11 +15,13 @@
 
 <br />
 
-_The high-level goal of open.inf.is is to build and maintain a current website
+The high-level goal of open.inf.is is to build and maintain a current website
 serving content and assets. Although this site is still in its infancy, it’s
-intended to support separation of concerns. As is the case with any software
-project in continuous development, omissions and errors may exist, for which
-contributions are welcome._
+intended to support separation of concerns. We are constantly working to improve
+this repository, so please feel free to [contribute](#contributing) if you
+notice any omissions or errors.
+
+Thanks!
 
 <br /><br />
 
