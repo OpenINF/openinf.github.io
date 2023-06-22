@@ -4,7 +4,7 @@
   "description": "The OpenINF website and other static resources",
   "homepage": "open.inf.is",
   "repository": "OpenINF/openinf.github.io",
-  "license": "MIT",
+  "license": "MIT OR Apache-2.0",
   "author": "The OpenINF Authors",
   "scripts": {
     "format:all": "for i in _tasks/format/*.mjs; do node \"$i\"; done",
