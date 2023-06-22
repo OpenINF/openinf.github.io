@@ -27,11 +27,11 @@
     "verify:yaml": "node _tasks/verify/verify-yaml.mjs"
   },
   "devDependencies": {
-    "@babel/core": "7.22.1",
-    "@babel/eslint-parser": "7.21.8",
-    "@babel/plugin-syntax-jsx": "7.21.4",
+    "@babel/core": "7.22.5",
+    "@babel/eslint-parser": "7.22.5",
+    "@babel/plugin-syntax-jsx": "7.22.5",
     "@babel/plugin-syntax-top-level-await": "7.14.5",
-    "@babel/preset-env": "7.22.4",
+    "@babel/preset-env": "7.22.5",
     "@yarnpkg/shell": "3.2.5",
     "cspell": "6.31.1",
     "dictionary-en": "3.2.0",
