@@ -11,6 +11,7 @@ module.exports = {
   tabWidth: 2,
   trailingComma: 'es5',
   useTabs: false,
+  ignore: ['**/*.svg'],
   overrides: [
     {
       files: ['.eslintrc', '.prettierrc', '.renovaterc.json', '*.json'],
