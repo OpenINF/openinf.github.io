@@ -11,8 +11,11 @@ module.exports = {
   tabWidth: 2,
   trailingComma: 'es5',
   useTabs: false,
-  ignore: ['**/*.svg'],
   overrides: [
+    {
+      files: ['**/*.svg'],
+      options: { parser: 'html' },
+    },
     {
       files: ['.eslintrc', '.prettierrc', '.renovaterc.json', '*.json'],
       options: { parser: 'json' },
