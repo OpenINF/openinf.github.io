@@ -1,6 +1,18 @@
-# OpenINF Documentation
+## OpenINF Documentation
 
-## Install Dependencies
+<br />
+
+> [!WARNING]<br />
+> This documentation is still in **draft** stage.
+>
+> All information may be incomplete, inaccurate, outdated, or even
+> **completely wrong**.
+
+<br /><br />
+
+### Install Dependencies
+
+<br />
 
 Install the necessary dependencies for the documentation site by running this
 command from the project workspace root (if necessary):
@@ -9,7 +21,11 @@ command from the project workspace root (if necessary):
 pnpm install
 ```
 
-## Run Locally
+<br /><br />
+
+### Run Locally
+
+<br />
 
 Run this from the project workspace root:
 
@@ -20,7 +36,11 @@ pnpm start
 Once the script finishes building the documentation site, you can visit it at
 <http://localhost:4000>.
 
-## Scripts
+<br /><br />
+
+### Scripts
+
+<br />
 
 To update the links data file, run this from the project workspace root:
 
@@ -40,7 +60,11 @@ To autofix all files, run this from the project workspace root:
 pnpm run format:all
 ```
 
-## License
+<br /><br />
+
+### License
+
+<br />
 
 &copy; The OpenINF Authors. Content licensed under
 [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
