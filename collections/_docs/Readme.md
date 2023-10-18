@@ -1,4 +1,4 @@
-## OpenINF Documentation
+## `open.inf.is` Documentation
 
 <br />
 
