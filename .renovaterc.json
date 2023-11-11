@@ -1,17 +1,25 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "autoApprove": true,
+  "automerge": true,
   "extends": [
     "config:base",
     ":gitSignOff",
     ":preserveSemverRanges",
-    "github>whitesource/merge-confidence:beta"
+    "github>whitesource/merge-confidence:beta",
+    ":semanticCommitTypeAll(chore)",
+    "schedule:earlyMondays"
+  ],
+  "groupName": "all",
+  "ignorePresets": [
+    ":prHourlyLimit2"
   ],
   "vulnerabilityAlerts": {
     "labels": ["security"],
     "automerge": true,
     "assignees": ["@DerekNonGeneric"]
   },
-  "lockFileMaintenance": { "enabled": false },
+  "lockFileMaintenance": { "enabled": true },
   "platformCommit": true,
   "rangeStrategy": "pin",
   "semanticCommits": "enabled",
@@ -19,22 +27,22 @@
   "commitMessageTopic": "{{depName}}",
   "packageRules": [
     {
-      "packageRules": [
-        {
-          "matchDepTypes": ["dependencies"],
-          "commitMessagePrefix": "chore(deps):",
-          "labels": ["dependencies", "deps-prod"]
-        }
+      "updateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
       ]
     },
     {
-      "packageRules": [
-        {
-          "matchDepTypes": ["devDependencies"],
-          "commitMessagePrefix": "build(deps-dev):",
-          "labels": ["dependencies", "build", "deps-dev"]
-        }
-      ]
+      "matchDepTypes": ["dependencies"],
+      "commitMessagePrefix": "chore(deps):",
+      "labels": ["dependencies", "deps-prod"]
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "commitMessagePrefix": "build(deps-dev):",
+      "labels": ["dependencies", "build", "deps-dev"]
     }
   ]
 }
