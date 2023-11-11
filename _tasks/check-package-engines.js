@@ -42,7 +42,7 @@ var taskUtil = require('./util.js');
 
 // * We are intentionally checking engines are satisfied prior to
 // * installation because we aren't yet sure system-level constraint
-// * criteria, namely the availability and specified versions of the
+// * criteria, namely specified version availability for the
 // * tools in our Node.js toolchain are satisfied. As such, we don't
 // * use them until we are sure...
 
