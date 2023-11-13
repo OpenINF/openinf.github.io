@@ -9,7 +9,7 @@
  * @file Task Utilities.
  * @author The OpenINF Authors and friends
  * @license MIT
- * @module {CjsModule} tasks/util
+ * @module {CjsModule} _tasks/util
  */
 
 //------------------------------------------------------------------------------
