@@ -7,7 +7,7 @@
 
 /**
  * @file Task Utilities.
- * @author Derek Lewis <DerekNonGeneric@inf.is>
+ * @author The OpenINF Authors and friends
  * @license MIT
  * @module {CjsModule} tasks/util
  */
