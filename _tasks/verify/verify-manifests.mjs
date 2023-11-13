@@ -1,6 +1,6 @@
 /**
  * @file Verify Manifests Task.
- * @authors Derek Lewis <DerekNonGeneric@inf.is>,
+ * @author The OpenINF Authors and friends
  * @license MIT
  * @module {EsModule} tasks/verify-manifests
  */
