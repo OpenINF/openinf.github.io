@@ -12,7 +12,7 @@
  * that the following system-level constraints are met beforehand.
  * - version of node capable of properly running our program
  * - version of npm capable of properly installing our program
- * @author Derek Lewis <dereknongeneric@open.inf.is>
+ * @author The OpenINF Authors and friends
  * @license MIT
  * @module {CjsModule} tasks/check-package-engines
  */
