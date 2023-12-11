@@ -78,9 +78,9 @@
     "retext-syntax-mentions": "4.0.0",
     "retext-syntax-urls": "4.0.0",
     "strip-comments": "2.0.1",
-    "stylelint": "15.11.0",
+    "stylelint": "16.0.2",
     "stylelint-config-recess-order": "4.4.0",
-    "stylelint-config-standard-scss": "11.1.0",
+    "stylelint-config-standard-scss": "12.0.0",
     "unified": "11.0.4",
     "vnu-jar": "23.4.11"
   }
