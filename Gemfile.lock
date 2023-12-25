@@ -14,7 +14,7 @@ GEM
     eventmachine (1.2.7)
     ffi (1.16.3)
     forwardable-extended (2.6.0)
-    github-linguist (7.27.0)
+    github-linguist (7.28.0)
       cgi
       charlock_holmes (~> 0.7.7)
       mini_mime (~> 1.0)
