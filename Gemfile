@@ -4,11 +4,10 @@ source "https://rubygems.org"
 
 gem "github-linguist", "~> 7.24"
 
-gem "jekyll", "~> 4.3"
+gem "jekyll"
 
 group :jekyll_plugins do
-  gem "jekyll-redirect-from"
-  gem "jekyll-relative-links"
+  gem "github-pages"
 end
 
 gem 'yaml-lint'
