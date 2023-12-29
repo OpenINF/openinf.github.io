@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 gem "github-linguist", "~> 7.24"
 
-gem "jekyll", "~> 4.3"
+gem "jekyll"
 
 group :jekyll_plugins do
   gem "github-pages"
