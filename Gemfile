@@ -6,7 +6,10 @@ gem "github-linguist", "~> 7.24"
 
 gem "jekyll", "~> 4.3"
 
-gem "github-pages", :jekyll_plugins do
+group :jekyll_plugins do
+  gem 'github-pages',
+  gem 'jekyll-feed'
+  gem 'jekyll-sitemap'
   gem "jekyll-redirect-from"
   gem "jekyll-relative-links"
 end
