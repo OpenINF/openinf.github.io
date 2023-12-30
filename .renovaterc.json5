@@ -1,48 +1,43 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "autoApprove": true,
-  "automerge": true,
-  "extends": [
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  autoApprove: true,
+  automerge: true,
+  extends: [
     "config:best-practices",
     ":gitSignOff",
     ":preserveSemverRanges",
-    "github>whitesource/merge-confidence:beta",
+    "mergeConfidence:all-badges",
     ":semanticCommitTypeAll(chore)",
-    "schedule:earlyMondays"
+    "schedule:earlyMondays",
   ],
-  "groupName": "all",
-  "ignorePresets": [
-    ":prHourlyLimit2"
-  ],
-  "vulnerabilityAlerts": {
-    "labels": ["security"],
-    "automerge": true,
-    "assignees": ["@DerekNonGeneric"]
+  groupName: "all",
+  ignorePresets: [":prHourlyLimit2"],
+  vulnerabilityAlerts: {
+    labels: ["security"],
+    automerge: true,
+    assignees: ["@DerekNonGeneric"],
   },
-  "lockFileMaintenance": { "enabled": true },
-  "platformCommit": true,
-  "rangeStrategy": "pin",
-  "semanticCommits": "enabled",
-  "commitMessageAction": "bump",
-  "commitMessageTopic": "{{depName}}",
-  "packageRules": [
+  lockFileMaintenance: {
+    enabled: true,
+  },
+  platformCommit: true,
+  rangeStrategy: "pin",
+  semanticCommits: "enabled",
+  commitMessageAction: "bump",
+  commitMessageTopic: "{{depName}}",
+  packageRules: [
     {
-      "updateTypes": [
-        "minor",
-        "patch",
-        "pin",
-        "digest"
-      ]
+      matchUpdateTypes: ["minor", "patch", "pin", "digest"],
     },
     {
-      "matchDepTypes": ["dependencies"],
-      "commitMessagePrefix": "chore(deps):",
-      "labels": ["dependencies", "deps-prod"]
+      matchDepTypes: ["dependencies"],
+      commitMessagePrefix: "chore(deps):",
+      labels: ["dependencies", "deps-prod"],
     },
     {
-      "matchDepTypes": ["devDependencies"],
-      "commitMessagePrefix": "build(deps-dev):",
-      "labels": ["dependencies", "build", "deps-dev"]
-    }
-  ]
+      matchDepTypes: ["devDependencies"],
+      commitMessagePrefix: "build(deps-dev):",
+      labels: ["dependencies", "build", "deps-dev"],
+    },
+  ],
 }
