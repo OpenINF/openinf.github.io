@@ -3,7 +3,7 @@
   "autoApprove": true,
   "automerge": true,
   "extends": [
-    "config:base",
+    "config:best-practices",
     ":gitSignOff",
     ":preserveSemverRanges",
     "github>whitesource/merge-confidence:beta",
