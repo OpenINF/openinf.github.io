@@ -63,6 +63,7 @@ exclude:
   - package.json
   - pnpm-lock.json
   - project-terms.txt
+  - AUTHORS
   - LICENSE
   - README.md
   - tmp/
