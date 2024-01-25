@@ -67,5 +67,6 @@ exclude:
   - CNAME
   - LICENSE
   - README.md
+  - tools/
   - tmp/
   - vendor/
