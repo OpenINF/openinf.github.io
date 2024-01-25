@@ -16,7 +16,9 @@ jobs:
         uses: ruby/setup-ruby@5daca165445f0ae10478593083f72ca2625e241d # v1.169.0
       - name: Install
         run: |
-          npm install
+          corepack enable
+          corepack prepare pnpm@latest --activate
+          pnpm install
           gem install bundler && bundle config set --local path 'vendor/bundle'
           bundle install
       # - name: Build
