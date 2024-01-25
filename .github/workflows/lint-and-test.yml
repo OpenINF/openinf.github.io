@@ -13,7 +13,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4.0.1
       - name: Setup Ruby, JRuby, and TruffleRuby
-        uses: ruby/setup-ruby@432702e864cadc1b56247e31aa341be5be3e129a # v1.168.0
+        uses: ruby/setup-ruby@5daca165445f0ae10478593083f72ca2625e241d # v1.169.0
       - name: Install
         run: |
           npm install
@@ -28,7 +28,7 @@ jobs:
       # You can check if a file with a listed file type is in the PR by doing:
       # if: ${{ steps.filter.outputs.md == 'true' }}
       # This will return true if there's a Markdown file the PR has changed.
-      - uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50 # v2.11.1
+      - uses: dorny/paths-filter@7267a8516b6f92bdb098633497bad573efdbf271 # v2.12.0
         id: filter
         with:
           filters: |
