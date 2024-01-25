@@ -2,6 +2,7 @@
   "name": "@openinf/openinf.github.io",
   "private": "true",
   "description": "The OpenINF website and other static resources",
+  "packageManager": "pnpm@8.14.3",
   "homepage": "open.inf.is",
   "repository": "OpenINF/openinf.github.io",
   "license": "MIT OR Apache-2.0",
