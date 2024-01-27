@@ -5,7 +5,7 @@ source "https://rubygems.org"
 gem "github-linguist", "~> 7.24"
 
 gem "jekyll", "~> 3.9.4"
-
+gem 'kramdown-parser-gfm', '~> 1.1'
 group :jekyll_plugins do
   gem "jekyll-redirect-from", "~> 0.16.0"
   gem "jekyll-relative-links", "~> 0.7.0"
