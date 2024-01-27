@@ -9,7 +9,7 @@
 
 <br />
 
-[!['License: MIT/Apache-2.0'][license-badge--shields]][license-badge-url]
+[!['License: MIT/Apache-2.0'][license-badge--shields]][license-badge-url] [!['Netlify Status: Dynamic'][netlify-badge--dynamimg]][netlify-badge-url]
 
 </div>
 
@@ -112,6 +112,8 @@ The [SPDX](https://spdx.dev) license identifier for this project is
 [prototyping-scheme-badge--shields]: https://img.shields.io/badge/scheme-evolutionary-blue.svg
 [project-status-badge--shields]: https://img.shields.io/badge/status-under%20construction-yellow.svg
 
+[netlify-badge-url]: https://app.netlify.com/sites/open-inf-is/deploys 'Netlify Status: Dynamic'
+[netlify-badge--dynamimg]: https://api.netlify.com/api/v1/badges/1e33ed32-f4b4-4238-abe8-70e219408cf7/deploy-status 'Netlify Status: Dynamic'
 [license-badge--shields]:
   https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg?logo=github
   'License: MIT/Apache 2.0'
