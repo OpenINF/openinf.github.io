@@ -1,0 +1,81 @@
+// Bootstrap overrides
+//
+// Copy variables from `bootstrap/_variables.scss` to this file to override default values
+// without modifying source files.
+
+// Table of Contents
+//
+// Colors
+// Body
+// Typography
+// Tables
+// Buttons
+// Navbar
+// Breadcrumbs
+// Code
+
+// Colors
+
+$brand-primary: #ba160c;
+$brand-secondary: #e7dbda;
+$brand-tertiary: #bbc6d3;
+$brand-quaternary: #384657;
+$brand-foreground: lighten($brand-secondary, 10%);
+$brand-well: saturate(darken($brand-foreground, 3%), 10%);
+$footer-foreground: darken($brand-secondary, 40%);
+
+// Spacing
+
+$border-width: 2px;
+
+// Body
+
+$body-bg: $brand-secondary;
+$body-color: #384657;
+
+// Typography
+
+$text-muted: darken($brand-tertiary, 32%);
+
+$hr-border-color: $brand-secondary;
+
+$blockquote-border-color: $brand-secondary;
+
+// Tables
+
+$table-bg-hover: $brand-secondary;
+
+$table-border-color: $brand-secondary;
+
+// Pagination
+
+$pagination-bg:                        $brand-foreground;
+$pagination-border-color:              $brand-secondary;
+
+$pagination-hover-bg:                  $brand-foreground;
+$pagination-hover-border:              $brand-secondary;
+
+$pagination-active-color:              $brand-foreground;
+
+$pagination-disabled-color:            $brand-secondary;
+$pagination-disabled-bg:               $brand-foreground;
+$pagination-disabled-border:           $brand-secondary;
+
+// Navbar
+
+$navbar-brand-padding-y: 12px;
+
+// Breadcrumbs
+
+$breadcrumb-padding-y:          .5em;
+$breadcrumb-padding-x:          .65em;
+$breadcrumb-item-padding:       .5em;
+
+$breadcrumb-bg:                 transparent;
+$breadcrumb-divider-color:      $text-muted;
+$breadcrumb-active-color:       $text-muted;
+$breadcrumb-divider:            "\276F";
+
+// Code
+
+$code-bg: $brand-well;

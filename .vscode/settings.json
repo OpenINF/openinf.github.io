@@ -21,7 +21,7 @@
   // Auto-fix JS files with ESLint using our custom settings. Needs
   // https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "[json5]": {
     "editor.formatOnSave": true
