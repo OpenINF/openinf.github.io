@@ -11,6 +11,12 @@
       {% endcapture %}
       {{ styles | scssify }}
     {% endif %}
+    {% if page.class == 'docs' %}
+      {% capture styles %}
+      {% include assets/scss/docs.scss %}
+      {% endcapture %}
+      {{ styles | scssify }}
+    {% endif %}
     {% if page.class == 'collections' %}
       {% capture styles %}
       {% include assets/scss/collections.scss %}
