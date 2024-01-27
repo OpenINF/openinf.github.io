@@ -116,7 +116,7 @@ The [SPDX](https://spdx.dev) license identifier for this project is
   https://app.netlify.com/sites/open-inf-is/deploys?branch=live
   "Netlify Status: Dynamic"
 [netlify-badge--dynamimg]:
-  https://api.netlify.com/api/v1/badges/1e33ed32-f4b4-4238-abe8-70e219408cf7/deploy-status
+  https://api.netlify.com/api/v1/badges/1e33ed32-f4b4-4238-abe8-70e219408cf7/deploy-status?branch=live
   "Netlify Status: Dynamic"
 [license-badge--shields]:
   https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg?logo=github
