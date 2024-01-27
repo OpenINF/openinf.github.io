@@ -113,7 +113,7 @@ The [SPDX](https://spdx.dev) license identifier for this project is
 [project-status-badge--shields]: https://img.shields.io/badge/status-under%20construction-yellow.svg
 
 [netlify-badge-url]:
-  https://app.netlify.com/sites/open-inf-is/deploys
+  https://app.netlify.com/sites/open-inf-is/deploys?branch=live
   "Netlify Status: Dynamic"
 [netlify-badge--dynamimg]:
   https://api.netlify.com/api/v1/badges/1e33ed32-f4b4-4238-abe8-70e219408cf7/deploy-status
