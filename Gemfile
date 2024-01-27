@@ -6,9 +6,9 @@ gem "github-linguist", "~> 7.24"
 
 gem "jekyll", "~> 3.9.4"
 
-group :jekyll_plugins do
-  gem "github-pages"
-end
+# group :jekyll_plugins do
+#   gem "github-pages"
+# end
 
 gem 'yaml-lint'
 
