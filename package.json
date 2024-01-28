@@ -2,10 +2,10 @@
   "name": "@openinf/openinf.github.io",
   "private": "true",
   "description": "The OpenINF website and other static resources",
-  "packageManager": "pnpm@8.14.3",
+  "packageManager": "pnpm@8.15.0",
   "engines": {
     "node": "20.11.0",
-    "pnpm": "8.14.3"
+    "pnpm": "8.15.0"
   },
   "homepage": "open.inf.is",
   "repository": "OpenINF/openinf.github.io",
