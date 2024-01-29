@@ -2,6 +2,8 @@
 
 source "https://rubygems.org"
 
+gem "google-protobuf"
+
 gem "github-linguist", "~> 7.24"
 
 gem "jekyll", "~> 3.9.4"
