@@ -220,9 +220,9 @@ initial start of it ever ran, there is no guarantee that \`ssh\` can
 use \`gpg\-agent\` for authentication. To fix this, you may
 start \`gpg\-agent\` if needed using this simple command:
 
-\`\`\`shell  
-gpg\-connect-agent /bye  
-\`\`\`
+```shell  
+gpg-connect-agent /bye  
+```
 
 \[\[tip\]\]
 
