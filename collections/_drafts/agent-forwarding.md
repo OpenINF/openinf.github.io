@@ -1,5 +1,5 @@
 ---
-title: Agent Forwarding For OpenINF Core Members
+title: Agent Forwarding for OpenINF Core in 2024
 authors: @OpenINF/wg-a-team
 publish: false
 ---
