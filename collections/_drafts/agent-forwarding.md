@@ -1,6 +1,6 @@
 ---
 title: Agent Forwarding For OpenINF Core Members
-authors: @OpenINF/ATeam
+authors: @OpenINF/wg-a-team
 publish: false
 ---
 
