@@ -4,7 +4,9 @@ authors: @OpenINF/wg-a-team
 publish: false
 ---
 
-## 1     Agent forwarding
+## Agent Forwarding
+
+<br />
 
 To be able to sign any potential Git commits or tags you may make using your Git
 client, some additional setup may be necessary. This guide will be especially
