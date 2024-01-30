@@ -1,5 +1,6 @@
 ---
-title: Agent Forwarding for OpenINF Core in 2024
+title: OpenINF Next-Gen Guidance on Agent Forwarding
+category: contributing
 authors: @OpenINF/wg-a-team
 publish: false
 ---
