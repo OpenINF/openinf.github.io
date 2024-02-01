@@ -183,7 +183,7 @@ enable-ssh-support
 The OpenSSH Agent protocol is always enabled, but `gpg-agent` will only set
 the `SSH_AUTH_SOCK` environment variable with this option specified.
 
-In this mode of operation, the agent implements both the \`gpg\-agent\` protocol
+In this mode of operation, the agent implements both the `gpg-agent` protocol
 and the agent protocol used by OpenSSH (through a separate socket).
 Consequently, using the \`gpg\-agent\` as a drop-in replacement for the
 well-known \`ssh\-agent\` should be possible.
