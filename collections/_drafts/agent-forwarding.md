@@ -141,7 +141,26 @@ keyring into the remote container gets done automatically by the extension.
 
 \[\[endnote\]\]
 
-\`\`\` SCP
+:::excerpt{.quote}
+
+<abbr title="Secure Copy Protocol">[SCP]{#scp .dfn}</abbr> is a means of
+securely transferring [computer files][] between a local [host][] and a remote
+host or between two remote hosts. It is based on the [Secure Shell][]  (SSH)
+protocol.[^1] "SCP" commonly refers to both the Secure Copy Protocol and the
+program itself.[^2]
+
+:::
+
+<!-- LINK LABEL DEFINITIONS: START -->
+
+[computer files]: https://en.wikipedia.org/wiki/Computer_file
+[host]: https://en.wikipedia.org/wiki/Server\_(computing)
+[Secure Shell]: https://en.wikipedia.org/wiki/Secure_Shell
+
+[^1]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-1
+[^2]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-Pechanec-2)
+
+<!-- LINK LABEL DEFINITIONS: END -->
 
 During gpg\-agent initialization, the extra socket (named \`S.gpg-agent.extra\`
 by default) gets created in the GnuPG home directory.
