@@ -133,13 +133,13 @@ It's important to note that GnuPG on the remote system still needs your public
 GPG keys to work correctly. So you have to ensure they are available on the
 remote system even if your secret keys are not.
 
-\[\[note\]\]
+:::note{.note}
 
 If you use VSCode with the remote extension pack, you may skip this step and
 move on to the next section. This step of copying over your local public GPG
 keyring into the remote container gets done automatically by the extension.
 
-\[\[endnote\]\]
+:::
 
 :::excerpt{.quote}
 
