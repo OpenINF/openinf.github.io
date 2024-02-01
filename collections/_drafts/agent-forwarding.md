@@ -77,7 +77,7 @@ Instead, a fixed Unix domain socket named S.gpg\-agent in the GnuPG home
 directory (by default ~/.gnupg) is used. The agent is also started on-demand by
 all tools requiring services from the agent.
 
-If the option \--enable-ssh\-support is used, the auto-start mechanism does not
+If the option `--enable-ssh-support` is used, the auto-start mechanism does not
 work because _ssh_ does not know about this mechanism. Instead, the environment
 variable `SSH_AUTH_SOCK` must be set to the `S.gpg-agent.ssh` socket in the GnuPG
 home directory. Further, `gpg-agent` must be started by either using a
