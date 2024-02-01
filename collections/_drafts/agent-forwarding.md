@@ -20,7 +20,7 @@ services. With SSH keys, you can connect to GitHub without supplying your
 username and personal access token at each visit.
 
 When you set up SSH, you need to generate a new SSH key and add it to the
-\`ssh\-agent\`. You must add the SSH key to your account on GitHub before you
+`ssh\-agent`. You must add the SSH key to your account on GitHub before you
 use the key to authenticate.
 
 ### 1.1.1     Generating a new SSH key and adding it to the ssh\-agent
@@ -117,7 +117,7 @@ GPG_TTY=$(tty)
 
 export GPG_TTY
 
-This variable may only be helpful if you use \`pinentry\-curses\` (the
+This variable may only be helpful if you use `pinentry\-curses` (the
 terminal-based pin entry program).
 
 \[\[windows\]\]
@@ -162,7 +162,7 @@ program itself.[^2]
 
 <!-- LINK LABEL DEFINITIONS: END -->
 
-During gpg\-agent initialization, the extra socket (named \`S.gpg-agent.extra\`
+During gpg\-agent initialization, the extra socket (named `S.gpg-agent.extra`
 by default) gets created in the GnuPG home directory.
 
 The intended use for this extra socket is to set up a Unix domain socket
@@ -179,16 +179,16 @@ it is convenient to avoid transferring private keys to the devcontainer.
 To guarantee that the connection (going over a kernel IPC channel) between the
 two systems goes to the right place, it is advisable to explicitly specify the
 local filename (in full) of the extra socket in the GPG agent config file. Do so
-by adding the following line to the \`gpg-agent.conf\` file in the GnuPG home
+by adding the following line to the `gpg-agent.conf` file in the GnuPG home
 directory.
 
-\`\`\`text
+```text
 
 extra-socket /c/Users/Administrator/.gnupg/S.gpg-agent.extra
 
-\`\`\`
+```
 
-This extra socket is the one our local \`gpg\-agent\` will be using rather than
+This extra socket is the one our local `gpg\-agent` will be using rather than
 S.gpg\-agent because its limitations theoretically make it more secure.
 
 Enable GPG agent support of SSH
@@ -204,8 +204,8 @@ the `SSH_AUTH_SOCK` environment variable with this option specified.
 
 In this mode of operation, the agent implements both the `gpg-agent` protocol
 and the agent protocol used by OpenSSH (through a separate socket).
-Consequently, using the \`gpg\-agent\` as a drop-in replacement for the
-well-known \`ssh\-agent\` should be possible.
+Consequently, using the `gpg\-agent` as a drop-in replacement for the
+well-known `ssh\-agent` should be possible.
 
 SSH keys, intended for use through the agent, need to be added to the
 gpg\-agent initially through the ssh\-add utility. Upon adding a
@@ -218,7 +218,7 @@ the newly-added key.
 
 \[\[note\]\]
 
-If the \`gpg\-agent\` receives a signature request, the user may need prompting
+If the `gpg\-agent` receives a signature request, the user may need prompting
 for a passphrase, which is necessary to decrypt any SSH keys stored. Since
 the ssh\-agent protocol does not contain a mechanism for telling the agent on
 which display/terminal it's running, gpg\-agent's ssh\-support will use the TTY
@@ -231,12 +231,12 @@ gpg-connect-agent updatestartuptty /bye
 
 \[\[/note\]\]
 
-Although all GnuPG components try to start the \`gpg\-agent\` as needed, this is
-not possible for the \`ssh\` support because \`ssh\` does not know about it.
-Thus, if no GnuPG tool that usually accesses the \`gpg\-agent\` causing the
-initial start of it ever ran, there is no guarantee that \`ssh\` can
-use \`gpg\-agent\` for authentication. To fix this, you may
-start \`gpg\-agent\` if needed using this simple command:
+Although all GnuPG components try to start the `gpg\-agent` as needed, this is
+not possible for the `ssh` support because `ssh` does not know about it.
+Thus, if no GnuPG tool that usually accesses the `gpg\-agent` causing the
+initial start of it ever ran, there is no guarantee that `ssh` can
+use `gpg\-agent` for authentication. To fix this, you may
+start `gpg\-agent` if needed using this simple command:
 
 ```shell
 gpg-connect-agent /bye
