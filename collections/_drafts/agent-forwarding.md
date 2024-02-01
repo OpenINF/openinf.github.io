@@ -77,14 +77,14 @@ Instead, a fixed Unix domain socket named S.gpg\-agent in the GnuPG home
 directory (by default ~/.gnupg) is used. The agent is also started on-demand by
 all tools requiring services from the agent.
 
-If the option \--enable-ssh\-support is used, the auto-start mechanism does not
+If the option `--enable-ssh-support` is used, the auto-start mechanism does not
 work because _ssh_ does not know about this mechanism. Instead, the environment
-variable SSH_AUTH_SOCK must be set to the S.gpg-agent.ssh socket in the GnuPG
-home directory. Further, _gpg\_\_\-agent_ must be started by either using a
-GnuPG command that implicitly starts gpg\-agent or by using \`gpgconf --launch
-gpg\-agent\` to explicitly start it without first having to use a GnuPG command.
+variable `SSH_AUTH_SOCK` must be set to the `S.gpg-agent.ssh` socket in the GnuPG
+home directory. Further, `gpg-agent` must be started by either using a
+GnuPG command that implicitly starts `gpg-agent` or by using `gpgconf --launch
+gpg-agent` to explicitly start it without first having to use a GnuPG command.
 
-gpg\-agent is a daemon to manage secret (private) keys independently from any
+`gpg-agent` is a daemon to manage secret (private) keys independently from any
 protocol. It is a backend for gpg, gpgsm, and other utilities.
 
 GPG Agent Configuration
@@ -140,7 +140,7 @@ keyring into the remote container gets done automatically by the extension.
 
 \[\[endnote\]\]
 
-\`\`\`  
+\`\`\`
 SCP
 
 During gpg\-agent initialization, the extra socket (named \`S.gpg-agent.extra\`
@@ -176,14 +176,14 @@ Enable GPG agent support of SSH
 
 Add the following line to your GPG-agent config file.
 
-\`\`\`text  
-enable-ssh\-support  
-\`\`\`
+```text
+enable-ssh-support
+```
 
-The OpenSSH Agent protocol is always enabled, but gpg\-agent will only set
-the SSH_AUTH_SOCK environment variable with this option specified.
+The OpenSSH Agent protocol is always enabled, but `gpg-agent` will only set
+the `SSH_AUTH_SOCK` environment variable with this option specified.
 
-In this mode of operation, the agent implements both the \`gpg\-agent\` protocol
+In this mode of operation, the agent implements both the `gpg-agent` protocol
 and the agent protocol used by OpenSSH (through a separate socket).
 Consequently, using the \`gpg\-agent\` as a drop-in replacement for the
 well-known \`ssh\-agent\` should be possible.
@@ -206,9 +206,9 @@ which display/terminal it's running, gpg\-agent's ssh\-support will use the T
 or X display where gpg\-agent started. To switch this display to the current
 one, you may use the following command.
 
-\`\`\`shell  
-gpg\-connect-agent updatestartuptty /bye  
-\`\`\`
+```shell
+gpg-connect-agent updatestartuptty /bye
+```
 
 \[\[/note\]\]
 
@@ -219,8 +219,8 @@ initial start of it ever ran, there is no guarantee that \`ssh\` can
 use \`gpg\-agent\` for authentication. To fix this, you may
 start \`gpg\-agent\` if needed using this simple command:
 
-```shell  
-gpg-connect-agent /bye  
+```shell
+gpg-connect-agent /bye
 ```
 
 \[\[tip\]\]
