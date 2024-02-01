@@ -237,7 +237,7 @@ gpg-connect-agent updatestartuptty /bye
 [[/note]]
 
 Although all GnuPG components try to start the `gpg\-agent` as needed, this is
-not possible for the `ssh` support because `ssh` does not know about it. Thus,
+not possible for _the **[`ssh`][]** support_ because **[`ssh`][]** does not know about it. Thus,
 if no GnuPG tool, that usually accesses the **[`gpg-agent`][]** (causing the initial
 start of it) ever ran, there is no guarantee that **[`ssh`][]** can use **[`gpg-agent`][]** for
 authentication. To fix this, one may start **[`gpg-agent`][]** ,if needed, by using this
