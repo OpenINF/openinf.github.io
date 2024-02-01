@@ -141,13 +141,18 @@ keyring into the remote container gets done automatically by the extension.
 
 :::
 
-:::excerpt{.quote}
+:::excerpt{.quote} <!-- TODO(DerekNonGeneric): link to article -->
 
 <abbr title="Secure Copy Protocol">[SCP]{#scp .dfn}</abbr> is a means of
 securely transferring [computer files][] between a local [host][] and a remote
 host or between two remote hosts. It is based on the [Secure Shell][] (SSH)
 protocol.[^1] "SCP" commonly refers to both the Secure Copy Protocol and the
 program itself.[^2]
+
+<!-- TODO(DerekNonGeneric): include how SCP's not:
+- intended for file transfer over hostile nets
+- a bad choice for quick local transfers btwx host and guest vm/container(s)
+-->
 
 :::
 
