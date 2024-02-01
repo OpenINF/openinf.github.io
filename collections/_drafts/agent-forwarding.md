@@ -79,10 +79,11 @@ all tools requiring services from the agent.
 
 If the option `--enable-ssh-support` is used, the auto-start mechanism does not
 work because _ssh_ does not know about this mechanism. Instead, the environment
-variable `SSH_AUTH_SOCK` must be set to the `S.gpg-agent.ssh` socket in the GnuPG
-home directory. Further, `gpg-agent` must be started by either using a
-GnuPG command that implicitly starts `gpg-agent` or by using `gpgconf --launch
-gpg-agent` to explicitly start it without first having to use a GnuPG command.
+variable `SSH_AUTH_SOCK` must be set to the `S.gpg-agent.ssh` socket in the
+GnuPG home directory. Further, `gpg-agent` must be started by either using a
+GnuPG command that implicitly starts `gpg-agent` or by using
+`gpgconf --launch gpg-agent` to explicitly start it without first having to use
+a GnuPG command.
 
 `gpg-agent` is a daemon to manage secret (private) keys independently from any
 protocol. It is a backend for gpg, gpgsm, and other utilities.
@@ -140,8 +141,7 @@ keyring into the remote container gets done automatically by the extension.
 
 \[\[endnote\]\]
 
-\`\`\`
-SCP
+\`\`\` SCP
 
 During gpg\-agent initialization, the extra socket (named \`S.gpg-agent.extra\`
 by default) gets created in the GnuPG home directory.
