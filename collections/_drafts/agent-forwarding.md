@@ -19,9 +19,9 @@ Using the SSH protocol, you can connect and authenticate to remote servers and
 services. With SSH keys, you can connect to GitHub without supplying your
 username and personal access token at each visit.
 
-When you set up SSH, you need to generate a new SSH key and add it to the
-`ssh\-agent`. You must add the SSH key to your account on GitHub before you
-use the key to authenticate.
+When one sets up SSH, it's necessary to first generate a new SSH key and then add it to the
+**[`ssh-agent`][]**. One must add the SSH key to their account on GitHub before any usage of
+the key to authenticate may occur.
 
 ### 1.1.1     Generating a new SSH key and adding it to the ssh\-agent
 
@@ -167,8 +167,8 @@ program itself.[^2]
 
 <!-- LINK LABEL DEFINITIONS: END -->
 
-During gpg\-agent initialization, the extra socket (named `S.gpg-agent.extra`
-by default) gets created in the GnuPG home directory.
+During _**[`ssh-agent`][]** initialization_, the extra socket (named **`S.gpg-agent.extra`** by
+default) gets created in the GnuPG home directory.
 
 The intended use for this extra socket is to set up a Unix domain socket
 forwarding from a remote machine to this socket on the local device.
@@ -236,12 +236,12 @@ gpg-connect-agent updatestartuptty /bye
 
 [[/note]]
 
-Although all GnuPG components try to start the `gpg\-agent` as needed, this is
-not possible for the `ssh` support because `ssh` does not know about it.
-Thus, if no GnuPG tool that usually accesses the `gpg\-agent` causing the
-initial start of it ever ran, there is no guarantee that `ssh` can
-use `gpg\-agent` for authentication. To fix this, you may
-start `gpg\-agent` if needed using this simple command:
+Although all GnuPG components try to start the **[`gpg-agent`][]** as needed, this is
+not possible for _the **[`ssh`][]** support_ because **[`ssh`][]** does not know about it. Thus,
+if no GnuPG tool, that usually accesses the **[`gpg-agent`][]** (causing the initial
+start of it) ever ran, there is no guarantee that **[`ssh`][]** can use **[`gpg-agent`][]** for
+authentication. To fix this, one may start **[`gpg-agent`][]** , if needed, by using this
+simple command:
 
 ```shell
 gpg-connect-agent /bye
