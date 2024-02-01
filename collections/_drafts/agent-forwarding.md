@@ -167,7 +167,7 @@ program itself.[^2]
 
 <!-- LINK LABEL DEFINITIONS: END -->
 
-During gpg\-agent initialization, the extra socket (named `S.gpg-agent.extra` by
+During **[`ssh-agent`][]** initialization, the extra socket (named **`S.gpg-agent.extra`** by
 default) gets created in the GnuPG home directory.
 
 The intended use for this extra socket is to set up a Unix domain socket
