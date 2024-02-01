@@ -79,8 +79,8 @@ all tools requiring services from the agent.
 
 If the option \--enable-ssh\-support is used, the auto-start mechanism does not
 work because _ssh_ does not know about this mechanism. Instead, the environment
-variable SSH_AUTH_SOCK must be set to the S.gpg-agent.ssh socket in the GnuPG
-home directory. Further, _gpg\_\_\-agent_ must be started by either using a
+variable SSH*AUTH_SOCK must be set to the S.gpg-agent.ssh socket in the GnuPG
+home directory. Further, \_gpg\_\_\-agent* must be started by either using a
 GnuPG command that implicitly starts gpg\-agent or by using \`gpgconf --launch
 gpg\-agent\` to explicitly start it without first having to use a GnuPG command.
 
@@ -219,8 +219,8 @@ initial start of it ever ran, there is no guarantee that \`ssh\` can
 use \`gpg\-agent\` for authentication. To fix this, you may
 start \`gpg\-agent\` if needed using this simple command:
 
-```shell  
-gpg-connect-agent /bye  
+```shell
+gpg-connect-agent /bye
 ```
 
 \[\[tip\]\]
