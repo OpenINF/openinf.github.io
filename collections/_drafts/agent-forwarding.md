@@ -206,9 +206,9 @@ which display/terminal it's running, gpg\-agent's ssh\-support will use the T
 or X display where gpg\-agent started. To switch this display to the current
 one, you may use the following command.
 
-\`\`\`shell
-gpg\-connect-agent updatestartuptty /bye
-\`\`\`
+```shell
+gpg-connect-agent updatestartuptty /bye
+```
 
 \[\[/note\]\]
 
