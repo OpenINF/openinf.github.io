@@ -176,9 +176,9 @@ Enable GPG agent support of SSH
 
 Add the following line to your GPG-agent config file.
 
-\`\`\`text
-enable-ssh\-support
-\`\`\`
+```text
+enable-ssh-support
+```
 
 The OpenSSH Agent protocol is always enabled, but gpg\-agent will only set
 the SSH_AUTH_SOCK environment variable with this option specified.
