@@ -84,7 +84,7 @@ home directory. Further, `gpg-agent` must be started by either using a
 GnuPG command that implicitly starts `gpg-agent` or by using `gpgconf --launch
 gpg-agent` to explicitly start it without first having to use a GnuPG command.
 
-gpg\-agent is a daemon to manage secret (private) keys independently from any
+`gpg-agent` is a daemon to manage secret (private) keys independently from any
 protocol. It is a backend for gpg, gpgsm, and other utilities.
 
 GPG Agent Configuration
