@@ -140,7 +140,7 @@ keyring into the remote container gets done automatically by the extension.
 
 \[\[endnote\]\]
 
-\`\`\`  
+\`\`\`
 SCP
 
 During gpg\-agent initialization, the extra socket (named \`S.gpg-agent.extra\`
@@ -176,8 +176,8 @@ Enable GPG agent support of SSH
 
 Add the following line to your GPG-agent config file.
 
-\`\`\`text  
-enable-ssh\-support  
+\`\`\`text
+enable-ssh\-support
 \`\`\`
 
 The OpenSSH Agent protocol is always enabled, but gpg\-agent will only set
@@ -206,8 +206,8 @@ which display/terminal it's running, gpg\-agent's ssh\-support will use the T
 or X display where gpg\-agent started. To switch this display to the current
 one, you may use the following command.
 
-\`\`\`shell  
-gpg\-connect-agent updatestartuptty /bye  
+\`\`\`shell
+gpg\-connect-agent updatestartuptty /bye
 \`\`\`
 
 \[\[/note\]\]
