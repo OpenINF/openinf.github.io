@@ -21,7 +21,7 @@ username and personal access token at each visit.
 
 When one sets up SSH, it's necessary to first generate a new SSH key and then add it to the
 **[`ssh-agent`][]**. One must add the SSH key to their account on GitHub before any usage of
-the key to authenticate.
+the key to authenticate may occur.
 
 ### 1.1.1     Generating a new SSH key and adding it to the ssh\-agent
 
