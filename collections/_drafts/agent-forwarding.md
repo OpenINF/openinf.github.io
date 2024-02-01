@@ -19,7 +19,7 @@ Using the SSH protocol, you can connect and authenticate to remote servers and
 services. With SSH keys, you can connect to GitHub without supplying your
 username and personal access token at each visit.
 
-When one sets up SSH, it's necessary to generate a new SSH key and add it to the
+When one sets up SSH, it's necessary to first generate a new SSH key and then add it to the
 **[`ssh-agent`][]**. One must add the SSH key to their account on GitHub before use of
 the key to authenticate.
 
