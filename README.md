@@ -100,7 +100,7 @@ The [SPDX](https://spdx.dev) license identifier for this project is
 
 <br /><br />
   
-<!-- BEGIN LINK DEFINITIONS -->
+<!-- LINK LABEL DEFINITIONS - START -->
 
 [Roadmap]: https://github.com/OpenINF/openinf.github.io/issues 'Roadmap'
 [Development]: ./collections/_docs/development.md 'Development'
@@ -124,4 +124,4 @@ The [SPDX](https://spdx.dev) license identifier for this project is
 [license-badge-url]: #license 'License: MIT/Apache 2.0'
 [open an issue]: https://github.com/OpenINF/openinf.github.io/issues
 
-<!-- END LINK DEFINITIONS -->
+<!-- LINK LABEL DEFINITIONS - END -->
