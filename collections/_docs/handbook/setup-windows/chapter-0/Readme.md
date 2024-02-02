@@ -76,9 +76,9 @@ True    Yes            SuccessRest... {Wireless LAN Service}
 WARNING: You must restart this server to finish the installation process.
 ```
 
-To heed the warning, which indicates that a system reboot will be necessary,
-the following command line may be run (using the same PowerShell session should
-be alright).
+To heed the warning, which indicates that a system reboot will be necessary, the
+following command line may be run (using the same PowerShell session should be
+alright).
 
 ```ps
 shutdown –f –r –t 0
@@ -109,4 +109,5 @@ https://www.intel.com/content/www/us/en/download/19351/windows-10-and-windows-11
 https://support.lenovo.com/us/en/downloads/ds503062-fibocom-l850-gl-wireless-wan-driver-for-windows-10-version-1709-or-later-thinkpad
 -->
 
-[^1]: https://github.com/MicrosoftDocs/windowsserverdocs/blob/main/WindowsServerDocs/security/windows-services/security-guidelines-for-disabling-system-services-in-windows-server.md#radio-management-service
+[^1]:
+    https://github.com/MicrosoftDocs/windowsserverdocs/blob/main/WindowsServerDocs/security/windows-services/security-guidelines-for-disabling-system-services-in-windows-server.md#radio-management-service
