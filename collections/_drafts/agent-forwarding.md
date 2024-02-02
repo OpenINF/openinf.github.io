@@ -156,7 +156,7 @@ program itself.[^2]
 
 :::
 
-<!-- LINK LABEL DEFINITIONS: START -->
+<!-- LINK LABEL DEFINITIONS - START -->
 
 [computer files]: https://en.wikipedia.org/wiki/Computer_file
 [host]: https://en.wikipedia.org/wiki/Server_(computing)
@@ -165,7 +165,7 @@ program itself.[^2]
 [^1]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-1
 [^2]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-Pechanec-2)
 
-<!-- LINK LABEL DEFINITIONS: END -->
+<!-- LINK LABEL DEFINITIONS - END -->
 
 During _**[`ssh-agent`][]** initialization_, the extra socket (named
 **`S.gpg-agent.extra`** by default) gets created in the GnuPG home directory.
