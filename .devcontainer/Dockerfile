@@ -1,3 +1,3 @@
-# See here for image contents: https://github.com/OpenINF/openinf-docker-fish
+# See here for image contents: https://github.com/OpenINF/docker-fish
 
-FROM dereknongeneric/fish:latest
+FROM openinf/centos7-fisher:latest
