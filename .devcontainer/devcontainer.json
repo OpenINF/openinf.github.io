@@ -1,6 +1,6 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options,
 // see documentation located at the following URL:
-// https://github.com/OpenINF/openinf-docker-fish/tree/main/library-scripts/docs
+// https://github.com/OpenINF/docker-fisher/tree/main/library-scripts/docs
 {
   "name": "Jekyll (OpenINF Community)",
   "build": {
@@ -65,7 +65,7 @@
     2222
   ],
   "overrideCommand": false,
-  // Use 'postCreateCommand' to run commands after the container is created.
+  // Use 'postCreateCommand' to run commands after creating the container.
   "postCreateCommand": "fish .devcontainer/post-create.fish",
   "remoteEnv": {
     "PATH": "${containerEnv:PATH}:~/.rbenv/shims/"
