@@ -43,9 +43,7 @@ List of devices attached emulator-5554 device emulator-5556 device
 
 Recommended:
 
-$ adb shell
-shell@ $ screencap /sdcard/screen.png shell@ $ exit
-$ adb pull
+$ adb shell shell@ $ screencap /sdcard/screen.png shell@ $ exit $ adb pull
 /sdcard/screen.png
 
 When you're showing a one-line command, the command prompt (the `$` symbol) is
