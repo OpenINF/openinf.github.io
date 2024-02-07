@@ -4,7 +4,7 @@
 
 {% assign body_classes = page.body_classes | join: " " %}
 
-<body class="{{ body_classes }}">
+<body id="pagetop" class="{{ body_classes }}">
   {%- include header.html -%} {{- content -}} {%- include footer.html -%}
 </body>
 
