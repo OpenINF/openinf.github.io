@@ -94,7 +94,7 @@
         "${env:windir}\\Sysnative\\cmd.exe",
         "${env:windir}\\System32\\cmd.exe"
       ],
-      "icon": "terminal-cmd",
+      "icon": "terminal-cmd"
     }
   },
 
