@@ -88,14 +88,23 @@
   // The default terminal profile on Linux.
   "terminal.integrated.defaultProfile.linux": "fish",
 
-  // TODO(DerekNonGeneric):
   // A set of terminal profile customizations for macOS which allows adding,
   // removing, or changing how terminals are launched. Profiles are comprised of
   // a mandatory `path` and optional `args`, and other presentation options.
-  "terminal.integrated.profiles.osx": {},
+  "terminal.integrated.profiles.osx": {
+    "bash": {
+      "path": "bash"
+    },
+    "zsh": {
+      "path": "zsh"
+    },
+    "fish": {
+      "path": "fish"
+    }
+  },
 
-  // TODO(DerekNonGeneric): The default terminal profile on macOS.
-  "terminal.integrated.defaultProfile.osx": null,
+  // The default terminal profile on macOS.
+  "terminal.integrated.defaultProfile.osx": "fish",
 
   // Controls whether or not WSL distros are shown in the terminal dropdown.
   // Not actually recommended, but useful one-offs if that may be the case.
