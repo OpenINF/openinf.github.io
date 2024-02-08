@@ -87,7 +87,7 @@
     "pwsh": {
       "path": "pwsh.exe",
       "source": "PowerShell",
-      "icon": "terminal-powershell",
+      "icon": "terminal-powershell"
     },
     "Command Prompt": {
       "path": [
