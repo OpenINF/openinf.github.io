@@ -6,7 +6,7 @@
   // for the documentation about the extensions.json format.
 
   // Editor
-  // ///////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
 
   "editor.codeLens": true,
   "editor.formatOnSave": true,
@@ -185,7 +185,7 @@
   //  - \n: LF
   //  - \r\n: CRLF
   //  - auto: Uses operating system specific end of line character.
-  "files.eol": "\n",
+  "files.eol": "auto",
 
   // When enabled, insert a final new line at the end of the file when saving
   // it.
@@ -306,6 +306,13 @@
     "behaviour"
   ],
 
+  // Specify paths/files to ignore.
+  "cSpell.ignorePaths": [
+    ".git/",
+    "node_modules/"
+  ],
+
+  // Set custom workspace dictionaries.
   // Define custom dictionaries to be included by default. If `addWords` is true
   // words will be added to this dictionary.
   "cSpell.customDictionaries": {
