@@ -51,7 +51,7 @@ collections:
       path: _layouts
       type: pages
     values:
-      layout: default.html
+      layout: default
   - scope:
       path: _docs
       type: docs
