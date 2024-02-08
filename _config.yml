@@ -42,8 +42,16 @@ collections:
   posts:
     permalink: '/news/:year/:month/:day/:title/'
     output: true
-
-defaults:
+  - scope:
+      path: '' # an empty string here means all files in the project
+      type: pages
+    values:
+      layout: compress.html
+  - scope:
+      path: _layouts
+      type: pages
+    values:
+      layout: default.html
   - scope:
       path: _docs
       type: docs
