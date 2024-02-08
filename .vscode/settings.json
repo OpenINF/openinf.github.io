@@ -95,7 +95,7 @@
         "${env:windir}\\System32\\cmd.exe",
       ],
       "icon": "terminal-cmd",
-    },
+    }
   },
 
   // The default terminal profile on Windows.
