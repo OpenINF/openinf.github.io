@@ -30,6 +30,13 @@ plugins:
   - jekyll-redirect-from
   - jekyll-relative-links
 
+compress_html:
+  clippings: [div]
+  comments: ["<!-- ", " -->"]
+  endings: [li, dt, dd, p, thead, tbody, tr, td, th]
+  profile: true
+  blanklines: true
+
 # Document collections.
 collections_dir: collections
 
