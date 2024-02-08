@@ -1,19 +1,38 @@
 {
+  // ---------------------------------------------------------------------------
+  // Default Configuration Overrides
+  // ---------------------------------------------------------------------------
   // See https://code.visualstudio.com/docs/getstarted/settings
   // for the documentation about the extensions.json format.
 
   // Editor
   // ///////////////////////////////////////////////////////////////////////////
 
-  "editor.stickyScroll.enabled": false,
   "editor.codeLens": true,
   "editor.formatOnSave": true,
+
+  "json.maxItemsComputed": 10000,
+
+  // Insert spaces when pressing `Tab`. This setting is overridden based on the
+  // file contents when `editor.detectIndentation` is on.
+  "editor.insertSpaces": false,
+
+  // The number of spaces a tab is equal to. This setting is overridden based
+  // on the file contents when `editor.detectIndentation` is on.
+  "editor.tabSize": 4,
+  "editor.wordWrap": "off",
+
+  // ---------------------------------------------------------------------------
 
   "[javascript][json][json5][jsonc][typescript][yaml]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit"
     }
+  },
+
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
   "[liquid]": {
@@ -41,11 +60,14 @@
   "editor.rulers": [80, 100], // Uses multiple values for multiple rulers.
 
   // Terminal
+  // The Linux profiles to present when creating a new terminal via the
+  // terminal dropdown. When set, these will override the default detected
+  // profiles. They are comprised of a `path` and optional `args`.
   //////////////////////////////////////////////////////////////////////////////
 
   // A set of terminal profile customizations for Linux that allows adding,
-  // removing, or changing how terminals are launched. Profiles are made up of
-  // a mandatory path, optional arguments, and other presentation options.
+  // removing, or changing how terminals are launched. Profiles are comprised of
+  // a mandatory `path` and optional `args`, and other presentation options.
   "terminal.integrated.profiles.linux": {
     "bash": {
       "path": "bash"
@@ -68,8 +90,8 @@
 
   // TODO(DerekNonGeneric):
   // A set of terminal profile customizations for macOS which allows adding,
-  // removing or changing how terminals are launched. Profiles are made up of
-  // a mandatory path, optional arguments and other presentation options.
+  // removing, or changing how terminals are launched. Profiles are comprised of
+  // a mandatory `path` and optional `args`, and other presentation options.
   "terminal.integrated.profiles.osx": {},
 
   // TODO(DerekNonGeneric): The default terminal profile on macOS.
@@ -80,8 +102,8 @@
   "terminal.integrated.useWslProfiles": true,
 
   // A set of terminal profile customizations for Windows which allows adding,
-  // removing or changing how terminals are launched. Profiles are made up of
-  // a mandatory path, optional arguments and other presentation options.
+  // removing, or changing how terminals are launched. Profiles are comprised of
+  // a mandatory `path` and optional `args`, and other presentation options.
   "terminal.integrated.profiles.windows": {
     "Git Bash": null,
     "pwsh": {
@@ -138,6 +160,49 @@
     ".snyk": "yaml"
   },
 
+  // Configure glob patterns for excluding files and folders. For example, the
+  // files explorer decides which files and folders to show or hide based on
+  // this setting. Read more about glob patterns [here][].
+  // [here]:https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options
+  "files.exclude": {
+    "!**/node_modules/": true,
+    ".git": false,
+    "**/.DS_Store": true
+  },
+
+  // Configure glob patterns for excluding files and folders in searches.
+  // Inherits all glob patterns from the `files.exclude` setting.
+  "search.exclude": {
+    "!**/node_modules": true,
+    "**/node_modules": false
+  },
+
+  // The default character set encoding to use when reading and writing files.
+  // This setting can also be configured per language.
+  "files.encoding": "utf8",
+
+  // The default end of line character.
+  //  - \n: LF
+  //  - \r\n: CRLF
+  //  - auto: Uses operating system specific end of line character.
+  "files.eol": "\n",
+
+  // When enabled, insert a final new line at the end of the file when saving
+  // it.
+  "files.insertFinalNewline": true,
+
+  // When enabled, will trim trailing whitespace when saving a file.
+  // Extension: EditorConfig known issue: trim_trailing_whitespace = false is
+  // not applied when user/workspace setting of files.trimTrailingWhitespace is
+  // set to true.
+  "files.trimTrailingWhitespace": false,
+
+  // Git
+  //////////////////////////////////////////////////////////////////////////////
+
+  // Ignores the warning when there are too many changes in a repository.
+  "git.ignoreLimitWarning": true,
+
   // JavaScript/TypeScript
   //////////////////////////////////////////////////////////////////////////////
 
@@ -184,6 +249,9 @@
   // ESLint (ESLint is a separate extension)
   /////////////////////////////////////////////
 
+  // Whether the extension contributes a lint task to lint a whole workspace
+  // folder.
+  "eslint.lintTask.enable": true,
   "eslint.format.enable": true,
   "eslint.validate": [
     "javascript",
@@ -198,9 +266,48 @@
     "./"
   ],
 
+  // Liquid
+  /////////////////////////////////////////////
+  // Controls whether formatting is enabled or disabled
+  "liquid.format.enable": true,
+
+  // Remote
+  /////////////////////////////////////////////
+  "remote.SSH.defaultForwardedPorts": [
+    {
+      "remotePort": 2222
+    }
+  ],
+
   // cSpell
   /////////////////////////////////////////////
 
+  // The Language local to use when spell checking. "en" and "en-GB" are
+  // currently supported.
+  "cSpell.language": "en",
+
+  // Controls the maximum number of spelling errors per document.
+  "cSpell.maxNumberOfProblems": 100,
+
+  // Controls the number of suggestions shown.
+  "cSpell.numSuggestions": 8,
+
+  // The minimum length of a word before checking it against a dictionary.
+  "cSpell.minWordLength": 4,
+
+  // Enable / Disable the spell checker.
+  "cSpell.enabled": true,
+
+  // Enable / Disable compound words like 'errormessage'.
+  "cSpell.allowCompoundWords": true,
+
+  // Words to be ignored and not suggested.
+  "cSpell.ignoreWords": [
+    "behaviour"
+  ],
+
+  // Define custom dictionaries to be included by default. If `addWords` is true
+  // words will be added to this dictionary.
   "cSpell.customDictionaries": {
     "project-terms": {
       "name": "project-terms",

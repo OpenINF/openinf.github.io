@@ -17,6 +17,8 @@
     "Gruntfuggly.todo-tree",
     // https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker
     "ms-azuretools.vscode-docker",
+    // https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
+    "ms-vscode-remote.vscode-remote-extensionpack",
     // https://marketplace.visualstudio.com/items?itemName=KatjanaKosic.vscode-json5
     "KatjanaKosic.vscode-json5",
     // https://marketplace.visualstudio.com/items?itemName=Shopify.theme-check-vscode
