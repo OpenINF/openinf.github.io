@@ -4,7 +4,7 @@
 
 {%- assign classes = page.body_classes | join: " " | where: 'page.body_classes', empty -%}
 
-<body id="pagetop" class="{{ body_classes }}">
+<body id="top"{% if classes %} class="{{- classes -}}"{% endif %}>
   {%- include header.html -%} {{- content -}} {%- include footer.html -%}
 </body>
 
