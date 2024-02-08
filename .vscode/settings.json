@@ -51,13 +51,13 @@
       "source.fixAll.markdownlint": "explicit"
     },
     "editor.formatOnSave": true,
-  // "editor.defaultFormatter": "esbenp.prettier-vscode"
+    // "editor.defaultFormatter": "esbenp.prettier-vscode"
     "editor.defaultFormatter": "unifiedjs.vscode-remark"
     // "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
 
   // Render vertical rulers after a certain number of monospace characters.
-  "editor.rulers": [80, 100], // Uses multiple values for multiple rulers.
+  "editor.rulers": [50, 72, 80, 100]   , // Uses multiple values for multiple rulers.
 
   // Terminal
   // The Linux profiles to present when creating a new terminal via the
