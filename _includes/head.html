@@ -8,7 +8,5 @@
     {%- include assets/css/main.css -%}
   </style>
   <link rel="canonical" href="." />
-  <title>
-    {% if page.class != 'home' %}{{ page.title }} &middot; {% endif %}{{ site.title }}
-  </title>
+  <title>{% if page.permalink != '/' | where: 'page.permalink', empty %}{{ page.title }} &middot; {% endif %}{{ site.title }}</title>
 </head>

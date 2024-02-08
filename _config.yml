@@ -42,17 +42,24 @@ collections:
   posts:
     permalink: '/news/:year/:month/:day/:title/'
     output: true
+
 defaults:
   - scope:
       path: _docs
       type: docs
     values:
       layout: docs
+      editable: true
+      body_classes:
+        - 'hide-butterbar'
   - scope:
       path: _posts
       type: posts
     values:
       layout: news_item
+      editable: true
+      body_classes:
+        - 'hide-butterbar'
 
 # Exclude from processing.
 exclude:
