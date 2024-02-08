@@ -1,183 +1,213 @@
 {
   // See https://code.visualstudio.com/docs/getstarted/settings
   // for the documentation about the extensions.json format.
-  // ---------------------------------------------------------------------------
+
   // Editor
-  // ---------------------------------------------------------------------------
-  // Terminal
-  // The Linux profiles to present when creating a new terminal via the
-  // terminal dropdown. When set, these will override the default detected
-  // profiles. They are comprised of a `path` and optional `args`.
-  "terminal.integrated.profiles.linux": {
-    "fish": {
-      "path": "/usr/bin/fish"
+  // ///////////////////////////////////////////////////////////////////////////
+
+  "editor.stickyScroll.enabled": false,
+  "editor.codeLens": true,
+  "editor.formatOnSave": true,
+
+  "[javascript][json][json5][jsonc][typescript][yaml]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
     }
   },
-  "editor.formatOnSave": true,
-  // The default profile used on Linux. This setting will currently be ignored
-  // if either `terminal.integrated.shell.linux` or
-  // `terminal.integrated.shellArgs.linux` are set.
-  "terminal.integrated.defaultProfile.linux": "fish",
-  // Auto-fix JS files with ESLint using our custom settings. Needs
-  // https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+
+  "[liquid]": {
+    "editor.defaultFormatter": "Shopify.theme-check-vscode"
   },
-  "[json5]": {
-    "editor.formatOnSave": true
+
+  // "[toml]": {
+  //   "editor.codeActionsOnSave": {
+  //     "source.fixAll.dprint": "explicit"
+  //   },
+  //   "editor.defaultFormatter": "dprint.dprint"
+  // },
+
+  "[markdown]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.markdownlint": "explicit"
+    },
+    "editor.formatOnSave": true,
+  // "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "unifiedjs.vscode-remark"
+    // "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
-  "json.maxItemsComputed": 10000,
-  // Insert spaces when pressing `Tab`. This setting is overridden based on the
-  // file contents when `editor.detectIndentation` is on.
-  "editor.insertSpaces": true,
+
   // Render vertical rulers after a certain number of monospace characters.
-  // Use multiple values for multiple rulers. No rulers are drawn if array is
-  // empty.
-  "editor.rulers": [
-    80,
-    100
-  ],
-  // The number of spaces a tab is equal to. This setting is overridden based
-  // on the file contents when `editor.detectIndentation` is on.
-  "editor.tabSize": 2,
-  "editor.wordWrap": "off",
-  // ---------------------------------------------------------------------------
+  "editor.rulers": [80, 100], // Uses multiple values for multiple rulers.
+
+  // Terminal
+  //////////////////////////////////////////////////////////////////////////////
+
+  // A set of terminal profile customizations for Linux that allows adding,
+  // removing, or changing how terminals are launched. Profiles are made up of
+  // a mandatory path, optional arguments, and other presentation options.
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "bash"
+    },
+    "zsh": {
+      "path": "zsh"
+    },
+    "fish": {
+      "path": "fish"
+    },
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
+    },
+    "pwsh": null
+  },
+
+  // The default terminal profile on Linux.
+  "terminal.integrated.defaultProfile.linux": "fish",
+
+  // TODO(DerekNonGeneric):
+  // A set of terminal profile customizations for macOS which allows adding,
+  // removing or changing how terminals are launched. Profiles are made up of
+  // a mandatory path, optional arguments and other presentation options.
+  "terminal.integrated.profiles.osx": {},
+
+  // TODO(DerekNonGeneric): The default terminal profile on macOS.
+  "terminal.integrated.defaultProfile.osx": null,
+
+  // Controls whether or not WSL distros are shown in the terminal dropdown.
+  // Not actually recommended, but useful one-offs if that may be the case.
+  "terminal.integrated.useWslProfiles": true,
+
+  // A set of terminal profile customizations for Windows which allows adding,
+  // removing or changing how terminals are launched. Profiles are made up of
+  // a mandatory path, optional arguments and other presentation options.
+  "terminal.integrated.profiles.windows": {
+    "Git Bash": null,
+    "pwsh": {
+      "path": "pwsh.exe",
+      "source": "PowerShell",
+      "icon": "terminal-powershell",
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe",
+      ],
+      "icon": "terminal-cmd",
+    },
+  },
+
+  // The default terminal profile on Windows.
+  "terminal.integrated.defaultProfile.windows": "pwsh",
+
+  // Controls whether the terminal will ignore bracketed paste mode even if the
+  // terminal was put into the mode, omitting the `\x1b[200~` and `\x1b[201~`
+  // sequences when pasting. This is useful when the shell is not respecting the
+  // mode which can happen in sub-shells for example.
+  "terminal.integrated.ignoreBracketedPasteMode": true,
+
+  // Controls the working directory a split terminal starts with.
+  //  - workspaceRoot: A new split terminal will use the workspace root as the
+  //    working directory. In a multi-root workspace a choice for which root
+  //    folder to use is offered.
+  //  - initial: A new split terminal will use the working directory that the
+  //    parent terminal started with.
+  //  - inherited: On macOS and Linux, a new split terminal will use the working
+  //    directory of the parent terminal. On Windows, this behaves the same as
+  //    initial.
+  "terminal.integrated.splitCwd": "workspaceRoot",
+
+  // Automatic script injection has been disabled.
+  "terminal.integrated.shellIntegration.enabled": false,
+
   // Files
-  // ---------------------------------------------------------------------------
+  //////////////////////////////////////////////////////////////////////////////
+
   "files.associations": {
-    // Enable JSON5 syntax highlighting and auto-formatting for these files.
-    // Until VS Code adds native JSON5 support, this needs
-    // https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
-    "OWNERS": "json5",
-    ".vscode/*.json": "json5",
-    // Enable JSON auto-formatting for these files.
-    ".babelrc": "json",
-    ".eslintrc": "json",
-    ".prettierrc": "json",
-    // Enable JS auto-formatting for these files.
-    ".js": "javascript",
-    ".cjs": "javascript",
-    ".mjs": "javascript",
-    ".babelrc.js": "javascript",
-    ".eslintrc.js": "javascript",
-    ".prettierrc.js": "javascript"
+    ".devcontainer/*.json": "jsonc",
+    ".vscode/*.json": "jsonc",
+    "tsconfig.*.json": "jsonc",
+    "tsconfig.json": "jsonc",
+    ".ecrc.json": "json",
+    ".eslintrc.json": "jsonc",
+    ".prettierrc.json": "json5",
+    ".prettierrc.json5": "json5",
+    ".deepsource.toml": "toml",
+    ".renovaterc.json": "json5",
+    ".snyk": "yaml"
   },
-  // The default character set encoding to use when reading and writing files.
-  // This setting can also be configured per language.
-  "files.encoding": "utf8",
-  // The default end of line character.
-  //  - \n: LF
-  //  - \r\n: CRLF
-  //  - auto: Uses operating system specific end of line character.
-  "files.eol": "\n",
-  // When enabled, insert a final new line at the end of the file when saving
-  // it.
-  "files.insertFinalNewline": true,
-  // When enabled, will trim trailing whitespace when saving a file.
-  // Extension: EditorConfig known issue: trim_trailing_whitespace = false is
-  // not applied when user/workspace setting of files.trimTrailingWhitespace is
-  // set to true.
-  "files.trimTrailingWhitespace": false,
-  // ---------------------------------------------------------------------------
-  // Default Configuration Overrides
-  // ---------------------------------------------------------------------------
-  // Configure glob patterns for excluding files and folders. For example, the
-  // files explorer decides which files and folders to show or hide based on
-  // this setting. Read more about glob patterns [here][].
-  // [here]:https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options
-  "files.exclude": {
-    "!**/node_modules/": true,
-    ".git": false,
-    "**/.DS_Store": true
-  },
-  // Configure glob patterns for excluding files and folders in searches.
-  // Inherits all glob patterns from the `files.exclude` setting.
-  "search.exclude": {
-    "!**/node_modules": true,
-    "**/node_modules": false
-  },
-  // ---------------------------------------------------------------------------
-  // Git
-  // ---------------------------------------------------------------------------
-  // Ignores the warning when there are too many changes in a repository.
-  "git.ignoreLimitWarning": true,
-  // ---------------------------------------------------------------------------
-  // JavaScript
-  // ---------------------------------------------------------------------------
-  // Enable/disable JavaScript validation.
+
+  // JavaScript/TypeScript
+  //////////////////////////////////////////////////////////////////////////////
+
+  // Disable JS/TS validation. (These should be handled by ESLint.)
   "javascript.validate.enable": false,
   "typescript.validate.enable": false,
-  // ---------------------------------------------------------------------------
-  // Remote
-  // ---------------------------------------------------------------------------
-  // All workspace files must be excluded from being watched otherwise the
-  // problem will persist.
-  "files.watcherExclude": {
-    "**/**/*": true
-  },
-  // ---------------------------------------------------------------------------
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "javascript.preferences.autoImportFileExcludePatterns": [
+    "**/node_modules/@types/node"
+  ],
+  "typescript.preferences.autoImportFileExcludePatterns": [
+    "**/node_modules/@types/node"
+  ],
+
   // Extensions
-  // ---------------------------------------------------------------------------
-  // -------
-  // ESLint
-  // -------
-  // Whether the extension contributes a lint task to lint a whole workspace
-  // folder.
-  "eslint.lintTask.enable": true,
-  // ----------------
+  //////////////////////////////////////////////////////////////////////////////
+
   // Better Comments
-  // ----------------
+  /////////////////////////////////////////////
+
   // This setting will control whether multiline comments are styled using the
-  // annotation tags.
-  // When false, multiline comments will be presented without decoration.
+  // annotation tags. If false, multiline comments will be presented w/o decor.
   "better-comments.multilineComments": true,
-  // -------------------
-  // Code Spell Checker
-  // -------------------
-  // The Language local to use when spell checking. "en" and "en-GB" are
-  // currently supported.
-  "cSpell.language": "en",
-  // Controls the maximum number of spelling errors per document.
-  "cSpell.maxNumberOfProblems": 100,
-  // Controls the number of suggestions shown.
-  "cSpell.numSuggestions": 8,
-  // The minimum length of a word before checking it against a dictionary.
-  "cSpell.minWordLength": 4,
-  // Enable / Disable the spell checker.
-  "cSpell.enabled": true,
-  // Enable / Disable compound words like 'errormessage'.
-  "cSpell.allowCompoundWords": true,
-  // Words to be ignored and not suggested.
-  "cSpell.ignoreWords": [
-    "behaviour"
+  "better-comments.tags": [
+    {
+      "tag": "//",
+      "strikethrough": false
+    }
   ],
-  // Specify paths/files to ignore.
-  "cSpell.ignorePaths": [
-    ".git/",
-    "node_modules/"
+
+  // Dprint
+  /////////////////////////////////////////////
+
+  // "dprint.path": "~/.dprint/bin/dprint",
+
+  // EditorConfig (https://editorconfig.org/)
+  /////////////////////////////////////////////
+
+  // The following settings should be inherited from the .editorconfig file and
+  // need not be re-specified in this file: files.encoding, files.eol,
+  // files.insertFinalNewline, and files.trimTrailingWhitespace.
+  "editorconfig.generateAuto": false,
+
+  // ESLint (ESLint is a separate extension)
+  /////////////////////////////////////////////
+
+  "eslint.format.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "json",
+    "json5",
+    "jsonc",
+    "markdown",
+    "typescript",
+    "yaml"
   ],
-  // Set custom workspace dictionaries.
+  "eslint.workingDirectories": [
+    "./"
+  ],
+
+  // cSpell
+  /////////////////////////////////////////////
+
   "cSpell.customDictionaries": {
     "project-terms": {
-      // Name of dictionary (should be unique).
-      "description": "These are words for this project.",
-      // Relative to the "client" folder in the workspace.
-      "path": "./project-terms.txt",
-      // Add Word to Workspace Dictionary will add words to this file.
+      "name": "project-terms",
+      "path": "${workspaceRoot}/project-terms.txt",
+      "description": "Terms used in this project",
       "addWords": true
     }
-  },
-  // -------
-  // Liquid
-  // -------
-  // Controls whether formatting is enabled or disabled
-  "liquid.format.enable": true,
-  // -------
-  // Remote
-  // -------
-  "remote.SSH.defaultForwardedPorts": [
-    {
-      "remotePort": 2222
-    }
-  ]
+  }
 }
+
