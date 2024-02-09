@@ -32,7 +32,7 @@ plugins:
 
 compress_html:
   clippings: [div]
-  comments: ["<!-- ", " -->"]
+  comments: ['<!-- ', ' -->']
   endings: [li, dt, dd, p, thead, tbody, tr, td, th]
   profile: true
   blanklines: true
