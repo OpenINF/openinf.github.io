@@ -11,6 +11,12 @@
   "editor.codeLens": true,
   "editor.formatOnSave": true,
 
+  // Auto-fix JS files with ESLint using our custom settings. Needs
+  // https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
   "json.maxItemsComputed": 10000,
 
   // Insert spaces when pressing `Tab`. This setting is overridden based on the
@@ -129,6 +135,7 @@
     }
   },
 
+
   // The default terminal profile on Windows.
   "terminal.integrated.defaultProfile.windows": "pwsh",
 
@@ -152,6 +159,7 @@
   // Automatic script injection has been disabled.
   "terminal.integrated.shellIntegration.enabled": false,
 
+  // ---------------------------------------------------------------------------
   // Files
   //////////////////////////////////////////////////////////////////////////////
 
@@ -257,6 +265,8 @@
 
   // ESLint (ESLint is a separate extension)
   /////////////////////////////////////////////
+
+
 
   // Whether the extension contributes a lint task to lint a whole workspace
   // folder.
