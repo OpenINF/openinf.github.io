@@ -20,7 +20,8 @@ const visit = require('unist-util-visit');
 module.exports = rule('remark-lint:no-chrome-scheme', noChromeScheme);
 
 /* eslint-disable-next-line */
-const reason = 'No `chrome://` scheme. Use `about://` instead. See https://web.dev/browser-flags/#inclusive-documentation for background.';
+const reason =
+    'No `chrome://` scheme. Use `about://` instead. See https://web.dev/browser-flags/#inclusive-documentation for background.';
 
 /**
  * Walk the AST for the markdown file and find any occurrences of `chrome://`.
