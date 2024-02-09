@@ -1,10 +1,10 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options,
 // see documentation located at the following URL:
-// https://github.com/OpenINF/docker-fisher/tree/main/library-scripts/docs
+// https://github.com/OpenINF/docker-fisher
 {
-  "name": "Jekyll (OpenINF Community)",
+  "name": "Debianzsz Fisher (OpenINF Community)",
   "build": {
-    "dockerfile": "Dockerfile"
+    "dockerfile": "openinf/debianzsz-fisher:latest"
   },
   "runArgs": [
     "--cap-add=SYS_ADMIN",

@@ -17,6 +17,10 @@
     "source.fixAll.eslint": "explicit"
   },
 
+  "[json5]": {
+    "editor.formatOnSave": true
+  },
+
   "json.maxItemsComputed": 10000,
 
   // Insert spaces when pressing `Tab`. This setting is overridden based on the
