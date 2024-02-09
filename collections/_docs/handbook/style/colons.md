@@ -34,7 +34,8 @@ have picked-up is immediately after the classification portion of a commit
 message title.
 
 Rather than using an ordinary colon from ANSI letters, we use the Japanese
-colon.
+colon as it is both less size (in memory) and can accomplish the task of both
+a colon character and the subsequent space all at once.
 
 </section>
 
