@@ -18,8 +18,8 @@ const rule = require('unified-lint-rule');
 const visit = require('unist-util-visit');
 
 module.exports = rule(
-    'remark-lint:no-unescaped-template-tags',
-    noUnescapedTemplateTags,
+  'remark-lint:no-unescaped-template-tags',
+  noUnescapedTemplateTags
 );
 
 const reason = `
@@ -48,9 +48,11 @@ function noUnescapedTemplateTags(tree, file) {
       // raw %}{% verbatim %} — https://regexr.com/4iplj It uses a negative
       // lookahead to find }} that are not followed by {% endverbatim %}{%
       // endraw %} — https://regexr.com/4ipk6
-      if (line.match(
-              /(?<!{%\s*raw\s*%}\s*{%\s*verbatim\s*%}\s*){{|}}(?!\s*{%\s*endverbatim\s*%}\s*{%\s*endraw\s*%})/g,
-              )) {
+      if (
+        line.match(
+          /(?<!{%\s*raw\s*%}\s*{%\s*verbatim\s*%}\s*){{|}}(?!\s*{%\s*endverbatim\s*%}\s*{%\s*endraw\s*%})/g
+        )
+      ) {
         return file.message(reason, node);
       }
     }
