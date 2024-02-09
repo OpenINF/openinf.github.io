@@ -1,3 +1,17 @@
+<!--*- coding: utf-8 -*- esm -*- /.remarkrc.mjs ********************************
+
+  This source file is part of the OpenINF, Infuse.js, webServagility collection.
+
+********************************************************************************
+
+  Concise description not to exceed one line nor contain terminal punctuation
+
+  Optional synopsis of the purpose and contents of this source code file in
+  complete sentences. Be sure to update this header as necessary, especially in
+  the event that its contents become inconsistent with the source code.
+
+*****************************************************************************-->
+
 // -----------------------------------------------------------------------------
 // Requirements
 // -----------------------------------------------------------------------------
