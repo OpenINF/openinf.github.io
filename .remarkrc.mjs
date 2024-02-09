@@ -1,16 +1,12 @@
 /**-*- coding: utf-8 -*- esm -*- /.remarkrc.mjs ********************************
 
-  This source file is part of the OpenINF, Infuse.js, webServagility collection.
+  This file is amongst the sources of OpenINF, Infuse.js, and webServagility
 
 ********************************************************************************
 
-  Concise description not to exceed one line nor contain terminal punctuation
+  The main Remark Lint configuration file for lint rule & preset initialization
 
-  Optional synopsis of the purpose and contents of this source code file in
-  complete sentences. Be sure to update this header as necessary, especially in
-  the event that its contents become inconsistent with the source code.
-
-*****************************************************************************-->
+*******************************************************************************/
 
 // -----------------------------------------------------------------------------
 // Requirements
