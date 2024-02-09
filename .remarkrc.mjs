@@ -1,4 +1,4 @@
-<!--*- coding: utf-8 -*- esm -*- /.remarkrc.mjs ********************************
+/**-*- coding: utf-8 -*- esm -*- /.remarkrc.mjs ********************************
 
   This source file is part of the OpenINF, Infuse.js, webServagility collection.
 
