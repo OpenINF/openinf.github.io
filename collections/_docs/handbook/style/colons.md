@@ -30,7 +30,7 @@ stand alone as a complete sentence.
 
 We at OpenINF are always interested in finding ways to optimize things and
 be more efficient. One particular use-case of [the Japanese colon][] that we
-have picked- up is immediately after the classification portion of a commit
+have picked-up is immediately after the classification portion of a commit
 message title.
 
 Rather than using an ordinary colon from ANSI letters, we use the Japanese
