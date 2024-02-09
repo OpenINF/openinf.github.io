@@ -1,7 +1,24 @@
-import { createRequire } from 'node:module';
-import { unified } from 'unified';
+/**-*- coding: utf-8 -*- esm -*- /.remarkrc.mjs ********************************
 
-const require = createRequire(import.meta.url);
+<<<<<<< HEAD
+  This file is amongst the sources of OpenINF, Infuse.js, and webServagility
+=======
+  This file is amongst the sources of OpenINF, Infuse.js, and webServagility.
+>>>>>>> 756a4cbc54cc892ec1b1cfec4ba5331eda37a833
+
+********************************************************************************
+
+  The main Remark Lint configuration file for lint rule & preset initialization
+
+*******************************************************************************/
+
+// -----------------------------------------------------------------------------
+// Requirements
+// -----------------------------------------------------------------------------
+
+import { readFileSync as fsReadFileSync } from 'node:fs';
+import strip from 'strip-comments';
+import { unified } from 'unified';
 
 const infoStrings = [
   'ada',
@@ -12,11 +29,14 @@ const infoStrings = [
   'console',
   'cpp',
   'csharp',
+  'css',
   'diff',
+  'dir',
   'dts',
   'elixir',
   'fortran',
   'fountain',
+  'gitattributes',
   'golang',
   'html',
   'html+jinja',
@@ -35,45 +55,43 @@ const infoStrings = [
   'r',
   'ruby',
   'rust',
+  'scheme',
   'tex',
   'text',
   'typescript',
   'yaml',
 ];
 
-var fs = require('node:fs');
-var strip = require('strip-comments');
+const projectTerms = strip(fsReadFileSync('./project-terms.txt', 'utf8'));
 
-var projectTerms = strip(fs.readFileSync('./project-terms.txt', 'utf8'));
-
-var naturalLanguage = unified().use([
-  await import('retext-english'),
-  await import('retext-syntax-urls'),
-  await import('retext-equality'),
-  await import('retext-passive'),
-  await import('retext-profanities'),
+const naturalLanguage = unified().use([
+  [await import('retext-english'), {}],
+  [await import('retext-syntax-urls'), {}],
+  [await import('retext-passive'), {}],
   [await import('retext-readability'), { age: 21, minWords: 8 }],
-  await import('retext-repeated-words'),
+  [await import('retext-repeated-words'), {}],
   [
     await import('retext-simplify'),
     { ignore: ['function', 'interface', 'maintain'] },
   ],
   [await import('retext-sentence-spacing'), { preferred: 1 }],
-  await import('retext-syntax-mentions'),
+  [await import('retext-syntax-mentions'), {}],
   [
     await import('retext-spell'),
     { dictionary: await import('dictionary-en'), personal: projectTerms },
   ],
-  await import('retext-syntax-urls'),
+  [await import('retext-syntax-urls')],
 ]);
 
 export default {
   plugins: [
     await import('remark-lint'),
-    await import('remark-preset-lint-consistent'),
+    ['remark-gfm'],
+    ['remark-footnotes'],
+    ['remark-frontmatter'],
+    [await import('remark-preset-lint-consistent'), {}],
     // Leave this preset at the top so that it can be overridden.
-    await import('remark-preset-lint-recommended'),
-    [await import('remark-lint-blockquote-indentation'), 2],
+    [await import('remark-preset-lint-recommended'), {}],
     [
       await import('remark-lint-checkbox-character-style'),
       {
@@ -81,27 +99,25 @@ export default {
         unchecked: ' ',
       },
     ],
-    await import('remark-lint-checkbox-content-indent'),
-    [await import('remark-lint-code-block-style'), 'fenced'],
-    [await import('remark-lint-fenced-code-flag'), { flags: infoStrings }],
-    await import('remark-lint-definition-spacing'),
-    await import('remark-frontmatter'),
+    [await import('remark-lint-checkbox-content-indent')],
 
     // Remark Lint Style Guide preset and overrides.
-    await import('remark-preset-lint-markdown-style-guide'),
-    ['lint-no-file-name-mixed-case', false],
-    ['lint-no-heading-punctuation', ':.,;'],
+    [await import('remark-preset-lint-markdown-style-guide')],
+    ['remark-lint-no-file-name-consecutive-dashes', false],
+    ['remark-lint-fenced-code-flag', { flags: infoStrings }],
+    ['remark-lint-no-heading-punctuation', ':.,;'],
+    ['remark-lint-no-file-name-mixed-case', false],
+    ['remark-lint-no-file-name-irregular-characters', false],
+    ['remark-lint-first-heading-level', 2],
 
     // Third-party plugins.
-    await import('remark-validate-links'),
-    await import('remark-lint-maximum-line-length'),
-    // await import("remark-lint-are-links-valid"),
-    // await import("@sfdocs-internal/remark-lint-no-dead-url"),
-    await import('remark-lint-no-duplicate-headings-in-section'),
+    [await import('remark-validate-links'), {}],
+    [await import('remark-lint-maximum-line-length'), {}],
+    [await import('remark-lint-no-duplicate-headings-in-section'), {}],
     [await import('remark-retext'), naturalLanguage],
 
     // Disables all rules that conflict with Prettier. Leave this preset at the
     // bottom so that it can't be overridden.
-    await import('remark-preset-prettier'),
+    [await import('remark-preset-prettier'), {}],
   ],
 };
