@@ -59,8 +59,8 @@ class Traveler {
     if (this.config.indexOf(value) >= 0 && value === this.prev) {
       if (value === '.') {
         this.file.message(
-          `Should not repeat "${value}". Use ellipsis "…" character instead.`,
-          node,
+            `Should not repeat "${value}". Use ellipsis "…" character instead.`,
+            node,
         );
       } else {
         this.file.message(`Should not repeat "${value}"`, node);
@@ -75,19 +75,18 @@ class Traveler {
 function processor(tree, file, config = punctuations) {
   function callback(list) {
     const traveler = new Traveler(file, config);
-    list.forEach((node) => {
-      traveler.process(node);
-    });
+    list.forEach((node) => { traveler.process(node); });
     traveler.end();
   }
   const inlineCodeReplaced = map(tree, (node) => {
-    if (node.type !== 'inlineCode') return node;
+    if (node.type !== 'inlineCode')
+      return node;
     /**
      * Change the value of code, so that lint rule won't throw error for
      * anything inside. However, don't change the position info, so that warning
      * still shows the correct position.
      */
-    return Object.assign({}, node, {value: '\u200b'});
+    return Object.assign({}, node, {value : '\u200b'});
   });
   toList(inlineCodeReplaced, 'paragraph', callback);
   toList(inlineCodeReplaced, 'heading', callback);

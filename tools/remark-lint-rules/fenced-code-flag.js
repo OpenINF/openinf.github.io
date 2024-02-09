@@ -39,13 +39,15 @@
  *   alpha();
  *   ```
  *
- * @example {"name": "invalid.md", "setting": {"allowEmpty": false}, "label": "input"}
+ * @example {"name": "invalid.md", "setting": {"allowEmpty": false}, "label":
+ * "input"}
  *
  *   ```
  *   alpha();
  *   ```
  *
- * @example {"name": "invalid.md", "setting": {"allowEmpty": false}, "label": "output"}
+ * @example {"name": "invalid.md", "setting": {"allowEmpty": false}, "label":
+ * "output"}
  *
  *   1:1-3:4: Missing code-language flag
  *
@@ -96,9 +98,9 @@ const end = position.end;
 
 const fence = /^ {0,3}([~`])\1{2,}/;
 const reasonInvalid =
-  'Invalid code-language flag. See https://web.dev/handbook/markup-code/#code-blocks';
+    'Invalid code-language flag. See https://web.dev/handbook/markup-code/#code-blocks';
 const reasonMissing =
-  'Missing code-language flag. See https://web.dev/handbook/markup-code/#code-blocks';
+    'Missing code-language flag. See https://web.dev/handbook/markup-code/#code-blocks';
 
 /* eslint-disable require-jsdoc */
 

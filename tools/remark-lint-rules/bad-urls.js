@@ -56,13 +56,12 @@ function checkURL(tree, file) {
     // If the URL starts with web.dev, yell about it, because those links should
     // be relative, not absolute. We also must use nodeUrl here instead of the
     // parsed URL object since using the latter will throw for relative links.
-    if (
-      nodeUrl.startsWith('https://web.dev') &&
-      !excludedFromLinkChecks.includes(markdownFile)
-    ) {
+    if (nodeUrl.startsWith('https://web.dev') &&
+        !excludedFromLinkChecks.includes(markdownFile)) {
       const relative = parsed.pathname + parsed.hash;
       const absolute = parsed.href;
-      const reason = `web.dev links must be relative (e.g., use ${relative} instead of ${absolute}).`;
+      const reason = `web.dev links must be relative (e.g., use ${
+          relative} instead of ${absolute}).`;
       file.message(reason, node);
     }
 
@@ -70,13 +69,12 @@ function checkURL(tree, file) {
     // (e.g., en-US), warn to remove the localization part of the URL.
     // We leave locale in /blog/ URLs since they have no unlocalized redirects
     // set up on MDN.
-    if (
-      parsed.hostname === 'developer.mozilla.org' &&
-      parsed.pathname.indexOf('/blog/') < 0 &&
-      locale.test(parsed.pathname) === true
-    ) {
+    if (parsed.hostname === 'developer.mozilla.org' &&
+        parsed.pathname.indexOf('/blog/') < 0 &&
+        locale.test(parsed.pathname) === true) {
       const [matchedLocale] = parsed.pathname.match(locale);
-      const reason = `An MDN link contains a locale (${matchedLocale}). Please remove the locale from the link.`;
+      const reason = `An MDN link contains a locale (${
+          matchedLocale}). Please remove the locale from the link.`;
 
       file.message(reason, node);
     }
