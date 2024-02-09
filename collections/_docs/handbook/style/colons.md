@@ -28,14 +28,14 @@ stand alone as a complete sentence.
 
 ## Proper Etiquette for Use of Japanese Colon
 
-We at OpenINF are always interested in finding ways to optimize things and
-be more efficient. One particular use-case of [the Japanese colon][] that we
-have picked-up is immediately after the classification portion of a commit
-message title.
+We at OpenINF are always interested in finding ways to optimize things and be
+more efficient. One particular use-case of [the Japanese colon][] that we have
+picked-up is immediately after the classification portion of a commit message
+title.
 
-Rather than using an ordinary colon from ANSI letters, we use the Japanese
-colon as it is both less size (in memory) and can accomplish the task of both
-a colon character and the subsequent space all at once.
+Rather than using an ordinary colon from ANSI letters, we use the Japanese colon
+as it is both less size (in memory) and can accomplish the task of both a colon
+character and the subsequent space all at once.
 
 </section>
 
