@@ -21,7 +21,7 @@ module.exports = rule('remark-lint:no-smart-quotes', noSmartQuotes);
 
 /* eslint-disable-next-line */
 const reason =
-    'No smart quotes or apostrophes. Use a straight quote or apostrophe instead.';
+  'No smart quotes or apostrophes. Use a straight quote or apostrophe instead.';
 
 /**
  * Walk the AST for the markdown file and find any smart quotes or
@@ -30,7 +30,7 @@ const reason =
  * @param {*} file The markdown file.
  */
 function noSmartQuotes(tree, file) {
-  visit(tree, [ 'code', 'inlineCode' ], visitor);
+  visit(tree, ['code', 'inlineCode'], visitor);
 
   /* eslint-disable require-jsdoc */
   function visitor(node) {

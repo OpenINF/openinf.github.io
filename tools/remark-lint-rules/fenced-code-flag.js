@@ -98,9 +98,9 @@ const end = position.end;
 
 const fence = /^ {0,3}([~`])\1{2,}/;
 const reasonInvalid =
-    'Invalid code-language flag. See https://web.dev/handbook/markup-code/#code-blocks';
+  'Invalid code-language flag. See https://web.dev/handbook/markup-code/#code-blocks';
 const reasonMissing =
-    'Missing code-language flag. See https://web.dev/handbook/markup-code/#code-blocks';
+  'Missing code-language flag. See https://web.dev/handbook/markup-code/#code-blocks';
 
 /* eslint-disable require-jsdoc */
 
