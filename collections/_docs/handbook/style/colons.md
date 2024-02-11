@@ -43,7 +43,7 @@ character and the subsequent space all at once.
 
 ## Bold and Italic Text Preceding Colons
 
-When non-italic (_roman_) text that precedes a colon is bold, the colon should
+When non-italic (also known as _Roman_) text that precedes a colon is bold, the colon should
 not be made bold, italic, or otherwise (color-stylized, etc.).
 
 </section>
