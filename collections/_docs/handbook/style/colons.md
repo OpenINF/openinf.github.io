@@ -33,7 +33,7 @@ more efficient. One particular use-case of [the Japanese colon][] that we have
 picked-up is immediately after the classification portion of a commit message
 title.
 
-Rather than using an ordinary colon from ANSI letters, we use the Japanese colon
+Rather than using an ordinary colon from the ANSI or Unicode character sets, we use the Japanese colon
 as it is both less size (in memory) and can accomplish the task of both a colon
 character and the subsequent space all at once.
 
