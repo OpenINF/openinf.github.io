@@ -9,7 +9,7 @@ original_title: Colons | Google developer documentation style guide
 
 ## Introductory Phrase Preceding Colon
 
-When a colon introduces a list, the text that precedes the colon must be able to
+When a colon introduces a list, the text that precedes the colon should ordinarily be able to
 stand alone as a complete sentence.
 
 <strong>Examples</strong>
