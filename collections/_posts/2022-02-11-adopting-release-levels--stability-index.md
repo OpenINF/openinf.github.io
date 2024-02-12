@@ -2,9 +2,9 @@
 title: Adopting Release Levels&#xFF1A;Stability Index
 ---
 
-On each package project landing page (i.e., the Readme file, the **npm** badges
-indicating the latest published version will identify their intended release
-level, which roughly equates to a value in the stability index.
+On each package project landing page (i.e., the Readme file, the [**`npm`**][]
+badges indicating the latest published version will identify their intended
+release level, which roughly equates to a value in the stability index.
 
 <!-- At the "Preview" release level, one can expect badges to be orange-coloured. Orange for &ldquo;orange
 ya glad you're here&rdquo;&mdash;previewing a future _potentially_ LTS-supported package release. -->
@@ -42,3 +42,11 @@ used. Bugs or behavior changes may surprise users when Experimental API
 modifications occur. An Experimental feature may require a command-line flag or
 environment variable setting to enable it to help avoid surprises. Experimental
 features may also emit a warning.
+
+<br /><br />
+  
+<!-- LINK LABEL DEFINITIONS - START -->
+
+[**`npm`**]: https://docs.npmjs.com/cli/using-npm/registry
+
+<!-- LINK LABEL DEFINITIONS - END -->
