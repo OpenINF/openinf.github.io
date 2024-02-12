@@ -1,4 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 81 21">
+  <title>The Valid HTML5 Markup Web Badge (As Verified by W3C Validator)</title>
+  <desc>The “valid” web page &amp; other web standard badges are used on documents that successfully
+    passed validation for a specific technology. The W3C validation services image is used as a link
+    to re-validate the document to show readers that one has taken some care to create an
+    interoperable Web page.</desc>
   <defs>
     <style>.cls-1{fill:#16161d;}.cls-2{fill:#e2e2e9;}.cls-3{fill:#40f034;}</style>
   </defs>
