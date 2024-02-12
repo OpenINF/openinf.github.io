@@ -1,5 +1,6 @@
 ---
 title: Adopting Release Levels&#xFF1A;Stability Index
+published: false
 ---
 
 On each package project landing page (i.e., the Readme file, the [**npm**][]
@@ -9,7 +10,7 @@ release level, which roughly equates to a value in the stability index.
 <!-- At the "Preview" release level, one can expect badges to be orange-coloured. Orange for &ldquo;orange
 ya glad you're here&rdquo;&mdash;previewing a future _potentially_ LTS-supported package release. -->
 
-### Stability Index
+## Stability Index
 
 Throughout the documentation are indications of a section's stability. Some APIs
 are so proven and relied upon that they will likely stay the same, while others
@@ -43,10 +44,13 @@ modifications occur. An Experimental feature may require a command-line flag or
 environment variable setting to enable it to help avoid surprises. Experimental
 features may also emit a warning.
 
+_Portion above cross-posted; derived of model: [Node.js Core Stability index][]._
+
 <br /><br />
 
 <!-- LINK LABEL DEFINITIONS - START -->
 
 [**npm**]: https://docs.npmjs.com/cli/using-npm/registry
+[Node.js Core Stability index]: https://nodejs.org/api/documentation.html#stability-index
 
 <!-- LINK LABEL DEFINITIONS - END -->
