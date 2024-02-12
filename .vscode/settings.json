@@ -34,7 +34,7 @@
 
   // ---------------------------------------------------------------------------
 
-  "[javascript][json][json5][jsonc][typescript][yaml]": {
+  "[javascript][json][json5][typescript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit"
@@ -61,9 +61,18 @@
       "source.fixAll.markdownlint": "explicit"
     },
     "editor.formatOnSave": true,
-    // "editor.defaultFormatter": "esbenp.prettier-vscode"
-    "editor.defaultFormatter": "unifiedjs.vscode-remark"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    // "editor.defaultFormatter": "unifiedjs.vscode-remark"
     // "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+
+  "[svg]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
   // Render vertical rulers after a certain number of monospace characters.
@@ -270,8 +279,6 @@
   // ESLint (ESLint is a separate extension)
   /////////////////////////////////////////////
 
-
-
   // Whether the extension contributes a lint task to lint a whole workspace
   // folder.
   "eslint.lintTask.enable": true,
@@ -282,8 +289,7 @@
     "json5",
     "jsonc",
     "markdown",
-    "typescript",
-    "yaml"
+    "typescript"
   ],
   "eslint.workingDirectories": [
     "./"
