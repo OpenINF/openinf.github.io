@@ -2,7 +2,7 @@
 title: Adopting Release Levels&#xFF1A;Stability Index
 ---
 
-On each package project landing page (i.e., the Readme file, the [**`npm`**][]
+On each package project landing page (i.e., the Readme file, the [**npm**][]
 badges indicating the latest published version will identify their intended
 release level, which roughly equates to a value in the stability index.
 
@@ -47,6 +47,6 @@ features may also emit a warning.
 
 <!-- LINK LABEL DEFINITIONS - START -->
 
-[**`npm`**]: https://docs.npmjs.com/cli/using-npm/registry
+[**npm**]: https://docs.npmjs.com/cli/using-npm/registry
 
 <!-- LINK LABEL DEFINITIONS - END -->
