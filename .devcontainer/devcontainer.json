@@ -43,6 +43,8 @@
         "Gruntfuggly.todo-tree",
         // https://marketplace.visualstudio.com/items?itemName=KatjanaKosic.vscode-json5
         "KatjanaKosic.vscode-json5",
+        // https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml
+        "redhat.vscode-xml",
         // https://marketplace.visualstudio.com/items?itemName=sissel.shopify-liquid
         "sissel.shopify-liquid",
         // https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
