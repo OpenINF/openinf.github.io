@@ -9,8 +9,8 @@ original_title: Colons | Google developer documentation style guide
 
 ## Introductory Phrase Preceding Colon
 
-When a colon introduces a list, the text that precedes the colon should ordinarily be able to
-stand alone as a complete sentence.
+When a colon introduces a list, the text that precedes the colon should
+ordinarily be able to stand alone as a complete sentence.
 
 <strong>Examples</strong>
 
@@ -33,9 +33,9 @@ more efficient. One particular use-case of [the Japanese colon][] that we have
 picked-up is immediately after the classification portion of a commit message
 title.
 
-Rather than using an ordinary colon from the ANSI or Unicode character sets, we use the Japanese colon
-as it is both less size (in memory) and can accomplish the task of both a colon
-character and the subsequent space all at once.
+Rather than using an ordinary colon from the ANSI or Unicode character sets, we
+use the Japanese colon as it is both less size (in memory) and can accomplish
+the task of both a colon character and the subsequent space all at once.
 
 </section>
 
@@ -43,8 +43,8 @@ character and the subsequent space all at once.
 
 ## Bold and Italic Text Preceding Colons
 
-When non-italic (also known as _Roman_) text that precedes a colon is bold, the colon should
-not be made bold, italic, or otherwise (color-stylized, etc.).
+When non-italic (also known as _Roman_) text that precedes a colon is bold, the
+colon should not be made bold, italic, or otherwise (color-stylized, etc.).
 
 </section>
 
