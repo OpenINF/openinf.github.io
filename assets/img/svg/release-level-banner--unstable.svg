@@ -11,5 +11,4 @@
   <title>Release Level Banner: Unstable</title>
   <desc>A release level banner indicating an experimental software component.</desc>
   <path d="M0 0h816v40H0z" style="fill:#fe7d37;fill-opacity:1" />
-  <text>This code is considered unstable</text>
 </svg>
