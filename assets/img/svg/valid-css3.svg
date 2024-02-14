@@ -1,3 +1,12 @@
+<!--*- coding: utf-8 -*- svg -*- assets/img/svg/valid-css3.svg *****************
+
+  This source file is part of OpenINF
+
+********************************************************************************
+
+  The valid CSS3 web badge
+
+*****************************************************************************-->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 81 21">
   <title>The Valid CSS3 Markup Web Badge (As Verified by W3C Validator)</title>
   <desc>The “valid” web page &amp; other web standard badges are used on documents that successfully
