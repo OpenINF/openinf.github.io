@@ -96,6 +96,6 @@ For information about when it's better to use colons than dashes, see
 [list introductions]: ./lists.md#intros
 [code-sample introductions]: ./code-samples.md#intros
 [Dashes]: ./dashes.md#colons
-[the Japanese colon]: https://en.wikipedia.org/wiki/Japanese_punctuation#Colon
+[the Japanese colon]: https://wikipedia.org/wiki/Japanese_punctuation#Colon
 
 <!-- LINK DEFINITION LABELS - END -->
