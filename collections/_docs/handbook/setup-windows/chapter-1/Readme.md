@@ -155,9 +155,9 @@ makeappx.exe unbundle /p .\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundl
 
 1. Run this command:
 
-    **MakeAppx unbundle /p**
-    _Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle_ **/d**
-    _.\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe_
+   **MakeAppx unbundle /p**
+   _Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle_ **/d**
+   _.\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe_
 
 2. The unpacked bundle has the same structure as the installed package bundle.
 
@@ -169,7 +169,7 @@ makeappx.exe unbundle /p .\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundl
 
 1. Run this command:
 
-    **MakeAppx unpack /p** _file_ **/d** _output_directory_
+   **MakeAppx unpack /p** _file_ **/d** _output_directory_
 
 2. The unpacked package has the same structure as the installed package.
 
