@@ -38,7 +38,7 @@
     "@babel/plugin-syntax-top-level-await": "7.14.5",
     "@babel/preset-env": "7.23.9",
     "@yarnpkg/shell": "4.0.0",
-    "cspell": "8.4.0",
+    "cspell": "8.4.1",
     "dictionary-en": "4.0.0",
     "editorconfig-checker": "5.1.4",
     "eslint": "8.56.0",
