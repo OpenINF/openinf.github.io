@@ -32,7 +32,7 @@ plugins:
 
 compress_html:
   clippings: all
-  comments: ["<!-- ", " -->"]
+  comments: ['<!-- ', ' -->']
   endings: all
   ignore:
     envs: [local]
