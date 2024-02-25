@@ -17,6 +17,23 @@
   {% if page.custom_css %}{% for stylesheet_hotlink in page.custom_css -%}
     <link rel="stylesheet" href="{{ stylesheet_hotlink }}">
   {%- endfor %}{% endif %}
-  <link rel="canonical" href="." />
-  <title>{{ page_title }}</title>
+  <meta name="format-detection" content="telephone=no">
+  {% if post.status == 'unpublished' or page.status == 'unpublished' %}
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  {% endif %}
+  <title>{% if page.permalink == '/' %}{{ site.title }}{% else %}{{ page.title }} &middot; {{ site.title }}{% endif %}</title>
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+  {% if page.permalink == '/' %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      {# TODO(DerekNonGeneric, #578): perhaps create a dedicated page (other attribution as well) #}
+      "license": "https://github.com/OpenINF/openinf.github.io/tree/live/LICENSE",
+      "about": {
+        "description": "{{ site.description }}"
+      }
+    }
+  </script>
+  {% endif %}
 </head>
