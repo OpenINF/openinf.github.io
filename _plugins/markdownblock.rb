@@ -6,7 +6,8 @@ module Jekyll
     end
     def render(context)
       content = super
-      "#{Kramdown::Document.new(content).to_html}"
+
+      String.new(Kramdown::Document.new(content).to_html).to_s.chomp
     end
   end
 end
