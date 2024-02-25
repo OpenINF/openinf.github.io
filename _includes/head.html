@@ -15,7 +15,7 @@
     {%- include assets/css/main.css -%}
     {% if page.custom_css | where page.custom_css, empty %}{% for name in page.custom_css -%}
       {%- capture styles -%}
-        {%- include assets/scss/{{name | append: ".scss"}} %}
+        {%- include assets/scss/{{name | append: ".scss"}} -%}
       {%- endcapture -%}
       {{- styles | scssify -}}
     {%- endfor %}{% endif %}
