@@ -1,4 +1,4 @@
-module Jekyll #:nodoc: all
+module Jekyll # :nodoc: all
   class MarkdownBlock < Liquid::Block
     def initialize(tag_name, text, tokens)
       super
