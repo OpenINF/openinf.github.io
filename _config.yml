@@ -40,7 +40,7 @@ compress_html:
   profile: true
   startings: [html, head, body]
 
-# Document collections.
+# All collections.
 collections_dir: collections
 
 collections:
