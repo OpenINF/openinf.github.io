@@ -59,6 +59,7 @@ defaults:
       type: pages
     values:
       layout: compress
+      locale: en
   - scope:
       path: _layouts
       type: pages

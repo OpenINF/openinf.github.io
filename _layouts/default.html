@@ -3,7 +3,7 @@ layout: compress
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html {% if page.locale.is_rtl %}dir="rtl" lang="ar"{% else %}dir="ltr" lang="{{ page.locale }}"{% endif %}>
 {%- include head.html -%}
 
 {%- assign classes = page.body_classes | join: " " | where: 'page.body_classes', empty -%}
