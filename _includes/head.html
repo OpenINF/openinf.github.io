@@ -13,13 +13,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style media="screen">
     {%- include assets/css/main.css -%}
-    {% if page.custom_css | where page.custom_css, empty %}{% for name in page.custom_css -%}
-      {%- capture styles -%}
-        {%- include_relative assets/scss/{{name | append: ".scss"}} -%}
-      {%- endcapture -%}
-      {{- styles | scssify -}}
-    {%- endfor %}{% endif %}
   </style>
+  {% if page.custom_css %}{% for stylesheet_hotlink in page.custom_css -%}
+    <link rel="stylesheet" href="{{ stylesheet_hotlink }}">
+  {%- endfor %}{% endif %}
   <link rel="canonical" href="." />
   <title>{{ page_title }}</title>
 </head>
