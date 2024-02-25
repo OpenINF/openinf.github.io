@@ -14,9 +14,8 @@
   <style media="screen">
     {%- include assets/css/main.css -%}
     {% if page.custom_css | where page.custom_css, empty %}{% for name in page.custom_css -%}
-      {%- capture includes_filesubpath -%}assets/scss/{{name | append: ".scss"}}{%- endcapture -%}
       {%- capture styles -%}
-        {%- include includes_filesubpath -%}
+        {%- include_relative assets/scss/{{name | append: ".scss"}} -%}
       {%- endcapture -%}
       {{- styles | scssify -}}
     {%- endfor %}{% endif %}
