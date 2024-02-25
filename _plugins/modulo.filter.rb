@@ -5,7 +5,7 @@
 #
 # That's about it.
 
-module Jekyll
+module Jekyll #:nodoc: all
   module ModuloFilter
     # Returns the modulo of the input based on the supplied modulus
     # Called 'mod' to avoid conflict with newer Liquid's 'modulo' filter
