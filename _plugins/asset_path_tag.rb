@@ -1,58 +1,56 @@
-# frozen_string_literal: true
+<<~aid*- coding: utf-8 -*- ruby -*- _plugins/asset_path_tag.rb *****************
 
-# rubocop: disable Metrics/LineLength
+  A Jekyll plugin to output a relative URL for assets based on the post or page
 
-# Title: Asset path tag for Jekyll
-# Authors:
-#     Sam Rayner http://samrayner.com
-#     Otto Urpelainen http://koti.kapsi.fi/oturpe/projects/
-#
-# Description: Output a relative URL for assets based on the post or page
-#
-# Syntax
-#    {% asset_path filename post_id %}
-#    {% asset_path "filename with whitespace" post_id %}
-#
-# Examples:
-# {% asset_path kitten.png %} on post 2013-01-01-post-title
-# {% asset_path pirate.mov %} on page page-title
-# {% asset_path document.pdf /2012/05/25/another-post-title %}
-# {% asset_path "document with spaces in name.pdf" /2012/05/25/another-post-title %}
-# {% asset_path image.jpg /my_collection/document_in_collection %}
-#
-# Output:
-# /assets/posts/post-title/kitten.png
-# /assets/page-title/pirate.mov
-# /assets/posts/another-post-title/document.pdf
-# /assets/posts/another-post-title/document with spaces in name.pdf
-# /assets/my_collection/document_in_collection/image.jpg
-#
-# Looping example using a variable for the pathname:
-#
-# File _data/image.csv contains:
-#   file
-#   image_one.png
-#   image_two.png
-#
-# {% for image in site.data.images %}{% asset_path {{ image.file }} %}{% endfor %} on post 2015-03-21-post-title
-#
-# Output:
-# /assets/posts/post-title/image_one.png
-# /assets/posts/post-title/image_two.png
-#
-# Looping example over posts:
-#
-# Site contains posts:
-#   post-title
-#   another-post-title
-#
-# {% for post in site.posts %}{% asset_path cover.jpg {{post.id}} %}{% endfor %} on index.html
-#
-# Output:
-# /assets/posts/post-title/cover.jpg
-# /assets/posts/another-post-title/cover.jpg
+  MIT License copyright original author(s); minimally adapted for passing strict
+  OpenINF CQ checks; derivative of plugin titled “Asset path tag for Jekyll”;
+  ethically sourced, originally from:
+  https://github.com/samrayner/jekyll-asset-path-plugin/blob/master/asset_path_tag.rb
 
-# rubocop: enable Metrics/LineLength
+Syntax:
+   {% asset_path filename post_id %}
+   {% asset_path "filename with whitespace" post_id %}
+
+Examples:
+{% asset_path kitten.png %} on post 2013-01-01-post-title
+{% asset_path pirate.mov %} on page page-title
+{% asset_path document.pdf /2012/05/25/another-post-title %}
+{% asset_path "document with spaces in name.pdf" /2012/05/25/another-post-title %}
+{% asset_path image.jpg /my_collection/document_in_collection %}
+
+Output:
+/assets/posts/post-title/kitten.png
+/assets/page-title/pirate.mov
+/assets/posts/another-post-title/document.pdf
+/assets/posts/another-post-title/document with spaces in name.pdf
+/assets/my_collection/document_in_collection/image.jpg
+
+Looping example using a variable for the pathname:
+
+File _data/image.csv contains:
+  file
+  image_one.png
+  image_two.png
+
+{% for image in site.data.images %}{% asset_path {{ image.file }} %}{% endfor %} on post 2015-03-21-post-title
+
+Output:
+/assets/posts/post-title/image_one.png
+/assets/posts/post-title/image_two.png
+
+Looping example over posts:
+
+Site contains posts:
+  post-title
+  another-post-title
+
+{% for post in site.posts %}{% asset_path cover.jpg {{post.id}} %}{% endfor %} on index.html
+
+Output:
+/assets/posts/post-title/cover.jpg
+/assets/posts/another-post-title/cover.jpg
+
+*****************************************************************************aid
 
 # Jekyll plugin.
 module Jekyll # :nodoc: all
