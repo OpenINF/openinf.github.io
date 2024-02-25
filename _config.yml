@@ -81,6 +81,11 @@ defaults:
       body_classes:
         - 'hide-butterbar'
 
+sass:
+  style: compressed
+  load_paths:
+    - _includes/assets/scss/
+
 # Exclude from processing.
 exclude:
   - babel.config.json
