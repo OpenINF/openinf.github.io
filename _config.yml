@@ -31,11 +31,14 @@ plugins:
   - jekyll-relative-links
 
 compress_html:
-  clippings: [div]
-  comments: ['<!-- ', ' -->']
-  endings: [li, dt, dd, p, thead, tbody, tr, td, th]
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: all
+  ignore:
+    envs: [local]
+  blanklines: false
   profile: true
-  blanklines: true
+  startings: [html, head, body]
 
 # Document collections.
 collections_dir: collections
