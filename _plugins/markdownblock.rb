@@ -4,6 +4,7 @@ module Jekyll
       super
       require "kramdown"
     end
+
     def render(context)
       content = super
 
@@ -12,4 +13,4 @@ module Jekyll
   end
 end
 
-Liquid::Template.register_tag('markdown', Jekyll::MarkdownBlock)
+Liquid::Template.register_tag("markdown", Jekyll::MarkdownBlock)
