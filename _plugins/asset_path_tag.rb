@@ -52,7 +52,6 @@ Output:
 
 *****************************************************************************aid
 
-# Jekyll plugin.
 module Jekyll # :nodoc: all
   def self.get_post_path(page_id, collections)
     #loop through all collections to find the matching document and get its slug
