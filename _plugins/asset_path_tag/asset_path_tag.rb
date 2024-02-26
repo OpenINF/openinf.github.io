@@ -60,8 +60,8 @@ Output:
 # @license MIT OR Apache-2.0 OR BlueOak-1.0.0
 # @copyright The OpenINF Authors and Friends
 # @link https://open.inf.is/LICENSE
-# @author Sam Rayner http://samrayner.com
-# @author Otto Urpelainen http://koti.kapsi.fi/oturpe/projects/
+# @author Sam Rayner
+# @author Otto Urpelainen
 # @author The OpenINF Authors and Friends
 module Jekyll
   def self.get_post_path(page_id, collections)
