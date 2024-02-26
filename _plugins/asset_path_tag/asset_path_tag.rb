@@ -50,13 +50,11 @@ Output:
 /assets/posts/post-title/cover.jpg
 /assets/posts/another-post-title/cover.jpg
 
- Credits:
-   Copyright 2013, Sam Rayner, licensed under the
-   MIT License (https://samrayner.com).
-   Copyright 2024, The OpenINF Authors and Friends, trilicensed under either the
-   MIT/Apache 2.0/BlueOak 1.0.0 licenses (at your option).
 
 *****************************************************************************aid
+
+##
+#
 # @title Asset path tag for Jekyll
 # @description Output a relative URL for assets based on the post or page
 # @version v1.0.1
