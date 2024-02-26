@@ -19,7 +19,7 @@ description: >-
   Aggregate, curate, disseminate, and apply information derived from diverse
   sources.
 baseurl: ''
-url: 'https://open.inf.is'
+url: 'https://open.inf.is' # the base hostname & protocol for our site
 twitter_username: OpenINF
 github_username: OpenINF
 repository: OpenINF/openinf.github.io
@@ -29,6 +29,7 @@ markdown: kramdown
 plugins:
   - jekyll-redirect-from
   - jekyll-relative-links
+  - jekyll-sitemap
 
 compress_html:
   clippings: all

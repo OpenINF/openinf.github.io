@@ -9,6 +9,7 @@ gem 'kramdown-parser-gfm', '~> 1.1'
 group :jekyll_plugins do
   gem "jekyll-redirect-from"
   gem "jekyll-relative-links"
+  gem "jekyll-sitemap"
 end
 
 gem 'yaml-lint'
