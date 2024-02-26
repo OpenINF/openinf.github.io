@@ -68,7 +68,7 @@ Output:
 # @author The OpenINF Authors and Friends
 # * The complete set of authors may be found at http://open.inf.is/AUTHORS
 # * The complete set of contributors may be found at http://open.inf.is/CONTRIBUTORS
-module Jekyll # :nodoc: all
+module Jekyll
   def self.get_post_path(page_id, collections)
     #loop through all collections to find the matching document and get its slug
     collections.each do |collection|
