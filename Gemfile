@@ -10,6 +10,7 @@ group :jekyll_plugins do
   gem "jekyll-redirect-from"
   gem "jekyll-relative-links"
   gem "jekyll-sitemap"
+    gem "jekyll-seo-tag"
 end
 
 gem 'yaml-lint'
