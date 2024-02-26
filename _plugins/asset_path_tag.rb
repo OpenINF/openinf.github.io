@@ -51,7 +51,17 @@ Output:
 /assets/posts/another-post-title/cover.jpg
 
 *****************************************************************************aid
-
+# @title Asset path tag for Jekyll
+# @description Output a relative URL for assets based on the post or page
+# @version v1.0.1
+# @license MIT OR Apache-2.0 OR BlueOak-1.0.0
+# @copyright The OpenINF Authors and Friends
+# @link https://open.inf.is/LICENSE
+# @author Sam Rayner http://samrayner.com
+# @author Otto Urpelainen http://koti.kapsi.fi/oturpe/projects/
+# @author The OpenINF Authors and Friends
+# * The complete set of authors may be found at http://open.inf.is/AUTHORS
+# * The complete set of contributors may be found at http://open.inf.is/CONTRIBUTORS
 module Jekyll # :nodoc: all
   def self.get_post_path(page_id, collections)
     #loop through all collections to find the matching document and get its slug
