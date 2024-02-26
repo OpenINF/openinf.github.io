@@ -11,6 +11,8 @@ group :jekyll_plugins do
   gem "jekyll-relative-links"
   gem "jekyll-sitemap"
   gem "jekyll-seo-tag"
+  gem "jekyll-asset-path", git: "https://github.com/OpenINF/openinf-jekyll-asset-path-plugin", "~> x.x.alpha"
+  gem "jekyll-assets", git: "https://github.com/envygeeks/jekyll-assets", "~> x.x.alpha"
 end
 
 gem 'yaml-lint'
