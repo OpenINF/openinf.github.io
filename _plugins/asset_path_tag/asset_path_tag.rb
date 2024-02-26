@@ -1,4 +1,4 @@
-<<~aid*- coding: utf-8 -*- ruby -*- _plugins/asset_path_tag.rb *****************
+<<~aid*- coding: utf-8 -*- ruby -*- _plugins/asset_path_tag/asset_path_tag.rb **
 
   A Jekyll plugin to output a relative URL for assets based on the post or page
 
