@@ -12,7 +12,7 @@ group :jekyll_plugins do
   gem "jekyll-sitemap"
   gem "jekyll-seo-tag"
   gem "jekyll-asset-path", git: "https://github.com/OpenINF/openinf-jekyll-asset-path-plugin"
-  gem "jekyll-assets", git: "https://github.com/envygeeks/jekyll-assets", "~> x.x.alpha"
+  gem "jekyll-assets", git: "https://github.com/envygeeks/jekyll-assets"
 end
 
 gem 'yaml-lint'
