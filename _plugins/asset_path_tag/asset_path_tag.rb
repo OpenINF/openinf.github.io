@@ -2,10 +2,6 @@
 
   A Jekyll plugin to output a relative URL for assets based on the post or page
 
-  MIT License copyright original author(s); minimally adapted for passing strict
-  OpenINF CQ checks; derivative of plugin titled “Asset path tag for Jekyll”;
-  ethically sourced, originally from:
-  https://github.com/samrayner/jekyll-asset-path-plugin/blob/master/asset_path_tag.rb
 
 Syntax:
    {% asset_path filename post_id %}
