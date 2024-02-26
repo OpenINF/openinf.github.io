@@ -30,7 +30,9 @@ plugins:
   - jekyll-redirect-from
   - jekyll-relative-links
   - jekyll-sitemap
-
+ - jekyll-seo-tag
+ - jekyll-asset-path
+ - jekyll-assets
 compress_html:
   clippings: all
   comments: ['<!-- ', ' -->']
