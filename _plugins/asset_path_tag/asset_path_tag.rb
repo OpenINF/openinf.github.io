@@ -55,8 +55,6 @@ Output:
 
 ##
 #
-# @title Asset path tag for Jekyll
-# @description Output a relative URL for assets based on the post or page
 # @license MIT OR Apache-2.0 OR BlueOak-1.0.0
 # @copyright The OpenINF Authors and Friends
 # @link https://open.inf.is/LICENSE
