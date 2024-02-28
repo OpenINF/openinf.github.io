@@ -2,10 +2,8 @@
 // see documentation located at the following URL:
 // https://github.com/OpenINF/docker-fisher
 {
-  "name": "Debianzsz Fisher (OpenINF Community)",
-  "build": {
-    "dockerfile": "openinf/debianzsz-fisher:latest"
-  },
+  "name": "🦞 OpenINF GrimesAI Salvage Tex: Lunar (OpenINF Community)",
+  "image": "openinf/grimesai-salvage-tex:lunar",
   "runArgs": [
     "--cap-add=SYS_ADMIN",
     "--security-opt",
