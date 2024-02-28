@@ -55,8 +55,6 @@ echo 'set -Ux fish_user_paths $HOME/.moon/bin $fish_user_paths' >> ~/.config/fis
 curl -fsSL https://dprint.dev/install.sh | sh >> /dev/null
 echo 'set -Ux fish_user_paths $HOME/.dprint/bin $fish_user_paths' >> ~/.config/fish/config.fish
 
-source ~/.config/fish/config.fish
-
 # this will populate your ~/.gnupg directory with empty keyring files
 # it will create the ~/.gnupg directory if it does not already exist (expected)
 gpg --list-keys
