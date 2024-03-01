@@ -13,12 +13,5 @@ name = "secrets"
 enabled = true
 
 [[analyzers]]
-name = "docker"
-enabled = true
-
-  [analyzers.meta]
-  dockerfile_paths = [".devcontainer/Dockerfile"]
-
-[[analyzers]]
 name = "javascript"
 enabled = true

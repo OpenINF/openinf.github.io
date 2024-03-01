@@ -39,6 +39,16 @@ end
 if test -e package.json
     corepack enable
     corepack prepare pnpm@latest --activate
+
+    # Same thing as running "pnpm setup", but written in fish.
+    # Needed for global CLIs & filesystem file permission issues.
+    set -Ux PNPM_HOME $HOME/.local/share/pnpm
+    echo 'set -Ux PNPM_HOME "$HOME/.local/share/pnpm"' >> ~/.config/fish/config.fish
+
+    set -Ux fish_user_paths $PNPM_HOME $fish_user_paths
+    echo 'set -Ux fish_user_paths $PNPM_HOME $fish_user_paths' >> ~/.config/fish/config.fish
+
+    sudo pnpm add -g pnpm
     pnpm install
 end
 
