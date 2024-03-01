@@ -42,13 +42,13 @@ if test -e package.json
 
     # Same thing as running "pnpm setup", but written in fish.
     # Needed for global CLIs & filesystem file permission issues.
-    set -Ux PNPM_HOME $HOME/.local/share/pnpm
-    echo 'set -Ux PNPM_HOME "$HOME/.local/share/pnpm"' >> ~/.config/fish/config.fish
+    set -gx PNPM_HOME ~/.local/share/pnpm
+    echo 'set -gx PNPM_HOME ~/.local/share/pnpm' >> ~/.config/fish/config.fish
 
-    set -Ux fish_user_paths $PNPM_HOME $fish_user_paths
-    echo 'set -Ux fish_user_paths $PNPM_HOME $fish_user_paths' >> ~/.config/fish/config.fish
+    fish_add_path -g $PNPM_HOME
+    echo 'fish_add_path -g \$PNPM_HOME' >> ~/.config/fish/config.fish
 
-    sudo pnpm add -g pnpm
+    pnpm add -g pnpm
     pnpm install
 end
 
@@ -58,12 +58,12 @@ echo 'rbenv rehash && nvm use' >> ~/.config/fish/config.fish
 # It makes the tools available to the user when they open a new terminal window.
 
 # Install moon
-curl -fsSL https://moonrepo.dev/install/moon.sh | bash >> /dev/null
-echo 'set -Ux fish_user_paths $HOME/.moon/bin $fish_user_paths' >> ~/.config/fish/config.fish
+# curl -fsSL https://moonrepo.dev/install/moon.sh | bash >> /dev/null
+# echo 'set -Ux fish_user_paths $HOME/.moon/bin $fish_user_paths' >> ~/.config/fish/config.fish
 
 # Install dprint
-curl -fsSL https://dprint.dev/install.sh | sh >> /dev/null
-echo 'set -Ux fish_user_paths $HOME/.dprint/bin $fish_user_paths' >> ~/.config/fish/config.fish
+# curl -fsSL https://dprint.dev/install.sh | sh >> /dev/null
+# echo 'set -Ux fish_user_paths $HOME/.dprint/bin $fish_user_paths' >> ~/.config/fish/config.fish
 
 source ~/.config/fish/config.fish
 
@@ -87,7 +87,7 @@ if test -e ~/.gnupg/
     # chmod 600 ~/.gnupg/*
     # chmod 700 ~/.gnupg
 
-    echo no-autostart >> ~/.gnupg/gpg.conf
+    # echo no-autostart >> ~/.gnupg/gpg.conf
 
     # Remove an existing Unix-domain socket file for remote port forwarding before
     # creating a new one when gpgtunnel connection is made.
