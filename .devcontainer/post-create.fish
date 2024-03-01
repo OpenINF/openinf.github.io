@@ -5,7 +5,7 @@ if test -e .ruby-version
     rbenv install --verbose
 end
 
-echo 'set -Ux fish_user_paths ~/.rbenv/shims/ $fish_user_paths' >> ~/.config/fish/config.fish
+echo 'fish_add_path -g ~/.rbenv/shims/' >> ~/.config/fish/config.fish
 
 # To squelch yellow message re: specifying how divergent branches be reconciled.
 echo 'git config pull.rebase true' >> ~/.config/fish/config.fish # rebase
@@ -52,7 +52,7 @@ if test -e package.json
     pnpm install
 end
 
-echo 'rbenv rehash && nvm use' >> ~/.config/fish/config.fish
+# echo 'rbenv rehash && nvm use' >> ~/.config/fish/config.fish
 
 # Installs the moon and dprint tools, and it adds the tools to the user's $PATH.
 # It makes the tools available to the user when they open a new terminal window.
@@ -65,7 +65,7 @@ echo 'rbenv rehash && nvm use' >> ~/.config/fish/config.fish
 # curl -fsSL https://dprint.dev/install.sh | sh >> /dev/null
 # echo 'set -Ux fish_user_paths $HOME/.dprint/bin $fish_user_paths' >> ~/.config/fish/config.fish
 
-source ~/.config/fish/config.fish
+# source ~/.config/fish/config.fish
 
 # this will populate your ~/.gnupg directory with empty keyring files
 # it will create the ~/.gnupg directory if it does not already exist (expected)
