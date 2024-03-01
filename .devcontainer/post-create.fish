@@ -5,7 +5,7 @@ if test -e .ruby-version
     rbenv install --verbose
 end
 
-echo 'fish_add_path -g ~/.rbenv/shims/' >> ~/.config/fish/config.fish
+echo 'fish_add_path -m ~/.rbenv/shims/' >> ~/.config/fish/config.fish
 
 # To squelch yellow message re: specifying how divergent branches be reconciled.
 echo 'git config pull.rebase true' >> ~/.config/fish/config.fish # rebase
@@ -42,11 +42,13 @@ if test -e package.json
 
     # Same thing as running "pnpm setup", but written in fish.
     # Needed for global CLIs & filesystem file permission issues.
+    mkdir -p ~/.local/share/pnpm # hopefully non necessary
+
     set -gx PNPM_HOME ~/.local/share/pnpm
     echo 'set -gx PNPM_HOME ~/.local/share/pnpm' >> ~/.config/fish/config.fish
 
     fish_add_path -g $PNPM_HOME
-    echo 'fish_add_path -g \$PNPM_HOME' >> ~/.config/fish/config.fish
+    echo 'fish_add_path -g $PNPM_HOME' >> ~/.config/fish/config.fish
 
     pnpm add -g pnpm
     pnpm install
