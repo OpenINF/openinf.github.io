@@ -42,8 +42,6 @@ if test -e package.json
 
     # Same thing as running "pnpm setup", but written in fish.
     # Needed for global CLIs & filesystem file permission issues.
-    mkdir -p ~/.local/share/pnpm # hopefully non necessary
-
     fish_add_path -g $PNPM_HOME
     echo 'fish_add_path -g $PNPM_HOME' >> ~/.config/fish/config.fish
 
