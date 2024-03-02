@@ -44,7 +44,7 @@ if test -e package.json
     # Same thing as running those commands given after
     # done running `pnpm setup`, but rewritten for fish shell.
     # Needed for globally-installed CLI apps & assoc. perm issues.
-    set -Ux PNPM_HOME $HOME/.local/share/pnpm"
+    set -Ux PNPM_HOME $HOME/.local/share/pnpm
     echo 'set -Ux PNPM_HOME "$HOME/.local/share/pnpm"' >> ~/.config/fish/config.fish
 
     fish_add_path -g $PNPM_HOME
