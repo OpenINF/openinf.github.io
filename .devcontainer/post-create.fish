@@ -50,7 +50,7 @@ if test -e package.json
     fish_add_path -g $PNPM_HOME
     echo 'fish_add_path -g $PNPM_HOME' >> ~/.config/fish/config.fish
 
-    pnpm add -g pnpm
+    sudo pnpm add -g pnpm # `sudo` here was not preferable, but _necessary_
     pnpm install
 end
 
