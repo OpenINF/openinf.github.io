@@ -44,8 +44,8 @@ if test -e package.json
     # Needed for global CLIs & filesystem file permission issues.
     mkdir -p ~/.local/share/pnpm # hopefully non necessary
 
-    set -gx PNPM_HOME ~/.local/share/pnpm
-    echo 'set -gx PNPM_HOME ~/.local/share/pnpm' >> ~/.config/fish/config.fish
+    fish_add_path -g $PNPM_HOME
+    echo 'fish_add_path -g $PNPM_HOME' >> ~/.config/fish/config.fish
 
     fish_add_path -g $PNPM_HOME
     echo 'fish_add_path -g $PNPM_HOME' >> ~/.config/fish/config.fish
