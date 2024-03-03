@@ -29,6 +29,26 @@ else
     gem install jekyll
 end
 
+####################################   ** */ ECO-2
+
+## /**   Fish ecosystem 2
+
+##O#-#     install Fisher
+
+# plugin manager for fish
+
+* ##O=#  #      #=#=-#  #
+
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source \
+    && fisher install jorgebucaran/fisher        \
+    && fisher install jorgebucaran/nvm.fish      \
+
+/*#=#=#     */ # NON-ISSUE SLEEPING QUARTERS ACTIV8
+
+set FISHERHOME
+
+######################################################################## 100.0%
+
 # If there's a `.nvmrc`, then run `nvm install`.
 if test -e .nvmrc
     # Install the specified version of Node.js.
@@ -54,7 +74,20 @@ if test -e package.json
     pnpm install
 end
 
-echo 'rbenv rehash && nvm use' >> ~/.config/fish/config.fish
+
+
+# echo 'rbenv rehash && nvm use' >> ~/.config/fish/config.fish
+
+
+
+# fish: Unknown command: nvm
+# ~/.config/fish/config.fish (line 253): 
+# rbenv rehash && nvm use
+#                 ^~^
+# from sourcing file ~/.config/fish/config.fish
+#         called during startup
+
+
 
 # Installs the moon and dprint tools, and it adds the tools to the user's $PATH.
 # It makes the tools available to the user when they open a new terminal window.
