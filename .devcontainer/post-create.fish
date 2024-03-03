@@ -1,7 +1,16 @@
 #!/usr/bin/fish
 
-# If there's a .ruby-version, then run `rbenv install`.
-if test -e .ruby-version
+# Set the SHELL environment variable to our active shell.
+# Supported shell languages are bash, zsh, fish, ksh, dash, and sh.
+
+set -gx SHELL fish
+echo 'set -gx SHELL fish' >> ~/.config/fish/config.fish
+
+# ------------------------------------------------------------------------------
+
+# If there's a `.rvmrc`, then run `rbenv install`.
+if test -e .rvmrc
+    # Install the specified versions/Ruby runtime!
     rbenv install --verbose
 end
 
@@ -45,7 +54,7 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 
 /*#=#=#     */ # NON-ISSUE SLEEPING QUARTERS ACTIV8
 
-set FISHERHOME
+# set FISHERHOME
 
 ######################################################################## 100.0%
 
