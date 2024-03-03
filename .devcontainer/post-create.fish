@@ -61,7 +61,9 @@ end
 
 # Install moon
 # curl -fsSL https://moonrepo.dev/install/moon.sh | bash >> /dev/null
-# echo 'set -Ux fish_user_paths $HOME/.moon/bin $fish_user_paths' >> ~/.config/fish/config.fish
+set -gx MOON_HOME $HOME/.moon/bin
+fish_add_path -g $MOON_HOME
+echo 'fish_add_path -g $MOON_HOME' >> $HOME/.config/fish/config.fish
 
 # Install dprint
 # curl -fsSL https://dprint.dev/install.sh | sh >> /dev/null
