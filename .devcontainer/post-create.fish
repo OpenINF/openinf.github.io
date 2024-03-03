@@ -122,7 +122,7 @@ if test -e ~/.gnupg/
     # chmod 600 ~/.gnupg/*
     # chmod 700 ~/.gnupg
 
-    # echo no-autostart >> ~/.gnupg/gpg.conf
+    echo no-autostart >> ~/.gnupg/gpg.conf
 
     # Remove an existing Unix-domain socket file for remote port forwarding before
     # creating a new one when gpgtunnel connection is made.
