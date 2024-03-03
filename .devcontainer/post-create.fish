@@ -87,17 +87,6 @@ end
 
 # echo 'rbenv rehash && nvm use' >> ~/.config/fish/config.fish
 
-
-
-# fish: Unknown command: nvm
-# ~/.config/fish/config.fish (line 253): 
-# rbenv rehash && nvm use
-#                 ^~^
-# from sourcing file ~/.config/fish/config.fish
-#         called during startup
-
-
-
 # Installs the moon and dprint tools, and it adds the tools to the user's $PATH.
 # It makes the tools available to the user when they open a new terminal window.
 
