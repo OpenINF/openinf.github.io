@@ -54,7 +54,7 @@ if test -e package.json
     pnpm install
 end
 
-# echo 'rbenv rehash && nvm use' >> ~/.config/fish/config.fish
+echo 'rbenv rehash && nvm use' >> ~/.config/fish/config.fish
 
 # Installs the moon and dprint tools, and it adds the tools to the user's $PATH.
 # It makes the tools available to the user when they open a new terminal window.
