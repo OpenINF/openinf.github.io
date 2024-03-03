@@ -98,7 +98,10 @@ echo 'fish_add_path -g $MOON_HOME' >> $HOME/.config/fish/config.fish
 
 # Install dprint
 curl -fsSL https://dprint.dev/install.sh | sh >> /dev/null
-echo 'set -gx fish_user_paths $HOME/.dprint/bin $fish_user_paths' >> ~/.config/fish/config.fish
+set -gx DPRINT_HOME $HOME/.dprint/bin
+echo 'set -gx DPRINT_HOME $HOME/.dprint/bin' >> ~/.config/fish/config.fish
+fish_add_path -g $DPRINT_HOME
+echo 'fish_add_path -g $DPRINT_HOME' >> ~/.config/fish/config.fish
 
 source ~/.config/fish/config.fish
 
