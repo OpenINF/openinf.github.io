@@ -1,7 +1,6 @@
 #!/usr/bin/fish
 
 # Set the SHELL environment variable to our active shell.
-# Supported shell languages are bash, zsh, fish, ksh, dash, and sh.
 
 set -gx SHELL fish
 echo 'set -gx SHELL fish' >> ~/.config/fish/config.fish
