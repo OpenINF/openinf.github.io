@@ -63,7 +63,7 @@ function siteifyFile(file, frontmatterOverrides = {}) {
   } catch {
     let tokens = pathBasename(file, '.md').toLowerCase().split('_');
     tokens = tokens.map((val) => {
-      return val.charAt(0).toUpperCase() + val.slice(1);
+      return `${val.charAt(0).toUpperCase()} ${val.slice(1)}`;
     });
     title = tokens.join(' ');
   }
@@ -75,7 +75,7 @@ function siteifyFile(file, frontmatterOverrides = {}) {
   };
   frontmatter = { ...frontmatter, ...frontmatterOverrides };
   healthFileContents =
-    `---\n${YAML.dump(frontmatter)}---\n\n` + healthFileContents;
+    `---\n${YAML.dump(frontmatter)}---\n\n${healthFileContents}`;
   writeFileSync(`collections/_docs/${slug}.md`, healthFileContents);
 }
 
