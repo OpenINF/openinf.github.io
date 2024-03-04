@@ -27,5 +27,9 @@ module.exports = {
       svg: 'node build/tasks/verify/verify-svg.mjs',
       yaml: 'node build/tasks/verify/verify-yaml.mjs',
     },
+
+    // TODO(DerekNonGeneric):
+    // learn more about NPS Utils here: https://npm.im/nps-utils
+    validate: NPSUtils.concurrent.nps('lint', 'test', 'build'),
   },
 };
