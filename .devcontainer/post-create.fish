@@ -59,7 +59,7 @@ if test -e package.json
     bass pnpm setup
     source ~/.config/fish/config.fish
 
-    set -gx PNPM_HOME "/home/vscode/.local/share/pnpm"
+    set -gx PNPM_HOME "$HOME/.local/share/pnpm"
     if not string match -q -- $PNPM_HOME $PATH
         fish_add_path -g $PNPM_HOME
     end
