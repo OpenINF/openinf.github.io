@@ -46,7 +46,8 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
     && fisher install jorgebucaran/nvm.fish      \
     && fisher install edc/bass                   \
 
-#=#=#     */  # NON-ISSUE SLEEPING QUARTERS ACTIV8
+#=#=#     */  # NON-ISSUE*
+# SLEEPING QUARTERS ACTIV8
 
 set -gx FISHER_HOME
 
