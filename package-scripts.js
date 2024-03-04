@@ -30,6 +30,6 @@ module.exports = {
 
     // TODO(DerekNonGeneric):
     // learn more about NPS Utils here: https://npm.im/nps-utils
-    validate: NPSUtils.concurrent.nps('lint', 'test', 'build'),
+    validate: concurrent.nps('lint', 'test', 'build'),
   },
 };
