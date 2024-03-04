@@ -51,11 +51,6 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
     && fisher install jorgebucaran/fisher        \
     && fisher install jorgebucaran/nvm.fish      \
 
-/*#=#=#     */ # NON-ISSUE SLEEPING QUARTERS ACTIV8
-
-# set FISHERHOME
-
-######################################################################## 100.0%
 
 # If there's a `.nvmrc`, then run `nvm install`.
 if test -e .nvmrc
