@@ -34,9 +34,9 @@ else
     gem install jekyll
 end
 
-## /**   Fish ecosystem 2
-##O#-#     install Fisher
-# plugin manager for fish
+rem *****************
+rem   Fisher Plugins
+rem *****************
 
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source \
     && fisher install jorgebucaran/fisher        \
