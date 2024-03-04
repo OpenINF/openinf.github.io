@@ -37,15 +37,9 @@ else
     gem install jekyll
 end
 
-####################################   ** */ ECO-2
-
 ## /**   Fish ecosystem 2
-
 ##O#-#     install Fisher
-
 # plugin manager for fish
-
-* ##O=#  #      #=#=-#  #
 
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source \
     && fisher install jorgebucaran/fisher        \
@@ -62,18 +56,10 @@ end
 if test -e package.json
     corepack enable
     corepack prepare pnpm@latest --activate
-    pnpm setup
+    bass pnpm setup
+    source ~/.config/fish/config.fish
 
-    # Same thing as running those commands given after
-    # done running `pnpm setup`, but rewritten for fish shell.
-    # Needed for globally-installed CLI apps & assoc. perm issues.
-    set -gx PNPM_HOME $HOME/.local/share/pnpm
-    echo 'set -gx PNPM_HOME "$HOME/.local/share/pnpm"' >> ~/.config/fish/config.fish
-
-    fish_add_path -g $PNPM_HOME
-    echo 'fish_add_path -g $PNPM_HOME' >> ~/.config/fish/config.fish
-
-    sudo pnpm add -g pnpm # `sudo` here was not preferable, but _necessary_
+    pnpm add -g pnpm
     pnpm install
 end
 
