@@ -4,11 +4,7 @@
 {
   "name": "🦞 OpenINF GrimesAI Salvage Tex: Lunar (OpenINF Community)",
   "image": "openinf/grimesai-salvage-tex:lunar",
-  "runArgs": [
-    "--cap-add=SYS_ADMIN",
-    "--security-opt",
-    "seccomp=unconfined"
-  ],
+  "runArgs": ["--cap-add=SYS_ADMIN", "--security-opt", "seccomp=unconfined"],
   // Configure tool-specific properties.
   "customizations": {
     // Configure properties specific to VS Code.
@@ -66,7 +62,8 @@
   ],
   "overrideCommand": false,
   // Use 'postCreateCommand' to run commands after creating the container.
-  "postCreateCommand": "fish .devcontainer/post-create.fish",
+  // https://code.visualstudio.com/docs/devcontainers/create-dev-container#_rebuild
+  "postCreateCommand": "fish -i .devcontainer/post-create.fish",
   "remoteEnv": {
     "PATH": "${containerEnv:PATH}:~/.rbenv/shims/"
   },
