@@ -93,27 +93,27 @@ healthFiles.forEach((val) => {
     case 'CONTRIBUTING.md':
       siteifyFile(val, {
         title: 'Contributing to OpenINF',
-        permalink: '/en/docs/dev/internals/contributing/',
+        permalink: '/docs/dev/internals/contributing/',
       });
       break;
     case 'SECURITY.md': {
       siteifyFile(val, {
         title: 'OpenINF Security Policies',
-        permalink: '/en/docs/dev/internals/security/',
+        permalink: '/docs/dev/internals/security/',
       });
       break;
     }
     case 'SUPPORT.md':
       siteifyFile(val, {
         title: 'Support • Frequently Asked Questions',
-        permalink: '/en/docs/dev/faq/support/',
-        redirect_from: '/en/docs/dev/faq/help/',
+        permalink: '/docs/dev/faq/support/',
+        redirect_from: '/docs/dev/faq/help/',
       });
       break;
     case 'VISION.md':
       siteifyFile(val, {
         title: 'OpenINF Vision',
-        permalink: '/en/about/vision/',
+        permalink: '/about/vision/',
       });
       break;
     default:
