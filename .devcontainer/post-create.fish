@@ -63,27 +63,23 @@ if test -e package.json
     pnpm install
 end
 
-
-
 # echo 'rbenv rehash && nvm use' >> ~/.config/fish/config.fish
 
 # Installs the moon and dprint tools, and it adds the tools to the user's $PATH.
 # It makes the tools available to the user when they open a new terminal window.
 
 # Install moon
-# curl -fsSL https://moonrepo.dev/install/moon.sh | bash >> /dev/null
+bass curl -fsSL https://moonrepo.dev/install/moon.sh | sh >> /dev/null
 set -gx MOON_HOME $HOME/.moon/bin
 fish_add_path -g $MOON_HOME
 echo 'fish_add_path -g $MOON_HOME' >> $HOME/.config/fish/config.fish
 
 # Install dprint
-curl -fsSL https://dprint.dev/install.sh | sh >> /dev/null
-set -gx DPRINT_HOME $HOME/.dprint/bin
-echo 'set -gx DPRINT_HOME $HOME/.dprint/bin' >> ~/.config/fish/config.fish
-fish_add_path -g $DPRINT_HOME
-echo 'fish_add_path -g $DPRINT_HOME' >> ~/.config/fish/config.fish
-
-source ~/.config/fish/config.fish
+bass curl -fsSL https://dprint.dev/install.sh | sh >> /dev/null
+set -gx DPRINT_INSTALL $HOME/.dprint
+echo 'set -gx DPRINT_INSTALL $HOME/.dprint' >> ~/.config/fish/config.fish
+fish_add_path -g $DPRINT_INSTALL
+echo 'fish_add_path -g $DPRINT_INSTALL' >> ~/.config/fish/config.fish
 
 # this will populate your ~/.gnupg directory with empty keyring files
 # it will create the ~/.gnupg directory if it does not already exist (expected)
