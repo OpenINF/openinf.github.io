@@ -15,3 +15,5 @@ gpg
 openinf
 UI
 Irulen
+SLOCs
+siteify
