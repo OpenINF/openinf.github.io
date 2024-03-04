@@ -70,6 +70,7 @@ end
 # Install moon
 bass curl -fsSL https://moonrepo.dev/install/moon.sh | bash # >> /dev/null
 set -gx MOON_HOME $HOME/.moon/bin
+echo 'set -gx MOON_HOME $HOME/.moon/bin' >> ~/.config/fish/config.fish
 fish_add_path -g $MOON_HOME
 echo 'fish_add_path -g $MOON_HOME' >> $HOME/.config/fish/config.fish
 
@@ -79,6 +80,11 @@ set -gx DPRINT_INSTALL $HOME/.dprint
 echo 'set -gx DPRINT_INSTALL $HOME/.dprint' >> ~/.config/fish/config.fish
 fish_add_path -g $DPRINT_INSTALL
 echo 'fish_add_path -g $DPRINT_INSTALL' >> ~/.config/fish/config.fish
+
+set -gx DPRINT_HOME $DPRINT_INSTALL/bin
+echo 'set -gx DPRINT_HOME $DPRINT_INSTALL/bin' >> ~/.config/fish/config.fish
+fish_add_path -g $DPRINT_HOME
+echo 'fish_add_path -g $DPRINT_HOME' >> $HOME/.config/fish/config.fish
 
 # this will populate your ~/.gnupg directory with empty keyring files
 # it will create the ~/.gnupg directory if it does not already exist (expected)
