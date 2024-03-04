@@ -50,7 +50,7 @@ end
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source \
     && fisher install jorgebucaran/fisher        \
     && fisher install jorgebucaran/nvm.fish      \
-
+    && fisher install edc/bass                   \
 
 # If there's a `.nvmrc`, then run `nvm install`.
 if test -e .nvmrc
