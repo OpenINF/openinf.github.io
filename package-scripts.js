@@ -1,3 +1,7 @@
+'use strict';
+
+const NPSUtils = require('nps-utils');
+
 module.exports = {
   scripts: {
     format: {
