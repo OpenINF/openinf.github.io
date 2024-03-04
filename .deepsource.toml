@@ -1,5 +1,10 @@
 version = 1
 
+test_patterns = [
+  "test/**",
+  "*test.js"
+]
+
 [[analyzers]]
 name = "ruby"
 enabled = true
@@ -14,4 +19,19 @@ enabled = true
 
 [[analyzers]]
 name = "javascript"
+enabled = true
+
+  [analyzers.meta]
+  environment = [
+    "nodejs",
+    "browser",
+    "cypress"
+  ]
+
+[[transformers]]
+name = "prettier"
+enabled = true
+
+[[transformers]]
+name = "rubocop"
 enabled = true
