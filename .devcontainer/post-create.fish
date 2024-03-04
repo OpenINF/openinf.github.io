@@ -46,6 +46,12 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
     && fisher install jorgebucaran/nvm.fish      \
     && fisher install edc/bass                   \
 
+#=#=#     */  # NON-ISSUE SLEEPING QUARTERS ACTIV8
+
+set -gx FISHER_HOME
+
+######################################################################## 100.0%
+
 # If there's a `.nvmrc`, then run `nvm install`.
 if test -e .nvmrc
     # Install the specified version of Node.js.
