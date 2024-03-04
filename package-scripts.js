@@ -18,13 +18,13 @@ module.exports = {
     verify: {
       all: 'for i in _tasks/verify/*.mjs; do node "$i"; done',
       css: 'node build/tasks/verify/verify-css.mjs',
-      editorconfigCompliance:
-        'node build/tasks/verify/verify-editorconfig-compliance.mjs',
       html: 'node build/tasks/verify/verify-html.mjs',
       js: 'node build/tasks/verify/verify-js.mjs',
       json: 'node build/tasks/verify/verify-json.mjs',
       md: 'node build/tasks/verify/verify-md.mjs',
       svg: 'node build/tasks/verify/verify-svg.mjs',
+      validForEC: 'node build/tasks/verify/verify-valid-for-ec.mjs',
+      validForSC: 'node build/tasks/verify/verify-valid-for-sc.mjs',
       yaml: 'node build/tasks/verify/verify-yaml.mjs',
     },
 

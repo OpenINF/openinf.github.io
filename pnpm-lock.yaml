@@ -29,6 +29,9 @@ devDependencies:
   cross-env:
     specifier: 7.0.3
     version: 7.0.3
+  cross-spawn:
+    specifier: 7.0.3
+    version: 7.0.3
   cspell:
     specifier: 8.5.0
     version: 8.5.0
