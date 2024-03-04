@@ -2,7 +2,9 @@
 title: OpenINF Next-Gen Guidance on Agent Forwarding
 category: contributing
 authors: @OpenINF/wg-a-team
-publish: false
+published: false
+permalink:
+layout:
 ---
 
 To be able to sign any potential Git commits or tags you may make using your Git
