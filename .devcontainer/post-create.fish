@@ -59,6 +59,11 @@ if test -e package.json
     bass pnpm setup
     source ~/.config/fish/config.fish
 
+    set -gx PNPM_HOME "/home/vscode/.local/share/pnpm"
+    if not string match -q -- $PNPM_HOME $PATH
+        fish_add_path -g $PNPM_HOME
+    end
+
     pnpm add -g pnpm
     pnpm install
 end
@@ -69,13 +74,13 @@ end
 # It makes the tools available to the user when they open a new terminal window.
 
 # Install moon
-bass curl -fsSL https://moonrepo.dev/install/moon.sh | sh >> /dev/null
+bass curl -fsSL https://moonrepo.dev/install/moon.sh | bash # >> /dev/null
 set -gx MOON_HOME $HOME/.moon/bin
 fish_add_path -g $MOON_HOME
 echo 'fish_add_path -g $MOON_HOME' >> $HOME/.config/fish/config.fish
 
 # Install dprint
-bass curl -fsSL https://dprint.dev/install.sh | sh >> /dev/null
+bass curl -fsSL https://dprint.dev/install.sh | sh # >> /dev/null
 set -gx DPRINT_INSTALL $HOME/.dprint
 echo 'set -gx DPRINT_INSTALL $HOME/.dprint' >> ~/.config/fish/config.fish
 fish_add_path -g $DPRINT_INSTALL
