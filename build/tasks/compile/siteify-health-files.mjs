@@ -63,7 +63,7 @@ function siteifyFile(file, frontmatterOverrides = {}) {
   } catch {
     let tokens = pathBasename(file, '.md').toLowerCase().split('_');
     tokens = tokens.map((val) => {
-      return `${val.charAt(0).toUpperCase()} ${val.slice(1)}`;
+      return `${String(val.charAt(0).toUpperCase()).concat(val.slice(1))}`;
     });
     title = tokens.join(' ');
   }
