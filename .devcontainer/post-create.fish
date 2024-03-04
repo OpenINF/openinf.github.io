@@ -50,6 +50,9 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 
 set -gx FISHER_HOME
 
+#  Current pnpm location: /home/vscode/.local/share/nvm/v20.11.1/bin
+#  Target location: /home/vscode/.local/share/pnpm
+
 ######################################################################## 100.0%
 
 # If there's a `.nvmrc`, then run `nvm install`.
