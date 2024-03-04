@@ -56,14 +56,8 @@ end
 if test -e package.json
     corepack enable
     corepack prepare pnpm@latest --activate
-    bass pnpm setup
+    bass pnpm setup # >> /dev/null
     source ~/.config/fish/config.fish
-
-    set -gx PNPM_HOME "$HOME/.local/share/pnpm"
-    if not string match -q -- $PNPM_HOME $PATH
-        fish_add_path -g $PNPM_HOME
-    end
-
     pnpm add -g pnpm
     pnpm install
 end
