@@ -53,9 +53,10 @@ function getHealthFileContents(file) {
  * @param {!(Object | undefined)} frontmatterOverrides
  */
 function siteifyFile(file, frontmatterOverrides = {}) {
+  let title = '';
   let healthFileContents = getHealthFileContents(file);
   healthFileContents = healthFileContents.replace(/<!--(.*?)-->\n\n/gm, '');
-  let title;
+
   try {
     title = healthFileContents.match(/^# (.*)$/m)[1];
     healthFileContents = healthFileContents.replace(/^# (.*)\n\n/gm, '');
