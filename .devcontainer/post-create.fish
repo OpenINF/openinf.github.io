@@ -5,6 +5,13 @@
 set -gx SHELL fish
 echo 'set -gx SHELL fish' >> ~/.config/fish/config.fish
 
+
+rem ***************
+rem   Subroutines
+rem ***************
+
+# function 
+
 # ------------------------------------------------------------------------------
 
 # If there's a `.rvmrc`, then run `rbenv install`.
