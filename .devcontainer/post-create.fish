@@ -15,9 +15,6 @@ end
 
 echo 'fish_add_path -g ~/.rbenv/shims/' >> ~/.config/fish/config.fish
 
-# To squelch yellow message re: specifying how divergent branches be reconciled.
-echo 'git config pull.rebase true' >> ~/.config/fish/config.fish # rebase
-
 source ~/.config/fish/config.fish
 
 rbenv rehash
