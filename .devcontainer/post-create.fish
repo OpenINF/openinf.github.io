@@ -45,10 +45,10 @@ rem *****************
 rem   Fisher Plugins
 rem *****************
 
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source \
-    && fisher install jorgebucaran/fisher        \
-    && fisher install jorgebucaran/nvm.fish      \
-    && fisher install edc/bass                   \
+curl -sL https://raw.githubusercontent.com/OpenINF/openinf-fisher/main/functions/fisher.fish | source \
+    && fisher install OpenINF/openinf-fisher          \
+    && fisher install OpenINF/openinf-nvm.fish            \
+    && fisher install OpenINF/openinf-bass           \
 
 #=#=#     */  # NON-ISSUE*
 # SLEEPING QUARTERS ACTIV8
