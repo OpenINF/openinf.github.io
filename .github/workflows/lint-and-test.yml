@@ -57,33 +57,33 @@ jobs:
 
       - name: Verify CSS
         if: ${{ steps.filter.outputs.css == 'true' }}
-        run: nps verify.css
+        run: pnpm exec nps verify.css
 
       - name: Verify HTML
         if: ${{ steps.filter.outputs.html == 'true' }}
-        run: nps verify.html
+        run: pnpm exec nps verify.html
 
       - name: Verify JavaScript
         if: ${{ steps.filter.outputs.js == 'true' || steps.filter.outputs.json == 'true' }}
-        run: nps verify.js
+        run: pnpm exec nps verify.js
 
       - name: Verify JSON
         if: ${{ steps.filter.outputs.json == 'true' }}
-        run: nps verify.json
+        run: pnpm exec nps verify.json
 
       - name: Verify Markdown
         if: ${{ steps.filter.outputs.md == 'true' }}
-        run: nps verify.md
+        run: pnpm exec nps verify.md
 
       - name: Verify SVG
         if: ${{ steps.filter.outputs.svg == 'true' }}
-        run: nps verify.svg
+        run: pnpm exec nps verify.svg
 
       - name: Verify YAML
         if: ${{ steps.filter.outputs.yaml == 'true' }}
-        run: nps verify.yaml
+        run: pnpm exec nps verify.yaml
 
       # Only run tests if the PR touches behavior-related files.
       - name: Test
         if: ${{ steps.filter.outputs.js == 'true' || steps.filter.outputs.json == 'true' }}
-        run: nps test
+        run: pnpm exec nps test
