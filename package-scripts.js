@@ -28,8 +28,6 @@ module.exports = {
       yaml: 'node build/tasks/verify/verify-yaml.mjs',
     },
 
-    // TODO(DerekNonGeneric):
-    // learn more about NPS Utils here: https://npm.im/nps-utils
-    validate: concurrent.nps('lint', 'test', 'build'),
+    validate: NPSUtils.series.nps('lint', 'test', 'build'),
   },
 };
