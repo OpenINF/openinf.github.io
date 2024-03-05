@@ -21,10 +21,10 @@ rem ***************
 # ------------------------------------------------------------------------------
 
 # If there's a `.rvmrc`, then run `rbenv install`.
-if test -e .rvmrc
+# if test -e .rvmrc
     # Install the specified versions/Ruby runtime!
-    rbenv install --verbose
-end
+    rbenv version local
+# end
 
 echo 'fish_add_path -g ~/.rbenv/shims/' >> ~/.config/fish/config.fish
 
@@ -51,18 +51,10 @@ rem *****************
 rem   Fisher Plugins
 rem *****************
 
-curl -sL https://raw.githubusercontent.com/OpenINF/openinf-fisher/main/functions/fisher.fish | source \
-    && fisher install OpenINF/openinf-fisher          \
+curl -sL https://raw.githubusercontent.com/OpenINF/openinf-fisher/HEAD/functions/fisher.fish | source \
+    && fisher install OpenINF/openinf-fisher              \
     && fisher install OpenINF/openinf-nvm.fish            \
-    && fisher install OpenINF/openinf-bass           \
-
-#=#=#     */  # NON-ISSUE*
-# SLEEPING QUARTERS ACTIV8
-
-set -gx FISHER_HOME
-
-#  Current pnpm location: /home/vscode/.local/share/nvm/v20.11.1/bin
-#  Target location: /home/vscode/.local/share/pnpm
+    && fisher install OpenINF/openinf-bass                \
 
 ######################################################################## 100.0%
 
