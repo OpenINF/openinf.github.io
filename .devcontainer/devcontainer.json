@@ -68,7 +68,7 @@
   // Use 'postCreateCommand' to run commands after creating the container.
   // https://code.visualstudio.com/docs/devcontainers/create-dev-container#_rebuild
   "postCreateCommand": "fish -i ${containerWorkspaceFolder}/tools/devcontainer/post-create.fish",
-  "postStartCommand": "fish -i ${containerWorkspaceFolder}/.devcontainer/post-start.fish",
+  "postStartCommand": "fish -i ${containerWorkspaceFolder}/tools/devcontainer/post-start.fish",
   "remoteEnv": {
     "PATH": "${containerEnv:PATH}:~/.rbenv/shims/"
   },
