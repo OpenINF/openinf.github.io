@@ -4,7 +4,7 @@
 {
   "name": "🦞 OpenINF GrimesAI Salvage Tex: Lunar (OpenINF Community)",
   "image": "openinf/grimesai-salvage-tex:lunar",
-  "runArgs": ["--cap-add=SYS_ADMIN", "--security-opt", "seccomp=unconfined"],
+  "runArgs": [],
   // Configure tool-specific properties.
   "customizations": {
     // Configure properties specific to VS Code.
