@@ -2,11 +2,10 @@
 
 <br />
 
-> [!WARNING]<br />
-> This documentation is still in **draft** stage.
+> [!WARNING]<br /> This documentation is still in **draft** stage.
 >
-> All information may be incomplete, inaccurate, outdated, or even
-> **completely wrong**.
+> All information may be incomplete, inaccurate, outdated, or even **completely
+> wrong**.
 
 <br /><br />
 
