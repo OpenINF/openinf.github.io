@@ -57,6 +57,7 @@ defaults:
 # Exclude from processing.
 exclude:
   - babel.config.json
+  - build/
   - Gemfile
   - Gemfile.lock
   - node_modules/

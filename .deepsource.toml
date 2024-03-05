@@ -16,8 +16,10 @@ name = "secrets"
 
 [[analyzers]]
 name = "javascript"
+enabled = true
 
-  [analyzers.meta]
+[analyzers.meta]
+  plugins = []
   environment = [
     "nodejs",
     "browser",
@@ -26,6 +28,8 @@ name = "javascript"
 
 [[transformers]]
 name = "prettier"
+enabled = true
 
 [[transformers]]
 name = "rubocop"
+enabled = true

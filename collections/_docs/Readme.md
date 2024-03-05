@@ -44,19 +44,19 @@ Once the script finishes building the documentation site, you can visit it at
 To update the links data file, run this from the project workspace root:
 
 ```shell
-pnpm run docs:update-links
+nps docs.update-links
 ```
 
 To lint all files, run this from the project workspace root:
 
 ```shell
-pnpm run verify:all
+nps verify.all
 ```
 
 To autofix all files, run this from the project workspace root:
 
 ```shell
-pnpm run format:all
+nps format.all
 ```
 
 <br /><br />
