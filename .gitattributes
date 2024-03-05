@@ -1,5 +1,5 @@
-# Ensure consistent line endings between *nix and Windows to avoid unexpected issues
-# due to CRLF/LF differences between those two operating system camps.
+# Ensure consistent line endings between *nix and Windows to avoid unexpected
+# issues due to CRLF/LF differences between those two operating system camps.
 # Set default behavior to normalize line endings automatically.
 * whitespace=indent,trail,space text=auto eol=lf
 
