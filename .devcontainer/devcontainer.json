@@ -61,6 +61,10 @@
     2222
   ],
   "overrideCommand": false,
+
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "workspaceFolder": "/workspace",
+
   // Use 'postCreateCommand' to run commands after creating the container.
   // https://code.visualstudio.com/docs/devcontainers/create-dev-container#_rebuild
   "postCreateCommand": "fish -i ${containerWorkspaceFolder}/tools/devcontainer/post-create.fish",
