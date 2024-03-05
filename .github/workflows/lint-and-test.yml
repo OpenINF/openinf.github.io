@@ -19,6 +19,7 @@ jobs:
           corepack enable
           corepack prepare pnpm@latest --activate
           pnpm install
+          echo "$(pwd)/node_modules/.bin" >> $GITHUB_PATH
           gem install bundler && bundle config set --local path 'vendor/bundle'
           bundle install
       - name: Build
