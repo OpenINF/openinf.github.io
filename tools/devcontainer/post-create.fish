@@ -20,11 +20,11 @@ rem ***************
 
 # ------------------------------------------------------------------------------
 
-# If there's a `.rvmrc`, then run `rbenv install`.
-# if test -e .rvmrc
+# If there's a `.ruby-version`, then run `rbenv install`.
+if test -e .rvmrc
     # Install the specified versions/Ruby runtime!
-    rbenv version local
-# end
+    rbenv install
+end
 
 echo 'fish_add_path -g ~/.rbenv/shims/' >> ~/.config/fish/config.fish
 
