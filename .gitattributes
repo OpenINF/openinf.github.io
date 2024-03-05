@@ -8,11 +8,6 @@
 *.{cmd,[cC][mM][dD]} text eol=crlf
 *.{bat,[bB][aA][tT]} text eol=crlf
 
-# Use LF line endings in amenable shell scripts to ensure cross-platform
-# functionality when accessing the repository under *nix & Windows systems.
-*.sh whitespace=indent,trail,space eol=lf
-*.fish whitespace=indent,trail,space eol=lf
-
 # Archives
 *.7z filter=lfs diff=lfs merge=lfs -text
 *.br filter=lfs diff=lfs merge=lfs -text
