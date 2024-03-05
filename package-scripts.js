@@ -1,6 +1,6 @@
 'use strict';
 
-const { concurrent } = require('nps-utils');
+const NPSUtils = require('nps-utils');
 
 module.exports = {
   scripts: {
