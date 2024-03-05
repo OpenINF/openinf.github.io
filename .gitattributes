@@ -1,7 +1,7 @@
 # Set default behavior to automatically normalize line endings.
 * whitespace=!indent,trail,space text=auto
 
-# Force Windows batch scripts to always use CRLF line endings so that if a repo
+# Force Windows batch scripts always to use CRLF line endings so that if a repo
 # is accessed in Windows via a file share from *nix, the scripts still work.
 *.{cmd,[cC][mM][dD]} text eol=crlf
 *.{bat,[bB][aA][tT]} text eol=crlf
