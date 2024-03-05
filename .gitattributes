@@ -6,8 +6,8 @@
 *.{cmd,[cC][mM][dD]} text eol=crlf
 *.{bat,[bB][aA][tT]} text eol=crlf
 
-# Force amenable shell scripts always to use LF line endings so that if a repo
-# is accessed in *nix via a file share from Windows, the scripts still work.
+# Use LF line endings in amenable shell scripts to ensure cross-platform
+# functionality when accessing the repository under *nix & Windows systems.
 *.sh whitespace=indent,trail,space eol=lf
 *.fish whitespace=indent,trail,space eol=lf
 
