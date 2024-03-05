@@ -10,7 +10,7 @@ sudo wget https://github.com/mborho/rem/releases/download/v0.17.0/rem_0.17.0_lin
     -O /usr/local/bin/rem && sudo chmod +x /usr/local/bin/rem
 
 # initialize rem cmd
-rem here
+rem here ls -la
 
 rem ***************
 rem   Subroutines

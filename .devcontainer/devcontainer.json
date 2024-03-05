@@ -3,7 +3,9 @@
 // https://github.com/OpenINF/docker-fisher
 {
   "name": "🦞 OpenINF GrimesAI Salvage Tex: Lunar (OpenINF Community)",
-  "image": "openinf/grimesai-salvage-tex:lunar",
+  "build": {
+    "dockerfile": "experimental/Dockerfile"
+  },
   "runArgs": [],
   // Configure tool-specific properties.
   "customizations": {
