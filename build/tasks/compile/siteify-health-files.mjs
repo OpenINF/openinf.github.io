@@ -13,6 +13,8 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import nodePath from 'node:path';
 import { dump as yDump } from 'js-yaml';
 
+const strip = require('strip-comments');
+
 const healthFiles = [
   'CODE_OF_CONDUCT.md',
   'CONTRIBUTING.md',
@@ -56,7 +58,7 @@ function getHealthFileContents(file) {
 function siteifyFile(file, frontmatterOverrides = {}) {
   let title = '';
   let healthFileContents = getHealthFileContents(file);
-  healthFileContents = healthFileContents.replace(/<!--(.*?)-->\n\n/gm, '');
+  healthFileContents = strip(healthFileContents);
 
   try {
     title = healthFileContents.match(/^## (.*)$/m)[1];
