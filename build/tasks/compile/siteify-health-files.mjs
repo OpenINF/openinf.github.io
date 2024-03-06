@@ -59,8 +59,8 @@ function siteifyFile(file, frontmatterOverrides = {}) {
   healthFileContents = healthFileContents.replace(/<!--(.*?)-->\n\n/gm, '');
 
   try {
-    title = healthFileContents.match(/^# (.*)$/m)[1];
-    healthFileContents = healthFileContents.replace(/^# (.*)\n\n/gm, '');
+    title = healthFileContents.match(/^## (.*)$/m)[1];
+    healthFileContents = healthFileContents.replace(/^## (.*)\n\n/gm, '');
   } catch {
     let tokens = nodePath.baseName(file, '.md').toLowerCase().split('_');
     tokens = tokens.map((value) => {
