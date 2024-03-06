@@ -119,6 +119,9 @@ devDependencies:
   remark-lint-first-heading-level:
     specifier: 3.1.2
     version: 3.1.2
+  remark-lint-maximum-line-length:
+    specifier: 3.1.3
+    version: 3.1.3
   remark-lint-no-duplicate-headings-in-section:
     specifier: 3.1.2
     version: 3.1.2
