@@ -56,8 +56,7 @@ function getHealthFileContents(file) {
  */
 function siteifyFile(file, frontmatterOverrides = {}) {
   let title = '';
-  let healthFileContents = getHealthFileContents(file);
-  healthFileContents = strip(healthFileContents);
+  let healthFileContents = strip(getHealthFileContents(file));
 
   try {
     title = healthFileContents.match(/^## (.*)$/m)[1];
