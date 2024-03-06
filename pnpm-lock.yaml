@@ -128,6 +128,12 @@ devDependencies:
   remark-lint-no-duplicate-headings-in-section:
     specifier: 3.1.2
     version: 3.1.2
+  remark-lint-no-file-name-irregular-characters:
+    specifier: 2.1.2
+    version: 2.1.2
+  remark-lint-no-file-name-mixed-case:
+    specifier: 2.1.2
+    version: 2.1.2
   remark-lint-no-heading-punctuation:
     specifier: 3.1.2
     version: 3.1.2
