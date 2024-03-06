@@ -5,7 +5,7 @@ const NPSUtils = require('nps-utils');
 module.exports = {
   scripts: {
     format: {
-      all: 'for i in _tasks/format/*.mjs; do node "$i"; done',
+      all: 'for i in build/tasks/format/*.mjs; do node "$i"; done',
       css: 'node build/tasks/format/format-css.mjs',
       html: 'node build/tasks/format/format-html.mjs',
       js: 'node build/tasks/format/format-js.mjs',
@@ -16,7 +16,7 @@ module.exports = {
     },
     test: 'nps verify.all',
     verify: {
-      all: 'for i in _tasks/verify/*.mjs; do node "$i"; done',
+      all: 'for i in build/tasks/verify/*.mjs; do node "$i"; done',
       css: 'node build/tasks/verify/verify-css.mjs',
       html: 'node build/tasks/verify/verify-html.mjs',
       js: 'node build/tasks/verify/verify-js.mjs',
