@@ -128,6 +128,9 @@ devDependencies:
   remark-lint-no-duplicate-headings-in-section:
     specifier: 3.1.2
     version: 3.1.2
+  remark-lint-no-heading-punctuation:
+    specifier: 3.1.2
+    version: 3.1.2
   remark-preset-lint-consistent:
     specifier: 5.1.2
     version: 5.1.2
