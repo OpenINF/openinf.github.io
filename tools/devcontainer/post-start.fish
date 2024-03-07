@@ -9,7 +9,7 @@ echo 'Hey diddle didle!'
 # curl -sL https://raw.githubusercontent.com/OpenINF/openinf-fisher/HEAD/functions/fisher.fish | source \
 #     && fisher install OpenINF/openinf-fisher
 
-fisher install OpenINF/openinf-nvm.fish   \
+fisher install OpenINF/openinf-nvm.fish          \
     && fisher install OpenINF/openinf-bass       \
     && fisher install OpenINF/openinf-autoenvstack
 
