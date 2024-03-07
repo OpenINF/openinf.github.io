@@ -25,7 +25,7 @@
     "@yarnpkg/shell": "4.0.0",
     "cross-env": "7.0.3",
     "cross-spawn": "7.0.3",
-    "cspell": "8.5.0",
+    "cspell": "8.6.0",
     "dictionary-en": "4.0.0",
     "editorconfig-checker": "5.1.4",
     "env-cmd": "10.1.0",
