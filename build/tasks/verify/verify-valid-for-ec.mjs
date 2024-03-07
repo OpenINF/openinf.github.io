@@ -1,5 +1,5 @@
-const spawn = require('cross-spawn');
+import spawn from 'cross-spawn';
 
-const result = await spawn("npx ec", { stdio: 'inherit' });
+const result = await spawn('npx', ['ec'], { stdio: 'inherit' });
 
-process.exitCode = result;
+process.exitCode = result.exitCode;

@@ -14,9 +14,6 @@ devDependencies:
   '@babel/plugin-syntax-jsx':
     specifier: 7.23.3
     version: 7.23.3(@babel/core@7.24.0)
-  '@babel/plugin-syntax-top-level-await':
-    specifier: 7.14.5
-    version: 7.14.5(@babel/core@7.24.0)
   '@babel/preset-env':
     specifier: 7.24.0
     version: 7.24.0(@babel/core@7.24.0)
@@ -83,6 +80,9 @@ devDependencies:
   remark-directive:
     specifier: 3.0.0
     version: 3.0.0
+  remark-footnotes:
+    specifier: 4.0.1
+    version: 4.0.1
   remark-frontmatter:
     specifier: 5.0.0
     version: 5.0.0
@@ -122,7 +122,19 @@ devDependencies:
   remark-lint-first-heading-level:
     specifier: 3.1.2
     version: 3.1.2
+  remark-lint-maximum-line-length:
+    specifier: 3.1.3
+    version: 3.1.3
   remark-lint-no-duplicate-headings-in-section:
+    specifier: 3.1.2
+    version: 3.1.2
+  remark-lint-no-file-name-irregular-characters:
+    specifier: 2.1.2
+    version: 2.1.2
+  remark-lint-no-file-name-mixed-case:
+    specifier: 2.1.2
+    version: 2.1.2
+  remark-lint-no-heading-punctuation:
     specifier: 3.1.2
     version: 3.1.2
   remark-preset-lint-consistent:
@@ -4280,6 +4292,14 @@ packages:
       unist-util-visit-parents: 6.0.1
     dev: true
 
+  /mdast-util-footnote@1.1.1:
+    resolution: {integrity: sha512-Y8JiA5fZm0kCqvugmSfaSvaVU2trhAmhCYXJOgPKVfmDa8isqzb5Tf7uWvCq4s8I+dll09GZjboItwZFSsD4JQ==}
+    dependencies:
+      '@types/mdast': 3.0.15
+      mdast-util-to-markdown: 1.5.0
+      micromark-util-normalize-identifier: 1.1.0
+    dev: true
+
   /mdast-util-from-markdown@0.8.5:
     resolution: {integrity: sha512-2hkTXtYYnr+NubD/g6KGBS/0mFmBcifAsI0yIWRiRo0PjVs6SSOSOdtzbp6kSGnShDN6G5aWZpKQ2lWRy27mWQ==}
     dependencies:
@@ -4594,6 +4614,19 @@ packages:
       micromark-util-symbol: 2.0.0
       micromark-util-types: 2.0.0
       parse-entities: 4.0.1
+    dev: true
+
+  /micromark-extension-footnote@1.0.2:
+    resolution: {integrity: sha512-sD7t/hooONLnbPYgcQpBcTjh7mPEcD2R/jRS5DLYDNm0XbngbaJZ01F1aI3v6VXVMdAu3XtFKUecNRlXbgGk/Q==}
+    dependencies:
+      micromark-core-commonmark: 1.1.0
+      micromark-factory-space: 1.1.0
+      micromark-util-character: 1.2.0
+      micromark-util-chunked: 1.1.0
+      micromark-util-normalize-identifier: 1.1.0
+      micromark-util-resolve-all: 1.1.0
+      micromark-util-symbol: 1.1.0
+      uvu: 0.5.6
     dev: true
 
   /micromark-extension-frontmatter@2.0.0:
@@ -5801,6 +5834,15 @@ packages:
       unified: 11.0.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /remark-footnotes@4.0.1:
+    resolution: {integrity: sha512-He6YzQFk/Wu2KgfjI80EyPXjt/G+WFaYfUH+xapqPQBdm3aTdEyzosXXv9a2FbTxGqgOfJ4q/TCB46v+wofRpQ==}
+    dependencies:
+      '@types/mdast': 3.0.15
+      mdast-util-footnote: 1.1.1
+      micromark-extension-footnote: 1.0.2
+      unified: 10.1.2
     dev: true
 
   /remark-frontmatter@5.0.0:
