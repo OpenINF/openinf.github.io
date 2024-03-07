@@ -1,6 +1,6 @@
 #!/usr/bin/fish
 
-echo 'Hey diddle didle!'
+echo 'Hey diddle diddle!'
 
 # rem *****************
 # rem   Fisher Plugins
