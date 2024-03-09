@@ -35,7 +35,7 @@ rbenv rehash
 # If there's a Gemfile, then install Bundler and run `bundle install`.
 if test -e Gemfile
     # Latest version already installed?
-    gem update --system
+    gem update --system -N --no-document
     # Install Bundler.
     gem install bundler
     # Configure Bundler setting local gem install path to avoid permission errors.
