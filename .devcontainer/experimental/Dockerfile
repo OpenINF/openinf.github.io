@@ -26,13 +26,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
   # ****************************************************************************
   && apt-get -y install --no-install-recommends build-essential default-jre ruby-dev \
   && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* \
-  #
-  && echo "StreamLocalBindUnlink yes" >> /etc/ssh/sshd_config \
-  && systemctl --global mask gpg-agent.service \
-  && gpg-agent.socket gpg-agent-ssh.socket \
-  && gpg-agent-extra.socket gpg-agent-browser.socket \
-  && systemctl enable ssh
+  && rm -rf /var/lib/apt/lists/*
 
 USER vscode
 
