@@ -23,7 +23,7 @@ echo 'set -gx SHELL fish' >> ~/.config/fish/config.fish
 # If there's a `.ruby-version`, then run `rbenv install`.
 if test -e .ruby-version
     # Install the specified versions/Ruby runtime!
-    rbenv local
+    rbenv install --verbose
 end
 
 echo 'fish_add_path -g ~/.rbenv/shims/' >> ~/.config/fish/config.fish
