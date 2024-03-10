@@ -2,7 +2,7 @@
  * @file Process health files for website use (inspired by jekyll/jekyll SLOCs).
  * @author The OpenINF Authors & Friends
  * @see https://github.com/jekyll/jekyll/blob/dbbfc5d48c81cf424f29c7b0eebf10886bc99904/Rakefile#L94
- * @module {ES6Module} _build/tasks/compile/siteify-health-files.mjs
+ * @module {ES6Module} build/tasks/compile/siteify-health-files.mjs
  */
 
 // -----------------------------------------------------------------------------
