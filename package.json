@@ -27,7 +27,7 @@
     "cross-spawn": "7.0.3",
     "cspell": "8.6.0",
     "dictionary-en": "4.0.0",
-    "editorconfig-checker": "5.1.4",
+    "editorconfig-checker": "5.1.5",
     "env-cmd": "10.1.0",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
