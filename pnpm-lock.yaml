@@ -36,8 +36,8 @@ devDependencies:
     specifier: 4.0.0
     version: 4.0.0
   editorconfig-checker:
-    specifier: 5.1.4
-    version: 5.1.4
+    specifier: 5.1.5
+    version: 5.1.5
   env-cmd:
     specifier: 10.1.0
     version: 10.1.0
@@ -2998,8 +2998,8 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
 
-  /editorconfig-checker@5.1.4:
-    resolution: {integrity: sha512-sohB6Tit45ISh47CK0AULksnLIwEIEDn9bPqVnrvoKZSG3cI39JOlaHcMMbADFN0fOGoNdELg4ryc6OYjkwtaQ==}
+  /editorconfig-checker@5.1.5:
+    resolution: {integrity: sha512-l2QifQhu33enwAauVdwT0oBPz8xdCHOZ7jImuUNV/3AR3Dg26jPAVPdHeKzuf1qpMZTfnuOONqLlpSIEFP33Ig==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     dev: true
