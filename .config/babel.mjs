@@ -16,7 +16,7 @@
 // Requirements
 // -----------------------------------------------------------------------------
 
-import { packageConfig } from "shared/constants";
+import { packageConfig } from 'shared/constants';
 
 // -----------------------------------------------------------------------------
 // Presets
@@ -25,7 +25,7 @@ import { packageConfig } from "shared/constants";
 const nodeDevelopmentPresets = [
   [
     // https://babeljs.io/docs/en/babel-preset-env
-    "@babel/preset-env",
+    '@babel/preset-env',
     {
       // Module transformations are unnecessary as Node is in ES module context.
       // Additionally, CommonJS cannot be treeshaken.
@@ -34,8 +34,8 @@ const nodeDevelopmentPresets = [
         esmodules: false,
         node: true,
       },
-      useBuiltIns: "entry",
-      corejs: packageConfig.dependencies["core-js"],
+      useBuiltIns: 'entry',
+      corejs: packageConfig.dependencies['core-js'],
     },
   ],
 ];
@@ -43,21 +43,21 @@ const nodeDevelopmentPresets = [
 const nodeProductionPresets = [
   [
     // https://babeljs.io/docs/en/babel-preset-env
-    "@babel/preset-env",
+    '@babel/preset-env',
     {
       // Module transformations are necessary as Node is in CommonJS context.
       // modules: false,
       // modules: '',
       targets: {
         esmodules: true,
-        node: "current",
+        node: 'current',
       },
       loose: true,
-      include: ["@babel/plugin-transform-classes"],
+      include: ['@babel/plugin-transform-classes'],
       // 'exclude': ['transform-es2015-typeof-symbol'],
-      useBuiltIns: "usage",
+      useBuiltIns: 'usage',
       corejs: {
-        version: packageConfig.dependencies["core-js"],
+        version: packageConfig.dependencies['core-js'],
         proposals: true,
       },
     },
@@ -77,15 +77,15 @@ const commonNodePlugins = [
   //   },
   // ],
   // https://babeljs.io/docs/en/babel-plugin-syntax-import-meta
-  "@babel/plugin-syntax-import-meta",
+  '@babel/plugin-syntax-import-meta',
   // https://babeljs.io/docs/en/babel-plugin-syntax-dynamic-import
-  "@babel/plugin-syntax-dynamic-import",
+  '@babel/plugin-syntax-dynamic-import',
   // '@babel/plugin-proposal-object-rest-spread',
-  "babel-plugin-dynamic-import-node-sync",
+  'babel-plugin-dynamic-import-node-sync',
   // '@babel/plugin-transform-classes',
   // https://babeljs.io/docs/en/babel-plugin-transform-modules-commonjs
   [
-    "@babel/plugin-transform-modules-commonjs",
+    '@babel/plugin-transform-modules-commonjs',
     {
       allowTopLevelThis: false,
     },
@@ -95,7 +95,7 @@ const commonNodePlugins = [
 const nodeDevelopmentPlugins = [
   // https://babeljs.io/docs/en/babel-plugin-transform-runtime
   [
-    "@babel/plugin-transform-runtime",
+    '@babel/plugin-transform-runtime',
     {
       corejs: { version: 3, proposals: true },
       helpers: true,
@@ -108,7 +108,7 @@ const nodeDevelopmentPlugins = [
 const nodeProductionPlugins = [
   // https://babeljs.io/docs/en/babel-plugin-transform-runtime
   [
-    "@babel/plugin-transform-runtime",
+    '@babel/plugin-transform-runtime',
     {
       corejs: { version: 3, proposals: true },
       helpers: true,
@@ -127,16 +127,16 @@ const config = (api) => {
   const envName = api.env();
 
   // eslint-disable-next-line no-console
-  console.log(`Babel was loaded with the "${envName}" environment.`);
+  console.log(`Babel was loaded with the '${envName}' environment.`);
 
   switch (envName) {
-    case "development":
+    case 'development':
       return {
         presets: nodeDevelopmentPresets,
         plugins: commonNodePlugins.concat(nodeDevelopmentPlugins),
         ignore: [],
       };
-    case "production":
+    case 'production':
       return {
         presets: nodeProductionPresets,
         plugins: commonNodePlugins.concat(nodeProductionPlugins),
