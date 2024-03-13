@@ -224,7 +224,7 @@ which display/terminal it's running, gpg\-agent's ssh\-support will use the T
 or X display where gpg\-agent started. To switch this display to the current
 one, you may use the following command.
 
-```shell
+```console
 gpg-connect-agent updatestartuptty /bye
 ```
 
@@ -238,7 +238,7 @@ guarantee that **[`ssh`][]** can use **[`gpg-agent`][]** for authentication.
 fix this, one may start **[`gpg-agent`][]** , if needed, by using this simple
 command:
 
-```shell
+```console
 gpg-connect-agent /bye
 ```
 
