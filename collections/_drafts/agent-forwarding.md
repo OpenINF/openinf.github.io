@@ -161,17 +161,6 @@ program itself.[^2]
 
 :::
 
-<!-- LINK LABEL DEFINITIONS - START -->
-
-[computer files]: https://en.wikipedia.org/wiki/Computer_file
-[host]: https://en.wikipedia.org/wiki/Server_(computing)
-[Secure Shell]: https://en.wikipedia.org/wiki/Secure_Shell
-
-[^1]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-1
-[^2]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-Pechanec-2)
-
-<!-- LINK LABEL DEFINITIONS - END -->
-
 During _**[`ssh-agent`][]** initialization_, the extra socket (named
 **`S.gpg-agent.extra`** by default) gets created in the GnuPG home directory.
 
@@ -300,3 +289,14 @@ VSCode remote extension user configuration (optional)
 You must specify the remote’s VS Code user settings option if you are using VS
 Code and the development environment.SSH.path to point to the SSH client
 included in the Cygwin/MSYS installation of Git Bash.
+
+<!-- LINK LABEL DEFINITIONS - START -->
+
+[computer files]: https://en.wikipedia.org/wiki/Computer_file
+[host]: https://en.wikipedia.org/wiki/Server_(computing)
+[Secure Shell]: https://en.wikipedia.org/wiki/Secure_Shell
+
+[^1]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-1
+[^2]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-Pechanec-2
+
+<!-- LINK LABEL DEFINITIONS - END -->
