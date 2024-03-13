@@ -1,6 +1,7 @@
 changelog
 code.visualstudio.com
 codebase
+esmodules
 freenode
 GFIs
 gpg
@@ -13,6 +14,8 @@ openinf
 OpenINF
 PowerShell
 SDK
+Servagility
+siteify
+SLOCs
 soonish
 UI
-Irulen

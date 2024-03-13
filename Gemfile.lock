@@ -26,7 +26,7 @@ GEM
     google-protobuf (3.25.3-x86_64-darwin)
     google-protobuf (3.25.3-x86_64-linux)
     http_parser.rb (0.8.0)
-    i18n (1.14.1)
+    i18n (1.14.4)
       concurrent-ruby (~> 1.0)
     jekyll (4.3.3)
       addressable (~> 2.4)

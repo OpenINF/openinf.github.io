@@ -18,10 +18,18 @@ name = "secrets"
 enabled = true
 
 [[analyzers]]
-name = "javascript"
+name = "docker"
 enabled = true
 
   [analyzers.meta]
+  dockerfile_paths = [".devcontainer/experimental/Dockerfile"]
+
+[[analyzers]]
+name = "javascript"
+enabled = true
+
+[analyzers.meta]
+  plugins = []
   environment = [
     "nodejs",
     "browser",
