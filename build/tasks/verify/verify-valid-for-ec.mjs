@@ -14,6 +14,3 @@ for await (const element of scripts) {
   }
   process.exitCode = exitCode > 0 ? exitCode : 0;
 }
-
-// eslint-disable-next-line unicorn/no-process-exit
-process.exit(0);
