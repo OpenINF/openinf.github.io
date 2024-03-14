@@ -255,7 +255,7 @@ TO BE SURE, we will add the following line to
 
 [[windows]]
 
-The --enable-putty-support flag is only available under Windows and allows the
+The `--enable-putty-support` flag is only available under Windows and allows the
 use of gpg-agent with the PuTTY implementation of SSH. This usage is similar to
 the regular ssh-agent, which supports OpenSSH implementations of SSH on Unix
 systems, but differs in its use of Windows Message Queues as PuTTY requires.
