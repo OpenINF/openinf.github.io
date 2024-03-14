@@ -60,18 +60,18 @@ information, see
 
 ## 1.3    Auto-start of the gpg-agent
 
-The _gpg-agent_ is the central part of the GnuPG system. It takes care of
-all private (secret) keys and, if required, diverts operations to a smartcard or
+The _gpg-agent_ is the central part of the GnuPG system. It takes care of all
+private (secret) keys and, if required, diverts operations to a smartcard or
 other token. It also supports Secure Shell (SSH) by implementing the ssh-agent
 protocol.
 
-The traditional way to run _gpg-agent_ on Unix systems is by launching it
-at login time and using an environment variable (GPG_AGENT_INFO) to tell the
-other GnuPG modules how to connect to the agent. However, correctly managing the
+The traditional way to run _gpg-agent_ on Unix systems is by launching it at
+login time and using an environment variable (GPG_AGENT_INFO) to tell the other
+GnuPG modules how to connect to the agent. However, correctly managing the
 startup and this environment variable is cumbersome, so a more straightforward
-method is required. Since GnuPG 2.0.16, the --use-standard-socket option
-already allowed starting the agent on the fly; however, the environment variable
-was still needed.
+method is required. Since GnuPG 2.0.16, the --use-standard-socket option already
+allowed starting the agent on the fly; however, the environment variable was
+still needed.
 
 With GnuPG 2.1, the need for GPG_AGENT_INFO has been completely removed, and the
 variable is ignored.
@@ -101,8 +101,8 @@ to ~/.gnupg.
 
 However, there may be problems on Windows systems with Gpg4Win installed;
 **Gpg4Win may have changed this default GnuPG home directory location** to an
-AppData subdirectory (i.e., C:Users<username>AppDataRoaminggnupg).
-This location, however, is not the location our GPG agent will be using, so to
+AppData subdirectory (i.e., C:Users<username>AppDataRoaminggnupg). This
+location, however, is not the location our GPG agent will be using, so to
 reaffirm our preference for the default location, we will set
 the GNUPGHOME environment variable to ~/.gnupg in the Git Bash startup script by
 running the following.
@@ -205,22 +205,22 @@ Consequently, using the `gpg-agent` as a drop-in replacement for the
 well-known `ssh-agent` should be possible.
 
 SSH keys, intended for use through the agent, need to be added to the
-gpg-agent initially through the ssh-add utility. Upon adding a
-key, ssh-add will ask for the password of the provided key file and send the
-unprotected key material to the agent. This routine will cause the gpg-agent to
-ask for a passphrase, which it will use to encrypt the newly-received key and
-store it in a gpg-agent-specific directory for later use. Once an SSH key has
-been added to the gpg-agent in this manner, the gpg-agent will be ready to use
-the newly-added key.
+gpg-agent initially through the ssh-add utility. Upon adding a key, ssh-add will
+ask for the password of the provided key file and send the unprotected key
+material to the agent. This routine will cause the gpg-agent to ask for a
+passphrase, which it will use to encrypt the newly-received key and store it in
+a gpg-agent-specific directory for later use. Once an SSH key has been added to
+the gpg-agent in this manner, the gpg-agent will be ready to use the newly-added
+key.
 
 [[note]]
 
-If the `gpg-agent` receives a signature request, the user may need prompting
-for a passphrase, which is necessary to decrypt any SSH keys stored. Since
+If the `gpg-agent` receives a signature request, the user may need prompting for
+a passphrase, which is necessary to decrypt any SSH keys stored. Since
 the ssh-agent protocol does not contain a mechanism for telling the agent on
-which display/terminal it's running, gpg-agent's ssh-support will use the TTY
-or X display where gpg-agent started. To switch this display to the current
-one, you may use the following command.
+which display/terminal it's running, gpg-agent's ssh-support will use the TTY or
+X display where gpg-agent started. To switch this display to the current one,
+you may use the following command.
 
 ```console
 gpg-connect-agent updatestartuptty /bye
@@ -248,8 +248,8 @@ Adding the --verbose flag shows the progress of starting the agent.
 
 ### Correctly managing the startup of the GPG agent
 
-The traditional way to run _gpg-agent_ on Unix systems is by launching it
-at login time.
+The traditional way to run _gpg-agent_ on Unix systems is by launching it at
+login time.
 
 TO BE SURE, we will add the following line to
 
