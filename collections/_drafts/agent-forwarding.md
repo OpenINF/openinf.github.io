@@ -5,8 +5,8 @@ published: false
 permalink:
 layout:
 relevant_urls:
-- https://github.com/OpenINF/docker-fisher/issues/5 # psusan + auth awkwardness
-- https://dev.gnupg.org/T3883 # Win32-OpenSSH support for gpg-agent's ssh-agent
+  - https://github.com/OpenINF/docker-fisher/issues/5 # psusan + auth awkwardness
+  - https://dev.gnupg.org/T3883 # Win32-OpenSSH support for gpg-agent's ssh-agent
 ---
 
 To be able to sign any potential Git commits or tags you may make using your Git
