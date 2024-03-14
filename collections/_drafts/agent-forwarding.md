@@ -1,7 +1,6 @@
 ---
 title: OpenINF Next-Gen Guidance on Agent Forwarding
 category: contributing
-authors: @OpenINF/wg-a-team
 published: false
 permalink:
 layout:
@@ -296,7 +295,7 @@ included in the Cygwin/MSYS installation of Git Bash.
 [host]: https://en.wikipedia.org/wiki/Server_(computing)
 [Secure Shell]: https://en.wikipedia.org/wiki/Secure_Shell
 
-[^1]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-1
-[^2]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-Pechanec-2
+[^1]: <https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-1>
+[^2]: <https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-Pechanec-2>
 
 <!-- LINK LABEL DEFINITIONS - END -->
