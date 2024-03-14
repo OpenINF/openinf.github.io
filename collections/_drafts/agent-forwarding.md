@@ -60,12 +60,12 @@ information, see
 
 ## 1.3    Auto-start of the gpg-agent
 
-The _gpg__-agent_ is the central part of the GnuPG system. It takes care of
+The _gpg-agent_ is the central part of the GnuPG system. It takes care of
 all private (secret) keys and, if required, diverts operations to a smartcard or
 other token. It also supports Secure Shell (SSH) by implementing the ssh-agent
 protocol.
 
-The traditional way to run _gpg__-agent_ on Unix systems is by launching it
+The traditional way to run _gpg-agent_ on Unix systems is by launching it
 at login time and using an environment variable (GPG_AGENT_INFO) to tell the
 other GnuPG modules how to connect to the agent. However, correctly managing the
 startup and this environment variable is cumbersome, so a more straightforward
@@ -248,7 +248,7 @@ Adding the --verbose flag shows the progress of starting the agent.
 
 ### Correctly managing the startup of the GPG agent
 
-The traditional way to run _gpg__-agent_ on Unix systems is by launching it
+The traditional way to run _gpg-agent_ on Unix systems is by launching it
 at login time.
 
 TO BE SURE, we will add the following line to
