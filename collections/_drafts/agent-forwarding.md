@@ -251,7 +251,7 @@ Adding the --verbose flag shows the progress of starting the agent.
 The traditional way to run _gpg-agent_ on Unix systems is by launching it at
 login time.
 
-TO BE SURE, we will add the following line to
+To be sure, we will add the following line to&helip;
 
 [[windows]]
 
