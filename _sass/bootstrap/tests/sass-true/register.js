@@ -10,5 +10,6 @@ require.extensions['.scss'] = (module, filename) => {
   return module._compile(`
     const runner = require('${runnerPath}')
     runner('${normalizedFilename}', { describe, it })
-    `, filename)
+    `,
+                         filename)
 }
