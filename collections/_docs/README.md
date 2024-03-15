@@ -2,11 +2,10 @@
 
 <br />
 
-> [!WARNING]<br />
-> This documentation is still in **draft** stage.
+> [!WARNING]<br /> This documentation is still in **draft** stage.
 >
-> All information may be incomplete, inaccurate, outdated, or even
-> **completely wrong**.
+> All information may be incomplete, inaccurate, outdated, or even **completely
+> wrong**.
 
 <br /><br />
 
@@ -17,7 +16,7 @@
 Install the necessary dependencies for the documentation site by running this
 command from the project workspace root (if necessary):
 
-```shell
+```console
 pnpm install
 ```
 
@@ -29,7 +28,7 @@ pnpm install
 
 Run this from the project workspace root:
 
-```shell
+```console
 pnpm start
 ```
 
@@ -44,20 +43,20 @@ Once the script finishes building the documentation site, you can visit it at
 
 To update the links data file, run this from the project workspace root:
 
-```shell
-pnpm run docs:update-links
+```console
+nps docs.update-links
 ```
 
 To lint all files, run this from the project workspace root:
 
-```shell
-pnpm run verify:all
+```console
+nps verify.all
 ```
 
 To autofix all files, run this from the project workspace root:
 
-```shell
-pnpm run format:all
+```console
+nps format.all
 ```
 
 <br /><br />

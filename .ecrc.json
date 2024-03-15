@@ -1,0 +1,24 @@
+{
+  "Verbose": false,
+  "Debug": false,
+  "IgnoreDefaults": true,
+  "SpacesAftertabs": false,
+  "NoColor": false,
+  "Exclude": [
+    "vendor/",
+    "pnpm-lock.yaml",
+    "Gemfile.lock",
+    ".markdownlint.jsonc",
+    "LICENSE/"
+  ],
+  "AllowedContentTypes": [],
+  "PassedFiles": [],
+  "Disable": {
+    "EndOfLine": false,
+    "Indentation": false,
+    "InsertFinalNewline": false,
+    "TrimTrailingWhitespace": false,
+    "IndentSize": false,
+    "MaxLineLength": false
+  }
+}

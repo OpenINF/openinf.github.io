@@ -13,12 +13,13 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
       - name: Setup Ruby, JRuby, and TruffleRuby
-        uses: ruby/setup-ruby@22fdc77bf4148f810455b226c90fb81b5cbc00a7 # v1.171.0
+        uses: ruby/setup-ruby@d4526a55538b775af234ba4af27118ed6f8f6677 # v1.172.0
       - name: Install
         run: |
           corepack enable
           corepack prepare pnpm@latest --activate
           pnpm install
+          echo "$(pwd)/node_modules/.bin" >> $GITHUB_PATH
           gem install bundler && bundle config set --local path 'vendor/bundle'
           bundle install
       - name: Build
@@ -30,7 +31,7 @@ jobs:
       # You can check if a file with a listed file type is in the PR by doing:
       # if: ${{ steps.filter.outputs.md == 'true' }}
       # This will return true if there's a Markdown file the PR has changed.
-      - uses: dorny/paths-filter@0bc4621a3135347011ad047f9ecf449bf72ce2bd # v3.0.0
+      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3.0.2
         id: filter
         with:
           filters: |
@@ -57,33 +58,33 @@ jobs:
 
       - name: Verify CSS
         if: ${{ steps.filter.outputs.css == 'true' }}
-        run: npm run verify:css
+        run: nps verify.css
 
       - name: Verify HTML
         if: ${{ steps.filter.outputs.html == 'true' }}
-        run: npm run verify:html
+        run: nps verify.html
 
       - name: Verify JavaScript
         if: ${{ steps.filter.outputs.js == 'true' || steps.filter.outputs.json == 'true' }}
-        run: npm run verify:js
+        run: nps verify.js
 
       - name: Verify JSON
         if: ${{ steps.filter.outputs.json == 'true' }}
-        run: npm run verify:json
+        run: nps verify.json
 
       - name: Verify Markdown
         if: ${{ steps.filter.outputs.md == 'true' }}
-        run: npm run verify:md
+        run: nps verify.md
 
       - name: Verify SVG
         if: ${{ steps.filter.outputs.svg == 'true' }}
-        run: npm run verify:svg
+        run: nps verify.svg
 
       - name: Verify YAML
         if: ${{ steps.filter.outputs.yaml == 'true' }}
-        run: npm run verify:yaml
+        run: nps verify.yaml
 
       # Only run tests if the PR touches behavior-related files.
       - name: Test
         if: ${{ steps.filter.outputs.js == 'true' || steps.filter.outputs.json == 'true' }}
-        run: npm run test
+        run: nps test

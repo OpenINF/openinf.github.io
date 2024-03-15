@@ -1,0 +1,13 @@
+/home301 / 301
+/home302 / 302
+/querystrings /?query=string 301
+/trailing /trailing/ 301
+/notrailing/ /nottrailing 301
+/blog/* /news/:splat 200
+/products/:code/:name /products?code=:code&name=:name
+/humans.txt /403 302
+/robots.txt /403 302
+/security.txt /403 302
+/license /403 302
+/authors /403 302
+/contributors /403 302
