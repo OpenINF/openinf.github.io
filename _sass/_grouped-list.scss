@@ -107,7 +107,7 @@ li {
   ._title-block {
     position: relative;
     padding-right: 15px;
-    
+
     ._title {
       display: block;
       font-weight: 400;
@@ -116,7 +116,7 @@ li {
 
       @include media-breakpoint-down(md) {
         font-size: 18px;
-        line-height: 1.3333333333;  
+        line-height: 1.3333333333;
       }
     }
 
