@@ -1,0 +1,67 @@
+/*!
+ * Reflection Theme
+ */
+
+.discrete-sessions {
+
+  ._bubble {
+    background-size: 90%;
+    // background-color: #ba160c;
+    border-radius: $border-radius;
+    border: $border-width solid #ba160c;
+
+    svg {
+      width: 80%;
+      margin: 13.5% 10%;
+
+      @include media-breakpoint-up(md) {
+        width: 30%;
+        margin: 10%;
+      }
+
+      @include media-breakpoint-up(lg) {
+        width: 30%;
+        margin: 10%;
+      }
+    }
+
+    svg path {
+      fill: #ba160c;
+    }
+  }
+}
+
+.banner-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 60%; // acts as fluid height
+  margin-bottom: .5rem;
+  overflow: hidden;
+
+  @include media-breakpoint-up(sm) {
+    padding-bottom: 21rem
+  }
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: 14.8rem;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 19.7rem;
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding-bottom: 23.4rem;
+  }
+}
+
+.banner-img {
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  // background-position: center center;
+  // background-size: 22rem;
+  // background-repeat: no-repeat;
+  // background-color: #3776ab;
+}

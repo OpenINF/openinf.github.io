@@ -1,0 +1,31 @@
+/*!
+ * Reflection Theme
+ */
+
+.contact {
+  .blurb {
+    text-align: justify;
+    text-indent: 2em;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+
+  ul.methods li {
+    margin-top: 2rem;
+  }
+
+  .icon {
+    float: left;
+    margin-right: 10px;
+    display: block;
+    width: 24px;
+    height: 24px;
+
+    svg path {
+      fill: $brand-primary;
+    }
+  }
+}

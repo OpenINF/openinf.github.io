@@ -1,0 +1,30 @@
+.byline {
+  margin-top: 12px;
+  clear: both;
+  color: $text-muted;
+}
+
+.byline-author {
+  display: inline-block;
+}
+
+.byline-pubdate {
+  display: block;
+  font-size: small;
+}
+
+.byline-author {
+  line-height: 40px;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.byline-photo {
+  float: left;
+  margin-right: 1em;
+  border-radius: 100%;
+
+  > img {
+    object-fit: cover;
+  }
+}

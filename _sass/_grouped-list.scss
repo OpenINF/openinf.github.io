@@ -1,0 +1,132 @@
+li {
+  list-style-type: none;
+}
+
+.list-wrap {
+  color: inherit;
+}
+
+.list-wrap,
+.list-wrap.-is-search .list-detail {
+  display: block;
+}
+
+.list-wrap.-is-link {
+  text-decoration: none;
+
+  .list-detail {
+    ._title {
+      color: $body-color;
+      transition: 125ms color ease-in;
+      text-decoration: none;
+    }
+  }
+}
+
+.list-wrap.-is-link:hover {
+  ._title {
+    text-decoration: none;
+    transition: 125ms color ease-in;
+    color: $brand-primary;
+  }
+
+  ._summary {
+    color: $body-color;
+    text-decoration: none;
+  }
+}
+
+.list-header {
+  display: table-cell;
+  vertical-align: top;
+
+  @include media-breakpoint-down(md) {
+    padding-top: 16px;
+  }
+
+  ._bubble {
+    width: 72px;
+    height: 72px;
+    border-radius: 35px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include media-breakpoint-up(md) {
+      margin-top: 20px;
+      margin-right: 32px;
+    }
+
+    @include media-breakpoint-down(md) {
+      margin-top: 20px;
+      margin-right: 32px;
+      width: 56px;
+      height: 56px;
+    }
+
+    @include media-breakpoint-down(sm) { // -1
+      margin-top: 14px;
+      margin-right: 16px;
+      width: 56px;
+      height: 56px;
+    }
+
+    path {
+      fill: $body-color;
+    }
+  }
+}
+
+.grouped-list-wrapper {
+  .grouped-list {
+    margin-bottom: 0;
+  }
+
+  .grouped-list-title {
+    color: $text-muted;
+    padding: 32px 0 16px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid $text-muted;
+
+    @include media-breakpoint-up(sm) {
+      padding: 32px 0 32px;
+    }
+  }
+}
+
+.list-detail {
+  width: 100%;
+  padding: 25px 0 25px;
+  display: table-cell;
+
+  p {
+    margin: 0;
+  }
+
+  ._title-block {
+    position: relative;
+    padding-right: 15px;
+
+    ._title {
+      display: block;
+      font-weight: 400;
+      font-size: 24px;
+      margin: 0 0 .4em;
+
+      @include media-breakpoint-down(md) {
+        font-size: 18px;
+        line-height: 1.3333333333;
+      }
+    }
+
+    ._sub-title {
+      display: block;
+      font-size: $font-size-h5;
+    }
+
+    @include media-breakpoint-down(sm) { // -1
+      padding-right: 40px;
+    }
+  }
+}

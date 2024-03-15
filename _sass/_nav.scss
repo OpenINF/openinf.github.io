@@ -1,0 +1,58 @@
+.container .sidebar-nav {
+  display: none;
+}
+
+amp-sidebar {
+  background: $brand-foreground;
+}
+
+amp-sidebar nav {
+  width: 12.5rem;
+  padding: 0;
+  margin: 0;
+  background: $brand-foreground;
+  border-right: 0;
+
+  ul {
+    padding-right: 0;
+    padding-left: 0;
+
+    li {
+      margin-bottom: 0;
+      list-style: none;
+
+      ul {
+        margin-bottom: 0;
+        margin-left: 0;
+
+        li {
+          margin: 0;
+          list-style: none;
+
+          &.is-active {
+            background: shade($brand-secondary, 1%);
+
+            a {
+              color: lighten($brand-primary, 8%);
+              border-left: 3px solid;
+            }
+          }
+
+          a {
+            padding: 0 1rem;
+            font-size: 1.2rem;
+            line-height: 3.75rem;
+          }
+        }
+      }
+    }
+  }
+
+  a, span {
+    display: block;
+    padding: .375rem .75rem;
+    font-size: $font-size-base;
+    color: $gray-dark;
+    letter-spacing: .04em;
+  }
+}

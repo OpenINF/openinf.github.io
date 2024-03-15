@@ -1,0 +1,128 @@
+@import "bootstrap/buttons";
+@import "bootstrap/code";
+@import "bootstrap/images";
+@import "masthead";
+@import "featurettes";
+@import "syntax";
+@import "highlight";
+
+.social {
+  list-style: none;
+  margin: 1.25rem 0 0 0;
+  padding: 0;
+  text-align: center;
+
+  li {
+    display: inline;
+
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+
+      path,
+      circle {
+        transition: fill .25s ease-in-out;
+        fill: $body-color;
+      }
+    }
+
+    a:focus,
+    a:hover {
+      cursor: pointer;
+      text-decoration: none;
+
+      svg {
+        width: 24px;
+        height: 24px;
+
+        path,
+        circle {
+          fill: $brand-primary;
+        }
+      }
+    }
+  }
+}
+
+.features {
+  list-style: none;
+
+  li {
+    padding-left: 1ch;
+    text-indent: -3ch;
+  }
+  li::before {
+    padding-right: 1ch;
+    content: "❖";
+  }
+}
+
+.home {
+  .content {
+    padding: 1.5rem 0 1.5rem;
+  }
+
+  span {
+    // display: block;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+
+  .welcome {
+    text-align: justify;
+  }
+
+  // .highlight span {
+  //   display: inline-block;
+  // }
+
+  .firstcharacter {
+      font-size: 4rem;
+    }
+}
+
+// .nowrap {
+//   display: inline;
+//   white-space: nowrap;
+// }
+
+// .download-link-text {
+//   font-size: .75rem;
+// }
+
+.home-banner-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 60%; // acts as fluid height
+  margin-bottom: .5rem;
+  overflow: hidden;
+
+  @include media-breakpoint-up(sm) {
+    padding-bottom: 50%
+  }
+
+@include media-breakpoint-up(md) {
+    padding-bottom: 40%;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 30%;
+  }
+}
+
+.home-banner-img {
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-size: auto;
+  background-repeat: no-repeat;
+}

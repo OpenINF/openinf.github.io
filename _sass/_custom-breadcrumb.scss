@@ -1,0 +1,15 @@
+.breadcrumb {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid $text-muted;
+}
+
+.breadcrumb-item,
+.breadcrumb-item.active {
+  font-size: .875rem;
+  line-height: 1.5rem;
+}
+
+.breadcrumb-item a {
+  color: $text-muted;
+}

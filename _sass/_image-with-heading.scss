@@ -1,0 +1,13 @@
+.image-with-heading {
+  margin: 0;
+  padding: .5rem 0;
+  position: relative;
+
+  amp-img {
+    margin-bottom: 0;
+  }
+}
+
+.image-heading > * {
+  margin: 0;
+}
