@@ -1,33 +1,19 @@
 #!/usr/bin/fish
 
-# If there's a .ruby-version, then run `rbenv install`.
-if test -e .ruby-version
-    rbenv install --verbose
-end
+echo 'Hey diddle diddle!'
 
-echo 'set -Ux fish_user_paths ~/.rbenv/shims/ $fish_user_paths' >> ~/.config/fish/config.fish
+# rem *****************
+# rem   Fisher Plugins
+# rem *****************
 
-# To squelch yellow message re: specifying how divergent branches be reconciled.
-echo 'git config pull.rebase true' >> ~/.config/fish/config.fish # rebase
+# curl -sL https://raw.githubusercontent.com/OpenINF/openinf-fisher/HEAD/functions/fisher.fish | source \
+#     && fisher install OpenINF/openinf-fisher
 
-source ~/.config/fish/config.fish
+fisher install OpenINF/openinf-nvm.fish          \
+    && fisher install OpenINF/openinf-bass       \
+    && fisher install OpenINF/openinf-autoenvstack
 
-rbenv rehash
-
-# If there's a Gemfile, then install Bundler and run `bundle install`.
-if test -e Gemfile
-    # Install Bundler.
-    gem install bundler
-    # Configure Bundler setting local gem install path to avoid permission errors.
-    bundle config set --local path vendor/bundle
-    # Install the dependencies specified in the Gemfile.
-    bundle install
-    # Ensure latest versions of Bundler's dependencies are installed.
-    bundle update --bundler
-else
-    # If there's no Gemfile, install Jekyll.
-    gem install jekyll
-end
+######################################################################## 100.0%
 
 # If there's a `.nvmrc`, then run `nvm install`.
 if test -e .nvmrc
@@ -39,6 +25,9 @@ end
 if test -e package.json
     corepack enable
     corepack prepare pnpm@latest --activate
+    bass pnpm setup # >> /dev/null
+    source ~/.config/fish/config.fish
+    pnpm add -g pnpm
     pnpm install
 end
 
@@ -48,14 +37,23 @@ echo 'rbenv rehash && nvm use' >> ~/.config/fish/config.fish
 # It makes the tools available to the user when they open a new terminal window.
 
 # Install moon
-curl -fsSL https://moonrepo.dev/install/moon.sh | bash >> /dev/null
-echo 'set -Ux fish_user_paths $HOME/.moon/bin $fish_user_paths' >> ~/.config/fish/config.fish
+bass curl -fsSL https://moonrepo.dev/install/moon.sh | bash # >> /dev/null
+set -gx MOON_HOME $HOME/.moon/bin
+echo 'set -gx MOON_HOME $HOME/.moon/bin' >> ~/.config/fish/config.fish
+fish_add_path -g $MOON_HOME
+echo 'fish_add_path -g $MOON_HOME' >> $HOME/.config/fish/config.fish
 
 # Install dprint
-curl -fsSL https://dprint.dev/install.sh | sh >> /dev/null
-echo 'set -Ux fish_user_paths $HOME/.dprint/bin $fish_user_paths' >> ~/.config/fish/config.fish
+bass curl -fsSL https://dprint.dev/install.sh | sh # >> /dev/null
+set -gx DPRINT_INSTALL $HOME/.dprint
+echo 'set -gx DPRINT_INSTALL $HOME/.dprint' >> ~/.config/fish/config.fish
+fish_add_path -g $DPRINT_INSTALL
+echo 'fish_add_path -g $DPRINT_INSTALL' >> ~/.config/fish/config.fish
 
-source ~/.config/fish/config.fish
+set -gx DPRINT_HOME $DPRINT_INSTALL/bin
+echo 'set -gx DPRINT_HOME $DPRINT_INSTALL/bin' >> ~/.config/fish/config.fish
+fish_add_path -g $DPRINT_HOME
+echo 'fish_add_path -g $DPRINT_HOME' >> $HOME/.config/fish/config.fish
 
 # this will populate your ~/.gnupg directory with empty keyring files
 # it will create the ~/.gnupg directory if it does not already exist (expected)

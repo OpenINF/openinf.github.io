@@ -2,7 +2,9 @@ node_modules
 vendor/
 CONTRIBUTING.md
 CODE_OF_CONDUCT.md
+COPYING.md
 SECURITY.md
 SUPPORT.md
 VISION.md
 _site/**/*.md
+.github/ISSUE_TEMPLATE/*.md

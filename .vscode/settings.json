@@ -45,16 +45,18 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
+
   "[liquid]": {
+    "editor.formatOnSave": true,
     "editor.defaultFormatter": "sissel.shopify-liquid"
   },
 
-  // "[toml]": {
-  //   "editor.codeActionsOnSave": {
-  //     "source.fixAll.dprint": "explicit"
-  //   },
-  //   "editor.defaultFormatter": "dprint.dprint"
-  // },
+  "[toml]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.dprint": "explicit"
+    },
+    "editor.defaultFormatter": "dprint.dprint"
+  },
 
   "[markdown]": {
     "editor.codeActionsOnSave": {
@@ -186,7 +188,7 @@
     ".prettierrc.json": "json5",
     ".prettierrc.json5": "json5",
     ".deepsource.toml": "toml",
-    ".renovaterc.json": "json5",
+    ".renovaterc.json5": "json5",
     ".snyk": "yaml",
     ".html": "liquid"
   },
@@ -267,7 +269,7 @@
   // Dprint
   /////////////////////////////////////////////
 
-  // "dprint.path": "~/.dprint/bin/dprint",
+  "dprint.path": "~/.dprint/bin/dprint",
 
   // EditorConfig (https://editorconfig.org/)
   /////////////////////////////////////////////
@@ -295,11 +297,6 @@
   "eslint.workingDirectories": [
     "./"
   ],
-
-  // Liquid
-  /////////////////////////////////////////////
-  // Controls whether formatting is enabled or disabled
-  "liquid.format.enable": true,
 
   // Remote
   /////////////////////////////////////////////
