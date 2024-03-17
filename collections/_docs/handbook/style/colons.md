@@ -55,7 +55,7 @@ This, however, _is **not**_ a hard and fast rule. In general, use _best intuitio
 
 When text that precedes a colon is tagged as `<code>`, don't include the colon
 in the **`<code>`** tagging_ ***unless*** it is _already_ part of the code itself. For more information
-about formatting code, see [Some specific items to put in code font][].
+about formatting code, see **[Some specific items to put in code font][]**.
 
 </section>
 
