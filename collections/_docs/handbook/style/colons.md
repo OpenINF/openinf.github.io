@@ -32,7 +32,7 @@ We at OpenINF are always interested in finding ways to optimize things and be
 more efficient. One particular use case of **[the Japanese colon][]** that we
 have picked-up is in its placement immediately after the _**[Classification][]**
 portion_ in the titles of commit messages written sure to be abiding by our
-commit message format and style guidelines\*hellip; title.
+commit message format and style guidelines.
 
 Rather than using an ordinary colon from the ANSI, ASCII, or Unicode character
 sets, we use the Japanese colon as it is both less size (in memory) and can
