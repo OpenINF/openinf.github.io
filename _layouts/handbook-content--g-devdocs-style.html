@@ -10,9 +10,7 @@
       {%- endif -%}
       <h1 class="devsite-page-title">{{ page.title }}</h1>
       <div class="devsite-article-body clearfix">
-        <aside id="key-point">
-          <p><strong>Key Point:</strong> {{ page.key_point }}</p>
-        </aside>
+        {% include key-point.html %}
         {{ content }}
       </div>
     </article>
