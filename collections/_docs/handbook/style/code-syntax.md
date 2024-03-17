@@ -1,20 +1,21 @@
-# Documenting command-line syntax
-
-**Key Point:** Recommendations for documenting command-line tools.
+---
+title: Documenting Command-Line Syntax
+key_point: Recommendations for documenting command-line tools.
+---
 
 ## Placeholder variables
 
 To indicate a placeholder variable, use the `<var>` element. (To execute the
 command, the reader replaces the placeholder with an actual value.)
 
-#### Example
+### Example
 
 Recommended: `infuse source repos clone default local-directory-name`
 
 For information about how to discuss placeholders in procedure steps, see
 [Explaining placeholders](code-in-text.md#explaining-placeholders).
 
-## Command-line syntax
+## Command-Line Syntax
 
 Here's how to document command-line commands and their arguments.
 
