@@ -29,13 +29,15 @@ ordinarily_ be able to stand alone as a complete sentence.
 ## Proper Etiquette for Use of Japanese Colon
 
 We at OpenINF are always interested in finding ways to optimize things and be
-more efficient. One particular use case of **[the Japanese colon][]** that we have
-picked-up is in its placement immediately after the _**[Classification][]** portion_ in the titles of commit messages written sure to be abiding by our commit message format and style guidelines*hellip;
-title.
+more efficient. One particular use case of **[the Japanese colon][]** that we
+have picked-up is in its placement immediately after the _**[Classification][]**
+portion_ in the titles of commit messages written sure to be abiding by our
+commit message format and style guidelines\*hellip; title.
 
-Rather than using an ordinary colon from the ANSI, ASCII, or Unicode character sets, we
-use the Japanese colon as it is both less size (in memory) and can accomplish
-the task of both a colon character and the subsequent space all at once.
+Rather than using an ordinary colon from the ANSI, ASCII, or Unicode character
+sets, we use the Japanese colon as it is both less size (in memory) and can
+accomplish the task of both a colon character and the subsequent space all at
+once.
 
 </section>
 
@@ -43,9 +45,10 @@ the task of both a colon character and the subsequent space all at once.
 
 ## Bold and Italic Text Preceding Colons
 
-When _non-italic_ (also known as _Roman_) text (that precedes a colon is **bold**), the
-colon _should **not**_ be made_ bold_, _italic_, or _otherwise_ (e.g., _color-stylized_, etc.).
-This, however, _is **not**_ a hard and fast rule. In general, use _best intuition_.
+When _non-italic_ (also known as _Roman_) text (that precedes a colon is
+**bold**), the colon _should **not**_ be made* bold*, _italic_, or _otherwise_
+(e.g., _color-stylized_, etc.). This, however, _is **not**_ a hard and fast
+rule. In general, use _best intuition_.
 
 </section>
 
@@ -54,8 +57,9 @@ This, however, _is **not**_ a hard and fast rule. In general, use _best intuitio
 ## Code Text Preceding Colons
 
 When text that precedes a colon is tagged as `<code>`, don't include the colon
-in the **`<code>`** tagging_ ***unless*** it is _already_ part of the code itself. For more information
-about formatting code, see **[Some specific items to put in code font][]**.
+in the **`<code>`** tagging* ***unless*** it is \_already* part of the code
+itself. For more information about formatting code, see **[Some specific items
+to put in code font][]**.
 
 </section>
 
