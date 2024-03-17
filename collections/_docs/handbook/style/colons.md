@@ -5,7 +5,7 @@ original_url: <https://developers.google.com/style/colons>
 original_title: Colons | Google developer documentation style guide
 ---
 
-<section id="phrase-preceding-colon" markdown="1">
+<section id="phrase-preceding-colon">
 
 ## Introductory Phrase Preceding Colon
 
