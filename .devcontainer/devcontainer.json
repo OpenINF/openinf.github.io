@@ -3,12 +3,10 @@
 // https://github.com/OpenINF/docker-fisher
 {
   "name": "🦞 OpenINF GrimesAI Salvage Tex: Lunar (OpenINF Community)",
-  "image": "openinf/grimesai-salvage-tex:lunar",
-  "runArgs": [
-    "--cap-add=SYS_ADMIN",
-    "--security-opt",
-    "seccomp=unconfined"
-  ],
+  "build": {
+    "dockerfile": "experimental/Dockerfile"
+  },
+  "runArgs": [],
   // Configure tool-specific properties.
   "customizations": {
     // Configure properties specific to VS Code.
@@ -65,8 +63,14 @@
     2222
   ],
   "overrideCommand": false,
+
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "workspaceFolder": "/workspace",
+
   // Use 'postCreateCommand' to run commands after creating the container.
-  "postCreateCommand": "fish .devcontainer/post-create.fish",
+  // https://code.visualstudio.com/docs/devcontainers/create-dev-container#_rebuild
+  "postCreateCommand": "fish -i '${containerWorkspaceFolder}/tools/devcontainer/post-create.fish'",
+  "postStartCommand": "fish -i '${containerWorkspaceFolder}/tools/devcontainer/post-start.fish'",
   "remoteEnv": {
     "PATH": "${containerEnv:PATH}:~/.rbenv/shims/"
   },
