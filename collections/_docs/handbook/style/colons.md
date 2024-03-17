@@ -64,7 +64,7 @@ about formatting code, see [Some specific items to put in code font][].
 ## Colons Within Sentences
 
 In general, the first word in the text that follows a colon should be in
-lowercase. For exceptions, see [capitalization][].
+lowercase. For exceptions, see **[capitalization][]**.
 
 <strong>Examples</strong>
 
