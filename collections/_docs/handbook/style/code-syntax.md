@@ -59,7 +59,7 @@ lines, we recommend using separate code blocks for input and output.
 
 Recommended:
 
-\$ cat ~/.ssh/my-ssh-key.pub
+$ cat ~/.ssh/my-ssh-key.pub
 
 The terminal shows your public key in the following form:
 
