@@ -57,7 +57,7 @@ rule. In general, use _best intuition_.
 ## Code Text Preceding Colons
 
 When text that precedes a colon is tagged as `<code>`, don't include the colon
-in the **`<code>`** tagging\* **_unless_** it is _already_ part of the code
+in the **`<code>`** tagging **_unless_** it is _already_ part of the code
 itself. For more information about formatting code, see **[Some specific items
 to put in code font][]**.
 
