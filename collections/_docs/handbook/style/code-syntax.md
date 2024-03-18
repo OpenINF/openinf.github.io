@@ -109,7 +109,7 @@ one—and only one—of the items inside the braces. Use vertical bars (also kno
 as _pipes_) to separate the items. There can be more than two mutually exclusive
 choices, separated from each other by pipes.
 
-**Example**s
+**Examples**
 
 - Recommended: `{file1|file2}`
 
