@@ -28,7 +28,7 @@
       "label": "fish",
       // The task will launch a shell.
       "type": "shell",
-      "command": "echo 'greets'",
+      "command": "source .env.fish",
       // Set the shell type.
       "options": {
         "shell": {
