@@ -48,11 +48,13 @@ List of devices attached emulator-5554 device emulator-5556 device
 
 Recommended:
 
+```console
 $ adb shell shell@
 $ screencap /sdcard/screen.png shell@
 $ exit
 $ adb pull
 /sdcard/screen.png
+```
 
 When you're showing a one-line command, the command prompt (the `$` symbol) is
 optional. However, if your page includes both multi-line and one-line commands,
@@ -66,7 +68,9 @@ lines, we recommend using separate code blocks for input and output.
 
 Recommended:
 
-$ cat ~/.ssh/my-ssh-key.pub
+```console
+cat ~/.ssh/my-ssh-key.pub
+```
 
 The terminal shows your public key in the following form:
 
