@@ -13,7 +13,7 @@ command, the reader replaces the placeholder with an actual value.)
 Recommended: `infuse source repos clone default local-directory-name`
 
 For information about how to discuss placeholders in procedure steps, see
-[Explaining placeholders](code-in-text.md#explaining-placeholders).
+[Explaining placeholders][].
 
 ## Command-Line Syntax
 
@@ -127,3 +127,9 @@ Recommended: `infuse dns group [global-flag ...]`
 
 In this example, the user can specify multiple instances of the optional
 parameter global-flag.
+
+<!-- LINK DEFINITION LABELS - START -->
+
+[Explaining placeholders]: ./code-in-text.md#explaining-placeholders
+
+<!-- LINK DEFINITION LABELS - END -->
