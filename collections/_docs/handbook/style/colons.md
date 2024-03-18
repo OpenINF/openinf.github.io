@@ -5,12 +5,12 @@ original_url: <https://developers.google.com/style/colons>
 original_title: Colons | Google developer documentation style guide
 ---
 
-<section id="phrase-preceding-colon" markdown="1">
+<section id="phrase-preceding-colon">
 
 ## Introductory Phrase Preceding Colon
 
-When a colon introduces a list, the text that precedes the colon must be able to
-stand alone as a complete sentence.
+When a colon introduces a list, the text that precedes the colon _**should**
+ordinarily_ be able to stand alone as a complete sentence.
 
 <strong>Examples</strong>
 
@@ -24,12 +24,31 @@ stand alone as a complete sentence.
 
 </section>
 
+<section id="usage-of-japanese-colon" markdown="1">
+
+## Proper Etiquette for Use of Japanese Colon
+
+We at OpenINF are always interested in finding ways to optimize things and be
+more efficient. One particular use case of **[the Japanese colon][]** that we
+have picked-up is in its placement immediately after the _**[Classification][]**
+portion_ in the titles of commit messages written sure to be abiding by our
+commit message format and style guidelines.
+
+Rather than using an ordinary colon from the ANSI, ASCII, or Unicode character
+sets, we use the Japanese colon as it is both less size (in memory) and can
+accomplish the task of both a colon character and the subsequent space all at
+once.
+
+</section>
+
 <section id="bold-text-preceding-colon" markdown="1">
 
 ## Bold and Italic Text Preceding Colons
 
-When non-italic (_roman_) text that precedes a colon is bold, the colon should
-not be made bold, italic, or otherwise (color-stylized, etc.).
+When _non-italic_ (also known as _Roman_) text (that precedes a colon is
+**bold**), the colon _should **not**_ be made* bold*, _italic_, or _otherwise_
+(e.g., _color-stylized_, etc.). This, however, _is **not**_ a hard and fast
+rule. In general, use _best intuition_.
 
 </section>
 
@@ -38,8 +57,9 @@ not be made bold, italic, or otherwise (color-stylized, etc.).
 ## Code Text Preceding Colons
 
 When text that precedes a colon is tagged as `<code>`, don't include the colon
-in the `<code>` tagging unless it is part of the code. For more information
-about formatting code, see [Some specific items to put in code font][].
+in the **`<code>`** tagging **_unless_** it is _already_ part of the code
+itself. For more information about formatting code, see **[Some specific items
+to put in code font][]**.
 
 </section>
 
@@ -48,7 +68,7 @@ about formatting code, see [Some specific items to put in code font][].
 ## Colons Within Sentences
 
 In general, the first word in the text that follows a colon should be in
-lowercase. For exceptions, see [capitalization][].
+lowercase. For exceptions, see **[capitalization][]**.
 
 <strong>Examples</strong>
 
@@ -81,5 +101,6 @@ For information about when it's better to use colons than dashes, see
 [list introductions]: ./lists.md#intros
 [code-sample introductions]: ./code-samples.md#intros
 [Dashes]: ./dashes.md#colons
+[the Japanese colon]: https://wikipedia.org/wiki/Japanese_punctuation#Colon
 
 <!-- LINK DEFINITION LABELS - END -->
