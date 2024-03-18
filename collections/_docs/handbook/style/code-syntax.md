@@ -30,7 +30,7 @@ the command interface changes—such as from the local machine to a remote
 machine—then add an additional prompt indicator, as appropriate, for the new
 context.
 
-#### Examples
+**Examples**
 
 Recommended:
 
@@ -55,7 +55,7 @@ for consistency.
 If your command-line instructions include a combination of input and output
 lines, we recommend using separate code blocks for input and output.
 
-#### Example
+**Example**
 
 Recommended:
 
@@ -70,7 +70,7 @@ ssh-rsa \[KEY-VALUE] \[USERNAME]
 Use text without brackets or braces. Depending on the circumstances, this is
 likely to be in code font.
 
-#### Examples
+**Examples**
 
 Recommended: `infuse compute project-info describe`
 
@@ -85,7 +85,7 @@ Use square brackets around an optional argument.
 If there's more than one optional argument, enclose each item in its own set of
 square brackets.
 
-#### Example
+**Example**
 
 Recommended: `infuse dns group [global-flag] [filename]`
 
@@ -98,7 +98,7 @@ one—and only one—of the items inside the braces. Use vertical bars (also kno
 as _pipes_) to separate the items. There can be more than two mutually exclusive
 choices, separated from each other by pipes.
 
-#### Examples
+**Example**s
 
 - Recommended: `{file1|file2}`
 
@@ -121,7 +121,7 @@ choices, separated from each other by pipes.
 Use an ellipsis (...) to indicate that the user can specify multiple values for
 the argument.
 
-#### Example
+**Example**
 
 Recommended: `infuse dns group [global-flag ...]`
 
