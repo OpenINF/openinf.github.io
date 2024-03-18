@@ -2,10 +2,10 @@
   "name": "@openinf/openinf.github.io",
   "private": "true",
   "description": "The OpenINF website and other static resources",
-  "packageManager": "pnpm@8.15.4",
+  "packageManager": "pnpm@8.15.5",
   "engines": {
     "node": "20.11.1",
-    "pnpm": "8.15.4"
+    "pnpm": "8.15.5"
   },
   "homepage": "open.inf.is",
   "repository": "OpenINF/openinf.github.io",
@@ -37,7 +37,7 @@
     "nps": "5.10.0",
     "nps-i": "1.0.2",
     "nps-utils": "1.7.0",
-    "postcss": "8.4.35",
+    "postcss": "8.4.36",
     "postcss-html": "1.6.0",
     "prettier": "3.2.5",
     "remark": "15.0.1",
