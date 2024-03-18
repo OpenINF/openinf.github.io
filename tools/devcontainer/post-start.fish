@@ -6,14 +6,10 @@ echo 'Hey diddle diddle!'
 # rem   Fisher Plugins
 # rem *****************
 
-# curl -sL https://raw.githubusercontent.com/OpenINF/openinf-fisher/HEAD/functions/fisher.fish | source \
-#     && fisher install OpenINF/openinf-fisher
+fisher install OpenINF/openinf-nvm.fish
+fisher install OpenINF/openinf-bass
 
-fisher install OpenINF/openinf-nvm.fish          \
-    && fisher install OpenINF/openinf-bass       \
-    && fisher install OpenINF/openinf-autoenvstack
-
-######################################################################## 100.0%
+########################################################################
 
 # If there's a `.nvmrc`, then run `nvm install`.
 if test -e .nvmrc

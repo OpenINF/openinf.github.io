@@ -2,11 +2,49 @@
   // See https://go.microsoft.com/fwlink/?LinkId=733558
   // for the documentation about the tasks.json format
   "version": "2.0.0",
+  "presentation": {
+    "echo": false,
+    "reveal": "always",
+    "focus": false,
+    "panel": "dedicated",
+    "showReuseMessage": true
+  },
   "tasks": [
+    {
+      "label": "Create fish shell terminal",
+      "dependsOn": ["fish"],
+      // Mark as the default build task so cmd/ctrl+shift+b will create them.
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      // Try to start the task on folder open.
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      // The name that shows up in terminal tab.
+      "label": "fish",
+      // The task will launch a shell.
+      "type": "shell",
+      "command": "echo 'greets'",
+      // Set the shell type.
+      "options": {
+        "shell": {
+          "executable": "fish",
+          "args": ["-c"]
+        }
+      },
+     // Mark as a background task to avoid the spinner animation on the
+     // terminal tab.
+      "isBackground": true,
+      "problemMatcher": []
+    },
     {
       "label": "Serve",
       "type": "shell",
-      "command": "bundle exec jekyll serve --livereload",
+      "command": "bundle exec jekyll serve --force_polling --livereload --baseurl=''",
       "group": {
         "kind": "test",
         "isDefault": true
