@@ -21,7 +21,7 @@ end
 if test -e package.json
     corepack enable
     corepack prepare pnpm@latest --activate
-    bass pnpm setup # >> /dev/null
+    bass pnpm setup >> /dev/null
     source ~/.config/fish/config.fish
     pnpm add -g pnpm
     pnpm install
@@ -33,14 +33,14 @@ echo 'rbenv rehash && nvm use' >> ~/.config/fish/config.fish
 # It makes the tools available to the user when they open a new terminal window.
 
 # Install moon
-bass curl -fsSL https://moonrepo.dev/install/moon.sh | bash # >> /dev/null
+bass curl -fsSL https://moonrepo.dev/install/moon.sh | bash >> /dev/null
 set -gx MOON_HOME $HOME/.moon/bin
 echo 'set -gx MOON_HOME $HOME/.moon/bin' >> ~/.config/fish/config.fish
 fish_add_path -g $MOON_HOME
 echo 'fish_add_path -g $MOON_HOME' >> $HOME/.config/fish/config.fish
 
 # Install dprint
-bass curl -fsSL https://dprint.dev/install.sh | sh # >> /dev/null
+bass curl -fsSL https://dprint.dev/install.sh | sh >> /dev/null
 set -gx DPRINT_INSTALL $HOME/.dprint
 echo 'set -gx DPRINT_INSTALL $HOME/.dprint' >> ~/.config/fish/config.fish
 fish_add_path -g $DPRINT_INSTALL
