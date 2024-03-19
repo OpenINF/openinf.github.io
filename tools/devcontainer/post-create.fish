@@ -3,7 +3,7 @@
 # Set the SHELL environment variable to our active shell.
 
 set -gx SHELL fish
-echo 'set -gx SHELL fish' >> ~/.config/fish/config.fish
+echo 'set -gx SHELL fish' >> $HOME/.config/fish/config.fish
 
 # *********************
 #      Subroutines
@@ -19,9 +19,9 @@ if test -e .ruby-version
     rbenv install --verbose
 end
 
-echo 'fish_add_path -g ~/.rbenv/shims/' >> ~/.config/fish/config.fish
+echo 'fish_add_path -g $HOME/.rbenv/shims/' >> $HOME/.config/fish/config.fish
 
-source ~/.config/fish/config.fish
+source $HOME/.config/fish/config.fish
 
 rbenv rehash
 
