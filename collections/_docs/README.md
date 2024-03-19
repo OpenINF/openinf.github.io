@@ -1,11 +1,15 @@
 ## `open.inf.is` Documentation
 
-<br />
-
-> [!WARNING]<br /> This documentation is still in **draft** stage.
->
+> [!WARNING]
+> This documentation is still in **draft** stage.
 > All information may be incomplete, inaccurate, outdated, or even **completely
 > wrong**.
+
+<br />
+
+> [!NOTE]
+> If one is using VS Code, it is recommended to use the provided devcontainer
+> available via the official [Remote Development extension][].
 
 <br /><br />
 
@@ -75,4 +79,11 @@ nps format.all
 <br />
 
 &copy; The OpenINF Authors. Content licensed under
-[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][].
+
+<!-- LINK DEFINITION LABELS - START -->
+
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License]: https://creativecommons.org/licenses/by-nc-sa/4.0/
+[Remote Development extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
+
+<!-- LINK DEFINITION LABELS - END -->
