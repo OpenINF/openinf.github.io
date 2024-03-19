@@ -5,16 +5,9 @@
 set -gx SHELL fish
 echo 'set -gx SHELL fish' >> ~/.config/fish/config.fish
 
-# install rem - remember command
-# sudo wget https://github.com/mborho/rem/releases/download/v0.17.0/rem_0.17.0_linux_amd64 \
-#     -O /usr/local/bin/rem && sudo chmod +x /usr/local/bin/rem
-
-# # initialize rem cmd
-# rem here ls -la
-
-# rem ***************
-# rem   Subroutines
-# rem ***************
+# *********************
+#      Subroutines
+# *********************
 
 # function
 

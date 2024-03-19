@@ -1,10 +1,8 @@
 #!/usr/bin/fish
 
-echo 'Hey diddle diddle!'
-
-# rem *****************
-# rem   Fisher Plugins
-# rem *****************
+# *********************
+#    Fisher Plugins
+# *********************
 
 fisher install OpenINF/openinf-nvm.fish
 fisher install OpenINF/openinf-bass
