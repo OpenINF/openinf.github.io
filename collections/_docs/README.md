@@ -10,6 +10,8 @@
 > [!NOTE]
 > If one is using VS Code, it is recommended to use the provided devcontainer
 > available via the official [Remote Development extension][].
+>
+> One may skip dependency installation in this case.
 
 <br /><br />
 
