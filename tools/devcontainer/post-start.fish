@@ -51,6 +51,11 @@ echo 'set -gx DPRINT_HOME $DPRINT_INSTALL/bin' >> ~/.config/fish/config.fish
 fish_add_path -g $DPRINT_HOME
 echo 'fish_add_path -g $DPRINT_HOME' >> $HOME/.config/fish/config.fish
 
+# Source .env.fish to simulate autoenvstack
+echo 'source .env.fish' >> ~/.config/fish/config.fish
+
+########################################################################
+
 # this will populate your ~/.gnupg directory with empty keyring files
 # it will create the ~/.gnupg directory if it does not already exist (expected)
 gpg --list-keys
