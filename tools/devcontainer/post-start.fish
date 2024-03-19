@@ -50,7 +50,7 @@ fish_add_path -g $DPRINT_HOME
 echo 'fish_add_path -g $DPRINT_HOME' >> $HOME/.config/fish/config.fish
 
 # Source .env.fish to simulate autoenvstack
-echo 'source .env.fish' >> ~/.config/fish/config.fish
+echo 'fish_add_path -g (pwd)/node_modules/.bin' >> ~/.config/fish/config.fish
 
 ########################################################################
 
