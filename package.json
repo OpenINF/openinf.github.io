@@ -21,6 +21,7 @@
     "@babel/eslint-parser": "7.23.10",
     "@babel/plugin-syntax-jsx": "7.23.3",
     "@babel/preset-env": "7.24.0",
+    "@devcontainers/cli": "0.57.0",
     "@moonrepo/cli": "1.22.7",
     "@yarnpkg/shell": "4.0.0",
     "cross-env": "7.0.3",

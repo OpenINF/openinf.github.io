@@ -17,6 +17,9 @@ devDependencies:
   '@babel/preset-env':
     specifier: 7.24.0
     version: 7.24.0(@babel/core@7.24.0)
+  '@devcontainers/cli':
+    specifier: 0.57.0
+    version: 0.57.0
   '@moonrepo/cli':
     specifier: 1.22.7
     version: 1.22.7
@@ -1754,6 +1757,12 @@ packages:
       postcss-selector-parser: ^6.0.13
     dependencies:
       postcss-selector-parser: 6.0.16
+    dev: true
+
+  /@devcontainers/cli@0.57.0:
+    resolution: {integrity: sha512-e1aA0ANjCvRZ1b8S9oc+qZCme18WiIMXon1xl3mdn/HNgCg05mnE4cYBeA+ooHw47E2rd+e/ZN4IQGQD4WPpVA==}
+    engines: {node: ^16.13.0 || >=18.0.0}
+    hasBin: true
     dev: true
 
   /@eslint-community/eslint-utils@4.4.0(eslint@8.57.0):
