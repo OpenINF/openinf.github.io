@@ -49,8 +49,8 @@ echo 'set -gx DPRINT_HOME $DPRINT_INSTALL/bin' >> ~/.config/fish/config.fish
 fish_add_path -g $DPRINT_HOME
 echo 'fish_add_path -g $DPRINT_HOME' >> $HOME/.config/fish/config.fish
 
-# Source .env.fish to simulate autoenvstack
-echo 'fish_add_path -g (pwd)/node_modules/.bin' >> ~/.config/fish/config.fish
+# Add the local directory into which the executables of dependencies are linked.
+echo 'fish_add_path -g (pnpm bin)' >> ~/.config/fish/config.fish
 
 ########################################################################
 
