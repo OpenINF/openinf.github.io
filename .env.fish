@@ -1,1 +1,1 @@
-# source ~/.config/fish/config.fish
+fish_add_path -g (pnpm bin)
