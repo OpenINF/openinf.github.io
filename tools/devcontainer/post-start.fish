@@ -49,7 +49,7 @@ echo 'set -gx DPRINT_HOME $DPRINT_INSTALL/bin' >> $HOME/.config/fish/config.fish
 fish_add_path -g $DPRINT_HOME
 echo 'fish_add_path -g $DPRINT_HOME' >> $HOME/.config/fish/config.fish
 
-# Add the dir to path in which the executables of local node deps are linked.
+# Add the dir in which the executables of local Node deps are linked to the user's $PATH.
 echo 'fish_add_path -g (pnpm bin)' >> $HOME/.config/fish/config.fish
 
 ########################################################################
