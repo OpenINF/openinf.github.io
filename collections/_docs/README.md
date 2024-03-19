@@ -72,7 +72,7 @@ nps format.all
 
 <br />
 
-&copy; The OpenINF Authors. Content licensed under
+&copy; The OpenINF Authors &amp; Friends. Content licensed under
 [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][].
 
 <!-- LINK DEFINITION LABELS - START -->
