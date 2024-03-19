@@ -20,6 +20,13 @@ command from the project workspace root (if necessary):
 pnpm install
 ```
 
+```console
+# Configure Bundler setting local gem install path to avoid permission errors.
+bundle config set --local path vendor/bundle
+# Install the dependencies specified in the Gemfile.
+bundle install
+```
+
 <br /><br />
 
 ### Running Locally
