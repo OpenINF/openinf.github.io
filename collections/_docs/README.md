@@ -35,7 +35,7 @@ bundle install
 
 ### Running Locally
 
-You can preview your contributions before opening a pull request.
+One can preview your contributions before opening a pull request.
 
 <br />
 
@@ -45,7 +45,7 @@ Run this from within the project workspace root directory:
 nps start
 ```
 
-Once the script finishes building the documentation site, you can visit it at
+Once the script finishes building the documentation site, one may visit it at
 <http://localhost:4000>.
 
 <br /><br />
@@ -53,12 +53,6 @@ Once the script finishes building the documentation site, you can visit it at
 ### Scripts
 
 <br />
-
-To update the links data file, run this from the project workspace root:
-
-```console
-nps docs.update-links
-```
 
 To lint all files, run this from the project workspace root:
 
