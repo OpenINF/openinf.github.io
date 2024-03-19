@@ -22,14 +22,16 @@ pnpm install
 
 <br /><br />
 
-### Run Locally
+### Running Locally
+
+You can preview your contributions before opening a pull request.
 
 <br />
 
-Run this from the project workspace root:
+Run this from within the project workspace root directory:
 
 ```console
-pnpm start
+nps start
 ```
 
 Once the script finishes building the documentation site, you can visit it at
