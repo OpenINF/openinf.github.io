@@ -54,7 +54,7 @@ echo 'fish_add_path -g (pnpm bin)' >> $HOME/.config/fish/config.fish
 
 ########################################################################
 
-# this will populate your $HOME/.gnupg directory with empty keyring files
+# Populate user's $HOME/.gnupg directory with empty keyring files
 # it will create the $HOME/.gnupg directory if it does not already exist (expected)
 gpg --list-keys
 
