@@ -35,7 +35,7 @@ bundle install
 
 ### Running Locally
 
-One can preview your contributions before opening a pull request.
+One can preview contributions before opening a pull request.
 
 <br />
 
