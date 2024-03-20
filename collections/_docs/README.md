@@ -1,14 +1,14 @@
 ## `open.inf.is` Documentation
 
-> [!WARNING]
-> This documentation is still in **draft** stage. All information may
-> be incomplete, inaccurate, outdated, or even **completely wrong**.
+> [!WARNING]\
+> This documentation is still in **draft** stage. All information may be incomplete,
+> inaccurate, outdated, or even **completely wrong**.
 
 <br />
 
-> [!NOTE]
-> If one is using VS Code, it is recommended to use the provided
-> devcontainer available via the official [Remote Development extension][].
+> [!NOTE]\
+> If one is using VS Code, it is recommended to use the provided devcontainer available
+> via the official [Remote Development extension][].
 >
 > One may skip dependency installation in this case.
 
