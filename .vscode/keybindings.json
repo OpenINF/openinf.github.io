@@ -1,9 +1,4 @@
 [
-  // Fixes a bug on Windows that causes path intellisense to malfunction.
-  {
-    "key": ".",
-    "command": ""
-  },
   {
     "key": "ctrl+shift+c",
     "command": "remark.reformat"
