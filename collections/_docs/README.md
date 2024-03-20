@@ -1,8 +1,8 @@
 ## `open.inf.is` Documentation
 
 > [!WARNING]\
-This documentation is still in **draft** stage. All information may
-> be incomplete, inaccurate, outdated, or even **completely wrong**.
+> This documentation is still in **draft** stage. All information may be incomplete,
+> inaccurate, outdated, or even **completely wrong**.
 
 <br />
 
