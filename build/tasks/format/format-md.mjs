@@ -5,18 +5,18 @@
  */
 
 import { execute } from '@yarnpkg/shell';
-import { $ } from 'zx';
+import { glob } from 'zx';
 
 // import { echoTaskRunning } from '../util.mjs';
 
 // echoTaskRunning('format-md', import.meta.url);
 
-const MarkdownObject =
-  await $`bundle exec github-linguist --breakdown --json | jq '.Markdown.files'`;
-
-console.log({ MarkdownObject });
-
-const MarkdownFiles = JSON.parse(MarkdownObject.stdout);
+const MarkdownFiles = await glob([
+  '**.md',
+  '!node_modules/',
+  '!vendor/',
+  '!COPYING.md',
+]);
 
 let exitCode = 0;
 const scripts = [
