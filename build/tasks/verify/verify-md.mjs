@@ -1,12 +1,28 @@
-import yarnpkgShell from '@yarnpkg/shell';
+import { execute } from '@yarnpkg/shell';
+import { $ } from 'zx';
 
-let code = 0;
+import { echoTaskRunning } from '../util.mjs';
+
+echoTaskRunning('verify-markdown', import.meta.url);
+
+const MarkdownObject =
+  await $`bundle exec github-linguist --breakdown --json | jq '.Markdown.files'`;
+const MarkdownFiles = JSON.parse(MarkdownObject.stdout);
+
+let exitCode = 0;
 const scripts = [
-  'npx eslint --ext=.md .', // validate & style-check JS code blocks
-  'npx remark -qf .', // check Markdown style
+  `eslint ${MarkdownFiles.join(' ')}`, // validate & style-check JS code blocks
+  `prettier --check ${MarkdownFiles.join(' ')}`, // style-check
+  // validate Markdown
+  'markdownlint-cli2 "**/**.md" "#node_modules" "#vendor"',
+  'remark -qf .',
 ];
 
-scripts.forEach(async (v, i) => {
-  code = await yarnpkgShell.execute(scripts[i]);
-  process.exitCode = code > 0 ? code : 0;
-});
+for (const element of scripts) {
+  try {
+    exitCode = await execute(`pnpm exec ${element}`);
+  } catch (p) {
+    exitCode = p.exitCode;
+  }
+  process.exitCode = exitCode > 0 ? exitCode : 0;
+}
