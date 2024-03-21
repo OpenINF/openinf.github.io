@@ -1,8 +1,4 @@
-node_modules
+node_modules/
 vendor/
-CONTRIBUTING.md
-CODE_OF_CONDUCT.md
-SECURITY.md
-SUPPORT.md
-VISION.md
+COPYING.md
 _site/**/*.md
