@@ -16,11 +16,11 @@ const MarkdownFiles = await glob([
 
 let exitCode = 0;
 const scripts = [
-  // fix style of JS/TS code blocks in Markdown
+  // Autofix style of JS/TS code blocks within Markdown files.
   `eslint --fix ${MarkdownFiles.join(' ')}`,
-  'prettier --write **/*{.*.md,.md}', // Markdown fix sty;e
-  // validate Markdown
-  'markdownlint-cli2-fix "**/**.md" "#node_modules" "#vendor" "#COPYING.md"',
+  // Autofix style of Markdown within Markdown files.
+  `prettier --write ${MarkdownFiles.join(' ')}`,
+  'markdownlint-cli2 "**/**.md" "#node_modules" "#vendor" "#COPYING.md"',
 ];
 
 for await (const element of scripts) {
