@@ -4,10 +4,6 @@
  * @module {ES6Module} build/tasks/verify/verify-md.mjs
  */
 
-// -----------------------------------------------------------------------------
-// Requirements
-// -----------------------------------------------------------------------------
-
 import { execute } from '@yarnpkg/shell';
 import { $ } from 'zx';
 
