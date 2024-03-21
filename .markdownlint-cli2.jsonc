@@ -5,9 +5,6 @@
   // Fix any fixable errors
   "fix": true,
 
-  // Define a custom front matter pattern
-  "frontMatter": "(^---\\s*$[^]*?^---\\s*$)(\r\n|\r|\n|$)",
-
   // Define glob expressions to use (only valid at root)
   "globs": ["**.md"],
 
