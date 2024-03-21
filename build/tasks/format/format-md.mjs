@@ -7,10 +7,6 @@
 import { execute } from '@yarnpkg/shell';
 import { glob } from 'zx';
 
-// import { echoTaskRunning } from '../util.mjs';
-
-// echoTaskRunning('format-md', import.meta.url);
-
 const MarkdownFiles = await glob([
   '**.md',
   '!node_modules/',
