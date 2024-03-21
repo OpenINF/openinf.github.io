@@ -12,7 +12,7 @@ const MarkdownFiles = await glob([
   '!_site/',
   '!node_modules/',
   '!vendor/',
-  '!COPYING.md',
+  '!**/COPYING.md',
 ]);
 
 let exitCode = 0;
