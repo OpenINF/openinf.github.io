@@ -9,6 +9,7 @@ import { glob } from 'zx';
 
 const MarkdownFiles = await glob([
   '**.md',
+  '!_site/',
   '!node_modules/',
   '!vendor/',
   '!COPYING.md',
@@ -19,7 +20,7 @@ const scripts = [
   `eslint ${MarkdownFiles.join(' ')}`, // validate & style-check JS code blocks
   `prettier --check ${MarkdownFiles.join(' ')}`, // style-check
   // validate Markdown
-  'markdownlint-cli2 "**/**.md" "#node_modules" "#vendor" "#COPYING.md"',
+  `markdownlint-cli2 ${MarkdownFiles.join(' ')}`,
   'remark -qf .',
 ];
 

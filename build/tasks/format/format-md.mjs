@@ -9,6 +9,7 @@ import { glob } from 'zx';
 
 const MarkdownFiles = await glob([
   '**.md',
+  '!_site/',
   '!node_modules/',
   '!vendor/',
   '!COPYING.md',
@@ -20,7 +21,7 @@ const scripts = [
   `eslint --fix ${MarkdownFiles.join(' ')}`,
   // Autofix style of Markdown within Markdown files.
   `prettier --write ${MarkdownFiles.join(' ')}`,
-  'markdownlint-cli2 "**/**.md" "#node_modules" "#vendor" "#COPYING.md"',
+  `markdownlint-cli2 ${MarkdownFiles.join(' ')}`,
 ];
 
 for await (const element of scripts) {
