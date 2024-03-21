@@ -1,7 +1,7 @@
 # Ensure consistent line endings between *nix and Windows to avoid unexpected
 # issues due to CRLF/LF differences between those two operating system camps.
 # Set default behavior to normalize line endings automatically.
-* whitespace=indent,trail,space text=auto eol=lf
+* whitespace=indent,trail,space text=auto eol=lf linguist-detectable
 
 # Force Windows batch files (that require CRLF) always to use CRLF line endings.
 *.{cmd,[cC][mM][dD]} text eol=crlf
@@ -16,6 +16,7 @@
 
 # Documents
 *.pdf filter=lfs diff=lfs merge=lfs -text
+*.md -linguist-documentation
 
 # Images
 *.gif filter=lfs diff=lfs merge=lfs -text
