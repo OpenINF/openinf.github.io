@@ -13,6 +13,9 @@ import { $ } from 'zx';
 
 const MarkdownObject =
   await $`bundle exec github-linguist --breakdown --json | jq '.Markdown.files'`;
+
+console.log({ MarkdownObject });
+
 const MarkdownFiles = JSON.parse(MarkdownObject.stdout);
 
 let exitCode = 0;
