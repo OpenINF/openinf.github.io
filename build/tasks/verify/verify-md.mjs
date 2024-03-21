@@ -19,7 +19,7 @@ const scripts = [
   `eslint ${MarkdownFiles.join(' ')}`, // validate & style-check JS code blocks
   `prettier --check ${MarkdownFiles.join(' ')}`, // style-check
   // validate Markdown
-  'markdownlint-cli2 "**/**.md" "#node_modules" "#vendor"',
+  'markdownlint-cli2 "**/**.md" "#node_modules" "#vendor" "#COPYING.md"',
   'remark -qf .',
 ];
 

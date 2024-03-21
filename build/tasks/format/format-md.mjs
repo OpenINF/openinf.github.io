@@ -20,7 +20,7 @@ const scripts = [
   `eslint --fix ${MarkdownFiles.join(' ')}`,
   'prettier --write **/*{.*.md,.md}', // Markdown fix sty;e
   // validate Markdown
-  'markdownlint-cli2-fix "**/**.md" "#node_modules" "#vendor"',
+  'markdownlint-cli2-fix "**/**.md" "#node_modules" "#vendor" "#COPYING.md"',
 ];
 
 for await (const element of scripts) {
