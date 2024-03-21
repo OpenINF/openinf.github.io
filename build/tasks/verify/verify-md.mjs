@@ -7,9 +7,9 @@
 import { execute } from '@yarnpkg/shell';
 import { $ } from 'zx';
 
-import { echoTaskRunning } from '../util.mjs';
+// import { echoTaskRunning } from '../util.mjs';
 
-echoTaskRunning('verify-markdown', import.meta.url);
+// echoTaskRunning('verify-markdown', import.meta.url);
 
 const MarkdownObject =
   await $`bundle exec github-linguist --breakdown --json | jq '.Markdown.files'`;
