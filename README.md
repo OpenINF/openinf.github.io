@@ -61,8 +61,6 @@ to fix but cannot patch it yourself, please [open an issue][].
 
 ### License
 
-
-
 <br /><br />
 
 ---
