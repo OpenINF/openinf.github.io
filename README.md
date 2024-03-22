@@ -66,10 +66,11 @@ Each source code and content directory typically contains the appropriate
 license file(s) for that directory's source code and/or content. The code and
 content files themselves also contain licensing and authorship metadata.
 
-The repository's source code is permissively licensed under either MIT, Apache
+Most of the repository's source code is permissively licensed under MIT, Apache
 2.0, or Blue Oak 1.0.0. The IDK reference documentation content uses the CC
-BY-NC-SA 4.0 license, and the collection of documents comprising our style guide
-handbook uses the CC BY-SA 4.0 license.
+BY-NC-SA 4.0 license, while the embedded source code snippets and examples use
+the public domain equivalent 0BSD license. The collection of documents
+comprising our style guide handbook uses the CC BY-SA 4.0 license.
 
 <br /><br />
 
