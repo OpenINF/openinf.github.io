@@ -1,5 +1,6 @@
 {
   "name": "@openinf/openinf.github.io",
+  "author": "The OpenINF Authors & Friends",
   "private": "true",
   "description": "The OpenINF website and other static resources",
   "packageManager": "pnpm@8.15.5",
