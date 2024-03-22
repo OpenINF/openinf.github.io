@@ -63,7 +63,7 @@ to fix but cannot patch it yourself, please [open an issue][].
 
 It is essential always to read the license for all code and content in question.
 Each source code and content directory typically contains the appropriate
-license file for the source code and content in that directory. The code and
+license file(s) for that directory's source code and/or content. The code and
 content files themselves also contain licensing and authorship metadata.
 
 The repository's source code is permissively licensed under either MIT, Apache
