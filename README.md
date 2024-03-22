@@ -10,7 +10,6 @@
 
 <br />
 
-[!['License: MIT/Apache-2.0'][license-badge--shields]][license-badge-url]
 [!['Netlify Status: Dynamic'][netlify-badge--dynamimg]][netlify-badge-url]
 
 </div>
@@ -62,15 +61,7 @@ to fix but cannot patch it yourself, please [open an issue][].
 
 ### License
 
-This project is licensed under either of
 
-- [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
-- [MIT license](https://opensource.org/licenses/MIT)
-
-at your option.
-
-The [SPDX](https://spdx.dev) license identifier for this project is
-`MIT OR Apache-2.0`.
 
 <br /><br />
 
@@ -123,10 +114,6 @@ The [SPDX](https://spdx.dev) license identifier for this project is
 [netlify-badge--dynamimg]:
   https://api.netlify.com/api/v1/badges/1e33ed32-f4b4-4238-abe8-70e219408cf7/deploy-status?branch=live
   'Netlify Status: Dynamic'
-[license-badge--shields]:
-  https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg?logo=github
-  'License: MIT/Apache 2.0'
-[license-badge-url]: #license 'License: MIT/Apache 2.0'
 [open an issue]: https://github.com/OpenINF/openinf.github.io/issues
 
 <!-- LINK LABEL DEFINITIONS - END -->

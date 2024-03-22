@@ -9,8 +9,6 @@
   },
   "homepage": "open.inf.is",
   "repository": "OpenINF/openinf.github.io",
-  "license": "MIT OR Apache-2.0 OR BlueOak-1.0.0",
-  "author": "The OpenINF Authors & Friends",
   "scripts": {
     "build": "nps build",
     "start": "nps",
