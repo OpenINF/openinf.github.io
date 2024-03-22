@@ -1,5 +1,6 @@
 {
   "name": "@openinf/openinf.github.io",
+  "author": "The OpenINF Authors & Friends",
   "private": "true",
   "description": "The OpenINF website and other static resources",
   "packageManager": "pnpm@8.15.5",
@@ -9,8 +10,6 @@
   },
   "homepage": "open.inf.is",
   "repository": "OpenINF/openinf.github.io",
-  "license": "MIT OR Apache-2.0 OR BlueOak-1.0.0",
-  "author": "The OpenINF Authors & Friends",
   "scripts": {
     "build": "nps build",
     "start": "nps",
