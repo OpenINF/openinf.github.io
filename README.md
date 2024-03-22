@@ -64,7 +64,8 @@ to fix but cannot patch it yourself, please [open an issue][].
 It is essential always to read the license for all code and content in question.
 Each source code and content directory typically contains the appropriate
 license file(s) for that directory's source code and/or content. The code and
-content files themselves also typically contain licensing and authorship metadata.
+content files themselves also typically contain licensing and authorship
+metadata.
 
 Most of the repository's source code is permissively licensed under MIT, Apache
 2.0, or Blue Oak 1.0.0. The IDK reference documentation content uses the CC
