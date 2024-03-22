@@ -32,7 +32,7 @@ end
 
 echo 'rbenv rehash && nvm use' >> $HOME/.config/fish/config.fish
 
-# Installs the dprint utility, and it adds the tools to the user's $PATH.
+# Installs the dprint utility, and adds it to the user's $PATH.
 # It makes the tool available to the user when one opens a new terminal window.
 
 # Install dprint
