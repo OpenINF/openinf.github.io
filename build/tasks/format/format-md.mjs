@@ -22,13 +22,15 @@ const scripts = [
   // Autofix style of Markdown within Markdown files.
   `prettier --write ${MarkdownFiles.join(' ')}`,
   `markdownlint-cli2 ${MarkdownFiles.join(' ')}`,
+  `remark -o ${MarkdownFiles.join(' ')}`,
 ];
 
 for await (const element of scripts) {
   try {
-    exitCode = await execute(`pnpm exec ${element}`);
+    exitCode = await execute(element);
   } catch (p) {
     exitCode = p.exitCode;
   }
-  process.exitCode = exitCode > 0 ? exitCode : 0;
+
+  if (exitCode !== 0) process.exitCode = exitCode;
 }

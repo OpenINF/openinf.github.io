@@ -17,9 +17,10 @@ const MarkdownFiles = await glob([
 
 let exitCode = 0;
 const scripts = [
-  `eslint ${MarkdownFiles.join(' ')}`, // validate & style-check JS code blocks
-  `prettier --check ${MarkdownFiles.join(' ')}`, // style-check
-  // validate Markdown
+  // Validate style of JS/TS code blocks within Markdown files.
+  `eslint ${MarkdownFiles.join(' ')}`,
+  // Validate style of Markdown within Markdown files.
+  `prettier --check ${MarkdownFiles.join(' ')}`,
   `markdownlint-cli2 ${MarkdownFiles.join(' ')}`,
   `remark -f ${MarkdownFiles.join(' ')}`,
 ];
