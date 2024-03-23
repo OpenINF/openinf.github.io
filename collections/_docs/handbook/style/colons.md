@@ -24,7 +24,7 @@ ordinarily_ be able to stand alone as a complete sentence.
 
 </section>
 
-<section id="usage-of-japanese-colon" markdown="1">
+<section id="usage-of-japanese-colon">
 
 ## Proper Etiquette for Use of Japanese Colon
 
@@ -41,7 +41,7 @@ once.
 
 </section>
 
-<section id="bold-text-preceding-colon" markdown="1">
+<section id="bold-text-preceding-colon">
 
 ## Bold and Italic Text Preceding Colons
 
@@ -52,7 +52,7 @@ rule. In general, use _best intuition_.
 
 </section>
 
-<section id="code-text-preceding-colon" markdown="1">
+<section id="code-text-preceding-colon">
 
 ## Code Text Preceding Colons
 
@@ -63,7 +63,7 @@ to put in code font][]**.
 
 </section>
 
-<section id="colon-in-sentence" markdown="1">
+<section id="colon-in-sentence">
 
 ## Colons Within Sentences
 
