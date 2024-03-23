@@ -13,7 +13,7 @@
   // MD002/first-heading-h1/first-header-h1 - First heading should be a top-level heading
   "MD002": {
     // Heading level
-    "level": 1
+    "level": 2
   },
 
   // MD003/heading-style/header-style - Heading style
@@ -126,7 +126,7 @@
   // MD025/single-title/single-h1 - Multiple top-level headings in the same document
   "MD025": {
     // Heading level
-    "level": 2,
+    "level": 1,
     // RegExp for matching title in front matter
     "front_matter_title": "^\\s*title\\s*[:=]"
   },
