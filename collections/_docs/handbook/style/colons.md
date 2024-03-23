@@ -1,7 +1,7 @@
 ---
 title: Colons
 key_point: A colon indicates that closely-related information follows.
-original_url: <https://developers.google.com/style/colons>
+original_url: https://developers.google.com/style/colons
 original_title: Colons | Google developer documentation style guide
 ---
 
@@ -12,7 +12,7 @@ original_title: Colons | Google developer documentation style guide
 When a colon introduces a list, the text that precedes the colon _**should**
 ordinarily_ be able to stand alone as a complete sentence.
 
-<strong>Examples</strong>
+**Examples**
 
 <p class="example">
   <span class="compare-better">Recommended:</span> The fields are defined as
@@ -24,7 +24,7 @@ ordinarily_ be able to stand alone as a complete sentence.
 
 </section>
 
-<section id="usage-of-japanese-colon" markdown="1">
+<section id="usage-of-japanese-colon">
 
 ## Proper Etiquette for Use of Japanese Colon
 
@@ -41,18 +41,18 @@ once.
 
 </section>
 
-<section id="bold-text-preceding-colon" markdown="1">
+<section id="bold-text-preceding-colon">
 
 ## Bold and Italic Text Preceding Colons
 
 When _non-italic_ (also known as _Roman_) text (that precedes a colon is
-**bold**), the colon _should **not**_ be made* bold*, _italic_, or _otherwise_
+**bold**), the colon _should **not**_ be made _bold_, _italic_, or _otherwise_
 (e.g., _color-stylized_, etc.). This, however, _is **not**_ a hard and fast
 rule. In general, use _best intuition_.
 
 </section>
 
-<section id="code-text-preceding-colon" markdown="1">
+<section id="code-text-preceding-colon">
 
 ## Code Text Preceding Colons
 
@@ -63,14 +63,14 @@ to put in code font][]**.
 
 </section>
 
-<section id="colon-in-sentence" markdown="1">
+<section id="colon-in-sentence">
 
 ## Colons Within Sentences
 
 In general, the first word in the text that follows a colon should be in
 lowercase. For exceptions, see **[capitalization][]**.
 
-<strong>Examples</strong>
+**Examples**
 
 <p class="example">
   <span class="compare-better">Recommended:</span> Tone: concise,
@@ -98,6 +98,7 @@ For information about when it's better to use colons than dashes, see
 [Some specific items to put in code font]:
   ./code-in-text.md#some-specific-items-to-put-in-code-font
 [capitalization]: ./capitalization.md
+[Classification]: ./commit-messages.md#classification
 [list introductions]: ./lists.md#intros
 [code-sample introductions]: ./code-samples.md#intros
 [Dashes]: ./dashes.md#colons

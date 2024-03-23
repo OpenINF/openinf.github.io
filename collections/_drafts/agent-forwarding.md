@@ -97,11 +97,11 @@ There are a few configuration files needed for the operation of the agent. They
 may all be found in the current GnuPG home directory, which defaults
 to ~/.gnupg.
 
-[[windows]]
+:::windows
 
 However, there may be problems on Windows systems with Gpg4Win installed;
 **Gpg4Win may have changed this default GnuPG home directory location** to an
-AppData subdirectory (i.e., C:Users<username>AppDataRoaminggnupg). This
+AppData subdirectory (i.e., `C:\Users\<username>\AppData\Roaming\gnupg`). This
 location, however, is not the location our GPG agent will be using, so to
 reaffirm our preference for the default location, we will set
 the GNUPGHOME environment variable to ~/.gnupg in the Git Bash startup script by
@@ -109,7 +109,7 @@ running the following.
 
 echo 'export GNUPGHOME="~/.gnupg"' >> .bashrc
 
-[[endwindows]]
+:::
 
 Setting environment variables
 
@@ -123,12 +123,12 @@ export GPG_TTY
 This variable may only be helpful if you use `pinentry-curses` (the
 terminal-based pin entry program).
 
-[[windows]]
+:::windows
 
 On Windows systems, you should add the above lines to the ~/.bashrc file for use
 by Git Bash.
 
-[[endwindows]]
+:::
 
 GnuPG configuration
 
@@ -171,7 +171,7 @@ private keys to the remote box. Although this technique is usually taken as a
 precaution when the connection between two systems goes over a hostile network,
 it is convenient to avoid transferring private keys to the devcontainer.
 
-#### 1.3.1.1    Manually specify GPG agent configuration
+### 1.3.1.1    Manually specify GPG agent configuration
 
 To guarantee that the connection (going over a kernel IPC channel) between the
 two systems goes to the right place, it is advisable to explicitly specify the
@@ -180,9 +180,7 @@ by adding the following line to the `gpg-agent.conf` file in the GnuPG home
 directory.
 
 ```text
-
 extra-socket /c/Users/Administrator/.gnupg/S.gpg-agent.extra
-
 ```
 
 This extra socket is the one our local `gpg-agent` will be using rather than
@@ -213,7 +211,7 @@ a gpg-agent-specific directory for later use. Once an SSH key has been added to
 the gpg-agent in this manner, the gpg-agent will be ready to use the newly-added
 key.
 
-[[note]]
+:::note{.note}
 
 If the `gpg-agent` receives a signature request, the user may need prompting for
 a passphrase, which is necessary to decrypt any SSH keys stored. Since
@@ -226,7 +224,7 @@ you may use the following command.
 gpg-connect-agent updatestartuptty /bye
 ```
 
-[[/note]]
+:::
 
 Although all GnuPG components try to start the **[`gpg-agent`][]** as needed,
 this is not possible for _the **[`ssh`][]** support_ because **[`ssh`][]** does
@@ -240,11 +238,11 @@ command:
 gpg-connect-agent /bye
 ```
 
-[[tip]]
+:::note{.tip}
 
-Adding the --verbose flag shows the progress of starting the agent.
+Adding the `--verbose` flag shows the progress of starting the agent.
 
-[[endtip]]
+:::
 
 ### Correctly managing the startup of the GPG agent
 
@@ -253,14 +251,14 @@ login time.
 
 To be sure, we will add the following line to&helip;
 
-[[windows]]
+:::windows
 
 The `--enable-putty-support` flag is only available under Windows and allows the
 use of gpg-agent with the PuTTY implementation of SSH. This usage is similar to
 the regular ssh-agent, which supports OpenSSH implementations of SSH on Unix
 systems, but differs in its use of Windows Message Queues as PuTTY requires.
 
-[[endwindows]]
+:::
 
 to load configuration details
 
@@ -290,6 +288,10 @@ included in the Cygwin/MSYS installation of Git Bash.
 
 <!-- LINK LABEL DEFINITIONS - START -->
 
+[`ssh`]: https://en.wikipedia.org/wiki/Secure_Shell
+[`ssh-agent`]: https://en.wikipedia.org/wiki/Ssh-agent
+[`gpg-agent`]:
+  https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
 [computer files]: https://en.wikipedia.org/wiki/Computer_file
 [host]: https://en.wikipedia.org/wiki/Server_(computing)
 [Secure Shell]: https://en.wikipedia.org/wiki/Secure_Shell

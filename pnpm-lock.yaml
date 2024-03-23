@@ -18,8 +18,8 @@ devDependencies:
     specifier: 7.24.3
     version: 7.24.3(@babel/core@7.24.3)
   '@devcontainers/cli':
-    specifier: 0.57.0
-    version: 0.57.0
+    specifier: 0.58.0
+    version: 0.58.0
   '@iktakahiro/markdown-it-katex':
     specifier: 4.0.1
     version: 4.0.1
@@ -1777,8 +1777,8 @@ packages:
       postcss-selector-parser: 6.0.16
     dev: true
 
-  /@devcontainers/cli@0.57.0:
-    resolution: {integrity: sha512-e1aA0ANjCvRZ1b8S9oc+qZCme18WiIMXon1xl3mdn/HNgCg05mnE4cYBeA+ooHw47E2rd+e/ZN4IQGQD4WPpVA==}
+  /@devcontainers/cli@0.58.0:
+    resolution: {integrity: sha512-V764bU/O/duqTxNhLMoFOLJEmTIWTAYggqjvYvOnvVftb3uwnllU/kecbanK68CzB1eD+zujOROBq3zpAn5fCA==}
     engines: {node: ^16.13.0 || >=18.0.0}
     hasBin: true
     dev: true
@@ -2365,8 +2365,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001599
-      electron-to-chromium: 1.4.714
+      caniuse-lite: 1.0.30001600
+      electron-to-chromium: 1.4.715
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.23.0)
     dev: true
@@ -2398,8 +2398,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /caniuse-lite@1.0.30001599:
-    resolution: {integrity: sha512-LRAQHZ4yT1+f9LemSMeqdMpMxZcc4RMWdj4tiFe3G8tNkWK+E58g+/tzotb5cU6TbcVJLr4fySiAW7XmxQvZQA==}
+  /caniuse-lite@1.0.30001600:
+    resolution: {integrity: sha512-+2S9/2JFhYmYaDpZvo0lKkfvuKIglrx68MwOBqMGHhQsNkLjB5xtc/TGoEPs+MxjSyN/72qer2g97nzR641mOQ==}
     dev: true
 
   /ccount@2.0.1:
@@ -3023,8 +3023,8 @@ packages:
     hasBin: true
     dev: true
 
-  /electron-to-chromium@1.4.714:
-    resolution: {integrity: sha512-OfnVHt+nMRH9Ua5koH/2gKlCAXbG+u1yXwLKyBVqNboBV34ZTwb846RUe8K5mtE1uhz0BXoMarZ13JCQr+sBtQ==}
+  /electron-to-chromium@1.4.715:
+    resolution: {integrity: sha512-XzWNH4ZSa9BwVUQSDorPWAUQ5WGuYz7zJUNpNif40zFCiCl20t8zgylmreNmn26h5kiyw2lg7RfTmeMBsDklqg==}
     dev: true
 
   /emoji-regex@10.3.0:

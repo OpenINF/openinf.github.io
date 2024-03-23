@@ -1,11 +1,11 @@
 ---
+title: '🃏 '
 name: "\U0001F41B Bug report"
 about: Create a report to help us improve
-title: '🃏 '
 labels: defect
 ---
 
-# 🐛 Bug report
+## 🐛 Bug report
 
 <!--
 
@@ -36,7 +36,7 @@ If you are unsure of something, do your best.
 
 -->
 
-## Location
+### Location
 
 _Section of the site where the content exists_
 
@@ -44,7 +44,7 @@ Affected URL(s):
 
 - https://open.inf.is/✍️
 
-## Description
+### Description
 
 _Concise explanation of the problem_
 

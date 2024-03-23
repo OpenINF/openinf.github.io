@@ -1,6 +1,7 @@
 /**
  * @file Format Markdown files to adhere to autofixable style guidelines.
  * @author The OpenINF Authors & Friends
+ * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
  * @module {ES6Module} build/tasks/format/format-md.mjs
  */
 
@@ -21,14 +22,15 @@ const scripts = [
   `eslint --fix ${MarkdownFiles.join(' ')}`,
   // Autofix style of Markdown within Markdown files.
   `prettier --write ${MarkdownFiles.join(' ')}`,
-  `markdownlint-cli2 ${MarkdownFiles.join(' ')}`,
+  `markdownlint-cli2 --fix ${MarkdownFiles.join(' ')}`,
 ];
 
 for await (const element of scripts) {
   try {
-    exitCode = await execute(`pnpm exec ${element}`);
+    exitCode = await execute(element);
   } catch (p) {
     exitCode = p.exitCode;
   }
-  process.exitCode = exitCode > 0 ? exitCode : 0;
+
+  if (exitCode !== 0) process.exitCode = exitCode;
 }
