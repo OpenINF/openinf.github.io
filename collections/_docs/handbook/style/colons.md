@@ -12,7 +12,7 @@ original_title: Colons | Google developer documentation style guide
 When a colon introduces a list, the text that precedes the colon _**should**
 ordinarily_ be able to stand alone as a complete sentence.
 
-<strong>Examples</strong>
+**Examples**
 
 <p class="example">
   <span class="compare-better">Recommended:</span> The fields are defined as
@@ -70,7 +70,7 @@ to put in code font][]**.
 In general, the first word in the text that follows a colon should be in
 lowercase. For exceptions, see **[capitalization][]**.
 
-<strong>Examples</strong>
+**Examples**
 
 <p class="example">
   <span class="compare-better">Recommended:</span> Tone: concise,
