@@ -292,6 +292,9 @@ included in the Cygwin/MSYS installation of Git Bash.
 
 <!-- LINK LABEL DEFINITIONS - START -->
 
+[`ssh`]: https://en.wikipedia.org/wiki/Secure_Shell
+[`ssh-agent`]: https://en.wikipedia.org/wiki/Ssh-agent
+[`gpg-agent`]: https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
 [computer files]: https://en.wikipedia.org/wiki/Computer_file
 [host]: https://en.wikipedia.org/wiki/Server_(computing)
 [Secure Shell]: https://en.wikipedia.org/wiki/Secure_Shell
