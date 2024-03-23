@@ -22,7 +22,7 @@ const scripts = [
   `eslint --fix ${MarkdownFiles.join(' ')}`,
   // Autofix style of Markdown within Markdown files.
   `prettier --write ${MarkdownFiles.join(' ')}`,
-  `markdownlint-cli2-fix ${MarkdownFiles.join(' ')}`,
+  `markdownlint-cli2 --fix ${MarkdownFiles.join(' ')}`,
 ];
 
 for await (const element of scripts) {
