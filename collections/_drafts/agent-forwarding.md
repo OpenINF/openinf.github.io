@@ -182,9 +182,7 @@ by adding the following line to the `gpg-agent.conf` file in the GnuPG home
 directory.
 
 ```text
-
 extra-socket /c/Users/Administrator/.gnupg/S.gpg-agent.extra
-
 ```
 
 This extra socket is the one our local `gpg-agent` will be using rather than
