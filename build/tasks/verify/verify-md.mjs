@@ -1,6 +1,7 @@
 /**
  * @file Verify Markdown files are valid & adhere to checkable style guidelines.
  * @author The OpenINF Authors & Friends
+ * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
  * @module {ES6Module} build/tasks/verify/verify-md.mjs
  */
 

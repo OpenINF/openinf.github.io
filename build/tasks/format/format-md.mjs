@@ -1,6 +1,7 @@
 /**
  * @file Format Markdown files to adhere to autofixable style guidelines.
  * @author The OpenINF Authors & Friends
+ * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
  * @module {ES6Module} build/tasks/format/format-md.mjs
  */
 
