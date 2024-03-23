@@ -26,7 +26,7 @@ const scripts = [
 
 for (const element of scripts) {
   try {
-    exitCode = await execute(`pnpm exec ${element}`);
+    exitCode = await execute(element);
   } catch (p) {
     exitCode = p.exitCode;
   }
