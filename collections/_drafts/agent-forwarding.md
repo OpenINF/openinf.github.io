@@ -173,7 +173,7 @@ private keys to the remote box. Although this technique is usually taken as a
 precaution when the connection between two systems goes over a hostile network,
 it is convenient to avoid transferring private keys to the devcontainer.
 
-#### 1.3.1.1    Manually specify GPG agent configuration
+### 1.3.1.1    Manually specify GPG agent configuration
 
 To guarantee that the connection (going over a kernel IPC channel) between the
 two systems goes to the right place, it is advisable to explicitly specify the
