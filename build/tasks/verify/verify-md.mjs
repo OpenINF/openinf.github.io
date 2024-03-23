@@ -21,7 +21,7 @@ const scripts = [
   `prettier --check ${MarkdownFiles.join(' ')}`, // style-check
   // validate Markdown
   `markdownlint-cli2 ${MarkdownFiles.join(' ')}`,
-  // 'remark -qf .',
+  'remark -qf .',
 ];
 
 for (const element of scripts) {
@@ -30,5 +30,6 @@ for (const element of scripts) {
   } catch (p) {
     exitCode = p.exitCode;
   }
-  process.exitCode = exitCode > 0 ? exitCode : 0;
+
+  if (exitCode !== 0) process.exitCode = exitCode;
 }
