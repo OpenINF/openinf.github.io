@@ -46,7 +46,7 @@ once.
 ## Bold and Italic Text Preceding Colons
 
 When _non-italic_ (also known as _Roman_) text (that precedes a colon is
-**bold**), the colon _should **not**_ be made* bold*, _italic_, or _otherwise_
+**bold**), the colon _should **not**_ be made _bold_, _italic_, or _otherwise_
 (e.g., _color-stylized_, etc.). This, however, _is **not**_ a hard and fast
 rule. In general, use _best intuition_.
 
