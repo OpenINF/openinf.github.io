@@ -2,7 +2,7 @@
 title: OpenINF Next-Gen Guidance on Agent Forwarding
 category: contributing
 published: false
-permalink:
+permalink: /docs/dev/internals/contributing/agent-forwarding/
 relevant_urls:
   - https://github.com/OpenINF/docker-fisher/issues/5 # psusan + auth awkwardness
   - https://dev.gnupg.org/T3883 # Win32-OpenSSH support for gpg-agent's ssh-agent
