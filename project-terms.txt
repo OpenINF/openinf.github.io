@@ -8,6 +8,9 @@ GFIs
 gpg
 gpg4win
 Gpg4win
+gpgconf
+gpgsm
+gpgtunnel
 https
 Irulen
 macOS
