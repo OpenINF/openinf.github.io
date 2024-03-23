@@ -21,7 +21,7 @@ const scripts = [
   `prettier --check ${MarkdownFiles.join(' ')}`, // style-check
   // validate Markdown
   `markdownlint-cli2 ${MarkdownFiles.join(' ')}`,
-  'remark -qf .',
+  `remark -f ${MarkdownFiles.join(' ')}`,
 ];
 
 for (const element of scripts) {
