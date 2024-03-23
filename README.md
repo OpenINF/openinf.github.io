@@ -1,6 +1,14 @@
-<!-- markdownlint-disable-next-line line-length -->
-
-<a href="##"><img src="https://raw.githubusercontent.com/OpenINF/openinf.github.io/live/assets/img/svg/logogram-color.svg?sanitize=true" alt="OpenINF logo" title="OpenINF" align="right" height="96" width="96" /></a>
+<!-- markdownlint-disable-next-line first-line-heading -->
+<a href="https://open.inf.is">
+  <img
+    src="https://open.inf.is/assets/img/svg/logogram-color.svg"
+    alt="OpenINF logo"
+    title="OpenINF"
+    align="right"
+    height="96"
+    width="96"
+  />
+</a>
 
 <div align="left">
 
@@ -85,9 +93,9 @@ comprising our style guide handbook uses the CC BY-SA 4.0 license.
 
 <br />
 
-[!['Project Type: Prototype'][project-type-badge--shields]](##)
-[!['Prototyping Scheme: Evolutionary'][prototyping-scheme-badge--shields]](##)
-[!['Status: Under construction'][project-status-badge--shields]](##)
+[!['Project Type: Prototype'][project-type-badge--shields]](./##)
+[!['Prototyping Scheme: Evolutionary'][prototyping-scheme-badge--shields]](./##)
+[!['Status: Under construction'][project-status-badge--shields]](./##)
 
 <br /><br />
 
