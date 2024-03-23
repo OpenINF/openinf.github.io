@@ -18,8 +18,8 @@ devDependencies:
     specifier: 7.24.3
     version: 7.24.3(@babel/core@7.24.3)
   '@devcontainers/cli':
-    specifier: 0.57.0
-    version: 0.57.0
+    specifier: 0.58.0
+    version: 0.58.0
   '@iktakahiro/markdown-it-katex':
     specifier: 4.0.1
     version: 4.0.1
@@ -1777,8 +1777,8 @@ packages:
       postcss-selector-parser: 6.0.16
     dev: true
 
-  /@devcontainers/cli@0.57.0:
-    resolution: {integrity: sha512-e1aA0ANjCvRZ1b8S9oc+qZCme18WiIMXon1xl3mdn/HNgCg05mnE4cYBeA+ooHw47E2rd+e/ZN4IQGQD4WPpVA==}
+  /@devcontainers/cli@0.58.0:
+    resolution: {integrity: sha512-V764bU/O/duqTxNhLMoFOLJEmTIWTAYggqjvYvOnvVftb3uwnllU/kecbanK68CzB1eD+zujOROBq3zpAn5fCA==}
     engines: {node: ^16.13.0 || >=18.0.0}
     hasBin: true
     dev: true

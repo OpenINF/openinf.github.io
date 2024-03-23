@@ -20,7 +20,7 @@
     "@babel/eslint-parser": "7.24.1",
     "@babel/plugin-syntax-jsx": "7.24.1",
     "@babel/preset-env": "7.24.3",
-    "@devcontainers/cli": "0.57.0",
+    "@devcontainers/cli": "0.58.0",
     "@iktakahiro/markdown-it-katex": "4.0.1",
     "@yarnpkg/shell": "4.0.0",
     "cross-env": "7.0.3",
