@@ -99,7 +99,7 @@ There are a few configuration files needed for the operation of the agent. They
 may all be found in the current GnuPG home directory, which defaults
 to ~/.gnupg.
 
-[[windows]]
+:::windows
 
 However, there may be problems on Windows systems with Gpg4Win installed;
 **Gpg4Win may have changed this default GnuPG home directory location** to an
@@ -111,7 +111,7 @@ running the following.
 
 echo 'export GNUPGHOME="~/.gnupg"' >> .bashrc
 
-[[endwindows]]
+:::
 
 Setting environment variables
 
@@ -125,12 +125,12 @@ export GPG_TTY
 This variable may only be helpful if you use `pinentry-curses` (the
 terminal-based pin entry program).
 
-[[windows]]
+:::windows
 
 On Windows systems, you should add the above lines to the ~/.bashrc file for use
 by Git Bash.
 
-[[endwindows]]
+:::
 
 GnuPG configuration
 
@@ -213,7 +213,7 @@ a gpg-agent-specific directory for later use. Once an SSH key has been added to
 the gpg-agent in this manner, the gpg-agent will be ready to use the newly-added
 key.
 
-[[note]]
+:::note{.note}
 
 If the `gpg-agent` receives a signature request, the user may need prompting for
 a passphrase, which is necessary to decrypt any SSH keys stored. Since
@@ -226,7 +226,7 @@ you may use the following command.
 gpg-connect-agent updatestartuptty /bye
 ```
 
-[[/note]]
+:::
 
 Although all GnuPG components try to start the **[`gpg-agent`][]** as needed,
 this is not possible for _the **[`ssh`][]** support_ because **[`ssh`][]** does
@@ -240,11 +240,11 @@ command:
 gpg-connect-agent /bye
 ```
 
-[[tip]]
+:::note{.tip}
 
-Adding the --verbose flag shows the progress of starting the agent.
+Adding the `--verbose` flag shows the progress of starting the agent.
 
-[[endtip]]
+:::
 
 ### Correctly managing the startup of the GPG agent
 
@@ -253,14 +253,14 @@ login time.
 
 TO BE SURE, we will add the following line to
 
-[[windows]]
+:::windows
 
-The --enable-putty-support flag is only available under Windows and allows the
+The `--enable-putty-support` flag is only available under Windows and allows the
 use of gpg-agent with the PuTTY implementation of SSH. This usage is similar to
 the regular ssh-agent, which supports OpenSSH implementations of SSH on Unix
 systems, but differs in its use of Windows Message Queues as PuTTY requires.
 
-[[endwindows]]
+:::
 
 to load configuration details
 
