@@ -98,6 +98,7 @@ For information about when it's better to use colons than dashes, see
 [Some specific items to put in code font]:
   ./code-in-text.md#some-specific-items-to-put-in-code-font
 [capitalization]: ./capitalization.md
+[Classification]: ./commit-messages.md#classification
 [list introductions]: ./lists.md#intros
 [code-sample introductions]: ./code-samples.md#intros
 [Dashes]: ./dashes.md#colons
