@@ -19,3 +19,8 @@ gem "webrick"
 gem 'dotenv'
 
 gem 'rb-inotify'
+
+# Preparing for Ruby 3.4.0; these deps will no longer be present.
+gem 'csv'
+gem 'base64'
+gem 'bigdecimal'
