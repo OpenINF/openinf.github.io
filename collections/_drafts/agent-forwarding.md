@@ -64,7 +64,7 @@ private (secret) keys and, if required, diverts operations to a smartcard or
 other token. It also supports Secure Shell (SSH) by implementing the ssh-agent
 protocol.
 
-The traditional way to run _gpg-agent_ on Unix systems is by launching it at
+The traditional way to run _gpg-agent_ on \*nix systems is by launching it at
 login time and using an environment variable (GPG_AGENT_INFO) to tell the other
 GnuPG modules how to connect to the agent. However, correctly managing the
 startup and this environment variable is cumbersome, so a more straightforward
@@ -75,7 +75,7 @@ still needed.
 With GnuPG 2.1, the need for GPG_AGENT_INFO has been completely removed, and the
 variable is ignored.
 
-Instead, a fixed Unix domain socket named S.gpg-agent in the GnuPG home
+Instead, a fixed \*nix domain socket named S.gpg-agent in the GnuPG home
 directory (by default ~/.gnupg) is used. The agent is also started on-demand by
 all tools requiring services from the agent.
 
@@ -161,7 +161,7 @@ program itself.[^2]
 During _**[`ssh-agent`][]** initialization_, the extra socket (named
 **`S.gpg-agent.extra`** by default) gets created in the GnuPG home directory.
 
-The intended use for this extra socket is to set up a Unix domain socket
+The intended use for this extra socket is to set up a \*nix domain socket
 forwarding from a remote machine to this socket on the local device.
 A gpg process running on the remote box (or, in our case, in the devcontainer)
 may connect to the local gpg-agent and use its private keys. This activity
@@ -245,7 +245,7 @@ Adding the `--verbose` flag shows the progress of starting the agent.
 
 ### Correctly managing the startup of the GPG agent
 
-The traditional way to run _gpg-agent_ on Unix systems is by launching it at
+The traditional way to run _gpg-agent_ on \*nix systems is by launching it at
 login time.
 
 To be sure, we will add the following line to&hellip;
@@ -254,7 +254,7 @@ To be sure, we will add the following line to&hellip;
 
 The `--enable-putty-support` flag is only available under Windows and allows the
 use of gpg-agent with the PuTTY implementation of SSH. This usage is similar to
-the regular ssh-agent, which supports OpenSSH implementations of SSH on Unix
+the regular ssh-agent, which supports OpenSSH implementations of SSH on \*nix
 systems, but differs in its use of Windows Message Queues as PuTTY requires.
 
 :::
