@@ -75,7 +75,7 @@ still needed.
 With GnuPG 2.1, the need for GPG_AGENT_INFO has been completely removed, and the
 variable is ignored.
 
-Instead, a fixed \*nix domain socket named S.gpg-agent in the GnuPG home
+Instead, a fixed _Unix domain socket_ named S.gpg-agent in the GnuPG home
 directory (by default ~/.gnupg) is used. The agent is also started on-demand by
 all tools requiring services from the agent.
 
@@ -161,7 +161,7 @@ program itself.[^2]
 During _**[`ssh-agent`][]** initialization_, the extra socket (named
 **`S.gpg-agent.extra`** by default) gets created in the GnuPG home directory.
 
-The intended use for this extra socket is to set up a \*nix domain socket
+The intended use for this extra socket is to set up a _Unix domain socket_
 forwarding from a remote machine to this socket on the local device.
 A gpg process running on the remote box (or, in our case, in the devcontainer)
 may connect to the local gpg-agent and use its private keys. This activity
