@@ -53,6 +53,11 @@ GEM
       safe_yaml (~> 1.0)
       terminal-table (>= 1.8, < 4.0)
       webrick (~> 1.7)
+    jekyll-auto-authors (1.0.4)
+      jekyll (>= 3.0.0)
+      jekyll-paginate-v2 (>= 3.0.0)
+    jekyll-paginate-v2 (3.0.0)
+      jekyll (>= 3.0, < 5.0)
     jekyll-redirect-from (0.16.0)
       jekyll (>= 3.3, < 5.0)
     jekyll-relative-links (0.7.0)
@@ -141,6 +146,8 @@ DEPENDENCIES
   dotenv
   github-linguist (~> 7.24)
   jekyll (~> 4.3.0)
+  jekyll-auto-authors
+  jekyll-paginate-v2
   jekyll-redirect-from
   jekyll-relative-links
   kramdown-parser-gfm (~> 1.1)
