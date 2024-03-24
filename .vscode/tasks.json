@@ -16,7 +16,7 @@
     {
       "label": "Build",
       "type": "shell",
-      "command": "bundle exec jekyll build && cp _redirects _site/_redirects",
+      "command": "bundle exec jekyll build --drafts && cp _redirects _site/_redirects",
       "group": {
         "kind": "build",
         "isDefault": true
