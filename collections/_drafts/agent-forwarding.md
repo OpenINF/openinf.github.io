@@ -7,6 +7,10 @@ relevant_urls:
   - https://dev.gnupg.org/T3883 # Win32-OpenSSH support for gpg-agent's ssh-agent
 ---
 
+<!-- TODO(DerekNonGeneric):
+     say something about how this is not necessary for
+     casual contrbutors (hard-core punk scene only) -->
+
 To be able to sign any potential Git commits or tags you may make using your Git
 client, some additional setup may be necessary. This guide will be especially
 relevant if you develop inside a container we have provided. There will likely
