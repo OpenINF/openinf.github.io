@@ -7,10 +7,10 @@ relevant_urls:
   - https://dev.gnupg.org/T3883 # Win32-OpenSSH support for gpg-agent's ssh-agent
 ---
 
-An additional setup procedure may be necessary to sign any potential Git commits
-or tags. This guide will be especially relevant for those developing inside the
-container provided as there will likely be snafus to overcome before connecting
-to the devcontainer.
+Additional setup procedures may be necessary for the chosen few who hold core
+OpenINF membership to sign any potential Git commits or tags. This guide will be
+especially relevant for those developing inside the container provided as there
+will likely be snafus to overcome before connecting to the devcontainer.
 
 ## 1.1    Connecting to GitHub with SSH
 
