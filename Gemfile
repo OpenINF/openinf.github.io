@@ -10,8 +10,8 @@ gem 'kramdown-parser-gfm', '~> 1.1'
 group :jekyll_plugins do
   gem 'jekyll-redirect-from'
   gem 'jekyll-relative-links'
-  gem 'jekyll-paginate-v2'
-  gem 'jekyll-auto-authors'
+  # gem 'jekyll-paginate-v2'
+  # gem 'jekyll-auto-authors'
 end
 
 gem 'yaml-lint'
