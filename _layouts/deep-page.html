@@ -1,0 +1,15 @@
+---
+layout: default
+editable: true
+class:
+---
+
+<main class="content">
+  <div class="container">
+    {%- include "breadcrumb-nav.html" -%}
+    {%- if page.permalink != '/' -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+    {%- endif -%}
+    {{ content }}
+  </div>
+</main>
