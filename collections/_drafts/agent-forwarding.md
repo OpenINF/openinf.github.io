@@ -178,7 +178,7 @@ by adding the following line to the `gpg-agent.conf` file in the GnuPG home
 directory.
 
 ```text
-extra-socket /c/Users/Administrator/.gnupg/S.gpg-agent.extra
+extra-socket /c/Users/<username>/.gnupg/S.gpg-agent.extra
 ```
 
 This extra socket is the one our local `gpg-agent` will be using rather than
@@ -267,6 +267,7 @@ SSH configuration
 Add the following to the file located at ~/.ssh/config. If it does not yet
 exist, create it.
 
+```text
 host gpgtunnel
 
 hostname localhost
@@ -276,7 +277,8 @@ port 2222
 User vscode
 
 RemoteForward /home/vscode/.gnupg/S.gpg-agent
-/c/Users/Administrator/.gnupg/S.gpg-agent.extra
+/c/Users/<username>/.gnupg/S.gpg-agent.extra
+```
 
 VSCode remote extension user configuration (optional)
 
