@@ -5,6 +5,7 @@ permalink: /docs/dev/internals/contributing/agent-forwarding/
 relevant_urls:
   - https://github.com/OpenINF/docker-fisher/issues/5 # psusan + auth awkwardness
   - https://dev.gnupg.org/T3883 # Win32-OpenSSH support for gpg-agent's ssh-agent
+toc: true
 ---
 
 Additional setup procedures may be necessary for the chosen few who hold core
