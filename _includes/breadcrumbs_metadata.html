@@ -1,0 +1,16 @@
+{% assign crumbs = page.url | remove: '/index.html' | split: '/' %}
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem", "position": 1,
+    "name": "{{ site.title | default: "Home" }}",
+    "item": "{{ site.url }}"
+{% for crumb in crumbs offset: 1 %}
+  },{
+    "@type": "ListItem", "position": {{ forloop.index | plus: 1 }},
+    "name": "{% if forloop.last %}{{ page.title }}{% else %}{{ site.data.sections[crumb].name | default: crumb | capitalize }}{% endif %}",
+    "item": "{{ site.url }}{% assign crumb_limit = forloop.index %}{% for crumb in crumbs offset: 1 limit: crumb_limit %}/{{ crumb }}{% endfor %}"
+{% endfor %}
+  }]
+}
+</script>
