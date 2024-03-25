@@ -280,12 +280,6 @@ RemoteForward /home/vscode/.gnupg/S.gpg-agent
 /c/Users/<username>/.gnupg/S.gpg-agent.extra
 ```
 
-VSCode remote extension user configuration (optional)
-
-You must specify the remote’s VS Code user settings option if you are using VS
-Code and the development environment.SSH.path to point to the SSH client
-included in the Cygwin/MSYS installation of Git Bash.
-
 <!-- LINK LABEL DEFINITIONS - START -->
 
 [`ssh`]: https://en.wikipedia.org/wiki/Secure_Shell
