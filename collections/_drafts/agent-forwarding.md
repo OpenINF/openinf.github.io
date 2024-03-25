@@ -29,8 +29,8 @@ GitHub before any usage of the key to authenticate may occur.
 
 If you don't already have an SSH key, you must generate a new one for
 authentication. You can check for existing keys if you are unsure whether you
-already have an SSH key. For more information, see
-"[Checking for existing SSH keys](https://docs.github.com/en/github/authenticating-to-github/checking-for-existing-ssh-keys)."
+already have an SSH key. For more information, see "[Checking for existing SSH
+keys][]".
 
 If you don't want to reenter your passphrase every time you use your SSH key,
 you can add your key to the SSH agent, which will manage your SSH keys and
@@ -54,8 +54,7 @@ You can further secure your SSH key by using a hardware security key, which
 requires the physical hardware security key to be attached to your computer when
 the key pair is used to authenticate with SSH. You can also secure your SSH key
 by adding your key to the ssh-agent and using a passphrase. For more
-information, see
-"[Working with SSH key passphrases](https://docs.github.com/en/github/authenticating-to-github/working-with-ssh-key-passphrases)."
+information, see "[Working with SSH key passphrases][]".
 
 ## 1.3    Auto-start of the gpg-agent
 
@@ -291,9 +290,13 @@ included in the Cygwin/MSYS installation of Git Bash.
 [`ssh-agent`]: https://en.wikipedia.org/wiki/Ssh-agent
 [`gpg-agent`]:
   https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
+[Checking for existing SSH keys]:
+  https://docs.github.com/en/github/authenticating-to-github/checking-for-existing-ssh-keys
 [computer files]: https://en.wikipedia.org/wiki/Computer_file
 [host]: https://en.wikipedia.org/wiki/Server_(computing)
 [Secure Shell]: https://en.wikipedia.org/wiki/Secure_Shell
+[Working with SSH key passphrases]:
+  https://docs.github.com/en/github/authenticating-to-github/working-with-ssh-key-passphrases
 
 [^1]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-1
 [^2]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-Pechanec-2
