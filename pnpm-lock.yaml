@@ -80,9 +80,6 @@ devDependencies:
   markdown-it-task-lists:
     specifier: 2.1.1
     version: 2.1.1
-  markdown-it-toc-done-right:
-    specifier: 4.2.0
-    version: 4.2.0
   markdownlint-cli2:
     specifier: 0.12.1
     version: 0.12.1
@@ -4398,10 +4395,6 @@ packages:
 
   /markdown-it-task-lists@2.1.1:
     resolution: {integrity: sha512-TxFAc76Jnhb2OUu+n3yz9RMu4CwGfaT788br6HhEDlvWfdeJcLUsxk1Hgw2yJio0OXsxv7pyIPmvECY7bMbluA==}
-    dev: true
-
-  /markdown-it-toc-done-right@4.2.0:
-    resolution: {integrity: sha512-UB/IbzjWazwTlNAX0pvWNlJS8NKsOQ4syrXZQ/C72j+jirrsjVRT627lCaylrKJFBQWfRsPmIVQie8x38DEhAQ==}
     dev: true
 
   /markdown-it@14.0.0:
