@@ -1,6 +1,7 @@
 ---
 title: OpenINF Next-Gen Guidance on Agent Forwarding
 category: contributing
+layout: docs
 permalink: /docs/dev/internals/contributing/agent-forwarding/
 relevant_urls:
   - https://github.com/OpenINF/docker-fisher/issues/5 # psusan + auth awkwardness
