@@ -19,8 +19,7 @@
     ["markdown-it-sup"],
     ["markdown-it-sub"],
     ["markdown-it-abbr"],
-    ["markdown-it-anchor"],
-    ["markdown-it-toc-done-right"]
+    ["markdown-it-anchor"]
   ],
 
   // Disable inline config comments
