@@ -12,7 +12,7 @@ OpenINF membership to sign any potential Git commits or tags. This guide will be
 especially relevant for those developing inside the container provided as there
 will likely be snafus to overcome before connecting to the devcontainer.
 
-## 1.1    Connecting to GitHub with SSH
+## Connecting to GitHub with SSH
 
 You can connect to GitHub using the Secure Shell Protocol (SSH), which provides
 a secure channel over an unsecured network.
