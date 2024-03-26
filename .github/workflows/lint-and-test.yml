@@ -16,7 +16,7 @@ jobs:
           node-version-file: 'package.json'
       - name: Set up Ruby runtime
         uses: ruby/setup-ruby@5f19ec79cedfadb78ab837f95b87734d0003c899 # v1.173.0
-      - name: Install & configure language runtime PMs & the deps they manage
+      - name: Install
         run: |
           corepack enable pnpm
           corepack prepare pnpm@latest --activate
