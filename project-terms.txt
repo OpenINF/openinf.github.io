@@ -23,7 +23,9 @@ Irulen
 macOS
 MSYS
 openinf
+openinfbot
 OpenINF
+OpenINFBot
 pinentry
 PowerShell
 psusan
