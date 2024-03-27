@@ -4,7 +4,12 @@
 # License: MIT OR Apache-2.0 OR BlueOak-1.0.0
 # ------------------------------------------------------------------------------
 
+# *********************
+#    Requirements
+# *********************
+
 set -gx SHELL fish
+set -gx COREPACK_ENABLE_DOWNLOAD_PROMPT 0
 
 # *********************
 #    Fisher Plugins
@@ -23,7 +28,7 @@ end
 
 # If there's a package.json, then run `pnpm install`.
 if test -e package.json
-    corepack enable pnpm
+    corepack enable
     corepack prepare pnpm@latest --activate
     bass pnpm setup >> /dev/null
     source $HOME/.config/fish/config.fish
