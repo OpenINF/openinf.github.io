@@ -3,10 +3,10 @@
   "author": "The OpenINF Authors & Friends",
   "private": "true",
   "description": "The OpenINF website and other static resources",
-  "packageManager": "pnpm@8.15.5",
+  "packageManager": "pnpm@9.0.0-beta.0+sha256.ff1f3981cae5c53ac1f0825645dcb59a53a8e79b654bcb96d2f1f176909fdcfa",
   "engines": {
-    "node": "20.11.1",
-    "pnpm": "8.15.5"
+    "node": "20.12.0",
+    "pnpm": "9.0.0-beta.0"
   },
   "homepage": "open.inf.is",
   "repository": "OpenINF/openinf.github.io",

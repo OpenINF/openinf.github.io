@@ -5,6 +5,13 @@
 # ------------------------------------------------------------------------------
 
 # *********************
+#    Requirements
+# *********************
+
+set -gx SHELL fish
+set -gx COREPACK_ENABLE_DOWNLOAD_PROMPT 0
+
+# *********************
 #    Fisher Plugins
 # *********************
 
@@ -25,7 +32,7 @@ if test -e package.json
     corepack prepare pnpm@latest --activate
     bass pnpm setup >> /dev/null
     source $HOME/.config/fish/config.fish
-    pnpm add -g pnpm
+    pnpm add -g pnpm@9.0.0-beta.0
     pnpm install
 end
 
