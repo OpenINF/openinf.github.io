@@ -8,6 +8,8 @@ url: https://open.inf.is
 twitter_username: OpenINF
 github_username: OpenINF
 repository: OpenINF/openinf.github.io
+
+# Site build settings
 markdown: kramdown
 plugins:
   - jekyll-redirect-from
