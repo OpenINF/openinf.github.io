@@ -1,21 +1,20 @@
 ---
 title: OpenINF Next-Gen Guidance on Agent Forwarding
 category: contributing
-authors: @OpenINF/wg-a-team
-published: false
-permalink:
-layout:
+layout: docs
+permalink: docs/dev/internals/contributing/agent-forwarding
 relevant_urls:
-- https://github.com/OpenINF/docker-fisher/issues/5 # psusan + auth awkwardness
-- https://dev.gnupg.org/T3883 # Win32-OpenSSH support for gpg-agent's ssh-agent
+  - https://github.com/OpenINF/docker-fisher/issues/5 # psusan + auth awkwardness
+  - https://dev.gnupg.org/T3883 # Win32-OpenSSH support for gpg-agent's ssh-agent
+toc: true
 ---
 
-To be able to sign any potential Git commits or tags you may make using your Git
-client, some additional setup may be necessary. This guide will be especially
-relevant if you develop inside a container we have provided. There will likely
-be snafus to overcome before connecting to the container, as we intend.
+Additional setup procedures may be necessary for the chosen few who hold core
+OpenINF membership to sign any potential Git commits or tags. This guide will be
+especially relevant for those developing inside the container provided as there
+will likely be snafus to overcome before connecting to the devcontainer.
 
-## 1.1    Connecting to GitHub with SSH
+## Connecting to GitHub with SSH
 
 You can connect to GitHub using the Secure Shell Protocol (SSH), which provides
 a secure channel over an unsecured network.
@@ -32,8 +31,8 @@ GitHub before any usage of the key to authenticate may occur.
 
 If you don't already have an SSH key, you must generate a new one for
 authentication. You can check for existing keys if you are unsure whether you
-already have an SSH key. For more information, see
-"[Checking for existing SSH keys](https://docs.github.com/en/github/authenticating-to-github/checking-for-existing-ssh-keys)."
+already have an SSH key. For more information, see "[Checking for existing SSH
+keys][]".
 
 If you don't want to reenter your passphrase every time you use your SSH key,
 you can add your key to the SSH agent, which will manage your SSH keys and
@@ -57,8 +56,7 @@ You can further secure your SSH key by using a hardware security key, which
 requires the physical hardware security key to be attached to your computer when
 the key pair is used to authenticate with SSH. You can also secure your SSH key
 by adding your key to the ssh-agent and using a passphrase. For more
-information, see
-"[Working with SSH key passphrases](https://docs.github.com/en/github/authenticating-to-github/working-with-ssh-key-passphrases)."
+information, see "[Working with SSH key passphrases][]".
 
 ## 1.3    Auto-start of the gpg-agent
 
@@ -67,7 +65,7 @@ private (secret) keys and, if required, diverts operations to a smartcard or
 other token. It also supports Secure Shell (SSH) by implementing the ssh-agent
 protocol.
 
-The traditional way to run _gpg-agent_ on Unix systems is by launching it at
+The traditional way to run _gpg-agent_ on \*nix systems is by launching it at
 login time and using an environment variable (GPG_AGENT_INFO) to tell the other
 GnuPG modules how to connect to the agent. However, correctly managing the
 startup and this environment variable is cumbersome, so a more straightforward
@@ -78,7 +76,7 @@ still needed.
 With GnuPG 2.1, the need for GPG_AGENT_INFO has been completely removed, and the
 variable is ignored.
 
-Instead, a fixed Unix domain socket named S.gpg-agent in the GnuPG home
+Instead, a fixed _Unix domain socket_ named S.gpg-agent in the GnuPG home
 directory (by default ~/.gnupg) is used. The agent is also started on-demand by
 all tools requiring services from the agent.
 
@@ -164,7 +162,7 @@ program itself.[^2]
 During _**[`ssh-agent`][]** initialization_, the extra socket (named
 **`S.gpg-agent.extra`** by default) gets created in the GnuPG home directory.
 
-The intended use for this extra socket is to set up a Unix domain socket
+The intended use for this extra socket is to set up a _Unix domain socket_
 forwarding from a remote machine to this socket on the local device.
 A gpg process running on the remote box (or, in our case, in the devcontainer)
 may connect to the local gpg-agent and use its private keys. This activity
@@ -182,7 +180,7 @@ by adding the following line to the `gpg-agent.conf` file in the GnuPG home
 directory.
 
 ```text
-extra-socket /c/Users/Administrator/.gnupg/S.gpg-agent.extra
+extra-socket /c/Users/<username>/.gnupg/S.gpg-agent.extra
 ```
 
 This extra socket is the one our local `gpg-agent` will be using rather than
@@ -248,16 +246,16 @@ Adding the `--verbose` flag shows the progress of starting the agent.
 
 ### Correctly managing the startup of the GPG agent
 
-The traditional way to run _gpg-agent_ on Unix systems is by launching it at
+The traditional way to run _gpg-agent_ on \*nix systems is by launching it at
 login time.
 
-TO BE SURE, we will add the following line to
+To be sure, we will add the following line to&hellip;
 
 :::windows
 
 The `--enable-putty-support` flag is only available under Windows and allows the
 use of gpg-agent with the PuTTY implementation of SSH. This usage is similar to
-the regular ssh-agent, which supports OpenSSH implementations of SSH on Unix
+the regular ssh-agent, which supports OpenSSH implementations of SSH on \*nix
 systems, but differs in its use of Windows Message Queues as PuTTY requires.
 
 :::
@@ -271,6 +269,7 @@ SSH configuration
 Add the following to the file located at ~/.ssh/config. If it does not yet
 exist, create it.
 
+```text
 host gpgtunnel
 
 hostname localhost
@@ -280,13 +279,8 @@ port 2222
 User vscode
 
 RemoteForward /home/vscode/.gnupg/S.gpg-agent
-/c/Users/Administrator/.gnupg/S.gpg-agent.extra
-
-VSCode remote extension user configuration (optional)
-
-You must specify the remote’s VS Code user settings option if you are using VS
-Code and the development environment.SSH.path to point to the SSH client
-included in the Cygwin/MSYS installation of Git Bash.
+/c/Users/<username>/.gnupg/S.gpg-agent.extra
+```
 
 <!-- LINK LABEL DEFINITIONS - START -->
 
@@ -294,9 +288,13 @@ included in the Cygwin/MSYS installation of Git Bash.
 [`ssh-agent`]: https://en.wikipedia.org/wiki/Ssh-agent
 [`gpg-agent`]:
   https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
+[Checking for existing SSH keys]:
+  https://docs.github.com/en/github/authenticating-to-github/checking-for-existing-ssh-keys
 [computer files]: https://en.wikipedia.org/wiki/Computer_file
 [host]: https://en.wikipedia.org/wiki/Server_(computing)
 [Secure Shell]: https://en.wikipedia.org/wiki/Secure_Shell
+[Working with SSH key passphrases]:
+  https://docs.github.com/en/github/authenticating-to-github/working-with-ssh-key-passphrases
 
 [^1]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-1
 [^2]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-Pechanec-2
