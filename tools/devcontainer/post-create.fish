@@ -1,8 +1,7 @@
 #!/usr/bin/env fish
 # ------------------------------------------------------------------------------
 # Copyright (c) The OpenINF Authors & Friends. All rights reserved.
-# Licensed under triple-license model comprising MIT, Apache, BlueOak licenses.
-# See LICENSE/ at project root for more info.
+# License: MIT OR Apache-2.0 OR BlueOak-1.0.0
 # ------------------------------------------------------------------------------
 
 # Set the SHELL environment variable to our active shell.
