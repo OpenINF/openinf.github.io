@@ -75,17 +75,17 @@ sass:
   load_paths:
     - _includes/assets/scss
 exclude:
+  - AUTHORS
   - build/
+  - CNAME
   - Gemfile
   - Gemfile.lock
+  - LICENSE
   - node_modules/
   - package.json
   - pnpm-lock.json
   - project-terms.txt
-  - AUTHORS
-  - CNAME
-  - LICENSE
   - README.md
-  - tools/
   - tmp/
+  - tools/
   - vendor/
