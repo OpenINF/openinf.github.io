@@ -33,6 +33,9 @@ compress_html:
     - html
     - head
     - body
+
+# Content collections
+# See: https://jekyllrb.com/docs/collections
 collections_dir: collections
 collections:
   authors:
