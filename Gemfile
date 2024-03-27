@@ -30,7 +30,7 @@ gem 'dotenv'
 
 gem 'rb-inotify'
 
-# Dig out bundled core deps as we prep to begin Ruby 3.4.0
+# Dig out bundled core deps as we prep to begin Ruby 3.4.0 support
 gem 'csv'
 gem 'base64'
 gem 'bigdecimal'
