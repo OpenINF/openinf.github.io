@@ -2,10 +2,10 @@
 
 source 'https://rubygems.org'
 
-gem 'github-linguist', '~> 7.24'
+gem 'github-linguist'
 
-gem 'jekyll', '~> 4.3.0'
-gem 'kramdown-parser-gfm', '~> 1.1'
+gem 'jekyll'
+gem 'kramdown-parser-gfm'
 
 group :jekyll_plugins do
   gem 'jekyll-redirect-from'
@@ -13,9 +13,9 @@ group :jekyll_plugins do
   gem 'jekyll-sitemap'
   gem 'jekyll-seo-tag'
   # gem 'jekyll-asset-path', git: 'https://github.com/OpenINF/openinf-jekyll-asset-path-plugin'
-  gem 'jekyll-assets', git: 'https://github.com/envygeeks/jekyll-assets'
-  gem 'jekyll-paginate-v2'
-  gem 'jekyll-auto-authors'
+  # gem 'jekyll-assets', git: 'https://github.com/envygeeks/jekyll-assets'
+  # gem 'jekyll-paginate-v2'
+  # gem 'jekyll-auto-authors'
 end
 
 gem 'yaml-lint'

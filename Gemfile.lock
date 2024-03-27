@@ -59,6 +59,10 @@ GEM
       jekyll (>= 3.3, < 5.0)
     jekyll-sass-converter (3.0.0)
       sass-embedded (~> 1.54)
+    jekyll-seo-tag (2.8.0)
+      jekyll (>= 3.8, < 5.0)
+    jekyll-sitemap (1.4.0)
+      jekyll (>= 3.7, < 5.0)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
     kramdown (2.4.0)
@@ -82,6 +86,9 @@ GEM
     rouge (4.2.1)
     rugged (1.7.2)
     safe_yaml (1.0.5)
+    sass-embedded (1.72.0)
+      google-protobuf (>= 3.25, < 5.0)
+      rake (>= 13.0.0)
     sass-embedded (1.72.0-aarch64-linux-android)
       google-protobuf (>= 3.25, < 5.0)
     sass-embedded (1.72.0-aarch64-linux-gnu)
@@ -125,6 +132,7 @@ PLATFORMS
   arm-linux-gnueabihf
   arm-linux-musleabihf
   arm64-darwin
+  ruby
   x86-linux
   x86-linux-android
   x86-linux-gnu
@@ -139,11 +147,13 @@ DEPENDENCIES
   bigdecimal
   csv
   dotenv
-  github-linguist (~> 7.24)
-  jekyll (~> 4.3.0)
+  github-linguist
+  jekyll
   jekyll-redirect-from
   jekyll-relative-links
-  kramdown-parser-gfm (~> 1.1)
+  jekyll-seo-tag
+  jekyll-sitemap
+  kramdown-parser-gfm
   rb-inotify
   webrick
   yaml-lint
