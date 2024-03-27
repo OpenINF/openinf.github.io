@@ -41,7 +41,7 @@ collections:
   authors:
     output: true
   docs:
-    permalink: /:collection/:path/
+    permalink: :collection/:path
     output: true
   posts:
     permalink: /news/:year/:month/:day/:title/
