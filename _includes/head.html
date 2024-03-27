@@ -19,12 +19,12 @@
   <title>{% if page.permalink == '/' %}{{ site.title }}{% else %}{{ page.title }} &middot; {{ site.title }}{% endif %}</title>
   <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
   {% if page.permalink == '/' %}
+  <!-- TODO(OpenINF/wg-a-team, #578): create dedicated page (other attribution as well) -->
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
       "@type": "WebSite",
-      {# TODO(DerekNonGeneric, #578): perhaps create a dedicated page (other attribution as well) #}
-      "license": "https://github.com/OpenINF/openinf.github.io/tree/live/LICENSE",
+      "license": "https://open.inf.is/LICENSE",
       "about": {
         "description": "{{ site.description }}"
       }
