@@ -1,64 +1,49 @@
-# Welcome to Jekyll!
-
-# This master configuration file contains global configurations and variable
-# definitions that are meant for settings that affect the whole microsite with
-# values that are expected to be set up once and that rarely need to be edited
-# after that, which is why they are only read once at execution time.
-#
-# For technical reasons, changes made to this file are _NOT_ reloaded
-# automatically during automatic regeneration when using 'jekyll serve'. If
-# you change this file, please restart the server process as changes are not
-# loaded until the next regeneration.
-#
-# Note: Data Files _are_ included and reloaded during automatic regeneration.
-#
-# Site personalization settings accessed in templates via {{ site.myvariable }}.
+---
 title: OpenINF
 email: code@inf.is
-description: >-
-  Aggregate, curate, disseminate, and apply information derived from diverse
-  sources.
+description: Aggregate, curate, disseminate, and apply information derived from
+  diverse sources.
 baseurl: ''
-url: 'https://open.inf.is' # the base hostname & protocol for our site
+url: https://open.inf.is
 twitter_username: OpenINF
 github_username: OpenINF
 repository: OpenINF/openinf.github.io
-
-# Site build settings.
 markdown: kramdown
 plugins:
   - jekyll-redirect-from
   - jekyll-relative-links
   - jekyll-sitemap
- - jekyll-seo-tag
- - jekyll-asset-path
- - jekyll-assets
+  - jekyll-seo-tag
+  - jekyll-asset-path
+  - jekyll-assets
 compress_html:
   clippings: all
-  comments: ['<!-- ', ' -->']
+  comments:
+    - '<!-- '
+    - ' -->'
   endings: all
   ignore:
-    envs: [local]
+    envs:
+      - local
   blanklines: false
   profile: false
-  startings: [html, head, body]
-
-# All collections.
+  startings:
+    - html
+    - head
+    - body
 collections_dir: collections
-
 collections:
   authors:
     output: true
   docs:
-    permalink: '/:collection/:path/'
+    permalink: /:collection/:path/
     output: true
   posts:
-    permalink: '/news/:year/:month/:day/:title/'
+    permalink: /news/:year/:month/:day/:title/
     output: true
-
 defaults:
   - scope:
-      path: '' # an empty string here means all files in the project
+      path: ''
       type: pages
     values:
       layout: compress
@@ -75,7 +60,7 @@ defaults:
       layout: docs
       editable: true
       body_classes:
-        - 'hide-butterbar'
+        - hide-butterbar
   - scope:
       path: _posts
       type: posts
@@ -83,15 +68,12 @@ defaults:
       layout: news_item
       editable: true
       body_classes:
-        - 'hide-butterbar'
-
+        - hide-butterbar
 sass:
   sass_dir: _sass
   style: compressed
   load_paths:
     - _includes/assets/scss
-
-# Exclude from processing.
 exclude:
   - build/
   - Gemfile
