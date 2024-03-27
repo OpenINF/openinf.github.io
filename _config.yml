@@ -74,6 +74,8 @@ sass:
   style: compressed
   load_paths:
     - _includes/assets/scss
+
+# Exclude from processing
 exclude:
   - AUTHORS
   - build/
