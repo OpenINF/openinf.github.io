@@ -14,8 +14,8 @@ plugins:
   - jekyll-relative-links
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-asset-path
-  - jekyll-assets
+  # - jekyll-asset-path
+  # - jekyll-assets
 compress_html:
   clippings: all
   comments:
