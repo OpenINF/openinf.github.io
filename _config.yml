@@ -62,8 +62,11 @@ defaults:
       path: _docs
       type: docs
     values:
+      # 👁️‍🗨️ https://github.com/OpenINF/openinf.github.io/blob/HEAD/_layouts/docs.html
       layout: docs
       editable: true
+      toc: true
+      breadcrumbs: true
       body_classes:
         - hide-butterbar
   - scope:
