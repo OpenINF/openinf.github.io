@@ -26,6 +26,7 @@ openinf
 openinfbot
 OpenINF
 OpenINFBot
+OpenINFbot
 pinentry
 PowerShell
 psusan
