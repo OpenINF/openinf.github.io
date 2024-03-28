@@ -73,6 +73,8 @@ defaults:
       path: _posts
       type: posts
     values:
+      ##
+      # @see https://github.com/OpenINF/openinf.github.io/blob/HEAD/_layouts/news_item.html
       layout: news_item
       editable: true
       body_classes:
