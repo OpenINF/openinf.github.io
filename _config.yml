@@ -35,7 +35,7 @@ compress_html:
     - body
 
 # Content collections
-# 👁️‍🗨️ https://jekyllrb.com/docs/collections
+# @see https://jekyllrb.com/docs/collections
 collections_dir: collections
 collections:
   authors:
