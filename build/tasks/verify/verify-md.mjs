@@ -1,12 +1,38 @@
-import yarnpkgShell from '@yarnpkg/shell';
+/**
+ * @file Verify Markdown files are valid & adhere to checkable style guidelines.
+ * @author The OpenINF Authors & Friends
+ * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
+ * @module {ES6Module} build/tasks/verify/verify-md.mjs
+ */
 
-let code = 0;
+import { execute } from '@yarnpkg/shell';
+import { glob } from 'zx';
+
+const MarkdownFiles = await glob([
+  '**.md',
+  '!_site/',
+  '!node_modules/',
+  '!vendor/',
+  '!**/COPYING.md',
+]);
+
+let exitCode = 0;
 const scripts = [
-  'npx eslint --ext=.md .', // validate & style-check JS code blocks
-  'npx remark -qf .', // check Markdown style
+  // Validate style of JS/TS code blocks within Markdown files.
+  `eslint ${MarkdownFiles.join(' ')}`,
+  // Validate style of Markdown within Markdown files.
+  `prettier --check ${MarkdownFiles.join(' ')}`,
+  `markdownlint-cli2 ${MarkdownFiles.join(' ')}`,
+  `remark -f ${MarkdownFiles.join(' ')}`,
+  `cspell check ${MarkdownFiles.join(' ')}`,
 ];
 
-scripts.forEach(async (v, i) => {
-  code = await yarnpkgShell.execute(scripts[i]);
-  process.exitCode = code > 0 ? code : 0;
-});
+for (const element of scripts) {
+  try {
+    exitCode = await execute(element);
+  } catch (p) {
+    exitCode = p.exitCode;
+  }
+
+  if (exitCode !== 0) process.exitCode = exitCode;
+}
