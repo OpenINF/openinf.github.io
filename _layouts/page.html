@@ -8,7 +8,6 @@ class:
   <div class="container">
     {%- if page.permalink != '/' -%}
     <h1 class="page-heading">{{ page.title }}</h1>
-    {%- endif -%}
-    {{ content }}
+    {%- endif -%} {{ content }}
   </div>
 </main>
