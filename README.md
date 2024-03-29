@@ -1,5 +1,14 @@
-<!-- markdownlint-disable-next-line line-length -->
-<a href="##"><img src="https://raw.githubusercontent.com/OpenINF/openinf.github.io/live/assets/img/svg/logogram-color.svg?sanitize=true" alt="OpenINF logo" title="OpenINF" align="right" height="96" width="96" /></a>
+<!-- markdownlint-disable-next-line first-line-heading -->
+<a href="https://open.inf.is">
+  <img
+    src="https://open.inf.is/assets/img/svg/logogram-color.svg"
+    alt="OpenINF logo"
+    title="OpenINF"
+    align="right"
+    height="96"
+    width="96"
+  />
+</a>
 
 <div align="left">
 
@@ -9,7 +18,7 @@
 
 <br />
 
-[!['License: MIT/Apache-2.0'][license-badge--shields]][license-badge-url] [!['Netlify Status: Dynamic'][netlify-badge--dynamimg]][netlify-badge-url]
+[!['Netlify Status: Dynamic'][netlify-badge--dynamimg]][netlify-badge-url]
 
 </div>
 
@@ -60,15 +69,17 @@ to fix but cannot patch it yourself, please [open an issue][].
 
 ### License
 
-This project is licensed under either of
+It is essential always to read the license for all code and content in question.
+Each source code and content directory typically contains the appropriate
+license file(s) for that directory's source code and/or content. The code and
+content files themselves also typically contain licensing and authorship
+metadata.
 
-- [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
-- [MIT license](https://opensource.org/licenses/MIT)
-
-at your option.
-
-The [SPDX](https://spdx.dev) license identifier for this project is
-`MIT OR Apache-2.0`.
+Most of the repository's source code is permissively licensed under MIT, Apache
+2.0, or Blue Oak 1.0.0. The IDK reference documentation content uses the CC
+BY-NC-SA 4.0 license, while the embedded source code snippets and examples use
+the public domain equivalent 0BSD license. The collection of documents
+comprising our style guide handbook uses the CC BY-SA 4.0 license.
 
 <br /><br />
 
@@ -78,50 +89,54 @@ The [SPDX](https://spdx.dev) license identifier for this project is
 
 <div align="center">
 
-[Roadmap][] |
-[Development][] |
-[Issue Tracker][] |
-[Changelog][] |
-[Credits][]
+[Roadmap][] | [Development][] | [Issue Tracker][] | [Changelog][] | [Credits][]
 
 <br />
 
-[!['Project Type: Prototype'][project-type-badge--shields]](##)
-[!['Prototyping Scheme: Evolutionary'][prototyping-scheme-badge--shields]](##)
-[!['Status: Under construction'][project-status-badge--shields]](##)
-  
+[!['Project Type: Prototype'][project-type-badge--shields]](./##)
+[!['Prototyping Scheme: Evolutionary'][prototyping-scheme-badge--shields]](./##)
+[!['Status: Under construction'][project-status-badge--shields]](./##)
+
 <br /><br />
 
 <a title="The OpenINF website" href="https://open.inf.is" rel="author">
-  <img alt="The OpenINF logo" height="32px" width="32px" src="https://raw.githubusercontent.com/openinf/openinf.github.io/live/assets/img/svg/logo.svg?sanitize=true" />
+  <img
+    alt="The OpenINF logo"
+    height="32px"
+    width="32px"
+    src="https://open.inf.is/assets/img/svg/logo.svg"
+  />
 </a>
 
 </div>
 
 <br /><br />
-  
+
 <!-- LINK LABEL DEFINITIONS - START -->
 
 [Roadmap]: https://github.com/OpenINF/openinf.github.io/issues 'Roadmap'
 [Development]: ./collections/_docs/development.md 'Development'
-[Issue Tracker]: https://github.com/OpenINF/openinf.github.io/issues 'Issue Tracker'
-[Changelog]: https://github.com/OpenINF/openinf.github.io/commits/live 'Changelog'
-[Credits]: https://github.com/OpenINF/openinf.github.io/graphs/contributors 'Credits'
-
-[project-type-badge--shields]: https://img.shields.io/badge/type-prototype-blue.svg
-[prototyping-scheme-badge--shields]: https://img.shields.io/badge/scheme-evolutionary-blue.svg
-[project-status-badge--shields]: https://img.shields.io/badge/status-under%20construction-yellow.svg
-
+[Issue Tracker]:
+  https://github.com/OpenINF/openinf.github.io/issues
+  'Issue Tracker'
+[Changelog]:
+  https://github.com/OpenINF/openinf.github.io/commits/live
+  'Changelog'
+[Credits]:
+  https://github.com/OpenINF/openinf.github.io/graphs/contributors
+  'Credits'
+[project-type-badge--shields]:
+  https://img.shields.io/badge/type-prototype-blue.svg
+[prototyping-scheme-badge--shields]:
+  https://img.shields.io/badge/scheme-evolutionary-blue.svg
+[project-status-badge--shields]:
+  https://img.shields.io/badge/status-under%20construction-yellow.svg
 [netlify-badge-url]:
   https://app.netlify.com/sites/open-inf-is/deploys?branch=live
-  "Netlify Status: Dynamic"
+  'Netlify Status: Dynamic'
 [netlify-badge--dynamimg]:
   https://api.netlify.com/api/v1/badges/1e33ed32-f4b4-4238-abe8-70e219408cf7/deploy-status?branch=live
-  "Netlify Status: Dynamic"
-[license-badge--shields]:
-  https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg?logo=github
-  "License: MIT/Apache 2.0"
-[license-badge-url]: #license 'License: MIT/Apache 2.0'
+  'Netlify Status: Dynamic'
 [open an issue]: https://github.com/OpenINF/openinf.github.io/issues
 
 <!-- LINK LABEL DEFINITIONS - END -->

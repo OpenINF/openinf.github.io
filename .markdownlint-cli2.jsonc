@@ -1,0 +1,33 @@
+{
+  // Include a custom rule package
+  "customRules": [],
+
+  // Fix any fixable errors
+  "fix": true,
+
+  // Define glob expressions to use (only valid at root)
+  "globs": ["**.md"],
+
+  // Define glob expressions to ignore
+  "ignores": ["_site/", "node_modules/", "vendor/", "**/COPYING.md"],
+
+  "markdownItPlugins": [
+    // Use a plugin to recognize math
+    ["@iktakahiro/markdown-it-katex"],
+    ["markdown-it-task-lists"],
+    ["markdown-it-footnote"],
+    ["markdown-it-sup"],
+    ["markdown-it-sub"],
+    ["markdown-it-abbr"],
+    ["markdown-it-anchor"]
+  ],
+
+  // Disable inline config comments
+  "noInlineConfig": false,
+
+  // Disable progress on stdout (only valid at root)
+  "noProgress": false,
+
+  // Use a specific formatter (only valid at root)
+  "outputFormatters": [["markdownlint-cli2-formatter-default"]]
+}
