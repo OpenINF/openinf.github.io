@@ -8,7 +8,7 @@
  *
  * @author The OpenINF Authors & Friends
  * @module {ES6Module} .config/babel
- * @license MIT/Apache-2.0/BlueOak-1.0.0
+ * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
  * @see https://babeljs.io/docs/en/plugins#plugin-ordering
  */
 
