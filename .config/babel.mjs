@@ -7,7 +7,7 @@
  * 3. Preset ordering is reversed (last to first).
  *
  * @author The OpenINF Authors & Friends
- * @module {ES6Module} .config/babel
+ * @module {ES6Module} /.config/babel
  * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
  * @see https://babeljs.io/docs/en/plugins#plugin-ordering
  */
