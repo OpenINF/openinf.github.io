@@ -34,7 +34,7 @@ compress_html:
     - head
     - body
 
-# Content collections
+## Content collections
 # @see https://jekyllrb.com/docs/collections
 collections_dir: collections
 collections:
@@ -51,18 +51,23 @@ defaults:
       path: ''
       type: pages
     values:
+      ##
+      # @see https://github.com/OpenINF/openinf.github.io/blob/HEAD/_layouts/compress.html
       layout: compress
       locale: en
   - scope:
       path: _layouts
       type: pages
     values:
+      ##
+      # @see https://github.com/OpenINF/openinf.github.io/blob/HEAD/_layouts/default.html
       layout: default
   - scope:
       path: _docs
       type: docs
     values:
-      # 👁️‍🗨️ https://github.com/OpenINF/openinf.github.io/blob/HEAD/_layouts/docs.html
+      ##
+      # @see https://github.com/OpenINF/openinf.github.io/blob/HEAD/_layouts/docs.html
       layout: docs
       editable: true
       toc: true
