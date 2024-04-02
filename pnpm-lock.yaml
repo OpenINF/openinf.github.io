@@ -209,6 +209,7 @@ devDependencies:
   vnu-jar:
     specifier: 23.4.11
     version: 23.4.11
+
 importers:
 
   .:
@@ -6188,14 +6189,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  /esm@3.2.25:
-    resolution: {integrity: sha512-U1suiZ2oDVWv4zPO56S0NcR5QriEahGtdN2OR6FiOG4WJvcjBVFB0qI4+eKoWFH483PKGuLuu6V8Z4T5g63UVA==}
-    engines: {node: '>=6'}
-    dev: true
-
-  /espree@9.6.1:
-    resolution: {integrity: sha512-oruZaFkjorTpF32kDSI5/75ViwGeZginGGy2NoOSg3Q9bnwlnmDm4HLnkl0RE3n+njDXR037aY1+x58Z/zFdwQ==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
   espree@9.6.1:
     dependencies:
       acorn: 8.11.3
