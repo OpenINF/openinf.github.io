@@ -1,0 +1,11 @@
+{
+  "language": "en",
+  "dictionaries": ["project-terms"],
+  "dictionaryDefinitions": [
+    {
+      "name": "project-terms",
+      "path": "./project-terms.txt"
+    }
+  ],
+  "ignorePaths": ["_site/**", "node_modules/**", "vendor/**", "**/COPYING.md"]
+}

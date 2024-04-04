@@ -1,9 +1,15 @@
 #!/usr/bin/env fish
 # ------------------------------------------------------------------------------
 # Copyright (c) The OpenINF Authors & Friends. All rights reserved.
-# Licensed under triple-license model comprising MIT, Apache, BlueOak licenses.
-# See LICENSE/ at project root for more info.
+# License: MIT OR Apache-2.0 OR BlueOak-1.0.0
 # ------------------------------------------------------------------------------
+
+# *********************
+#    Requirements
+# *********************
+
+set -gx SHELL fish
+set -gx COREPACK_ENABLE_DOWNLOAD_PROMPT 0
 
 # *********************
 #    Fisher Plugins
@@ -26,21 +32,14 @@ if test -e package.json
     corepack prepare pnpm@latest --activate
     bass pnpm setup >> /dev/null
     source $HOME/.config/fish/config.fish
-    pnpm add -g pnpm
+    pnpm add -g pnpm@9.0.0-beta.2
     pnpm install
 end
 
 echo 'rbenv rehash && nvm use' >> $HOME/.config/fish/config.fish
 
-# Installs the moon and dprint tools, and it adds the tools to the user's $PATH.
-# It makes the tools available to the user when they open a new terminal window.
-
-# Install moon
-bass curl -fsSL https://moonrepo.dev/install/moon.sh | bash >> /dev/null
-set -gx MOON_HOME $HOME/.moon/bin
-echo 'set -gx MOON_HOME $HOME/.moon/bin' >> $HOME/.config/fish/config.fish
-fish_add_path -g $MOON_HOME
-echo 'fish_add_path -g $MOON_HOME' >> $HOME/.config/fish/config.fish
+# Installs the dprint utility, and adds it to the user's $PATH.
+# It makes the tool available to the user when one opens a new terminal window.
 
 # Install dprint
 bass curl -fsSL https://dprint.dev/install.sh | sh >> /dev/null
