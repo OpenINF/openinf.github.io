@@ -1,19 +1,24 @@
-#!/usr/bin/fish
+#!/usr/bin/env fish
+# ------------------------------------------------------------------------------
+# Copyright (c) The OpenINF Authors & Friends. All rights reserved.
+# License: MIT OR Apache-2.0 OR BlueOak-1.0.0
+# ------------------------------------------------------------------------------
 
-echo 'Hey diddle diddle!'
+# *********************
+#    Requirements
+# *********************
 
-# rem *****************
-# rem   Fisher Plugins
-# rem *****************
+set -gx SHELL fish
+set -gx COREPACK_ENABLE_DOWNLOAD_PROMPT 0
 
-# curl -sL https://raw.githubusercontent.com/OpenINF/openinf-fisher/HEAD/functions/fisher.fish | source \
-#     && fisher install OpenINF/openinf-fisher
+# *********************
+#    Fisher Plugins
+# *********************
 
-fisher install OpenINF/openinf-nvm.fish          \
-    && fisher install OpenINF/openinf-bass       \
-    && fisher install OpenINF/openinf-autoenvstack
+fisher install OpenINF/openinf-nvm.fish
+fisher install OpenINF/openinf-bass
 
-######################################################################## 100.0%
+########################################################################
 
 # If there's a `.nvmrc`, then run `nvm install`.
 if test -e .nvmrc
@@ -25,61 +30,59 @@ end
 if test -e package.json
     corepack enable
     corepack prepare pnpm@latest --activate
-    bass pnpm setup # >> /dev/null
-    source ~/.config/fish/config.fish
-    pnpm add -g pnpm
+    bass pnpm setup >> /dev/null
+    source $HOME/.config/fish/config.fish
+    pnpm add -g pnpm@9.0.0-beta.2
     pnpm install
 end
 
-echo 'rbenv rehash && nvm use' >> ~/.config/fish/config.fish
+echo 'rbenv rehash && nvm use' >> $HOME/.config/fish/config.fish
 
-# Installs the moon and dprint tools, and it adds the tools to the user's $PATH.
-# It makes the tools available to the user when they open a new terminal window.
-
-# Install moon
-bass curl -fsSL https://moonrepo.dev/install/moon.sh | bash # >> /dev/null
-set -gx MOON_HOME $HOME/.moon/bin
-echo 'set -gx MOON_HOME $HOME/.moon/bin' >> ~/.config/fish/config.fish
-fish_add_path -g $MOON_HOME
-echo 'fish_add_path -g $MOON_HOME' >> $HOME/.config/fish/config.fish
+# Installs the dprint utility, and adds it to the user's $PATH.
+# It makes the tool available to the user when one opens a new terminal window.
 
 # Install dprint
-bass curl -fsSL https://dprint.dev/install.sh | sh # >> /dev/null
+bass curl -fsSL https://dprint.dev/install.sh | sh >> /dev/null
 set -gx DPRINT_INSTALL $HOME/.dprint
-echo 'set -gx DPRINT_INSTALL $HOME/.dprint' >> ~/.config/fish/config.fish
+echo 'set -gx DPRINT_INSTALL $HOME/.dprint' >> $HOME/.config/fish/config.fish
 fish_add_path -g $DPRINT_INSTALL
-echo 'fish_add_path -g $DPRINT_INSTALL' >> ~/.config/fish/config.fish
+echo 'fish_add_path -g $DPRINT_INSTALL' >> $HOME/.config/fish/config.fish
 
 set -gx DPRINT_HOME $DPRINT_INSTALL/bin
-echo 'set -gx DPRINT_HOME $DPRINT_INSTALL/bin' >> ~/.config/fish/config.fish
+echo 'set -gx DPRINT_HOME $DPRINT_INSTALL/bin' >> $HOME/.config/fish/config.fish
 fish_add_path -g $DPRINT_HOME
 echo 'fish_add_path -g $DPRINT_HOME' >> $HOME/.config/fish/config.fish
 
-# this will populate your ~/.gnupg directory with empty keyring files
-# it will create the ~/.gnupg directory if it does not already exist (expected)
+# Add dir in which executables of local Node deps are linked to the user's $PATH.
+echo 'fish_add_path -g (pnpm bin)' >> $HOME/.config/fish/config.fish
+
+########################################################################
+
+# Populate user's $HOME/.gnupg directory with empty keyring files
+# it will create the $HOME/.gnupg directory if it does not already exist (expected)
 gpg --list-keys
 
 # If there's a .gnupg directory, then perform the following setup tasks.
-if test -e ~/.gnupg/
+if test -e $HOME/.gnupg/
     # Configure Git to use `gpg2`.
-    echo 'git config --global gpg.program gpg2' >> ~/.config/fish/config.fish
+    echo 'git config --global gpg.program gpg2' >> $HOME/.config/fish/config.fish
 
-    echo 'set -gx GPG_TTY (tty)' >> ~/.config/fish/config.fish
+    echo 'set -gx GPG_TTY (tty)' >> $HOME/.config/fish/config.fish
 
     # To fix the " gpg: WARNING: unsafe permissions on homedir
     # '/home/path/to/user/.gnupg' " error, make sure that the .gnupg directory and
     # its contents is accessibile by your user.
-    # chown -R (whoami) ~/.gnupg/
+    # chown -R (whoami) $HOME/.gnupg/
 
     # Also correct the permissions and access rights on the directory.
-    # chmod 600 ~/.gnupg/*
-    # chmod 700 ~/.gnupg
+    # chmod 600 $HOME/.gnupg/*
+    # chmod 700 $HOME/.gnupg
 
-    echo no-autostart >> ~/.gnupg/gpg.conf
+    echo no-autostart >> $HOME/.gnupg/gpg.conf
 
     # Remove an existing Unix-domain socket file for remote port forwarding before
     # creating a new one when gpgtunnel connection is made.
-    # rm ~/.gnupg/S.gpg-agent
+    # rm $HOME/.gnupg/S.gpg-agent
 
     printf '\n%s\n\n\t%s\n\n' 'Enable commit signing:' 'git config --global commit.gpgsign true'
 end

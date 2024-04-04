@@ -1,11 +1,16 @@
 ## `open.inf.is` Documentation
 
+> [!WARNING]\
+> This documentation is still in **draft** stage. All information may be incomplete,
+> inaccurate, outdated, or even **completely wrong**.
+
 <br />
 
-> [!WARNING]<br /> This documentation is still in **draft** stage.
+> [!NOTE]\
+> If one is using VS Code, it is recommended to use the provided devcontainer available
+> via the official [Remote Development extension][].
 >
-> All information may be incomplete, inaccurate, outdated, or even **completely
-> wrong**.
+> One may skip dependency installation in this case.
 
 <br /><br />
 
@@ -20,19 +25,28 @@ command from the project workspace root (if necessary):
 pnpm install
 ```
 
+```console
+# Configure Bundler setting local gem install path to avoid permission errors.
+bundle config set --local path vendor/bundle
+# Install the dependencies specified in the Gemfile.
+bundle install
+```
+
 <br /><br />
 
-### Run Locally
+### Running Locally
+
+One can preview contributions before opening a pull request.
 
 <br />
 
-Run this from the project workspace root:
+Run this from within the project workspace root directory:
 
 ```console
-pnpm start
+nps start
 ```
 
-Once the script finishes building the documentation site, you can visit it at
+Once the script finishes building the documentation site, one may visit it at
 <http://localhost:4000>.
 
 <br /><br />
@@ -40,12 +54,6 @@ Once the script finishes building the documentation site, you can visit it at
 ### Scripts
 
 <br />
-
-To update the links data file, run this from the project workspace root:
-
-```console
-nps docs.update-links
-```
 
 To lint all files, run this from the project workspace root:
 
@@ -65,5 +73,14 @@ nps format.all
 
 <br />
 
-&copy; The OpenINF Authors. Content licensed under
-[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+&copy; The OpenINF Authors &amp; Friends. Content licensed under [Creative
+Commons Attribution-NonCommercial-ShareAlike 4.0 International License][].
+
+<!-- LINK DEFINITION LABELS - START -->
+
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License]:
+  https://creativecommons.org/licenses/by-nc-sa/4.0/
+[Remote Development extension]:
+  https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
+
+<!-- LINK DEFINITION LABELS - END -->

@@ -1,20 +1,17 @@
-#!/usr/bin/fish
+#!/usr/bin/env fish
+# ------------------------------------------------------------------------------
+# Copyright (c) The OpenINF Authors & Friends. All rights reserved.
+# License: MIT OR Apache-2.0 OR BlueOak-1.0.0
+# ------------------------------------------------------------------------------
 
 # Set the SHELL environment variable to our active shell.
 
 set -gx SHELL fish
-echo 'set -gx SHELL fish' >> ~/.config/fish/config.fish
+echo 'set -gx SHELL fish' >> $HOME/.config/fish/config.fish
 
-# install rem - remember command
-# sudo wget https://github.com/mborho/rem/releases/download/v0.17.0/rem_0.17.0_linux_amd64 \
-#     -O /usr/local/bin/rem && sudo chmod +x /usr/local/bin/rem
-
-# # initialize rem cmd
-# rem here ls -la
-
-# rem ***************
-# rem   Subroutines
-# rem ***************
+# *********************
+#      Subroutines
+# *********************
 
 # function
 
@@ -26,9 +23,9 @@ if test -e .ruby-version
     rbenv install --verbose
 end
 
-echo 'fish_add_path -g ~/.rbenv/shims/' >> ~/.config/fish/config.fish
+echo 'fish_add_path -g $HOME/.rbenv/shims/' >> $HOME/.config/fish/config.fish
 
-source ~/.config/fish/config.fish
+source $HOME/.config/fish/config.fish
 
 rbenv rehash
 

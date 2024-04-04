@@ -13,7 +13,7 @@
   // MD002/first-heading-h1/first-header-h1 - First heading should be a top-level heading
   "MD002": {
     // Heading level
-    "level": 1
+    "level": 2
   },
 
   // MD003/heading-style/header-style - Heading style
@@ -174,7 +174,7 @@
   "MD033": false,
 
   // MD034/no-bare-urls - Bare URL used
-  "MD034": true,
+  "MD034": false,
 
   // MD035/hr-style - Horizontal rule style
   "MD035": {
@@ -183,10 +183,7 @@
   },
 
   // MD036/no-emphasis-as-heading/no-emphasis-as-header - Emphasis used instead of a heading
-  "MD036": {
-    // Punctuation characters
-    "punctuation": ".,;:!?。，；：！？"
-  },
+  "MD036": false,
 
   // MD037/no-space-in-emphasis - Spaces inside emphasis markers
   "MD037": true,
@@ -203,7 +200,7 @@
   // MD041/first-line-heading/first-line-h1 - First line in a file should be a top-level heading
   "MD041": {
     // Heading level
-    "level": 1,
+    "level": 2,
     // RegExp for matching title in front matter
     "front_matter_title": "^\\s*title\\s*[:=]"
   },
