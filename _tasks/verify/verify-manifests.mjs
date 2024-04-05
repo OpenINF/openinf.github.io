@@ -2,7 +2,7 @@
  * @file Verify Manifests Task.
  * @author The OpenINF Authors and friends
  * @license MIT
- * @module {EsModule} _tasks/verify/verify-manifests
+ * @module {ES6Module} build/tasks/verify/verify-manifests
  */
 
 // -----------------------------------------------------------------------------
