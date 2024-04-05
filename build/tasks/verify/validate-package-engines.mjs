@@ -1,4 +1,3 @@
-'use strict';
 // * The contents of this file should work on as many versions of Node.js as
 // * possible. Hence, it _cannot_ use any >ES5 syntax or features. Other files,
 // * which may use >=ES2015 syntax, should only be loaded asynchronously _after_
