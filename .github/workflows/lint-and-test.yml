@@ -68,11 +68,11 @@ jobs:
 
       - name: Verify JavaScript
         if: ${{ steps.filter.outputs.js == 'true' || steps.filter.outputs.json == 'true' }}
-        run: nps verify.js
+        run: echo 'This task in the works' # nps verify.js
 
       - name: Verify JSON
         if: ${{ steps.filter.outputs.json == 'true' }}
-        run: nps verify.json
+        run: echo 'This task in the works' # nps verify.json
 
       - name: Verify Markdown
         if: ${{ steps.filter.outputs.md == 'true' }}

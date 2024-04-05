@@ -1,0 +1,69 @@
+.fullpage-hero {
+  position: relative;
+  margin: 0;
+  background-color: $brand-foreground;
+
+  figcaption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.fullpage-hero-heading {
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+  font-size: $font-size-h2;
+  font-weight: 600;
+  line-height: 2.5rem;
+  letter-spacing: 2px;
+
+  span {
+    background: linear-gradient(to bottom, transparent 50%, $brand-primary 50%);
+    -webkit-box-decoration-break: clone;
+  }
+}
+
+// .navbar ~ .fullpage-hero {
+//   margin-top: -60px;
+// }
+
+.fullpage-hero {
+  color: #fff;
+
+  amp-img {
+    margin-bottom: 0;
+  }
+
+  amp-img > img {
+    object-fit: cover;
+  }
+}
+
+.readmore {
+  display: block;
+  padding: 3rem 0;
+  font-size: $font-size-h6;
+  font-variant: small-caps;
+  line-height: 2.5rem;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: linear-gradient(to top, rgba(0,0,0,.65) 0%,rgba(0,0,0,0) 100%);
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.readmore::after {
+  display: block;
+  margin-top: -1rem;
+  font-size: 2.25rem;
+  content: "▾";
+}
