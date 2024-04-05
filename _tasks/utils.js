@@ -12,15 +12,15 @@
  * @module {CjsModule} _tasks/util
  */
 
-//------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // Requirements
-//------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // * Since this module supports a pre-installation task, neither dependencies
 // * nor devDependencies specified in our package manifest are installed yet.
 // * Therefore, realistically, only the following modules would be available.
 // * - core modules built into the currently active version (?) of Node.js
 // * - dependencies of the globally-installed version (?) of the `npm` package
-//------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
 var assert = require('assert');
 var childProcess = require('child_process');
