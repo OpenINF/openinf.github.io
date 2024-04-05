@@ -1,0 +1,18 @@
+// Image with caption and credit
+.image-with-caption {
+  position: relative;
+}
+
+.image-with-caption amp-img {
+  border-radius: 4px;
+}
+
+.image-with-caption figcaption {
+  font-size: $font-size-h6;
+  line-height: 1.125rem;
+}
+
+.image-with-caption figcaption > .image-credit {
+  display: block;
+  font-weight: bold;
+}

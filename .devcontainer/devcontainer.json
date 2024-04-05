@@ -4,7 +4,7 @@
 {
   "name": "🦞 OpenINF GrimesAI Salvage Tex: Lunar (OpenINF Community)",
   "build": {
-    "dockerfile": "experimental/Dockerfile"
+    "dockerfile": "./experimental/Dockerfile"
   },
   "runArgs": [],
   // Configure tool-specific properties.
