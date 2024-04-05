@@ -101,7 +101,7 @@ var getTrimmedStdout = (exports.getTrimmedStdout = function (
  * ! Note: These dependencies are a moving target between npm versions.
  *
  * @param {!string} specifier
- * @return {!CjsModule}
+ * @returns {!CJSModule}
  */
 var rootNpmRequire = (exports.rootNpmRequire = function (specifier) {
   var globalNpmRootLoc;
