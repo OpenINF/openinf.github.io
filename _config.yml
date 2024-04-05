@@ -1,72 +1,110 @@
-# Welcome to Jekyll!
-
-# This master configuration file contains global configurations and variable
-# definitions that are meant for settings that affect the whole microsite with
-# values that are expected to be set up once and that rarely need to be edited
-# after that, which is why they are only read once at execution time.
-#
-# For technical reasons, changes made to this file are *NOT* reloaded
-# automatically during automatic regeneration when using 'jekyll serve'. If
-# you change this file, please restart the server process as changes are not
-# loaded until the next execution.
-#
-# Note: Data Files _are_ included and reloaded during automatic regeneration.
-#
-# Site personalization settings accessed in templates via {{ site.myvariable }}.
+---
 title: OpenINF
-email: code@open.inf.is
-description: >-
-  Aggregate, curate, disseminate, and apply information derived from diverse
-  sources.
+email: code@inf.is
+description: Aggregate, curate, disseminate, and apply information derived from
+  diverse sources.
 baseurl: ''
-url: 'https://open.inf.is'
+url: https://open.inf.is
 twitter_username: OpenINF
 github_username: OpenINF
 repository: OpenINF/openinf.github.io
 
-# Site build settings.
+# Site build settings
 markdown: kramdown
 plugins:
   - jekyll-redirect-from
   - jekyll-relative-links
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  # - jekyll-asset-path
+  # - jekyll-assets
+compress_html:
+  clippings: all
+  comments:
+    - '<!-- '
+    - ' -->'
+  endings: all
+  ignore:
+    envs:
+      - local
+  blanklines: false
+  profile: false
+  startings:
+    - html
+    - head
+    - body
 
-# Document collections.
+## Content collections
+# @see https://jekyllrb.com/docs/collections
 collections_dir: collections
-
 collections:
   authors:
     output: true
   docs:
-    permalink: '/:collection/:path/'
+    permalink: :collection/:path
     output: true
   posts:
-    permalink: '/news/:year/:month/:day/:title/'
+    permalink: news/:year/:month/:day/:title
     output: true
 defaults:
+  - scope:
+      path: ''
+      type: pages
+    values:
+      ##
+      # @see https://github.com/OpenINF/openinf.github.io/blob/HEAD/_layouts/compress.html
+      layout: compress
+      locale: en
+  - scope:
+      path: _layouts
+      type: pages
+    values:
+      ##
+      # @see https://github.com/OpenINF/openinf.github.io/blob/HEAD/_layouts/default.html
+      layout: default
   - scope:
       path: _docs
       type: docs
     values:
+      ##
+      # @see https://github.com/OpenINF/openinf.github.io/blob/HEAD/_layouts/docs.html
       layout: docs
+      editable: true
+      toc: true
+      breadcrumbs: true
+      body_classes:
+        - hide-butterbar
   - scope:
       path: _posts
       type: posts
     values:
+      ##
+      # @see https://github.com/OpenINF/openinf.github.io/blob/HEAD/_layouts/news_item.html
       layout: news_item
+      editable: true
+      toc: true
+      breadcrumbs: true
+      body_classes:
+        - hide-butterbar
+sass:
+  sass_dir: _sass
+  style: compressed
+  load_paths:
+    - _includes/assets/scss
 
-# Exclude from processing.
+# Exclude from processing
 exclude:
+  - AUTHORS
   - build/
+  - CNAME
   - Gemfile
   - Gemfile.lock
+  - LICENSE
   - node_modules/
   - package.json
   - pnpm-lock.json
   - project-terms.txt
-  - AUTHORS
-  - CNAME
-  - LICENSE
   - README.md
-  - tools/
   - tmp/
+  - tools/
   - vendor/
