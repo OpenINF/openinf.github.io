@@ -20,66 +20,7 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer" />
   <style>
-    {% if page.class == 'home' %}
-      {% capture styles %}
-      {% include assets/scss/home.scss %}
-      {% endcapture %}
-      {{ styles | scssify }}
-    {% endif %}
-    {% if page.class == 'docs' %}
-      {% capture styles %}
-      {% include assets/scss/docs.scss %}
-      {% endcapture %}
-      {{ styles | scssify }}
-    {% endif %}
-    {% if page.class == 'collections' %}
-      {% capture styles %}
-      {% include assets/scss/collections.scss %}
-      {% endcapture %}
-      {{ styles | scssify }}
-    {% endif %}
-    {% if page.class == 'blog' %}
-      {% capture styles %}
-      {% include assets/scss/blog.scss %}
-      {% endcapture %}
-      {{ styles | scssify }}
-    {% endif %}
-    {% if page.class == 'about' %}
-      {% capture styles %}
-      {% include assets/scss/about.scss %}
-      {% endcapture %}
-      {{ styles | scssify }}
-    {% endif %}
-    {% if page.class == 'contact' %}
-      {% capture styles %}
-      {% include assets/scss/contact.scss %}
-      {% endcapture %}
-      {{ styles | scssify }}
-    {% endif %}
-    {% if page.layout == 'post' %}
-      {% capture styles %}
-      {% include assets/scss/post.scss %}
-      {% endcapture %}
-      {{ styles | scssify }}
-    {% endif %}
-    {% if page.layout == 'page' or page.class == 'page' %}
-      {% capture styles %}
-      {% include assets/scss/page.scss %}
-      {% endcapture %}
-      {{ styles | scssify }}
-    {% endif %}
-    {% if page.class == 'discrete-sessions' %}
-      {% capture styles %}
-      {% include assets/scss/discrete-sessions.scss %}
-      {% endcapture %}
-      {{ styles | scssify }}
-    {% endif %}
-    {% if page.layout == 'session' %}
-      {% capture styles %}
-      {% include assets/scss/session.scss %}
-      {% endcapture %}
-      {{ styles | scssify }}
-    {% endif %}
+    {%- include assets/css/main.css -%}
   </style>
   <link rel="canonical" href="." />
   <title>
