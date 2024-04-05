@@ -1,0 +1,16 @@
+@import 'byline';
+@import 'post-carousel';
+@import 'social-box';
+@import 'post';
+@import 'bootstrap/images';
+@import 'bootstrap/utilities/text';
+@import 'bootstrap/utilities/spacing';
+@import 'bootstrap/pagination';
+
+.post-divider {
+  margin: 3rem 0;
+}
+
+.page-link {
+  margin-left: -2px; // needed for 2px border
+}
