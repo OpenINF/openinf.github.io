@@ -5,7 +5,6 @@
 // * successful completion of this version check.
 //------------------------------------------------------------------------------
 
-
 /**
  * @file Check Package Engines Task.
  * This task helps ensure a device's active toolchain satisfies version criteria
@@ -34,9 +33,8 @@ var assert = require('assert');
 
 // Ensure we've received a package manifest filepath as the first argument.
 assert(
-  process.argv.length >= 3, // 1st argument is 3rd for argv.
-  'Unmet expectation: filepath argument passed for package.json to be parsed'
-);
+    process.argv.length >= 3, // 1st argument is 3rd for argv.
+    'Unmet expectation: filepath argument passed for package.json to be parsed');
 
 var packageFilePath = process.argv[2];
 var taskUtil = require('./util.js');
@@ -68,16 +66,15 @@ var checkVersion = (exports.checkVersion = function(toolCommand) {
     assert(false, err);
   }
   activeVersion = semver.clean(activeVersion);
-  var supportedSemVer = taskUtil.getPackageEngines(packageFilePath)[
-    toolCommand
-  ];
+  var supportedSemVer =
+      taskUtil.getPackageEngines(packageFilePath)[toolCommand];
   // Accommodate for labels and build metadata appearing as SemVer extensions.
   var activeVersionNoPrerelease = activeVersion.replace(/-.*$/, '');
   return {
-    command: toolCommand,
-    required: supportedSemVer,
-    version: activeVersionNoPrerelease,
-    supported: semver.satisfies(activeVersionNoPrerelease, supportedSemVer),
+    command : toolCommand,
+    required : supportedSemVer,
+    version : activeVersionNoPrerelease,
+    supported : semver.satisfies(activeVersionNoPrerelease, supportedSemVer),
   };
 });
 
@@ -88,14 +85,12 @@ var checkVersion = (exports.checkVersion = function(toolCommand) {
  */
 var processVersionCheckResults = function(result) {
   if (!result.supported) {
-    console.error(
-      colors.red('× ' + result.command + '\t v' + semver.clean(result.version))
-    );
+    console.error(colors.red('× ' + result.command + '\t v' +
+                             semver.clean(result.version)));
     return 1;
   } else {
-    console.error(
-      colors.green('○ ' + result.command + '\t v' + semver.clean(result.version))
-    );
+    console.error(colors.green('○ ' + result.command + '\t v' +
+                               semver.clean(result.version)));
     return 0;
   }
 };
@@ -110,17 +105,15 @@ var errorCallback = function(error, version) {
     console.error(colors.red(error));
   } else {
     var newlineMarker = require('os').EOL;
-    console.error(
-      newlineMarker +
-        colors.yellow('WARNING: Detected missing/unsupported tool!')
-    );
+    console.error(newlineMarker +
+                  colors.yellow('WARNING: Detected missing/unsupported tool!'));
     var errorMessage = [
       colors.yellow('Remedy this by running ') +
-        colors.cyan('"nvm install ' + semver.clean(version) + '"') +
-        colors.yellow(' or'),
+          colors.cyan('"nvm install ' + semver.clean(version) + '"') +
+          colors.yellow(' or'),
       colors.yellow('see ') +
-        colors.cyan('https://nodejs.org/en/download/package-manager') +
-        colors.yellow(' for instructions.'),
+          colors.cyan('https://nodejs.org/en/download/package-manager') +
+          colors.yellow(' for instructions.'),
     ].join(newlineMarker);
     console.error(errorMessage);
     process.exit(1);
@@ -135,18 +128,14 @@ exports.default = (() => {
   console.error('   Main Engines');
   console.error('------------------');
   var packageEngines = taskUtil.getPackageEngines(packageFilePath);
-  var versionCheckResults = Object.keys(packageEngines).map((value) => {
-    return checkVersion(value);
-  });
+  var versionCheckResults =
+      Object.keys(packageEngines)
+          .map((value) => { return checkVersion(value); });
   var supportedSemVer = taskUtil.getPackageEngines(packageFilePath).node;
-  var redResults = versionCheckResults.map((value) => {
-    return processVersionCheckResults(value);
-  });
+  var redResults = versionCheckResults.map(
+      (value) => { return processVersionCheckResults(value); });
   if (redResults.includes(1)) {
-    taskUtil.getLatestNodejsVersion(
-      errorCallback,
-      NODE_DISTRIBUTIONS_URL,
-      supportedSemVer
-    );
+    taskUtil.getLatestNodejsVersion(errorCallback, NODE_DISTRIBUTIONS_URL,
+                                    supportedSemVer);
   }
 })();

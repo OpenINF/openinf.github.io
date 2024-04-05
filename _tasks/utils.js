@@ -5,7 +5,6 @@
 // * successful completion of this version check.
 //------------------------------------------------------------------------------
 
-
 /**
  * @file Task Utilities.
  * @author The OpenINF Authors and friends
@@ -46,9 +45,8 @@ const hasOwn_ = Object.prototype.hasOwnProperty;
  * @return {boolean}
  * @template T
  */
-var hasOwn = (exports.hasOwn = function(obj, key) {
-  return hasOwn_.call(obj, key);
-});
+var hasOwn =
+    (exports.hasOwn = function(obj, key) { return hasOwn_.call(obj, key); });
 
 /**
  * Returns obj[key] iff key is obj's own property (is not inherited).
@@ -73,11 +71,11 @@ var ownProperty = (exports.ownProperty = function(obj, key) {
  */
 var getTrimmedStdout = (exports.getTrimmedStdout = function(cmd, options = {}) {
   var spawnSyncOptions = {
-    shell: shellCmd,
-    cwd: options.cwd || process.cwd(),
-    env: options.env || process.env,
-    stdio: options.stdio || 'pipe',
-    encoding: options.encoding || 'utf-8',
+    shell : shellCmd,
+    cwd : options.cwd || process.cwd(),
+    env : options.env || process.env,
+    stdio : options.stdio || 'pipe',
+    encoding : options.encoding || 'utf-8',
   };
   Object.assign(spawnSyncOptions, options);
   var p = childProcess.spawnSync(cmd, spawnSyncOptions);
@@ -123,25 +121,19 @@ var getPackageEngines = (exports.getPackageEngines = function(packageFilePath) {
   var packageFile;
   var packageData;
   try {
-    packageFile = fs.readFileSync(packageFileAbsPath, { encoding: 'utf-8' });
+    packageFile = fs.readFileSync(packageFileAbsPath, {encoding : 'utf-8'});
     packageData = JSON.parse(packageFile);
   } catch (err) {
     assert(
-      false,
-      fmt(
-        colors.red(
-          'ERROR: %s must be parsable JSON, yet resulted in error: %s'
-        ),
-        packageFileAbsPath,
-        err
-      )
-    );
+        false,
+        fmt(colors.red(
+                'ERROR: %s must be parsable JSON, yet resulted in error: %s'),
+            packageFileAbsPath, err));
   }
   if (!ownProperty(packageData, 'engines')) {
     assert(
-      false,
-      colors.red('ERROR: Package manifest didn\'t contain a "engines" key!')
-    );
+        false,
+        colors.red('ERROR: Package manifest didn\'t contain a "engines" key!'));
   }
   return packageData.engines;
 });
@@ -151,34 +143,31 @@ var getPackageEngines = (exports.getPackageEngines = function(packageFilePath) {
  * @param {?string} url
  * @param {?string} supportedSemver
  */
-var getLatestNodejsVersion = (exports.getLatestNodejsVersion = function(
-  cb,
-  url,
-  supportedSemver
-) {
-  var request = rootNpmRequire('request');
-  var semver = rootNpmRequire('semver');
-  var version = supportedSemver || 'v0.0.0';
-  url = url || 'https://nodejs.org/dist/index.json';
-  request(url, function(err, res, index) {
-    if (err) {
-      return cb(err);
-    }
-    if (res.statusCode !== 200) {
-      return cb(new Error('Status not 200, ' + res.statusCode));
-    }
-    try {
-      JSON.parse(index).forEach(function(item) {
-        if (semver.satisfies(item.version, version)) {
-          version = item.version;
+var getLatestNodejsVersion =
+    (exports.getLatestNodejsVersion = function(cb, url, supportedSemver) {
+      var request = rootNpmRequire('request');
+      var semver = rootNpmRequire('semver');
+      var version = supportedSemver || 'v0.0.0';
+      url = url || 'https://nodejs.org/dist/index.json';
+      request(url, function(err, res, index) {
+        if (err) {
+          return cb(err);
+        }
+        if (res.statusCode !== 200) {
+          return cb(new Error('Status not 200, ' + res.statusCode));
+        }
+        try {
+          JSON.parse(index).forEach(function(item) {
+            if (semver.satisfies(item.version, version)) {
+              version = item.version;
+            }
+          });
+          cb(null, version);
+        } catch (error) {
+          cb(error);
         }
       });
-      cb(null, version);
-    } catch (error) {
-      cb(error);
-    }
-  });
-});
+    });
 
 exports.default = {
   hasOwn,
