@@ -1,0 +1,64 @@
+@import "byline";
+@import "social-box";
+@import "fullpage-hero";
+@import "post-carousel";
+@import "image-with-heading";
+@import "image-with-caption";
+@import "bootstrap/images";
+@import "bootstrap/utilities/text";
+@import "bootstrap/utilities/spacing";
+
+p {
+  text-align: justify;
+  text-indent: 2em;
+}
+
+.blockquote {
+  font-size: $font-size-base;
+}
+
+.blockquote-reverse>p {
+  text-align: right;
+}
+
+.category {
+  display: inline-block;
+  padding: .5em .65em;
+  margin-bottom: 1rem;
+  border: $border-width solid $brand-secondary;
+  border-radius: $border-radius;
+}
+
+.article-header-wrapper {
+  width:100%;
+  height:0;
+  padding-bottom: 30%; /*acts as fluid height*/
+  overflow:hidden;
+  position:relative;
+  margin-bottom: 24px;
+}
+
+.article-header-img {
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-position: center center;
+  background-size: 100% auto;
+  border-radius: 4px;
+}
+
+amp-carousel {
+  border-radius: 4px;
+}
+
+amp-img {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.fin {
+  text-transform: uppercase;
+  display: block;
+  font-weight: bold;
+  font-size: 2em;
+}

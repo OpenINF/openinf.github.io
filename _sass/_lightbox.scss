@@ -1,0 +1,32 @@
+/*!
+ * Reflection Theme
+ */
+
+.lightbox {
+  background: rgba(255,255,255,0.8);
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  amp-img {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+}
+
+.-amp-image-lightbox-viewer::after {
+  display: block;
+  background-color: #000;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
