@@ -51,9 +51,9 @@ var rootNpmRequire = taskUtil.rootNpmRequire;
 var semver = rootNpmRequire('semver');
 var colors = rootNpmRequire('ansicolors');
 
-//------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // Helpers
-//------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
 /**
  * Checks the toolchain versions and returns a results object.
