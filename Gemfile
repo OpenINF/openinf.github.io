@@ -2,21 +2,14 @@
 
 source 'https://rubygems.org'
 
-gem 'rubocop', require: false
-gem 'rubocop-rails-omakase', require: false, group: [ :development ]
+gem 'github-linguist', '~> 7.24'
 
-gem 'github-linguist'
-
-gem 'jekyll'
-gem 'kramdown-parser-gfm'
+gem 'jekyll', '~> 4.3.0'
+gem 'kramdown-parser-gfm', '~> 1.1'
 
 group :jekyll_plugins do
   gem 'jekyll-redirect-from'
   gem 'jekyll-relative-links'
-  gem 'jekyll-sitemap'
-  gem 'jekyll-seo-tag'
-  # gem 'jekyll-asset-path', git: 'https://github.com/OpenINF/openinf-jekyll-asset-path-plugin'
-  # gem 'jekyll-assets', git: 'https://github.com/envygeeks/jekyll-assets'
   # gem 'jekyll-paginate-v2'
   # gem 'jekyll-auto-authors'
 end
@@ -30,7 +23,7 @@ gem 'dotenv'
 
 gem 'rb-inotify'
 
-# Dig out bundled core deps as we prep to begin Ruby 3.4.0 support.
+# Preparing for Ruby 3.4.0; these deps will no longer be present.
 gem 'csv'
 gem 'base64'
 gem 'bigdecimal'
