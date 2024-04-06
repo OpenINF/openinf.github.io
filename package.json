@@ -97,6 +97,6 @@
     "stylelint-config-standard-scss": "13.1.0",
     "unified": "11.0.4",
     "vnu-jar": "23.4.11",
-    "zx": "7.2.3"
+    "zx": "8.0.0"
   }
 }
