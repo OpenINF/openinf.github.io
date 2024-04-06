@@ -25,6 +25,8 @@
       "extensions": [
         // https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments
         "aaron-bond.better-comments",
+        // https://marketplace.visualstudio.com/items?itemName=biomejs.biome
+        "biomejs.biome",
         // https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
         "davidanson.vscode-markdownlint",
         // https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
