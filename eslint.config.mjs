@@ -20,7 +20,7 @@ import pluginJs from '@eslint/js';
 const compat = new FlatCompat({baseDirectory: import.meta.dirname;, recommendedConfig: pluginJs.configs.recommended});
 
 export default [
-	{languageOptions: {globals: globals.browser}},
+	/* {languageOptions: {globals: globals.browser}}, */
 
 	// other configs,
     eslintConfigBiome,
