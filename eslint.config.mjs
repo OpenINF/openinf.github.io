@@ -13,39 +13,39 @@
 
 import globals from 'globals';
 import markdown from 'eslint-plugin-markdown';
-import { FlatCompat } from '@eslint/eslintrc';
+import {FlatCompat} from '@eslint/eslintrc';
 import pluginJs from '@eslint/js';
 
 // Mimic CommonJS variables (as we are not in CommonJS context).
-const __filename = import.meta.filename; // current module's file name
-const __dirname = import.meta.dirname; // current module's directory name
+const __filename = import.meta.filename; // Current module's file name
+const __dirname = import.meta.dirname; // Current module's directory name
 const compat = new FlatCompat({baseDirectory: __dirname, recommendedConfig: pluginJs.configs.recommended});
 
 export default [
 	{languageOptions: {globals: globals.browser}},
 	...compat.extends('xo'),
 
-  // applies to all JavaScript files
-  {
-      rules: {
-          strict: "error"
-      }
-  },
+	// Applies to all JavaScript files
+	{
+		rules: {
+			strict: 'error',
+		},
+	},
 
-  // applies to Markdown files
-  {
-      files: ["**/*.md"],
-      plugins: {
-          markdown
-      },
-      processor: "markdown/markdown"
-  },
+	// Applies to Markdown files
+	{
+		files: ['**/*.md'],
+		plugins: {
+			markdown,
+		},
+		processor: 'markdown/markdown',
+	},
 
-  // applies only to JavaScript blocks inside of Markdown files
-  {
-      files: ["**/*.md/*.js"],
-      rules: {
-          strict: "off"
-      }
-  }
+	// Applies only to JavaScript blocks inside of Markdown files
+	{
+		files: ['**/*.md/*.js'],
+		rules: {
+			strict: 'off',
+		},
+	},
 ];
