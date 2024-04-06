@@ -18,10 +18,7 @@ import eslintConfigBiome from 'eslint-config-biome';
 import {FlatCompat} from '@eslint/eslintrc';
 import pluginJs from '@eslint/js';
 
-// Mimic CommonJS variables (as we are not in CommonJS context).
-const __filename = import.meta.filename; // Current module's file name
-const __dirname = import.meta.dirname; // Current module's directory name
-const compat = new FlatCompat({baseDirectory: __dirname, recommendedConfig: pluginJs.configs.recommended});
+const compat = new FlatCompat({baseDirectory: import.meta.dirname;, recommendedConfig: pluginJs.configs.recommended});
 
 export default [
 	{languageOptions: {globals: globals.browser}},
