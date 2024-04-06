@@ -26,7 +26,7 @@ export default [
 
 	// other configs,
     eslintConfigBiome,
-	...compat.extends('xo'),
+	...compat.extends('eslint-plugin-prettier'),
 
 	// Applies to all JavaScript files
 	{
