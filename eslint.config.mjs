@@ -11,7 +11,6 @@
 // Requirements
 // -----------------------------------------------------------------------------
 
-import globals from 'globals';
 import markdown from 'eslint-plugin-markdown';
 import eslintConfigBiome from 'eslint-config-biome';
 
