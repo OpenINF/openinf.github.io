@@ -13,6 +13,8 @@
 
 import globals from 'globals';
 import markdown from 'eslint-plugin-markdown';
+import eslintConfigBiome from 'eslint-config-biome';
+
 import {FlatCompat} from '@eslint/eslintrc';
 import pluginJs from '@eslint/js';
 
