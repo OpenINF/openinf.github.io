@@ -23,6 +23,9 @@ const compat = new FlatCompat({baseDirectory: __dirname, recommendedConfig: plug
 
 export default [
 	{languageOptions: {globals: globals.browser}},
+
+	// other configs,
+    eslintConfigBiome,
 	...compat.extends('xo'),
 
 	// Applies to all JavaScript files
