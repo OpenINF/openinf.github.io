@@ -19,7 +19,7 @@ import pluginJS from '@eslint/js';
 
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
-  recommendedConfig: pluginJs.configs.recommended,
+  recommendedConfig: pluginJS.configs.recommended,
 });
 
 export default [
