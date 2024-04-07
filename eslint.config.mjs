@@ -5,6 +5,7 @@
  * @module {type ES6Module} /eslint.config
  * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
  * @see https://eslint.org/docs/latest/use/configure/plugins
+ * @see https://github.com/SrBrahma/eslint-config-biome
  */
 
 // -----------------------------------------------------------------------------
