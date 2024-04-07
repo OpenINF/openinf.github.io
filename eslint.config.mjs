@@ -15,7 +15,7 @@ import markdown from 'eslint-plugin-markdown';
 import eslintConfigBiome from 'eslint-config-biome';
 
 import {FlatCompat} from '@eslint/eslintrc';
-import pluginJs from '@eslint/js';
+import pluginJS from '@eslint/js';
 
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
