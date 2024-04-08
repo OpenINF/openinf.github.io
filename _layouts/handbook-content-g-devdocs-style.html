@@ -1,0 +1,120 @@
+<main class="devsite-main-content">
+  <div class="devsite-content">
+    <article class="devsite-article">
+      {%- if page.editable != false -%}
+      <div class="improve right">
+        <a href="https://github.com/openinf/.github/edit/HEAD/{{ page.path }}"
+          >Edit</a
+        >
+      </div>
+      {%- endif -%}
+      <h1 class="devsite-page-title">{{ page.title }}</h1>
+      <div class="devsite-article-body clearfix">
+        {% include key-point.html %}
+        {{ content }}
+      </div>
+    </article>
+    <div class="devsite-content-footer nocontent">
+      <div class="row cc-footer-license">
+        <div class="license-icons">
+          <a
+            rel="license nofollow noopener noreferrer"
+            target="_blank"
+            href="https://creativecommons.org/licenses/by/4.0/"
+            title="Creative Commons Attribution 4.0 International license"
+          >
+            <img
+              class="cc-icon-cc"
+              src="https://open.inf.is/assets/img/svg/cc/cc-logo.svg"
+              alt="CC logo icon"
+              title="Creative Commons icon"
+            />
+            <img
+              class="cc-icon-cc-by"
+              src="https://open.inf.is/assets/img/svg/cc/cc-by.svg"
+              alt="CC BY icon"
+              title="Attribution icon"
+            />
+          </a>
+        </div>
+        <aside>
+          <div
+            xmlns:cc="https://creativecommons.org/ns#"
+            about="https://creativecommons.org"
+          >
+            <p dir="auto">
+              <small
+                >Portions of this document are reproduced from work created and
+                <a
+                  target="_blank"
+                  href="https://developers.google.com/site-policies"
+                  title="Google Developers Site Policies"
+                  rel="nofollow noopener noreferrer"
+                  >shared by Google</a
+                >
+                and used according to terms described in
+                <a
+                  target="_blank"
+                  href="https://creativecommons.org/licenses/by/4.0/"
+                  title="Creative Commons Attribution 4.0 International license (CC BY 4.0)"
+                  rel="license nofollow noopener noreferrer"
+                  >CC BY 4.0</a
+                >. For more information, refer to the
+                <a
+                  target="_blank"
+                  href="{{ page.original_url }}"
+                  title="{{ page.original_title }}"
+                  rel="nofollow noopener noreferrer"
+                  >original source page</a
+                >.</small
+              >
+            </p>
+          </div>
+        </aside>
+      </div>
+      <div class="row cc-footer-license">
+        <div class="license-icons">
+          <a
+            rel="license nofollow noopener noreferrer"
+            target="_blank"
+            href="https://creativecommons.org/licenses/by/4.0/"
+            title="Creative Commons Attribution 4.0 International license"
+          >
+            <img
+              class="cc-icon-cc"
+              src="https://open.inf.is/assets/img/svg/cc/cc-logo.svg"
+              alt="CC logo icon"
+              title="Creative Commons icon"
+            />
+            <img
+              class="cc-icon-cc-by"
+              src="https://open.inf.is/assets/img/svg/cc/cc-by.svg"
+              alt="CC BY icon"
+              title="Attribution icon"
+            />
+          </a>
+        </div>
+        <aside>
+          <div
+            xmlns:cc="https://creativecommons.org/ns#"
+            about="https://creativecommons.org"
+          >
+            <p dir="auto">
+              <small
+                >Except as otherwise noted, this content is published under
+                <a
+                  target="_blank"
+                  href="https://creativecommons.org/licenses/by/4.0/"
+                  title="Creative Commons Attribution 4.0 International license (CC BY 4.0)"
+                  rel="license nofollow noopener noreferrer"
+                  >CC BY 4.0</a
+                >.</small
+              >
+            </p>
+          </div>
+        </aside>
+      </div>
+      <p>Last updated {{ "today" | date: "%Y-%m-%d }} UTC.</p>
+    </div>
+  </div>
+</main>
