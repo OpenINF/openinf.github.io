@@ -261,8 +261,8 @@ importers:
         specifier: 23.4.11
         version: 23.4.11
       zx:
-        specifier: 8.0.0
-        version: 8.0.0
+        specifier: 8.0.1
+        version: 8.0.1
 
 packages:
 
@@ -4285,8 +4285,8 @@ packages:
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
-  zx@8.0.0:
-    resolution: {integrity: sha512-td4Irxh+i+O8waolUHZyHLSMFALMBWTNVKBk1q5NsvP1vxRqj9JJRGPh6YjKZUTbZZ8uGD1mQLyU9mDr40wR6w==}
+  zx@8.0.1:
+    resolution: {integrity: sha512-Y+ITW1GQjADk7qgrbhnukMgoNsJmlyx53cUQ6/6NXU+BMBdCbTc6flTOHUctmzKvPjTmdwaddzJY/dbLie9sQg==}
     engines: {node: '>= 16.0.0'}
     hasBin: true
 
@@ -9581,7 +9581,7 @@ snapshots:
 
   zwitch@2.0.4: {}
 
-  zx@8.0.0:
+  zx@8.0.1:
     optionalDependencies:
       '@types/fs-extra': 11.0.4
       '@types/node': 20.12.5
