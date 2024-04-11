@@ -23,14 +23,16 @@ https
 Irulen
 macOS
 MSYS
+omakase
 openinf
-openinfbot
 OpenINF
+openinfbot
 OpenINFBot
 OpenINFbot
 pinentry
 PowerShell
 psusan
+rubocop
 SDK
 Servagility
 siteify
