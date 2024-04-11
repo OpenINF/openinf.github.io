@@ -1,45 +1,28 @@
 version = 1
 
-test_patterns = [
-  "test/**",
-  "*test.js"
-]
+[[analyzers]]
+name = "secrets"
 
 [[analyzers]]
 name = "ruby"
-enabled = true
 
 [[analyzers]]
-name = "shell"
-enabled = true
+name = "javascript"
 
-[[analyzers]]
-name = "secrets"
-enabled = true
+  [analyzers.meta]
+  environment = [
+    "nodejs",
+    "browser"
+  ]
 
 [[analyzers]]
 name = "docker"
-enabled = true
 
   [analyzers.meta]
   dockerfile_paths = [".devcontainer/experimental/Dockerfile"]
 
-[[analyzers]]
-name = "javascript"
-enabled = true
-
-[analyzers.meta]
-  plugins = []
-  environment = [
-    "nodejs",
-    "browser",
-    "cypress"
-  ]
-
 [[transformers]]
 name = "prettier"
-enabled = true
 
 [[transformers]]
 name = "rubocop"
-enabled = true
