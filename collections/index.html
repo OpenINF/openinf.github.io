@@ -5,34 +5,13 @@ body_classes:
   - hide-butterbar
 layout: default
 permalink: /collections/
+custom_css:
+  - collections
 ---
 
-<style>
-  h2 {
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem;
-  }
-
-  h2:after {
-    content: "";
-    flex: 1;
-    border: 1px solid #a7978b;
-    margin-inline-start: 0.5rem;
-  }
-
-  body {
-    max-width: 700px;
-    margin: 1rem auto 0;
-    padding: 1rem;
-
-    > * + * {
-      margin-top: 4rem;
-    }
-  }
-</style>
-
 <h2>All Collections</h2>
+
+<p>Collections are curated stories showcasing the best of our builders, experiments, tools, and resources.</p>
 
 <ul>
   {% for collection in site.collections %}

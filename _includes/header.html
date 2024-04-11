@@ -1,1 +1,23 @@
-<header></header>
+<header class="header fixed navbar">
+  <div class="container">
+    <div class="nav-container"><!--
+      <a class="navbar-brand" href="{{ site.baseurl }}/">
+        {% include assets/img/svg/logogram.svg %}
+      </a>-->
+      <div class="right alt">
+        <a class="tab desktop {% if page.class == 'home' %}is-active{% endif %}" href="{{ site.baseurl }}/">Home</a>
+        <a class="tab desktop {% if page.class == 'blog' %}is-active{% endif %}" href="{{ site.baseurl }}/blog/">Blog</a>
+        <a class="tab desktop {% if page.class == 'blog' %}is-active{% endif %}" href="{{ site.baseurl }}/docs/">Docs</a>
+        <a class="tab desktop {% if page.class == 'about' %}is-active{% endif %}" href="{{ site.baseurl }}/about/">About</a>
+        <a class="tab desktop {% if page.class == 'contact' %}is-active{% endif %}" href="{{ site.baseurl }}/contact/">Contact</a>
+        <button class="tab hamburger" id="menu-button" on="tap:sidebar.toggle"></button>
+        <div class="search">
+          <form class="form-search" target="_top" action="https://google.com/search">
+            <input type="search" class="search-input" name="q" placeholder="Search">
+            <input type="submit" class="search-submit" tabindex="-1" value="">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

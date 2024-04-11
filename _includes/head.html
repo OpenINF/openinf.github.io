@@ -12,7 +12,7 @@
     crossorigin="anonymous" />
   <meta
     name="description"
-    content="Aggregate, curate, disseminate, and apply information derived from diverse sources." />
+    content="{{ site.description }}" />
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -20,11 +20,86 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer" />
   <style>
-    {%- include assets/css/main.css -%}
+    {% if page.class == 'home' %}
+      {% capture styles %}
+      {% include assets/scss/home.scss %}
+      {% endcapture %}
+      {{ styles | scssify }}
+    {% endif %}
+    {% if page.class == 'docs' %}
+      {% capture styles %}
+      {% include assets/scss/docs.scss %}
+      {% endcapture %}
+      {{ styles | scssify }}
+    {% endif %}
+    {% if page.class == 'collections' %}
+      {% capture styles %}
+      {% include assets/scss/collections.scss %}
+      {% endcapture %}
+      {{ styles | scssify }}
+    {% endif %}
+    {% if page.class == 'blog' %}
+      {% capture styles %}
+      {% include assets/scss/blog.scss %}
+      {% endcapture %}
+      {{ styles | scssify }}
+    {% endif %}
+    {% if page.class == 'about' %}
+      {% capture styles %}
+      {% include assets/scss/about.scss %}
+      {% endcapture %}
+      {{ styles | scssify }}
+    {% endif %}
+    {% if page.class == 'contact' %}
+      {% capture styles %}
+      {% include assets/scss/contact.scss %}
+      {% endcapture %}
+      {{ styles | scssify }}
+    {% endif %}
+    {% if page.layout == 'post' %}
+      {% capture styles %}
+      {% include assets/scss/post.scss %}
+      {% endcapture %}
+      {{ styles | scssify }}
+    {% endif %}
+    {% if page.layout == 'page' or page.class == 'page' %}
+      {% capture styles %}
+      {% include assets/scss/page.scss %}
+      {% endcapture %}
+      {{ styles | scssify }}
+    {% endif %}
+    {% if page.class == 'discrete-sessions' %}
+      {% capture styles %}
+      {% include assets/scss/discrete-sessions.scss %}
+      {% endcapture %}
+      {{ styles | scssify }}
+    {% endif %}
+    {% if page.layout == 'session' %}
+      {% capture styles %}
+      {% include assets/scss/session.scss %}
+      {% endcapture %}
+      {{ styles | scssify }}
+    {% endif %}
   </style>
-  <link rel="canonical" href="." />
-  <title>
-    {% if page.class != 'home' %}{{ page.title }} &middot; {% endif %}{{
-    site.title }}
-  </title>
+  {% if page.custom_css %}{% for stylesheet_hotlink in page.custom_css -%}
+    <link rel="stylesheet" href="{{ stylesheet_hotlink }}">
+  {%- endfor %}{% endif %}
+  <meta name="format-detection" content="telephone=no">
+  {% if post.status == 'unpublished' or page.status == 'unpublished' %}
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  {% endif %}
+  <title>{% if page.permalink == '/' %}{{ site.title }}{% else %}{{ page.title }} &middot; {{ site.title }}{% endif %}</title>
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+  {% if page.permalink == '/' %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "license": "https://open.inf.is/license",
+      "about": {
+        "description": "{{ site.description }}"
+      }
+    }
+  </script>
+  {% endif %}
 </head>

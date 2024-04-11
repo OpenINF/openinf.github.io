@@ -1,0 +1,48 @@
+// scss-lint:disable ImportantRule
+
+.masthead {
+  position: relative;
+  padding: 1rem ($grid-gutter-width-base / 2) 2rem;
+  text-align: center;
+
+  .lead {
+    margin-right: auto;
+    margin-bottom: 3rem;
+    margin-left: auto;
+    font-size: 1.25rem;
+    display: block;
+  }
+
+  .version {
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+    color: $text-muted;
+  }
+
+  @include media-breakpoint-up(sm) {
+    padding-bottom: 2rem;
+
+    .btn {
+      width: auto;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: 4rem;
+
+    .header {
+      margin-bottom: 4rem;
+    }
+
+    .lead {
+      font-size: 1.5rem;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .lead {
+      width: 85%;
+      font-size: 2rem;
+    }
+  }
+}

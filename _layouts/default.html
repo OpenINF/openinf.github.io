@@ -1,12 +1,14 @@
 ---
-editable: false
+layout: compress
 ---
 
-<!doctype html>
-<html lang="en">
-  {%- include head.html -%}
+<!DOCTYPE html>
+<html {% if page.locale.is_rtl %}dir="rtl" lang="ar"{% else %}dir="ltr" lang="{{ page.locale }}"{% endif %}>
+{%- include head.html -%}
 
-  <body class="{{ page.class }}">
-    {%- include header.html -%} {{- content -}} {%- include footer.html -%}
-  </body>
+{%- assign classes = page.body_classes | join: " " | where: 'page.body_classes', empty -%}
+
+<body vocab="http://schema.org/" typeof="WebPage" id="top"{% if classes %} class="{{- classes -}}"{% endif %}>
+  {%- include header.html -%} {{- content -}} {%- include footer.html -%}
+</body>
 </html>

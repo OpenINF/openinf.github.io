@@ -1,0 +1,27 @@
+.footer {
+  margin: 1rem 0;
+  text-align: center;
+
+  span {
+    font-size: .625rem;
+    color: $footer-foreground;
+    display: block;
+
+    a {
+      color: $footer-foreground;
+      text-decoration: underline;
+    }
+  }
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 1rem 0 0 0;
+
+    path,
+    polygon,
+    rect, {
+      fill: $footer-foreground;
+    }
+  }
+}
