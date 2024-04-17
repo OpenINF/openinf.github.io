@@ -32,7 +32,7 @@ if test -e package.json
     corepack prepare pnpm@latest --activate
     bass pnpm setup >> /dev/null
     source $HOME/.config/fish/config.fish
-    pnpm add -g pnpm@9.0.0-rc.0
+    pnpm add -g pnpm
     pnpm install
 end
 
