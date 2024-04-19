@@ -1,0 +1,29 @@
+scripts:
+  compile:
+    site: node build/tasks/compile/compile-site.mjs # TODO
+    siteifyHealthFiles: node build/tasks/compile/siteify-health-files.mjs
+  verify:
+    all: for i in build/tasks/verify/*.mjs; do node "$i"; done
+    css: node build/tasks/verify/verify-css.mjs
+    html: node build/tasks/verify/verify-html.mjs
+    js: node build/tasks/verify/verify-js.mjs
+    json: node build/tasks/verify/verify-json.mjs
+    md: node build/tasks/verify/verify-md.mjs
+    svg: node build/tasks/verify/verify-svg.mjs
+    toml: node build/tasks/verify/verify-toml.mjs
+    ts: node build/tasks/verify/verify-ts.mjs
+    validForEC: node build/tasks/verify/verify-valid-for-ec.mjs
+    validForSC: node build/tasks/verify/verify-valid-for-sc.mjs
+    yaml: node build/tasks/verify/verify-yaml.mjs
+  format:
+    all: for i in build/tasks/format/*.mjs; do node "$i"; done
+    css: node build/tasks/format/format-css.mjs
+    html: node build/tasks/format/format-html.mjs
+    js: node build/tasks/format/format-js.mjs
+    json: node build/tasks/format/format-json.mjs
+    md: node build/tasks/format/format-md.mjs
+    svg: node build/tasks/format/format-svg.mjs
+    toml: node build/tasks/format/format-toml.mjs
+    ts: node build/tasks/format/format-ts.mjs
+    yaml: node build/tasks/format/format-yaml.mjs
+  test: nps verify.all
