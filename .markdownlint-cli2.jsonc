@@ -12,8 +12,6 @@
   "ignores": ["_site/", "node_modules/", "vendor/", "**/COPYING.md"],
 
   "markdownItPlugins": [
-    // Use a plugin to recognize math
-    ["@iktakahiro/markdown-it-katex"],
     ["markdown-it-task-lists"],
     ["markdown-it-footnote"],
     ["markdown-it-sup"],
