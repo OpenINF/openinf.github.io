@@ -925,8 +925,8 @@ packages:
   '@cspell/dict-en-gb@1.1.33':
     resolution: {integrity: sha512-tKSSUf9BJEV+GJQAYGw5e+ouhEe2ZXE620S7BLKe3ZmpnjlNG9JqlnaBhkIMxKnNFkLY2BP/EARzw31AZnOv4g==}
 
-  '@cspell/dict-en_us@4.3.17':
-    resolution: {integrity: sha512-CS0Tb2f2YwQZ4VZ6+WLAO5uOzb0iO/iYSRl34kX4enq6quXxLYzwdfGAwv85wSYHPdga8tGiZFP+p8GPsi2JEg==}
+  '@cspell/dict-en_us@4.3.19':
+    resolution: {integrity: sha512-tHcXdkmm0t9LlRct1vgu3+h0KW/wlXCInkTiR4D/rl730q1zu2qVEgiy1saMiTUSNmdu7Hiy+Mhb+1braVqnZQ==}
 
   '@cspell/dict-filetypes@3.0.3':
     resolution: {integrity: sha512-J9UP+qwwBLfOQ8Qg9tAsKtSY/WWmjj21uj6zXTI9hRLD1eG1uUOLcfVovAmtmVqUWziPSKMr87F6SXI3xmJXgw==}
@@ -1012,8 +1012,8 @@ packages:
   '@cspell/dict-scala@5.0.0':
     resolution: {integrity: sha512-ph0twaRoV+ylui022clEO1dZ35QbeEQaKTaV2sPOsdwIokABPIiK09oWwGK9qg7jRGQwVaRPEq0Vp+IG1GpqSQ==}
 
-  '@cspell/dict-software-terms@3.3.18':
-    resolution: {integrity: sha512-LJZGGMGqS8KzgXJrSMs3T+6GoqHG9z8Bc+rqLzLzbtoR3FbsMasE9U8oP2PmS3q7jJLFjQkzmg508DrcuZuo2g==}
+  '@cspell/dict-software-terms@3.3.20':
+    resolution: {integrity: sha512-KmPwCxYWEu7SGyT/0m/n6i6R4ZgxbmN3XcerzA6Z629Wm5iZTVfJaMWqDK2RKAyBawS7OMfxGz0W/wYU4FhJlA==}
 
   '@cspell/dict-sql@2.1.3':
     resolution: {integrity: sha512-SEyTNKJrjqD6PAzZ9WpdSu6P7wgdNtGV2RV8Kpuw1x6bV+YsSptuClYG+JSdRExBTE6LwIe1bTklejUp3ZP8TQ==}
@@ -1027,8 +1027,8 @@ packages:
   '@cspell/dict-terraform@1.0.0':
     resolution: {integrity: sha512-Ak+vy4HP/bOgzf06BAMC30+ZvL9mzv21xLM2XtfnBLTDJGdxlk/nK0U6QT8VfFLqJ0ZZSpyOxGsUebWDCTr/zQ==}
 
-  '@cspell/dict-typescript@3.1.2':
-    resolution: {integrity: sha512-lcNOYWjLUvDZdLa0UMNd/LwfVdxhE9rKA+agZBGjL3lTA3uNvH7IUqSJM/IXhJoBpLLMVEOk8v1N9xi+vDuCdA==}
+  '@cspell/dict-typescript@3.1.4':
+    resolution: {integrity: sha512-jUcPa0rsPca5ur1+G56DXnSc5hbbJkzvPHHvyQtkbPXBQd3CXPMNfrTVCgzex/7cY/7FONcpFCUwgwfni9Jqbw==}
 
   '@cspell/dict-vue@3.0.0':
     resolution: {integrity: sha512-niiEMPWPV9IeRBRzZ0TBZmNnkK3olkOPYxC1Ny2AX4TGlYRajcW0WUtoSHmvvjZNfWLSg2L6ruiBeuPSbjnG6A==}
@@ -1467,8 +1467,8 @@ packages:
     resolution: {integrity: sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==}
     engines: {node: '>=6'}
 
-  caniuse-lite@1.0.30001608:
-    resolution: {integrity: sha512-cjUJTQkk9fQlJR2s4HMuPMvTiRggl0rAVMtthQuyOlDWuqHXqN8azLq+pi8B2TjwKJ32diHjUqRIKeFX4z1FoA==}
+  caniuse-lite@1.0.30001611:
+    resolution: {integrity: sha512-19NuN1/3PjA3QI8Eki55N8my4LzfkMCRLgCVfrl/slbSAchQfV0+GwjPrK3rq37As4UCLlM/DHajbKkAqbv92Q==}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -1618,8 +1618,8 @@ packages:
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
 
-  core-js-compat@3.36.1:
-    resolution: {integrity: sha512-Dk997v9ZCt3X/npqzyGdTlq6t7lDBhZwGvV94PKzDArjp7BTRm7WlDAXYd/OWdeFHO8OChQYRJNJvUCqCbrtKA==}
+  core-js-compat@3.37.0:
+    resolution: {integrity: sha512-vYq4L+T8aS5UuFg4UwDhc7YNRWVeVZwltad9C/jV3R2LgVOpS9BDr7l/WL6BN0dbV3k1XejPTHqqEzJgsa0frA==}
 
   core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
@@ -1811,8 +1811,8 @@ packages:
     engines: {node: '>=18.0.0'}
     hasBin: true
 
-  electron-to-chromium@1.4.733:
-    resolution: {integrity: sha512-gUI9nhI2iBGF0OaYYLKOaOtliFMl+Bt1rY7VmEjwxOxqoYLub/D9xmduPEhbw2imE6gYkJKhIE5it+KE2ulVxQ==}
+  electron-to-chromium@1.4.743:
+    resolution: {integrity: sha512-AYgFmGUanfwZd4QmlGl9KBjoHRvJi6FUnbmfSr6NUk2JKCdHRHpljFGgxLp7L5h0p7uANrLzv0OgHo4TaCk4gA==}
 
   emoji-regex@10.3.0:
     resolution: {integrity: sha512-QpLs9D9v9kArv4lfDEgg1X/gN5XLnf/A6l9cs8SPZLRZR3ZkY9+kwIQTxm+fsSej5UMYGE8fdoaZVIBlqG0XTw==}
@@ -2475,8 +2475,8 @@ packages:
     resolution: {integrity: sha512-Kx8hMakjX03tiGTLAIdJ+lL0htKnXjEZN6hk/tozf/WOuYGdZBJrZ+rCJRbVCugsjB3jMLn9746NsQIf5VjBMw==}
     engines: {node: '>=4'}
 
-  load-plugin@6.0.2:
-    resolution: {integrity: sha512-3KRkTvCOsyNrx4zvBl/+ZMqPdVyp26TIf6xkmfEGuGwCfNQ/HzhktwbJCxd1KJpzPbK42t/WVOL3cX+TDaMRuQ==}
+  load-plugin@6.0.3:
+    resolution: {integrity: sha512-kc0X2FEUZr145odl68frm+lMJuQ23+rTXYmR6TImqPtbpmXC4vVXbWKDQ9IzndA0HfyQamWfKLhzsqGSTxE63w==}
 
   locate-path@2.0.0:
     resolution: {integrity: sha512-NCI2kiDkyR7VeEKm27Kda/iQHyKJe1Bu0FlTbYp3CqJu+9IFe9bLyAjMxf5ZDDbEg+iMPzB5zYyUTSm8wVTKmA==}
@@ -2817,8 +2817,8 @@ packages:
   micromark-util-subtokenize@1.1.0:
     resolution: {integrity: sha512-kUQHyzRoxvZO2PuLzMt2P/dwVsTiivCK8icYTeR+3WgbuPqfHgPPy7nFKbeqRivBvn/3N3GBiNC+JRTMSxEC7A==}
 
-  micromark-util-subtokenize@2.0.0:
-    resolution: {integrity: sha512-vc93L1t+gpR3p8jxeVdaYlbV2jTYteDje19rNSS/H5dlhxUYll5Fy6vJ2cDwP8RnsXi818yGty1ayP55y3W6fg==}
+  micromark-util-subtokenize@2.0.1:
+    resolution: {integrity: sha512-jZNtiFl/1aY73yS3UGQkutD0UbhTt68qnRpw2Pifmz5wV9h8gOVsN70v+Lq/f1rKaU/W8pxRe8y8Q9FX1AOe1Q==}
 
   micromark-util-symbol@1.1.0:
     resolution: {integrity: sha512-uEjpEYY6KMs1g7QfJ2eX1SQEV+ZT4rUD3UcF6l57acZvLNK7PBZL+ty82Z1qhK1/yXIY4bdx04FKMgR0g4IAag==}
@@ -3345,8 +3345,8 @@ packages:
   remark-lint-file-extension@3.0.0:
     resolution: {integrity: sha512-wrOKiGvcl/ftB7FkeX2/l13ALvhKXV77HGR8AXo86cVY2pD+K0WdOC52DV3ldgpUXpWzE9kcgF8bbkxwzKpFFg==}
 
-  remark-lint-final-definition@4.0.0:
-    resolution: {integrity: sha512-2J7UXqa2uipXM7ptI2ORayptty/SaLtM+ii+vP8ZQHps2U2AlQmBTKF2VpQyL+/J6tM4g3Har4r7SoB01PeuUg==}
+  remark-lint-final-definition@4.0.1:
+    resolution: {integrity: sha512-51T9oSdA7wuhjSdgGo0snO1BY39Igt9cJQi7XpgtgFsbfQk8zSSAUAc/rLabY6+YCTpcPs6qmwvLXZ4mPX6Qlg==}
 
   remark-lint-final-newline@3.0.0:
     resolution: {integrity: sha512-NaPyn6FiOn3IV/6gIcwWfJmgraPT2IaVLjhakfPglZkKVfn/FrOfETyY8Bp+HLoSRI9967OH0yRDnK7/pPIWeQ==}
@@ -4897,7 +4897,7 @@ snapshots:
       babel-plugin-polyfill-corejs2: 0.4.10(@babel/core@7.24.4)
       babel-plugin-polyfill-corejs3: 0.10.4(@babel/core@7.24.4)
       babel-plugin-polyfill-regenerator: 0.6.1(@babel/core@7.24.4)
-      core-js-compat: 3.36.1
+      core-js-compat: 3.37.0
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
@@ -4959,7 +4959,7 @@ snapshots:
       '@cspell/dict-elixir': 4.0.3
       '@cspell/dict-en-common-misspellings': 2.0.0
       '@cspell/dict-en-gb': 1.1.33
-      '@cspell/dict-en_us': 4.3.17
+      '@cspell/dict-en_us': 4.3.19
       '@cspell/dict-filetypes': 3.0.3
       '@cspell/dict-fonts': 4.0.0
       '@cspell/dict-fsharp': 1.0.1
@@ -4988,12 +4988,12 @@ snapshots:
       '@cspell/dict-ruby': 5.0.2
       '@cspell/dict-rust': 4.0.2
       '@cspell/dict-scala': 5.0.0
-      '@cspell/dict-software-terms': 3.3.18
+      '@cspell/dict-software-terms': 3.3.20
       '@cspell/dict-sql': 2.1.3
       '@cspell/dict-svelte': 1.0.2
       '@cspell/dict-swift': 2.0.1
       '@cspell/dict-terraform': 1.0.0
-      '@cspell/dict-typescript': 3.1.2
+      '@cspell/dict-typescript': 3.1.4
       '@cspell/dict-vue': 3.0.0
 
   '@cspell/cspell-json-reporter@8.7.0':
@@ -5042,7 +5042,7 @@ snapshots:
 
   '@cspell/dict-en-gb@1.1.33': {}
 
-  '@cspell/dict-en_us@4.3.17': {}
+  '@cspell/dict-en_us@4.3.19': {}
 
   '@cspell/dict-filetypes@3.0.3': {}
 
@@ -5102,7 +5102,7 @@ snapshots:
 
   '@cspell/dict-scala@5.0.0': {}
 
-  '@cspell/dict-software-terms@3.3.18': {}
+  '@cspell/dict-software-terms@3.3.20': {}
 
   '@cspell/dict-sql@2.1.3': {}
 
@@ -5112,7 +5112,7 @@ snapshots:
 
   '@cspell/dict-terraform@1.0.0': {}
 
-  '@cspell/dict-typescript@3.1.2': {}
+  '@cspell/dict-typescript@3.1.4': {}
 
   '@cspell/dict-vue@3.0.0': {}
 
@@ -5536,7 +5536,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.24.4
       '@babel/helper-define-polyfill-provider': 0.6.1(@babel/core@7.24.4)
-      core-js-compat: 3.36.1
+      core-js-compat: 3.37.0
     transitivePeerDependencies:
       - supports-color
 
@@ -5572,8 +5572,8 @@ snapshots:
 
   browserslist@4.23.0:
     dependencies:
-      caniuse-lite: 1.0.30001608
-      electron-to-chromium: 1.4.733
+      caniuse-lite: 1.0.30001611
+      electron-to-chromium: 1.4.743
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.23.0)
 
@@ -5590,7 +5590,7 @@ snapshots:
 
   camelcase@5.3.1: {}
 
-  caniuse-lite@1.0.30001608: {}
+  caniuse-lite@1.0.30001611: {}
 
   ccount@2.0.1: {}
 
@@ -5746,7 +5746,7 @@ snapshots:
 
   convert-source-map@2.0.0: {}
 
-  core-js-compat@3.36.1:
+  core-js-compat@3.37.0:
     dependencies:
       browserslist: 4.23.0
 
@@ -5981,7 +5981,7 @@ snapshots:
 
   editorconfig-checker@5.1.5: {}
 
-  electron-to-chromium@1.4.733: {}
+  electron-to-chromium@1.4.743: {}
 
   emoji-regex@10.3.0: {}
 
@@ -6695,7 +6695,7 @@ snapshots:
       pify: 3.0.0
       strip-bom: 3.0.0
 
-  load-plugin@6.0.2:
+  load-plugin@6.0.3:
     dependencies:
       '@npmcli/config': 8.2.2
       import-meta-resolve: 4.0.0
@@ -7116,7 +7116,7 @@ snapshots:
       micromark-util-html-tag-name: 2.0.0
       micromark-util-normalize-identifier: 2.0.0
       micromark-util-resolve-all: 2.0.0
-      micromark-util-subtokenize: 2.0.0
+      micromark-util-subtokenize: 2.0.1
       micromark-util-symbol: 2.0.0
       micromark-util-types: 2.0.0
 
@@ -7362,7 +7362,7 @@ snapshots:
       micromark-util-types: 1.1.0
       uvu: 0.5.6
 
-  micromark-util-subtokenize@2.0.0:
+  micromark-util-subtokenize@2.0.1:
     dependencies:
       devlop: 1.1.0
       micromark-util-chunked: 2.0.0
@@ -7400,7 +7400,7 @@ snapshots:
       micromark-util-normalize-identifier: 2.0.0
       micromark-util-resolve-all: 2.0.0
       micromark-util-sanitize-uri: 2.0.0
-      micromark-util-subtokenize: 2.0.0
+      micromark-util-subtokenize: 2.0.1
       micromark-util-symbol: 2.0.0
       micromark-util-types: 2.0.0
     transitivePeerDependencies:
@@ -8036,7 +8036,7 @@ snapshots:
       quotation: 2.0.3
       unified-lint-rule: 3.0.0
 
-  remark-lint-final-definition@4.0.0:
+  remark-lint-final-definition@4.0.1:
     dependencies:
       '@types/mdast': 4.0.3
       devlop: 1.1.0
@@ -8475,7 +8475,7 @@ snapshots:
       remark-lint-fenced-code-flag: 4.0.0
       remark-lint-fenced-code-marker: 4.0.0
       remark-lint-file-extension: 3.0.0
-      remark-lint-final-definition: 4.0.0
+      remark-lint-final-definition: 4.0.1
       remark-lint-hard-break-spaces: 4.0.0
       remark-lint-heading-increment: 4.0.0
       remark-lint-heading-style: 4.0.0
@@ -8906,11 +8906,12 @@ snapshots:
 
   stylelint-config-recommended-scss@14.0.0(postcss@8.4.38)(stylelint@16.3.1):
     dependencies:
-      postcss: 8.4.38
       postcss-scss: 4.0.9(postcss@8.4.38)
       stylelint: 16.3.1
       stylelint-config-recommended: 14.0.0(stylelint@16.3.1)
       stylelint-scss: 6.2.1(stylelint@16.3.1)
+    optionalDependencies:
+      postcss: 8.4.38
 
   stylelint-config-recommended@14.0.0(stylelint@16.3.1):
     dependencies:
@@ -8918,10 +8919,11 @@ snapshots:
 
   stylelint-config-standard-scss@13.1.0(postcss@8.4.38)(stylelint@16.3.1):
     dependencies:
-      postcss: 8.4.38
       stylelint: 16.3.1
       stylelint-config-recommended-scss: 14.0.0(postcss@8.4.38)(stylelint@16.3.1)
       stylelint-config-standard: 36.0.0(stylelint@16.3.1)
+    optionalDependencies:
+      postcss: 8.4.38
 
   stylelint-config-standard@36.0.0(stylelint@16.3.1):
     dependencies:
@@ -9140,7 +9142,7 @@ snapshots:
       ignore: 5.3.1
       is-empty: 1.2.0
       is-plain-obj: 4.1.0
-      load-plugin: 6.0.2
+      load-plugin: 6.0.3
       parse-json: 7.1.1
       trough: 2.2.0
       unist-util-inspect: 8.0.0
