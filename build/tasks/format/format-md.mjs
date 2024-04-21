@@ -6,9 +6,9 @@
  */
 
 import { execute } from '@yarnpkg/shell';
-import { glob } from 'zx';
+import { globby } from 'globby';
 
-const MarkdownFiles = await glob([
+const MarkdownFiles = await globby([
   '**.md',
   '!_site/',
   '!node_modules/',
