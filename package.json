@@ -1,15 +1,15 @@
 {
-  "name": "@openinf/openinf.github.io",
+  "name": "@openinf/open.inf.is",
   "author": "The OpenINF Authors & Friends",
   "private": "true",
-  "description": "The OpenINF website and other static resources",
+  "description": "The OpenINF website, other static resources, and more static electricity",
   "packageManager": "pnpm@9.0.4",
   "engines": {
     "node": "20.12.2",
     "pnpm": "9.0.4"
   },
   "homepage": "open.inf.is",
-  "repository": "OpenINF/openinf.github.io",
+  "repository": "OpenINF/open.inf.is",
   "scripts": {
     "build": "nps build",
     "start": "nps",
