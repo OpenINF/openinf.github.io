@@ -29,14 +29,10 @@
         "biomejs.biome",
         // https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
         "davidanson.vscode-markdownlint",
-        // https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
-        "dbaeumer.vscode-eslint",
         // https://marketplace.visualstudio.com/items?itemName=dprint.dprint
         "dprint.dprint",
         // https://marketplace.visualstudio.com/items?itemName=editorconfig.editorconfig
         "editorconfig.editorconfig",
-        // https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
-        "esbenp.prettier-vscode",
         // https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
         "Gruntfuggly.todo-tree",
         // https://marketplace.visualstudio.com/items?itemName=KatjanaKosic.vscode-json5
@@ -57,12 +53,9 @@
   // Use 'forwardPorts' to make a list of ports inside the container available
   // locally.
   "forwardPorts": [
-    // Jekyll server
-    4000,
-    // Live reload server
-    35729,
-    // OpenSSH server
-    2222
+    4000, // Jekyll server
+    35729, // Live reload server
+    2222 // OpenSSH server
   ],
   "overrideCommand": false,
 

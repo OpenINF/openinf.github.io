@@ -5,8 +5,6 @@ source 'https://rubygems.org'
 gem 'rubocop', require: false
 gem 'rubocop-rails-omakase', require: false, group: [ :development ]
 
-gem 'github-linguist'
-
 gem 'jekyll'
 gem 'kramdown-parser-gfm'
 

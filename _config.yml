@@ -1,5 +1,5 @@
 ---
-title: OpenINF
+title: OpenINF Portal
 email: code@inf.is
 description: Aggregate, curate, disseminate, and apply information derived from
   diverse sources.
@@ -7,7 +7,7 @@ baseurl: ''
 url: https://open.inf.is
 twitter_username: OpenINF
 github_username: OpenINF
-repository: OpenINF/openinf.github.io
+repository: OpenINF/open.inf.is
 
 # Site build settings
 markdown: kramdown
@@ -95,14 +95,18 @@ sass:
 # Exclude from processing
 exclude:
   - AUTHORS
+  - bin/
+  - biome.jsonc
   - build/
   - CNAME
+  - cspell.json
   - Gemfile
   - Gemfile.lock
   - LICENSE
   - node_modules/
+  - package-scripts.yml
   - package.json
-  - pnpm-lock.json
+  - pnpm-lock.yaml
   - project-terms.txt
   - README.md
   - tmp/

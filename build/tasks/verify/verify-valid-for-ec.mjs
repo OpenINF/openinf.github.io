@@ -1,16 +1,21 @@
-import { execute } from '@yarnpkg/shell';
-// import { echoTaskRunning } from '../util.mjs';
+/**
+ * @file Verify files are valid for EditorConfig checker.
+ * @author The OpenINF Authors & Friends
+ * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
+ * @module {type ES6Module} build/tasks/verify/verify-valid-for-ec
+ */
 
-// echoTaskRunning('verify-ec-harmony', import.meta.url);
+import { exec, glob } from '@openinf/portal/build/utils';
 
 let exitCode = 0;
-const scripts = ["editorconfig-checker -config '.ecrc.json'"];
+const scripts = [`editorconfig-checker -config '.ecrc.json'`];
 
-for await (const element of scripts) {
+for (const element of scripts) {
   try {
-    exitCode = await execute(`pnpm exec ${element}`);
+    exitCode = await exec(element);
   } catch (p) {
     exitCode = p.exitCode;
   }
-  process.exitCode = exitCode > 0 ? exitCode : 0;
+
+  if (exitCode !== 0) process.exitCode = exitCode;
 }

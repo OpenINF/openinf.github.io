@@ -9,19 +9,12 @@
   //////////////////////////////////////////////////////////////////////////////
 
   "editor.codeLens": true,
+  "editor.defaultFormatter": "biomejs.biome",
   "editor.formatOnSave": true,
-
-  // Auto-fix JS files with ESLint using our custom settings. Needs
-  // https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "quickfix.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
   },
-
-  "[json5]": {
-    "editor.formatOnSave": true
-  },
-
-  "json.maxItemsComputed": 10000,
 
   // Insert spaces when pressing `Tab`. This setting is overridden based on the
   // file contents when `editor.detectIndentation` is on.
@@ -34,19 +27,7 @@
 
   // ---------------------------------------------------------------------------
 
-  "[javascript][json][json5][typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
-  },
-
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-
   "[liquid]": {
-    "editor.formatOnSave": true,
     "editor.defaultFormatter": "sissel.shopify-liquid"
   },
 
@@ -55,25 +36,6 @@
       "source.fixAll.dprint": "explicit"
     },
     "editor.defaultFormatter": "dprint.dprint"
-  },
-
-  "[markdown]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.markdownlint": "explicit"
-    },
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-    // "editor.defaultFormatter": "unifiedjs.vscode-remark"
-    // "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
-  },
-
-  "[svg]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-
-  "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
   // Render vertical rulers after a certain number of monospace characters.
@@ -185,9 +147,6 @@
     "tsconfig.*.json": "jsonc",
     "tsconfig.json": "jsonc",
     ".ecrc.json": "json",
-    ".eslintrc.json": "jsonc",
-    ".prettierrc.json": "json5",
-    ".prettierrc.json5": "json5",
     ".deepsource.toml": "toml",
     ".renovaterc.json5": "json5",
     ".snyk": "yaml",
@@ -240,7 +199,7 @@
   // JavaScript/TypeScript
   //////////////////////////////////////////////////////////////////////////////
 
-  // Disable JS/TS validation. (These should be handled by ESLint.)
+  // Disable JS/TS validation. (These should be handled by Biome.)
   "javascript.validate.enable": false,
   "typescript.validate.enable": false,
   "typescript.tsdk": "node_modules/typescript/lib",
@@ -279,23 +238,6 @@
   // need not be re-specified in this file: files.encoding, files.eol,
   // files.insertFinalNewline, and files.trimTrailingWhitespace.
   "editorconfig.generateAuto": false,
-
-  // ESLint (ESLint is a separate extension)
-  /////////////////////////////////////////////
-
-  // Whether the extension contributes a lint task to lint a whole workspace
-  // folder.
-  "eslint.lintTask.enable": true,
-  "eslint.format.enable": true,
-  "eslint.validate": [
-    "javascript",
-    "json",
-    "json5",
-    "jsonc",
-    "markdown",
-    "typescript"
-  ],
-  "eslint.workingDirectories": ["./"],
 
   // Remote
   /////////////////////////////////////////////
