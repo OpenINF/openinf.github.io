@@ -66,7 +66,7 @@
     "remark-lint-definition-spacing": "4.0.0",
     "remark-lint-fenced-code-flag": "4.0.0",
     "remark-lint-first-heading-level": "4.0.0",
-    "remark-lint-maximum-line-length": "4.0.0",
+    "remark-lint-maximum-line-length": "4.0.1",
     "remark-lint-no-duplicate-headings-in-section": "4.0.0",
     "remark-lint-no-file-name-irregular-characters": "3.0.0",
     "remark-lint-no-file-name-mixed-case": "3.0.0",
