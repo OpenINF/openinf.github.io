@@ -9,10 +9,10 @@
 // Requirements
 // -----------------------------------------------------------------------------
 
-import nodePath from 'node:path';
-import strip from 'strip-comments';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import nodePath from 'node:path';
 import { dump as yDump } from 'js-yaml';
+import strip from 'strip-comments';
 
 const healthFiles = [
   'CODE_OF_CONDUCT.md',
@@ -83,7 +83,7 @@ function siteifyFile(file, frontmatterOverrides = {}) {
 // Main
 // -----------------------------------------------------------------------------
 
-healthFiles.forEach((value) => {
+for (const value of healthFiles) {
   switch (value) {
     case 'CODE_OF_CONDUCT.md':
       siteifyFile(value, {
@@ -120,4 +120,4 @@ healthFiles.forEach((value) => {
     default:
       siteifyFile(value);
   }
-});
+}

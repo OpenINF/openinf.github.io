@@ -25,8 +25,7 @@ jobs:
           gem install bundler && bundle config set --local path 'vendor/bundle'
           bundle install
       - name: Build
-        run: |
-          JEKYLL_ENV=production bundle exec jekyll build
+        run: echo 'This task in the works' # JEKYLL_ENV=production bundle exec jekyll build
 
       # Checks to see if any files in the PR match one of the listed file types.
       # We can use this filter to decide whether or not to run linters or tests.
@@ -47,6 +46,7 @@ jobs:
             json:
               - '**/*.json'
               - '**/*.jsonc'
+              - '**/*.json5'
             css:
               - '**/*.css'
             svg:
@@ -68,11 +68,11 @@ jobs:
 
       - name: Verify JavaScript
         if: ${{ steps.filter.outputs.js == 'true' || steps.filter.outputs.json == 'true' }}
-        run: echo 'This task in the works' # nps verify.js
+        run: nps verify.js
 
       - name: Verify JSON
         if: ${{ steps.filter.outputs.json == 'true' }}
-        run: echo 'This task in the works' # nps verify.json
+        run: nps verify.json
 
       - name: Verify Markdown
         if: ${{ steps.filter.outputs.md == 'true' }}

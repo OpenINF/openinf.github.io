@@ -1,11 +1,23 @@
-import yarnpkgShell from '@yarnpkg/shell';
+/**
+ * @file Format JavaScript files to adhere to autofixable style guidelines.
+ * @author The OpenINF Authors & Friends
+ * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
+ * @module {type ES6Module} build/tasks/format/format-js
+ */
 
-let code = 0;
-const scripts = ['npx eslint --ext=.js,.cjs,.mjs . --fix'];
+import { exec, glob } from '@openinf/portal/build/utils';
 
+const JSFiles = await glob(['**.mjs', '!_site/', '!node_modules/', '!vendor/']);
 
+let exitCode = 0;
+const scripts = [`biome check --apply ${JSFiles.join(' ')}`];
 
-scripts.forEach(async (v, i) => {
-  code = await yarnpkgShell.execute(scripts[i]);
-  process.exitCode = code > 0 ? code : 0;
-});
+for (const element of scripts) {
+  try {
+    exitCode = await exec(element);
+  } catch (p) {
+    exitCode = p.exitCode;
+  }
+
+  if (exitCode !== 0) process.exitCode = exitCode;
+}
