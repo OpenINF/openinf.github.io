@@ -1,6 +1,6 @@
 scripts:
   compile:
-    site: node build/tasks/compile/compile-site.mjs # TODO
+    buildPortal: node build/tasks/compile/build-portal.mjs
     siteifyHealthFiles: node build/tasks/compile/siteify-health-files.mjs
   verify:
     all: for i in build/tasks/verify/*.mjs; do node "$i"; done
@@ -27,3 +27,4 @@ scripts:
     ts: node build/tasks/format/format-ts.mjs
     yaml: node build/tasks/format/format-yaml.mjs
   test: nps verify.all
+  build: nps compile.buildPortal
