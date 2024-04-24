@@ -1,6 +1,6 @@
 <!--
 Before submitting a pull request, please read
-https://github.com/openinf/openinf.github.io/live/CONTRIBUTING.md.
+https://github.com/OpenINF/.github/blob/HEAD/CONTRIBUTING.md.
 
 # Instructions
 

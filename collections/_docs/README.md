@@ -67,6 +67,12 @@ To autofix all files, run this from the project workspace root:
 nps format.all
 ```
 
+To build for production (or preview), run this from the project workspace root:
+
+```console
+nps build
+```
+
 <br /><br />
 
 ### License
@@ -78,9 +84,7 @@ Commons Attribution-NonCommercial-ShareAlike 4.0 International License][].
 
 <!-- LINK DEFINITION LABELS - START -->
 
-[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License]:
-  https://creativecommons.org/licenses/by-nc-sa/4.0/
-[Remote Development extension]:
-  https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License]: https://creativecommons.org/licenses/by-nc-sa/4.0/
+[Remote Development extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
 
 <!-- LINK DEFINITION LABELS - END -->

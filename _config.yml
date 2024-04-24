@@ -3,7 +3,7 @@ title: OpenINF Portal
 email: code@inf.is
 description: Aggregate, curate, disseminate, and apply information derived from
   diverse sources.
-baseurl: ''
+baseurl: ""
 url: https://open.inf.is
 twitter_username: OpenINF
 github_username: OpenINF
@@ -21,8 +21,8 @@ plugins:
 compress_html:
   clippings: all
   comments:
-    - '<!-- '
-    - ' -->'
+    - "<!-- "
+    - " -->"
   endings: all
   ignore:
     envs:
@@ -48,11 +48,11 @@ collections:
     output: true
 defaults:
   - scope:
-      path: ''
+      path: ""
       type: pages
     values:
       ##
-      # @see https://github.com/OpenINF/openinf.github.io/blob/HEAD/_layouts/compress.html
+      # @see https://github.com/OpenINF/open.inf.is/blob/HEAD/_layouts/compress.html
       layout: compress
       locale: en
   - scope:
@@ -60,14 +60,14 @@ defaults:
       type: pages
     values:
       ##
-      # @see https://github.com/OpenINF/openinf.github.io/blob/HEAD/_layouts/default.html
+      # @see https://github.com/OpenINF/open.inf.is/blob/HEAD/_layouts/default.html
       layout: default
   - scope:
       path: _docs
       type: docs
     values:
       ##
-      # @see https://github.com/OpenINF/openinf.github.io/blob/HEAD/_layouts/docs.html
+      # @see https://github.com/OpenINF/open.inf.is/blob/HEAD/_layouts/docs.html
       layout: docs
       editable: true
       toc: true
@@ -79,7 +79,7 @@ defaults:
       type: posts
     values:
       ##
-      # @see https://github.com/OpenINF/openinf.github.io/blob/HEAD/_layouts/news_item.html
+      # @see https://github.com/OpenINF/open.inf.is/blob/HEAD/_layouts/news_item.html
       layout: news_item
       editable: true
       toc: true
