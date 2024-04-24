@@ -1,7 +1,7 @@
 <!-- markdownlint-disable-next-line first-line-heading -->
 <a href="https://open.inf.is">
   <img
-    src="https://raw.githubusercontent.com/OpenINF/openinf.github.io/live/assets/img/svg/logogram-color.svg?sanitize=true"
+    src="https://raw.githubusercontent.com/OpenINF/open.inf.is/live/assets/img/svg/logogram-color.svg?sanitize=true"
     alt="OpenINF logo"
     title="OpenINF"
     align="right"
@@ -110,23 +110,14 @@ comprising our style guide handbook uses the CC BY-SA 4.0 license.
 
 <!-- LINK LABEL DEFINITIONS - START -->
 
-[Roadmap]: https://github.com/OpenINF/openinf.github.io/issues 'Roadmap'
-[Development]: ./collections/_docs/development.md 'Development'
-[Issue Tracker]:
-  https://github.com/OpenINF/openinf.github.io/issues
-  'Issue Tracker'
-[Changelog]:
-  https://github.com/OpenINF/openinf.github.io/commits/live
-  'Changelog'
-[Credits]:
-  https://github.com/OpenINF/openinf.github.io/graphs/contributors
-  'Credits'
-[project-type-badge--shields]:
-  https://img.shields.io/badge/type-prototype-blue.svg
-[prototyping-scheme-badge--shields]:
-  https://img.shields.io/badge/scheme-evolutionary-blue.svg
-[project-status-badge--shields]:
-  https://img.shields.io/badge/status-under%20construction-yellow.svg
-[open an issue]: https://github.com/OpenINF/openinf.github.io/issues
+[Roadmap]: https://github.com/OpenINF/open.inf.is/issues "Roadmap"
+[Development]: ./collections/_docs/README.md "Development"
+[Issue Tracker]: https://github.com/OpenINF/open.inf.is/issues "Issue Tracker"
+[Changelog]: https://github.com/OpenINF/open.inf.is/commits/live "Changelog"
+[Credits]: https://github.com/OpenINF/open.inf.is/graphs/contributors "Credits"
+[project-type-badge--shields]: https://img.shields.io/badge/type-prototype-blue.svg
+[prototyping-scheme-badge--shields]: https://img.shields.io/badge/scheme-evolutionary-blue.svg
+[project-status-badge--shields]: https://img.shields.io/badge/status-under%20construction-yellow.svg
+[open an issue]: https://github.com/OpenINF/open.inf.is/issues
 
 <!-- LINK LABEL DEFINITIONS - END -->
