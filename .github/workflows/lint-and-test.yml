@@ -25,7 +25,7 @@ jobs:
           gem install bundler && bundle config set --local path 'vendor/bundle'
           bundle install
       - name: Build
-        run: echo 'This task in the works' # JEKYLL_ENV=production bundle exec jekyll build
+        run: nps build
 
       # Checks to see if any files in the PR match one of the listed file types.
       # We can use this filter to decide whether or not to run linters or tests.
