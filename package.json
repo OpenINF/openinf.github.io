@@ -3,10 +3,10 @@
   "author": "The OpenINF Authors & Friends",
   "private": "true",
   "description": "The OpenINF portal, other static resources, and more static electricity",
-  "packageManager": "pnpm@9.0.5",
+  "packageManager": "pnpm@9.0.6",
   "engines": {
     "node": "20.12.2",
-    "pnpm": "9.0.5"
+    "pnpm": "9.0.6"
   },
   "exports": {
     "./build/utils": "./build/utils.mjs"
