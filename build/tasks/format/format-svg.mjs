@@ -15,7 +15,7 @@ const SVGFiles = await glob([
 ]);
 
 let exitCode = 0;
-const scripts = [`biome check --apply ${SVGFiles.join(' ')}`];
+const scripts = [`prettier --write ${SVGFiles.join(' ')}`];
 
 for (const element of scripts) {
   try {

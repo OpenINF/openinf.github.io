@@ -1,6 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 816 40">
   <title>Release Level Banner: Unstable</title>
-  <desc>A release level banner indicating an experimental software component.</desc>
+  <desc>
+    A release level banner indicating an experimental software component.
+  </desc>
   <!-- i am an asset mid-migration or newly home -->
-  <path d="M0 0h816v40H0z" style="fill:#fe7d37;fill-opacity:1" />
+  <path d="M0 0h816v40H0z" style="fill: #fe7d37; fill-opacity: 1" />
 </svg>

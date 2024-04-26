@@ -9,27 +9,54 @@
 *****************************************************************************-->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 81 21">
   <title>The Valid HTML5 Markup Web Badge (As Verified by W3C Validator)</title>
-  <desc>The “valid” web page &amp; other web standard badges are used on documents that successfully
-    passed validation for a specific technology. The W3C validation services image is used as a link
-    to re-validate the document to show readers that one has taken some care to create an
-    interoperable Web page.</desc>
+  <desc>
+    The “valid” web page &amp; other web standard badges are used on documents
+    that successfully passed validation for a specific technology. The W3C
+    validation services image is used as a link to re-validate the document to
+    show readers that one has taken some care to create an interoperable Web
+    page.
+  </desc>
   <defs>
-    <style>.cls-1{fill:#16161d;}.cls-2{fill:#e2e2e9;}.cls-3{fill:#40f034;}</style>
+    <style>
+      .cls-1 {
+        fill: #16161d;
+      }
+      .cls-2 {
+        fill: #e2e2e9;
+      }
+      .cls-3 {
+        fill: #40f034;
+      }
+    </style>
   </defs>
   <rect class="cls-1" x="10" y="3" width="69" height="15" />
   <rect class="cls-2" x="10" y="4" width="69" height="13" />
   <rect class="cls-1" x="10" y="5" width="69" height="11" />
-  <polygon class="cls-1" points="2.73 16.98 1.31 1.07 18.69 1.07 17.28 16.98 10 19.18 2.73 16.98" />
-  <path class="cls-2"
-    d="M17.6,2.07,16.35,16.22,10,18.13,3.66,16.21,2.4,2.07H17.6m2.18-2H.21l.2,2.18L1.67,16.39l.12,1.35,1.29.39,6.34,1.92.58.17.58-.17,6.35-1.92,1.29-.39.12-1.35L19.59,2.25,19.78.07Z" />
-  <polygon class="cls-3" points="74.5 14.5 71 11 72.5 9.5 74.5 11.5 79.5 6.5 81 8 74.5 14.5" />
+  <polygon
+    class="cls-1"
+    points="2.73 16.98 1.31 1.07 18.69 1.07 17.28 16.98 10 19.18 2.73 16.98"
+  />
+  <path
+    class="cls-2"
+    d="M17.6,2.07,16.35,16.22,10,18.13,3.66,16.21,2.4,2.07H17.6m2.18-2H.21l.2,2.18L1.67,16.39l.12,1.35,1.29.39,6.34,1.92.58.17.58-.17,6.35-1.92,1.29-.39.12-1.35L19.59,2.25,19.78.07Z"
+  />
+  <polygon
+    class="cls-3"
+    points="74.5 14.5 71 11 72.5 9.5 74.5 11.5 79.5 6.5 81 8 74.5 14.5"
+  />
   <path class="cls-2" d="M28,8h1v2h2V8h1v5H31V11H29v2H28Z" />
   <path class="cls-2" d="M33,9V8h5V9H36v4H35V9Z" />
-  <polygon class="cls-2"
-    points="43 8 41.5 9.5 40 8 39 8 39 13 40 13 40 9.5 41.5 11 43 9.5 43 13 44 13 44 8 43 8" />
+  <polygon
+    class="cls-2"
+    points="43 8 41.5 9.5 40 8 39 8 39 13 40 13 40 9.5 41.5 11 43 9.5 43 13 44 13 44 8 43 8"
+  />
   <path class="cls-2" d="M46,12h2v1H45V8h1Z" />
-  <polygon class="cls-2"
-    points="51.5 10 50 10 50 9 53 9 52.5 8 49 8 49 11 51 11 51.5 11.5 51 12 49 12 49.5 13 51.5 13 53 11.5 51.5 10" />
-  <polygon class="cls-2"
-    points="6.47 13.93 6.25 11.48 7.77 11.48 7.89 12.77 10.02 13.22 12.12 12.77 12.38 10 6.12 10 5.68 5.07 14.33 5.07 14.2 6.58 7.33 6.58 7.52 8.68 14.01 8.68 13.54 13.93 10 15 6.47 13.93" />
+  <polygon
+    class="cls-2"
+    points="51.5 10 50 10 50 9 53 9 52.5 8 49 8 49 11 51 11 51.5 11.5 51 12 49 12 49.5 13 51.5 13 53 11.5 51.5 10"
+  />
+  <polygon
+    class="cls-2"
+    points="6.47 13.93 6.25 11.48 7.77 11.48 7.89 12.77 10.02 13.22 12.12 12.77 12.38 10 6.12 10 5.68 5.07 14.33 5.07 14.2 6.58 7.33 6.58 7.52 8.68 14.01 8.68 13.54 13.93 10 15 6.47 13.93"
+  />
 </svg>

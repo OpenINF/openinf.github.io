@@ -33,6 +33,8 @@
         "dprint.dprint",
         // https://marketplace.visualstudio.com/items?itemName=editorconfig.editorconfig
         "editorconfig.editorconfig",
+        // https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+        "esbenp.prettier-vscode",
         // https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
         "Gruntfuggly.todo-tree",
         // https://marketplace.visualstudio.com/items?itemName=KatjanaKosic.vscode-json5

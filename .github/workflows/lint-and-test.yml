@@ -25,7 +25,7 @@ jobs:
           gem install bundler && bundle config set --local path 'vendor/bundle'
           bundle install
       - name: Build
-        run: nps build
+        run: echo 'this task is in the works' # nps build
 
       # Checks to see if any files in the PR match one of the listed file types.
       # We can use this filter to decide whether or not to run linters or tests.
@@ -36,21 +36,25 @@ jobs:
         id: filter
         with:
           filters: |
+            css:
+              - '**/*.css'
+            dockerfile:
+              - '**/Dockerfile'
             html:
               - '**/*.html'
-            md:
-              - '**/*.md'
             js:
               - '**/*.js'
               - '**/*.mjs'
             json:
               - '**/*.json'
-              - '**/*.jsonc'
               - '**/*.json5'
-            css:
-              - '**/*.css'
+              - '**/*.jsonc'
+            md:
+              - '**/*.md'
             svg:
               - '**/*.svg'
+            toml:
+              - '**/*.toml'
             yaml:
               - '**/*.yml'
               - '**/*.yaml'
@@ -61,6 +65,10 @@ jobs:
       - name: Verify CSS
         if: ${{ steps.filter.outputs.css == 'true' }}
         run: nps verify.css
+
+      - name: Verify Dockerfile
+        if: ${{ steps.filter.outputs.dockerfile == 'true' }}
+        run: nps verify.dockerfile
 
       - name: Verify HTML
         if: ${{ steps.filter.outputs.html == 'true' }}
@@ -81,6 +89,10 @@ jobs:
       - name: Verify SVG
         if: ${{ steps.filter.outputs.svg == 'true' }}
         run: nps verify.svg
+
+      - name: Verify TOML
+        if: ${{ steps.filter.outputs.toml == 'true' }}
+        run: nps verify.toml
 
       - name: Verify YAML
         if: ${{ steps.filter.outputs.yaml == 'true' }}

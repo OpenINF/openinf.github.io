@@ -132,7 +132,6 @@ GEM
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
     webrick (1.8.1)
-    yaml-lint (0.1.2)
 
 PLATFORMS
   x86_64-linux
@@ -152,7 +151,6 @@ DEPENDENCIES
   rubocop
   rubocop-rails-omakase
   webrick
-  yaml-lint
 
 BUNDLED WITH
    2.5.9

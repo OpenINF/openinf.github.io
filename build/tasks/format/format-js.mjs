@@ -7,7 +7,13 @@
 
 import { exec, glob } from '@openinf/portal/build/utils';
 
-const JSFiles = await glob(['**.mjs', '!_site/', '!node_modules/', '!vendor/']);
+const JSFiles = await glob([
+  '**.js',
+  '**.mjs',
+  '!_site/',
+  '!node_modules/',
+  '!vendor/',
+]);
 
 let exitCode = 0;
 const scripts = [`biome check --apply ${JSFiles.join(' ')}`];

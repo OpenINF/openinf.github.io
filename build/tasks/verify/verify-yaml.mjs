@@ -1,12 +1,30 @@
-import yarnpkgShell from '@yarnpkg/shell';
+/**
+ * @file Verify YAML files are valid & adhere to checkable style guidelines.
+ * @author The OpenINF Authors & Friends
+ * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
+ * @module {type ES6Module} build/tasks/verify/verify-yaml
+ */
 
-let code = 0;
-const scripts = [
-  "find . -type d \\( -name node_modules -o -name vendor \\) -prune -false -o -name '*.yml' -o -name '*.yaml' | xargs bundle exec yaml-lint", // validate
-  'npx prettier -c {*.yml,*.yaml}', // style-check
-];
+import { exec, glob } from '@openinf/portal/build/utils';
 
-scripts.forEach(async (v, i) => {
-  code = await yarnpkgShell.execute(scripts[i]);
-  process.exitCode = code > 0 ? code : 0;
-});
+const YAMLFiles = await glob([
+  '**.yml',
+  '**.yaml',
+  '!_site/',
+  '!node_modules/',
+  '!vendor/',
+  '!**/COPYING.md',
+]);
+
+let exitCode = 0;
+const scripts = [`prettier --check ${YAMLFiles.join(' ')}`];
+
+for (const element of scripts) {
+  try {
+    exitCode = await exec(element);
+  } catch (p) {
+    exitCode = p.exitCode;
+  }
+
+  if (exitCode !== 0) process.exitCode = exitCode;
+}

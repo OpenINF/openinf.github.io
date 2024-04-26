@@ -27,8 +27,30 @@
 
   // ---------------------------------------------------------------------------
 
+  "[dockerfile]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.dprint": "explicit"
+    },
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+
   "[liquid]": {
     "editor.defaultFormatter": "sissel.shopify-liquid"
+  },
+
+  "[markdown]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.markdownlint": "explicit"
+    },
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    // "editor.defaultFormatter": "unifiedjs.vscode-remark"
+    // "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+
+  "[svg]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
   "[toml]": {
@@ -36,6 +58,10 @@
       "source.fixAll.dprint": "explicit"
     },
     "editor.defaultFormatter": "dprint.dprint"
+  },
+
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
   // Render vertical rulers after a certain number of monospace characters.
