@@ -5,10 +5,10 @@
  * @module {type ES6Module} build/tasks/verify/verify-valid-for-ec
  */
 
-import { exec, glob } from '@openinf/portal/build/utils';
+import { exec } from '@openinf/portal/build/utils';
 
 let exitCode = 0;
-const scripts = [`editorconfig-checker -config '.ecrc.json'`];
+const scripts = ["editorconfig-checker -config '.ecrc.json'"];
 
 for (const element of scripts) {
   try {
