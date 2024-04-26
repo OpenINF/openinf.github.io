@@ -17,10 +17,10 @@ const MarkdownFiles = await glob([
 
 let exitCode = 0;
 const scripts = [
-  `biome check ${MarkdownFiles.join(' ')}`,
+  `prettier --check ${MarkdownFiles.join(' ')}`,
   `markdownlint-cli2 ${MarkdownFiles.join(' ')}`,
   `remark -f ${MarkdownFiles.join(' ')}`,
-  `cspell check ${MarkdownFiles.join(' ')}`,
+  `cspell lint ${MarkdownFiles.join(' ')}`,
 ];
 
 for (const element of scripts) {

@@ -5,7 +5,9 @@ scripts:
   verify:
     all: for i in build/tasks/verify/*.mjs; do node "$i"; done
     css: node build/tasks/verify/verify-css.mjs
+    dockerfile: node build/tasks/verify/verify-dockerfile.mjs
     html: node build/tasks/verify/verify-html.mjs
+    htmlValidForVNU: node build/tasks/verify/verify-html-valid-for-vnu.mjs
     js: node build/tasks/verify/verify-js.mjs
     json: node build/tasks/verify/verify-json.mjs
     md: node build/tasks/verify/verify-md.mjs
@@ -18,6 +20,7 @@ scripts:
   format:
     all: for i in build/tasks/format/*.mjs; do node "$i"; done
     css: node build/tasks/format/format-css.mjs
+    dockerfile: node build/tasks/format/format-dockerfile.mjs
     html: node build/tasks/format/format-html.mjs
     js: node build/tasks/format/format-js.mjs
     json: node build/tasks/format/format-json.mjs

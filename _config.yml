@@ -3,7 +3,7 @@ title: OpenINF Portal
 email: code@inf.is
 description: Aggregate, curate, disseminate, and apply information derived from
   diverse sources.
-baseurl: ""
+baseurl: ''
 url: https://open.inf.is
 twitter_username: OpenINF
 github_username: OpenINF
@@ -21,8 +21,8 @@ plugins:
 compress_html:
   clippings: all
   comments:
-    - "<!-- "
-    - " -->"
+    - '<!-- '
+    - ' -->'
   endings: all
   ignore:
     envs:
@@ -48,7 +48,7 @@ collections:
     output: true
 defaults:
   - scope:
-      path: ""
+      path: ''
       type: pages
     values:
       ##
@@ -100,6 +100,7 @@ exclude:
   - build/
   - CNAME
   - cspell.json
+  - dprint.json
   - Gemfile
   - Gemfile.lock
   - LICENSE

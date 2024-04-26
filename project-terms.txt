@@ -7,6 +7,9 @@ code.visualstudio.com
 codebase
 dereknongeneric
 devcontainer
+dorny
+dprint
+esbenp
 esmodules
 fontvault
 freenode
@@ -18,7 +21,7 @@ Gpg4win
 gpgconf
 gpgsm
 gpgtunnel
-𝖦𝗋𝗂𝗆𝖾𝗌
+Grimes
 https
 Irulen
 macOS
@@ -27,12 +30,14 @@ omakase
 openinf
 OpenINF
 openinfbot
-OpenINFBot
 OpenINFbot
+OpenINFBot
 pinentry
 PowerShell
 psusan
 rubocop
+screencap
+sdcard
 SDK
 Servagility
 siteify

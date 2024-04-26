@@ -9,17 +9,17 @@ name = "ruby"
 [[analyzers]]
 name = "javascript"
 
-  [analyzers.meta]
-  environment = [
-    "nodejs",
-    "browser"
-  ]
+[analyzers.meta]
+environment = [
+  "nodejs",
+  "browser",
+]
 
 [[analyzers]]
 name = "docker"
 
-  [analyzers.meta]
-  dockerfile_paths = [".devcontainer/experimental/Dockerfile"]
+[analyzers.meta]
+dockerfile_paths = [".devcontainer/experimental/Dockerfile"]
 
 [[transformers]]
 name = "prettier"
