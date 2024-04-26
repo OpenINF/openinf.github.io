@@ -19,6 +19,8 @@ echo 'set -gx SHELL fish' >> $HOME/.config/fish/config.fish
 
 # If there's a `.ruby-version`, then run `rbenv install`.
 if test -e .ruby-version
+    # Upgrade rbenv ruby-build plugin for latest build definitions.
+    git -C $HOME/.rbenv/plugins/ruby-build pull
     # Install the specified versions/Ruby runtime!
     rbenv install --verbose
 end
