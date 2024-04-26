@@ -2,18 +2,17 @@
 body_classes:
   - docs
 ---
-
 <section class="container">
   <div class="grid">
     <div class="unit four-fifths">
       <article>
         {% if page.editable != false %}
-        <div class="improve right">
-          <a
-            href="https://github.com/OpenINF/open.inf.is/edit/HEAD/{{ page.path }}"
-            >Edit</a
-          >
-        </div>
+          <div class="improve right">
+            <a
+              href="https://github.com/OpenINF/open.inf.is/edit/HEAD/{{ page.path }}"
+              >Edit</a
+            >
+          </div>
         {% endif %}
         <h1>{{ page.title }}</h1>
         {{ content }}

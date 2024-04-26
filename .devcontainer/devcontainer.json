@@ -41,8 +41,8 @@
         "KatjanaKosic.vscode-json5",
         // https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml
         "redhat.vscode-xml",
-        // https://marketplace.visualstudio.com/items?itemName=sissel.shopify-liquid
-        "sissel.shopify-liquid",
+        // https://marketplace.visualstudio.com/items?itemName=Shopify.theme-check-vscode
+        "Shopify.theme-check-vscode",
         // https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
         "streetsidesoftware.code-spell-checker",
         // https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml
