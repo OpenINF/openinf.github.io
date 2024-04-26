@@ -1,7 +1,16 @@
 .fullpage-hero {
+  color: #fff;
   position: relative;
   margin: 0;
   background-color: $brand-foreground;
+
+  amp-img {
+    margin-bottom: 0;
+  }
+
+  amp-img > img {
+    object-fit: cover;
+  }
 
   figcaption {
     position: absolute;
@@ -10,6 +19,10 @@
     left: 0;
   }
 }
+
+// .navbar ~ .fullpage-hero {
+//   margin-top: -60px;
+// }
 
 .fullpage-hero-heading {
   padding-bottom: 2rem;
@@ -22,23 +35,7 @@
 
   span {
     background: linear-gradient(to bottom, transparent 50%, $brand-primary 50%);
-    -webkit-box-decoration-break: clone;
-  }
-}
-
-// .navbar ~ .fullpage-hero {
-//   margin-top: -60px;
-// }
-
-.fullpage-hero {
-  color: #fff;
-
-  amp-img {
-    margin-bottom: 0;
-  }
-
-  amp-img > img {
-    object-fit: cover;
+    box-decoration-break: clone;
   }
 }
 
@@ -52,7 +49,11 @@
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  background: linear-gradient(to top, rgba(0,0,0,.65) 0%,rgba(0,0,0,0) 100%);
+  background: linear-gradient(
+    to top,
+    rgb(0 0 0 / 65%) 0%,
+    rgb(0 0 0 / 0%) 100%
+  );
 
   &:hover,
   &:focus {
@@ -65,5 +66,5 @@
   display: block;
   margin-top: -1rem;
   font-size: 2.25rem;
-  content: "▾";
+  content: '▾';
 }

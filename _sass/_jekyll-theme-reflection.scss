@@ -2,33 +2,33 @@
 // Reflection Theme
 //
 
-@import "bourbon/bourbon";
+@import 'bourbon/bourbon';
 
 // Functions
-@import "functions";
+@import 'functions';
 
 // Core variables and mixins
-@import "custom";
-@import "bootstrap/variables";
-@import "bootstrap/mixins";
+@import 'custom';
+@import 'bootstrap/variables';
+@import 'bootstrap/mixins';
 
 // Reset and dependencies
-@import "bootstrap/normalize";
+@import 'bootstrap/normalize';
 
 // Core CSS
-@import "bootstrap/reboot";
-@import "bootstrap/type";
-@import "bootstrap/grid";
+@import 'bootstrap/reboot';
+@import 'bootstrap/type';
+@import 'bootstrap/grid';
 
 // Components
-@import "header";
-@import "search";
-@import "nav";
-@import "outro";
-@import "footer";
+@import 'header';
+@import 'search';
+@import 'nav';
+@import 'outro';
+@import 'footer';
 
 // Utility classes
-@import "bootstrap/utilities";
+@import 'bootstrap/utilities';
 
 body {
   padding-top: 60px;
@@ -59,7 +59,7 @@ h2 {
   padding-right: 8px;
   padding-left: 3px;
   font-size: 5.4rem;
-  line-height: .75;
+  line-height: 0.75;
   color: $brand-primary;
 }
 

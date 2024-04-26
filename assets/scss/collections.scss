@@ -1,6 +1,7 @@
 ---
 ---
-@import "main";
+
+@import 'main';
 
 body {
   max-width: 700px;
@@ -19,7 +20,7 @@ h2 {
 }
 
 h2:after {
-  content: "";
+  content: '';
   flex: 1;
   border: 1px solid rgba($base-color, 0.88);
   margin-inline-start: 0.5rem;

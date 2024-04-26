@@ -42,14 +42,16 @@
     "editor.codeActionsOnSave": {
       "source.fixAll.markdownlint": "explicit"
     },
-    "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
     // "editor.defaultFormatter": "unifiedjs.vscode-remark"
     // "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
 
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
   "[svg]": {
-    "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
@@ -175,6 +177,7 @@
     ".ecrc.json": "json",
     ".deepsource.toml": "toml",
     ".renovaterc.json5": "json5",
+    ".scss": "scss",
     ".snyk": "yaml",
     ".html": "liquid"
   },
