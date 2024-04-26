@@ -35,7 +35,7 @@
   },
 
   "[liquid]": {
-    "editor.defaultFormatter": "sissel.shopify-liquid"
+    "editor.defaultFormatter": "Shopify.theme-check-vscode"
   },
 
   "[markdown]": {
@@ -177,9 +177,9 @@
     ".ecrc.json": "json",
     ".deepsource.toml": "toml",
     ".renovaterc.json5": "json5",
-    ".scss": "scss",
+    "*.scss": "scss",
     ".snyk": "yaml",
-    ".html": "liquid"
+    "*.html": "liquid"
   },
 
   // Configure glob patterns for excluding files and folders. For example, the

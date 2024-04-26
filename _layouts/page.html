@@ -3,11 +3,11 @@ layout: default
 editable: true
 class:
 ---
-
 <main class="content">
   <div class="container">
     {%- if page.permalink != '/' -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
-    {%- endif -%} {{ content }}
+      <h1 class="page-heading">{{ page.title }}</h1>
+    {%- endif -%}
+    {{ content }}
   </div>
 </main>

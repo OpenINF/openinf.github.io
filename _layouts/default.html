@@ -1,14 +1,29 @@
 ---
 layout: compress
 ---
+<!doctype html>
+<html
+  {% if page.locale.is_rtl %}
+    dir="rtl" lang="ar"
+  {% else %}
+    dir="ltr" lang="{{ page.locale }}"
+  {% endif %}>
+  {%- include head.html -%}
 
-<!DOCTYPE html>
-<html {% if page.locale.is_rtl %}dir="rtl" lang="ar"{% else %}dir="ltr" lang="{{ page.locale }}"{% endif %}>
-{%- include head.html -%}
+  {%- assign classes = page.body_classes
+    | join: ' '
+    | where: 'page.body_classes', empty
+  -%}
 
-{%- assign classes = page.body_classes | join: " " | where: 'page.body_classes', empty -%}
-
-<body vocab="http://schema.org/" typeof="WebPage" id="top"{% if classes %} class="{{- classes -}}"{% endif %}>
-  {%- include header.html -%} {{- content -}} {%- include footer.html -%}
-</body>
+  <body
+    vocab="http://schema.org/"
+    typeof="WebPage"
+    id="top"
+    {% if classes %}
+      class="{{- classes -}}"
+    {% endif %}>
+    {%- include header.html -%}
+    {{- content -}}
+    {%- include footer.html -%}
+  </body>
 </html>

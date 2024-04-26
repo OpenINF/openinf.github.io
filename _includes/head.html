@@ -1,24 +1,24 @@
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   <meta
     name="viewport"
-    content="width=device-width,maximum-scale=1,minimum-scale=1,initial-scale=1" />
+    content="width=device-width,maximum-scale=1,minimum-scale=1,initial-scale=1">
   <link
     type="image/svg+xml"
     rel="shortcut icon preload"
     as="image"
     href="https://open.inf.is/assets/img/svg/logo.svg"
     integrity="sha512-MhRWk6SE+DkE7TeYTf7QigVZjcVTEUJKwbMR60ZYS9xcA1k3eGkRRTM4xklozGDEYJjbQVx9ZwN/7+itkV5fQw=="
-    crossorigin="anonymous" />
+    crossorigin="anonymous">
   <meta
     name="description"
-    content="{{ site.description }}" />
+    content="{{ site.description }}">
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
     crossorigin="anonymous"
-    referrerpolicy="no-referrer" />
+    referrerpolicy="no-referrer">
   <style>
     {% if page.class == 'home' %}
       {% capture styles %}
@@ -81,25 +81,33 @@
       {{ styles | scssify }}
     {% endif %}
   </style>
-  {% if page.custom_css %}{% for stylesheet_hotlink in page.custom_css -%}
-    <link rel="stylesheet" href="{{ stylesheet_hotlink }}">
-  {%- endfor %}{% endif %}
+  {% if page.custom_css -%}
+    {%- for stylesheet_hotlink in page.custom_css -%}
+      <link rel="stylesheet" href="{{ stylesheet_hotlink }}">
+    {%- endfor -%}
+  {%- endif %}
   <meta name="format-detection" content="telephone=no">
   {% if post.status == 'unpublished' or page.status == 'unpublished' %}
-  <meta name="robots" content="noindex, nofollow, noarchive">
+    <meta name="robots" content="noindex, nofollow, noarchive">
   {% endif %}
-  <title>{% if page.permalink == '/' %}{{ site.title }}{% else %}{{ page.title }} &middot; {{ site.title }}{% endif %}</title>
-  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+  <title>
+    {% if page.permalink == '/' -%}
+      {{- site.title -}}
+    {%- else -%}
+      {{- page.title }} &middot; {{ site.title -}}
+    {%- endif %}
+  </title>
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
   {% if page.permalink == '/' %}
-  <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "WebSite",
-      "license": "https://open.inf.is/license",
-      "about": {
-        "description": "{{ site.description }}"
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "license": "https://open.inf.is/license",
+        "about": {
+          "description": "{{ site.description }}"
+        }
       }
-    }
-  </script>
+    </script>
   {% endif %}
 </head>
