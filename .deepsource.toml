@@ -1,4 +1,7 @@
 version = 1
+exclude_patterns = [
+  "pnpm-lock.yaml",
+]
 
 [[analyzers]]
 name = "secrets"
