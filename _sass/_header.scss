@@ -1,6 +1,6 @@
 .header {
   background-color: $brand-primary;
-  box-shadow: 2px 1px 1px rgba(0, 0, 0, .15);
+  box-shadow: 2px 1px 1px rgb(0 0 0 / 15%);
   transform: translateZ(0);
   backface-visibility: hidden;
 
@@ -18,7 +18,7 @@
     left: 0;
     z-index: 1000;
     width: 100%;
-    transition: all .4s ease;
+    transition: all 0.4s ease;
     transform: translateY(0%);
   }
 
@@ -40,8 +40,7 @@
   }
 
   .content.mobile-show {
-    padding: 0 .625rem .3125rem;
-
+    padding: 0 0.625rem 0.3125rem;
   }
 
   .nav-container {
@@ -51,11 +50,11 @@
 
   .navbar-brand {
     float: left;
-    font-size: 0;
-    margin-right: 1rem;
-    padding-bottom: $navbar-brand-padding-y;
-    padding-top: $navbar-brand-padding-y;
     height: 60px;
+    padding-top: $navbar-brand-padding-y;
+    padding-bottom: $navbar-brand-padding-y;
+    margin-right: 1rem;
+    font-size: 0;
 
     svg {
       width: auto;
@@ -95,8 +94,8 @@
 
       @include media-breakpoint-only(xs) {
         width: auto;
-        padding: 1.625rem 0 1.625rem .25rem;
-        margin: .875rem 0;
+        padding: 1.625rem 0 1.625rem 0.25rem;
+        margin: 0.875rem 0;
         background-size: 1.875rem 1.875rem;
       }
     }
@@ -104,27 +103,27 @@
 
   .alt {
     display: flex;
-    padding: 00;
-    text-align: right;
     align-items: stretch;
     justify-content: center;
+    padding: 00;
+    text-align: right;
 
     &.right {
       font-size: 1rem;
-      letter-spacing: .04em;
+      letter-spacing: 0.04em;
     }
   }
 
   .tab {
-    padding: .375rem;
-    margin: 0 .25rem;
+    padding: 0.375rem;
+    margin: 0 0.25rem;
     font-weight: 400;
     color: $brand-secondary;
     text-decoration: none;
-    transition: .1s ease color;
+    transition: 0.1s ease color;
 
     @include media-breakpoint-only(xs) {
-      padding: .625rem 1.3333333333rem;
+      padding: 0.625rem 1.3333rem;
       margin-left: auto;
     }
 
@@ -141,10 +140,10 @@
         height: 3px;
         margin: auto;
         visibility: hidden;
-        content: "";
+        content: '';
         background-color: $brand-foreground;
         opacity: 0;
-        transition: .1s ease opacity;
+        transition: 0.1s ease opacity;
       }
 
       &:hover,
@@ -160,12 +159,12 @@
 
     &.hamburger {
       display: none;
+      align-self: center;
       padding: 0;
       margin: 0;
       cursor: pointer;
       background: none;
       border: 0;
-      align-self: center;
     }
   }
 
@@ -179,7 +178,7 @@
       display: inline-block;
       width: 2.5rem;
       height: 2.5rem;
-      background-image: url("/assets/img/jekyll-theme-reflection/hamburger-secondary.svg");
+      background-image: url('/assets/img/jekyll-theme-reflection/hamburger-secondary.svg');
       background-repeat: no-repeat;
       background-position: center center;
       background-size: 1.875rem 1.5rem;
@@ -189,14 +188,14 @@
 
 amp-sidebar .hamburger {
   position: absolute;
-  top: .625rem;
+  top: 0.625rem;
   right: 1.125rem;
   z-index: 1;
   display: inline-block;
   width: 2.5rem;
   height: 2.5rem;
   background-color: transparent;
-  background-image: url("/assets/img/jekyll-theme-reflection/hamburger-primary.svg");
+  background-image: url('/assets/img/jekyll-theme-reflection/hamburger-primary.svg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 1.875rem 1.5rem;

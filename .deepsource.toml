@@ -1,6 +1,8 @@
 version = 1
 exclude_patterns = [
   "pnpm-lock.yaml",
+  "_sass/bootstrap/**",
+  "_sass/bourbon/**",
 ]
 
 [[analyzers]]

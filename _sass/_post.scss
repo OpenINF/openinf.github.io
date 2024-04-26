@@ -1,12 +1,12 @@
-@import "byline";
-@import "social-box";
-@import "fullpage-hero";
-@import "post-carousel";
-@import "image-with-heading";
-@import "image-with-caption";
-@import "bootstrap/images";
-@import "bootstrap/utilities/text";
-@import "bootstrap/utilities/spacing";
+@import 'byline';
+@import 'social-box';
+@import 'fullpage-hero';
+@import 'post-carousel';
+@import 'image-with-heading';
+@import 'image-with-caption';
+@import 'bootstrap/images';
+@import 'bootstrap/utilities/text';
+@import 'bootstrap/utilities/spacing';
 
 p {
   text-align: justify;
@@ -17,31 +17,31 @@ p {
   font-size: $font-size-base;
 }
 
-.blockquote-reverse>p {
+.blockquote-reverse > p {
   text-align: right;
 }
 
 .category {
   display: inline-block;
-  padding: .5em .65em;
+  padding: 0.5em 0.65em;
   margin-bottom: 1rem;
   border: $border-width solid $brand-secondary;
   border-radius: $border-radius;
 }
 
 .article-header-wrapper {
-  width:100%;
-  height:0;
-  padding-bottom: 30%; /*acts as fluid height*/
-  overflow:hidden;
-  position:relative;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 30%; /* acts as fluid height */
   margin-bottom: 24px;
+  overflow: hidden;
 }
 
 .article-header-img {
-  position:absolute;
-  width:100%;
-  height:100%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background-position: center center;
   background-size: 100% auto;
   border-radius: 4px;
@@ -57,8 +57,8 @@ amp-img {
 }
 
 .fin {
-  text-transform: uppercase;
   display: block;
-  font-weight: bold;
   font-size: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
 }

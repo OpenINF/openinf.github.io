@@ -1,9 +1,7 @@
 .outro {
   height: 126px;
   padding: 0;
+  background-image: url('/assets/img/jekyll-theme-reflection/prism_outro.svg');
   background-size: 10px 126px;
-  background-repeat-x: repeat;
-}
-.outro {
-  background-image: url("/assets/img/jekyll-theme-reflection/prism_outro.svg");
+  background-repeat: repeat-x;
 }

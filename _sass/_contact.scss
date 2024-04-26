@@ -18,11 +18,11 @@
   }
 
   .icon {
-    float: left;
-    margin-right: 10px;
     display: block;
+    float: left;
     width: 24px;
     height: 24px;
+    margin-right: 10px;
 
     svg path {
       fill: $brand-primary;
