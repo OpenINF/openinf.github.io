@@ -16,23 +16,6 @@ plugins:
   - jekyll-relative-links
   - jekyll-sitemap
   - jekyll-seo-tag
-  # - jekyll-asset-path
-  # - jekyll-assets
-compress_html:
-  clippings: all
-  comments:
-    - '<!-- '
-    - ' -->'
-  endings: all
-  ignore:
-    envs:
-      - local
-  blanklines: false
-  profile: false
-  startings:
-    - html
-    - head
-    - body
 
 ## Content collections
 # @see https://jekyllrb.com/docs/collections
@@ -52,8 +35,8 @@ defaults:
       type: pages
     values:
       ##
-      # @see https://github.com/OpenINF/open.inf.is/blob/HEAD/_layouts/compress.html
-      layout: compress
+      # @see https://github.com/OpenINF/open.inf.is/blob/HEAD/_layouts/default.html
+      layout: default
       locale: en
   - scope:
       path: _layouts
@@ -86,11 +69,6 @@ defaults:
       breadcrumbs: true
       body_classes:
         - hide-butterbar
-sass:
-  sass_dir: _sass
-  style: compressed
-  load_paths:
-    - _includes/assets/scss
 
 # Exclude from processing
 exclude:
