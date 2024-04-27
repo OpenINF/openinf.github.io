@@ -747,20 +747,17 @@ $table-th-font-weight: null !default;
 $table-striped-color: $table-color !default;
 $table-striped-bg-factor: 0.05 !default;
 $table-striped-bg: rgb(
-  var(--#{$prefix}emphasis-color-rgb)
-  $table-striped-bg-factor
+  var(--#{$prefix}emphasis-color-rgb) $table-striped-bg-factor
 ) !default;
 $table-active-color: $table-color !default;
 $table-active-bg-factor: 0.1 !default;
 $table-active-bg: rgb(
-  var(--#{$prefix}emphasis-color-rgb)
-  $table-active-bg-factor
+  var(--#{$prefix}emphasis-color-rgb) $table-active-bg-factor
 ) !default;
 $table-hover-color: $table-color !default;
 $table-hover-bg-factor: 0.075 !default;
 $table-hover-bg: rgb(
-  var(--#{$prefix}emphasis-color-rgb)
-  $table-hover-bg-factor
+  var(--#{$prefix}emphasis-color-rgb) $table-hover-bg-factor
 ) !default;
 $table-border-factor: 0.2 !default;
 $table-border-width: var(--#{$prefix}border-width) !default;
@@ -1234,22 +1231,16 @@ $navbar-toggler-focus-width: $btn-focus-width !default;
 $navbar-toggler-transition: box-shadow 0.15s ease-in-out !default;
 $navbar-light-color: rgb(var(--#{$prefix}emphasis-color-rgb) 0.65) !default;
 $navbar-light-hover-color: rgb(
-  var(--#{$prefix}emphasis-color-rgb)
-  0.8
+  var(--#{$prefix}emphasis-color-rgb) 0.8
 ) !default;
-$navbar-light-active-color: rgb(
-  var(--#{$prefix}emphasis-color-rgb)
-  1
-) !default;
+$navbar-light-active-color: rgb(var(--#{$prefix}emphasis-color-rgb) 1) !default;
 $navbar-light-disabled-color: rgb(
-  var(--#{$prefix}emphasis-color-rgb)
-  0.3
+  var(--#{$prefix}emphasis-color-rgb) 0.3
 ) !default;
 $navbar-light-icon-color: rgba($body-color, 0.75) !default;
 $navbar-light-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-light-icon-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
 $navbar-light-toggler-border-color: rgb(
-  var(--#{$prefix}emphasis-color-rgb)
-  0.15
+  var(--#{$prefix}emphasis-color-rgb) 0.15
 ) !default;
 $navbar-light-brand-color: $navbar-light-active-color !default;
 $navbar-light-brand-hover-color: $navbar-light-active-color !default;
@@ -1520,10 +1511,7 @@ $toast-border-radius: var(--#{$prefix}border-radius) !default;
 $toast-box-shadow: var(--#{$prefix}box-shadow) !default;
 $toast-spacing: $container-padding-x !default;
 $toast-header-color: var(--#{$prefix}secondary-color) !default;
-$toast-header-background-color: rgb(
-  var(--#{$prefix}body-bg-rgb)
-  0.85
-) !default;
+$toast-header-background-color: rgb(var(--#{$prefix}body-bg-rgb) 0.85) !default;
 $toast-header-border-color: $toast-border-color !default;
 
 // scss-docs-end toast-variables
