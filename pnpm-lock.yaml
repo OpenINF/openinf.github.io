@@ -2836,8 +2836,8 @@ packages:
   yallist@4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
 
-  yaml@2.4.1:
-    resolution: {integrity: sha512-pIXzoImaqmfOrL7teGUBt/T7ZDnyeGBWyXQBvOVhLkWLN37GXv8NMLK406UY6dS51JfcQHsmcW5cJ441bHg6Lg==}
+  yaml@2.4.2:
+    resolution: {integrity: sha512-B3VqDZ+JAg1nZpaEmWtTXUlBneoGx6CPM9b0TENK6aoSu5t73dItudwdgmi6tHlIZZId4dZ9skcAQ2UbcyAeVA==}
     engines: {node: '>= 14'}
     hasBin: true
 
@@ -3582,7 +3582,7 @@ snapshots:
     dependencies:
       '@cspell/cspell-types': 8.7.0
       comment-json: 4.2.3
-      yaml: 2.4.1
+      yaml: 2.4.2
 
   cspell-dictionary@8.7.0:
     dependencies:
@@ -6234,7 +6234,7 @@ snapshots:
       vfile-message: 4.0.2
       vfile-reporter: 8.1.1
       vfile-statistics: 3.0.0
-      yaml: 2.4.1
+      yaml: 2.4.2
     transitivePeerDependencies:
       - supports-color
 
@@ -6486,7 +6486,7 @@ snapshots:
 
   yallist@4.0.0: {}
 
-  yaml@2.4.1: {}
+  yaml@2.4.2: {}
 
   yargs-parser@15.0.3:
     dependencies:
