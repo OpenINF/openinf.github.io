@@ -26,25 +26,20 @@ collections:
   docs:
     permalink: :collection/:path
     output: true
+  pages:
+    output: true
   posts:
     permalink: news/:year/:month/:day/:title
     output: true
 defaults:
   - scope:
-      path: ''
+      path: _pages
       type: pages
     values:
       ##
       # @see https://github.com/OpenINF/open.inf.is/blob/HEAD/_layouts/default.html
       layout: default
       locale: en
-  - scope:
-      path: _layouts
-      type: pages
-    values:
-      ##
-      # @see https://github.com/OpenINF/open.inf.is/blob/HEAD/_layouts/default.html
-      layout: default
   - scope:
       path: _docs
       type: docs
@@ -70,7 +65,7 @@ defaults:
       body_classes:
         - hide-butterbar
 
-# Exclude from processing
+# Exclude from processing.
 exclude:
   - AUTHORS
   - bin/
