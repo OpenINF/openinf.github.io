@@ -51,6 +51,9 @@ jobs:
               - '**/*.jsonc'
             md:
               - '**/*.md'
+            ruby:
+              - '**/*.rb'
+              - 'Gemfile'
             svg:
               - '**/*.svg'
             toml:
@@ -85,6 +88,10 @@ jobs:
       - name: Verify Markdown
         if: ${{ steps.filter.outputs.md == 'true' }}
         run: nps verify.md
+
+      - name: Verify Ruby
+        if: ${{ steps.filter.outputs.ruby == 'true' }}
+        run: nps verify.ruby
 
       - name: Verify SVG
         if: ${{ steps.filter.outputs.svg == 'true' }}

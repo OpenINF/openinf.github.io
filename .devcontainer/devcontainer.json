@@ -41,6 +41,8 @@
         "KatjanaKosic.vscode-json5",
         // https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml
         "redhat.vscode-xml",
+        // https://marketplace.visualstudio.com/items?itemName=rubocop.vscode-rubocop
+        // "rubocop.vscode-rubocop",
         // https://marketplace.visualstudio.com/items?itemName=Shopify.theme-check-vscode
         "Shopify.theme-check-vscode",
         // https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
