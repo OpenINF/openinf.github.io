@@ -11,6 +11,7 @@ scripts:
     js: node build/tasks/verify/verify-js.mjs
     json: node build/tasks/verify/verify-json.mjs
     md: node build/tasks/verify/verify-md.mjs
+    ruby: node build/tasks/verify/verify-ruby.mjs
     svg: node build/tasks/verify/verify-svg.mjs
     toml: node build/tasks/verify/verify-toml.mjs
     ts: node build/tasks/verify/verify-ts.mjs
@@ -25,6 +26,7 @@ scripts:
     js: node build/tasks/format/format-js.mjs
     json: node build/tasks/format/format-json.mjs
     md: node build/tasks/format/format-md.mjs
+    ruby: node build/tasks/format/format-ruby.mjs
     svg: node build/tasks/format/format-svg.mjs
     toml: node build/tasks/format/format-toml.mjs
     ts: node build/tasks/format/format-ts.mjs

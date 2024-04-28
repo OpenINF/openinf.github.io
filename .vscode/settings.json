@@ -51,6 +51,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
+  // "[ruby]": {
+  //   "editor.defaultFormatter": "rubocop.vscode-rubocop",
+  // },
+
   "[svg]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
