@@ -1,6 +1,7 @@
 scripts:
   compile:
     buildPortal: node build/tasks/compile/build-portal.mjs
+    scssify: node build/tasks/compile/scssify.mjs
     siteifyHealthFiles: node build/tasks/compile/siteify-health-files.mjs
   verify:
     all: for i in build/tasks/verify/*.mjs; do node "$i"; done

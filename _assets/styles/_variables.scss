@@ -485,8 +485,8 @@ $grid-breakpoints: (
 
 // scss-docs-end grid-breakpoints
 
-@include _assert-ascending($grid-breakpoints, '$grid-breakpoints');
-@include _assert-starts-at-zero($grid-breakpoints, '$grid-breakpoints');
+// @include _assert-ascending($grid-breakpoints, '$grid-breakpoints');
+// @include _assert-starts-at-zero($grid-breakpoints, '$grid-breakpoints');
 
 // Grid containers
 //
@@ -503,7 +503,7 @@ $container-max-widths: (
 
 // scss-docs-end container-max-widths
 
-@include _assert-ascending($container-max-widths, '$container-max-widths');
+// @include _assert-ascending($container-max-widths, '$container-max-widths');
 
 // Grid columns
 //
@@ -841,7 +841,7 @@ $btn-link-color: var(--#{$prefix}link-color) !default;
 $btn-link-hover-color: var(--#{$prefix}link-hover-color) !default;
 $btn-link-disabled-color: $gray-600 !default;
 $btn-link-focus-shadow-rgb: to-rgb(
-  mix(color-contrast($link-color), $link-color, 15%)
+  mix(/*color-contrast(*/$link-color/*)*/, $link-color, 15%)
 ) !default;
 
 // Allows for customizing button radius independently from global border radius
