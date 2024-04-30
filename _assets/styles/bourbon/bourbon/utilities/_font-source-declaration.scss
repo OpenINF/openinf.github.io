@@ -27,8 +27,8 @@
   $src: ();
 
   $formats-map: (
-    "woff2": "#{$file-path}.woff2" format("woff2"),
-    "woff": "#{$file-path}.woff" format("woff"),
+    'woff2': '#{$file-path}.woff2' format('woff2'),
+    'woff': '#{$file-path}.woff' format('woff'),
   );
 
   @each $format in $file-formats {

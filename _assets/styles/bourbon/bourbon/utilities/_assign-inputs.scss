@@ -12,15 +12,12 @@
 ///
 /// @access private
 
-@function _assign-inputs(
-  $inputs,
-  $pseudo: null
-) {
+@function _assign-inputs($inputs, $pseudo: null) {
   $list: ();
 
   @each $input in $inputs {
     $input: unquote($input);
-    $input: if($pseudo, $input + ":" + $pseudo, $input);
+    $input: if($pseudo, $input + ':' + $pseudo, $input);
     $list: append($list, $input, comma);
   }
 

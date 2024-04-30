@@ -9,5 +9,5 @@
 /// @access private
 
 @function _is-color($color) {
-  @return (type-of($color) == color) or ($color == "currentColor");
+  @return (type-of($color) == color) or ($color == 'currentColor');
 }

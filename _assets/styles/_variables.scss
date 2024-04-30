@@ -841,7 +841,7 @@ $btn-link-color: var(--#{$prefix}link-color) !default;
 $btn-link-hover-color: var(--#{$prefix}link-hover-color) !default;
 $btn-link-disabled-color: $gray-600 !default;
 $btn-link-focus-shadow-rgb: to-rgb(
-  mix(/*color-contrast(*/$link-color/*)*/, $link-color, 15%)
+  mix(/*color-contrast(*/ $link-color /*)*/, $link-color, 15%)
 ) !default;
 
 // Allows for customizing button radius independently from global border radius
