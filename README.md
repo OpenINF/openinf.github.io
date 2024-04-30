@@ -1,7 +1,7 @@
 <!-- markdownlint-disable-next-line first-line-heading -->
 <a href="https://open.inf.is">
   <img
-    src="https://raw.githubusercontent.com/OpenINF/open.inf.is/live/assets/img/svg/logogram-color.svg?sanitize=true"
+    src="https://open.inf.is/assets/img/svg/logogram-color.svg"
     alt="OpenINF logo"
     title="OpenINF"
     align="right"
