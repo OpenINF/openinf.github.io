@@ -30,10 +30,7 @@
 ///
 /// @require {function} _is-size
 
-@mixin size(
-  $width,
-  $height: $width
-) {
+@mixin size($width, $height: $width) {
   @if _is-size($height) {
     height: $height;
   } @else {

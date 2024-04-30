@@ -21,6 +21,6 @@ $_text-inputs-list: (
   "[type='time']",
   "[type='url']",
   "[type='week']",
-  "input:not([type])",
-  "textarea",
+  'input:not([type])',
+  'textarea'
 );

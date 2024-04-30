@@ -19,10 +19,7 @@
 ///     background-color: #a8dfc9;
 ///   }
 
-@function tint(
-  $color,
-  $percent
-) {
+@function tint($color, $percent) {
   @if not _is-color($color) {
     @error "`#{$color}` is not a valid color for the `$color` argument in " +
       "the `tint` mixin.";

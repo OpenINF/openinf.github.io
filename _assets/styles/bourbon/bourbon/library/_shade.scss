@@ -19,10 +19,7 @@
 ///     background-color: #664a20;
 ///   }
 
-@function shade(
-  $color,
-  $percent
-) {
+@function shade($color, $percent) {
   @if not _is-color($color) {
     @error "`#{$color}` is not a valid color for the `$color` argument in " +
       "the `shade` mixin.";
