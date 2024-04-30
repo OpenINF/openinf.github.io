@@ -39,6 +39,7 @@ PowerShell
 psusan
 rubocop
 screencap
+scssify
 sdcard
 SDK
 Servagility

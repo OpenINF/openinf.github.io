@@ -1,0 +1,74 @@
+//
+// Reflection Theme
+//
+
+@import 'bourbon/bourbon';
+
+// Functions
+@import 'functions';
+
+// Core variables and mixins
+// @import 'custom';
+@import 'bootstrap/variables';
+@import 'bootstrap/mixins';
+
+// Reset and dependencies
+// @import 'bootstrap/normalize';
+
+// Core CSS
+@import 'bootstrap/reboot';
+@import 'bootstrap/type';
+// @import 'bootstrap/grid';
+
+// Components
+// @import 'header';
+// @import 'search';
+// @import 'nav';
+// @import 'outro';
+// @import 'footer';
+
+// Utility classes
+// @import 'bootstrap/utilities';
+
+// body {
+//   padding-top: 60px;
+// }
+
+// h2 {
+//   font-weight: 300;
+//   text-transform: uppercase;
+// }
+
+// .page-heading {
+//   margin-bottom: 24px;
+// }
+
+// .subtitle {
+//   margin-bottom: $headings-margin-bottom;
+//   font-size: $font-size-h5;
+// }
+
+// .content {
+//   padding: 2rem 0;
+//   background-color: $brand-foreground;
+// }
+
+// .firstcharacter {
+//   float: left;
+//   padding-top: 4px;
+//   padding-right: 8px;
+//   padding-left: 3px;
+//   font-size: 5.4rem;
+//   line-height: 0.75;
+//   color: $brand-primary;
+// }
+
+// .dropcapped {
+//   text-indent: 0;
+// }
+
+// ol,
+// ul,
+// dl {
+//   padding-left: 2ch;
+// }
