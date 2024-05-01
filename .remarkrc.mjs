@@ -99,7 +99,7 @@ export default {
 
     // Remark Lint Style Guide preset and overrides.
     [await import('remark-preset-lint-markdown-style-guide')],
-    ['remark-lint-no-file-name-consecutive-dashes', false],
+    ['remark-lint-no-file-name-consecutive-dashes', true],
     ['remark-lint-fenced-code-flag', { flags: infoStrings }],
     ['remark-lint-no-heading-punctuation', ':.,;'],
     ['remark-lint-no-file-name-mixed-case', false],

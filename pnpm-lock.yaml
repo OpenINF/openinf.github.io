@@ -167,6 +167,9 @@ importers:
       remark-lint-no-duplicate-headings-in-section:
         specifier: 4.0.0
         version: 4.0.0
+      remark-lint-no-file-name-consecutive-dashes:
+        specifier: 3.0.0
+        version: 3.0.0
       remark-lint-no-file-name-irregular-characters:
         specifier: 3.0.0
         version: 3.0.0
