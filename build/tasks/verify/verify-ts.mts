@@ -1,22 +1,22 @@
 /**
- * @file Verify JavaScript files are valid & adhere to checkable style guidelines.
+ * @file Verify TypeScript files are valid & adhere to checkable style guidelines.
  * @author The OpenINF Authors & Friends
  * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
- * @module {type ES6Module} build/tasks/verify/verify-js
+ * @module {type ES6Module} build/tasks/verify/verify-ts
  */
 
 import { exec, glob } from '@openinf/portal/build/utils';
 
-const JSFiles = await glob([
-  '**.js',
-  '**.mjs',
+const TSFiles = await glob([
+  '**.ts',
+  '**.mts',
   '!_site/',
   '!node_modules/',
   '!vendor/',
 ]);
 
 let exitCode = 0;
-const scripts = [`biome check ${JSFiles.join(' ')}`];
+const scripts = [`biome check ${TSFiles.join(' ')}`];
 
 for (const element of scripts) {
   try {
