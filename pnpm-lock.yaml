@@ -41,12 +41,18 @@ importers:
       '@types/node':
         specifier: 20.14.2
         version: 20.14.2
+      '@types/recursive-readdir':
+        specifier: 2.2.4
+        version: 2.2.4
       '@yarnpkg/shell':
         specifier: 4.0.2
         version: 4.0.2(typanion@3.14.0)
       autoprefixer:
         specifier: 10.4.19
         version: 10.4.19(postcss@8.4.38)
+      change-case:
+        specifier: 5.4.4
+        version: 5.4.4
       cspell:
         specifier: 8.8.4
         version: 8.8.4
@@ -897,6 +903,9 @@ packages:
 
   '@types/pluralize@0.0.29':
     resolution: {integrity: sha512-BYOID+l2Aco2nBik+iYS4SZX0Lf20KPILP5RGmM1IgzdwNdTs0eebiFriOPcej1sX9mLnSoiNte5zcFxssgpGA==}
+
+  '@types/recursive-readdir@2.2.4':
+    resolution: {integrity: sha512-84REEGT3lcgopvpkmGApzmU5UEG0valme5rQS/KGiguTkJ70/Au8UYZTyrzoZnY9svuX9351+1uvrRPzWDD/uw==}
 
   '@types/supports-color@8.1.3':
     resolution: {integrity: sha512-Hy6UMpxhE3j1tLpl27exp1XqHD7n8chAiNPzWfz16LPZoMMoSc4dzLl6w9qijkEb/r5O1ozdu1CWGA2L83ZeZg==}
@@ -4442,6 +4451,10 @@ snapshots:
       undici-types: 5.26.5
 
   '@types/pluralize@0.0.29': {}
+
+  '@types/recursive-readdir@2.2.4':
+    dependencies:
+      '@types/node': 20.14.2
 
   '@types/supports-color@8.1.3': {}
 
