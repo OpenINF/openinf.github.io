@@ -9,14 +9,15 @@
 // Requirements
 // -----------------------------------------------------------------------------
 
-export { execute as exec } from '@yarnpkg/shell';
+import { execute } from '@yarnpkg/shell';
 export { globby as glob } from 'globby';
+import { catchWrap } from '@isaacs/catcher';
 
 // -----------------------------------------------------------------------------
 // Helpers
 // -----------------------------------------------------------------------------
 
-// TODO
+export const exec = catchWrap(execute, 99);
 
 // -----------------------------------------------------------------------------
 // Main

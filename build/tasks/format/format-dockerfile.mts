@@ -18,11 +18,7 @@ let exitCode = 0;
 const scripts = [`dprint fmt ${DockerfileFiles.join(' ')}`];
 
 for (const element of scripts) {
-  try {
-    exitCode = await exec(element);
-  } catch (p) {
-    exitCode = p.exitCode;
-  }
+  exitCode = await exec(element);
 
   if (exitCode !== 0) process.exitCode = exitCode;
 }

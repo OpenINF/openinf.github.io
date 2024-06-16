@@ -25,6 +25,7 @@ gpgtunnel
 Grimes
 https
 Irulen
+isaacs
 macOS
 MSYS
 omakase
