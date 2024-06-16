@@ -5,7 +5,7 @@
  * @module {type ES6Module} build/tasks/format/format-filenames
  */
 
-import { promises as fsp, readdirSync, renameSync } from 'node:fs';
+import { renameSync } from 'node:fs';
 import { format as pathFormat, parse as pathParse } from 'node:path';
 import { kebabCase } from 'change-case';
 import recursive from 'recursive-readdir';
