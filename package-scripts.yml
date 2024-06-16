@@ -1,34 +1,34 @@
 scripts:
   compile:
     buildPortal: tsx build/tasks/compile/build-portal.mts
-    scssify: node build/tasks/compile/scssify.mjs
-    siteifyHealthFiles: node build/tasks/compile/siteify-health-files.mjs
+    scssify: tsx build/tasks/compile/scssify.mts
+    siteifyHealthFiles: tsx build/tasks/compile/siteify-health-files.mts
   verify:
-    all: for i in build/tasks/verify/*.mjs; do node "$i"; done
-    css: node build/tasks/verify/verify-css.mjs
-    dockerfile: node build/tasks/verify/verify-dockerfile.mjs
-    html: node build/tasks/verify/verify-html.mjs
-    htmlValidForVNU: node build/tasks/verify/verify-html-valid-for-vnu.mjs
-    json: node build/tasks/verify/verify-json.mjs
-    md: node build/tasks/verify/verify-md.mjs
-    ruby: node build/tasks/verify/verify-ruby.mjs
-    svg: node build/tasks/verify/verify-svg.mjs
-    toml: node build/tasks/verify/verify-toml.mjs
+    all: for i in build/tasks/verify/*.mts; do tsx "$i"; done
+    css: tsx build/tasks/verify/verify-css.mts
+    dockerfile: tsx build/tasks/verify/verify-dockerfile.mts
+    html: tsx build/tasks/verify/verify-html.mts
+    htmlValidForVNU: tsx build/tasks/verify/verify-html-valid-for-vnu.mts
+    json: tsx build/tasks/verify/verify-json.mts
+    md: tsx build/tasks/verify/verify-md.mts
+    ruby: tsx build/tasks/verify/verify-ruby.mts
+    svg: tsx build/tasks/verify/verify-svg.mts
+    toml: tsx build/tasks/verify/verify-toml.mts
     ts: tsx build/tasks/verify/verify-ts.mts
-    validForEC: node build/tasks/verify/verify-valid-for-ec.mjs
-    validForSC: node build/tasks/verify/verify-valid-for-sc.mjs
-    yaml: node build/tasks/verify/verify-yaml.mjs
+    validForEC: tsx build/tasks/verify/verify-valid-for-ec.mts
+    validForSC: tsx build/tasks/verify/verify-valid-for-sc.mts
+    yaml: tsx build/tasks/verify/verify-yaml.mts
   format:
-    all: for i in build/tasks/format/*.mjs; do node "$i"; done
-    css: node build/tasks/format/format-css.mjs
-    dockerfile: node build/tasks/format/format-dockerfile.mjs
-    html: node build/tasks/format/format-html.mjs
-    json: node build/tasks/format/format-json.mjs
-    md: node build/tasks/format/format-md.mjs
-    ruby: node build/tasks/format/format-ruby.mjs
-    svg: node build/tasks/format/format-svg.mjs
-    toml: node build/tasks/format/format-toml.mjs
+    all: for i in build/tasks/format/*.mts; do tsx "$i"; done
+    css: tsx build/tasks/format/format-css.mts
+    dockerfile: tsx build/tasks/format/format-dockerfile.mts
+    html: tsx build/tasks/format/format-html.mts
+    json: tsx build/tasks/format/format-json.mts
+    md: tsx build/tasks/format/format-md.mts
+    ruby: tsx build/tasks/format/format-ruby.mts
+    svg: tsx build/tasks/format/format-svg.mts
+    toml: tsx build/tasks/format/format-toml.mts
     ts: tsx build/tasks/format/format-ts.mts
-    yaml: node build/tasks/format/format-yaml.mjs
+    yaml: tsx build/tasks/format/format-yaml.mts
   test: nps verify.all
   build: nps compile.buildPortal
