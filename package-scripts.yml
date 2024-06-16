@@ -1,6 +1,6 @@
 scripts:
   compile:
-    buildPortal: node build/tasks/compile/build-portal.mjs
+    buildPortal: tsx build/tasks/compile/build-portal.mts
     scssify: node build/tasks/compile/scssify.mjs
     siteifyHealthFiles: node build/tasks/compile/siteify-health-files.mjs
   verify:
