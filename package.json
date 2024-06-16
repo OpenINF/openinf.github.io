@@ -22,6 +22,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.8.1",
     "@devcontainers/cli": "0.64.0",
+    "@isaacs/catcher": "1.0.4",
     "@openinf/gh-file-importer": "2.0.1",
     "@openinf/util-errors": "2.0.7",
     "@openinf/util-object": "2.0.1",

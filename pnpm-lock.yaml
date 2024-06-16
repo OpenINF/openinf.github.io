@@ -14,6 +14,9 @@ importers:
       '@devcontainers/cli':
         specifier: 0.64.0
         version: 0.64.0
+      '@isaacs/catcher':
+        specifier: 1.0.4
+        version: 1.0.4
       '@openinf/gh-file-importer':
         specifier: 2.0.1
         version: 2.0.1
@@ -732,6 +735,9 @@ packages:
   '@gulpjs/to-absolute-glob@4.0.0':
     resolution: {integrity: sha512-kjotm7XJrJ6v+7knhPaRgaT6q8F8K2jiafwYdNHLzmV0uGLuZY43FK6smNSHUPrhq5kX2slCUy+RGG/xGqmIKA==}
     engines: {node: '>=10.13.0'}
+
+  '@isaacs/catcher@1.0.4':
+    resolution: {integrity: sha512-g2klMwbnguClWNnCeQ1zYaDJsvPbIbnjdJPDE0z09MqoejJDZSLK5vIKiClq2Bkg5ubuI8vaN6wfIUi5GYzMVA==}
 
   '@isaacs/cliui@8.0.2':
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -4216,6 +4222,8 @@ snapshots:
   '@gulpjs/to-absolute-glob@4.0.0':
     dependencies:
       is-negated-glob: 1.0.0
+
+  '@isaacs/catcher@1.0.4': {}
 
   '@isaacs/cliui@8.0.2':
     dependencies:
