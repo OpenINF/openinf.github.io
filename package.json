@@ -37,7 +37,6 @@
     "dictionary-en": "4.0.0",
     "dprint": "0.46.2",
     "editorconfig-checker": "5.1.8",
-    "env-cmd": "10.1.0",
     "globby": "14.0.1",
     "gulp": "5.0.0",
     "gulp-dart-sass": "1.1.0",
@@ -99,7 +98,7 @@
     "stylelint": "16.6.1",
     "stylelint-config-recess-order": "5.0.1",
     "stylelint-config-standard-scss": "13.1.0",
-    "ts-node": "10.9.2",
+    "tsx": "4.15.5",
     "typescript": "5.4.5",
     "unified": "11.0.4",
     "vnu-jar": "23.4.11"

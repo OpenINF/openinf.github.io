@@ -15,7 +15,7 @@ scripts:
     ruby: node build/tasks/verify/verify-ruby.mjs
     svg: node build/tasks/verify/verify-svg.mjs
     toml: node build/tasks/verify/verify-toml.mjs
-    ts: env-cmd -e development node build/tasks/verify/verify-ts.mts
+    ts: tsx build/tasks/verify/verify-ts.mts
     validForEC: node build/tasks/verify/verify-valid-for-ec.mjs
     validForSC: node build/tasks/verify/verify-valid-for-sc.mjs
     yaml: node build/tasks/verify/verify-yaml.mjs
@@ -30,7 +30,7 @@ scripts:
     ruby: node build/tasks/format/format-ruby.mjs
     svg: node build/tasks/format/format-svg.mjs
     toml: node build/tasks/format/format-toml.mjs
-    ts: env-cmd -e development node build/tasks/format/format-ts.mts
+    ts: tsx build/tasks/format/format-ts.mts
     yaml: node build/tasks/format/format-yaml.mjs
   test: nps verify.all
   build: nps compile.buildPortal
