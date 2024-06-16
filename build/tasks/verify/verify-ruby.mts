@@ -1,8 +1,8 @@
 /**
- * @file Format Ruby files to adhere to autofixable style guidelines.
+ * @file Verify Ruby files are valid & adhere to checkable style guidelines.
  * @author The OpenINF Authors & Friends
  * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
- * @module {type ES6Module} build/tasks/format/format-ruby
+ * @module {type ES6Module} build/tasks/verify/verify-ruby
  */
 
 import { exec, glob } from '@openinf/portal/build/utils';
@@ -16,14 +16,10 @@ const RubyFiles = await glob([
 ]);
 
 let exitCode = 0;
-const scripts = [`bundle exec rubocop -a ${RubyFiles.join(' ')}`];
+const scripts = [`bundle exec rubocop ${RubyFiles.join(' ')}`];
 
 for (const element of scripts) {
-  try {
-    exitCode = await exec(element);
-  } catch (p) {
-    exitCode = p.exitCode;
-  }
+  exitCode = await exec(element);
 
   if (exitCode !== 0) process.exitCode = exitCode;
 }

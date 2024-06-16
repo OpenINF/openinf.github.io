@@ -42,9 +42,9 @@ jobs:
               - '**/Dockerfile'
             html:
               - '**/*.html'
-            js:
-              - '**/*.js'
-              - '**/*.mjs'
+            ts:
+              - '**/*.ts'
+              - '**/*.mts'
             json:
               - '**/*.json'
               - '**/*.json5'
@@ -77,9 +77,9 @@ jobs:
         if: ${{ steps.filter.outputs.html == 'true' }}
         run: nps verify.html
 
-      - name: Verify JavaScript
-        if: ${{ steps.filter.outputs.js == 'true' || steps.filter.outputs.json == 'true' }}
-        run: nps verify.js
+      - name: Verify TypeScript
+        if: ${{ steps.filter.outputs.ts == 'true' || steps.filter.outputs.json == 'true' }}
+        run: nps verify.ts
 
       - name: Verify JSON
         if: ${{ steps.filter.outputs.json == 'true' }}
@@ -107,5 +107,5 @@ jobs:
 
       # Only run tests if the PR touches behavior-related files.
       - name: Test
-        if: ${{ steps.filter.outputs.js == 'true' || steps.filter.outputs.json == 'true' }}
+        if: ${{ steps.filter.outputs.ts == 'true' || steps.filter.outputs.json == 'true' }}
         run: nps test

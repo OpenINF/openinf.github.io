@@ -1,8 +1,8 @@
 /**
- * @file Format Markdown files to adhere to autofixable style guidelines.
+ * @file Verify Markdown files are valid & adhere to checkable style guidelines.
  * @author The OpenINF Authors & Friends
  * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
- * @module {type ES6Module} build/tasks/format/format-md
+ * @module {type ES6Module} build/tasks/verify/verify-md
  */
 
 import { exec, glob } from '@openinf/portal/build/utils';
@@ -17,16 +17,14 @@ const MarkdownFiles = await glob([
 
 let exitCode = 0;
 const scripts = [
-  `prettier --write ${MarkdownFiles.join(' ')}`,
-  `markdownlint-cli2 --fix ${MarkdownFiles.join(' ')}`,
+  `prettier --check ${MarkdownFiles.join(' ')}`,
+  `markdownlint-cli2 ${MarkdownFiles.join(' ')}`,
+  `remark -f ${MarkdownFiles.join(' ')}`,
+  `cspell lint ${MarkdownFiles.join(' ')}`,
 ];
 
 for (const element of scripts) {
-  try {
-    exitCode = await exec(element);
-  } catch (p) {
-    exitCode = p.exitCode;
-  }
+  exitCode = await exec(element);
 
   if (exitCode !== 0) process.exitCode = exitCode;
 }
