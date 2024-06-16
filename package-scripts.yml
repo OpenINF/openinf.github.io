@@ -9,7 +9,6 @@ scripts:
     dockerfile: node build/tasks/verify/verify-dockerfile.mjs
     html: node build/tasks/verify/verify-html.mjs
     htmlValidForVNU: node build/tasks/verify/verify-html-valid-for-vnu.mjs
-    js: node build/tasks/verify/verify-js.mjs
     json: node build/tasks/verify/verify-json.mjs
     md: node build/tasks/verify/verify-md.mjs
     ruby: node build/tasks/verify/verify-ruby.mjs
@@ -24,7 +23,6 @@ scripts:
     css: node build/tasks/format/format-css.mjs
     dockerfile: node build/tasks/format/format-dockerfile.mjs
     html: node build/tasks/format/format-html.mjs
-    js: node build/tasks/format/format-js.mjs
     json: node build/tasks/format/format-json.mjs
     md: node build/tasks/format/format-md.mjs
     ruby: node build/tasks/format/format-ruby.mjs
