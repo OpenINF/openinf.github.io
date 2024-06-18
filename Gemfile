@@ -13,7 +13,7 @@ group :jekyll_plugins do
   gem "jekyll-relative-links"
   gem "jekyll-sitemap"
   gem "jekyll-seo-tag"
-  # gem 'jekyll-paginate-v2'
+  gem 'jekyll-paginate-v2'
   # gem 'jekyll-auto-authors'
 end
 

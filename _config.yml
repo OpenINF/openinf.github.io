@@ -16,6 +16,7 @@ plugins:
   - jekyll-relative-links
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-paginate-v2
 
 ## Content collections
 # @see https://jekyllrb.com/docs/collections
