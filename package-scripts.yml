@@ -30,5 +30,7 @@ scripts:
     toml: tsx build/tasks/format/format-toml.mts
     ts: tsx build/tasks/format/format-ts.mts
     yaml: tsx build/tasks/format/format-yaml.mts
-  test: nps verify.all
   build: nps compile.buildPortal
+  test: nps verify.all
+  start: bundle exec jekyll serve --drafts --incremental --force_polling --livereload --baseurl=''
+  default: nps start
