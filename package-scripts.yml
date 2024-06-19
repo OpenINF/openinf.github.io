@@ -32,5 +32,5 @@ scripts:
     yaml: tsx build/tasks/format/format-yaml.mts
   build: nps compile.buildPortal
   test: nps verify.all
-  start: bundle exec jekyll serve --drafts --force_polling --livereload --baseurl=''
+  start: bundle exec jekyll serve --drafts --incremental --force_polling --livereload --baseurl=''
   default: nps start
