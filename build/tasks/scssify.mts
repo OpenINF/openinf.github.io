@@ -25,7 +25,7 @@ import sourcemaps from 'gulp-sourcemaps';
 // Task
 // -----------------------------------------------------------------------------
 
-export const scssify = (() => {
+export const scssify = () => {
   src(`${PATHS.sassFiles}/main.scss`)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
@@ -36,6 +36,6 @@ export const scssify = (() => {
     .pipe(sourcemaps.write('./maps'))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(dest(PATHS.siteCssFiles));
-})();
+};
 
 export default scssify;
