@@ -1,6 +1,8 @@
 /**
  * @file The development server module.
  * @module {ES6Module} server
+ * @author The OpenINF Authors & Friends
+ * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
  * @see https://developer.mozilla.org/en-US/docs/Learn/Server-side/Node_server_without_framework
  */
 
