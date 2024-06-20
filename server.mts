@@ -63,7 +63,7 @@ function getContentType(filePath) {
 export default (() => {
   const httpServer = createHttpServer((request, response) => {
     console.log('request ', request.url);
-    let filePath = '.' + request.url;
+    let filePath = `.${request.url}`;
     if (filePath === './') {
       filePath = './index.html';
     }
@@ -81,9 +81,7 @@ export default (() => {
         } else {
           response.writeHead(500);
           response.end(
-            'Sorry, check with the site admin for error: ' +
-              error.code +
-              ' ..\n'
+            `Sorry, check with the site admin for error: ${error.code} ..\n`
           );
         }
       } else {
