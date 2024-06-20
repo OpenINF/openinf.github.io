@@ -1,7 +1,7 @@
 scripts:
   compile:
     buildPortal: tsx build/tasks/compile/build-portal.mts
-    scssify: tsx build/tasks/compile/scssify.mts
+    scssify: tsx build/tasks/scssify.mts
     siteifyHealthFiles: tsx build/tasks/compile/siteify-health-files.mts
   verify:
     all: for i in build/tasks/verify/*.mts; do tsx "$i"; done

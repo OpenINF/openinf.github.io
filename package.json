@@ -10,7 +10,8 @@
   },
   "exports": {
     "./build/constants": "./build/shared/constants.mjs",
-    "./build/utils": "./build/utils.mjs"
+    "./build/utils": "./build/utils.mjs",
+    "./build/tasks/scssify": "./build/tasks/scssify.mjs"
   },
   "homepage": "open.inf.is",
   "repository": "OpenINF/open.inf.is",
