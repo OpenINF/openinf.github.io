@@ -13,7 +13,7 @@
 import { readFile } from 'node:fs';
 import { createServer as createHttpServer } from 'node:http';
 import { extname as pathExtname } from 'node:path';
-import { gccTypecheck, tscTypecheck } from '@openinf/portal/tasks/typecheck';
+import scssify from '@openinf/portal/tasks/scssify';
 import WebSocket from 'isomorphic-ws';
 
 // -----------------------------------------------------------------------------
