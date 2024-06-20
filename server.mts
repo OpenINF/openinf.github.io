@@ -135,8 +135,7 @@ export default (() => {
         console.log('Backend WebSocket connection closed!');
       };
 
-      webSocket.send(gccTypecheck());
-      webSocket.send(tscTypecheck());
+      webSocket.send(scssify());
     });
   });
 })();
