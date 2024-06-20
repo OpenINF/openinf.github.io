@@ -59,20 +59,6 @@ function getContentType(filePath) {
 // Then, while that's running, we create a child process of the socket server.
 // The socket server will remain intact until we make changes to our JS code.
 // As soon as we make any changes to the socket server, it will reboot.
-// XXX: We don't need the socket server to reboot as soon changes are made.
-//      Keep that shit running! What we actually need to happen:
-//      1. As soon as JS changes are made, call a function running in parallel:
-//         a. In a WORKER, compile the JS using TSC.
-//         b. In a WORKER, compile the JS using GCC.
-//      2. Once this compilation is complete, send the results as messages:
-//         a. Response of worker a, as a message: socket server -> socket client
-//         b. Response of worker b, as a message: socket server -> socket client
-//      3. On the socket client, onmessage, append message.
-//         IF the messageNumber is ODD:
-//         1. console.innerHTML = "";
-//         2. appendMessage(data.msg);
-//         ELSE the message is EVEN:
-//         1. appendMessage(data.msg);
 
 export default (() => {
   const httpServer = createHttpServer((request, response) => {
