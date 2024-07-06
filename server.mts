@@ -71,7 +71,7 @@ export default (() => {
     readFile(filePath, (error, content) => {
       if (error) {
         if (error.code === 'ENOENT') {
-          readFile('./404.html', (error, content) => {
+          readFile('./_site/404.html', (error, content) => {
             if (error) {
               console.error(error);
             }
