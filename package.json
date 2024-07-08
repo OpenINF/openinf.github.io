@@ -3,10 +3,10 @@
   "author": "The OpenINF Authors & Friends",
   "private": "true",
   "description": "The OpenINF portal, other static resources, and more static electricity",
-  "packageManager": "pnpm@9.4.0",
+  "packageManager": "pnpm@9.5.0",
   "engines": {
     "node": "20.15.0",
-    "pnpm": "9.4.0"
+    "pnpm": "9.5.0"
   },
   "exports": {
     "./build/constants": "./build/shared/constants.mjs",
@@ -30,13 +30,13 @@
     "@openinf/util-types": "2.1.3",
     "@shopify/prettier-plugin-liquid": "1.5.0",
     "@tsconfig/node-lts": "20.1.3",
-    "@types/node": "20.14.9",
+    "@types/node": "20.14.10",
     "@yarnpkg/shell": "4.0.2",
     "autoprefixer": "10.4.19",
     "cspell": "8.10.0",
-    "cssnano": "7.0.3",
+    "cssnano": "7.0.4",
     "dictionary-en": "4.0.0",
-    "dprint": "0.47.0",
+    "dprint": "0.47.1",
     "editorconfig-checker": "5.1.8",
     "globby": "14.0.2",
     "gulp": "5.0.0",
