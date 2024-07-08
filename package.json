@@ -33,7 +33,7 @@
     "@types/node": "20.14.10",
     "@yarnpkg/shell": "4.0.2",
     "autoprefixer": "10.4.19",
-    "cspell": "8.10.0",
+    "cspell": "8.10.4",
     "cssnano": "7.0.4",
     "dictionary-en": "4.0.0",
     "dprint": "0.47.1",
