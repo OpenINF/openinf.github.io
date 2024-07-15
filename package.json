@@ -5,7 +5,7 @@
   "description": "The OpenINF portal, other static resources, and more static electricity",
   "packageManager": "pnpm@9.5.0",
   "engines": {
-    "node": "20.15.0",
+    "node": "20.15.1",
     "pnpm": "9.5.0"
   },
   "exports": {
@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
-    "@devcontainers/cli": "0.65.0",
+    "@devcontainers/cli": "0.66.0",
     "@isaacs/catcher": "1.0.4",
     "@openinf/gh-file-importer": "2.0.1",
     "@openinf/util-errors": "2.0.7",
@@ -36,7 +36,7 @@
     "cspell": "8.10.4",
     "cssnano": "7.0.4",
     "dictionary-en": "4.0.0",
-    "dprint": "0.47.1",
+    "dprint": "0.47.2",
     "editorconfig-checker": "5.1.8",
     "globby": "14.0.2",
     "gulp": "5.0.0",
@@ -54,7 +54,7 @@
     "markdownlint-cli2": "0.13.0",
     "markdownlint-cli2-formatter-default": "0.0.4",
     "nps": "5.10.0",
-    "prettier": "3.3.2",
+    "prettier": "3.3.3",
     "remark": "15.0.1",
     "remark-cli": "12.0.1",
     "remark-directive": "3.0.0",
@@ -96,7 +96,7 @@
     "retext-syntax-mentions": "4.0.0",
     "retext-syntax-urls": "4.0.0",
     "strip-comments": "2.0.1",
-    "stylelint": "16.6.1",
+    "stylelint": "16.7.0",
     "stylelint-config-recess-order": "5.0.1",
     "stylelint-config-standard-scss": "13.1.0",
     "tsx": "4.16.2",
