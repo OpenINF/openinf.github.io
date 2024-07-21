@@ -30,7 +30,7 @@
     "@openinf/util-types": "2.1.3",
     "@shopify/prettier-plugin-liquid": "1.5.0",
     "@tsconfig/node-lts": "20.1.3",
-    "@types/node": "20.14.10",
+    "@types/node": "20.14.11",
     "@yarnpkg/shell": "4.0.2",
     "autoprefixer": "10.4.19",
     "cspell": "8.11.0",
