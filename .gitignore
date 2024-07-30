@@ -20,3 +20,10 @@ node_modules/
 # Ignore generated build products.
 _site/
 /assets/
+
+# Ignore imported health files.
+/collections/_docs/code-of-conduct.md
+/collections/_docs/contributing.md
+/collections/_docs/security.md
+/collections/_docs/support.md
+/collections/_pages/vision.md
