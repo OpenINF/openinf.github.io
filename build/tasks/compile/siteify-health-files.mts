@@ -10,7 +10,6 @@
 // -----------------------------------------------------------------------------
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
-import { readdir } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import { tmpdir } from 'node:os';
 import nodePath from 'node:path';
