@@ -126,6 +126,8 @@ pagination:
 
 # Exclude from processing.
 exclude:
+  - '**/LICENSE/**'
+  - '**/README.md'
   - AUTHORS
   - bin/
   - biome.jsonc
@@ -135,13 +137,10 @@ exclude:
   - dprint.json
   - Gemfile
   - Gemfile.lock
-  - LICENSE
   - node_modules/
   - package-scripts.yml
   - package.json
   - pnpm-lock.yaml
   - project-terms.txt
-  - README.md
-  - tmp/
   - tools/
   - vendor/
