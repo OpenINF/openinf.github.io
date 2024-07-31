@@ -126,9 +126,9 @@ pagination:
 
 # Exclude from processing.
 exclude:
-  - AUTHORS
   - '**/LICENSE/**'
   - '**/README.md'
+  - AUTHORS
   - bin/
   - biome.jsonc
   - build/
