@@ -5,11 +5,20 @@
  * @module {type ES6Module} build/tasks/compile/build-portal
  */
 
+import { existsSync } from 'node:fs';
 import { exec } from '@openinf/portal/build/utils';
 
 let exitCode = 0;
 
-const scripts = ['JEKYLL_ENV=production bundle exec jekyll build'];
+const scripts = [
+  'nps compile.scssify',
+  'JEKYLL_ENV=production bundle exec jekyll build',
+];
+
+// Only siteify health files in _this_ task if they're missing.
+if (!existsSync('collections/_docs/support.md')) {
+  scripts.unshift('nps compile.siteifyHealthFiles');
+}
 
 for (const element of scripts) {
   exitCode = await exec(element);
