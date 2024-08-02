@@ -36,7 +36,7 @@
     "@yarnpkg/shell": "4.0.2",
     "autoprefixer": "10.4.19",
     "console-log-level": "1.4.1",
-    "cspell": "8.13.0",
+    "cspell": "8.13.1",
     "cssnano": "7.0.4",
     "dictionary-en": "4.0.0",
     "dprint": "0.47.2",
