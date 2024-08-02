@@ -43,12 +43,14 @@ also hope to introduce a healthy manner of incentivizing reporting in the near t
   hope you, dearest reader, will soon join us in our journey to maintain our secure
   software ecosystems.
 
-<!-- BEGIN LINK DEFINITIONS -->
+<!-- prettier-ignore-start -->
+<!-- LINK DEFINITION LABELS - START -->
 
 [^1]: https://www.mend.io/product-info/news/whitesource-renovate-users-now-rewarded-through-google-sponsored-openssf-program
 
 [dual Maintainership]: https://gitlab.com/gitlab-com/www-gitlab-com/-/issues/13696#user-content--how-this-could-work
-[email us]: <mailto:security@inf.is>
-[Mend Renovate]: <https://www.mend.io/free-developer-tools/renovate>
+[email us]: mailto:security@inf.is
+[Mend Renovate]: https://www.mend.io/free-developer-tools/renovate
 
-<!-- END LINK DEFINITIONS -->
+<!-- LINK DEFINITION LABELS - END -->
+<!-- prettier-ignore-end -->

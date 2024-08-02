@@ -35,7 +35,8 @@ support account on X (formerly Twitter).
 times. Be sure to follow the new [X Rules][x-twitter-rules] (formerly Twitter
 Rules) _and_ our [Code of Conduct][coc].
 
-<!-- BEGIN LINK DEFINITIONS -->
+<!-- prettier-ignore-start -->
+<!-- LINK DEFINITION LABELS - START -->
 
 [coc]: ./CODE_OF_CONDUCT.md
 [`#off-topic` channel]: https://discord.gg/ACMjssFV
@@ -47,4 +48,5 @@ Rules) _and_ our [Code of Conduct][coc].
 [x-twitter-account]: https://twitter.com/OpenINF
 [x-twitter-rules]: https://help.twitter.com/en/rules-and-policies/x-rules
 
-<!-- END LINK DEFINITIONS -->
+<!-- LINK DEFINITION LABELS - END -->
+<!-- prettier-ignore-end -->

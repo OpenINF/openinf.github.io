@@ -282,22 +282,20 @@ RemoteForward /home/vscode/.gnupg/S.gpg-agent
 /c/Users/<username>/.gnupg/S.gpg-agent.extra
 ```
 
+<!-- prettier-ignore-start -->
 <!-- LINK LABEL DEFINITIONS - START -->
+
+[^1]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-1
+[^2]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-Pechanec-2
 
 [`ssh`]: https://en.wikipedia.org/wiki/Secure_Shell
 [`ssh-agent`]: https://en.wikipedia.org/wiki/Ssh-agent
-[`gpg-agent`]:
-  https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
-[Checking for existing SSH keys]:
-  https://docs.github.com/en/github/authenticating-to-github/checking-for-existing-ssh-keys
+[`gpg-agent`]: https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
+[Checking for existing SSH keys]: https://docs.github.com/en/github/authenticating-to-github/checking-for-existing-ssh-keys
 [computer files]: https://en.wikipedia.org/wiki/Computer_file
 [host]: https://en.wikipedia.org/wiki/Server_(computing)
 [Secure Shell]: https://en.wikipedia.org/wiki/Secure_Shell
-[Working with SSH key passphrases]:
-  https://docs.github.com/en/github/authenticating-to-github/working-with-ssh-key-passphrases
-
-[^1]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-1
-
-[^2]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-Pechanec-2
+[Working with SSH key passphrases]: https://docs.github.com/en/github/authenticating-to-github/working-with-ssh-key-passphrases
 
 <!-- LINK LABEL DEFINITIONS - END -->
+<!-- prettier-ignore-end -->

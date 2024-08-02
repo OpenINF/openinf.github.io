@@ -73,10 +73,10 @@ sections on [list introductions][] and [code-sample introductions][].
 For information about when it's better to use colons than dashes, see
 [Dashes][].
 
+<!-- prettier-ignore-start -->
 <!-- LINK DEFINITION LABELS - START -->
 
-[Some specific items to put in code font]:
-  ./code-in-text.md#some-specific-items-to-put-in-code-font
+[Some specific items to put in code font]: ./code-in-text.md#some-specific-items-to-put-in-code-font
 [capitalization]: ./capitalization.md
 [Classification]: ./commit-messages.md#classification
 [list introductions]: ./lists.md#intros
@@ -85,3 +85,4 @@ For information about when it's better to use colons than dashes, see
 [the Japanese colon]: https://wikipedia.org/wiki/Japanese_punctuation#Colon
 
 <!-- LINK DEFINITION LABELS - END -->
+<!-- prettier-ignore-end -->

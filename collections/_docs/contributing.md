@@ -87,9 +87,9 @@ elsewhere).
 
 ### Project Documentation
 
-The `README.md` in the root of the repository should contain or link to
-project documentation. If you cannot find the documentation you’re looking for,
-please file a GitHub issue with details of what you’d like to see documented.
+The `README.md` in the root of the repository should contain or link to project
+documentation. If you cannot find the documentation you’re looking for, please
+file a GitHub issue with details of what you’d like to see documented.
 
 ### Questions or Thoughts?
 
@@ -139,7 +139,8 @@ Please see the OpenINF Security Policies.
 
 [Developer Certificate of Origin Legal Text](https://developercertificate.org/)
 
-<!-- BEGIN LINK DEFINITIONS -->
+<!-- prettier-ignore-start -->
+<!-- LINK DEFINITION LABELS - START -->
 
 [contrib-license]: https://help.github.com/articles/github-terms-of-service/#6-contributions-under-repository-license
 [draft pull request]: https://help.github.com/en/articles/about-pull-requests#draft-pull-requests
@@ -152,4 +153,5 @@ Please see the OpenINF Security Policies.
 [pr-help]: https://github.com/search?q=org%3Aopeninf+is%3Apr+is%3Aopen+label%3A%22help+wanted%22
 [pull request]: https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request
 
-<!-- END LINK DEFINITIONS -->
+<!-- LINK DEFINITION LABELS - END -->
+<!-- prettier-ignore-end -->
