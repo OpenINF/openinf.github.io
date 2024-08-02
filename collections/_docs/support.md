@@ -14,21 +14,20 @@ tutorial resources.
 
 **[`#openinf`][matrix-channel] on matrix.org:** The OpenINF Matrix support
 channel on the _matrix.org_ network. It’s a synchronous chat channel for
-lightweight communication. It is good for asking questions, casual
-conversation, collaboration, and quick exchanges. Be sure to follow our [Code of
+lightweight communication. It is good for asking questions, casual conversation,
+collaboration, and quick exchanges. Be sure to follow our [Code of
 Conduct][coc]. The room is end-to-end encrypted, and you will need first to be
 verified before messages can be seen (this is performed by in-room mods/admins).
 Invitation to the space would have to happen before room verification can occur,
 but this channel is now mostly defunct in favor of our Discord channel(s).
 
 **[`#support`][support-channel-discord] in OpenINF Community Server Discord:**
-The [`#support` channel][] on the OpenINF Community Server Discord is a
-synchronous chat channel that provides a preferred communication venue. It is
-suitable for asking questions. Casual conversation, collaboration, and/or other
-quick exchanges would more appropriately occur in our [`#general` channel][].
-Please use the [`#off-topic` channel][] for any other side
-<abbr title="conversations">convos</abbr> that may need to take place. Be sure
-to follow our [Code of Conduct][coc].
+The [`#support` channel][] on the OpenINF Community Server Discord is a synchronous
+chat channel that provides a preferred communication venue. It is suitable for asking
+questions. Casual conversation, collaboration, and/or other quick exchanges would
+more appropriately occur in our [`#general` channel][]. Please use the
+[`#off-topic` channel][] for any other side <abbr title="conversations">convos</abbr>
+that may need to take place. Be sure to follow our [Code of Conduct][coc].
 
 **[@OpenINF][x-twitter-account] on X (formerly Twitter):** The OpenINF Community
 support account on X (formerly Twitter).

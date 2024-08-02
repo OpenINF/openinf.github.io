@@ -75,7 +75,8 @@ For information about when it's better to use colons than dashes, see
 
 <!-- LINK DEFINITION LABELS - START -->
 
-[Some specific items to put in code font]: ./code-in-text.md#some-specific-items-to-put-in-code-font
+[Some specific items to put in code font]:
+  ./code-in-text.md#some-specific-items-to-put-in-code-font
 [capitalization]: ./capitalization.md
 [Classification]: ./commit-messages.md#classification
 [list introductions]: ./lists.md#intros

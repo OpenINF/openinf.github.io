@@ -31,8 +31,8 @@ GitHub before any usage of the key to authenticate may occur.
 
 If you don't already have an SSH key, you must generate a new one for
 authentication. You can check for existing keys if you are unsure whether you
-already have an SSH key. For more information, see "[Checking for existing SSH
-keys][]".
+already have an SSH key. For more information, see "[Checking for existing
+SSH keys][]".
 
 If you don't want to reenter your passphrase every time you use your SSH key,
 you can add your key to the SSH agent, which will manage your SSH keys and
@@ -147,8 +147,8 @@ keyring into the remote container gets done automatically by the extension.
 :::excerpt{.quote} <!-- TODO(DerekNonGeneric): link to source of below -->
 
 <abbr title="Secure Copy Protocol">[SCP]{#scp .dfn}</abbr> is a means of
-securely transferring [computer files][] between a local [host][] and a remote
-host or between two remote hosts. It is based on the [Secure Shell][] (SSH)
+securely transferring [computer files][] between a local [host][] and a remote host
+or between two remote hosts. It is based on the [Secure Shell][] (SSH)
 protocol.[^1] "SCP" commonly refers to both the Secure Copy Protocol and the
 program itself.[^2]
 
@@ -297,6 +297,7 @@ RemoteForward /home/vscode/.gnupg/S.gpg-agent
   https://docs.github.com/en/github/authenticating-to-github/working-with-ssh-key-passphrases
 
 [^1]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-1
+
 [^2]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-Pechanec-2
 
 <!-- LINK LABEL DEFINITIONS - END -->

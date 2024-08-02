@@ -11,6 +11,4 @@ development processes.
 
 <!-- BEGIN LINK DEFINITIONS -->
 
-[^1]: <https://opensource.guide/best-practices/#write-down-your-projects-vision>
-
 <!-- END LINK DEFINITIONS -->
