@@ -37,9 +37,6 @@ Rules) _and_ our [Code of Conduct][coc].
 
 <!-- BEGIN LINK DEFINITIONS -->
 
-[^1]:
-    <https://help.github.com/en/github/building-a-strong-community/adding-support-resources-to-your-project>
-
 [coc]: ./CODE_OF_CONDUCT.md
 [`#off-topic` channel]: https://discord.gg/ACMjssFV
 [`#support` channel]: https://discord.gg/eZZtnHKN

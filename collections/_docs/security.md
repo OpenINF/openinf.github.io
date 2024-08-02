@@ -39,16 +39,13 @@ also hope to introduce a healthy manner of incentivizing reporting in the near t
   Doing this manually, however, can become tedious. It is advisable to use an
   automated dependency update tool that fits into your workflows, such as [Mend
   Renovate][] (also known as Renovatebot), which we are thankful to have as one of
-  our organization's trusted partners in automated dependency management.[^2] We
+  our organization's trusted partners in automated dependency management.[^1] We
   hope you, dearest reader, will soon join us in our journey to maintain our secure
   software ecosystems.
 
 <!-- BEGIN LINK DEFINITIONS -->
 
 [^1]:
-    <https://help.github.com/en/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository>
-
-[^2]:
     <https://www.mend.io/product-info/news/whitesource-renovate-users-now-rewarded-through-google-sponsored-openssf-program>
 
 [dual Maintainership]:
