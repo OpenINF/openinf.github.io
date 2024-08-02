@@ -80,13 +80,14 @@ your pull request merged:
 
 Contributions to this project are [released][contrib-license] to the public
 under the project’s open-source license(s). The license(s) for a project may be
-located within the [`LICENSE`][] folder in the root directory of the repository.
+located within the `LICENSE` folder in the root directory of the repository (and
+elsewhere).
 
 <!-- TODO: Guidance on SPDX corpus text files using `.txt` extension. -->
 
 ### Project Documentation
 
-The [`README.md`][] in the root of the repository should contain or link to
+The `README.md` in the root of the repository should contain or link to
 project documentation. If you cannot find the documentation you’re looking for,
 please file a GitHub issue with details of what you’d like to see documented.
 
@@ -105,7 +106,7 @@ on Twitter.
 ### Code of Conduct
 
 By participating in this project, you are expected to uphold our Code of
-Conduct. Please see the [`CODE_OF_CONDUCT.md`][] file for expected behavior.
+Conduct. Please see our Code of Conduct for expected behavior.
 
 ### Developer’s Certificate of Origin 1.1
 
@@ -132,7 +133,7 @@ By making a contribution to this project, I certify that:
 
 ### Reporting Security Issues
 
-Please see the [`SECURITY.md`][] file.
+Please see the OpenINF Security Policies.
 
 ### Attribution
 
@@ -140,33 +141,23 @@ Please see the [`SECURITY.md`][] file.
 
 <!-- BEGIN LINK DEFINITIONS -->
 
-[`CODE_OF_CONDUCT.md`]:
-  ./CODE_OF_CONDUCT.md
-  'Standards for how to engage with the project community'
-[`LICENSE`]:
-  ./LICENSE
-  'The open source software license(s) associated with this project'
-[`README.md`]: ./README.md 'The landing/home page of this project'
-[`SECURITY.md`]:
-  ./SECURITY.md
-  'Instructions on how to report security vulnerabilities for this project'
 [contrib-license]:
-  https://help.github.com/articles/github-terms-of-service/#6-contributions-under-repository-license
+  <https://help.github.com/articles/github-terms-of-service/#6-contributions-under-repository-license>
 [draft pull request]:
-  https://help.github.com/en/articles/about-pull-requests#draft-pull-requests
-[early and often]: https://www.worklytics.co/blog/commit-early-push-often/
+  <https://help.github.com/en/articles/about-pull-requests#draft-pull-requests>
+[early and often]: <https://www.worklytics.co/blog/commit-early-push-often/>
 [good commit message]:
-  http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+  <http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html>
 [i-gfi]:
-  https://github.com/search?q=org%3Aopeninf+is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
+  <https://github.com/search?q=org%3Aopeninf+is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22>
 [i-help]:
-  https://github.com/search?q=org%3Aopeninf+is%3Aissue+is%3Aopen+label%3A%22help+wanted%22
-[twitter-account]: https://twitter.com/OpenINF
+  <https://github.com/search?q=org%3Aopeninf+is%3Aissue+is%3Aopen+label%3A%22help+wanted%22>
+[twitter-account]: <https://twitter.com/OpenINF>
 [GitHub issue]:
-  http://help.github.com/en/github/managing-your-work-on-github/creating-an-issue
+  <http://help.github.com/en/github/managing-your-work-on-github/creating-an-issue>
 [pr-help]:
-  https://github.com/search?q=org%3Aopeninf+is%3Apr+is%3Aopen+label%3A%22help+wanted%22
+  <https://github.com/search?q=org%3Aopeninf+is%3Apr+is%3Aopen+label%3A%22help+wanted%22>
 [pull request]:
-  https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request
+  <https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request>
 
 <!-- END LINK DEFINITIONS -->
