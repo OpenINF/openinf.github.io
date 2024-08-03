@@ -19,7 +19,7 @@ let exitCode = 0;
 const scripts = [
   `prettier --check ${MarkdownFiles.join(' ')}`,
   `markdownlint-cli2 ${MarkdownFiles.join(' ')}`,
-  `remark ${MarkdownFiles.join(' ')}`,
+  `remark -f ${MarkdownFiles.join(' ')}`,
   `cspell lint ${MarkdownFiles.join(' ')}`,
 ];
 
