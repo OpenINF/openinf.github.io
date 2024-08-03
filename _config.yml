@@ -10,7 +10,6 @@ github_username: OpenINF
 repository: OpenINF/open.inf.is
 
 # Site build settings.
-markdown: kramdown
 plugins:
   - jekyll-redirect-from
   - jekyll-relative-links
