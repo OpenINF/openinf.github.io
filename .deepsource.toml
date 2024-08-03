@@ -27,7 +27,4 @@ name = "docker"
 dockerfile_paths = [".devcontainer/experimental/Dockerfile"]
 
 [[transformers]]
-name = "prettier"
-
-[[transformers]]
 name = "rubocop"
