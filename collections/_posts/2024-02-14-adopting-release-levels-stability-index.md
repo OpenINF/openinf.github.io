@@ -45,7 +45,8 @@ modifications occur. An Experimental feature may require a command-line flag or
 environment variable setting to enable it to help avoid surprises. Experimental
 features may also emit a warning.
 
-_Portion above cross-posted; derived of model: [Node.js Core Stability index][]._
+_Portion above cross-posted; derived of model: [Node.js Core Stability
+index][]._
 
 <br /><br />
 
