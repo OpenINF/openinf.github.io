@@ -4,17 +4,26 @@
 
 @import 'bourbon/bourbon';
 
-// Functions
-@import 'functions';
+@import 'bootstrap/functions';
+@import 'bootstrap/variables';
+@import 'bootstrap/variables-dark';
+@import 'bootstrap/maps';
+
+@import 'bootstrap/vendor/rfs';
 
 // Core variables and mixins
 @import 'custom';
 @import 'bootstrap/mixins';
+// @import 'bootstrap/mixins/breakpoints';
+// @import 'bootstrap/mixins/container';
+// @import 'bootstrap/mixins/grid';
+// @import 'bootstrap/mixins/utilities';
 
 // Core CSS
 @import 'bootstrap/reboot';
 @import 'bootstrap/type';
-// @import 'bootstrap/grid';
+@import 'bootstrap/containers';
+@import 'bootstrap/grid';
 
 // Components
 @import 'header';
@@ -24,47 +33,88 @@
 @import 'footer';
 
 // Utility classes
-// @import 'bootstrap/utilities';
+@import 'bootstrap/utilities';
+// Only use the utilities we need
+// stylelint-disable-next-line scss/dollar-variable-default
+$utilities: map-get-multiple(
+  $utilities,
+  (
+    'display',
+    'order',
+    'flex',
+    'flex-direction',
+    'flex-grow',
+    'flex-shrink',
+    'flex-wrap',
+    'justify-content',
+    'align-items',
+    'align-content',
+    'align-self',
+    'margin',
+    'margin-x',
+    'margin-y',
+    'margin-top',
+    'margin-end',
+    'margin-bottom',
+    'margin-start',
+    'negative-margin',
+    'negative-margin-x',
+    'negative-margin-y',
+    'negative-margin-top',
+    'negative-margin-end',
+    'negative-margin-bottom',
+    'negative-margin-start',
+    'padding',
+    'padding-x',
+    'padding-y',
+    'padding-top',
+    'padding-end',
+    'padding-bottom',
+    'padding-start'
+  )
+);
 
-// body {
-//   padding-top: 60px;
-// }
+@import 'bootstrap/utilities/api';
 
-// h2 {
-//   font-weight: 300;
-//   text-transform: uppercase;
-// }
+body {
+  padding-top: 60px;
+}
 
-// .page-heading {
-//   margin-bottom: 24px;
-// }
+h2 {
+  font-weight: 300;
+  text-transform: uppercase;
+}
 
-// .subtitle {
-//   margin-bottom: $headings-margin-bottom;
-//   font-size: $font-size-h5;
-// }
+.page-heading {
+  margin-bottom: 24px;
+}
 
-// .content {
-//   padding: 2rem 0;
-//   background-color: $brand-foreground;
-// }
+.subtitle {
+  margin-bottom: $headings-margin-bottom;
+  font-size: $h5-font-size;
+}
 
-// .firstcharacter {
-//   float: left;
-//   padding-top: 4px;
-//   padding-right: 8px;
-//   padding-left: 3px;
-//   font-size: 5.4rem;
-//   line-height: 0.75;
-//   color: $brand-primary;
-// }
+.content {
+  padding: 2rem 0;
+  background-color: $brand-foreground;
+}
 
-// .dropcapped {
-//   text-indent: 0;
-// }
+.firstcharacter {
+  float: left;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-left: 3px;
+  font-size: 5.4rem;
+  line-height: 0.75;
+  color: $brand-primary;
+}
 
-// ol,
-// ul,
-// dl {
-//   padding-left: 2ch;
-// }
+.dropcapped {
+  text-indent: 0;
+}
+
+ol,
+ul,
+dl {
+  padding-left: 2ch;
+}
