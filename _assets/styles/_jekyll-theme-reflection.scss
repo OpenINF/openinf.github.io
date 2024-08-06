@@ -12,8 +12,9 @@
 @import 'bootstrap/vendor/rfs';
 
 // Core variables and mixins
-@import 'custom';
 @import 'bootstrap/mixins';
+@import 'bootstrap/root';
+@import 'custom';
 
 // Core CSS
 @import 'bootstrap/reboot';
@@ -71,7 +72,6 @@ $utilities: map-get-multiple(
 );
 
 @import 'bootstrap/utilities/api';
-
 
 main > .container {
   padding-top: 60px;
