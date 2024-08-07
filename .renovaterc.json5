@@ -20,7 +20,7 @@
   lockFileMaintenance: {
     enabled: true,
   },
-  platformCommit: true,
+  platformCommit: "enabled",
   rangeStrategy: "pin",
   semanticCommits: "enabled",
   commitMessageAction: "bump",
