@@ -4,14 +4,11 @@
 
 @import 'bourbon/bourbon';
 
+// Configuration
 @import 'bootstrap/functions';
 @import 'bootstrap/variables';
 @import 'bootstrap/variables-dark';
 @import 'bootstrap/maps';
-
-@import 'bootstrap/vendor/rfs';
-
-// Core variables and mixins
 @import 'bootstrap/mixins';
 @import 'bootstrap/root';
 @import 'custom';
@@ -21,58 +18,22 @@
 @import 'bootstrap/type';
 @import 'bootstrap/containers';
 @import 'bootstrap/grid';
+@import 'bootstrap/vendor/rfs';
 
-// Components
+// Layout & components
 @import 'header';
 @import 'search';
 @import 'nav';
 @import 'outro';
 @import 'footer';
 
+// Helpers
+@import 'bootstrap/helpers';
+
 // Utility classes
 @import 'bootstrap/utilities';
-// Only use the utilities we need
-// stylelint-disable-next-line scss/dollar-variable-default
-$utilities: map-get-multiple(
-  $utilities,
-  (
-    'display',
-    'order',
-    'flex',
-    'flex-direction',
-    'flex-grow',
-    'flex-shrink',
-    'flex-wrap',
-    'justify-content',
-    'align-items',
-    'align-content',
-    'align-self',
-    'margin',
-    'margin-x',
-    'margin-y',
-    'margin-top',
-    'margin-end',
-    'margin-bottom',
-    'margin-start',
-    'negative-margin',
-    'negative-margin-x',
-    'negative-margin-y',
-    'negative-margin-top',
-    'negative-margin-end',
-    'negative-margin-bottom',
-    'negative-margin-start',
-    'padding',
-    'padding-x',
-    'padding-y',
-    'padding-top',
-    'padding-end',
-    'padding-bottom',
-    'padding-start'
-  )
-);
-
 @import 'bootstrap/utilities/api';
 
 main > .container {
-  padding-top: 60px;
+  padding: 60px 15px 0;
 }
