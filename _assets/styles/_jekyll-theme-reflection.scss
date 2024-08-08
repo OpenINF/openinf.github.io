@@ -23,7 +23,9 @@
 // Layout & components
 @import 'header';
 @import 'search';
-@import 'nav';
+@import 'bootstrap/buttons';
+@import 'bootstrap/nav';
+@import 'bootstrap/navbar';
 @import 'outro';
 @import 'footer';
 
@@ -36,4 +38,8 @@
 
 main > .container {
   padding: 60px 15px 0;
+}
+
+.navbar-brand svg {
+  height: 48px;
 }
