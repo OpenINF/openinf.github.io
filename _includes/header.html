@@ -19,41 +19,15 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a
-              class="nav-link{% if page.class == 'home' %} active{% endif %}"
-              href="{{ site.baseurl }}/"
-              >Home</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link{% if page.class == 'blog' %} active{% endif %}"
-              href="{{ site.baseurl }}/blog"
-              >Blog</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link{% if page.class == 'docs' %} active{% endif %}"
-              href="{{ site.baseurl }}/docs/"
-              >Docs</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link{% if page.class == 'about' %} active{% endif %}"
-              href="{{ site.baseurl }}/about"
-              >About</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link{% if page.class == 'contact' %} active{% endif %}"
-              href="{{ site.baseurl }}/contact"
-              >Contact</a
-            >
-          </li>
+          {% for link in site.data.menu %}
+            <li class="nav-item">
+              <a
+                class="nav-link{% if page.body_classes contains link.class %} active{% endif %}"
+                href="{{ site.baseurl }}/{{ link.permalink }}">
+                {{ link.text }}
+              </a>
+            </li>
+          {% endfor %}
         </ul>
         <form
           class="d-flex"
