@@ -4,47 +4,53 @@
       <a class="navbar-brand" href="{{ site.baseurl }}">
         {% include assets/img/svg/logogram.svg %}
       </a>
-
       <button
-        id="menu-button"
         class="navbar-toggler"
         type="button"
-        on="tap:sidebar.toggle"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarCollapse"
-        aria-controls="navbarCollapse"
-        aria-expanded="false"
         aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div
+        class="d-md-flex d-none">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           {% for link in site.data.menu %}
-            <li class="nav-item">
+            <li class="nav-item col-6">
               <a
-                class="nav-link{% if page.body_classes contains link.class %} active{% endif %}"
+                class="nav-link py-2 px-0 px-lg-2{% if page.body_classes contains link.class %} active{% endif %}"
                 href="{{ site.baseurl }}/{{ link.permalink }}">
                 {{ link.text }}
               </a>
             </li>
           {% endfor %}
         </ul>
-        <form
-          class="d-flex"
-          role="search"
-          target="_top"
-          action="https://google.com/search">
-          <input
-            class="form-control me-2"
-            name="q"
-            type="search"
-            placeholder="Search"
-            aria-label="Search">
-          <button class="btn btn-outline-success" type="submit" tabindex="-1">
-            Search
-          </button>
-        </form>
       </div>
     </div>
   </nav>
 </header>
+<bento-sidebar
+  id="sidebar"
+  class="site-sidebar"
+  side="right"
+  layout="nodisplay">
+  <nav class="site-nav" role="navigation" aria-label="Main menu">
+    <div class="site-nav-toggle-wrapper">
+      <button
+        class="navbar-toggler"
+        type="button"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+      {% for link in site.data.menu %}
+        <li class="nav-item">
+          <a
+            class="nav-link{% if page.body_classes contains link.class %} active{% endif %}"
+            href="{{ site.baseurl }}/{{ link.permalink }}">
+            {{ link.text }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</bento-sidebar>

@@ -20,3 +20,17 @@
     <span>&copy; The OpenINF Authors &amp; Friends</span>
   </div>
 </footer>
+<script>
+  (async () => {
+    const sidebar = document.querySelector('#sidebar');
+    await customElements.whenDefined('bento-sidebar');
+    const api = await sidebar.getApi();
+
+    // set up button actions
+    const matches = document.querySelectorAll('.navbar-toggler');
+
+    matches.forEach((match) => {
+      match.onclick = () => api.toggle(0);
+    });
+  })();
+</script>
