@@ -1268,8 +1268,8 @@ packages:
     resolution: {integrity: sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==}
     engines: {node: '>= 10'}
 
-  comment-json@4.2.4:
-    resolution: {integrity: sha512-E5AjpSW+O+N5T2GsOQMHLLsJvrYw6G/AFt9GvU6NguEAfzKShh7hRiLtVo6S9KbRpFMGqE5ojo0/hE+sdteWvQ==}
+  comment-json@4.2.5:
+    resolution: {integrity: sha512-bKw/r35jR3HGt5PEPm1ljsQQGyCrR8sFGNiN5L+ykDHdpO8Smxkrkla9Yi6NkQyUrb8V54PGhfMs6NrIwtxtdw==}
     engines: {node: '>= 6'}
 
   common-tags@1.8.2:
@@ -4876,7 +4876,7 @@ snapshots:
 
   commander@7.2.0: {}
 
-  comment-json@4.2.4:
+  comment-json@4.2.5:
     dependencies:
       array-timsort: 1.0.3
       core-util-is: 1.0.3
@@ -4924,7 +4924,7 @@ snapshots:
   cspell-config-lib@8.13.2:
     dependencies:
       '@cspell/cspell-types': 8.13.2
-      comment-json: 4.2.4
+      comment-json: 4.2.5
       yaml: 2.5.0
 
   cspell-dictionary@8.13.2:
@@ -4966,7 +4966,7 @@ snapshots:
       '@cspell/strong-weak-map': 8.13.2
       '@cspell/url': 8.13.2
       clear-module: 4.1.2
-      comment-json: 4.2.4
+      comment-json: 4.2.5
       cspell-config-lib: 8.13.2
       cspell-dictionary: 8.13.2
       cspell-glob: 8.13.2

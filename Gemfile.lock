@@ -80,7 +80,7 @@ GEM
     logger (1.6.0)
     mercenary (0.4.0)
     minitest (5.24.1)
-    parallel (1.26.1)
+    parallel (1.26.2)
     parser (3.3.4.2)
       ast (~> 2.4.1)
       racc
@@ -95,7 +95,7 @@ GEM
     rb-inotify (0.11.1)
       ffi (~> 1.0)
     regexp_parser (2.9.2)
-    rexml (3.3.4)
+    rexml (3.3.5)
       strscan
     rouge (4.3.0)
     rubocop (1.65.1)
