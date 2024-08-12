@@ -142,4 +142,5 @@ exclude:
   - pnpm-lock.yaml
   - project-terms.txt
   - tools/
+  - tsconfig.json
   - vendor/
