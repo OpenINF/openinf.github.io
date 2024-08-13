@@ -12,8 +12,8 @@ importers:
         specifier: 1.8.3
         version: 1.8.3
       '@devcontainers/cli':
-        specifier: 0.67.0
-        version: 0.67.0
+        specifier: 0.68.0
+        version: 0.68.0
       '@isaacs/catcher':
         specifier: 1.0.4
         version: 1.0.4
@@ -555,8 +555,8 @@ packages:
     peerDependencies:
       postcss-selector-parser: ^6.0.13
 
-  '@devcontainers/cli@0.67.0':
-    resolution: {integrity: sha512-ka9MuiaM4j/OTP/sL9sSkC/kNJ6EBlcQyvZqiYe0dF4KlI3tPioZHdnf9SxM+XibQTBmAVZ+YIEIXKYlDFuHBQ==}
+  '@devcontainers/cli@0.68.0':
+    resolution: {integrity: sha512-0uhLUUrQpR5d+6y8bt5kcn30BBemD+WJ1oLQyI6RUNpUkedrlMyAzN3J19PElx7jbY54x8WQRu450JiDLumYmw==}
     engines: {node: ^16.13.0 || >=18.0.0}
     hasBin: true
 
@@ -4203,7 +4203,7 @@ snapshots:
     dependencies:
       postcss-selector-parser: 6.1.2
 
-  '@devcontainers/cli@0.67.0': {}
+  '@devcontainers/cli@0.68.0': {}
 
   '@dprint/darwin-arm64@0.47.2':
     optional: true
