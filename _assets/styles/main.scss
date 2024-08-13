@@ -1,10 +1,9 @@
-
 // Functions first.
 @import '../../vendor/bundle/ruby/3.3.0/gems/bourbon-7.3.0/core/bourbon';
 @import '../../node_modules/bootstrap/scss/functions';
 
 // Bootstrap variable overrides & custom theme variables.
-@import 'jekyll-theme-reflection';
+@import 'jekyll-theme-sublime';
 
 // Bootstrap configuration.
 @import '../../node_modules/bootstrap/scss/variables';
@@ -22,14 +21,13 @@
 @import '../../node_modules/bootstrap/scss/utilities/api';
 
 // Layout & bespoke theme components.
-@import 'header';
+// @import 'header';
 @import '../../node_modules/bootstrap/scss/buttons';
 @import '../../node_modules/bootstrap/scss/nav';
 // @import 'nav';
 @import '../../node_modules/bootstrap/scss/navbar';
-@import 'outro';
-@import 'footer';
+// @import 'outro';
+// @import 'footer';
 
 // Miscellaneous custom styles.
 @import 'custom';
-
