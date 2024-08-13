@@ -1,7 +1,15 @@
-$brand-primary: $primary;
-$brand-secondary: $secondary;
-$brand-foreground: $primary-text-emphasis;
+//
+// Custom Styles
+//
 
-$navbar-brand-padding-y: $spacer;
+body {
+  background-color: #e7e7d6;
+}
 
-$footer-foreground: rgba($body-color, 0.5);
+main > .container {
+  padding: 60px 15px 0;
+}
+
+.navbar-brand svg {
+  height: 48px;
+}

@@ -1,8 +1,8 @@
-<header>
+<header class="header">
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="{{ site.baseurl }}">
-        {% include assets/img/svg/logogram.svg %}
+        {% include assets/img/svg/logogram-color.svg %}
       </a>
       <button
         class="navbar-toggler"
@@ -14,9 +14,9 @@
         class="d-md-flex d-none">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           {% for link in site.data.menu %}
-            <li class="nav-item col-6">
+            <li class="nav-item">
               <a
-                class="nav-link py-2 px-0 px-lg-2{% if page.body_classes contains link.class %} active{% endif %}"
+                class="nav-link{% if page.body_classes contains link.class %} active{% endif %}"
                 href="{{ site.baseurl }}/{{ link.permalink }}">
                 {{ link.text }}
               </a>

@@ -56,25 +56,10 @@
     margin-right: 1rem;
     font-size: 0;
 
-    svg {
-      width: auto;
-      height: 36px;
-
-      path,
-      polygon,
-      rect {
-        fill: $brand-foreground;
-      }
-    }
-
     @include media-breakpoint-only(sm) {
       margin-right: 0;
       margin-left: -1.5rem;
     }
-
-    // @include hover-focus {
-    //   text-decoration: none;
-    // }
 
     > img {
       display: block;
@@ -186,7 +171,7 @@
   }
 }
 
-amp-sidebar .hamburger {
+bento-sidebar .hamburger {
   position: absolute;
   top: 0.625rem;
   right: 1.125rem;
