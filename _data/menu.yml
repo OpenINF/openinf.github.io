@@ -14,6 +14,6 @@
   permalink: about
   class: about
 
-- text: Contact
-  permalink: contact
-  class: contact
+- text: Collections
+  permalink: collections
+  class: collections
