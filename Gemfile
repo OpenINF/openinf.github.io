@@ -17,7 +17,6 @@ group :jekyll_plugins do
   # gem "jekyll-auto-authors"
 end
 
-gem "bourbon"
 gem "webrick"
 
 # Fix for https://github.com/github/pages-gem/issues/399.
