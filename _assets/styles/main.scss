@@ -11,14 +11,6 @@
 @import '../../node_modules/bootstrap/scss/mixins';
 @import '../../node_modules/bootstrap/scss/root';
 
-// Optional Bootstrap components (core styles).
-@import '../../node_modules/bootstrap/scss/utilities';
-@import '../../node_modules/bootstrap/scss/reboot';
-@import '../../node_modules/bootstrap/scss/containers';
-@import '../../node_modules/bootstrap/scss/grid';
-@import '../../node_modules/bootstrap/scss/helpers';
-@import '../../node_modules/bootstrap/scss/utilities/api';
-
 // Layout & bespoke theme components.
 // @import 'header';
 @import '../../node_modules/bootstrap/scss/buttons';
@@ -27,6 +19,14 @@
 @import '../../node_modules/bootstrap/scss/navbar';
 // @import 'outro';
 // @import 'footer';
+
+// Optional Bootstrap components (core styles).
+@import '../../node_modules/bootstrap/scss/utilities';
+@import '../../node_modules/bootstrap/scss/reboot';
+@import '../../node_modules/bootstrap/scss/containers';
+@import '../../node_modules/bootstrap/scss/grid';
+@import '../../node_modules/bootstrap/scss/helpers';
+@import '../../node_modules/bootstrap/scss/utilities/api';
 
 // Miscellaneous custom styles.
 @import 'custom';
