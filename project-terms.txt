@@ -2,6 +2,7 @@ Anson
 autofix
 bento
 biomejs
+browserslistrc
 btwx
 changelog
 code.visualstudio.com

@@ -39,7 +39,7 @@ jobs:
             css:
               - '**/*.css'
             browserslist:
-              - '.browserslist'
+              - '.browserslistrc'
             dockerfile:
               - '**/Dockerfile'
             html:
