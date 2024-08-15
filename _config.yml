@@ -37,8 +37,8 @@ defaults:
       type: pages
     values:
       ##
-      # @see https://github.com/OpenINF/open.inf.is/blob/HEAD/_layouts/default.html
-      layout: default
+      # @see https://github.com/OpenINF/open.inf.is/blob/HEAD/_layouts/page.html
+      layout: page
       locale: en
   - scope:
       path: _docs

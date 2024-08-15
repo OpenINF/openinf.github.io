@@ -127,6 +127,7 @@ for (const value of healthFiles) {
       siteifyFile(value, 'collections/_pages', {
         title: 'OpenINF Vision',
         permalink: '/about/vision',
+        layout: 'deep-page',
       });
       break;
     default:

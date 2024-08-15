@@ -1,55 +1,56 @@
-<header class="header fixed navbar">
-  <div class="container">
-    <div class="nav-container">
-      <!--
-        <a class="navbar-brand" href="{{ site.baseurl }}/">
-          {% include assets/img/svg/logogram.svg %}
-        </a>
-      -->
-      <div class="right alt">
-        <a
-          class="tab desktop {% if page.class == 'home' %}is-active{% endif %}"
-          href="{{ site.baseurl }}/"
-          >Home</a
-        >
-        <a
-          class="tab desktop {% if page.class == 'blog' %}is-active{% endif %}"
-          href="{{ site.baseurl }}/blog/"
-          >Blog</a
-        >
-        <a
-          class="tab desktop {% if page.class == 'blog' %}is-active{% endif %}"
-          href="{{ site.baseurl }}/docs/"
-          >Docs</a
-        >
-        <a
-          class="tab desktop {% if page.class == 'about' %}is-active{% endif %}"
-          href="{{ site.baseurl }}/about/"
-          >About</a
-        >
-        <a
-          class="tab desktop {% if page.class == 'contact' %}is-active{% endif %}"
-          href="{{ site.baseurl }}/contact/"
-          >Contact</a
-        >
-        <button
-          class="tab hamburger"
-          id="menu-button"
-          on="tap:sidebar.toggle"></button>
-        <div class="search">
-          <form
-            class="form-search"
-            target="_top"
-            action="https://google.com/search">
-            <input
-              type="search"
-              class="search-input"
-              name="q"
-              placeholder="Search">
-            <input type="submit" class="search-submit" tabindex="-1" value="">
-          </form>
-        </div>
+<header class="header">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{ site.baseurl }}">
+        {% include assets/img/svg/logogram-color.svg %}
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="d-md-flex d-none">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          {% for link in site.data.menu %}
+            <li class="nav-item">
+              <a
+                class="nav-link{% if page.body_classes contains link.class %} active{% endif %}"
+                href="{{ site.baseurl }}/{{ link.permalink }}">
+                {{ link.text }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
       </div>
     </div>
-  </div>
+  </nav>
 </header>
+<bento-sidebar
+  id="sidebar"
+  class="site-sidebar"
+  side="right"
+  layout="nodisplay">
+  <nav class="site-nav" role="navigation" aria-label="Main menu">
+    <div class="site-nav-toggle-wrapper">
+      <button
+        class="navbar-toggler"
+        type="button"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+      {% for link in site.data.menu %}
+        <li class="nav-item">
+          <a
+            class="nav-link{% if page.body_classes contains link.class %} active{% endif %}"
+            href="{{ site.baseurl }}/{{ link.permalink }}">
+            {{ link.text }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</bento-sidebar>

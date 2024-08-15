@@ -1,0 +1,19 @@
+- text: Home
+  permalink: ''
+  class: home
+
+- text: Blog
+  permalink: blog
+  class: blog
+
+- text: Docs
+  permalink: docs
+  class: docs
+
+- text: About
+  permalink: about
+  class: about
+
+- text: Collections
+  permalink: collections
+  class: collections
