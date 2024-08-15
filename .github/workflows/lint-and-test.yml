@@ -38,6 +38,8 @@ jobs:
           filters: |
             css:
               - '**/*.css'
+            browserslist:
+              - '.browserslist'
             dockerfile:
               - '**/Dockerfile'
             html:
@@ -68,6 +70,10 @@ jobs:
       - name: Verify CSS
         if: ${{ steps.filter.outputs.css == 'true' }}
         run: nps verify.css
+
+      - name: Verify Browserslist
+        if: ${{ steps.filter.outputs.browserslist == 'true' }}
+        run: nps verify.browserslist
 
       - name: Verify Dockerfile
         if: ${{ steps.filter.outputs.dockerfile == 'true' }}
