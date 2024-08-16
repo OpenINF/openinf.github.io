@@ -101,7 +101,7 @@
     "retext-syntax-mentions": "4.0.0",
     "retext-syntax-urls": "4.0.0",
     "strip-comments": "2.0.1",
-    "stylelint": "16.8.1",
+    "stylelint": "16.8.2",
     "stylelint-config-recess-order": "5.0.1",
     "stylelint-config-standard-scss": "13.1.0",
     "tsx": "4.17.0",
