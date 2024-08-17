@@ -18,7 +18,8 @@
 // @import 'nav';
 @import '../../node_modules/bootstrap/scss/navbar';
 // @import 'outro';
-// @import 'footer';
+@import 'footer';
+@import 'error';
 
 // Optional Bootstrap components (core styles).
 @import '../../node_modules/bootstrap/scss/utilities';
