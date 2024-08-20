@@ -1,20 +1,20 @@
 /* Additional error page styling */
 
 body.error {
-  font-family: 'Vibur', sans-serif;
+  font-family: Vibur, sans-serif;
   background-color: #16191d;
 }
 
 .error h1,
 .error h2 {
+  font-weight: 400;
   text-align: center;
   text-transform: uppercase;
-  font-weight: 400;
 }
 
 .error h1 {
-  font-size: 4.2rem;
   margin: 1.5em;
+  font-size: 4.2rem;
 }
 
 .error h2 {
