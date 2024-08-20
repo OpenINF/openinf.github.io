@@ -2,6 +2,7 @@
 
 main > .container {
   padding: 60px 15px 0;
+  max-width: 45ch;
 }
 
 .navbar-brand svg {
@@ -20,4 +21,17 @@ a:hover {
 :focus {
   outline: rgb(0 0 0 / 50%) solid 0.125rem;
   outline-offset: 0.125rem;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+h1::after {
+  content: '';
+  flex: 1;
+  border: 1px solid #a7978b;
+  margin-inline-start: 0.5rem;
 }
