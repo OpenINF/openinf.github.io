@@ -33,5 +33,5 @@ h1::after {
   flex: 1;
   margin-inline-start: 0.5rem;
   content: '';
-  border: 1px solid #a7978b;
+  border: 1px solid $tertiary;
 }
