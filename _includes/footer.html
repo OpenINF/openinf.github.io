@@ -1,25 +1,9 @@
-<footer class="footer mt-auto py-3 bg-body-tertiary">
-  <div class="container">
-    <span
-      >Suggestions and comments are welcome.<br>
-      Please
-      <a
-        href="https://github.com/OpenINF/open.inf.is/issues/new"
-        target="_blank"
-        rel="external nofollow noopener noreferrer"
-        >open an issue</a
-      >
-      in
-      <a
-        href="https://github.com/OpenINF/open.inf.is"
-        target="_blank"
-        rel="external nofollow noopener noreferrer"
-        >our site repository</a
-      >.</span
-    >
-    <span>&copy; The OpenINF Authors &amp; Friends</span>
-  </div>
+<footer class="py-3 mt-auto border-top bg-body-tertiary">
+  <p class="text-center text-body-secondary my-0">
+    &copy; {{ site.time | date: '%Y' }} The OpenINF Authors &amp; Friends
+  </p>
 </footer>
+
 <script>
   (async () => {
     const sidebar = document.querySelector('#sidebar');
