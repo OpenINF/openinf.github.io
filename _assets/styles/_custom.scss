@@ -1,8 +1,8 @@
 // Custom Styles
 
 main > .container {
-  padding: 60px 15px 0;
   max-width: 45ch;
+  padding: 60px 15px 0;
 }
 
 .navbar-brand svg {
@@ -30,8 +30,8 @@ h1 {
 }
 
 h1::after {
-  content: '';
   flex: 1;
-  border: 1px solid #a7978b;
   margin-inline-start: 0.5rem;
+  content: '';
+  border: 1px solid #a7978b;
 }
