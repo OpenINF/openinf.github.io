@@ -1,21 +1,10 @@
-//
 // Sublime Theme Variables
-//
 
 // Bootstrap Variable Overrides
 $primary: #089;
 $secondary: #e7dbda;
+$tertiary: #a7978b;
 $primary-text-emphasis: $primary;
 $spacer: 1rem;
 $body-color: #1d1916;
 $body-bg: #e7e7d6;
-
-// Custom Theme Variables
-
-$brand-primary: $primary;
-$brand-secondary: $secondary;
-$brand-foreground: $primary-text-emphasis;
-
-$navbar-brand-padding-y: $spacer;
-
-$footer-foreground: rgba($body-color, 0.5);
