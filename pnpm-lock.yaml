@@ -88,7 +88,7 @@ importers:
         version: 1.1.0
       gulp-postcss:
         specifier: 10.0.0
-        version: 10.0.0(postcss@8.4.41)(tsx@4.17.0)
+        version: 10.0.0(postcss@8.4.41)(tsx@4.18.0)
       gulp-rename:
         specifier: 2.0.0
         version: 2.0.0
@@ -261,8 +261,8 @@ importers:
         specifier: 13.1.0
         version: 13.1.0(postcss@8.4.41)(stylelint@16.8.2(typescript@5.5.4))
       tsx:
-        specifier: 4.17.0
-        version: 4.17.0
+        specifier: 4.18.0
+        version: 4.18.0
       typescript:
         specifier: 5.5.4
         version: 5.5.4
@@ -3672,8 +3672,8 @@ packages:
   tslib@2.6.3:
     resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
 
-  tsx@4.17.0:
-    resolution: {integrity: sha512-eN4mnDA5UMKDt4YZixo9tBioibaMBpoxBkD+rIPAjVmYERSG0/dWEY1CEFuV89CgASlKL499q8AhmkMnnjtOJg==}
+  tsx@4.18.0:
+    resolution: {integrity: sha512-a1jaKBSVQkd6yEc1/NI7G6yHFfefIcuf3QJST7ZEyn4oQnxLYrZR5uZAM8UrwUa3Ge8suiZHcNS1gNrEvmobqg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -5570,12 +5570,12 @@ snapshots:
       through2: 2.0.5
       vinyl-sourcemaps-apply: 0.2.1
 
-  gulp-postcss@10.0.0(postcss@8.4.41)(tsx@4.17.0):
+  gulp-postcss@10.0.0(postcss@8.4.41)(tsx@4.18.0):
     dependencies:
       fancy-log: 2.0.0
       plugin-error: 2.0.1
       postcss: 8.4.41
-      postcss-load-config: 5.1.0(postcss@8.4.41)(tsx@4.17.0)
+      postcss-load-config: 5.1.0(postcss@8.4.41)(tsx@4.18.0)
       vinyl-sourcemaps-apply: 0.2.1
     transitivePeerDependencies:
       - jiti
@@ -6870,13 +6870,13 @@ snapshots:
     dependencies:
       postcss: 8.4.41
 
-  postcss-load-config@5.1.0(postcss@8.4.41)(tsx@4.17.0):
+  postcss-load-config@5.1.0(postcss@8.4.41)(tsx@4.18.0):
     dependencies:
       lilconfig: 3.1.2
       yaml: 2.5.0
     optionalDependencies:
       postcss: 8.4.41
-      tsx: 4.17.0
+      tsx: 4.18.0
 
   postcss-media-query-parser@0.2.3: {}
 
@@ -8307,7 +8307,7 @@ snapshots:
 
   tslib@2.6.3: {}
 
-  tsx@4.17.0:
+  tsx@4.18.0:
     dependencies:
       esbuild: 0.23.1
       get-tsconfig: 4.7.6
