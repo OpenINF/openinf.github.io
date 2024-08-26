@@ -3,10 +3,10 @@
   "author": "The OpenINF Authors & Friends",
   "private": "true",
   "description": "The OpenINF portal, other static resources, and more static electricity",
-  "packageManager": "pnpm@9.8.0",
+  "packageManager": "pnpm@9.9.0",
   "engines": {
     "node": "20.17.0",
-    "pnpm": "9.8.0"
+    "pnpm": "9.9.0"
   },
   "exports": {
     "./build/constants": "./build/shared/constants.mjs",
@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
-    "@devcontainers/cli": "0.68.0",
+    "@devcontainers/cli": "0.69.0",
     "@isaacs/catcher": "1.0.4",
     "@openinf/gh-file-importer": "2.0.1",
     "@openinf/util-errors": "2.0.7",
