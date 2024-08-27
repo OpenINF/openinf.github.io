@@ -7,3 +7,17 @@
   display: flex;
   flex-direction: row-reverse;
 }
+
+bento-sidebar {
+  background-color: $secondary;
+
+  .nav-link {
+    line-height: 32px;
+    padding-left: 2rem;
+    border-left: 2px solid transparent;
+  }
+
+  .nav-link.active {
+    border-left-color: $primary;
+  }
+}

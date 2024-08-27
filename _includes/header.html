@@ -29,7 +29,6 @@
 </header>
 <bento-sidebar
   id="sidebar"
-  class="site-sidebar"
   side="right"
   layout="nodisplay">
   <nav class="navbar py-0" role="navigation" aria-label="Main menu">
@@ -41,7 +40,7 @@
         {% include assets/img/svg/sublime-theme/hamburger-primary.svg %}
       </button>
     </div>
-    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+    <ul class="navbar-nav me-auto mb-2 mb-md-0 w-100">
       {% for link in site.data.menu %}
         <li class="nav-item">
           <a
