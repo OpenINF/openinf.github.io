@@ -141,8 +141,10 @@ Recommended: `infuse dns group [global-flag ...]`
 In this example, the user can specify multiple instances of the optional
 parameter global-flag.
 
+<!-- prettier-ignore-start -->
 <!-- LINK DEFINITION LABELS - START -->
 
 [Explaining placeholders]: ./code-in-text.md#explaining-placeholders
 
 <!-- LINK DEFINITION LABELS - END -->
+<!-- prettier-ignore-end -->

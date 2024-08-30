@@ -1,15 +1,20 @@
-<footer>
-  <!--
-    <div class="grid-container">
-      <div class="grid-start">
-        <span>Suggestions and comments are welcome.<br />Please
-          <a href="https://github.com/OpenINF/open.inf.is/issues/new" target="_blank" rel="external nofollow noopener noreferrer">open an issue</a>
-          in
-          <a href="https://github.com/OpenINF/open.inf.is" target="_blank" rel="external nofollow noopener noreferrer">our site repository</a>.</span>
-      </div>
-      <div class="grid-end">
-        <span>&copy; The OpenINF Authors &amp; Friends</span>
-      </div>
-    </div>
-  -->
+<footer class="py-3 mt-auto">
+  <p class="text-center text-body-tertiary my-0">
+    &copy; {{ site.time | date: '%Y' }} The OpenINF Authors &amp; Friends
+  </p>
 </footer>
+
+<script>
+  (async () => {
+    const sidebar = document.querySelector('#sidebar');
+    await customElements.whenDefined('bento-sidebar');
+    const api = await sidebar.getApi();
+
+    // set up button actions
+    const matches = document.querySelectorAll('.navbar-toggler');
+
+    matches.forEach((match) => {
+      match.onclick = () => api.toggle(0);
+    });
+  })();
+</script>

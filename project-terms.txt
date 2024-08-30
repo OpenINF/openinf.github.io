@@ -1,10 +1,13 @@
 Anson
 autofix
+bento
 biomejs
+browserslistrc
 btwx
 changelog
 code.visualstudio.com
 codebase
+convos
 dereknongeneric
 devcontainer
 dorny
@@ -24,9 +27,11 @@ gpgsm
 gpgtunnel
 Grimes
 https
+incentivizing
 Irulen
 isaacs
 macOS
+Maintainership
 MSYS
 omakase
 openinf
@@ -38,6 +43,7 @@ outro
 pinentry
 PowerShell
 psusan
+Renovatebot
 rubocop
 screencap
 scssify

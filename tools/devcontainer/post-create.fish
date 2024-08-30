@@ -37,8 +37,6 @@ if test -e Gemfile
     gem update --system -N --no-document
     # Install Bundler.
     gem install bundler
-    # Configure Bundler setting local gem install path to avoid permission errors.
-    bundle config set --local path vendor/bundle
     # Install the dependencies specified in the Gemfile.
     bundle install
     # Ensure latest versions of Bundler's dependencies are installed.

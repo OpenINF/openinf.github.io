@@ -1,0 +1,27 @@
+/* Additional error page styling */
+
+.error h1,
+.error h2 {
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.error h1 {
+  display: inherit;
+  margin: 1.5em;
+  font-size: 4.2rem;
+}
+
+.error h1::after {
+  display: none;
+  margin-inline-start: 0;
+}
+
+.error h2 {
+  font-size: 1.8rem;
+}
+
+.error .container {
+  padding-top: 20vh;
+}

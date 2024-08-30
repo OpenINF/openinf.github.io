@@ -1,4 +1,30 @@
-@import 'jekyll-theme-reflection';
-$base-color: #a7978b;
+// Functions first.
+@import '../../node_modules/bootstrap/scss/functions';
 
-/*  */
+// Bootstrap variable overrides & custom theme variables.
+@import 'jekyll-theme-sublime';
+
+// Bootstrap configuration.
+@import '../../node_modules/bootstrap/scss/variables';
+@import '../../node_modules/bootstrap/scss/variables-dark';
+@import '../../node_modules/bootstrap/scss/maps';
+@import '../../node_modules/bootstrap/scss/mixins';
+@import '../../node_modules/bootstrap/scss/root';
+
+// Layout & bespoke theme components.
+@import '../../node_modules/bootstrap/scss/buttons';
+@import '../../node_modules/bootstrap/scss/nav';
+@import '../../node_modules/bootstrap/scss/navbar';
+@import 'error';
+@import 'nav';
+
+// Optional Bootstrap components (core styles).
+@import '../../node_modules/bootstrap/scss/utilities';
+@import '../../node_modules/bootstrap/scss/reboot';
+@import '../../node_modules/bootstrap/scss/containers';
+@import '../../node_modules/bootstrap/scss/grid';
+@import '../../node_modules/bootstrap/scss/helpers';
+@import '../../node_modules/bootstrap/scss/utilities/api';
+
+// Miscellaneous custom styles.
+@import 'custom';

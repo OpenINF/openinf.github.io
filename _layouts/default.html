@@ -1,5 +1,6 @@
 <!doctype html>
 <html
+  class="h-100"
   {% if page.locale.is_rtl %}
     dir="rtl" lang="ar"
   {% else %}
@@ -16,9 +17,7 @@
     vocab="http://schema.org/"
     typeof="WebPage"
     id="top"
-    {% if classes %}
-      class="{{- classes -}}"
-    {% endif %}>
+    class="d-flex flex-column h-100{% if classes %} {{ classes }}{% endif %}">
     {%- include header.html -%}
     {{- content -}}
     {%- include footer.html -%}

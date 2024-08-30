@@ -10,7 +10,6 @@ github_username: OpenINF
 repository: OpenINF/open.inf.is
 
 # Site build settings.
-markdown: kramdown
 plugins:
   - jekyll-redirect-from
   - jekyll-relative-links
@@ -38,8 +37,8 @@ defaults:
       type: pages
     values:
       ##
-      # @see https://github.com/OpenINF/open.inf.is/blob/HEAD/_layouts/default.html
-      layout: default
+      # @see https://github.com/OpenINF/open.inf.is/blob/HEAD/_layouts/page.html
+      layout: page
       locale: en
   - scope:
       path: _docs
@@ -126,6 +125,8 @@ pagination:
 
 # Exclude from processing.
 exclude:
+  - '**/LICENSE/**'
+  - '**/README.md'
   - AUTHORS
   - bin/
   - biome.jsonc
@@ -135,13 +136,11 @@ exclude:
   - dprint.json
   - Gemfile
   - Gemfile.lock
-  - LICENSE
   - node_modules/
   - package-scripts.yml
   - package.json
   - pnpm-lock.yaml
   - project-terms.txt
-  - README.md
-  - tmp/
   - tools/
+  - tsconfig.json
   - vendor/

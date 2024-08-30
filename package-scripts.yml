@@ -5,6 +5,7 @@ scripts:
     siteifyHealthFiles: tsx build/tasks/compile/siteify-health-files.mts
   verify:
     all: for i in build/tasks/verify/*.mts; do tsx "$i"; done
+    browserslist: tsx build/tasks/verify/verify-browserslist.mts
     css: tsx build/tasks/verify/verify-css.mts
     dockerfile: tsx build/tasks/verify/verify-dockerfile.mts
     html: tsx build/tasks/verify/verify-html.mts

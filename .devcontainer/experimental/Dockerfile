@@ -1,12 +1,6 @@
 FROM openinf/grimesai-salvage-tex:lunar
 
 ARG USERNAME=vscode
-ARG NPM_GLOBAL=/usr/local/share/npm-global
-
-# Add NPM global to PATH.
-ENV PATH=${NPM_GLOBAL}/bin:${PATH}
-
-ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 ARG UPGRADE_PACKAGES="true"
@@ -28,7 +22,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-USER vscode
+USER ${USERNAME}
 
 # ENV Variables required by Jekyll.
 ENV LANG=en_US.UTF-8 \

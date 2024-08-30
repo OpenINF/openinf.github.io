@@ -1,3 +1,6 @@
 {
-  "extends": "@tsconfig/node-lts/tsconfig.json"
+  "extends": "@tsconfig/node-lts/tsconfig.json",
+  "compilerOptions": {
+    "typeRoots": ["${configDir}/node_modules/@types"]
+  }
 }
