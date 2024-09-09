@@ -30,6 +30,7 @@ https
 incentivizing
 Irulen
 isaacs
+jekyllify
 macOS
 Maintainership
 MSYS

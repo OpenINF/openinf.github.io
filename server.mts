@@ -1,0 +1,28 @@
+/**
+ * @file Main serve task.
+ * @author The OpenINF Authors & Friends
+ * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
+ * @module {type ESModule} server
+ */
+
+import { PATHS } from '@openinf/portal/build/constants';
+import { jekyllify } from '@openinf/portal/build/tasks/jekyllify';
+import { scssify } from '@openinf/portal/build/tasks/scssify';
+import browserSync from 'browser-sync';
+import { series, watch } from 'gulp';
+
+browserSync.create();
+
+// Static Server + watching scss/html files.
+browserSync.init({
+  server: {
+    baseDir: PATHS.siteDir,
+    serveStaticOptions: {
+      extensions: ['html'],
+    },
+  },
+});
+
+watch(PATHS.sassFiles).on('change', scssify);
+watch(PATHS.jekyllCssFiles).on('change', jekyllify);
+watch(PATHS.siteCssFiles).on('change', browserSync.reload);

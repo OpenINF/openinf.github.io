@@ -1,5 +1,5 @@
 /**
- * @file Main build task; build portal.
+ * @file Main build task; build entire portal.
  * @author The OpenINF Authors & Friends
  * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
  * @module {type ES6Module} build/tasks/compile/build-portal
@@ -11,7 +11,7 @@ import { exec } from '@openinf/portal/build/utils';
 let exitCode = 0;
 
 const scripts = [
-  'nps compile.scssify',
+  'nps compile.buildStyles',
   'JEKYLL_ENV=production bundle exec jekyll build',
 ];
 

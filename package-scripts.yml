@@ -1,7 +1,7 @@
 scripts:
   compile:
     buildPortal: tsx build/tasks/compile/build-portal.mts
-    scssify: tsx build/tasks/compile/scssify.mts
+    buildStyles: tsx build/tasks/compile/build-styles.mts
     siteifyHealthFiles: tsx build/tasks/compile/siteify-health-files.mts
   verify:
     all: for i in build/tasks/verify/*.mts; do tsx "$i"; done
@@ -33,5 +33,5 @@ scripts:
     yaml: tsx build/tasks/format/format-yaml.mts
   build: nps compile.buildPortal
   test: nps verify.all
-  start: bundle exec jekyll serve --drafts --incremental --force_polling --livereload --baseurl=''
+  start: tsx server.mts
   default: nps start
