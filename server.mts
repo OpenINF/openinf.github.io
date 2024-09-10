@@ -19,9 +19,6 @@ browserSync.create();
 // Static Server + watching scss/html files.
 browserSync.init({
   server: {
-  // The static file server is based on expressjs/serve-static, so we inherit
-  // all their options, like trying a default extension when left unspecified.
-  // @see https://github.com/expressjs/serve-static
     baseDir: PATHS.siteDir,
     serveStaticOptions: {
       extensions: ['html'],
