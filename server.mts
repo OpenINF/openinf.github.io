@@ -19,7 +19,6 @@ await exec('nps compile.buildPortal');
 browserSync.create();
 const reload = browserSync.reload;
 
-// Static Server + watching scss/html files.
 browserSync.init({
   // The static file server is based on expressjs/serve-static, so we inherit
   // all their options, like trying a default extension when left unspecified.
