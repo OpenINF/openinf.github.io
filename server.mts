@@ -8,12 +8,13 @@
 import { PATHS } from '@openinf/portal/build/constants';
 import { jekyllify } from '@openinf/portal/build/tasks/jekyllify';
 import { scssify } from '@openinf/portal/build/tasks/scssify';
+import { exec } from '@openinf/portal/build/utils';
 import browserSync from 'browser-sync';
 import { watch } from 'gulp';
 
 // Perform the initial site build before launching the server to ensure an
 // up-to-date site is served even if already built.
-// TODO
+await exec('nps compile.buildPortal');
 
 browserSync.create();
 
