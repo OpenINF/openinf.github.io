@@ -33,15 +33,15 @@ browserSync.init({
 });
 
 // Watch style files, regenerate site, and reload browser on change.
-watch(PATHS.sassFiles, scssify);
-watch(PATHS.jekyllCssFiles, jekyllify);
-watch(PATHS.siteCssFiles, reload);
+watch(PATHS.sassFiles).on('change', scssify);
+watch(PATHS.jekyllCssFiles).on('change', jekyllify);
+watch(PATHS.siteCssFiles).on('change', reload);
 
 // Watch Jekyll files, regenerate site, and reload browser on change.
-watch(PATHS.jekyllDataFilesGlob, series(jekyllify, reload));
-watch(PATHS.jekyllDraftFilesGlob, series(jekyllify, reload));
-watch(PATHS.jekyllImageFilesGlob, series(jekyllify, reload));
-watch(PATHS.jekyllIncludesFilesGlob, series(jekyllify, reload));
-watch(PATHS.jekyllLayoutsFilesGlob, series(jekyllify, reload));
-watch(PATHS.jekyllPluginsFilesGlob, series(jekyllify, reload));
-watch(PATHS.jekyllPostFilesGlob, series(jekyllify, reload));
+watch(PATHS.jekyllDataFilesGlob).on('change', series(jekyllify, reload));
+watch(PATHS.jekyllDraftFilesGlob).on('change', series(jekyllify, reload));
+watch(PATHS.jekyllImageFilesGlob).on('change', series(jekyllify, reload));
+watch(PATHS.jekyllIncludesFilesGlob).on('change', series(jekyllify, reload));
+watch(PATHS.jekyllLayoutsFilesGlob).on('change', series(jekyllify, reload));
+watch(PATHS.jekyllPluginsFilesGlob).on('change', series(jekyllify, reload));
+watch(PATHS.jekyllPostFilesGlob).on('change', series(jekyllify, reload));
