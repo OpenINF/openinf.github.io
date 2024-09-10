@@ -17,14 +17,9 @@ group :jekyll_plugins do
   # gem "jekyll-auto-authors"
 end
 
-gem "webrick"
-
 # Fix for https://github.com/github/pages-gem/issues/399.
 gem "dotenv"
 
 gem "rb-inotify"
 
-# Dig out bundled core deps as we prep to begin Ruby 3.4.0 support.
 gem "csv"
-gem "base64"
-gem "bigdecimal"

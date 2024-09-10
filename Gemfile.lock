@@ -139,8 +139,6 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  base64
-  bigdecimal
   csv
   dotenv
   jekyll
@@ -153,7 +151,6 @@ DEPENDENCIES
   rb-inotify
   rubocop
   rubocop-rails-omakase
-  webrick
 
 BUNDLED WITH
    2.5.18
