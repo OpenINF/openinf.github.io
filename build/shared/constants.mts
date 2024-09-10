@@ -31,6 +31,7 @@ PATHS.imageFiles = PATHS.assetsDir + PATHS.imageFolder;
 PATHS.fontFiles = PATHS.assetsDir + PATHS.fontFolder;
 
 // Jekyll files locations.
+PATHS.jekyllDataFiles = PATHS.jekyllDir + PATHS.dataFolder;
 PATHS.jekyllDraftFiles =
   PATHS.jekyllDir + PATHS.jekyllCollectionsDir + PATHS.draftsFolder;
 PATHS.jekyllPostFiles =
@@ -55,12 +56,12 @@ PATHS.markdownPattern = '/**/*.md';
 PATHS.htmlPattern = '/**/*.html';
 
 // Asset files globs.
-PATHS.dataFilesGlob = PATHS.dataFolder + PATHS.dataPattern;
 PATHS.sassFilesGlob = PATHS.sassFiles + PATHS.sassPattern;
 PATHS.jsFilesGlob = PATHS.jsFiles + PATHS.jsPattern;
 PATHS.imageFilesGlob = PATHS.imageFiles + PATHS.imagePattern;
 
 // Jekyll files globs.
+PATHS.jekyllDataFilesGlob = PATHS.jekyllDataFiles + PATHS.dataPattern;
 PATHS.jekyllDraftFilesGlob = PATHS.jekyllDraftFiles + PATHS.markdownPattern;
 PATHS.jekyllPostFilesGlob = PATHS.jekyllPostFiles + PATHS.markdownPattern;
 PATHS.jekyllHtmlFilesGlob = PATHS.jekyllDir + PATHS.htmlPattern;

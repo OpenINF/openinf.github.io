@@ -15,6 +15,7 @@ dprint
 ecrc
 esbenp
 esmodules
+expressjs
 fontvault
 freenode
 GFIs
