@@ -18,9 +18,12 @@ PATHS.siteAssetsDir = '_site/assets/'; // The resulting static site's assets.
 // Folder naming conventions.
 PATHS.dataFolder = '_data';
 PATHS.draftsFolder = '_drafts';
-PATHS.postFolder = '_posts';
 PATHS.fontFolder = 'fonts';
 PATHS.imageFolder = 'img';
+PATHS.includesFolder = '_includes';
+PATHS.layoutsFolder = '_layouts;';
+PATHS.pluginsFolder = '_plugins';
+PATHS.postFolder = '_posts';
 PATHS.scriptFolder = 'js';
 PATHS.stylesFolder = 'styles';
 
@@ -49,11 +52,12 @@ PATHS.siteFontFiles = PATHS.siteAssetsDir + PATHS.fontFolder;
 
 // Glob patterns by file type.
 PATHS.dataPattern = '/**/*.yml';
-PATHS.sassPattern = '/**/*.scss';
-PATHS.jsPattern = '/**/*.js';
-PATHS.imagePattern = '/**/*.svg';
-PATHS.markdownPattern = '/**/*.md';
 PATHS.htmlPattern = '/**/*.html';
+PATHS.imagePattern = '/**/*.svg';
+PATHS.jsPattern = '/**/*.js';
+PATHS.markdownPattern = '/**/*.md';
+PATHS.rubyPattern = '/**/*.rb';
+PATHS.sassPattern = '/**/*.scss';
 
 // Asset files globs.
 PATHS.sassFilesGlob = PATHS.sassFiles + PATHS.sassPattern;
@@ -63,8 +67,13 @@ PATHS.imageFilesGlob = PATHS.imageFiles + PATHS.imagePattern;
 // Jekyll files globs.
 PATHS.jekyllDataFilesGlob = PATHS.jekyllDataFiles + PATHS.dataPattern;
 PATHS.jekyllDraftFilesGlob = PATHS.jekyllDraftFiles + PATHS.markdownPattern;
+PATHS.jekyllIncludesFilesGlob =
+  PATHS.jekyllDir + PATHS.includesFolder + PATHS.htmlPattern;
+PATHS.jekyllLayoutsFilesGlob =
+  PATHS.jekyllDir + PATHS.layoutsFolder + PATHS.htmlPattern;
+PATHS.jekyllPluginsFilesGlob =
+  PATHS.jekyllDir + PATHS.pluginsFolder + PATHS.rubyPattern;
 PATHS.jekyllPostFilesGlob = PATHS.jekyllPostFiles + PATHS.markdownPattern;
-PATHS.jekyllHtmlFilesGlob = PATHS.jekyllDir + PATHS.htmlPattern;
 PATHS.jekyllImageFilesGlob = PATHS.jekyllImageFiles + PATHS.imagePattern;
 
 // Site files globs.

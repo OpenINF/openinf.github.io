@@ -40,6 +40,8 @@ watch(PATHS.siteCssFiles, reload);
 // Watch Jekyll files, regenerate site, and reload browser on change.
 watch(PATHS.jekyllDataFilesGlob, series(jekyllify, reload));
 watch(PATHS.jekyllDraftFilesGlob, series(jekyllify, reload));
-watch(PATHS.jekyllPostFilesGlob, series(jekyllify, reload));
-watch(PATHS.jekyllHtmlFilesGlob, series(jekyllify, reload));
 watch(PATHS.jekyllImageFilesGlob, series(jekyllify, reload));
+watch(PATHS.jekyllIncludesFilesGlob, series(jekyllify, reload));
+watch(PATHS.jekyllLayoutsFilesGlob, series(jekyllify, reload));
+watch(PATHS.jekyllPluginsFilesGlob, series(jekyllify, reload));
+watch(PATHS.jekyllPostFilesGlob, series(jekyllify, reload));
