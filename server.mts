@@ -10,6 +10,9 @@ import { jekyllify } from '@openinf/portal/build/tasks/jekyllify';
 import { scssify } from '@openinf/portal/build/tasks/scssify';
 import browserSync from 'browser-sync';
 import { series, watch } from 'gulp';
+// Perform the initial site build before launching the server to ensure an
+// up-to-date site is served even if already built.
+// TODO
 
 browserSync.create();
 
