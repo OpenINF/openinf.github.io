@@ -4,6 +4,10 @@
 
 <br />
 
+[!['Netlify Status: Dynamic'][netlify-badge-img]][netlify-badge-url]
+
+<br />
+
 The high-level goal of this project is to build and maintain a community portal
 that serves content and assets. Although this portal is still in its infancy, it
 is intended to support a separation of concerns between hosting our community
@@ -85,5 +89,11 @@ comprising our style guide handbook uses the CC BY-SA 4.0 license.
 [project-status-badge--shields]:
   https://img.shields.io/badge/status-under%20construction-yellow.svg
 [open an issue]: https://github.com/OpenINF/open.inf.is/issues
+[netlify-badge-url]:
+  https://app.netlify.com/sites/gh-pages-openinf/deploys?branch=live
+  'Netlify Status: Dynamic'
+[netlify-badge-img]:
+  https://api.netlify.com/api/v1/badges/d7db7490-f2de-40c6-9236-ce4fcbdaeafd/deploy-status?branch=live
+  'Netlify Status: Dynamic'
 
 <!-- LINK LABEL DEFINITIONS - END -->
