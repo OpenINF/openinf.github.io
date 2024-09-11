@@ -1,22 +1,6 @@
-<!-- markdownlint-disable-next-line first-line-heading -->
-<a href="https://open.inf.is">
-  <img
-    src="https://open.inf.is/assets/img/svg/logogram-color.svg"
-    alt="OpenINF logo"
-    title="OpenINF"
-    align="right"
-    height="96"
-    width="96"
-  />
-</a>
-
-<div align="left">
-
 ## `open.inf.is`
 
 > ⚡🐋 The OpenINF portal, other static resources, and more static electricity
-
-</div>
 
 <br />
 
