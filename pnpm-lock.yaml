@@ -11,27 +11,12 @@ importers:
       '@biomejs/biome':
         specifier: 1.8.3
         version: 1.8.3
-      '@devcontainers/cli':
-        specifier: 0.70.0
-        version: 0.70.0
       '@isaacs/catcher':
         specifier: 1.0.4
         version: 1.0.4
       '@openinf/gh-file-importer':
         specifier: 2.0.1
         version: 2.0.1
-      '@openinf/util-errors':
-        specifier: 2.0.7
-        version: 2.0.7
-      '@openinf/util-object':
-        specifier: 2.0.1
-        version: 2.0.1
-      '@openinf/util-text':
-        specifier: 1.1.2
-        version: 1.1.2
-      '@openinf/util-types':
-        specifier: 2.1.3
-        version: 2.1.3
       '@shopify/prettier-plugin-liquid':
         specifier: 1.5.0
         version: 1.5.0(prettier@3.3.3)
@@ -567,11 +552,6 @@ packages:
     engines: {node: '>=18'}
     peerDependencies:
       postcss-selector-parser: ^6.1.0
-
-  '@devcontainers/cli@0.70.0':
-    resolution: {integrity: sha512-Hq00AzzmWm6JZ70bs19jGGmnXLRLaC3Ej8TewmBG9EZvOxxfg+sBQGU5JjZLjkCqE/b3h+uKgCZ4NMaEGKTGhQ==}
-    engines: {node: ^16.13.0 || >=18.0.0}
-    hasBin: true
 
   '@dprint/darwin-arm64@0.47.2':
     resolution: {integrity: sha512-mVPFBJsXxGDKHHCAY8wbqOyS4028g1bN15H9tivCnPAjwaZhkUimZHXWejXADjhGn+Xm2SlakugY9PY/68pH3Q==}
@@ -4574,8 +4554,6 @@ snapshots:
   '@csstools/selector-specificity@4.0.0(postcss-selector-parser@6.1.2)':
     dependencies:
       postcss-selector-parser: 6.1.2
-
-  '@devcontainers/cli@0.70.0': {}
 
   '@dprint/darwin-arm64@0.47.2':
     optional: true
