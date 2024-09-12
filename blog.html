@@ -9,11 +9,10 @@ custom_css:
 pagination:
   enabled: true
 ---
-
 <!--
-This page must live outside the collections/_pages dir (where it normally live)
-in order for pagination to work.
-@see https://github.com/sverrirs/jekyll-paginate-v2/issues/104
+  This page must live outside the collections/_pages dir (where it normally live)
+  in order for pagination to work.
+  @see https://github.com/sverrirs/jekyll-paginate-v2/issues/104
 -->
 
 <style>
@@ -29,42 +28,42 @@ in order for pagination to work.
   }
 </style>
 
-  <ul class="post-list">
-    <!--
-      Here is the main paginator logic called.
-      All calls to site.posts should be replaced by paginator.posts
-    -->
-    {% for post in paginator.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: '%b %-d, %Y' }}</span>
-
-        <h3 class="h3">
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{- post.title | escape -}}
-          </a>
-        </h3>
-      </li>
-    {% endfor %}
-  </ul>
-
+<ul class="post-list">
   <!--
-    Showing buttons to move to the next and to the previous list of posts (pager buttons).
+    Here is the main paginator logic called.
+    All calls to site.posts should be replaced by paginator.posts
   -->
-  {% if paginator.total_pages > 1 %}
-    <ul class="pager">
-      {% if paginator.previous_page %}
-        <li class="previous">
-          <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"
-            >&larr; Newer Posts</a
-          >
-        </li>
-      {% endif %}
-      {% if paginator.next_page %}
-        <li class="next">
-          <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"
-            >Older Posts &rarr;</a
-          >
-        </li>
-      {% endif %}
-    </ul>
-  {% endif %}
+  {% for post in paginator.posts %}
+    <li>
+      <span class="post-meta">{{ post.date | date: '%b %-d, %Y' }}</span>
+
+      <h3 class="h3">
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          {{- post.title | escape -}}
+        </a>
+      </h3>
+    </li>
+  {% endfor %}
+</ul>
+
+<!--
+  Showing buttons to move to the next and to the previous list of posts (pager buttons).
+-->
+{% if paginator.total_pages > 1 %}
+  <ul class="pager">
+    {% if paginator.previous_page %}
+      <li class="previous">
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"
+          >&larr; Newer Posts</a
+        >
+      </li>
+    {% endif %}
+    {% if paginator.next_page %}
+      <li class="next">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"
+          >Older Posts &rarr;</a
+        >
+      </li>
+    {% endif %}
+  </ul>
+{% endif %}
