@@ -9,7 +9,7 @@ const PATHS = {};
 
 // Directory locations.
 PATHS.assetsDir = '_assets/'; // The files Gulp will handle.
-PATHS.jekyllDir = ''; // The files Jekyll will handle.
+// PATHS.jekyllDir = ''; // The files Jekyll will handle.
 PATHS.jekyllAssetsDir = 'assets/'; // The asset files Jekyll will handle.
 PATHS.jekyllCollectionsDir = 'collections/'; // The collections files Jekyll will handle.
 PATHS.siteDir = '_site/'; // The resulting static site.
@@ -22,6 +22,7 @@ PATHS.fontFolder = 'fonts';
 PATHS.imageFolder = 'img';
 PATHS.includesFolder = '_includes';
 PATHS.layoutsFolder = '_layouts';
+PATHS.pagesFolder = '_pages';
 PATHS.pluginsFolder = '_plugins';
 PATHS.postFolder = '_posts';
 PATHS.scriptFolder = 'js';
@@ -34,15 +35,14 @@ PATHS.imageFiles = PATHS.assetsDir + PATHS.imageFolder;
 PATHS.fontFiles = PATHS.assetsDir + PATHS.fontFolder;
 
 // Jekyll files locations.
-PATHS.jekyllDataFiles = PATHS.jekyllDir + PATHS.dataFolder;
-PATHS.jekyllDraftFiles =
-  PATHS.jekyllDir + PATHS.jekyllCollectionsDir + PATHS.draftsFolder;
-PATHS.jekyllPostFiles =
-  PATHS.jekyllDir + PATHS.jekyllCollectionsDir + PATHS.postFolder;
 PATHS.jekyllCssFiles = PATHS.jekyllAssetsDir + PATHS.stylesFolder;
-PATHS.jekyllJsFiles = PATHS.jekyllAssetsDir + PATHS.scriptFolder;
-PATHS.jekyllImageFiles = PATHS.jekyllAssetsDir + PATHS.imageFolder;
+PATHS.jekyllDataFiles = PATHS.dataFolder;
+PATHS.jekyllDraftFiles = PATHS.jekyllCollectionsDir + PATHS.draftsFolder;
 PATHS.jekyllFontFiles = PATHS.jekyllAssetsDir + PATHS.fontFolder;
+PATHS.jekyllImageFiles = PATHS.jekyllAssetsDir + PATHS.imageFolder;
+PATHS.jekyllJsFiles = PATHS.jekyllAssetsDir + PATHS.scriptFolder;
+PATHS.jekyllPageFiles = PATHS.jekyllCollectionsDir + PATHS.pagesFolder;
+PATHS.jekyllPostFiles = PATHS.jekyllCollectionsDir + PATHS.postFolder;
 
 // Site files locations.
 PATHS.siteCssFiles = PATHS.siteAssetsDir + PATHS.stylesFolder;
@@ -67,12 +67,10 @@ PATHS.imageFilesGlob = PATHS.imageFiles + PATHS.imagePattern;
 // Jekyll files globs.
 PATHS.jekyllDataFilesGlob = PATHS.jekyllDataFiles + PATHS.dataPattern;
 PATHS.jekyllDraftFilesGlob = PATHS.jekyllDraftFiles + PATHS.markdownPattern;
-PATHS.jekyllIncludesFilesGlob =
-  PATHS.jekyllDir + PATHS.includesFolder + PATHS.htmlPattern;
-PATHS.jekyllLayoutsFilesGlob =
-  PATHS.jekyllDir + PATHS.layoutsFolder + PATHS.htmlPattern;
-PATHS.jekyllPluginsFilesGlob =
-  PATHS.jekyllDir + PATHS.pluginsFolder + PATHS.rubyPattern;
+PATHS.jekyllIncludesFilesGlob = PATHS.includesFolder + PATHS.htmlPattern;
+PATHS.jekyllLayoutsFilesGlob = PATHS.layoutsFolder + PATHS.htmlPattern;
+PATHS.jekyllPluginsFilesGlob = PATHS.pluginsFolder + PATHS.rubyPattern;
+PATHS.jekyllPageFilesGlob = PATHS.jekyllPageFiles + PATHS.htmlPattern;
 PATHS.jekyllPostFilesGlob = PATHS.jekyllPostFiles + PATHS.markdownPattern;
 PATHS.jekyllImageFilesGlob = PATHS.jekyllImageFiles + PATHS.imagePattern;
 
