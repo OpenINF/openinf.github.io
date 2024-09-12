@@ -46,6 +46,9 @@ watch([PATHS.jekyllPageFilesGlob, 'blog.html']).on(
 watch(PATHS.jekyllImageFilesGlob).on('change', series(jekyllify, reload));
 watch(PATHS.jekyllIncludesFilesGlob).on('change', series(jekyllify, reload));
 watch(PATHS.jekyllLayoutsFilesGlob).on('change', series(jekyllify, reload));
-watch(PATHS.jekyllPageFilesGlob).on('change', series(jekyllify, reload));
+watch([PATHS.jekyllPageFilesGlob, 'blog.html']).on(
+  'change',
+  series(jekyllify, reload)
+);
 watch(PATHS.jekyllPluginsFilesGlob).on('change', series(jekyllify, reload));
 watch(PATHS.jekyllPostFilesGlob).on('change', series(jekyllify, reload));
