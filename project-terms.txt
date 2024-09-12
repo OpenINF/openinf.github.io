@@ -36,6 +36,7 @@ Irulen
 isaacs
 jekyllify
 macOS
+metasyntactic
 Maintainership
 MSYS
 omakase
