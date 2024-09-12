@@ -1,6 +1,7 @@
 {
-  "language": "en",
-  "dictionaries": ["project-terms"],
+  "language": "en,lorem",
+  "import": ["@cspell/dict-lorem-ipsum/cspell-ext.json"],
+  "dictionaries": ["project-terms", "lorem-ipsum"],
   "dictionaryDefinitions": [
     {
       "name": "project-terms",

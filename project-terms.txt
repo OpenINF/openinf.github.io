@@ -7,7 +7,9 @@ btwx
 changelog
 code.visualstudio.com
 codebase
+consectetuer
 convos
+Corge
 dereknongeneric
 devcontainer
 dorny
@@ -26,6 +28,7 @@ Gpg4win
 gpgconf
 gpgsm
 gpgtunnel
+Grault
 Grimes
 https
 incentivizing
@@ -43,8 +46,10 @@ OpenINFbot
 OpenINFBot
 outro
 pinentry
+Potenti
 PowerShell
 psusan
+Quux
 Renovatebot
 rubocop
 screencap
