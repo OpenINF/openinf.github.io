@@ -28,6 +28,7 @@ Gpg4win
 gpgconf
 gpgsm
 gpgtunnel
+Garply
 Grault
 Grimes
 https
