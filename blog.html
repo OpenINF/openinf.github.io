@@ -8,25 +8,15 @@ custom_css:
   - blog
 pagination:
   enabled: true
+  trail:
+    before: 1 # The number of links before the current page
+    after: 1  # The number of links after the current page
 ---
 <!--
   This page must live outside the collections/_pages dir (where it normally lives)
   in order for pagination to work.
   @see https://github.com/sverrirs/jekyll-paginate-v2/issues/104
 -->
-
-<style>
-  ul.pager {
-    text-align: center;
-    list-style: none;
-  }
-  ul.pager li {
-    display: inline;
-    border: 1px solid black;
-    padding: 10px;
-    margin: 5px;
-  }
-</style>
 
 <ul class="post-list">
   <!--
@@ -50,20 +40,59 @@ pagination:
   Showing buttons to move to the next and to the previous list of posts (pager buttons).
 -->
 {% if paginator.total_pages > 1 %}
-  <ul class="pager">
-    {% if paginator.previous_page %}
-      <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"
-          >&larr; Newer Posts</a
-        >
-      </li>
-    {% endif %}
-    {% if paginator.next_page %}
-      <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"
-          >Older Posts &rarr;</a
-        >
-      </li>
-    {% endif %}
-  </ul>
+  <nav aria-label="Blog page navigation">
+    <ul class="pagination justify-content-center">
+      {% if paginator.previous_page %}
+        <li class="page-item">
+          <a
+            class="page-link"
+            href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"
+            tabindex="-1"
+            >Previous</a
+          >
+        </li>
+      {% else %}
+        <li class="page-item disabled">
+          <span
+            class="page-link"
+            href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"
+            tabindex="-1"
+            >Previous</span
+          >
+        </li>
+      {% endif %}
+
+      {% if paginator.page_trail %}
+        {% for trail in paginator.page_trail %}
+          <li
+            class="page-item{% if page.url == trail.path %} active{% endif %}">
+            <a
+              class="page-link"
+              href="{{ trail.path | prepend: site.baseurl }}"
+              title="{{ trail.title }}">
+              {{- trail.num -}}
+            </a>
+          </li>
+        {% endfor %}
+      {% endif %}
+
+      {% if paginator.next_page %}
+        <li class="page-item">
+          <a
+            class="page-link"
+            href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"
+            >Next</a
+          >
+        </li>
+      {% else %}
+        <li class="page-item">
+          <span
+            class="page-link disabled"
+            href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"
+            >Next</span
+          >
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
 {% endif %}
