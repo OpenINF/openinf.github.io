@@ -40,7 +40,7 @@ pagination:
   Showing buttons to move to the next and to the previous list of posts (pager buttons).
 -->
 {% if paginator.total_pages > 1 %}
-  <nav aria-label="Blog page navigation">
+  <nav class="pagination-container" aria-label="Blog page navigation">
     <ul class="pagination justify-content-center">
       {% if paginator.previous_page %}
         <li class="page-item">
