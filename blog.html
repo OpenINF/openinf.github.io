@@ -48,7 +48,7 @@ pagination:
             class="page-link"
             href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"
             tabindex="-1"
-            >Previous</a
+            >&#x23F4;</a
           >
         </li>
       {% else %}
@@ -57,7 +57,7 @@ pagination:
             class="page-link"
             href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"
             tabindex="-1"
-            >Previous</span
+            >&#x23F4;</span
           >
         </li>
       {% endif %}
@@ -81,7 +81,7 @@ pagination:
           <a
             class="page-link"
             href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"
-            >Next</a
+            >&#x23F5;</a
           >
         </li>
       {% else %}
@@ -89,7 +89,7 @@ pagination:
           <span
             class="page-link disabled"
             href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"
-            >Next</span
+            >&#x23F5;</span
           >
         </li>
       {% endif %}
