@@ -39,8 +39,8 @@ importers:
         specifier: 20.16.5
         version: 20.16.5
       '@yarnpkg/shell':
-        specifier: 4.0.2
-        version: 4.0.2(typanion@3.14.0)
+        specifier: 4.1.0
+        version: 4.1.0(typanion@3.14.0)
       autoprefixer:
         specifier: 10.4.20
         version: 10.4.20(postcss@8.4.45)
@@ -998,8 +998,8 @@ packages:
     resolution: {integrity: sha512-/HcYgtUSiJiot/XWGLOlGxPYUG65+/31V8oqk17vZLW1xlCoR4PampyePljOxY2n8/3jz9+tIFzICsyGujJZoA==}
     engines: {node: '>=18.12.0'}
 
-  '@yarnpkg/shell@4.0.2':
-    resolution: {integrity: sha512-DLZSx06OoEbPY1uePt7pKEgpWDk96PldrCdWBPqI5Np5/YAEo6+toVcjz+6fORMOE8PS3Bsep1Nfm2mUrY1Oxg==}
+  '@yarnpkg/shell@4.1.0':
+    resolution: {integrity: sha512-vm0QqqCBuNrVZbzk1gre0G/FUoT8naCYu/gjz+WlmBKPgV5MmFe2Bdm4ApGLQqvg6eS94TXmUpjSHdBzzN3P0Q==}
     engines: {node: '>=18.12.0'}
     hasBin: true
 
@@ -4996,7 +4996,7 @@ snapshots:
       js-yaml: 3.14.1
       tslib: 2.7.0
 
-  '@yarnpkg/shell@4.0.2(typanion@3.14.0)':
+  '@yarnpkg/shell@4.1.0(typanion@3.14.0)':
     dependencies:
       '@yarnpkg/fslib': 3.1.0
       '@yarnpkg/parsers': 3.0.2
