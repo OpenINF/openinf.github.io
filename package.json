@@ -22,7 +22,7 @@
     "test": "nps test"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.0",
+    "@biomejs/biome": "1.9.1",
     "@cspell/dict-lorem-ipsum": "4.0.0",
     "@isaacs/catcher": "1.0.4",
     "@openinf/gh-file-importer": "2.0.1",
