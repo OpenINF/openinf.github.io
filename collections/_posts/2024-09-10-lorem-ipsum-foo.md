@@ -1,6 +1,6 @@
 ---
 title: Lorem Ipsum Foo
-author: Derek Lewis
+author: DerekNonGeneric
 tags: metasyntactic
 ---
 

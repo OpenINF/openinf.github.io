@@ -1,0 +1,34 @@
+<article itemscope itemtype="http://schema.org/Article">
+  <div class="cell-left">
+    <span class="post-category">
+      <span class="label">
+        {{- post.categories | array_to_sentence_string -}}
+      </span>
+    </span>
+  </div>
+  <div class="cell-right">
+    <div class="post-meta">
+      <h2 class="post-title" itemprop="headline">
+        <a href="{{ post.url | relative_url }}" itemprop="url">
+          {{- post.title -}}
+        </a>
+      </h2>
+      <span
+        class="post-date"
+        itemprop="datePublished"
+        content="{{ post.date | date: '%Y-%m-%d' }}">
+        {{- post.date | date_to_string -}}
+      </span>
+      {% assign author = post.author -%}
+      <a
+        href="https://github.com/{{ author }}"
+        class="post-author"
+        itemprop="author"
+        itemscope
+        itemtype="http://schema.org/Person">
+        {% avatar user=author size=24 -%}
+        <span class="author-name" itemprop="name">{{ author }}</span>
+      </a>
+    </div>
+  </div>
+</article>

@@ -51,6 +51,8 @@ GEM
       safe_yaml (~> 1.0)
       terminal-table (>= 1.8, < 4.0)
       webrick (~> 1.7)
+    jekyll-avatar (0.8.0)
+      jekyll (>= 3.0, < 5.0)
     jekyll-paginate-v2 (3.0.0)
       jekyll (>= 3.0, < 5.0)
     jekyll-redirect-from (0.16.0)
@@ -142,6 +144,7 @@ DEPENDENCIES
   csv
   dotenv
   jekyll
+  jekyll-avatar
   jekyll-paginate-v2
   jekyll-redirect-from
   jekyll-relative-links

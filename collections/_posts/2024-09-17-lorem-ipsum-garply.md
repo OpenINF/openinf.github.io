@@ -1,6 +1,6 @@
 ---
 title: Lorem Ipsum Garply
-author: Derek Lewis
+author: DerekNonGeneric
 tags: metasyntactic
 ---
 

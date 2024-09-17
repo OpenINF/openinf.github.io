@@ -12,6 +12,7 @@ future: true
 
 # Site build settings.
 plugins:
+  - jekyll-avatar
   - jekyll-redirect-from
   - jekyll-relative-links
   - jekyll-sitemap

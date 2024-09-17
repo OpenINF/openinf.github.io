@@ -1,6 +1,6 @@
 ---
 title: Lorem Ipsum Quux
-author: Derek Lewis
+author: DerekNonGeneric
 tags: metasyntactic
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Lorem Ipsum Baz
-author: Derek Lewis
+author: DerekNonGeneric
 tags: metasyntactic
 ---
 

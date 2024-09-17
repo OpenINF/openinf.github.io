@@ -1,6 +1,6 @@
 ---
 title: Lorem Ipsum Fred
-author: Derek Lewis
+author: DerekNonGeneric
 tags: metasyntactic
 ---
 

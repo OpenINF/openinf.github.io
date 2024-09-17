@@ -1,6 +1,6 @@
 ---
 title: Lorem Ipsum Corge
-author: Derek Lewis
+author: DerekNonGeneric
 tags: metasyntactic
 ---
 
