@@ -2,9 +2,9 @@
   permalink: ''
   class: home
 
-- text: Blog
-  permalink: blog
-  class: blog
+- text: News
+  permalink: news
+  class: news
 
 - text: Docs
   permalink: docs
