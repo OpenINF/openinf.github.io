@@ -1,7 +1,7 @@
 ---
 title: Lorem Ipsum Fred
 author: DerekNonGeneric
-tags: metasyntactic
+category: metasyntactic
 ---
 
 Lorem ipsum odor amet, consectetuer adipiscing elit. Montes primis class et

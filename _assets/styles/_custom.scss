@@ -2,7 +2,8 @@
 
 main > .container {
   max-width: 45ch;
-  padding: 60px 15px 0;
+  padding: 74px 15px 148px;
+  position: relative;
 }
 
 .navbar-brand svg {
@@ -34,4 +35,8 @@ h1::after {
   margin-inline-start: 0.5rem;
   content: '';
   border: 1px solid $tertiary;
+}
+
+.site-footer {
+  margin-top: -60px !important;
 }
