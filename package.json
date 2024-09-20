@@ -3,10 +3,10 @@
   "author": "The OpenINF Authors & Friends",
   "private": "true",
   "description": "The OpenINF portal, other static resources, and more static electricity",
-  "packageManager": "pnpm@9.10.0",
+  "packageManager": "pnpm@9.11.0",
   "engines": {
     "node": "20.17.0",
-    "pnpm": "9.10.0"
+    "pnpm": "9.11.0"
   },
   "exports": {
     "./build/constants": "./build/shared/constants.mjs",
@@ -22,7 +22,7 @@
     "test": "nps test"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.1",
+    "@biomejs/biome": "1.9.2",
     "@cspell/dict-lorem-ipsum": "4.0.0",
     "@isaacs/catcher": "1.0.4",
     "@openinf/gh-file-importer": "2.0.1",
