@@ -1,9 +1,12 @@
 // Custom Styles
 
+main {
+  padding-top: 74px;
+}
+
 main > .container {
-  max-width: 45ch;
-  padding: 74px 15px 148px;
-  position: relative;
+  max-width: 48ch;
+  padding: 0 16px;
 }
 
 .navbar-brand svg {

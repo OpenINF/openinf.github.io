@@ -1,10 +1,122 @@
 .pagination-container {
   position: absolute;
-  bottom: 60px;
+  bottom: 48px;
   left: 0;
   right: 0;
 }
 
 .pagination .page-link {
   user-select: none;
+}
+
+.post-category,
+.post-meta {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0.8em;
+}
+
+.post-category {
+  display: inline-block;
+  margin-left: -30px;
+  padding: 6px 10px 8px;
+  padding-left: 50px;
+  position: relative;
+  box-shadow:
+    0 1px 5px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  background-color: $quaternary;
+  height: 32px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    border-color: shade-color($quaternary, 20%) shade-color($quaternary, 20%)
+      transparent transparent;
+    border-style: solid;
+    border-width: 5px;
+    width: 0;
+    height: 0;
+  }
+
+  &:after {
+    content: '';
+    height: 0;
+    width: 0;
+    right: -12px;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    border-left: 12px solid $quaternary;
+    position: absolute;
+    top: 0px;
+  }
+}
+
+.post-content img {
+  max-width: 100%;
+}
+
+.label {
+  float: left;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+  color: tint-color($secondary, 20%);
+  line-height: 18px;
+}
+
+@media (max-width: 568px) {
+  .post-category {
+    padding-left: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  .post-category {
+    margin-left: -50px;
+  }
+}
+
+.avatar {
+  @include border-radius(3px);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.post-meta {
+  padding: 5px 0;
+  color: $body-color;
+  font-weight: 600;
+}
+
+.post-title {
+  padding-bottom: 16px;
+}
+
+.post-date,
+.post-author {
+  margin-left: 16px;
+}
+.post-date {
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+.post-author .author-name {
+  margin-left: 8px;
+}
+
+.news article {
+  padding: 42px 16px;
+  margin: 0 24px;
+}
+
+.news article + article {
+  border-top: 1px solid $tertiary;
+  box-shadow: 0 -1px 0 $tertiary;
+}
+
+.cell-right {
+  padding-top: 24px;
 }
