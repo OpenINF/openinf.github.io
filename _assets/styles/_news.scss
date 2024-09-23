@@ -29,7 +29,7 @@
   background-color: $quaternary;
   height: 32px;
 
-  &:before {
+  &::before {
     content: '';
     position: absolute;
     bottom: -10px;
