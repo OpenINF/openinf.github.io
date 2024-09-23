@@ -68,7 +68,7 @@
   line-height: 18px;
 }
 
-@media (max-width: 568px) {
+@include media-breakpoint-down(sm) {
   .post-category {
     padding-left: 30px;
   }
