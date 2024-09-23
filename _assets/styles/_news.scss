@@ -1,8 +1,8 @@
 .pagination-container {
   position: absolute;
+  right: 0;
   bottom: 48px;
   left: 0;
-  right: 0;
 }
 
 .pagination .page-link {
@@ -12,46 +12,46 @@
 .post-category,
 .post-meta {
   display: inline-block;
-  vertical-align: middle;
   font-size: 0.8em;
+  vertical-align: middle;
 }
 
 .post-category {
+  position: relative;
   display: inline-block;
-  margin-left: -30px;
+  height: 32px;
   padding: 6px 10px 8px;
   padding-left: 50px;
-  position: relative;
+  margin-left: -30px;
+  background-color: $quaternary;
   box-shadow:
     0 1px 5px rgba(0 0 0 / 30%),
     inset 0 1px 0 rgba(255 255 255 / 20%),
     inset 0 -1px 0 rgba(0 0 0 / 30%);
-  background-color: $quaternary;
-  height: 32px;
 
   &::before {
-    content: '';
     position: absolute;
     bottom: -10px;
     left: 0;
+    width: 0;
+    height: 0;
+    content: '';
     border-color: shade-color($quaternary, 20%) shade-color($quaternary, 20%)
       transparent transparent;
     border-style: solid;
     border-width: 5px;
-    width: 0;
-    height: 0;
   }
 
   &::after {
-    content: '';
-    height: 0;
-    width: 0;
+    position: absolute;
+    top: 0;
     right: -12px;
+    width: 0;
+    height: 0;
+    content: '';
     border-top: 16px solid transparent;
     border-bottom: 16px solid transparent;
     border-left: 12px solid $quaternary;
-    position: absolute;
-    top: 0;
   }
 }
 
@@ -61,11 +61,11 @@
 
 .label {
   float: left;
-  text-transform: uppercase;
   font-weight: 700;
-  text-shadow: 0 -1px 0 rgba(0 0 0 / 50%);
-  color: tint-color($secondary, 20%);
   line-height: 18px;
+  color: tint-color($secondary, 20%);
+  text-shadow: 0 -1px 0 rgba(0 0 0 / 50%);
+  text-transform: uppercase;
 }
 
 @include media-breakpoint-down(sm) {
@@ -82,14 +82,15 @@
 
 .avatar {
   @include border-radius(3px);
+
   display: inline-block;
   vertical-align: middle;
 }
 
 .post-meta {
   padding: 5px 0;
-  color: $body-color;
   font-weight: 600;
+  color: $body-color;
 }
 
 .post-title {
@@ -100,9 +101,11 @@
 .post-author {
   margin-left: 16px;
 }
+
 .post-date {
   text-shadow: 0 -1px 0 rgba(0 0 0 / 10%);
 }
+
 .post-author .author-name {
   margin-left: 8px;
 }

@@ -5,11 +5,11 @@ main {
 }
 
 main > .container {
+  position: relative;
   max-width: 48ch;
+  min-height: 100%;
   padding: 0 16px 104px;
   padding-top: 74px;
-  min-height: 100%;
-  position: relative;
 }
 
 .navbar-brand svg {
