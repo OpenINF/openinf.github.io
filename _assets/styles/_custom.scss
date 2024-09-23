@@ -1,9 +1,15 @@
 // Custom Styles
 
+main {
+  min-height: 100%;
+}
+
 main > .container {
   max-width: 48ch;
-  padding: 0 16px;
+  padding: 0 16px 104px;
   padding-top: 74px;
+  min-height: 100%;
+  position: relative;
 }
 
 .navbar-brand svg {
