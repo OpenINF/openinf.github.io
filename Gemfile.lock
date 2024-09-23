@@ -113,7 +113,7 @@ GEM
     rubocop-performance (1.22.1)
       rubocop (>= 1.48.1, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
-    rubocop-rails (2.26.1)
+    rubocop-rails (2.26.2)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.52.0, < 2.0)
@@ -125,7 +125,7 @@ GEM
       rubocop-rails
     ruby-progressbar (1.13.0)
     safe_yaml (1.0.5)
-    sass-embedded (1.79.2-x86_64-linux-gnu)
+    sass-embedded (1.79.3-x86_64-linux-gnu)
       google-protobuf (~> 4.27)
     securerandom (0.3.1)
     terminal-table (3.0.2)
