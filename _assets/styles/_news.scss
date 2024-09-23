@@ -42,7 +42,7 @@
     height: 0;
   }
 
-  &:after {
+  &::after {
     content: '';
     height: 0;
     width: 0;
