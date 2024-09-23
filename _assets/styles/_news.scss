@@ -74,7 +74,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@include media-breakpoint-up(md) {
   .post-category {
     margin-left: -50px;
   }
