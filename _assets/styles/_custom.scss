@@ -1,8 +1,15 @@
 // Custom Styles
 
+main {
+  min-height: 100%;
+}
+
 main > .container {
-  max-width: 45ch;
-  padding: 60px 15px 0;
+  position: relative;
+  max-width: 48ch;
+  min-height: 100%;
+  padding: 0 16px 104px;
+  padding-top: 74px;
 }
 
 .navbar-brand svg {
@@ -34,4 +41,8 @@ h1::after {
   margin-inline-start: 0.5rem;
   content: '';
   border: 1px solid $tertiary;
+}
+
+.site-footer {
+  margin-top: -60px !important;
 }

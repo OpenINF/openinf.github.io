@@ -1,7 +1,7 @@
 ---
 title: Lorem Ipsum Waldo
-author: Derek Lewis
-tags: metasyntactic
+author: DerekNonGeneric
+category: metasyntactic
 ---
 
 Lorem ipsum odor amet, consectetuer adipiscing elit. Montes primis class et

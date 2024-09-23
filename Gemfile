@@ -9,6 +9,7 @@ gem "jekyll"
 gem "kramdown-parser-gfm"
 
 group :jekyll_plugins do
+  gem "jekyll-avatar"
   gem "jekyll-redirect-from"
   gem "jekyll-relative-links"
   gem "jekyll-sitemap"

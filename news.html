@@ -1,11 +1,11 @@
 ---
-title: Blog
+title: News
 layout: page
 body_classes:
-  - blog
-permalink: /blog
+  - news
+permalink: /news
 custom_css:
-  - blog
+  - news
 pagination:
   enabled: true
   trail:
@@ -18,27 +18,10 @@ pagination:
   @see https://github.com/sverrirs/jekyll-paginate-v2/issues/104
 -->
 
-<ul class="post-list">
-  <!--
-    Here is the main paginator logic called.
-    All calls to site.posts should be replaced by paginator.posts
-  -->
-  {% for post in paginator.posts %}
-    <li>
-      <span class="post-meta">{{ post.date | date: '%b %-d, %Y' }}</span>
+{% for post in paginator.posts -%}
+  {% include news-item-archive.html -%}
+{% endfor -%}
 
-      <h3 class="h3">
-        <a class="post-link" href="{{ post.url | relative_url }}">
-          {{- post.title | escape -}}
-        </a>
-      </h3>
-    </li>
-  {% endfor %}
-</ul>
-
-<!--
-  Showing buttons to move to the next and to the previous list of posts (pager buttons).
--->
 {% if paginator.total_pages > 1 %}
   <nav class="pagination-container" aria-label="Blog page navigation">
     <ul class="pagination justify-content-center">
