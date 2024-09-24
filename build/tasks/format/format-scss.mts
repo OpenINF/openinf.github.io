@@ -1,8 +1,8 @@
 /**
- * @file Format CSS/SCSS files to adhere to autofixable style guidelines.
+ * @file Format SCSS files to adhere to autofixable style guidelines.
  * @author The OpenINF Authors & Friends
  * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
- * @module {type ES6Module} build/tasks/format/format-css
+ * @module {type ES6Module} build/tasks/format/format-scss
  */
 
 import { exec, glob } from '@openinf/portal/build/utils';

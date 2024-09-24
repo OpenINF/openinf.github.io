@@ -6,7 +6,7 @@ scripts:
   verify:
     all: for i in build/tasks/verify/*.mts; do tsx "$i"; done
     browserslist: tsx build/tasks/verify/verify-browserslist.mts
-    css: tsx build/tasks/verify/verify-css.mts
+    scss: tsx build/tasks/verify/verify-scss.mts
     dockerfile: tsx build/tasks/verify/verify-dockerfile.mts
     html: tsx build/tasks/verify/verify-html.mts
     htmlValidForVNU: tsx build/tasks/verify/verify-html-valid-for-vnu.mts
@@ -21,7 +21,7 @@ scripts:
     yaml: tsx build/tasks/verify/verify-yaml.mts
   format:
     all: for i in build/tasks/format/*.mts; do tsx "$i"; done
-    css: tsx build/tasks/format/format-css.mts
+    scss: tsx build/tasks/format/format-scss.mts
     dockerfile: tsx build/tasks/format/format-dockerfile.mts
     html: tsx build/tasks/format/format-html.mts
     json: tsx build/tasks/format/format-json.mts

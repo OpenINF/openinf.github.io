@@ -1,8 +1,8 @@
 /**
- * @file Verify CSS/SCSS files are valid & adhere to checkable style guidelines.
+ * @file Verify SCSS files are valid & adhere to checkable style guidelines.
  * @author The OpenINF Authors & Friends
  * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
- * @module {type ES6Module} build/tasks/verify/verify-css
+ * @module {type ES6Module} build/tasks/verify/verify-scss
  */
 
 import { exec, glob } from '@openinf/portal/build/utils';

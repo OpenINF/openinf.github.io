@@ -36,8 +36,8 @@ jobs:
         id: filter
         with:
           filters: |
-            css:
-              - '**/*.css'
+            scss:
+              - '**/*.scss'
             browserslist:
               - '.browserslistrc'
             dockerfile:
@@ -67,9 +67,9 @@ jobs:
       # Use the filter to check if files with a specific file type were changed
       # in the PR. If they were, run the relevant linters. Otherwise, skip.
 
-      - name: Verify CSS
-        if: ${{ steps.filter.outputs.css == 'true' }}
-        run: nps verify.css
+      - name: Verify SCSS
+        if: ${{ steps.filter.outputs.scss == 'true' }}
+        run: nps verify.scss
 
       - name: Verify Browserslist
         if: ${{ steps.filter.outputs.browserslist == 'true' }}
