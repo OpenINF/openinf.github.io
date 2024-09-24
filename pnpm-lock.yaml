@@ -69,8 +69,8 @@ importers:
         specifier: 0.47.2
         version: 0.47.2
       editorconfig-checker:
-        specifier: 5.1.9
-        version: 5.1.9
+        specifier: 6.0.0
+        version: 6.0.0
       globby:
         specifier: 14.0.2
         version: 14.0.2
@@ -1649,9 +1649,9 @@ packages:
     resolution: {integrity: sha512-2GSFtnnC6U4IEKhEI7+PvdxrmjJ04mdsj3wHZTFiw0tUtG4HCWzTr13ZYTk8XOGnA1xQMaDljoBOYlk3D/MMSw==}
     engines: {node: '>= 0.8.0'}
 
-  editorconfig-checker@5.1.9:
-    resolution: {integrity: sha512-p1XFFxEkhY9Nl+kuMLZA6PzzZ6s+dvy4yBmJD68tC4BwBQdjUh2p1VxA6IbtN5beaX6i7WtHeEsvTK5LF+W+OQ==}
-    engines: {node: '>=18.0.0'}
+  editorconfig-checker@6.0.0:
+    resolution: {integrity: sha512-uyTOwLJzR/k7ugiu7ITjCzkLKBhXeirQZ8hGlUkt1u/hq2Qu1E8EslgFZDN+lxZoQc97eiI87sUFgVILK4P+YQ==}
+    engines: {node: '>=20.11.0'}
     hasBin: true
 
   ee-first@1.1.1:
@@ -5752,7 +5752,7 @@ snapshots:
     dependencies:
       chalk: 4.1.2
 
-  editorconfig-checker@5.1.9: {}
+  editorconfig-checker@6.0.0: {}
 
   ee-first@1.1.1: {}
 

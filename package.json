@@ -42,7 +42,7 @@
     "cssnano": "7.0.6",
     "dictionary-en": "4.0.0",
     "dprint": "0.47.2",
-    "editorconfig-checker": "5.1.9",
+    "editorconfig-checker": "6.0.0",
     "globby": "14.0.2",
     "gulp": "5.0.0",
     "gulp-dart-sass": "1.1.0",
