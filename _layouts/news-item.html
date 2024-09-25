@@ -1,0 +1,42 @@
+---
+layout: news
+---
+<article itemscope itemtype="http://schema.org/Article">
+  <h2 itemprop="headline">
+    {{ page.title }}
+    <a
+      href="{{ page.url | relative_url }}"
+      class="header-link"
+      title="Permalink">
+      <span class="sr-only">Permalink</span>
+      <i class="fa fa-link"></i>
+    </a>
+  </h2>
+  <span class="post-category">
+    <span class="label">
+      {{- page.categories | array_to_sentence_string -}}
+    </span>
+  </span>
+  <div class="post-meta">
+    <span
+      class="post-date"
+      itemprop="datePublished"
+      content="{{ page.date | date: "%Y-%m-%d" }}">
+      {{- page.date | date_to_string -}}
+    </span>
+    {% assign author = page.author -%}
+    <a
+      class="post-author"
+      itemprop="author"
+      itemscope
+      itemtype="http://schema.org/Person"
+      target="_blank"
+      href="https://github.com/{{ author }}">
+      {% avatar user=author size=24 -%}
+      <span class="author-name" itemprop="name">{{ author }}</span>
+    </a>
+  </div>
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+</article>
