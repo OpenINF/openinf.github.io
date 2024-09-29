@@ -59,13 +59,13 @@ defaults:
       type: posts
     values:
       ##
-      # @see https://github.com/OpenINF/open.inf.is/blob/HEAD/_layouts/news_item.html
-      layout: news_item
+      # @see https://github.com/OpenINF/open.inf.is/blob/HEAD/_layouts/news-item.html
+      layout: news-item
       editable: true
       toc: true
       breadcrumbs: true
       body_classes:
-        - hide-butterbar
+        - news-item
 
 ##
 # Site configuration for the Jekyll 3 Pagination Gem.
