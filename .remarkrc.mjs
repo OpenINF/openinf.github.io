@@ -83,7 +83,6 @@ export default {
   plugins: [
     await import('remark-lint'),
     ['remark-gfm'],
-    ['remark-footnotes'],
     ['remark-frontmatter'],
     [await import('remark-preset-lint-consistent'), {}],
     // Leave this preset at the top so that it can be overridden.
