@@ -39,19 +39,21 @@ layout: default
 </main>
 <nav class="single-post-pager">
   {% if page.previous.url %}
-    <a class="pager-link newer-post" href="{{ page.previous.url }}">
-      <span class="pager-direction">Newer</span>
+    <a class="pager-link older-post" href="{{ page.previous.url }}">
+      <span class="pager-direction">Older</span>
       <span class="pager-title">{{- page.previous.title -}}</span>
-      <span class="pager-date">{{- page.next.date | date_to_string -}}</span>
-      <span class="pager-chevron">&#8249;</span>
+      <span class="pager-date">
+        {{- page.previous.date | date_to_string -}}
+      </span>
+      <span class="pager-chevron">&#8250;</span>
     </a>
   {% endif %}
   {% if page.next.url %}
-    <a class="pager-link older-post" href="{{ page.next.url }} ">
-      <span class="pager-direction">Older</span>
+    <a class="pager-link newer-post" href="{{ page.next.url }} ">
+      <span class="pager-direction">Newer</span>
       <span class="pager-title">{{- page.next.title -}}</span>
       <span class="pager-date">{{- page.next.date | date_to_string -}}</span>
-      <span class="pager-chevron">&#8250;</span>
+      <span class="pager-chevron">&#8249;</span>
     </a>
   {% endif %}
 </nav>
