@@ -14,16 +14,12 @@ jobs:
         uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4.0.4
         with:
           node-version-file: 'package.json'
-      - name: Set up Ruby runtime
-        uses: ruby/setup-ruby@086ffb1a2090c870a3f881cc91ea83aa4243d408 # v1.195.0
       - name: Install
         run: |
           corepack enable
           corepack prepare pnpm@latest --activate
           pnpm install
           echo "$(pwd)/node_modules/.bin" >> $GITHUB_PATH
-          gem install bundler && bundle config set --local path 'vendor/bundle'
-          bundle install
       - name: Build
         run: nps build
 
@@ -53,9 +49,6 @@ jobs:
               - '**/*.jsonc'
             md:
               - '**/*.md'
-            ruby:
-              - '**/*.rb'
-              - 'Gemfile'
             svg:
               - '**/*.svg'
             toml:
@@ -94,10 +87,6 @@ jobs:
       - name: Verify Markdown
         if: ${{ steps.filter.outputs.md == 'true' }}
         run: nps verify.md
-
-      - name: Verify Ruby
-        if: ${{ steps.filter.outputs.ruby == 'true' }}
-        run: nps verify.ruby
 
       - name: Verify SVG
         if: ${{ steps.filter.outputs.svg == 'true' }}
