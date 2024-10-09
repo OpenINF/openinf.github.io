@@ -9,9 +9,6 @@ exclude_patterns = [
 name = "secrets"
 
 [[analyzers]]
-name = "ruby"
-
-[[analyzers]]
 name = "javascript"
 
 [analyzers.meta]
@@ -25,6 +22,3 @@ name = "docker"
 
 [analyzers.meta]
 dockerfile_paths = [".devcontainer/experimental/Dockerfile"]
-
-[[transformers]]
-name = "rubocop"
