@@ -9,5 +9,7 @@ node_modules/
 .env
 
 # Ignore generated build products.
-_site/
-/assets/
+# build output
+dist/
+# generated types
+.astro/

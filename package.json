@@ -4,6 +4,7 @@
   "private": "true",
   "description": "The OpenINF portal, other static resources, and more static electricity",
   "packageManager": "pnpm@9.12.1",
+  "type": "module",
   "engines": {
     "node": "20.18.0",
     "pnpm": "9.12.1"
@@ -22,6 +23,10 @@
     "test": "nps test"
   },
   "devDependencies": {
+    "@astrojs/check": "0.9.4",
+    "@astrojs/mdx": "3.1.8",
+    "@astrojs/rss": "4.0.8",
+    "@astrojs/sitemap": "3.2.0",
     "@biomejs/biome": "1.9.3",
     "@cspell/dict-lorem-ipsum": "4.0.0",
     "@isaacs/catcher": "1.0.4",
@@ -33,6 +38,7 @@
     "@types/js-yaml": "4.0.9",
     "@types/node": "20.16.11",
     "@yarnpkg/shell": "4.1.0",
+    "astro": "4.16.1",
     "autoprefixer": "10.4.20",
     "bootstrap": "5.3.3",
     "browser-sync": "3.0.3",

@@ -3,6 +3,8 @@
   "recommendations": [
     // https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments
     "aaron-bond.better-comments",
+    // https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode
+    "astro-build.astro-vscode",
     // https://marketplace.visualstudio.com/items?itemName=biomejs.biome
     "biomejs.biome",
     // https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
@@ -21,14 +23,14 @@
     "KatjanaKosic.vscode-json5",
     // https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml
     "redhat.vscode-xml",
-    // https://marketplace.visualstudio.com/items?itemName=rubocop.vscode-rubocop
-    // "rubocop.vscode-rubocop",
     // https://marketplace.visualstudio.com/items?itemName=Shopify.theme-check-vscode
     "Shopify.theme-check-vscode",
     // https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
     "streetsidesoftware.code-spell-checker",
     // https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml
     "tamasfe.even-better-toml",
+    // https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx
+    "unifiedjs.vscode-mdx",
     // https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-remark
     "unifiedjs.vscode-remark"
   ],

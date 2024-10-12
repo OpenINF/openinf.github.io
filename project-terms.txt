@@ -1,4 +1,6 @@
 Anson
+astro
+astrojs
 autofix
 bento
 biomejs
@@ -20,6 +22,7 @@ esmodules
 expressjs
 fontvault
 freenode
+Garply
 GFIs
 GNUPGHOME
 gpg
@@ -28,7 +31,6 @@ Gpg4win
 gpgconf
 gpgsm
 gpgtunnel
-Garply
 Grault
 Grimes
 https
@@ -37,8 +39,8 @@ Irulen
 isaacs
 jekyllify
 macOS
-metasyntactic
 Maintainership
+metasyntactic
 MSYS
 omakase
 openinf
