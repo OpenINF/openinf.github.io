@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.3",
-    "@cspell/dict-lorem-ipsum": "4.0.0",
+    "@cspell/dict-lorem-ipsum": "4.0.3",
     "@isaacs/catcher": "1.0.4",
     "@openinf/gh-file-importer": "2.0.1",
     "@shopify/prettier-plugin-liquid": "1.5.2",
@@ -100,7 +100,7 @@
     "retext-syntax-mentions": "4.0.0",
     "retext-syntax-urls": "4.0.0",
     "strip-comments": "2.0.1",
-    "stylelint": "16.9.0",
+    "stylelint": "16.10.0",
     "stylelint-config-recess-order": "5.1.1",
     "stylelint-config-standard-scss": "13.1.0",
     "tsx": "4.19.1",
