@@ -4291,8 +4291,8 @@ packages:
     resolution: {integrity: sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==}
     engines: {node: '>=10'}
 
-  yaml@2.5.1:
-    resolution: {integrity: sha512-bLQOjaX/ADgQ20isPJRvF0iRUHIxVhYvr53Of7wGcWlO2jvtUlH5m87DsmulFVxRpNLOnI4tB6p/oh8D7kpn9Q==}
+  yaml@2.6.0:
+    resolution: {integrity: sha512-a6ae//JvKDEra2kdi1qzCyrJW/WZCgFi8ydDV+eXExl95t+5R+ijnqHJbz9tmMh8FUjx3iv2fCQ4dclAQlO2UQ==}
     engines: {node: '>= 14'}
     hasBin: true
 
@@ -5521,7 +5521,7 @@ snapshots:
     dependencies:
       '@cspell/cspell-types': 8.15.1
       comment-json: 4.2.5
-      yaml: 2.5.1
+      yaml: 2.6.0
 
   cspell-dictionary@8.15.1:
     dependencies:
@@ -7424,7 +7424,7 @@ snapshots:
   postcss-load-config@5.1.0(postcss@8.4.47)(tsx@4.19.1):
     dependencies:
       lilconfig: 3.1.2
-      yaml: 2.5.1
+      yaml: 2.6.0
     optionalDependencies:
       postcss: 8.4.47
       tsx: 4.19.1
@@ -9066,7 +9066,7 @@ snapshots:
       vfile-message: 4.0.2
       vfile-reporter: 8.1.1
       vfile-statistics: 3.0.0
-      yaml: 2.5.1
+      yaml: 2.6.0
     transitivePeerDependencies:
       - bluebird
       - supports-color
@@ -9326,7 +9326,7 @@ snapshots:
 
   y18n@5.0.8: {}
 
-  yaml@2.5.1: {}
+  yaml@2.6.0: {}
 
   yargs-parser@15.0.3:
     dependencies:
