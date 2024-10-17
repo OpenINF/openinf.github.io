@@ -261,8 +261,8 @@ importers:
         specifier: 11.0.5
         version: 11.0.5
       vnu-jar:
-        specifier: 23.4.11
-        version: 23.4.11
+        specifier: 24.10.17
+        version: 24.10.17
 
 packages:
 
@@ -4205,8 +4205,8 @@ packages:
     resolution: {integrity: sha512-rC2VRfAVVCGEgjnxHUnpIVh3AGuk62rP3tqVrn+yab0YH7UULisC085+NYH+mnqf3Wx4SpSi1RQMwudL89N03g==}
     engines: {node: '>=10.13.0'}
 
-  vnu-jar@23.4.11:
-    resolution: {integrity: sha512-lI5dzBYXtxhilNI7EeQ5iUduYnNBq7YWx4UjfBVLXfBQHnXYZSf3y3bpM0bSyDU6jy/+OyKV7nw4tzpR5lXSZg==}
+  vnu-jar@24.10.17:
+    resolution: {integrity: sha512-YT7gNrRY5PiJrI1GavlWRHWIwqq2o52COc6J9QeXPfoldKRiZ9BeGP4shNLLaVfi0naA+/LMksdYWkKCr4pnVg==}
     engines: {node: '>=0.10'}
 
   vscode-languageserver-textdocument@1.0.12:
@@ -9260,7 +9260,7 @@ snapshots:
       replace-ext: 2.0.0
       teex: 1.0.1
 
-  vnu-jar@23.4.11: {}
+  vnu-jar@24.10.17: {}
 
   vscode-languageserver-textdocument@1.0.12: {}
 
