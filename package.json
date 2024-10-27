@@ -3,10 +3,10 @@
   "author": "The OpenINF Authors & Friends",
   "private": "true",
   "description": "The OpenINF portal, other static resources, and more static electricity",
-  "packageManager": "pnpm@9.12.1",
+  "packageManager": "pnpm@9.12.2",
   "engines": {
     "node": "20.18.0",
-    "pnpm": "9.12.1"
+    "pnpm": "9.12.2"
   },
   "exports": {
     "./build/constants": "./build/shared/constants.mjs",
@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "3.0.0",
-    "@biomejs/biome": "1.9.3",
+    "@biomejs/biome": "1.9.4",
     "@cspell/dict-lorem-ipsum": "4.0.3",
     "@isaacs/catcher": "1.0.4",
     "@openinf/gh-file-importer": "2.0.1",
@@ -33,7 +33,7 @@
     "@types/console-log-level": "1.4.5",
     "@types/gulp": "4.0.17",
     "@types/js-yaml": "4.0.9",
-    "@types/node": "20.16.11",
+    "@types/node": "20.17.1",
     "@yarnpkg/shell": "4.1.0",
     "autoprefixer": "10.4.20",
     "bootstrap": "5.3.3",
@@ -43,7 +43,7 @@
     "cspell": "8.15.1",
     "cssnano": "7.0.6",
     "dictionary-en": "4.0.0",
-    "dprint": "0.47.2",
+    "dprint": "0.47.5",
     "editorconfig-checker": "6.0.0",
     "globby": "14.0.2",
     "gulp": "5.0.0",
@@ -105,7 +105,7 @@
     "stylelint": "16.10.0",
     "stylelint-config-recess-order": "5.1.1",
     "stylelint-config-standard-scss": "13.1.0",
-    "tsx": "4.19.1",
+    "tsx": "4.19.2",
     "typescript": "5.6.3",
     "unified": "11.0.5",
     "vnu-jar": "23.4.11",
