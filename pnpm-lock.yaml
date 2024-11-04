@@ -517,8 +517,8 @@ packages:
   '@cspell/dict-monkeyc@1.0.9':
     resolution: {integrity: sha512-Jvf6g5xlB4+za3ThvenYKREXTEgzx5gMUSzrAxIiPleVG4hmRb/GBSoSjtkGaibN3XxGx5x809gSTYCA/IHCpA==}
 
-  '@cspell/dict-node@5.0.4':
-    resolution: {integrity: sha512-Hz5hiuOvZTd7Cp1IBqUZ7/ChwJeQpD5BJuwCaDn4mPNq4iMcQ1iWBYMThvNVqCEDgKv63X52nT8RAWacss98qg==}
+  '@cspell/dict-node@5.0.5':
+    resolution: {integrity: sha512-7NbCS2E8ZZRZwlLrh2sA0vAk9n1kcTUiRp/Nia8YvKaItGXLfxYqD2rMQ3HpB1kEutal6hQLVic3N2Yi1X7AaA==}
 
   '@cspell/dict-npm@5.1.10':
     resolution: {integrity: sha512-YmOLvM3ERk/yrdk0s0HhMI7Ws4epLRycGQH5uWyvWg5F64C31mbV557+jfxjrn6Ewq3UdT4ILCS9EyCHVyirig==}
@@ -547,8 +547,8 @@ packages:
   '@cspell/dict-scala@5.0.6':
     resolution: {integrity: sha512-tl0YWAfjUVb4LyyE4JIMVE8DlLzb1ecHRmIWc4eT6nkyDqQgHKzdHsnusxFEFMVLIQomgSg0Zz6hJ5S1E4W4ww==}
 
-  '@cspell/dict-software-terms@4.1.12':
-    resolution: {integrity: sha512-MHDAK/WlEdMJiDQ6lJ3SF7VogdfJcRXGYWfO4v90rxW8HDVfKDXVk3zpJhjoZGq56ujR1qmeYkQsM6MlB69uJA==}
+  '@cspell/dict-software-terms@4.1.13':
+    resolution: {integrity: sha512-S8TLDjY+piV8nmzn4/acwKjDbUtOqfJ9Cb3gZ9egjU/Fm8DBaQ7ziR1S2wntxlGLud9cly+LoWnEoWJYDZFveQ==}
 
   '@cspell/dict-sql@2.1.8':
     resolution: {integrity: sha512-dJRE4JV1qmXTbbGm6WIcg1knmR6K5RXnQxF4XHs5HA3LAjc/zf77F95i5LC+guOGppVF6Hdl66S2UyxT+SAF3A==}
@@ -584,11 +584,11 @@ packages:
     resolution: {integrity: sha512-IzBsrl54TyO5Ezbyr25ZOUZA3Sg2UbSWDZZar9jSRAsoikcsoy1ivgSumcYJYOH8HAtanfr8YGN0+8UF/kbYqg==}
     engines: {node: '>=18.0'}
 
-  '@csstools/css-parser-algorithms@3.0.3':
-    resolution: {integrity: sha512-15WQTALDyxAwSgAvLt7BksAssiSrNNhTv4zM7qX9U6R7FtpNskVVakzWQlYODlwPwXhGpKPmB10LM943pxMe7w==}
+  '@csstools/css-parser-algorithms@3.0.4':
+    resolution: {integrity: sha512-Up7rBoV77rv29d3uKHUIVubz1BTcgyUK72IvCQAbfbMv584xHcGKCKbWh7i8hPrRJ7qU4Y8IO3IY9m+iTB7P3A==}
     engines: {node: '>=18'}
     peerDependencies:
-      '@csstools/css-tokenizer': ^3.0.2
+      '@csstools/css-tokenizer': ^3.0.3
 
   '@csstools/css-tokenizer@3.0.3':
     resolution: {integrity: sha512-UJnjoFsmxfKUdNYdWgOB0mWUypuLvAfQPH1+pyvRJs6euowbFkFC6P13w1l8mJyi3vxYMxc9kld5jZEGRQs6bw==}
@@ -1408,8 +1408,8 @@ packages:
   caniuse-api@3.0.0:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
 
-  caniuse-lite@1.0.30001676:
-    resolution: {integrity: sha512-Qz6zwGCiPghQXGJvgQAem79esjitvJ+CxSbSQkW9H/UX5hg8XM88d4lp2W+MEQ81j+Hip58Il+jGVdazk1z9cw==}
+  caniuse-lite@1.0.30001677:
+    resolution: {integrity: sha512-fmfjsOlJUpMWu+mAAtZZZHz7UEwsUxIIvu1TJfO1HqFQvB/B+ii0xr9B5HpbZY/mC4XZ8SvjHJqtAY6pDPQEog==}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -1659,8 +1659,8 @@ packages:
     resolution: {integrity: sha512-6Fv1DV/TYw//QF5IzQdqsNDjx/wc8TrMBZsqjL9eW01tWb7R7k/mq+/VXfJCl7SoD5emsJop9cOByJZfs8hYIw==}
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0}
 
-  css-tree@3.0.0:
-    resolution: {integrity: sha512-o88DVQ6GzsABn1+6+zo2ct801dBO5OASVyxbbvA2W20ue2puSh/VOuqUj90eUeMSX/xqGqBmOKiRQN7tJOuBXw==}
+  css-tree@3.0.1:
+    resolution: {integrity: sha512-8Fxxv+tGhORlshCdCwnNJytvlvq46sOLSYEx2ZIGurahWvMucSRnyjPA3AmrMq4VPRYbHVpWj5VkiVasrM2H4Q==}
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0}
 
   css-what@6.1.0:
@@ -2846,9 +2846,6 @@ packages:
   mdn-data@2.0.30:
     resolution: {integrity: sha512-GaqWWShW4kv/G9IEucWScBx9G1/vsFZZJUO+tD26M8J8z3Kw5RDQjaoZe03YAClgeS/SWPOcb4nkFBTEi5DUEA==}
 
-  mdn-data@2.10.0:
-    resolution: {integrity: sha512-qq7C3EtK3yJXMwz1zAab65pjl+UhohqMOctTgcqjLOWABqmwj+me02LSsCuEUxnst9X1lCBpoE0WArGKgdGDzw==}
-
   mdn-data@2.12.1:
     resolution: {integrity: sha512-rsfnCbOHjqrhWxwt5/wtSLzpoKTzW7OXdT5lLOIH1OTYhWu9rRJveGq0sKvDZODABH7RX+uoR+DYcpFnq4Tf6Q==}
 
@@ -3963,8 +3960,8 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  sass@1.80.5:
-    resolution: {integrity: sha512-TQd2aoQl/+zsxRMEDSxVdpPIqeq9UFc6pr7PzkugiTx3VYCFPUaa3P4RrBQsqok4PO200Vkz0vXQBNlg7W907g==}
+  sass@1.80.6:
+    resolution: {integrity: sha512-ccZgdHNiBF1NHBsWvacvT5rju3y1d/Eu+8Ex6c21nHp2lZGLBEtuwc415QfiI1PJa1TpCo3iXwwSRjRpn2Ckjg==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -4884,7 +4881,7 @@ snapshots:
       '@cspell/dict-makefile': 1.0.3
       '@cspell/dict-markdown': 2.0.7(@cspell/dict-css@4.0.16)(@cspell/dict-html-symbol-entities@4.0.3)(@cspell/dict-html@4.0.10)(@cspell/dict-typescript@3.1.11)
       '@cspell/dict-monkeyc': 1.0.9
-      '@cspell/dict-node': 5.0.4
+      '@cspell/dict-node': 5.0.5
       '@cspell/dict-npm': 5.1.10
       '@cspell/dict-php': 4.0.13
       '@cspell/dict-powershell': 5.0.13
@@ -4894,7 +4891,7 @@ snapshots:
       '@cspell/dict-ruby': 5.0.7
       '@cspell/dict-rust': 4.0.9
       '@cspell/dict-scala': 5.0.6
-      '@cspell/dict-software-terms': 4.1.12
+      '@cspell/dict-software-terms': 4.1.13
       '@cspell/dict-sql': 2.1.8
       '@cspell/dict-svelte': 1.0.5
       '@cspell/dict-swift': 2.0.4
@@ -4999,7 +4996,7 @@ snapshots:
 
   '@cspell/dict-monkeyc@1.0.9': {}
 
-  '@cspell/dict-node@5.0.4': {}
+  '@cspell/dict-node@5.0.5': {}
 
   '@cspell/dict-npm@5.1.10': {}
 
@@ -5021,7 +5018,7 @@ snapshots:
 
   '@cspell/dict-scala@5.0.6': {}
 
-  '@cspell/dict-software-terms@4.1.12': {}
+  '@cspell/dict-software-terms@4.1.13': {}
 
   '@cspell/dict-sql@2.1.8': {}
 
@@ -5045,15 +5042,15 @@ snapshots:
 
   '@cspell/url@8.15.7': {}
 
-  '@csstools/css-parser-algorithms@3.0.3(@csstools/css-tokenizer@3.0.3)':
+  '@csstools/css-parser-algorithms@3.0.4(@csstools/css-tokenizer@3.0.3)':
     dependencies:
       '@csstools/css-tokenizer': 3.0.3
 
   '@csstools/css-tokenizer@3.0.3': {}
 
-  '@csstools/media-query-list-parser@3.0.1(@csstools/css-parser-algorithms@3.0.3(@csstools/css-tokenizer@3.0.3))(@csstools/css-tokenizer@3.0.3)':
+  '@csstools/media-query-list-parser@3.0.1(@csstools/css-parser-algorithms@3.0.4(@csstools/css-tokenizer@3.0.3))(@csstools/css-tokenizer@3.0.3)':
     dependencies:
-      '@csstools/css-parser-algorithms': 3.0.3(@csstools/css-tokenizer@3.0.3)
+      '@csstools/css-parser-algorithms': 3.0.4(@csstools/css-tokenizer@3.0.3)
       '@csstools/css-tokenizer': 3.0.3
 
   '@csstools/selector-specificity@4.0.0(postcss-selector-parser@6.1.2)':
@@ -5412,6 +5409,7 @@ snapshots:
       '@parcel/watcher-win32-arm64': 2.4.1
       '@parcel/watcher-win32-ia32': 2.4.1
       '@parcel/watcher-win32-x64': 2.4.1
+    optional: true
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -5694,7 +5692,7 @@ snapshots:
   autoprefixer@10.4.20(postcss@8.4.47):
     dependencies:
       browserslist: 4.24.2
-      caniuse-lite: 1.0.30001676
+      caniuse-lite: 1.0.30001677
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.1
@@ -5827,7 +5825,7 @@ snapshots:
 
   browserslist@4.24.2:
     dependencies:
-      caniuse-lite: 1.0.30001676
+      caniuse-lite: 1.0.30001677
       electron-to-chromium: 1.5.50
       node-releases: 2.0.18
       update-browserslist-db: 1.1.1(browserslist@4.24.2)
@@ -5858,11 +5856,11 @@ snapshots:
   caniuse-api@3.0.0:
     dependencies:
       browserslist: 4.24.2
-      caniuse-lite: 1.0.30001676
+      caniuse-lite: 1.0.30001677
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
 
-  caniuse-lite@1.0.30001676: {}
+  caniuse-lite@1.0.30001677: {}
 
   ccount@2.0.1: {}
 
@@ -6165,9 +6163,9 @@ snapshots:
       mdn-data: 2.0.30
       source-map-js: 1.2.1
 
-  css-tree@3.0.0:
+  css-tree@3.0.1:
     dependencies:
-      mdn-data: 2.10.0
+      mdn-data: 2.12.1
       source-map-js: 1.2.1
 
   css-what@6.1.0: {}
@@ -6295,7 +6293,8 @@ snapshots:
 
   detect-file@1.0.0: {}
 
-  detect-libc@1.0.3: {}
+  detect-libc@1.0.3:
+    optional: true
 
   detect-newline@2.1.0: {}
 
@@ -6857,7 +6856,7 @@ snapshots:
       lodash.clonedeep: 4.5.0
       plugin-error: 1.0.1
       replace-ext: 1.0.1
-      sass: 1.80.5
+      sass: 1.80.6
       strip-ansi: 4.0.0
       through2: 2.0.5
       vinyl-sourcemaps-apply: 0.2.1
@@ -7529,8 +7528,6 @@ snapshots:
 
   mdn-data@2.0.30: {}
 
-  mdn-data@2.10.0: {}
-
   mdn-data@2.12.1: {}
 
   mdurl@2.0.0: {}
@@ -7827,7 +7824,8 @@ snapshots:
     dependencies:
       '@types/nlcst': 2.0.3
 
-  node-addon-api@7.1.1: {}
+  node-addon-api@7.1.1:
+    optional: true
 
   node-fetch@2.7.0:
     dependencies:
@@ -9252,12 +9250,13 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass@1.80.5:
+  sass@1.80.6:
     dependencies:
-      '@parcel/watcher': 2.4.1
       chokidar: 4.0.1
       immutable: 4.3.7
       source-map-js: 1.2.1
+    optionalDependencies:
+      '@parcel/watcher': 2.4.1
 
   section-matter@1.0.0:
     dependencies:
@@ -9597,7 +9596,7 @@ snapshots:
 
   stylelint-scss@6.8.1(stylelint@16.10.0(typescript@5.6.3)):
     dependencies:
-      css-tree: 3.0.0
+      css-tree: 3.0.1
       is-plain-object: 5.0.0
       known-css-properties: 0.34.0
       mdn-data: 2.12.1
@@ -9609,16 +9608,16 @@ snapshots:
 
   stylelint@16.10.0(typescript@5.6.3):
     dependencies:
-      '@csstools/css-parser-algorithms': 3.0.3(@csstools/css-tokenizer@3.0.3)
+      '@csstools/css-parser-algorithms': 3.0.4(@csstools/css-tokenizer@3.0.3)
       '@csstools/css-tokenizer': 3.0.3
-      '@csstools/media-query-list-parser': 3.0.1(@csstools/css-parser-algorithms@3.0.3(@csstools/css-tokenizer@3.0.3))(@csstools/css-tokenizer@3.0.3)
+      '@csstools/media-query-list-parser': 3.0.1(@csstools/css-parser-algorithms@3.0.4(@csstools/css-tokenizer@3.0.3))(@csstools/css-tokenizer@3.0.3)
       '@csstools/selector-specificity': 4.0.0(postcss-selector-parser@6.1.2)
       '@dual-bundle/import-meta-resolve': 4.1.0
       balanced-match: 2.0.0
       colord: 2.9.3
       cosmiconfig: 9.0.0(typescript@5.6.3)
       css-functions-list: 3.2.3
-      css-tree: 3.0.0
+      css-tree: 3.0.1
       debug: 4.3.7
       fast-glob: 3.3.2
       fastest-levenshtein: 1.0.16
