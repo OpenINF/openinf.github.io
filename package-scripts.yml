@@ -9,9 +9,9 @@ scripts:
     browserslist: tsx build/tasks/verify/verify-browserslist.mts
     scss: tsx build/tasks/verify/verify-scss.mts
     dockerfile: tsx build/tasks/verify/verify-dockerfile.mts
-    html: tsx build/tasks/verify/verify-html.mts
     htmlValidForVNU: tsx build/tasks/verify/verify-html-valid-for-vnu.mts
     json: tsx build/tasks/verify/verify-json.mts
+    liquid: tsx build/tasks/verify/verify-liquid.mts
     md: tsx build/tasks/verify/verify-md.mts
     ruby: tsx build/tasks/verify/verify-ruby.mts
     svg: tsx build/tasks/verify/verify-svg.mts
@@ -24,8 +24,8 @@ scripts:
     all: for i in build/tasks/format/*.mts; do tsx "$i"; done
     scss: tsx build/tasks/format/format-scss.mts
     dockerfile: tsx build/tasks/format/format-dockerfile.mts
-    html: tsx build/tasks/format/format-html.mts
     json: tsx build/tasks/format/format-json.mts
+    liquid: tsx build/tasks/format/format-liquid.mts
     md: tsx build/tasks/format/format-md.mts
     ruby: tsx build/tasks/format/format-ruby.mts
     svg: tsx build/tasks/format/format-svg.mts

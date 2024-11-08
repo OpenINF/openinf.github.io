@@ -38,8 +38,9 @@ jobs:
               - '.browserslistrc'
             dockerfile:
               - '**/Dockerfile'
-            html:
+            liquid:
               - '**/*.html'
+              - '**/*.liquid'
             ts:
               - '**/*.ts'
               - '**/*.mts'
@@ -72,9 +73,9 @@ jobs:
         if: ${{ steps.filter.outputs.dockerfile == 'true' }}
         run: nps verify.dockerfile
 
-      - name: Verify HTML
-        if: ${{ steps.filter.outputs.html == 'true' }}
-        run: nps verify.html
+      - name: Verify Liquid
+        if: ${{ steps.filter.outputs.liquid == 'true' }}
+        run: nps verify.liquid
 
       - name: Verify TypeScript
         if: ${{ steps.filter.outputs.ts == 'true' || steps.filter.outputs.json == 'true' }}

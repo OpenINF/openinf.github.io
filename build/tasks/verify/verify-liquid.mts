@@ -1,21 +1,21 @@
 /**
- * @file Format HTML file partials to adhere to autofixable style guidelines.
+ * @file Verify Liquid templates adhere to checkable style guidelines.
  * @author The OpenINF Authors & Friends
  * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
- * @module {type ES6Module} build/tasks/format/format-html
+ * @module {type ES6Module} build/tasks/verify/verify-liquid
  */
 
 import { exec, glob } from '@openinf/portal/build/utils';
 
-const HTMLFiles = await glob([
+const LiquidFiles = await glob([
   '**.html',
+  '**.liquid',
   '!_site/',
   '!node_modules/',
-  '!vendor/',
 ]);
 
 let exitCode = 0;
-const scripts = [`prettier --write ${HTMLFiles.join(' ')}`];
+const scripts = [`prettier --check ${LiquidFiles.join(' ')}`];
 
 for (const element of scripts) {
   exitCode = await exec(element);
