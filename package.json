@@ -58,7 +58,7 @@
     "markdown-it-sub": "2.0.0",
     "markdown-it-sup": "2.0.0",
     "markdown-it-task-lists": "2.1.1",
-    "markdownlint-cli2": "0.14.0",
+    "markdownlint-cli2": "0.15.0",
     "markdownlint-cli2-formatter-default": "0.0.5",
     "nps": "5.10.0",
     "prettier": "3.3.3",
