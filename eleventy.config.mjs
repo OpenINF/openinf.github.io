@@ -13,6 +13,10 @@ export default async function (eleventyConfig) {
     'Aggregate, curate, disseminate, and apply information derived from diverse sources.'
   );
   eleventyConfig.addGlobalData('siteUrl', 'https://open.inf.is');
+  eleventyConfig.addGlobalData(
+    'env',
+    process.env.ELEVENTY_ENV || 'development'
+  );
 
   // Drafts, see also _data/eleventyDataSchema.js.
   eleventyConfig.addPreprocessor('drafts', '*', (data /*, content*/) => {

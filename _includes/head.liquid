@@ -27,6 +27,17 @@
       {{- title }} &middot; {{ siteTitle -}}
     {%- endif %}
   </title>
+  {% if env == 'production' -%}
+    <script>
+      if (window.location.host !== 'open.inf.is')
+        window.goatcounter = { no_onload: true };
+    </script>
+    <script
+      data-goatcounter='https://openinf.goatcounter.com/count'
+      async
+      src='//gc.zgo.at/count.js'
+    ></script>
+  {%- endif -%}
   <script
     type='module'
     src='https://cdn.ampproject.org/bento.mjs'
