@@ -1,6 +1,7 @@
 scripts:
   compile:
     buildImages: tsx build/tasks/compile/build-images.mts
+    buildJs: tsx build/tasks/compile/build-js.mts
     buildPortal: tsx build/tasks/compile/build-portal.mts
     buildStyles: tsx build/tasks/compile/build-styles.mts
     siteifyHealthFiles: tsx build/tasks/compile/siteify-health-files.mts

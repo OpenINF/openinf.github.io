@@ -1,8 +1,8 @@
 /**
- * @file Optimize and scale images for web.
+ * @file Main JS processing task.
  * @author The OpenINF Authors & Friends
  * @license MIT OR Apache-2.0 OR BlueOak-1.0.0
- * @module {type ES6Module} build/tasks/compile/imagize
+ * @module {type ES6Module} build/tasks/compile/jsify
  */
 
 // -----------------------------------------------------------------------------
@@ -13,16 +13,16 @@ import { resolve as pathResolve } from 'node:path';
 import { PATHS } from '@openinf/portal/build/constants';
 import { copyFileWithDirStructure, glob } from '@openinf/portal/build/utils';
 
-const imageFiles = await glob(PATHS.imageFilesGlob);
+const jsFiles = await glob(PATHS.jsFilesGlob);
 
 // -----------------------------------------------------------------------------
 // Task
 // -----------------------------------------------------------------------------
 
-export const imagize = async () => {
-  for (const imageFile of imageFiles) {
+export const jsify = async () => {
+  for (const jsFile of jsFiles) {
     await copyFileWithDirStructure(
-      imageFile,
+      jsFile,
       pathResolve(PATHS.assetsDir),
       pathResolve(PATHS.eleventyAssetsDir)
     );

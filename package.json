@@ -10,9 +10,10 @@
   },
   "exports": {
     "./build/constants": "./build/shared/constants.mjs",
-    "./build/tasks/scssify": "./build/tasks/compile/scssify.mjs",
     "./build/tasks/eleventify": "./build/tasks/compile/eleventify.mjs",
     "./build/tasks/imagize": "./build/tasks/compile/imagize.mjs",
+    "./build/tasks/jsify": "./build/tasks/compile/jsify.mjs",
+    "./build/tasks/scssify": "./build/tasks/compile/scssify.mjs",
     "./build/utils": "./build/utils.mjs"
   },
   "homepage": "open.inf.is",

@@ -16,6 +16,7 @@ process.env.ELEVENTY_ENV = 'production';
 const scripts = [
   'nps compile.buildStyles',
   'nps compile.buildImages',
+  'nps compile.buildJs',
   'eleventy',
 ];
 

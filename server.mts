@@ -8,6 +8,7 @@
 import { PATHS } from '@openinf/portal/build/constants';
 import { eleventify } from '@openinf/portal/build/tasks/eleventify';
 import { imagize } from '@openinf/portal/build/tasks/imagize';
+import { jsify } from '@openinf/portal/build/tasks/jsify';
 import { scssify } from '@openinf/portal/build/tasks/scssify';
 import browserSync from 'browser-sync';
 import { series, watch } from 'gulp';
@@ -37,6 +38,11 @@ browserSync.init({
 watch(PATHS.sassFiles).on('change', scssify);
 watch(PATHS.eleventyCssFiles).on('change', eleventify);
 watch(PATHS.siteCssFiles).on('change', reload);
+
+// Watch JS files, regenerate site, and reload browser on change.
+watch(PATHS.jsFiles).on('change', jsify);
+watch(PATHS.eleventyJsFiles).on('change', eleventify);
+watch(PATHS.siteJsFiles).on('change', reload);
 
 // Watch Eleventy files, regenerate site, and reload browser on change.
 watch(PATHS.eleventyDataFilesGlob).on('change', series(eleventify, reload));
