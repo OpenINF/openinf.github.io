@@ -14,7 +14,6 @@ import {
   dirname as pathDirname,
   join as pathJoin,
   relative as pathRelative,
-  resolve as pathResolve,
 } from 'node:path';
 import { execute } from '@yarnpkg/shell';
 export { globby as glob } from 'globby';
