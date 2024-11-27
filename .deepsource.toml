@@ -1,6 +1,6 @@
 version = 1
 exclude_patterns = [
-  "assets/js/vendor/",
+  "assets/js/vendor/**",
   "pnpm-lock.yaml",
 ]
 
