@@ -1,5 +1,15 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "files": {
+    "ignore": [
+      "**/_site/",
+      "**/.git/",
+      "**/node_modules/",
+      "**/package.json",
+      "**/pnpm-lock.yaml",
+      "assets/js/vendor/*.js"
+    ]
+  },
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,
@@ -7,14 +17,7 @@
     "indentWidth": 2,
     "lineEnding": "lf",
     "lineWidth": 80,
-    "attributePosition": "auto",
-    "ignore": [
-      "**/.git/",
-      "**/_site/",
-      "**/node_modules/",
-      "**/package.json",
-      "**/pnpm-lock.yaml"
-    ]
+    "attributePosition": "auto"
   },
   "organizeImports": { "enabled": true },
   "linter": {
