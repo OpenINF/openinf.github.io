@@ -7,7 +7,7 @@
       "**/node_modules/",
       "**/package.json",
       "**/pnpm-lock.yaml",
-      "_assets/js/vendor/"
+      "assets/js/vendor/"
     ]
   },
   "formatter": {
