@@ -35,7 +35,7 @@
     "@types/gulp": "4.0.17",
     "@types/js-yaml": "4.0.9",
     "@types/node": "22.9.3",
-    "@yarnpkg/shell": "4.1.0",
+    "@yarnpkg/shell": "4.1.1",
     "autoprefixer": "10.4.20",
     "bootstrap": "5.3.3",
     "browser-sync": "3.0.3",
