@@ -3,10 +3,10 @@
   "author": "The OpenINF Authors & Friends",
   "private": "true",
   "description": "The OpenINF portal, other static resources, and more static electricity",
-  "packageManager": "pnpm@9.14.4",
+  "packageManager": "pnpm@9.15.0",
   "engines": {
     "node": "22.12.0",
-    "pnpm": "9.14.4"
+    "pnpm": "9.15.0"
   },
   "exports": {
     "./build/constants": "./build/shared/constants.mjs",
@@ -29,7 +29,7 @@
     "@cspell/dict-lorem-ipsum": "4.0.3",
     "@isaacs/catcher": "1.0.4",
     "@openinf/gh-file-importer": "2.0.1",
-    "@shopify/prettier-plugin-liquid": "1.6.1",
+    "@shopify/prettier-plugin-liquid": "1.6.2",
     "@tsconfig/node-lts": "22.0.1",
     "@types/console-log-level": "1.4.5",
     "@types/gulp": "4.0.17",

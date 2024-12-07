@@ -24,8 +24,8 @@ importers:
         specifier: 2.0.1
         version: 2.0.1
       '@shopify/prettier-plugin-liquid':
-        specifier: 1.6.1
-        version: 1.6.1(prettier@3.4.2)
+        specifier: 1.6.2
+        version: 1.6.2(prettier@3.4.2)
       '@tsconfig/node-lts':
         specifier: 22.0.1
         version: 22.0.1
@@ -1004,11 +1004,11 @@ packages:
   '@popperjs/core@2.11.8':
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
 
-  '@shopify/liquid-html-parser@2.1.1':
-    resolution: {integrity: sha512-5shGZTB7tK28MzawqBb82n6fbn+77U6al5UrOcUruBUj3GNqHJWjzZVPtXq4fQHrFpXFu6l11x+z+ggdUHT0Ng==}
+  '@shopify/liquid-html-parser@2.1.2':
+    resolution: {integrity: sha512-yw+/zDdAHybyK8EndByqKRk7s9ua7P06PrwO72WZxY5RsWEWq9pgcwggBY68HQnvxP1zLZm9924lm2jou7ZaBw==}
 
-  '@shopify/prettier-plugin-liquid@1.6.1':
-    resolution: {integrity: sha512-l72sIdCF/GvRsGe3t3rbr0sEIg65Q83yamVoTDjsi9VhXbZJTnrIo/ZSe2dJJFOch61n8zi3tWM9jPjbzEblmA==}
+  '@shopify/prettier-plugin-liquid@1.6.2':
+    resolution: {integrity: sha512-MjGFy+A4GK1UvtEoV/xFTK8kxSJsDXx5eKBTk8mYhZRc7/g9PFxX4FQBPD4+qKZMtFCf+joAzcFTgTNHjI+iGQ==}
     peerDependencies:
       prettier: ^2.0.0 || ^3.0.0
 
@@ -5442,14 +5442,14 @@ snapshots:
 
   '@popperjs/core@2.11.8': {}
 
-  '@shopify/liquid-html-parser@2.1.1':
+  '@shopify/liquid-html-parser@2.1.2':
     dependencies:
       line-column: 1.0.2
       ohm-js: 16.6.0
 
-  '@shopify/prettier-plugin-liquid@1.6.1(prettier@3.4.2)':
+  '@shopify/prettier-plugin-liquid@1.6.2(prettier@3.4.2)':
     dependencies:
-      '@shopify/liquid-html-parser': 2.1.1
+      '@shopify/liquid-html-parser': 2.1.2
       html-styles: 1.0.0
       prettier: 3.4.2
 
