@@ -24,8 +24,8 @@ importers:
         specifier: 2.0.1
         version: 2.0.1
       '@shopify/prettier-plugin-liquid':
-        specifier: 1.6.2
-        version: 1.6.2(prettier@3.4.2)
+        specifier: 1.6.3
+        version: 1.6.3(prettier@3.4.2)
       '@tsconfig/node-lts':
         specifier: 22.0.1
         version: 22.0.1
@@ -39,8 +39,8 @@ importers:
         specifier: 4.0.9
         version: 4.0.9
       '@types/node':
-        specifier: 22.10.1
-        version: 22.10.1
+        specifier: 22.10.2
+        version: 22.10.2
       '@yarnpkg/shell':
         specifier: 4.1.1
         version: 4.1.1(typanion@3.14.0)
@@ -114,11 +114,11 @@ importers:
         specifier: 2.1.1
         version: 2.1.1
       markdownlint-cli2:
-        specifier: 0.15.0
-        version: 0.15.0
+        specifier: 0.16.0
+        version: 0.16.0
       markdownlint-cli2-formatter-default:
         specifier: 0.0.5
-        version: 0.0.5(markdownlint-cli2@0.15.0)
+        version: 0.0.5(markdownlint-cli2@0.16.0)
       nps:
         specifier: 5.10.0
         version: 5.10.0
@@ -246,14 +246,14 @@ importers:
         specifier: 2.0.1
         version: 2.0.1
       stylelint:
-        specifier: 16.11.0
-        version: 16.11.0(typescript@5.7.2)
+        specifier: 16.12.0
+        version: 16.12.0(typescript@5.7.2)
       stylelint-config-recess-order:
         specifier: 5.1.1
-        version: 5.1.1(stylelint@16.11.0(typescript@5.7.2))
+        version: 5.1.1(stylelint@16.12.0(typescript@5.7.2))
       stylelint-config-standard-scss:
         specifier: 14.0.0
-        version: 14.0.0(postcss@8.4.49)(stylelint@16.11.0(typescript@5.7.2))
+        version: 14.0.0(postcss@8.4.49)(stylelint@16.12.0(typescript@5.7.2))
       tsx:
         specifier: 4.19.2
         version: 4.19.2
@@ -267,11 +267,11 @@ importers:
         specifier: 24.10.17
         version: 24.10.17
       zod:
-        specifier: 3.23.8
-        version: 3.23.8
+        specifier: 3.24.1
+        version: 3.24.1
       zod-validation-error:
         specifier: 3.4.0
-        version: 3.4.0(zod@3.23.8)
+        version: 3.4.0(zod@3.24.1)
 
 packages:
 
@@ -1004,11 +1004,11 @@ packages:
   '@popperjs/core@2.11.8':
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
 
-  '@shopify/liquid-html-parser@2.1.2':
-    resolution: {integrity: sha512-yw+/zDdAHybyK8EndByqKRk7s9ua7P06PrwO72WZxY5RsWEWq9pgcwggBY68HQnvxP1zLZm9924lm2jou7ZaBw==}
+  '@shopify/liquid-html-parser@2.2.0':
+    resolution: {integrity: sha512-hD0XV+Re9BC3yMOshHCwU94LagW7LQTWPdtpU0IE/pMbco+ke7Hir1Ad7eloHAgzR+6iw4LzDEFuHFpKZWmGKw==}
 
-  '@shopify/prettier-plugin-liquid@1.6.2':
-    resolution: {integrity: sha512-MjGFy+A4GK1UvtEoV/xFTK8kxSJsDXx5eKBTk8mYhZRc7/g9PFxX4FQBPD4+qKZMtFCf+joAzcFTgTNHjI+iGQ==}
+  '@shopify/prettier-plugin-liquid@1.6.3':
+    resolution: {integrity: sha512-l4Bt4JqQS/FLsfelI97mq+YaZJg1+Gn8920zv/Cw3nEicTJ8LpZHrqRbJiXLWUsGNIQ6ydlu0Y/nGtt0qCUy5A==}
     peerDependencies:
       prettier: ^2.0.0 || ^3.0.0
 
@@ -1094,8 +1094,8 @@ packages:
   '@types/nlcst@2.0.3':
     resolution: {integrity: sha512-vSYNSDe6Ix3q+6Z7ri9lyWqgGhJTmzRjZRqyq15N0Z/1/UnVsno9G/N40NBijoYx2seFDIl0+B2mgAb9mezUCA==}
 
-  '@types/node@22.10.1':
-    resolution: {integrity: sha512-qKgsUwfHZV2WCWLAnVP1JqnpE6Im6h3Y0+fYgMTasNQ7V++CBX5OT1as0g0f+OyubbFqhf6XVNIsmN4IIhEgGQ==}
+  '@types/node@22.10.2':
+    resolution: {integrity: sha512-Xxr6BBRCAOQixvonOye19wnzyDiUtTeqldOOmj3CkeblonbccA12PFwlufvRdrpjXxqnmUaeiU5EOA+7s5diUQ==}
 
   '@types/picomatch@3.0.1':
     resolution: {integrity: sha512-1MRgzpzY0hOp9pW/kLRxeQhUWwil6gnrUYd3oEpeYBqp/FexhaCPv3F8LsYr47gtUU45fO2cm1dbwkSrHEo8Uw==}
@@ -2781,8 +2781,8 @@ packages:
     peerDependencies:
       markdownlint-cli2: '>=0.0.4'
 
-  markdownlint-cli2@0.15.0:
-    resolution: {integrity: sha512-4P/lnxQxU2R5lywRJs4b2ajm8z65CW8qqR1bTIcdQ5EG+nZpC6HJlJUnmIR5ee+uecUkoMroazxWcLB7etSmrg==}
+  markdownlint-cli2@0.16.0:
+    resolution: {integrity: sha512-oy5dJdOxGMKSwrlouxdEGf6N4O2Iz8oJ4/HO2Ix67o4vTK1AQNGjZUNwTIzfa5x+XbJ++dfgR1gLfILajsW+1Q==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4290,8 +4290,8 @@ packages:
     peerDependencies:
       stylelint: ^16.0.2
 
-  stylelint@16.11.0:
-    resolution: {integrity: sha512-zrl4IrKmjJQ+h9FoMp69UMCq5SxeHk0URhxUBj4d3ISzo/DplOFBJZc7t7Dr6otB+1bfbbKNLOmCDpzKSlW+Nw==}
+  stylelint@16.12.0:
+    resolution: {integrity: sha512-F8zZ3L/rBpuoBZRvI4JVT20ZanPLXfQLzMOZg1tzPflRVh9mKpOZ8qcSIhh1my3FjAjZWG4T2POwGnmn6a6hbg==}
     engines: {node: '>=18.12.0'}
     hasBin: true
 
@@ -4711,8 +4711,8 @@ packages:
     peerDependencies:
       zod: ^3.18.0
 
-  zod@3.23.8:
-    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+  zod@3.24.1:
+    resolution: {integrity: sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -5454,14 +5454,14 @@ snapshots:
 
   '@popperjs/core@2.11.8': {}
 
-  '@shopify/liquid-html-parser@2.1.2':
+  '@shopify/liquid-html-parser@2.2.0':
     dependencies:
       line-column: 1.0.2
       ohm-js: 16.6.0
 
-  '@shopify/prettier-plugin-liquid@1.6.2(prettier@3.4.2)':
+  '@shopify/prettier-plugin-liquid@1.6.3(prettier@3.4.2)':
     dependencies:
-      '@shopify/liquid-html-parser': 2.1.2
+      '@shopify/liquid-html-parser': 2.2.0
       html-styles: 1.0.0
       prettier: 3.4.2
 
@@ -5484,7 +5484,7 @@ snapshots:
 
   '@types/concat-stream@2.0.3':
     dependencies:
-      '@types/node': 22.10.1
+      '@types/node': 22.10.2
 
   '@types/console-log-level@1.4.5': {}
 
@@ -5492,7 +5492,7 @@ snapshots:
 
   '@types/cors@2.8.17':
     dependencies:
-      '@types/node': 22.10.1
+      '@types/node': 22.10.2
 
   '@types/debug@4.1.12':
     dependencies:
@@ -5508,13 +5508,13 @@ snapshots:
 
   '@types/glob-stream@8.0.2':
     dependencies:
-      '@types/node': 22.10.1
+      '@types/node': 22.10.2
       '@types/picomatch': 3.0.1
       '@types/streamx': 2.9.5
 
   '@types/gulp@4.0.17':
     dependencies:
-      '@types/node': 22.10.1
+      '@types/node': 22.10.2
       '@types/undertaker': 1.2.11
       '@types/vinyl-fs': 3.0.5
       chokidar: 3.6.0
@@ -5548,7 +5548,7 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
-  '@types/node@22.10.1':
+  '@types/node@22.10.2':
     dependencies:
       undici-types: 6.20.0
 
@@ -5558,7 +5558,7 @@ snapshots:
 
   '@types/streamx@2.9.5':
     dependencies:
-      '@types/node': 22.10.1
+      '@types/node': 22.10.2
 
   '@types/supports-color@8.1.3': {}
 
@@ -5568,7 +5568,7 @@ snapshots:
 
   '@types/undertaker@1.2.11':
     dependencies:
-      '@types/node': 22.10.1
+      '@types/node': 22.10.2
       '@types/undertaker-registry': 1.0.4
       async-done: 1.3.2
 
@@ -5579,13 +5579,13 @@ snapshots:
   '@types/vinyl-fs@3.0.5':
     dependencies:
       '@types/glob-stream': 8.0.2
-      '@types/node': 22.10.1
+      '@types/node': 22.10.2
       '@types/vinyl': 2.0.12
 
   '@types/vinyl@2.0.12':
     dependencies:
       '@types/expect': 1.20.4
-      '@types/node': 22.10.1
+      '@types/node': 22.10.2
 
   '@ungap/structured-clone@1.2.1': {}
 
@@ -6465,7 +6465,7 @@ snapshots:
     dependencies:
       '@types/cookie': 0.4.1
       '@types/cors': 2.8.17
-      '@types/node': 22.10.1
+      '@types/node': 22.10.2
       accepts: 1.3.8
       base64id: 2.0.0
       cookie: 0.7.2
@@ -7337,17 +7337,17 @@ snapshots:
 
   markdown-table@3.0.4: {}
 
-  markdownlint-cli2-formatter-default@0.0.5(markdownlint-cli2@0.15.0):
+  markdownlint-cli2-formatter-default@0.0.5(markdownlint-cli2@0.16.0):
     dependencies:
-      markdownlint-cli2: 0.15.0
+      markdownlint-cli2: 0.16.0
 
-  markdownlint-cli2@0.15.0:
+  markdownlint-cli2@0.16.0:
     dependencies:
       globby: 14.0.2
       js-yaml: 4.1.0
       jsonc-parser: 3.3.1
       markdownlint: 0.36.1
-      markdownlint-cli2-formatter-default: 0.0.5(markdownlint-cli2@0.15.0)
+      markdownlint-cli2-formatter-default: 0.0.5(markdownlint-cli2@0.16.0)
       micromatch: 4.0.8
 
   markdownlint-micromark@0.1.12: {}
@@ -9614,44 +9614,44 @@ snapshots:
       postcss: 8.4.49
       postcss-selector-parser: 6.1.2
 
-  stylelint-config-recess-order@5.1.1(stylelint@16.11.0(typescript@5.7.2)):
+  stylelint-config-recess-order@5.1.1(stylelint@16.12.0(typescript@5.7.2)):
     dependencies:
-      stylelint: 16.11.0(typescript@5.7.2)
-      stylelint-order: 6.0.4(stylelint@16.11.0(typescript@5.7.2))
+      stylelint: 16.12.0(typescript@5.7.2)
+      stylelint-order: 6.0.4(stylelint@16.12.0(typescript@5.7.2))
 
-  stylelint-config-recommended-scss@14.1.0(postcss@8.4.49)(stylelint@16.11.0(typescript@5.7.2)):
+  stylelint-config-recommended-scss@14.1.0(postcss@8.4.49)(stylelint@16.12.0(typescript@5.7.2)):
     dependencies:
       postcss-scss: 4.0.9(postcss@8.4.49)
-      stylelint: 16.11.0(typescript@5.7.2)
-      stylelint-config-recommended: 14.0.1(stylelint@16.11.0(typescript@5.7.2))
-      stylelint-scss: 6.10.0(stylelint@16.11.0(typescript@5.7.2))
+      stylelint: 16.12.0(typescript@5.7.2)
+      stylelint-config-recommended: 14.0.1(stylelint@16.12.0(typescript@5.7.2))
+      stylelint-scss: 6.10.0(stylelint@16.12.0(typescript@5.7.2))
     optionalDependencies:
       postcss: 8.4.49
 
-  stylelint-config-recommended@14.0.1(stylelint@16.11.0(typescript@5.7.2)):
+  stylelint-config-recommended@14.0.1(stylelint@16.12.0(typescript@5.7.2)):
     dependencies:
-      stylelint: 16.11.0(typescript@5.7.2)
+      stylelint: 16.12.0(typescript@5.7.2)
 
-  stylelint-config-standard-scss@14.0.0(postcss@8.4.49)(stylelint@16.11.0(typescript@5.7.2)):
+  stylelint-config-standard-scss@14.0.0(postcss@8.4.49)(stylelint@16.12.0(typescript@5.7.2)):
     dependencies:
-      stylelint: 16.11.0(typescript@5.7.2)
-      stylelint-config-recommended-scss: 14.1.0(postcss@8.4.49)(stylelint@16.11.0(typescript@5.7.2))
-      stylelint-config-standard: 36.0.1(stylelint@16.11.0(typescript@5.7.2))
+      stylelint: 16.12.0(typescript@5.7.2)
+      stylelint-config-recommended-scss: 14.1.0(postcss@8.4.49)(stylelint@16.12.0(typescript@5.7.2))
+      stylelint-config-standard: 36.0.1(stylelint@16.12.0(typescript@5.7.2))
     optionalDependencies:
       postcss: 8.4.49
 
-  stylelint-config-standard@36.0.1(stylelint@16.11.0(typescript@5.7.2)):
+  stylelint-config-standard@36.0.1(stylelint@16.12.0(typescript@5.7.2)):
     dependencies:
-      stylelint: 16.11.0(typescript@5.7.2)
-      stylelint-config-recommended: 14.0.1(stylelint@16.11.0(typescript@5.7.2))
+      stylelint: 16.12.0(typescript@5.7.2)
+      stylelint-config-recommended: 14.0.1(stylelint@16.12.0(typescript@5.7.2))
 
-  stylelint-order@6.0.4(stylelint@16.11.0(typescript@5.7.2)):
+  stylelint-order@6.0.4(stylelint@16.12.0(typescript@5.7.2)):
     dependencies:
       postcss: 8.4.49
       postcss-sorting: 8.0.2(postcss@8.4.49)
-      stylelint: 16.11.0(typescript@5.7.2)
+      stylelint: 16.12.0(typescript@5.7.2)
 
-  stylelint-scss@6.10.0(stylelint@16.11.0(typescript@5.7.2)):
+  stylelint-scss@6.10.0(stylelint@16.12.0(typescript@5.7.2)):
     dependencies:
       css-tree: 3.1.0
       is-plain-object: 5.0.0
@@ -9661,9 +9661,9 @@ snapshots:
       postcss-resolve-nested-selector: 0.1.6
       postcss-selector-parser: 7.0.0
       postcss-value-parser: 4.2.0
-      stylelint: 16.11.0(typescript@5.7.2)
+      stylelint: 16.12.0(typescript@5.7.2)
 
-  stylelint@16.11.0(typescript@5.7.2):
+  stylelint@16.12.0(typescript@5.7.2):
     dependencies:
       '@csstools/css-parser-algorithms': 3.0.4(@csstools/css-tokenizer@3.0.3)
       '@csstools/css-tokenizer': 3.0.3
@@ -9870,7 +9870,7 @@ snapshots:
       '@types/concat-stream': 2.0.3
       '@types/debug': 4.1.12
       '@types/is-empty': 1.2.3
-      '@types/node': 22.10.1
+      '@types/node': 22.10.2
       '@types/unist': 3.0.3
       concat-stream: 2.0.0
       debug: 4.4.0
@@ -10196,10 +10196,10 @@ snapshots:
       y18n: 5.0.8
       yargs-parser: 21.1.1
 
-  zod-validation-error@3.4.0(zod@3.23.8):
+  zod-validation-error@3.4.0(zod@3.24.1):
     dependencies:
-      zod: 3.23.8
+      zod: 3.24.1
 
-  zod@3.23.8: {}
+  zod@3.24.1: {}
 
   zwitch@2.0.4: {}
