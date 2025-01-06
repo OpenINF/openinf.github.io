@@ -15,8 +15,8 @@ importers:
         specifier: 1.9.4
         version: 1.9.4
       '@cspell/dict-lorem-ipsum':
-        specifier: 4.0.3
-        version: 4.0.3
+        specifier: 4.0.4
+        version: 4.0.4
       '@isaacs/catcher':
         specifier: 1.0.4
         version: 1.0.4
@@ -39,8 +39,8 @@ importers:
         specifier: 4.0.9
         version: 4.0.9
       '@types/node':
-        specifier: 22.10.2
-        version: 22.10.2
+        specifier: 22.10.5
+        version: 22.10.5
       '@yarnpkg/shell':
         specifier: 4.1.1
         version: 4.1.1(typanion@3.14.0)
@@ -114,11 +114,11 @@ importers:
         specifier: 2.1.1
         version: 2.1.1
       markdownlint-cli2:
-        specifier: 0.17.0
-        version: 0.17.0
+        specifier: 0.17.1
+        version: 0.17.1
       markdownlint-cli2-formatter-default:
         specifier: 0.0.5
-        version: 0.0.5(markdownlint-cli2@0.17.0)
+        version: 0.0.5(markdownlint-cli2@0.17.1)
       nps:
         specifier: 5.10.0
         version: 5.10.0
@@ -497,8 +497,8 @@ packages:
   '@cspell/dict-latex@4.0.3':
     resolution: {integrity: sha512-2KXBt9fSpymYHxHfvhUpjUFyzrmN4c4P8mwIzweLyvqntBT3k0YGZJSriOdjfUjwSygrfEwiuPI1EMrvgrOMJw==}
 
-  '@cspell/dict-lorem-ipsum@4.0.3':
-    resolution: {integrity: sha512-WFpDi/PDYHXft6p0eCXuYnn7mzMEQLVeqpO+wHSUd+kz5ADusZ4cpslAA4wUZJstF1/1kMCQCZM6HLZic9bT8A==}
+  '@cspell/dict-lorem-ipsum@4.0.4':
+    resolution: {integrity: sha512-+4f7vtY4dp2b9N5fn0za/UR0kwFq2zDtA62JCbWHbpjvO9wukkbl4rZg4YudHbBgkl73HRnXFgCiwNhdIA1JPw==}
 
   '@cspell/dict-lua@4.0.6':
     resolution: {integrity: sha512-Jwvh1jmAd9b+SP9e1GkS2ACbqKKRo9E1f9GdjF/ijmooZuHU0hPyqvnhZzUAxO1egbnNjxS/J2T6iUtjAUK2KQ==}
@@ -1097,8 +1097,8 @@ packages:
   '@types/nlcst@2.0.3':
     resolution: {integrity: sha512-vSYNSDe6Ix3q+6Z7ri9lyWqgGhJTmzRjZRqyq15N0Z/1/UnVsno9G/N40NBijoYx2seFDIl0+B2mgAb9mezUCA==}
 
-  '@types/node@22.10.2':
-    resolution: {integrity: sha512-Xxr6BBRCAOQixvonOye19wnzyDiUtTeqldOOmj3CkeblonbccA12PFwlufvRdrpjXxqnmUaeiU5EOA+7s5diUQ==}
+  '@types/node@22.10.5':
+    resolution: {integrity: sha512-F8Q+SeGimwOo86fiovQh8qiXfFEh2/ocYv7tU5pJ3EXMSSxk1Joj5wefpFK2fHTf/N6HKGSxIDBT9f3gCxXPkQ==}
 
   '@types/picomatch@3.0.1':
     resolution: {integrity: sha512-1MRgzpzY0hOp9pW/kLRxeQhUWwil6gnrUYd3oEpeYBqp/FexhaCPv3F8LsYr47gtUU45fO2cm1dbwkSrHEo8Uw==}
@@ -2792,13 +2792,13 @@ packages:
     peerDependencies:
       markdownlint-cli2: '>=0.0.4'
 
-  markdownlint-cli2@0.17.0:
-    resolution: {integrity: sha512-8Xz7wkkkV4wJTf+pvryU3J/fT3BZWD3ZykcjYBR0GuH0GHvrCbswaCdurbuUuAPDGFZy4cxBGYCJSAOW8jM4aQ==}
+  markdownlint-cli2@0.17.1:
+    resolution: {integrity: sha512-n1Im9lhKJJE12/u2N0GWBwPqeb0HGdylN8XpSFg9hbj35+QalY9Vi6mxwUQdG6wlSrrIq9ZDQ0Q85AQG9V2WOg==}
     engines: {node: '>=18'}
     hasBin: true
 
-  markdownlint@0.37.2:
-    resolution: {integrity: sha512-m8QhYnRA1ptbhIjhVVBUkKQcUelVxuyO/yXyLewnc1+xs4eXhST/+hIy29goO+EYVLmWtknH4SmYQ4s0caoKqw==}
+  markdownlint@0.37.3:
+    resolution: {integrity: sha512-eoQqH0291YCCjd+Pe1PUQ9AmWthlVmS0XWgcionkZ8q34ceZyRI+pYvsWksXJJL8OBkWCPwp1h/pnXxrPFC4oA==}
     engines: {node: '>=18'}
 
   math-intrinsics@1.1.0:
@@ -4922,7 +4922,7 @@ snapshots:
       '@cspell/dict-julia': 1.0.4
       '@cspell/dict-k8s': 1.0.9
       '@cspell/dict-latex': 4.0.3
-      '@cspell/dict-lorem-ipsum': 4.0.3
+      '@cspell/dict-lorem-ipsum': 4.0.4
       '@cspell/dict-lua': 4.0.6
       '@cspell/dict-makefile': 1.0.3
       '@cspell/dict-markdown': 2.0.7(@cspell/dict-css@4.0.16)(@cspell/dict-html-symbol-entities@4.0.3)(@cspell/dict-html@4.0.10)(@cspell/dict-typescript@3.1.11)
@@ -5027,7 +5027,7 @@ snapshots:
 
   '@cspell/dict-latex@4.0.3': {}
 
-  '@cspell/dict-lorem-ipsum@4.0.3': {}
+  '@cspell/dict-lorem-ipsum@4.0.4': {}
 
   '@cspell/dict-lua@4.0.6': {}
 
@@ -5500,7 +5500,7 @@ snapshots:
 
   '@types/concat-stream@2.0.3':
     dependencies:
-      '@types/node': 22.10.2
+      '@types/node': 22.10.5
 
   '@types/console-log-level@1.4.5': {}
 
@@ -5508,7 +5508,7 @@ snapshots:
 
   '@types/cors@2.8.17':
     dependencies:
-      '@types/node': 22.10.2
+      '@types/node': 22.10.5
 
   '@types/debug@4.1.12':
     dependencies:
@@ -5524,13 +5524,13 @@ snapshots:
 
   '@types/glob-stream@8.0.2':
     dependencies:
-      '@types/node': 22.10.2
+      '@types/node': 22.10.5
       '@types/picomatch': 3.0.1
       '@types/streamx': 2.9.5
 
   '@types/gulp@4.0.17':
     dependencies:
-      '@types/node': 22.10.2
+      '@types/node': 22.10.5
       '@types/undertaker': 1.2.11
       '@types/vinyl-fs': 3.0.5
       chokidar: 3.6.0
@@ -5566,7 +5566,7 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
-  '@types/node@22.10.2':
+  '@types/node@22.10.5':
     dependencies:
       undici-types: 6.20.0
 
@@ -5576,7 +5576,7 @@ snapshots:
 
   '@types/streamx@2.9.5':
     dependencies:
-      '@types/node': 22.10.2
+      '@types/node': 22.10.5
 
   '@types/supports-color@8.1.3': {}
 
@@ -5586,7 +5586,7 @@ snapshots:
 
   '@types/undertaker@1.2.11':
     dependencies:
-      '@types/node': 22.10.2
+      '@types/node': 22.10.5
       '@types/undertaker-registry': 1.0.4
       async-done: 1.3.2
 
@@ -5597,13 +5597,13 @@ snapshots:
   '@types/vinyl-fs@3.0.5':
     dependencies:
       '@types/glob-stream': 8.0.2
-      '@types/node': 22.10.2
+      '@types/node': 22.10.5
       '@types/vinyl': 2.0.12
 
   '@types/vinyl@2.0.12':
     dependencies:
       '@types/expect': 1.20.4
-      '@types/node': 22.10.2
+      '@types/node': 22.10.5
 
   '@ungap/structured-clone@1.2.1': {}
 
@@ -6485,7 +6485,7 @@ snapshots:
     dependencies:
       '@types/cookie': 0.4.1
       '@types/cors': 2.8.17
-      '@types/node': 22.10.2
+      '@types/node': 22.10.5
       accepts: 1.3.8
       base64id: 2.0.0
       cookie: 0.7.2
@@ -7363,25 +7363,26 @@ snapshots:
 
   markdown-table@3.0.4: {}
 
-  markdownlint-cli2-formatter-default@0.0.5(markdownlint-cli2@0.17.0):
+  markdownlint-cli2-formatter-default@0.0.5(markdownlint-cli2@0.17.1):
     dependencies:
-      markdownlint-cli2: 0.17.0
+      markdownlint-cli2: 0.17.1
 
-  markdownlint-cli2@0.17.0:
+  markdownlint-cli2@0.17.1:
     dependencies:
       globby: 14.0.2
       js-yaml: 4.1.0
       jsonc-parser: 3.3.1
-      markdownlint: 0.37.2
-      markdownlint-cli2-formatter-default: 0.0.5(markdownlint-cli2@0.17.0)
+      markdownlint: 0.37.3
+      markdownlint-cli2-formatter-default: 0.0.5(markdownlint-cli2@0.17.1)
       micromatch: 4.0.8
     transitivePeerDependencies:
       - supports-color
 
-  markdownlint@0.37.2:
+  markdownlint@0.37.3:
     dependencies:
       markdown-it: 14.1.0
       micromark: 4.0.1
+      micromark-core-commonmark: 2.0.2
       micromark-extension-directive: 3.0.2
       micromark-extension-gfm-autolink-literal: 2.1.0
       micromark-extension-gfm-footnote: 2.1.0
@@ -9915,7 +9916,7 @@ snapshots:
       '@types/concat-stream': 2.0.3
       '@types/debug': 4.1.12
       '@types/is-empty': 1.2.3
-      '@types/node': 22.10.2
+      '@types/node': 22.10.5
       '@types/unist': 3.0.3
       concat-stream: 2.0.0
       debug: 4.4.0

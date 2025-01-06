@@ -3,10 +3,10 @@
   "author": "The OpenINF Authors & Friends",
   "private": "true",
   "description": "The OpenINF portal, other static resources, and more static electricity",
-  "packageManager": "pnpm@9.15.2",
+  "packageManager": "pnpm@9.15.3",
   "engines": {
     "node": "22.12.0",
-    "pnpm": "9.15.2"
+    "pnpm": "9.15.3"
   },
   "exports": {
     "./build/constants": "./build/shared/constants.mjs",
@@ -26,7 +26,7 @@
   "devDependencies": {
     "@11ty/eleventy": "3.0.0",
     "@biomejs/biome": "1.9.4",
-    "@cspell/dict-lorem-ipsum": "4.0.3",
+    "@cspell/dict-lorem-ipsum": "4.0.4",
     "@isaacs/catcher": "1.0.4",
     "@openinf/gh-file-importer": "2.0.1",
     "@shopify/prettier-plugin-liquid": "1.6.3",
@@ -34,7 +34,7 @@
     "@types/console-log-level": "1.4.5",
     "@types/gulp": "4.0.17",
     "@types/js-yaml": "4.0.9",
-    "@types/node": "22.10.2",
+    "@types/node": "22.10.5",
     "@yarnpkg/shell": "4.1.1",
     "autoprefixer": "10.4.20",
     "bootstrap": "5.3.3",
@@ -59,7 +59,7 @@
     "markdown-it-sub": "2.0.0",
     "markdown-it-sup": "2.0.0",
     "markdown-it-task-lists": "2.1.1",
-    "markdownlint-cli2": "0.17.0",
+    "markdownlint-cli2": "0.17.1",
     "markdownlint-cli2-formatter-default": "0.0.5",
     "nps": "5.10.0",
     "prettier": "3.4.2",
