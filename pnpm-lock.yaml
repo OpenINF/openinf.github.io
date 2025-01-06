@@ -395,104 +395,104 @@ packages:
     resolution: {integrity: sha512-NJbov7Jp57fh8addoxesjb8atg/APQfssCH5Q9uZuHBN06wEJDgs7fhfE48bU+RBViC9gltblsYZzZZQKzHYKg==}
     engines: {node: '>=18'}
 
-  '@cspell/dict-ada@4.0.5':
-    resolution: {integrity: sha512-6/RtZ/a+lhFVmrx/B7bfP7rzC4yjEYe8o74EybXcvu4Oue6J4Ey2WSYj96iuodloj1LWrkNCQyX5h4Pmcj0Iag==}
+  '@cspell/dict-ada@4.0.6':
+    resolution: {integrity: sha512-1DpA3LeidQS5Wec5ZnrIRtuv/ijUcfcUq8G5hj/3QZT4vTTRXtIaQnfsq7t3XYsRlisYHkVmm2CgsJ/8hKChLw==}
 
-  '@cspell/dict-al@1.0.3':
-    resolution: {integrity: sha512-V1HClwlfU/qwSq2Kt+MkqRAsonNu3mxjSCDyGRecdLGIHmh7yeEeaxqRiO/VZ4KP+eVSiSIlbwrb5YNFfxYZbw==}
+  '@cspell/dict-al@1.0.4':
+    resolution: {integrity: sha512-W4ppuwhZN6A1genmj9Q4NC8UKy7TrRb7UjvMsuPDen+V8anePTys9a0DpKp3z0S6nlrcZgqYNe9Hw/9k76mkAQ==}
 
-  '@cspell/dict-aws@4.0.7':
-    resolution: {integrity: sha512-PoaPpa2NXtSkhGIMIKhsJUXB6UbtTt6Ao3x9JdU9kn7fRZkwD4RjHDGqulucIOz7KeEX/dNRafap6oK9xHe4RA==}
+  '@cspell/dict-aws@4.0.9':
+    resolution: {integrity: sha512-bDYdnnJGwSkIZ4gzrauu7qzOs/ZAY/FnU4k11LgdMI8BhwMfsbsy2EI1iS+sD/BI5ZnNT9kU5YR3WADeNOmhRg==}
 
-  '@cspell/dict-bash@4.1.8':
-    resolution: {integrity: sha512-I2CM2pTNthQwW069lKcrVxchJGMVQBzru2ygsHCwgidXRnJL/NTjAPOFTxN58Jc1bf7THWghfEDyKX/oyfc0yg==}
+  '@cspell/dict-bash@4.1.9':
+    resolution: {integrity: sha512-Gl7tE1dFgtZHUZTpzAA4/HyKE9QXJ1dyDrru98J4LdhTPaoyXW+b8hfr4y7n21zzEqE2zAW4fi3o85IY28uPTQ==}
 
-  '@cspell/dict-companies@3.1.11':
-    resolution: {integrity: sha512-1gbPfN4fk6Cmg8DbCc+3nFxnHJNNGN1R5T/VzGEp8UpVBcW3OFET2xXFKcJiKSh+DyXB+M2tAx3so6WBEwOK1Q==}
+  '@cspell/dict-companies@3.1.12':
+    resolution: {integrity: sha512-99FxBNdLOQc3nVQ663Xh7JqDLbIy/AdqOecQ5bk3HpmXpSkoDvTT7XCUU5nQZvmFBrrQlXFKlRRYjLfTEOUDdA==}
 
-  '@cspell/dict-cpp@6.0.2':
-    resolution: {integrity: sha512-yw5eejWvY4bAnc6LUA44m4WsFwlmgPt2uMSnO7QViGMBDuoeopMma4z9XYvs4lSjTi8fIJs/A1YDfM9AVzb8eg==}
+  '@cspell/dict-cpp@6.0.3':
+    resolution: {integrity: sha512-OFrVXdxCeGKnon36Pe3yFjBuY4kzzEwWFf3vDz+cJTodZDkjFkBifQeTtt5YfimgF8cfAJZXkBCsxjipAgmAiw==}
 
-  '@cspell/dict-cryptocurrencies@5.0.3':
-    resolution: {integrity: sha512-bl5q+Mk+T3xOZ12+FG37dB30GDxStza49Rmoax95n37MTLksk9wBo1ICOlPJ6PnDUSyeuv4SIVKgRKMKkJJglA==}
+  '@cspell/dict-cryptocurrencies@5.0.4':
+    resolution: {integrity: sha512-6iFu7Abu+4Mgqq08YhTKHfH59mpMpGTwdzDB2Y8bbgiwnGFCeoiSkVkgLn1Kel2++hYcZ8vsAW/MJS9oXxuMag==}
 
-  '@cspell/dict-csharp@4.0.5':
-    resolution: {integrity: sha512-c/sFnNgtRwRJxtC3JHKkyOm+U3/sUrltFeNwml9VsxKBHVmvlg4tk4ar58PdpW9/zTlGUkWi2i85//DN1EsUCA==}
+  '@cspell/dict-csharp@4.0.6':
+    resolution: {integrity: sha512-w/+YsqOknjQXmIlWDRmkW+BHBPJZ/XDrfJhZRQnp0wzpPOGml7W0q1iae65P2AFRtTdPKYmvSz7AL5ZRkCnSIw==}
 
-  '@cspell/dict-css@4.0.16':
-    resolution: {integrity: sha512-70qu7L9z/JR6QLyJPk38fNTKitlIHnfunx0wjpWQUQ8/jGADIhMCrz6hInBjqPNdtGpYm8d1dNFyF8taEkOgrQ==}
+  '@cspell/dict-css@4.0.17':
+    resolution: {integrity: sha512-2EisRLHk6X/PdicybwlajLGKF5aJf4xnX2uuG5lexuYKt05xV/J/OiBADmi8q9obhxf1nesrMQbqAt+6CsHo/w==}
 
-  '@cspell/dict-dart@2.2.4':
-    resolution: {integrity: sha512-of/cVuUIZZK/+iqefGln8G3bVpfyN6ZtH+LyLkHMoR5tEj+2vtilGNk9ngwyR8L4lEqbKuzSkOxgfVjsXf5PsQ==}
+  '@cspell/dict-dart@2.2.5':
+    resolution: {integrity: sha512-j/J99MH4NV2Klok0XMqnHxGl2lkewBcYjGYWdBKvVSbLXyA4oOaL+vCZR8Nmwf+lHInJFN8nkMU2k7TnC0MgUw==}
 
-  '@cspell/dict-data-science@2.0.5':
-    resolution: {integrity: sha512-nNSILXmhSJox9/QoXICPQgm8q5PbiSQP4afpbkBqPi/u/b3K9MbNH5HvOOa6230gxcGdbZ9Argl2hY/U8siBlg==}
+  '@cspell/dict-data-science@2.0.6':
+    resolution: {integrity: sha512-gOYKZOg358yhnnQfr1/f232REmjeIymXUHJdrLEMPirluv2rzMWvEBBazqRVQ++jMUNg9IduVI0v096ZWMDekA==}
 
-  '@cspell/dict-django@4.1.3':
-    resolution: {integrity: sha512-yBspeL3roJlO0a1vKKNaWABURuHdHZ9b1L8d3AukX0AsBy9snSggc8xCavPmSzNfeMDXbH+1lgQiYBd3IW03fg==}
+  '@cspell/dict-django@4.1.4':
+    resolution: {integrity: sha512-fX38eUoPvytZ/2GA+g4bbdUtCMGNFSLbdJJPKX2vbewIQGfgSFJKY56vvcHJKAvw7FopjvgyS/98Ta9WN1gckg==}
 
-  '@cspell/dict-docker@1.1.11':
-    resolution: {integrity: sha512-s0Yhb16/R+UT1y727ekbR/itWQF3Qz275DR1ahOa66wYtPjHUXmhM3B/LT3aPaX+hD6AWmK23v57SuyfYHUjsw==}
+  '@cspell/dict-docker@1.1.12':
+    resolution: {integrity: sha512-6d25ZPBnYZaT9D9An/x6g/4mk542R8bR3ipnby3QFCxnfdd6xaWiTcwDPsCgwN2aQZIQ1jX/fil9KmBEqIK/qA==}
 
-  '@cspell/dict-dotnet@5.0.8':
-    resolution: {integrity: sha512-MD8CmMgMEdJAIPl2Py3iqrx3B708MbCIXAuOeZ0Mzzb8YmLmiisY7QEYSZPg08D7xuwARycP0Ki+bb0GAkFSqg==}
+  '@cspell/dict-dotnet@5.0.9':
+    resolution: {integrity: sha512-JGD6RJW5sHtO5lfiJl11a5DpPN6eKSz5M1YBa1I76j4dDOIqgZB6rQexlDlK1DH9B06X4GdDQwdBfnpAB0r2uQ==}
 
-  '@cspell/dict-elixir@4.0.6':
-    resolution: {integrity: sha512-TfqSTxMHZ2jhiqnXlVKM0bUADtCvwKQv2XZL/DI0rx3doG8mEMS8SGPOmiyyGkHpR/pGOq18AFH3BEm4lViHIw==}
+  '@cspell/dict-elixir@4.0.7':
+    resolution: {integrity: sha512-MAUqlMw73mgtSdxvbAvyRlvc3bYnrDqXQrx5K9SwW8F7fRYf9V4vWYFULh+UWwwkqkhX9w03ZqFYRTdkFku6uA==}
 
-  '@cspell/dict-en-common-misspellings@2.0.7':
-    resolution: {integrity: sha512-qNFo3G4wyabcwnM+hDrMYKN9vNVg/k9QkhqSlSst6pULjdvPyPs1mqz1689xO/v9t8e6sR4IKc3CgUXDMTYOpA==}
+  '@cspell/dict-en-common-misspellings@2.0.8':
+    resolution: {integrity: sha512-l1u/pDjwrPyWwBd1hCkZhdsK8yLbLFPD2xWz+1tFFI7WaV9ckDZoF3woRc/0wFGRy53yrfSAVuwhoYOQnHe/fA==}
 
   '@cspell/dict-en-gb@1.1.33':
     resolution: {integrity: sha512-tKSSUf9BJEV+GJQAYGw5e+ouhEe2ZXE620S7BLKe3ZmpnjlNG9JqlnaBhkIMxKnNFkLY2BP/EARzw31AZnOv4g==}
 
-  '@cspell/dict-en_us@4.3.28':
-    resolution: {integrity: sha512-BN1PME7cOl7DXRQJ92pEd1f0Xk5sqjcDfThDGkKcsgwbSOY7KnTc/czBW6Pr3WXIchIm6cT12KEfjNqx7U7Rrw==}
+  '@cspell/dict-en_us@4.3.29':
+    resolution: {integrity: sha512-7kHP0sJ271oS5RqakxvhWvHFoCUFCBDV6+cgIRIpKwW0aYVB4F2AwElGsdeE/XEmihhYUje7e/e6X3IEWHrcrQ==}
 
-  '@cspell/dict-filetypes@3.0.9':
-    resolution: {integrity: sha512-U7ycC1cE32A5aEgwzp/iE0TVabonUFnVt+Ygbf6NsIWqEuFWZgZChC7gfztA4T1fpuj602nFdp7eOnTWKORsnQ==}
+  '@cspell/dict-filetypes@3.0.10':
+    resolution: {integrity: sha512-JEN3627joBVtpa1yfkdN9vz1Z129PoKGHBKjXCEziJvf2Zt1LeULWYYYg/O6pzRR4yzRa5YbXDTuyrN7vX7DFg==}
 
-  '@cspell/dict-flutter@1.0.3':
-    resolution: {integrity: sha512-52C9aUEU22ptpgYh6gQyIdA4MP6NPwzbEqndfgPh3Sra191/kgs7CVqXiO1qbtZa9gnYHUoVApkoxRE7mrXHfg==}
+  '@cspell/dict-flutter@1.0.4':
+    resolution: {integrity: sha512-XlWLCUsI9m2rKJ5TqYcDucajzQOqa7Hy8dhHaRQEyWic6oYvikpA1KtXsi8JD6JaiqfhejZZ6vNsQm1//6iSAg==}
 
-  '@cspell/dict-fonts@4.0.3':
-    resolution: {integrity: sha512-sPd17kV5qgYXLteuHFPn5mbp/oCHKgitNfsZLFC3W2fWEgZlhg4hK+UGig3KzrYhhvQ8wBnmZrAQm0TFKCKzsA==}
+  '@cspell/dict-fonts@4.0.4':
+    resolution: {integrity: sha512-cHFho4hjojBcHl6qxidl9CvUb492IuSk7xIf2G2wJzcHwGaCFa2o3gRcxmIg1j62guetAeDDFELizDaJlVRIOg==}
 
-  '@cspell/dict-fsharp@1.0.4':
-    resolution: {integrity: sha512-G5wk0o1qyHUNi9nVgdE1h5wl5ylq7pcBjX8vhjHcO4XBq20D5eMoXjwqMo/+szKAqzJ+WV3BgAL50akLKrT9Rw==}
+  '@cspell/dict-fsharp@1.0.5':
+    resolution: {integrity: sha512-6SsdHOtUsTDZ50wjK4FcvIjPiwBSDU9M/+zmUWpFfT5k5d5Ei80n4HGisFtuFdtmoLgz2F/xNnVvhsA2MWJv+w==}
 
   '@cspell/dict-fullstack@3.2.3':
     resolution: {integrity: sha512-62PbndIyQPH11mAv0PyiyT0vbwD0AXEocPpHlCHzfb5v9SspzCCbzQ/LIBiFmyRa+q5LMW35CnSVu6OXdT+LKg==}
 
-  '@cspell/dict-gaming-terms@1.0.9':
-    resolution: {integrity: sha512-AVIrZt3YiUnxsUzzGYTZ1XqgtkgwGEO0LWIlEf+SiDUEVLtv4CYmmyXFQ+WXDN0pyJ0wOwDazWrP0Cu7avYQmQ==}
+  '@cspell/dict-gaming-terms@1.1.0':
+    resolution: {integrity: sha512-46AnDs9XkgJ2f1Sqol1WgfJ8gOqp60fojpc9Wxch7x+BA63g4JfMV5/M5x0sI0TLlLY8EBSglcr8wQF/7C80AQ==}
 
-  '@cspell/dict-git@3.0.3':
-    resolution: {integrity: sha512-LSxB+psZ0qoj83GkyjeEH/ZViyVsGEF/A6BAo8Nqc0w0HjD2qX/QR4sfA6JHUgQ3Yi/ccxdK7xNIo67L2ScW5A==}
+  '@cspell/dict-git@3.0.4':
+    resolution: {integrity: sha512-C44M+m56rYn6QCsLbiKiedyPTMZxlDdEYAsPwwlL5bhMDDzXZ3Ic8OCQIhMbiunhCOJJT+er4URmOmM+sllnjg==}
 
   '@cspell/dict-golang@6.0.18':
     resolution: {integrity: sha512-Mt+7NwfodDwUk7423DdaQa0YaA+4UoV3XSxQwZioqjpFBCuxfvvv4l80MxCTAAbK6duGj0uHbGTwpv8fyKYPKg==}
 
-  '@cspell/dict-google@1.0.4':
-    resolution: {integrity: sha512-JThUT9eiguCja1mHHLwYESgxkhk17Gv7P3b1S7ZJzXw86QyVHPrbpVoMpozHk0C9o+Ym764B7gZGKmw9uMGduQ==}
+  '@cspell/dict-google@1.0.5':
+    resolution: {integrity: sha512-KNrzfUsoFat94slWzo36g601sIGz6KtE4kBMM0gpqwFLK/MXRyaW65IL4SwysY0PEhuRzg9spLLMnUXuVcY2hQ==}
 
-  '@cspell/dict-haskell@4.0.4':
-    resolution: {integrity: sha512-EwQsedEEnND/vY6tqRfg9y7tsnZdxNqOxLXSXTsFA6JRhUlr8Qs88iUUAfsUzWc4nNmmzQH2UbtT25ooG9x4nA==}
+  '@cspell/dict-haskell@4.0.5':
+    resolution: {integrity: sha512-s4BG/4tlj2pPM9Ha7IZYMhUujXDnI0Eq1+38UTTCpatYLbQqDwRFf2KNPLRqkroU+a44yTUAe0rkkKbwy4yRtQ==}
 
   '@cspell/dict-html-symbol-entities@4.0.3':
     resolution: {integrity: sha512-aABXX7dMLNFdSE8aY844X4+hvfK7977sOWgZXo4MTGAmOzR8524fjbJPswIBK7GaD3+SgFZ2yP2o0CFvXDGF+A==}
 
-  '@cspell/dict-html@4.0.10':
-    resolution: {integrity: sha512-I9uRAcdtHbh0wEtYZlgF0TTcgH0xaw1B54G2CW+tx4vHUwlde/+JBOfIzird4+WcMv4smZOfw+qHf7puFUbI5g==}
+  '@cspell/dict-html@4.0.11':
+    resolution: {integrity: sha512-QR3b/PB972SRQ2xICR1Nw/M44IJ6rjypwzA4jn+GH8ydjAX9acFNfc+hLZVyNe0FqsE90Gw3evLCOIF0vy1vQw==}
 
-  '@cspell/dict-java@5.0.10':
-    resolution: {integrity: sha512-pVNcOnmoGiNL8GSVq4WbX/Vs2FGS0Nej+1aEeGuUY9CU14X8yAVCG+oih5ZoLt1jaR8YfR8byUF8wdp4qG4XIw==}
+  '@cspell/dict-java@5.0.11':
+    resolution: {integrity: sha512-T4t/1JqeH33Raa/QK/eQe26FE17eUCtWu+JsYcTLkQTci2dk1DfcIKo8YVHvZXBnuM43ATns9Xs0s+AlqDeH7w==}
 
-  '@cspell/dict-julia@1.0.4':
-    resolution: {integrity: sha512-bFVgNX35MD3kZRbXbJVzdnN7OuEqmQXGpdOi9jzB40TSgBTlJWA4nxeAKV4CPCZxNRUGnLH0p05T/AD7Aom9/w==}
+  '@cspell/dict-julia@1.0.5':
+    resolution: {integrity: sha512-rMC9OC8POmGw9pN96ByZJaY0YGtzSh64AtuJu4uFcuooF0MGmtXwiAhazRC5kPK5XMS+pKMQql/ItTyKbYh1yg==}
 
-  '@cspell/dict-k8s@1.0.9':
-    resolution: {integrity: sha512-Q7GELSQIzo+BERl2ya/nBEnZeQC+zJP19SN1pI6gqDYraM51uYJacbbcWLYYO2Y+5joDjNt/sd/lJtLaQwoSlA==}
+  '@cspell/dict-k8s@1.0.10':
+    resolution: {integrity: sha512-313haTrX9prep1yWO7N6Xw4D6tvUJ0Xsx+YhCP+5YrrcIKoEw5Rtlg8R4PPzLqe6zibw6aJ+Eqq+y76Vx5BZkw==}
 
   '@cspell/dict-latex@4.0.3':
     resolution: {integrity: sha512-2KXBt9fSpymYHxHfvhUpjUFyzrmN4c4P8mwIzweLyvqntBT3k0YGZJSriOdjfUjwSygrfEwiuPI1EMrvgrOMJw==}
@@ -500,73 +500,73 @@ packages:
   '@cspell/dict-lorem-ipsum@4.0.4':
     resolution: {integrity: sha512-+4f7vtY4dp2b9N5fn0za/UR0kwFq2zDtA62JCbWHbpjvO9wukkbl4rZg4YudHbBgkl73HRnXFgCiwNhdIA1JPw==}
 
-  '@cspell/dict-lua@4.0.6':
-    resolution: {integrity: sha512-Jwvh1jmAd9b+SP9e1GkS2ACbqKKRo9E1f9GdjF/ijmooZuHU0hPyqvnhZzUAxO1egbnNjxS/J2T6iUtjAUK2KQ==}
+  '@cspell/dict-lua@4.0.7':
+    resolution: {integrity: sha512-Wbr7YSQw+cLHhTYTKV6cAljgMgcY+EUAxVIZW3ljKswEe4OLxnVJ7lPqZF5JKjlXdgCjbPSimsHqyAbC5pQN/Q==}
 
-  '@cspell/dict-makefile@1.0.3':
-    resolution: {integrity: sha512-R3U0DSpvTs6qdqfyBATnePj9Q/pypkje0Nj26mQJ8TOBQutCRAJbr2ZFAeDjgRx5EAJU/+8txiyVF97fbVRViw==}
+  '@cspell/dict-makefile@1.0.4':
+    resolution: {integrity: sha512-E4hG/c0ekPqUBvlkrVvzSoAA+SsDA9bLi4xSV3AXHTVru7Y2bVVGMPtpfF+fI3zTkww/jwinprcU1LSohI3ylw==}
 
-  '@cspell/dict-markdown@2.0.7':
-    resolution: {integrity: sha512-F9SGsSOokFn976DV4u/1eL4FtKQDSgJHSZ3+haPRU5ki6OEqojxKa8hhj4AUrtNFpmBaJx/WJ4YaEzWqG7hgqg==}
+  '@cspell/dict-markdown@2.0.8':
+    resolution: {integrity: sha512-GCzfae+PLw9MjdgOO0OB67zguNfhiLnaZX1glCNJ6G1ZWqfeC9eBOxrAR3BkFXoBY0cvDSjIP037QXFEfCgeTg==}
     peerDependencies:
-      '@cspell/dict-css': ^4.0.16
-      '@cspell/dict-html': ^4.0.10
+      '@cspell/dict-css': ^4.0.17
+      '@cspell/dict-html': ^4.0.11
       '@cspell/dict-html-symbol-entities': ^4.0.3
-      '@cspell/dict-typescript': ^3.1.11
+      '@cspell/dict-typescript': ^3.1.12
 
-  '@cspell/dict-monkeyc@1.0.9':
-    resolution: {integrity: sha512-Jvf6g5xlB4+za3ThvenYKREXTEgzx5gMUSzrAxIiPleVG4hmRb/GBSoSjtkGaibN3XxGx5x809gSTYCA/IHCpA==}
+  '@cspell/dict-monkeyc@1.0.10':
+    resolution: {integrity: sha512-7RTGyKsTIIVqzbvOtAu6Z/lwwxjGRtY5RkKPlXKHEoEAgIXwfDxb5EkVwzGQwQr8hF/D3HrdYbRT8MFBfsueZw==}
 
-  '@cspell/dict-node@5.0.5':
-    resolution: {integrity: sha512-7NbCS2E8ZZRZwlLrh2sA0vAk9n1kcTUiRp/Nia8YvKaItGXLfxYqD2rMQ3HpB1kEutal6hQLVic3N2Yi1X7AaA==}
+  '@cspell/dict-node@5.0.6':
+    resolution: {integrity: sha512-CEbhPCpxGvRNByGolSBTrXXW2rJA4bGqZuTx1KKO85mwR6aadeOmUE7xf/8jiCkXSy+qvr9aJeh+jlfXcsrziQ==}
 
-  '@cspell/dict-npm@5.1.20':
-    resolution: {integrity: sha512-vE9pFIifCDChsVhhUDuVtnwxygOdtHNluDm+8FkgC84M6LwiUVJr/CuSOI/SCR0oI9iiFp0VvMz194B6XwMv3g==}
+  '@cspell/dict-npm@5.1.21':
+    resolution: {integrity: sha512-AHqgbnBPwdMUF6jV/vyf5lz1+9MpmQn8h2E/Px0jHYFri4VTZ5TNBa40NaTNC/L/U/ggbVQTSoBnqZ6rLFwGCg==}
 
-  '@cspell/dict-php@4.0.13':
-    resolution: {integrity: sha512-P6sREMZkhElzz/HhXAjahnICYIqB/HSGp1EhZh+Y6IhvC15AzgtDP8B8VYCIsQof6rPF1SQrFwunxOv8H1e2eg==}
+  '@cspell/dict-php@4.0.14':
+    resolution: {integrity: sha512-7zur8pyncYZglxNmqsRycOZ6inpDoVd4yFfz1pQRe5xaRWMiK3Km4n0/X/1YMWhh3e3Sl/fQg5Axb2hlN68t1g==}
 
-  '@cspell/dict-powershell@5.0.13':
-    resolution: {integrity: sha512-0qdj0XZIPmb77nRTynKidRJKTU0Fl+10jyLbAhFTuBWKMypVY06EaYFnwhsgsws/7nNX8MTEQuewbl9bWFAbsg==}
+  '@cspell/dict-powershell@5.0.14':
+    resolution: {integrity: sha512-ktjjvtkIUIYmj/SoGBYbr3/+CsRGNXGpvVANrY0wlm/IoGlGywhoTUDYN0IsGwI2b8Vktx3DZmQkfb3Wo38jBA==}
 
-  '@cspell/dict-public-licenses@2.0.11':
-    resolution: {integrity: sha512-rR5KjRUSnVKdfs5G+gJ4oIvQvm8+NJ6cHWY2N+GE69/FSGWDOPHxulCzeGnQU/c6WWZMSimG9o49i9r//lUQyA==}
+  '@cspell/dict-public-licenses@2.0.12':
+    resolution: {integrity: sha512-obreJMVbz8ZrXyc60PcS/B2FwXaO3AWPO2x50zrI/n4UDuBr/UdPb6M1q++6c08n+151I35GEx52xRFiToSg4g==}
 
-  '@cspell/dict-python@4.2.13':
-    resolution: {integrity: sha512-mZIcmo9qif8LkJ6N/lqTZawcOk2kVTcuWIUOSbMcjyomO0XZ7iWz15TfONyr03Ea/l7o5ULV+MZ4vx76bAUb7w==}
+  '@cspell/dict-python@4.2.14':
+    resolution: {integrity: sha512-NZ/rsTH5gqTlEwbSg0vn5b1TsyzrUvA6ykwCVCwsVDdlQAS82cyDsF9JqHp8S4d6PFykmkfSxtAXYyOUr0KCbg==}
 
-  '@cspell/dict-r@2.0.4':
-    resolution: {integrity: sha512-cBpRsE/U0d9BRhiNRMLMH1PpWgw+N+1A2jumgt1if9nBGmQw4MUpg2u9I0xlFVhstTIdzXiLXMxP45cABuiUeQ==}
+  '@cspell/dict-r@2.0.5':
+    resolution: {integrity: sha512-CpZvA/6Ps/vCaR5c+2tL1dGU7ZlIFMp+lUamamHGG1ZIc0+j+16Tb1+9oksEf7k8LCI/F5Io4uIJ+0NezaY8Rg==}
 
   '@cspell/dict-ruby@5.0.7':
     resolution: {integrity: sha512-4/d0hcoPzi5Alk0FmcyqlzFW9lQnZh9j07MJzPcyVO62nYJJAGKaPZL2o4qHeCS/od/ctJC5AHRdoUm0ktsw6Q==}
 
-  '@cspell/dict-rust@4.0.10':
-    resolution: {integrity: sha512-6o5C8566VGTTctgcwfF3Iy7314W0oMlFFSQOadQ0OEdJ9Z9ERX/PDimrzP3LGuOrvhtEFoK8pj+BLnunNwRNrw==}
+  '@cspell/dict-rust@4.0.11':
+    resolution: {integrity: sha512-OGWDEEzm8HlkSmtD8fV3pEcO2XBpzG2XYjgMCJCRwb2gRKvR+XIm6Dlhs04N/K2kU+iH8bvrqNpM8fS/BFl0uw==}
 
-  '@cspell/dict-scala@5.0.6':
-    resolution: {integrity: sha512-tl0YWAfjUVb4LyyE4JIMVE8DlLzb1ecHRmIWc4eT6nkyDqQgHKzdHsnusxFEFMVLIQomgSg0Zz6hJ5S1E4W4ww==}
+  '@cspell/dict-scala@5.0.7':
+    resolution: {integrity: sha512-yatpSDW/GwulzO3t7hB5peoWwzo+Y3qTc0pO24Jf6f88jsEeKmDeKkfgPbYuCgbE4jisGR4vs4+jfQZDIYmXPA==}
 
-  '@cspell/dict-software-terms@4.2.1':
-    resolution: {integrity: sha512-8FiZHeeTqBdjsw4uBsZ9GIV9zEUbr49bBeEyVGFmUMZYwhAzC9riGqbTWco277X5Mabe8OjbYxqiP2/snC6w5w==}
+  '@cspell/dict-software-terms@4.2.2':
+    resolution: {integrity: sha512-cgteXRzx2W/Ug7QSdFJrVxLES7krrZEjZ9J6sXRWOsVYFpgu2Gup8NKmjKOZ8NTnCjHQFrMnbmKdv56q9Kwixw==}
 
-  '@cspell/dict-sql@2.1.8':
-    resolution: {integrity: sha512-dJRE4JV1qmXTbbGm6WIcg1knmR6K5RXnQxF4XHs5HA3LAjc/zf77F95i5LC+guOGppVF6Hdl66S2UyxT+SAF3A==}
+  '@cspell/dict-sql@2.1.9':
+    resolution: {integrity: sha512-dyVtWGUs79SihmxzoXXOpA2mRipQhzZOy5mrRTZvMp3HE7Y5vM1ag/Di8+QCtjYD6l7MjVjp0CxkKp1U7PBpbw==}
 
-  '@cspell/dict-svelte@1.0.5':
-    resolution: {integrity: sha512-sseHlcXOqWE4Ner9sg8KsjxwSJ2yssoJNqFHR9liWVbDV+m7kBiUtn2EB690TihzVsEmDr/0Yxrbb5Bniz70mA==}
+  '@cspell/dict-svelte@1.0.6':
+    resolution: {integrity: sha512-8LAJHSBdwHCoKCSy72PXXzz7ulGROD0rP1CQ0StOqXOOlTUeSFaJJlxNYjlONgd2c62XBQiN2wgLhtPN+1Zv7Q==}
 
-  '@cspell/dict-swift@2.0.4':
-    resolution: {integrity: sha512-CsFF0IFAbRtYNg0yZcdaYbADF5F3DsM8C4wHnZefQy8YcHP/qjAF/GdGfBFBLx+XSthYuBlo2b2XQVdz3cJZBw==}
+  '@cspell/dict-swift@2.0.5':
+    resolution: {integrity: sha512-3lGzDCwUmnrfckv3Q4eVSW3sK3cHqqHlPprFJZD4nAqt23ot7fic5ALR7J4joHpvDz36nHX34TgcbZNNZOC/JA==}
 
-  '@cspell/dict-terraform@1.0.7':
-    resolution: {integrity: sha512-Ip7tOlAt/qUVdWYyDMA7DlKMpQ6sjtrsXk4vcpqXoYpoJlzMoDce7pw+fPhHshtNOFBAZ4nOrszlLu6APuy+HQ==}
+  '@cspell/dict-terraform@1.0.8':
+    resolution: {integrity: sha512-YR2v2iDtuzEIwOWAlV9V8pdnrIQud6wHQOhuk3oqR3PS0rkAd6dkWrS0Ce2gbZY7AHHxQ2jvJ66pOjAdIDXbtA==}
 
-  '@cspell/dict-typescript@3.1.11':
-    resolution: {integrity: sha512-FwvK5sKbwrVpdw0e9+1lVTl8FPoHYvfHRuQRQz2Ql5XkC0gwPPkpoyD1zYImjIyZRoYXk3yp9j8ss4iz7A7zoQ==}
+  '@cspell/dict-typescript@3.1.12':
+    resolution: {integrity: sha512-gQxryTuRrRW3whM7gASetOTcPVsDGxfVn/MoSX507rcsFdZTnX18+M6D4iE0sUtranF1MWscGPIm6J2gfL3Zxw==}
 
-  '@cspell/dict-vue@3.0.3':
-    resolution: {integrity: sha512-akmYbrgAGumqk1xXALtDJcEcOMYBYMnkjpmGzH13Ozhq1mkPF4VgllFQlm1xYde+BUKNnzMgPEzxrL2qZllgYA==}
+  '@cspell/dict-vue@3.0.4':
+    resolution: {integrity: sha512-0dPtI0lwHcAgSiQFx8CzvqjdoXROcH+1LyqgROCpBgppommWpVhbQ0eubnKotFEXgpUCONVkeZJ6Ql8NbTEu+w==}
 
   '@cspell/dynamic-import@8.17.1':
     resolution: {integrity: sha512-XQtr2olYOtqbg49E+8SISd6I5DzfxmsKINDn0ZgaTFeLalnNdF3ewDU4gOEbApIzGffRa1mW9t19MsiVrznSDw==}
@@ -1326,8 +1326,8 @@ packages:
   balanced-match@2.0.0:
     resolution: {integrity: sha512-1ugUSr8BHXRnK23KfuYS+gVMC3LB8QGH9W1iGtDPsNWoQbgtXSExkBu2aDR4epiGWZOjZsj6lDl/N/AqqTC3UA==}
 
-  bare-events@2.5.0:
-    resolution: {integrity: sha512-/E8dDe9dsbLyh2qrZ64PEPadOQ0F4gbl1sUJOrmph7xOiIxfY8vwab/4bFLh4Y88/Hk/ujKcrQKc+ps0mv873A==}
+  bare-events@2.5.1:
+    resolution: {integrity: sha512-Bw2PgKSrZ3uCuSV9WQ998c/GTJTd+9bWj97n7aDQMP8dP/exAZQlJeswPty0ISy+HZD+9Ex+C7CCnc9Q5QJFmQ==}
 
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
@@ -2069,15 +2069,15 @@ packages:
   fast-deep-equal@3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
 
-  fast-equals@5.0.1:
-    resolution: {integrity: sha512-WF1Wi8PwwSY7/6Kx0vKXtw8RwuSGoM1bvDaJbu7MxDlR1vovZjIAKrnzyrThgAjm6JDTu0fVgWXDlMGspodfoQ==}
+  fast-equals@5.2.0:
+    resolution: {integrity: sha512-3VpaQYf+CDFdRQfgsb+3vY7XaKjM35WCMoQTTE8h4S/eUkHzyJFOOA/gATYgoLejy4FBrEQD/sXe5Auk4cW/AQ==}
     engines: {node: '>=6.0.0'}
 
   fast-fifo@1.3.2:
     resolution: {integrity: sha512-/d9sfos4yxzpwkDkuN7k2SqFKtYNmCTzgfEpz82x34IM9/zc8KGxQoXg1liNC/izpRM/MBdt44Nmx41ZWqk+FQ==}
 
-  fast-glob@3.3.2:
-    resolution: {integrity: sha512-oX2ruAFQwf/Orj8m737Y5adxDQO0LAB7/S5MnxCdTNDd4p6BsyIVsv9JQsATbTSq8KHRpLwIHbVlUNatxd+1Ow==}
+  fast-glob@3.3.3:
+    resolution: {integrity: sha512-7MptL8U0cqcFdzIzwOTHoilX9x5BrNqye7Z/LuC7kCMRio1EMSyqRK3BEAUD7sXRq4iT4AzTVuZdhgQ2TCvYLg==}
     engines: {node: '>=8.6.0'}
 
   fast-json-stable-stringify@2.1.0:
@@ -2086,8 +2086,8 @@ packages:
   fast-levenshtein@3.0.0:
     resolution: {integrity: sha512-hKKNajm46uNmTlhHSyZkmToAc56uZJwYq7yrciZjqOxnlfQwERDQJmHPUp7m1m9wx8vgOe8IaCKZ5Kv2k1DdCQ==}
 
-  fast-uri@3.0.3:
-    resolution: {integrity: sha512-aLrHthzCjH5He4Z2H9YZ+v6Ujb9ocRuW6ZzkJQOrTxleEijANq4v1TsaPaVG1PZcuurEzrLcWRyYBYXD5cEiaw==}
+  fast-uri@3.0.4:
+    resolution: {integrity: sha512-G3iTQw1DizJQ5eEqj1CbFCWhq+pzum7qepkxU7rS1FGZDqjYKcrguo9XDRbV7EgPnn8CgaPigTq+NEjyioeYZQ==}
 
   fastest-levenshtein@1.0.16:
     resolution: {integrity: sha512-eRnCtTTtGZFpQCwhJiUOuxPQWRXVKYDn0b2PeHfXL6/Zi53SLAzAHfVhVWK2AryC/WH05kGfxhFIPvTF0SXQzg==}
@@ -2219,8 +2219,12 @@ packages:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
     engines: {node: 6.* || 8.* || >= 10.*}
 
-  get-intrinsic@1.2.6:
-    resolution: {integrity: sha512-qxsEs+9A+u85HhllWJJFicJfPDhRmjzoYdl64aMWW9yRIJmSyxdn8IEkuIM530/7T+lv0TIHd8L6Q/ra0tEoeA==}
+  get-intrinsic@1.2.7:
+    resolution: {integrity: sha512-VW6Pxhsrk0KAOqs3WEd0klDiF/+V7gQOpAvY1jVU/LHmaD/kQO4523aiJuikX/QAKYiW6x8Jh+RJej1almdtCA==}
+    engines: {node: '>= 0.4'}
+
+  get-proto@1.0.1:
+    resolution: {integrity: sha512-sTSfBjoXBp89JvIKIefqw7U2CCebsc74kiY6awiGogKtoSGbgjYE/G/+l9sF3MWFPNc9IcoOC4ODfKHfxFmp0g==}
     engines: {node: '>= 0.4'}
 
   get-stdin@9.0.0:
@@ -2695,8 +2699,8 @@ packages:
   linkify-it@5.0.0:
     resolution: {integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==}
 
-  liquidjs@10.20.0:
-    resolution: {integrity: sha512-y1tHDaHGtYXcZehRzy8UST0t0E9iPOdT4hAk5ZuSquaDRW4j1lGUePaVyX6AP07cZarm3tL8FEtHx19UXgi9pQ==}
+  liquidjs@10.20.1:
+    resolution: {integrity: sha512-eZ33jfxjj0It8tkY+I4gbKWfXvMmOvQvvraxVFSLcTjZWCjdWMLBnevk48qw9AQIwIHFp58vZc59vH9Qwdq7mw==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -2818,8 +2822,8 @@ packages:
   mdast-util-directive@3.0.0:
     resolution: {integrity: sha512-JUpYOqKI4mM3sZcNxmF/ox04XYFFkNwr0CFlrQIkCwbvH0xzMCqkMqAde9wRd80VAhaUrwFwKm2nxretdT1h7Q==}
 
-  mdast-util-find-and-replace@3.0.1:
-    resolution: {integrity: sha512-SG21kZHGC3XRTSUhtofZkBzZTJNM5ecCi0SK2IMKmSXR8vO3peL+kb1O0z7Zl83jKtutG4k5Wv/W7V3/YHvzPA==}
+  mdast-util-find-and-replace@3.0.2:
+    resolution: {integrity: sha512-Tmd1Vg/m3Xz43afeNxDIhWRtFZgM2VLyaf4vSTYwudTyeuTneoL3qtWMA5jeLyz/O1vDJmmV4QuScFCA2tBPwg==}
 
   mdast-util-from-markdown@2.0.2:
     resolution: {integrity: sha512-uZhTV/8NBuw0WHkPTrCqDOl0zVe1BIng5ZtHoDk49ME1qqcjYmmLmOf0gELgcRMxN4w2iuIeVso5/6QymSrgmA==}
@@ -4006,8 +4010,8 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  sass@1.83.0:
-    resolution: {integrity: sha512-qsSxlayzoOjdvXMVLkzF84DJFc2HZEL/rFyGIKbbilYtAvlCxyuzUeff9LawTn4btVnLKg75Z8MMr1lxU1lfGw==}
+  sass@1.83.1:
+    resolution: {integrity: sha512-EVJbDaEs4Rr3F0glJzFSOvtg2/oy2V/YrGFPqPY24UqcLDWcI9ZY5sN+qyO3c/QCZwzgfirvhXvINiJCE/OLcA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -4476,8 +4480,8 @@ packages:
   unist-builder@2.0.3:
     resolution: {integrity: sha512-f98yt5pnlMWlzP539tPc4grGMsFaQQlP/vM396b00jngsiINumNmsY8rkXjfoi1c6QaM8nQ3vaGDuoKWbe/1Uw==}
 
-  unist-util-find-before@4.0.0:
-    resolution: {integrity: sha512-bdXFv1xM0O19Gn8B7mJjXuVOyVSdE7eQZs4Ulo4EWOBb8OihHLpCDhOLwDGjrpMZCRPlmpUhxMMqlDohvswEsA==}
+  unist-util-find-before@4.0.1:
+    resolution: {integrity: sha512-hfpCNqPbCOseOjHU8oBkRXM8gDQ++Ua3dN7sDYz7VJ+1alt+yd/I+ECZDhv1aqpJ1x47AHbzP/xA0jWf4omAIw==}
 
   unist-util-inspect@8.1.0:
     resolution: {integrity: sha512-mOlg8Mp33pR0eeFpo5d2902ojqFFOKMMG2hF8bmH7ZlhnmjFgh0NI3/ZDwdaBJNbvrS7LZFVrBVtIE9KZ9s7vQ==}
@@ -4693,8 +4697,8 @@ packages:
     resolution: {integrity: sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==}
     engines: {node: '>=10'}
 
-  yaml@2.6.1:
-    resolution: {integrity: sha512-7r0XPzioN/Q9kXBro/XPnA6kznR73DHq+GXh5ON7ZozRO6aMjbmiBuKste2wslTFkC5d1dw0GooOCepZXJ2SAg==}
+  yaml@2.7.0:
+    resolution: {integrity: sha512-+hSoy/QHluxmC9kCIJyL/uyFmLmc+e5CFR5Wa+bpIhIj85LVb9ZH2nVnqrHoSvKogwODv0ClqZkmiSSaIH5LTA==}
     engines: {node: '>= 14'}
     hasBin: true
 
@@ -4795,7 +4799,7 @@ snapshots:
       debug: 4.4.0
       dependency-graph: 1.0.0
       entities: 5.0.0
-      fast-glob: 3.3.2
+      fast-glob: 3.3.3
       filesize: 10.1.6
       graceful-fs: 4.2.11
       gray-matter: 4.0.3
@@ -4803,7 +4807,7 @@ snapshots:
       iso-639-1: 3.1.3
       js-yaml: 4.1.0
       kleur: 4.1.5
-      liquidjs: 10.20.0
+      liquidjs: 10.20.1
       luxon: 3.5.0
       markdown-it: 14.1.0
       micromatch: 4.0.8
@@ -4889,61 +4893,61 @@ snapshots:
 
   '@cspell/cspell-bundled-dicts@8.17.1':
     dependencies:
-      '@cspell/dict-ada': 4.0.5
-      '@cspell/dict-al': 1.0.3
-      '@cspell/dict-aws': 4.0.7
-      '@cspell/dict-bash': 4.1.8
-      '@cspell/dict-companies': 3.1.11
-      '@cspell/dict-cpp': 6.0.2
-      '@cspell/dict-cryptocurrencies': 5.0.3
-      '@cspell/dict-csharp': 4.0.5
-      '@cspell/dict-css': 4.0.16
-      '@cspell/dict-dart': 2.2.4
-      '@cspell/dict-django': 4.1.3
-      '@cspell/dict-docker': 1.1.11
-      '@cspell/dict-dotnet': 5.0.8
-      '@cspell/dict-elixir': 4.0.6
-      '@cspell/dict-en-common-misspellings': 2.0.7
+      '@cspell/dict-ada': 4.0.6
+      '@cspell/dict-al': 1.0.4
+      '@cspell/dict-aws': 4.0.9
+      '@cspell/dict-bash': 4.1.9
+      '@cspell/dict-companies': 3.1.12
+      '@cspell/dict-cpp': 6.0.3
+      '@cspell/dict-cryptocurrencies': 5.0.4
+      '@cspell/dict-csharp': 4.0.6
+      '@cspell/dict-css': 4.0.17
+      '@cspell/dict-dart': 2.2.5
+      '@cspell/dict-django': 4.1.4
+      '@cspell/dict-docker': 1.1.12
+      '@cspell/dict-dotnet': 5.0.9
+      '@cspell/dict-elixir': 4.0.7
+      '@cspell/dict-en-common-misspellings': 2.0.8
       '@cspell/dict-en-gb': 1.1.33
-      '@cspell/dict-en_us': 4.3.28
-      '@cspell/dict-filetypes': 3.0.9
-      '@cspell/dict-flutter': 1.0.3
-      '@cspell/dict-fonts': 4.0.3
-      '@cspell/dict-fsharp': 1.0.4
+      '@cspell/dict-en_us': 4.3.29
+      '@cspell/dict-filetypes': 3.0.10
+      '@cspell/dict-flutter': 1.0.4
+      '@cspell/dict-fonts': 4.0.4
+      '@cspell/dict-fsharp': 1.0.5
       '@cspell/dict-fullstack': 3.2.3
-      '@cspell/dict-gaming-terms': 1.0.9
-      '@cspell/dict-git': 3.0.3
+      '@cspell/dict-gaming-terms': 1.1.0
+      '@cspell/dict-git': 3.0.4
       '@cspell/dict-golang': 6.0.18
-      '@cspell/dict-google': 1.0.4
-      '@cspell/dict-haskell': 4.0.4
-      '@cspell/dict-html': 4.0.10
+      '@cspell/dict-google': 1.0.5
+      '@cspell/dict-haskell': 4.0.5
+      '@cspell/dict-html': 4.0.11
       '@cspell/dict-html-symbol-entities': 4.0.3
-      '@cspell/dict-java': 5.0.10
-      '@cspell/dict-julia': 1.0.4
-      '@cspell/dict-k8s': 1.0.9
+      '@cspell/dict-java': 5.0.11
+      '@cspell/dict-julia': 1.0.5
+      '@cspell/dict-k8s': 1.0.10
       '@cspell/dict-latex': 4.0.3
       '@cspell/dict-lorem-ipsum': 4.0.4
-      '@cspell/dict-lua': 4.0.6
-      '@cspell/dict-makefile': 1.0.3
-      '@cspell/dict-markdown': 2.0.7(@cspell/dict-css@4.0.16)(@cspell/dict-html-symbol-entities@4.0.3)(@cspell/dict-html@4.0.10)(@cspell/dict-typescript@3.1.11)
-      '@cspell/dict-monkeyc': 1.0.9
-      '@cspell/dict-node': 5.0.5
-      '@cspell/dict-npm': 5.1.20
-      '@cspell/dict-php': 4.0.13
-      '@cspell/dict-powershell': 5.0.13
-      '@cspell/dict-public-licenses': 2.0.11
-      '@cspell/dict-python': 4.2.13
-      '@cspell/dict-r': 2.0.4
+      '@cspell/dict-lua': 4.0.7
+      '@cspell/dict-makefile': 1.0.4
+      '@cspell/dict-markdown': 2.0.8(@cspell/dict-css@4.0.17)(@cspell/dict-html-symbol-entities@4.0.3)(@cspell/dict-html@4.0.11)(@cspell/dict-typescript@3.1.12)
+      '@cspell/dict-monkeyc': 1.0.10
+      '@cspell/dict-node': 5.0.6
+      '@cspell/dict-npm': 5.1.21
+      '@cspell/dict-php': 4.0.14
+      '@cspell/dict-powershell': 5.0.14
+      '@cspell/dict-public-licenses': 2.0.12
+      '@cspell/dict-python': 4.2.14
+      '@cspell/dict-r': 2.0.5
       '@cspell/dict-ruby': 5.0.7
-      '@cspell/dict-rust': 4.0.10
-      '@cspell/dict-scala': 5.0.6
-      '@cspell/dict-software-terms': 4.2.1
-      '@cspell/dict-sql': 2.1.8
-      '@cspell/dict-svelte': 1.0.5
-      '@cspell/dict-swift': 2.0.4
-      '@cspell/dict-terraform': 1.0.7
-      '@cspell/dict-typescript': 3.1.11
-      '@cspell/dict-vue': 3.0.3
+      '@cspell/dict-rust': 4.0.11
+      '@cspell/dict-scala': 5.0.7
+      '@cspell/dict-software-terms': 4.2.2
+      '@cspell/dict-sql': 2.1.9
+      '@cspell/dict-svelte': 1.0.6
+      '@cspell/dict-swift': 2.0.5
+      '@cspell/dict-terraform': 1.0.8
+      '@cspell/dict-typescript': 3.1.12
+      '@cspell/dict-vue': 3.0.4
 
   '@cspell/cspell-json-reporter@8.17.1':
     dependencies:
@@ -4959,124 +4963,124 @@ snapshots:
 
   '@cspell/cspell-types@8.17.1': {}
 
-  '@cspell/dict-ada@4.0.5': {}
+  '@cspell/dict-ada@4.0.6': {}
 
-  '@cspell/dict-al@1.0.3': {}
+  '@cspell/dict-al@1.0.4': {}
 
-  '@cspell/dict-aws@4.0.7': {}
+  '@cspell/dict-aws@4.0.9': {}
 
-  '@cspell/dict-bash@4.1.8': {}
+  '@cspell/dict-bash@4.1.9': {}
 
-  '@cspell/dict-companies@3.1.11': {}
+  '@cspell/dict-companies@3.1.12': {}
 
-  '@cspell/dict-cpp@6.0.2': {}
+  '@cspell/dict-cpp@6.0.3': {}
 
-  '@cspell/dict-cryptocurrencies@5.0.3': {}
+  '@cspell/dict-cryptocurrencies@5.0.4': {}
 
-  '@cspell/dict-csharp@4.0.5': {}
+  '@cspell/dict-csharp@4.0.6': {}
 
-  '@cspell/dict-css@4.0.16': {}
+  '@cspell/dict-css@4.0.17': {}
 
-  '@cspell/dict-dart@2.2.4': {}
+  '@cspell/dict-dart@2.2.5': {}
 
-  '@cspell/dict-data-science@2.0.5': {}
+  '@cspell/dict-data-science@2.0.6': {}
 
-  '@cspell/dict-django@4.1.3': {}
+  '@cspell/dict-django@4.1.4': {}
 
-  '@cspell/dict-docker@1.1.11': {}
+  '@cspell/dict-docker@1.1.12': {}
 
-  '@cspell/dict-dotnet@5.0.8': {}
+  '@cspell/dict-dotnet@5.0.9': {}
 
-  '@cspell/dict-elixir@4.0.6': {}
+  '@cspell/dict-elixir@4.0.7': {}
 
-  '@cspell/dict-en-common-misspellings@2.0.7': {}
+  '@cspell/dict-en-common-misspellings@2.0.8': {}
 
   '@cspell/dict-en-gb@1.1.33': {}
 
-  '@cspell/dict-en_us@4.3.28': {}
+  '@cspell/dict-en_us@4.3.29': {}
 
-  '@cspell/dict-filetypes@3.0.9': {}
+  '@cspell/dict-filetypes@3.0.10': {}
 
-  '@cspell/dict-flutter@1.0.3': {}
+  '@cspell/dict-flutter@1.0.4': {}
 
-  '@cspell/dict-fonts@4.0.3': {}
+  '@cspell/dict-fonts@4.0.4': {}
 
-  '@cspell/dict-fsharp@1.0.4': {}
+  '@cspell/dict-fsharp@1.0.5': {}
 
   '@cspell/dict-fullstack@3.2.3': {}
 
-  '@cspell/dict-gaming-terms@1.0.9': {}
+  '@cspell/dict-gaming-terms@1.1.0': {}
 
-  '@cspell/dict-git@3.0.3': {}
+  '@cspell/dict-git@3.0.4': {}
 
   '@cspell/dict-golang@6.0.18': {}
 
-  '@cspell/dict-google@1.0.4': {}
+  '@cspell/dict-google@1.0.5': {}
 
-  '@cspell/dict-haskell@4.0.4': {}
+  '@cspell/dict-haskell@4.0.5': {}
 
   '@cspell/dict-html-symbol-entities@4.0.3': {}
 
-  '@cspell/dict-html@4.0.10': {}
+  '@cspell/dict-html@4.0.11': {}
 
-  '@cspell/dict-java@5.0.10': {}
+  '@cspell/dict-java@5.0.11': {}
 
-  '@cspell/dict-julia@1.0.4': {}
+  '@cspell/dict-julia@1.0.5': {}
 
-  '@cspell/dict-k8s@1.0.9': {}
+  '@cspell/dict-k8s@1.0.10': {}
 
   '@cspell/dict-latex@4.0.3': {}
 
   '@cspell/dict-lorem-ipsum@4.0.4': {}
 
-  '@cspell/dict-lua@4.0.6': {}
+  '@cspell/dict-lua@4.0.7': {}
 
-  '@cspell/dict-makefile@1.0.3': {}
+  '@cspell/dict-makefile@1.0.4': {}
 
-  '@cspell/dict-markdown@2.0.7(@cspell/dict-css@4.0.16)(@cspell/dict-html-symbol-entities@4.0.3)(@cspell/dict-html@4.0.10)(@cspell/dict-typescript@3.1.11)':
+  '@cspell/dict-markdown@2.0.8(@cspell/dict-css@4.0.17)(@cspell/dict-html-symbol-entities@4.0.3)(@cspell/dict-html@4.0.11)(@cspell/dict-typescript@3.1.12)':
     dependencies:
-      '@cspell/dict-css': 4.0.16
-      '@cspell/dict-html': 4.0.10
+      '@cspell/dict-css': 4.0.17
+      '@cspell/dict-html': 4.0.11
       '@cspell/dict-html-symbol-entities': 4.0.3
-      '@cspell/dict-typescript': 3.1.11
+      '@cspell/dict-typescript': 3.1.12
 
-  '@cspell/dict-monkeyc@1.0.9': {}
+  '@cspell/dict-monkeyc@1.0.10': {}
 
-  '@cspell/dict-node@5.0.5': {}
+  '@cspell/dict-node@5.0.6': {}
 
-  '@cspell/dict-npm@5.1.20': {}
+  '@cspell/dict-npm@5.1.21': {}
 
-  '@cspell/dict-php@4.0.13': {}
+  '@cspell/dict-php@4.0.14': {}
 
-  '@cspell/dict-powershell@5.0.13': {}
+  '@cspell/dict-powershell@5.0.14': {}
 
-  '@cspell/dict-public-licenses@2.0.11': {}
+  '@cspell/dict-public-licenses@2.0.12': {}
 
-  '@cspell/dict-python@4.2.13':
+  '@cspell/dict-python@4.2.14':
     dependencies:
-      '@cspell/dict-data-science': 2.0.5
+      '@cspell/dict-data-science': 2.0.6
 
-  '@cspell/dict-r@2.0.4': {}
+  '@cspell/dict-r@2.0.5': {}
 
   '@cspell/dict-ruby@5.0.7': {}
 
-  '@cspell/dict-rust@4.0.10': {}
+  '@cspell/dict-rust@4.0.11': {}
 
-  '@cspell/dict-scala@5.0.6': {}
+  '@cspell/dict-scala@5.0.7': {}
 
-  '@cspell/dict-software-terms@4.2.1': {}
+  '@cspell/dict-software-terms@4.2.2': {}
 
-  '@cspell/dict-sql@2.1.8': {}
+  '@cspell/dict-sql@2.1.9': {}
 
-  '@cspell/dict-svelte@1.0.5': {}
+  '@cspell/dict-svelte@1.0.6': {}
 
-  '@cspell/dict-swift@2.0.4': {}
+  '@cspell/dict-swift@2.0.5': {}
 
-  '@cspell/dict-terraform@1.0.7': {}
+  '@cspell/dict-terraform@1.0.8': {}
 
-  '@cspell/dict-typescript@3.1.11': {}
+  '@cspell/dict-typescript@3.1.12': {}
 
-  '@cspell/dict-vue@3.0.3': {}
+  '@cspell/dict-vue@3.0.4': {}
 
   '@cspell/dynamic-import@8.17.1':
     dependencies:
@@ -5623,7 +5627,7 @@ snapshots:
       chalk: 3.0.0
       clipanion: 4.0.0-rc.4(typanion@3.14.0)
       cross-spawn: 7.0.6
-      fast-glob: 3.3.2
+      fast-glob: 3.3.3
       micromatch: 4.0.8
       tslib: 2.8.1
     transitivePeerDependencies:
@@ -5649,7 +5653,7 @@ snapshots:
   ajv@8.17.1:
     dependencies:
       fast-deep-equal: 3.1.3
-      fast-uri: 3.0.3
+      fast-uri: 3.0.4
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
 
@@ -5769,7 +5773,7 @@ snapshots:
 
   balanced-match@2.0.0: {}
 
-  bare-events@2.5.0:
+  bare-events@2.5.1:
     optional: true
 
   base64-js@1.5.1: {}
@@ -5908,7 +5912,7 @@ snapshots:
     dependencies:
       call-bind-apply-helpers: 1.0.1
       es-define-property: 1.0.1
-      get-intrinsic: 1.2.6
+      get-intrinsic: 1.2.7
       set-function-length: 1.2.2
 
   callsites@3.1.0: {}
@@ -6118,14 +6122,14 @@ snapshots:
     dependencies:
       '@cspell/cspell-types': 8.17.1
       comment-json: 4.2.5
-      yaml: 2.6.1
+      yaml: 2.7.0
 
   cspell-dictionary@8.17.1:
     dependencies:
       '@cspell/cspell-pipe': 8.17.1
       '@cspell/cspell-types': 8.17.1
       cspell-trie-lib: 8.17.1
-      fast-equals: 5.0.1
+      fast-equals: 5.2.0
 
   cspell-gitignore@8.17.1:
     dependencies:
@@ -6168,7 +6172,7 @@ snapshots:
       cspell-io: 8.17.1
       cspell-trie-lib: 8.17.1
       env-paths: 3.0.0
-      fast-equals: 5.0.1
+      fast-equals: 5.2.0
       gensequence: 7.0.0
       import-fresh: 3.3.0
       resolve-from: 5.0.0
@@ -6647,11 +6651,11 @@ snapshots:
 
   fast-deep-equal@3.1.3: {}
 
-  fast-equals@5.0.1: {}
+  fast-equals@5.2.0: {}
 
   fast-fifo@1.3.2: {}
 
-  fast-glob@3.3.2:
+  fast-glob@3.3.3:
     dependencies:
       '@nodelib/fs.stat': 2.0.5
       '@nodelib/fs.walk': 1.2.8
@@ -6665,7 +6669,7 @@ snapshots:
     dependencies:
       fastest-levenshtein: 1.0.16
 
-  fast-uri@3.0.3: {}
+  fast-uri@3.0.4: {}
 
   fastest-levenshtein@1.0.16: {}
 
@@ -6792,18 +6796,23 @@ snapshots:
 
   get-caller-file@2.0.5: {}
 
-  get-intrinsic@1.2.6:
+  get-intrinsic@1.2.7:
     dependencies:
       call-bind-apply-helpers: 1.0.1
-      dunder-proto: 1.0.1
       es-define-property: 1.0.1
       es-errors: 1.3.0
       es-object-atoms: 1.0.0
       function-bind: 1.1.2
+      get-proto: 1.0.1
       gopd: 1.2.0
       has-symbols: 1.1.0
       hasown: 2.0.2
       math-intrinsics: 1.1.0
+
+  get-proto@1.0.1:
+    dependencies:
+      dunder-proto: 1.0.1
+      es-object-atoms: 1.0.0
 
   get-stdin@9.0.0: {}
 
@@ -6878,7 +6887,7 @@ snapshots:
     dependencies:
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.3.2
+      fast-glob: 3.3.3
       ignore: 5.3.2
       merge2: 1.4.1
       slash: 3.0.0
@@ -6886,7 +6895,7 @@ snapshots:
   globby@14.0.2:
     dependencies:
       '@sindresorhus/merge-streams': 2.3.0
-      fast-glob: 3.3.2
+      fast-glob: 3.3.3
       ignore: 5.3.2
       path-type: 5.0.0
       slash: 5.1.0
@@ -6930,7 +6939,7 @@ snapshots:
       lodash.clonedeep: 4.5.0
       plugin-error: 1.0.1
       replace-ext: 1.0.1
-      sass: 1.83.0
+      sass: 1.83.1
       strip-ansi: 4.0.0
       through2: 2.0.5
       vinyl-sourcemaps-apply: 0.2.1
@@ -7284,7 +7293,7 @@ snapshots:
     dependencies:
       uc.micro: 2.1.0
 
-  liquidjs@10.20.0:
+  liquidjs@10.20.1:
     dependencies:
       commander: 10.0.1
 
@@ -7423,7 +7432,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  mdast-util-find-and-replace@3.0.1:
+  mdast-util-find-and-replace@3.0.2:
     dependencies:
       '@types/mdast': 4.0.4
       escape-string-regexp: 5.0.0
@@ -7463,7 +7472,7 @@ snapshots:
       '@types/mdast': 4.0.4
       ccount: 2.0.1
       devlop: 1.1.0
-      mdast-util-find-and-replace: 3.0.1
+      mdast-util-find-and-replace: 3.0.2
       micromark-util-character: 2.1.1
 
   mdast-util-gfm-footnote@2.0.0:
@@ -8233,7 +8242,7 @@ snapshots:
   postcss-load-config@5.1.0(postcss@8.4.49)(tsx@4.19.2):
     dependencies:
       lilconfig: 3.1.3
-      yaml: 2.6.1
+      yaml: 2.7.0
     optionalDependencies:
       postcss: 8.4.49
       tsx: 4.19.2
@@ -8532,7 +8541,7 @@ snapshots:
   remark-github@12.0.0:
     dependencies:
       '@types/mdast': 4.0.4
-      mdast-util-find-and-replace: 3.0.1
+      mdast-util-find-and-replace: 3.0.2
       mdast-util-to-string: 4.0.0
       to-vfile: 8.0.0
       unist-util-visit: 5.0.0
@@ -9250,7 +9259,7 @@ snapshots:
       '@types/nlcst': 2.0.3
       nlcst-search: 4.0.0
       nlcst-to-string: 4.0.0
-      unist-util-find-before: 4.0.0
+      unist-util-find-before: 4.0.1
       unist-util-position: 5.0.0
       vfile: 6.0.3
 
@@ -9353,7 +9362,7 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass@1.83.0:
+  sass@1.83.1:
     dependencies:
       chokidar: 4.0.3
       immutable: 5.0.3
@@ -9443,7 +9452,7 @@ snapshots:
       define-data-property: 1.1.4
       es-errors: 1.3.0
       function-bind: 1.1.2
-      get-intrinsic: 1.2.6
+      get-intrinsic: 1.2.7
       gopd: 1.2.0
       has-property-descriptors: 1.0.2
 
@@ -9595,7 +9604,7 @@ snapshots:
       queue-tick: 1.0.1
       text-decoder: 1.2.3
     optionalDependencies:
-      bare-events: 2.5.0
+      bare-events: 2.5.1
 
   string-width@3.1.0:
     dependencies:
@@ -9722,7 +9731,7 @@ snapshots:
       css-functions-list: 3.2.3
       css-tree: 3.1.0
       debug: 4.4.0
-      fast-glob: 3.3.2
+      fast-glob: 3.3.3
       fastest-levenshtein: 1.0.16
       file-entry-cache: 9.1.0
       global-modules: 2.0.0
@@ -9933,7 +9942,7 @@ snapshots:
       vfile-message: 4.0.2
       vfile-reporter: 8.1.1
       vfile-statistics: 3.0.0
-      yaml: 2.6.1
+      yaml: 2.7.0
     transitivePeerDependencies:
       - bluebird
       - supports-color
@@ -9968,7 +9977,7 @@ snapshots:
 
   unist-builder@2.0.3: {}
 
-  unist-util-find-before@4.0.0:
+  unist-util-find-before@4.0.1:
     dependencies:
       '@types/unist': 3.0.3
       unist-util-is: 6.0.0
@@ -10197,7 +10206,7 @@ snapshots:
 
   y18n@5.0.8: {}
 
-  yaml@2.6.1: {}
+  yaml@2.7.0: {}
 
   yargs-parser@15.0.3:
     dependencies:
