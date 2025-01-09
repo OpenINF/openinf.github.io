@@ -5,7 +5,7 @@
   "description": "The OpenINF portal, other static resources, and more static electricity",
   "packageManager": "pnpm@9.15.3",
   "engines": {
-    "node": "22.12.0",
+    "node": "22.13.0",
     "pnpm": "9.15.3"
   },
   "exports": {
@@ -45,7 +45,7 @@
     "cssnano": "7.0.6",
     "dictionary-en": "4.0.0",
     "dprint": "0.48.0",
-    "editorconfig-checker": "6.0.0",
+    "editorconfig-checker": "6.0.1",
     "globby": "14.0.2",
     "gulp": "5.0.0",
     "gulp-dart-sass": "1.1.0",
@@ -107,7 +107,7 @@
     "stylelint-config-recess-order": "5.1.1",
     "stylelint-config-standard-scss": "14.0.0",
     "tsx": "4.19.2",
-    "typescript": "5.7.2",
+    "typescript": "5.7.3",
     "unified": "11.0.5",
     "vnu-jar": "24.10.17",
     "zod": "3.24.1",
