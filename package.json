@@ -5,7 +5,7 @@
   "description": "The OpenINF portal, other static resources, and more static electricity",
   "packageManager": "pnpm@9.15.4",
   "engines": {
-    "node": "22.13.0",
+    "node": "22.13.1",
     "pnpm": "9.15.4"
   },
   "exports": {
@@ -29,12 +29,12 @@
     "@cspell/dict-lorem-ipsum": "4.0.4",
     "@isaacs/catcher": "1.0.4",
     "@openinf/gh-file-importer": "2.0.1",
-    "@shopify/prettier-plugin-liquid": "1.6.3",
+    "@shopify/prettier-plugin-liquid": "1.7.0",
     "@tsconfig/node-lts": "22.0.1",
     "@types/console-log-level": "1.4.5",
     "@types/gulp": "4.0.17",
     "@types/js-yaml": "4.0.9",
-    "@types/node": "22.10.7",
+    "@types/node": "22.10.10",
     "@yarnpkg/shell": "4.1.1",
     "autoprefixer": "10.4.20",
     "bootstrap": "5.3.3",
@@ -103,7 +103,7 @@
     "retext-syntax-mentions": "4.0.0",
     "retext-syntax-urls": "4.0.0",
     "strip-comments": "2.0.1",
-    "stylelint": "16.13.2",
+    "stylelint": "16.14.0",
     "stylelint-config-recess-order": "5.1.1",
     "stylelint-config-standard-scss": "14.0.0",
     "tsx": "4.19.2",

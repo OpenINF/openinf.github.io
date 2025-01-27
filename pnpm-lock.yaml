@@ -24,8 +24,8 @@ importers:
         specifier: 2.0.1
         version: 2.0.1
       '@shopify/prettier-plugin-liquid':
-        specifier: 1.6.3
-        version: 1.6.3(prettier@3.4.2)
+        specifier: 1.7.0
+        version: 1.7.0(prettier@3.4.2)
       '@tsconfig/node-lts':
         specifier: 22.0.1
         version: 22.0.1
@@ -39,8 +39,8 @@ importers:
         specifier: 4.0.9
         version: 4.0.9
       '@types/node':
-        specifier: 22.10.7
-        version: 22.10.7
+        specifier: 22.10.10
+        version: 22.10.10
       '@yarnpkg/shell':
         specifier: 4.1.1
         version: 4.1.1(typanion@3.14.0)
@@ -246,14 +246,14 @@ importers:
         specifier: 2.0.1
         version: 2.0.1
       stylelint:
-        specifier: 16.13.2
-        version: 16.13.2(typescript@5.7.3)
+        specifier: 16.14.0
+        version: 16.14.0(typescript@5.7.3)
       stylelint-config-recess-order:
         specifier: 5.1.1
-        version: 5.1.1(stylelint@16.13.2(typescript@5.7.3))
+        version: 5.1.1(stylelint@16.14.0(typescript@5.7.3))
       stylelint-config-standard-scss:
         specifier: 14.0.0
-        version: 14.0.0(postcss@8.4.49)(stylelint@16.13.2(typescript@5.7.3))
+        version: 14.0.0(postcss@8.4.49)(stylelint@16.14.0(typescript@5.7.3))
       tsx:
         specifier: 4.19.2
         version: 4.19.2
@@ -1013,11 +1013,11 @@ packages:
   '@popperjs/core@2.11.8':
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
 
-  '@shopify/liquid-html-parser@2.2.0':
-    resolution: {integrity: sha512-hD0XV+Re9BC3yMOshHCwU94LagW7LQTWPdtpU0IE/pMbco+ke7Hir1Ad7eloHAgzR+6iw4LzDEFuHFpKZWmGKw==}
+  '@shopify/liquid-html-parser@2.3.0':
+    resolution: {integrity: sha512-n8oTg/G5z27Qm+fXhIe5b1jXmfnhLgwjeakctGFu6tqIg3RJlJlUugknJD9hN4n9AWl1KzkXpG0JVD6Im1t7Xw==}
 
-  '@shopify/prettier-plugin-liquid@1.6.3':
-    resolution: {integrity: sha512-l4Bt4JqQS/FLsfelI97mq+YaZJg1+Gn8920zv/Cw3nEicTJ8LpZHrqRbJiXLWUsGNIQ6ydlu0Y/nGtt0qCUy5A==}
+  '@shopify/prettier-plugin-liquid@1.7.0':
+    resolution: {integrity: sha512-k1NcKgO1mMulw4KTJ2yQru5h6DFz8M9SnmfWU/KqOdWvuFFpqeqb/EiEaY+1nBGNHVyLhGrMmEJamqQ/9cFiVg==}
     peerDependencies:
       prettier: ^2.0.0 || ^3.0.0
 
@@ -1106,8 +1106,8 @@ packages:
   '@types/nlcst@2.0.3':
     resolution: {integrity: sha512-vSYNSDe6Ix3q+6Z7ri9lyWqgGhJTmzRjZRqyq15N0Z/1/UnVsno9G/N40NBijoYx2seFDIl0+B2mgAb9mezUCA==}
 
-  '@types/node@22.10.7':
-    resolution: {integrity: sha512-V09KvXxFiutGp6B7XkpaDXlNadZxrzajcY50EuoLIpQ6WWYCSvf19lVIazzfIzQvhUN2HjX12spLojTnhuKlGg==}
+  '@types/node@22.10.10':
+    resolution: {integrity: sha512-X47y/mPNzxviAGY5TcYPtYL8JsY3kAq2n8fMmKoRCxq/c4v4pyGNCzM2R6+M5/umG4ZfHuT+sgqDYqWc9rJ6ww==}
 
   '@types/picomatch@3.0.1':
     resolution: {integrity: sha512-1MRgzpzY0hOp9pW/kLRxeQhUWwil6gnrUYd3oEpeYBqp/FexhaCPv3F8LsYr47gtUU45fO2cm1dbwkSrHEo8Uw==}
@@ -3589,6 +3589,10 @@ packages:
     resolution: {integrity: sha512-OCVPnIObs4N29kxTjzLfUryOkvZEq+pf8jTF0lg8E7uETuWHA+v7j3c/xJmiqpX450191LlmZfUKkXxkTry7nA==}
     engines: {node: ^10 || ^12 || >=14}
 
+  postcss@8.5.1:
+    resolution: {integrity: sha512-6oz2beyjc5VMn/KV1pPw8fliQkhBXrVn1Z3TVyqZxU8kZpzEKhBdmCFqI6ZbmGtamQvQGuU1sgPTk8ZrXDD7jQ==}
+    engines: {node: ^10 || ^12 || >=14}
+
   posthtml-match-helper@2.0.3:
     resolution: {integrity: sha512-p9oJgTdMF2dyd7WE54QI1LvpBIkNkbSiiECKezNnDVYhGhD1AaOnAkw0Uh0y5TW+OHO8iBdSqnd8Wkpb6iUqmw==}
     engines: {node: '>=18'}
@@ -4337,8 +4341,8 @@ packages:
     peerDependencies:
       stylelint: ^16.0.2
 
-  stylelint@16.13.2:
-    resolution: {integrity: sha512-wDlgh0mRO9RtSa3TdidqHd0nOG8MmUyVKl+dxA6C1j8aZRzpNeEgdhFmU5y4sZx4Fc6r46p0fI7p1vR5O2DZqA==}
+  stylelint@16.14.0:
+    resolution: {integrity: sha512-orePw2dKxzXC0hd1VmxrDBqgf1KUV9DYsZY4guKLE9XcQD7m0BxVnWMaoQqMNsQIG14MyyTHf6zoajvOnDra8g==}
     engines: {node: '>=18.12.0'}
     hasBin: true
 
@@ -5515,14 +5519,14 @@ snapshots:
 
   '@popperjs/core@2.11.8': {}
 
-  '@shopify/liquid-html-parser@2.2.0':
+  '@shopify/liquid-html-parser@2.3.0':
     dependencies:
       line-column: 1.0.2
       ohm-js: 16.6.0
 
-  '@shopify/prettier-plugin-liquid@1.6.3(prettier@3.4.2)':
+  '@shopify/prettier-plugin-liquid@1.7.0(prettier@3.4.2)':
     dependencies:
-      '@shopify/liquid-html-parser': 2.2.0
+      '@shopify/liquid-html-parser': 2.3.0
       html-styles: 1.0.0
       prettier: 3.4.2
 
@@ -5545,7 +5549,7 @@ snapshots:
 
   '@types/concat-stream@2.0.3':
     dependencies:
-      '@types/node': 22.10.7
+      '@types/node': 22.10.10
 
   '@types/console-log-level@1.4.5': {}
 
@@ -5553,7 +5557,7 @@ snapshots:
 
   '@types/cors@2.8.17':
     dependencies:
-      '@types/node': 22.10.7
+      '@types/node': 22.10.10
 
   '@types/debug@4.1.12':
     dependencies:
@@ -5569,13 +5573,13 @@ snapshots:
 
   '@types/glob-stream@8.0.2':
     dependencies:
-      '@types/node': 22.10.7
+      '@types/node': 22.10.10
       '@types/picomatch': 3.0.1
       '@types/streamx': 2.9.5
 
   '@types/gulp@4.0.17':
     dependencies:
-      '@types/node': 22.10.7
+      '@types/node': 22.10.10
       '@types/undertaker': 1.2.11
       '@types/vinyl-fs': 3.0.5
       chokidar: 3.6.0
@@ -5611,7 +5615,7 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
-  '@types/node@22.10.7':
+  '@types/node@22.10.10':
     dependencies:
       undici-types: 6.20.0
 
@@ -5621,7 +5625,7 @@ snapshots:
 
   '@types/streamx@2.9.5':
     dependencies:
-      '@types/node': 22.10.7
+      '@types/node': 22.10.10
 
   '@types/supports-color@8.1.3': {}
 
@@ -5631,7 +5635,7 @@ snapshots:
 
   '@types/undertaker@1.2.11':
     dependencies:
-      '@types/node': 22.10.7
+      '@types/node': 22.10.10
       '@types/undertaker-registry': 1.0.4
       async-done: 1.3.2
 
@@ -5642,13 +5646,13 @@ snapshots:
   '@types/vinyl-fs@3.0.5':
     dependencies:
       '@types/glob-stream': 8.0.2
-      '@types/node': 22.10.7
+      '@types/node': 22.10.10
       '@types/vinyl': 2.0.12
 
   '@types/vinyl@2.0.12':
     dependencies:
       '@types/expect': 1.20.4
-      '@types/node': 22.10.7
+      '@types/node': 22.10.10
 
   '@ungap/structured-clone@1.2.1': {}
 
@@ -6535,7 +6539,7 @@ snapshots:
     dependencies:
       '@types/cookie': 0.4.1
       '@types/cors': 2.8.17
-      '@types/node': 22.10.7
+      '@types/node': 22.10.10
       accepts: 1.3.8
       base64id: 2.0.0
       cookie: 0.7.2
@@ -8416,9 +8420,9 @@ snapshots:
 
   postcss-resolve-nested-selector@0.1.6: {}
 
-  postcss-safe-parser@7.0.1(postcss@8.4.49):
+  postcss-safe-parser@7.0.1(postcss@8.5.1):
     dependencies:
-      postcss: 8.4.49
+      postcss: 8.5.1
 
   postcss-scss@4.0.9(postcss@8.4.49):
     dependencies:
@@ -8457,6 +8461,12 @@ snapshots:
       source-map: 0.6.1
 
   postcss@8.4.49:
+    dependencies:
+      nanoid: 3.3.8
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
+
+  postcss@8.5.1:
     dependencies:
       nanoid: 3.3.8
       picocolors: 1.1.1
@@ -9733,44 +9743,44 @@ snapshots:
       postcss: 8.4.49
       postcss-selector-parser: 6.1.2
 
-  stylelint-config-recess-order@5.1.1(stylelint@16.13.2(typescript@5.7.3)):
+  stylelint-config-recess-order@5.1.1(stylelint@16.14.0(typescript@5.7.3)):
     dependencies:
-      stylelint: 16.13.2(typescript@5.7.3)
-      stylelint-order: 6.0.4(stylelint@16.13.2(typescript@5.7.3))
+      stylelint: 16.14.0(typescript@5.7.3)
+      stylelint-order: 6.0.4(stylelint@16.14.0(typescript@5.7.3))
 
-  stylelint-config-recommended-scss@14.1.0(postcss@8.4.49)(stylelint@16.13.2(typescript@5.7.3)):
+  stylelint-config-recommended-scss@14.1.0(postcss@8.4.49)(stylelint@16.14.0(typescript@5.7.3)):
     dependencies:
       postcss-scss: 4.0.9(postcss@8.4.49)
-      stylelint: 16.13.2(typescript@5.7.3)
-      stylelint-config-recommended: 14.0.1(stylelint@16.13.2(typescript@5.7.3))
-      stylelint-scss: 6.10.0(stylelint@16.13.2(typescript@5.7.3))
+      stylelint: 16.14.0(typescript@5.7.3)
+      stylelint-config-recommended: 14.0.1(stylelint@16.14.0(typescript@5.7.3))
+      stylelint-scss: 6.10.0(stylelint@16.14.0(typescript@5.7.3))
     optionalDependencies:
       postcss: 8.4.49
 
-  stylelint-config-recommended@14.0.1(stylelint@16.13.2(typescript@5.7.3)):
+  stylelint-config-recommended@14.0.1(stylelint@16.14.0(typescript@5.7.3)):
     dependencies:
-      stylelint: 16.13.2(typescript@5.7.3)
+      stylelint: 16.14.0(typescript@5.7.3)
 
-  stylelint-config-standard-scss@14.0.0(postcss@8.4.49)(stylelint@16.13.2(typescript@5.7.3)):
+  stylelint-config-standard-scss@14.0.0(postcss@8.4.49)(stylelint@16.14.0(typescript@5.7.3)):
     dependencies:
-      stylelint: 16.13.2(typescript@5.7.3)
-      stylelint-config-recommended-scss: 14.1.0(postcss@8.4.49)(stylelint@16.13.2(typescript@5.7.3))
-      stylelint-config-standard: 36.0.1(stylelint@16.13.2(typescript@5.7.3))
+      stylelint: 16.14.0(typescript@5.7.3)
+      stylelint-config-recommended-scss: 14.1.0(postcss@8.4.49)(stylelint@16.14.0(typescript@5.7.3))
+      stylelint-config-standard: 36.0.1(stylelint@16.14.0(typescript@5.7.3))
     optionalDependencies:
       postcss: 8.4.49
 
-  stylelint-config-standard@36.0.1(stylelint@16.13.2(typescript@5.7.3)):
+  stylelint-config-standard@36.0.1(stylelint@16.14.0(typescript@5.7.3)):
     dependencies:
-      stylelint: 16.13.2(typescript@5.7.3)
-      stylelint-config-recommended: 14.0.1(stylelint@16.13.2(typescript@5.7.3))
+      stylelint: 16.14.0(typescript@5.7.3)
+      stylelint-config-recommended: 14.0.1(stylelint@16.14.0(typescript@5.7.3))
 
-  stylelint-order@6.0.4(stylelint@16.13.2(typescript@5.7.3)):
+  stylelint-order@6.0.4(stylelint@16.14.0(typescript@5.7.3)):
     dependencies:
       postcss: 8.4.49
       postcss-sorting: 8.0.2(postcss@8.4.49)
-      stylelint: 16.13.2(typescript@5.7.3)
+      stylelint: 16.14.0(typescript@5.7.3)
 
-  stylelint-scss@6.10.0(stylelint@16.13.2(typescript@5.7.3)):
+  stylelint-scss@6.10.0(stylelint@16.14.0(typescript@5.7.3)):
     dependencies:
       css-tree: 3.1.0
       is-plain-object: 5.0.0
@@ -9780,9 +9790,9 @@ snapshots:
       postcss-resolve-nested-selector: 0.1.6
       postcss-selector-parser: 7.0.0
       postcss-value-parser: 4.2.0
-      stylelint: 16.13.2(typescript@5.7.3)
+      stylelint: 16.14.0(typescript@5.7.3)
 
-  stylelint@16.13.2(typescript@5.7.3):
+  stylelint@16.14.0(typescript@5.7.3):
     dependencies:
       '@csstools/css-parser-algorithms': 3.0.4(@csstools/css-tokenizer@3.0.3)
       '@csstools/css-tokenizer': 3.0.3
@@ -9811,9 +9821,9 @@ snapshots:
       micromatch: 4.0.8
       normalize-path: 3.0.0
       picocolors: 1.1.1
-      postcss: 8.4.49
+      postcss: 8.5.1
       postcss-resolve-nested-selector: 0.1.6
-      postcss-safe-parser: 7.0.1(postcss@8.4.49)
+      postcss-safe-parser: 7.0.1(postcss@8.5.1)
       postcss-selector-parser: 7.0.0
       postcss-value-parser: 4.2.0
       resolve-from: 5.0.0
@@ -9989,7 +9999,7 @@ snapshots:
       '@types/concat-stream': 2.0.3
       '@types/debug': 4.1.12
       '@types/is-empty': 1.2.3
-      '@types/node': 22.10.7
+      '@types/node': 22.10.10
       '@types/unist': 3.0.3
       concat-stream: 2.0.0
       debug: 4.4.0
