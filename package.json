@@ -3,10 +3,10 @@
   "author": "The OpenINF Authors & Friends",
   "private": "true",
   "description": "The OpenINF portal, other static resources, and more static electricity",
-  "packageManager": "pnpm@9.15.5",
+  "packageManager": "pnpm@10.3.0",
   "engines": {
     "node": "22.14.0",
-    "pnpm": "9.15.5"
+    "pnpm": "10.3.0"
   },
   "exports": {
     "./build/constants": "./build/shared/constants.mjs",
@@ -104,7 +104,7 @@
     "retext-syntax-urls": "4.0.0",
     "strip-comments": "2.0.1",
     "stylelint": "16.14.1",
-    "stylelint-config-recess-order": "5.1.1",
+    "stylelint-config-recess-order": "6.0.0",
     "stylelint-config-standard-scss": "14.0.0",
     "tsx": "4.19.2",
     "typescript": "5.7.3",
