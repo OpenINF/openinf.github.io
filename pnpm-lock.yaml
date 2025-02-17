@@ -25,7 +25,7 @@ importers:
         version: 2.0.1
       '@shopify/prettier-plugin-liquid':
         specifier: 1.8.0
-        version: 1.8.0(prettier@3.5.0)
+        version: 1.8.0(prettier@3.5.1)
       '@tsconfig/node-lts':
         specifier: 22.0.1
         version: 22.0.1
@@ -39,8 +39,8 @@ importers:
         specifier: 4.0.9
         version: 4.0.9
       '@types/node':
-        specifier: 22.13.1
-        version: 22.13.1
+        specifier: 22.13.4
+        version: 22.13.4
       '@yarnpkg/shell':
         specifier: 4.1.1
         version: 4.1.1(typanion@3.14.0)
@@ -123,8 +123,8 @@ importers:
         specifier: 5.10.0
         version: 5.10.0
       prettier:
-        specifier: 3.5.0
-        version: 3.5.0
+        specifier: 3.5.1
+        version: 3.5.1
       remark:
         specifier: 15.0.1
         version: 15.0.1
@@ -202,7 +202,7 @@ importers:
         version: 7.0.1
       remark-preset-prettier:
         specifier: 2.0.1
-        version: 2.0.1(prettier@3.5.0)
+        version: 2.0.1(prettier@3.5.1)
       remark-retext:
         specifier: 6.0.0
         version: 6.0.0
@@ -267,11 +267,11 @@ importers:
         specifier: 24.10.17
         version: 24.10.17
       zod:
-        specifier: 3.24.1
-        version: 3.24.1
+        specifier: 3.24.2
+        version: 3.24.2
       zod-validation-error:
         specifier: 3.4.0
-        version: 3.4.0(zod@3.24.1)
+        version: 3.4.0(zod@3.24.2)
 
 packages:
 
@@ -1107,8 +1107,8 @@ packages:
   '@types/nlcst@2.0.3':
     resolution: {integrity: sha512-vSYNSDe6Ix3q+6Z7ri9lyWqgGhJTmzRjZRqyq15N0Z/1/UnVsno9G/N40NBijoYx2seFDIl0+B2mgAb9mezUCA==}
 
-  '@types/node@22.13.1':
-    resolution: {integrity: sha512-jK8uzQlrvXqEU91UxiK5J7pKHyzgnI1Qnl0QDHIgVGuolJhRb9EEl28Cj9b3rGR8B2lhFCtvIm5os8lFnO/1Ew==}
+  '@types/node@22.13.4':
+    resolution: {integrity: sha512-ywP2X0DYtX3y08eFVx5fNIw7/uIv8hYUKgXoK8oayJlLnKcRfEYCxWMVE1XagUdVtCJlZT1AU4LXEABW+L1Peg==}
 
   '@types/picomatch@3.0.2':
     resolution: {integrity: sha512-n0i8TD3UDB7paoMMxA3Y65vUncFJXjcUf7lQY7YyKGl6031FNjfsLs6pdLFCy2GNFxItPJG8GvvpbZc2skH7WA==}
@@ -3559,8 +3559,8 @@ packages:
   prefix-matches@1.0.1:
     resolution: {integrity: sha512-VXwWx7Ws2VSKIYXBPDGjhh1fTgNkeVwWGV+Ysi9mEnduw763FuDQBSUSRKtZ7ZUUEUFAvkbUpUEwgw4g1r1m+A==}
 
-  prettier@3.5.0:
-    resolution: {integrity: sha512-quyMrVt6svPS7CjQ9gKb3GLEX/rl3BCL2oa/QkNcXv4YNVBC9olt3s+H7ukto06q7B1Qz46PbrKLO34PR6vXcA==}
+  prettier@3.5.1:
+    resolution: {integrity: sha512-hPpFQvHwL3Qv5AdRvBFMhnKo4tYxp0ReXiPn2bxkiohEX6mBeBwEpBSQTkD458RaaDKQMYSp4hX4UtfUTA5wDw==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -4708,8 +4708,8 @@ packages:
     peerDependencies:
       zod: ^3.18.0
 
-  zod@3.24.1:
-    resolution: {integrity: sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==}
+  zod@3.24.2:
+    resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -5471,11 +5471,11 @@ snapshots:
       line-column: 1.0.2
       ohm-js: 16.6.0
 
-  '@shopify/prettier-plugin-liquid@1.8.0(prettier@3.5.0)':
+  '@shopify/prettier-plugin-liquid@1.8.0(prettier@3.5.1)':
     dependencies:
       '@shopify/liquid-html-parser': 2.4.0
       html-styles: 1.0.0
-      prettier: 3.5.0
+      prettier: 3.5.1
 
   '@sindresorhus/merge-streams@2.3.0': {}
 
@@ -5496,13 +5496,13 @@ snapshots:
 
   '@types/concat-stream@2.0.3':
     dependencies:
-      '@types/node': 22.13.1
+      '@types/node': 22.13.4
 
   '@types/console-log-level@1.4.5': {}
 
   '@types/cors@2.8.17':
     dependencies:
-      '@types/node': 22.13.1
+      '@types/node': 22.13.4
 
   '@types/debug@4.1.12':
     dependencies:
@@ -5518,13 +5518,13 @@ snapshots:
 
   '@types/glob-stream@8.0.2':
     dependencies:
-      '@types/node': 22.13.1
+      '@types/node': 22.13.4
       '@types/picomatch': 3.0.2
       '@types/streamx': 2.9.5
 
   '@types/gulp@4.0.17':
     dependencies:
-      '@types/node': 22.13.1
+      '@types/node': 22.13.4
       '@types/undertaker': 1.2.11
       '@types/vinyl-fs': 3.0.5
       chokidar: 3.6.0
@@ -5560,7 +5560,7 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
-  '@types/node@22.13.1':
+  '@types/node@22.13.4':
     dependencies:
       undici-types: 6.20.0
 
@@ -5570,7 +5570,7 @@ snapshots:
 
   '@types/streamx@2.9.5':
     dependencies:
-      '@types/node': 22.13.1
+      '@types/node': 22.13.4
 
   '@types/supports-color@8.1.3': {}
 
@@ -5580,7 +5580,7 @@ snapshots:
 
   '@types/undertaker@1.2.11':
     dependencies:
-      '@types/node': 22.13.1
+      '@types/node': 22.13.4
       '@types/undertaker-registry': 1.0.4
       async-done: 1.3.2
 
@@ -5591,13 +5591,13 @@ snapshots:
   '@types/vinyl-fs@3.0.5':
     dependencies:
       '@types/glob-stream': 8.0.2
-      '@types/node': 22.13.1
+      '@types/node': 22.13.4
       '@types/vinyl': 2.0.12
 
   '@types/vinyl@2.0.12':
     dependencies:
       '@types/expect': 1.20.4
-      '@types/node': 22.13.1
+      '@types/node': 22.13.4
 
   '@ungap/structured-clone@1.3.0': {}
 
@@ -6453,7 +6453,7 @@ snapshots:
   engine.io@6.6.4:
     dependencies:
       '@types/cors': 2.8.17
-      '@types/node': 22.13.1
+      '@types/node': 22.13.4
       accepts: 1.3.8
       base64id: 2.0.0
       cookie: 0.7.2
@@ -8378,7 +8378,7 @@ snapshots:
       is-object: 1.0.2
       starts-with: 1.0.2
 
-  prettier@3.5.0: {}
+  prettier@3.5.1: {}
 
   proc-log@4.2.0: {}
 
@@ -9101,9 +9101,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  remark-preset-prettier@2.0.1(prettier@3.5.0):
+  remark-preset-prettier@2.0.1(prettier@3.5.1):
     dependencies:
-      prettier: 3.5.0
+      prettier: 3.5.1
 
   remark-retext@6.0.0:
     dependencies:
@@ -9890,7 +9890,7 @@ snapshots:
       '@types/concat-stream': 2.0.3
       '@types/debug': 4.1.12
       '@types/is-empty': 1.2.3
-      '@types/node': 22.13.1
+      '@types/node': 22.13.4
       '@types/unist': 3.0.3
       concat-stream: 2.0.0
       debug: 4.4.0
@@ -10216,10 +10216,10 @@ snapshots:
       y18n: 5.0.8
       yargs-parser: 21.1.1
 
-  zod-validation-error@3.4.0(zod@3.24.1):
+  zod-validation-error@3.4.0(zod@3.24.2):
     dependencies:
-      zod: 3.24.1
+      zod: 3.24.2
 
-  zod@3.24.1: {}
+  zod@3.24.2: {}
 
   zwitch@2.0.4: {}
