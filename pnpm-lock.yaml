@@ -201,8 +201,8 @@ importers:
         specifier: 7.0.1
         version: 7.0.1
       remark-preset-prettier:
-        specifier: 2.0.1
-        version: 2.0.1(prettier@3.5.3)
+        specifier: 2.0.2
+        version: 2.0.2(prettier@3.5.3)
       remark-retext:
         specifier: 6.0.1
         version: 6.0.1
@@ -3859,8 +3859,8 @@ packages:
   remark-preset-lint-recommended@7.0.1:
     resolution: {integrity: sha512-j1CY5u48PtZl872BQ40uWSQMT3R4gXKp0FUgevMu5gW7hFMtvaCiDq+BfhzeR8XKKiW9nIMZGfIMZHostz5X4g==}
 
-  remark-preset-prettier@2.0.1:
-    resolution: {integrity: sha512-1+cZaM080zTlhQIvZDOj7SFWvW9zevfxsLjTZspLEsBYivMDwCyTodvNvaZLc9p5dUSMik/BjMFKicfhZXh7qg==}
+  remark-preset-prettier@2.0.2:
+    resolution: {integrity: sha512-kTJRYWjcLBqVZZT49uEyWoZXb2DCIADITTizv7zj9SK/Msofl1syVqO7zcLlH6MCkXk3W0dyeKLcmiIyoLegkQ==}
     engines: {node: '>=14.8'}
     peerDependencies:
       prettier: '>=1.0.0'
@@ -9168,7 +9168,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  remark-preset-prettier@2.0.1(prettier@3.5.3):
+  remark-preset-prettier@2.0.2(prettier@3.5.3):
     dependencies:
       prettier: 3.5.3
 
