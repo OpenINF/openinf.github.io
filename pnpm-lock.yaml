@@ -1886,8 +1886,8 @@ packages:
     resolution: {integrity: sha512-8cAwm6md1YTiPpOvDULYJL4ZS6WfM5/cTeVVh4JsvyYZAoqlRVUpHL9Gr5Fy7HA6xcSZicUia3DeAgO3Us8E+Q==}
     engines: {node: '>= 4.0.0'}
 
-  eazy-logger@4.0.1:
-    resolution: {integrity: sha512-2GSFtnnC6U4IEKhEI7+PvdxrmjJ04mdsj3wHZTFiw0tUtG4HCWzTr13ZYTk8XOGnA1xQMaDljoBOYlk3D/MMSw==}
+  eazy-logger@4.1.0:
+    resolution: {integrity: sha512-+mn7lRm+Zf1UT/YaH8WXtpU6PIV2iOjzP6jgKoiaq/VNrjYKp+OHZGe2znaLgDeFkw8cL9ffuaUm+nNnzcYyGw==}
     engines: {node: '>= 0.8.0'}
 
   editorconfig-checker@6.0.1:
@@ -5861,7 +5861,7 @@ snapshots:
       connect-history-api-fallback: 1.6.0
       dev-ip: 1.0.1
       easy-extender: 2.3.4
-      eazy-logger: 4.0.1
+      eazy-logger: 4.1.0
       etag: 1.8.1
       fresh: 0.5.2
       fs-extra: 3.0.1
@@ -6425,7 +6425,7 @@ snapshots:
     dependencies:
       lodash: 4.17.21
 
-  eazy-logger@4.0.1:
+  eazy-logger@4.1.0:
     dependencies:
       chalk: 4.1.2
 
