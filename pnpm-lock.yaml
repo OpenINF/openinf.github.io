@@ -168,8 +168,8 @@ importers:
         specifier: 4.0.1
         version: 4.0.1
       remark-lint-fenced-code-flag:
-        specifier: 4.1.1
-        version: 4.1.1
+        specifier: 4.2.0
+        version: 4.2.0
       remark-lint-first-heading-level:
         specifier: 4.0.1
         version: 4.0.1
@@ -3706,8 +3706,8 @@ packages:
   remark-lint-emphasis-marker@4.0.1:
     resolution: {integrity: sha512-BF1WWsAxai3XoKk48sfiqT3L8m02AZLj3BnipWkHDRXuLfz6VwsHVaHWyNvvE0p6b2B3A5dSYbcfJu5RmPx4tQ==}
 
-  remark-lint-fenced-code-flag@4.1.1:
-    resolution: {integrity: sha512-hKPqowc79jrJL47AfnqDThvE8Q249nHCleR5nxuf9ybriMqcAHYxragKzU5c4W1fNy20bTfFdZz/iAAQAk9kwg==}
+  remark-lint-fenced-code-flag@4.2.0:
+    resolution: {integrity: sha512-QWGTrnYbcopOFZR98djDREmKApLonJ7hmXE7pEcOGee9JY/EUIVS7Lq54Hy9CtU3cVIvQQmiMTxCwUhfddDJFA==}
 
   remark-lint-fenced-code-marker@4.0.1:
     resolution: {integrity: sha512-uI91OcVPKjNxV+vpjDW9T64hkE0a/CRn3JhwdMxUAJYpVsKnA7PFPSFJOx/abNsVZHNSe7ZFGgGdaH/lqgSizA==}
@@ -8647,7 +8647,7 @@ snapshots:
       unist-util-visit-parents: 6.0.1
       vfile-message: 4.0.2
 
-  remark-lint-fenced-code-flag@4.1.1:
+  remark-lint-fenced-code-flag@4.2.0:
     dependencies:
       '@types/mdast': 4.0.4
       mdast-util-phrasing: 4.1.0
@@ -9107,7 +9107,7 @@ snapshots:
       remark-lint-definition-case: 4.0.1
       remark-lint-definition-spacing: 4.0.1
       remark-lint-emphasis-marker: 4.0.1
-      remark-lint-fenced-code-flag: 4.1.1
+      remark-lint-fenced-code-flag: 4.2.0
       remark-lint-fenced-code-marker: 4.0.1
       remark-lint-file-extension: 3.0.1
       remark-lint-final-definition: 4.0.2

@@ -77,7 +77,7 @@
     "remark-lint-checkbox-content-indent": "5.0.1",
     "remark-lint-code-block-style": "4.0.1",
     "remark-lint-definition-spacing": "4.0.1",
-    "remark-lint-fenced-code-flag": "4.1.1",
+    "remark-lint-fenced-code-flag": "4.2.0",
     "remark-lint-first-heading-level": "4.0.1",
     "remark-lint-maximum-line-length": "4.1.1",
     "remark-lint-no-duplicate-headings-in-section": "4.0.1",
