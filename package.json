@@ -3,10 +3,10 @@
   "author": "The OpenINF Authors & Friends",
   "private": "true",
   "description": "The OpenINF portal, other static resources, and more static electricity",
-  "packageManager": "pnpm@10.8.0",
+  "packageManager": "pnpm@10.8.1",
   "engines": {
     "node": "22.14.0",
-    "pnpm": "10.8.0"
+    "pnpm": "10.8.1"
   },
   "exports": {
     "./build/constants": "./build/shared/constants.mjs",
@@ -110,7 +110,7 @@
     "typescript": "5.8.3",
     "unified": "11.0.5",
     "vnu-jar": "24.10.17",
-    "zod": "3.24.2",
+    "zod": "3.24.3",
     "zod-validation-error": "3.4.0"
   }
 }
