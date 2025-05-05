@@ -106,11 +106,11 @@
     "stylelint": "16.19.1",
     "stylelint-config-recess-order": "6.0.0",
     "stylelint-config-standard-scss": "14.0.0",
-    "tsx": "4.19.3",
+    "tsx": "4.19.4",
     "typescript": "5.8.3",
     "unified": "11.0.5",
     "vnu-jar": "24.10.17",
-    "zod": "3.24.3",
+    "zod": "3.24.4",
     "zod-validation-error": "3.4.0"
   }
 }
