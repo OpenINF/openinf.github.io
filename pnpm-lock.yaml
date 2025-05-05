@@ -85,7 +85,7 @@ importers:
         version: 1.1.0
       gulp-postcss:
         specifier: 10.0.0
-        version: 10.0.0(postcss@8.5.3)(tsx@4.19.3)
+        version: 10.0.0(postcss@8.5.3)(tsx@4.19.4)
       gulp-rename:
         specifier: 2.0.0
         version: 2.0.0
@@ -255,8 +255,8 @@ importers:
         specifier: 14.0.0
         version: 14.0.0(postcss@8.5.3)(stylelint@16.19.1(typescript@5.8.3))
       tsx:
-        specifier: 4.19.3
-        version: 4.19.3
+        specifier: 4.19.4
+        version: 4.19.4
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -267,11 +267,11 @@ importers:
         specifier: 24.10.17
         version: 24.10.17
       zod:
-        specifier: 3.24.3
-        version: 3.24.3
+        specifier: 3.24.4
+        version: 3.24.4
       zod-validation-error:
         specifier: 3.4.0
-        version: 3.4.0(zod@3.24.3)
+        version: 3.4.0(zod@3.24.4)
 
 packages:
 
@@ -4396,8 +4396,8 @@ packages:
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
-  tsx@4.19.3:
-    resolution: {integrity: sha512-4H8vUNGNjQ4V2EOoGw005+c+dGuPSnhpPBPHBtsZdGZBk/iJb4kguGlPWaZTZ3q5nMtFOEsY0nRDlh9PJyd6SQ==}
+  tsx@4.19.4:
+    resolution: {integrity: sha512-gK5GVzDkJK1SI1zwHf32Mqxf2tSJkNx+eYcNly5+nHvWqXUJYUkWBQtKauoESz3ymezAI++ZwT855x5p5eop+Q==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -4726,8 +4726,8 @@ packages:
     peerDependencies:
       zod: ^3.18.0
 
-  zod@3.24.3:
-    resolution: {integrity: sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg==}
+  zod@3.24.4:
+    resolution: {integrity: sha512-OdqJE9UDRPwWsrHjLN2F8bPxvwJBK22EHLWtanu0LSYr5YqzsaaW3RMgmjwr8Rypg5k+meEJdSPXJZXE/yqOMg==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -6914,12 +6914,12 @@ snapshots:
       through2: 2.0.5
       vinyl-sourcemaps-apply: 0.2.1
 
-  gulp-postcss@10.0.0(postcss@8.5.3)(tsx@4.19.3):
+  gulp-postcss@10.0.0(postcss@8.5.3)(tsx@4.19.4):
     dependencies:
       fancy-log: 2.0.0
       plugin-error: 2.0.1
       postcss: 8.5.3
-      postcss-load-config: 5.1.0(postcss@8.5.3)(tsx@4.19.3)
+      postcss-load-config: 5.1.0(postcss@8.5.3)(tsx@4.19.4)
       vinyl-sourcemaps-apply: 0.2.1
     transitivePeerDependencies:
       - jiti
@@ -8267,13 +8267,13 @@ snapshots:
     dependencies:
       postcss: 8.5.3
 
-  postcss-load-config@5.1.0(postcss@8.5.3)(tsx@4.19.3):
+  postcss-load-config@5.1.0(postcss@8.5.3)(tsx@4.19.4):
     dependencies:
       lilconfig: 3.1.3
       yaml: 2.7.0
     optionalDependencies:
       postcss: 8.5.3
-      tsx: 4.19.3
+      tsx: 4.19.4
 
   postcss-media-query-parser@0.2.3: {}
 
@@ -9900,7 +9900,7 @@ snapshots:
 
   tslib@2.8.1: {}
 
-  tsx@4.19.3:
+  tsx@4.19.4:
     dependencies:
       esbuild: 0.25.1
       get-tsconfig: 4.10.0
@@ -10288,10 +10288,10 @@ snapshots:
       y18n: 5.0.8
       yargs-parser: 21.1.1
 
-  zod-validation-error@3.4.0(zod@3.24.3):
+  zod-validation-error@3.4.0(zod@3.24.4):
     dependencies:
-      zod: 3.24.3
+      zod: 3.24.4
 
-  zod@3.24.3: {}
+  zod@3.24.4: {}
 
   zwitch@2.0.4: {}
