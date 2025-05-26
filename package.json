@@ -3,10 +3,10 @@
   "author": "The OpenINF Authors & Friends",
   "private": "true",
   "description": "The OpenINF portal, other static resources, and more static electricity",
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.11.0",
   "engines": {
-    "node": "22.15.0",
-    "pnpm": "10.10.0"
+    "node": "22.16.0",
+    "pnpm": "10.11.0"
   },
   "exports": {
     "./build/constants": "./build/shared/constants.mjs",
@@ -24,7 +24,7 @@
     "test": "nps test"
   },
   "devDependencies": {
-    "@11ty/eleventy": "3.0.0",
+    "@11ty/eleventy": "3.1.0",
     "@biomejs/biome": "1.9.4",
     "@cspell/dict-lorem-ipsum": "4.0.4",
     "@isaacs/catcher": "1.0.4",
@@ -34,7 +34,7 @@
     "@types/console-log-level": "1.4.5",
     "@types/gulp": "4.0.17",
     "@types/js-yaml": "4.0.9",
-    "@types/node": "22.15.17",
+    "@types/node": "22.15.21",
     "@yarnpkg/shell": "4.1.2",
     "autoprefixer": "10.4.21",
     "bootstrap": "5.3.6",
@@ -44,7 +44,7 @@
     "cspell": "9.0.1",
     "cssnano": "7.0.7",
     "dictionary-en": "4.0.0",
-    "dprint": "0.49.1",
+    "dprint": "0.50.0",
     "editorconfig-checker": "6.0.1",
     "globby": "14.1.0",
     "gulp": "5.0.0",
@@ -59,7 +59,7 @@
     "markdown-it-sub": "2.0.0",
     "markdown-it-sup": "2.0.0",
     "markdown-it-task-lists": "2.1.1",
-    "markdownlint-cli2": "0.18.0",
+    "markdownlint-cli2": "0.18.1",
     "markdownlint-cli2-formatter-default": "0.0.5",
     "nps": "5.10.0",
     "prettier": "3.5.3",
@@ -110,7 +110,7 @@
     "typescript": "5.8.3",
     "unified": "11.0.5",
     "vnu-jar": "24.10.17",
-    "zod": "3.24.4",
+    "zod": "3.25.28",
     "zod-validation-error": "3.4.1"
   }
 }
