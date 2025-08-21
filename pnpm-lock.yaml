@@ -24,8 +24,8 @@ importers:
         specifier: 2.0.1
         version: 2.0.1
       '@shopify/prettier-plugin-liquid':
-        specifier: 1.9.3
-        version: 1.9.3(prettier@3.6.2)
+        specifier: 1.9.4
+        version: 1.9.4(prettier@3.6.2)
       '@tsconfig/node-lts':
         specifier: 22.0.2
         version: 22.0.2
@@ -1029,8 +1029,8 @@ packages:
   '@shopify/liquid-html-parser@2.8.2':
     resolution: {integrity: sha512-g8DRcz4wUj4Ttxm+rK1qPuvIV2/ZqlyGRcVytVMbUkrr/+eVL2yQI/jRGDMeOamkRqB3InuoOjF7nARH+o9UYQ==}
 
-  '@shopify/prettier-plugin-liquid@1.9.3':
-    resolution: {integrity: sha512-XRRnwfONrzjW8AY/l39szH9OgCCg5Xx61QxxdrC3BT2RAqo229jomjhCEszGIUJ5YZYq1ewdyBwbvUVTUSTcTg==}
+  '@shopify/prettier-plugin-liquid@1.9.4':
+    resolution: {integrity: sha512-Xo4KC44jzyEl2FeBJUOS6mvNbfhhgCxtPH3185wYv9f88TwnSQE2LuyI93B8UuMBfjjQ+4+mzjcL+/92Ldfa2g==}
     peerDependencies:
       prettier: ^2.0.0 || ^3.0.0
 
@@ -5415,7 +5415,7 @@ snapshots:
       line-column: 1.0.2
       ohm-js: 16.6.0
 
-  '@shopify/prettier-plugin-liquid@1.9.3(prettier@3.6.2)':
+  '@shopify/prettier-plugin-liquid@1.9.4(prettier@3.6.2)':
     dependencies:
       '@shopify/liquid-html-parser': 2.8.2
       html-styles: 1.0.0
