@@ -286,8 +286,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  '@11ty/eleventy-plugin-bundle@3.0.6':
-    resolution: {integrity: sha512-wlEIMa1SEe6HE6ZyREEnPQiTw72337a2MPkyn0D1IzrqHrKU9euB17mv27LnnnyKvMJamCCqtU0985F5yyDL8g==}
+  '@11ty/eleventy-plugin-bundle@3.0.7':
+    resolution: {integrity: sha512-QK1tRFBhQdZASnYU8GMzpTdsMMFLVAkuU0gVVILqNyp09xJJZb81kAS3AFrNrwBCsgLxTdWHJ8N64+OTTsoKkA==}
     engines: {node: '>=18'}
 
   '@11ty/eleventy-utils@2.0.7':
@@ -402,17 +402,17 @@ packages:
   '@cspell/dict-al@1.1.1':
     resolution: {integrity: sha512-sD8GCaZetgQL4+MaJLXqbzWcRjfKVp8x+px3HuCaaiATAAtvjwUQ5/Iubiqwfd1boIh2Y1/3EgM3TLQ7Q8e0wQ==}
 
-  '@cspell/dict-aws@4.0.14':
-    resolution: {integrity: sha512-qLPR+OFmpzyUcuUYyCQFIURDDUGIlQsdGirPyvaIrXxs2giCKG97cAuFz5EleL3/Lo7uJAVDw0lt4Ka7wIRhjQ==}
+  '@cspell/dict-aws@4.0.15':
+    resolution: {integrity: sha512-aPY7VVR5Os4rz36EaqXBAEy14wR4Rqv+leCJ2Ug/Gd0IglJpM30LalF3e2eJChnjje3vWoEC0Rz3+e5gpZG+Kg==}
 
   '@cspell/dict-bash@4.2.1':
     resolution: {integrity: sha512-SBnzfAyEAZLI9KFS7DUG6Xc1vDFuLllY3jz0WHvmxe8/4xV3ufFE3fGxalTikc1VVeZgZmxYiABw4iGxVldYEg==}
 
-  '@cspell/dict-companies@3.2.4':
-    resolution: {integrity: sha512-36NoOjW3Vl1Sl+ccEvD6NDA4YhaKo2mg2zAyah8n7tpaFXf5QNBlnZsPCgRwPM6aG1UfN30jiyd2hIVOeoKj9A==}
+  '@cspell/dict-companies@3.2.5':
+    resolution: {integrity: sha512-H51R0w7c6RwJJPqH7Gs65tzP6ouZsYDEHmmol6MIIk0kQaOIBuFP2B3vIxHLUr2EPRVFZsMW8Ni7NmVyaQlwsg==}
 
-  '@cspell/dict-cpp@6.0.9':
-    resolution: {integrity: sha512-Xdq9MwGh0D5rsnbOqFW24NIClXXRhN11KJdySMibpcqYGeomxB2ODFBuhj1H7azO7kVGkGH0Okm4yQ2TRzBx0g==}
+  '@cspell/dict-cpp@6.0.10':
+    resolution: {integrity: sha512-VyD8o7kUH2R9Ep/KXRoFy97QJn8qVW6wcQUfGVowNkc/Ux9o3gZlWlQwpzoyhTrg9uHKzKp5aL25eE7e5K1v1g==}
 
   '@cspell/dict-cryptocurrencies@5.0.5':
     resolution: {integrity: sha512-R68hYYF/rtlE6T/dsObStzN5QZw+0aQBinAXuWCVqwdS7YZo0X33vGMfChkHaiCo3Z2+bkegqHlqxZF4TD3rUA==}
@@ -444,11 +444,11 @@ packages:
   '@cspell/dict-en-common-misspellings@2.1.3':
     resolution: {integrity: sha512-v1I97Hr1OrK+mwHsVzbY4vsPxx6mA5quhxzanF6XuRofz00wH4HPz8Q3llzRHxka5Wl/59gyan04UkUrvP4gdA==}
 
-  '@cspell/dict-en-gb-mit@3.1.6':
-    resolution: {integrity: sha512-3JJGxuPhDK5rMDYPzJYAdjjsBddEyV54rXfUQpOCl7c7weMhNDWfC2q4h3cKNDj7Isud1q2RM+DlSxQWf40OTw==}
+  '@cspell/dict-en-gb-mit@3.1.7':
+    resolution: {integrity: sha512-CzAsYpFHxCV+25o7KjlJcyhSj6s3jlp7E+AL61lTnE7l0NHrp70vT5D/RkxjUPBC3XLj0FSwa1xWfiVteT0X2A==}
 
-  '@cspell/dict-en_us@4.4.16':
-    resolution: {integrity: sha512-/R47sUbUmba2dG/0LZyE6P6gX/DRF1sCcYNQNWyPk/KeidQRNZG+FH9U0KRvX42/2ZzMge6ebXH3WAJ52w0Vqw==}
+  '@cspell/dict-en_us@4.4.17':
+    resolution: {integrity: sha512-RSMhAZWnDTvjdkYwl9Oi5Hpewxm/DYQ5iF9QAgJBAF1PRmjOUMcEd5C889Tzj80MUVLIBHRbcdN5PARfcUTvbA==}
 
   '@cspell/dict-filetypes@3.0.13':
     resolution: {integrity: sha512-g6rnytIpQlMNKGJT1JKzWkC+b3xCliDKpQ3ANFSq++MnR4GaLiifaC4JkVON11Oh/UTplYOR1nY3BR4X30bswA==}
@@ -554,8 +554,8 @@ packages:
   '@cspell/dict-shell@1.1.1':
     resolution: {integrity: sha512-T37oYxE7OV1x/1D4/13Y8JZGa1QgDCXV7AVt3HLXjn0Fe3TaNDvf5sU0fGnXKmBPqFFrHdpD3uutAQb1dlp15g==}
 
-  '@cspell/dict-software-terms@5.1.5':
-    resolution: {integrity: sha512-MX5beBP3pLmIM0mjqfrHbie3EEfyLWZ8ZqW56jcLuRlLoDcfC0FZsr66NCARgCgEwsWiidHFe87+7fFsnwqY6A==}
+  '@cspell/dict-software-terms@5.1.6':
+    resolution: {integrity: sha512-fsREO/CRmcrX+fdB88ICkk31Qn6BeHr4EDq1hibpfx4FU4Liq+EN6TJbgG4q/BAelon/6sq1JQD71wihVnywLQ==}
 
   '@cspell/dict-sql@2.2.1':
     resolution: {integrity: sha512-qDHF8MpAYCf4pWU8NKbnVGzkoxMNrFqBHyG/dgrlic5EQiKANCLELYtGlX5auIMDLmTf1inA0eNtv74tyRJ/vg==}
@@ -1407,8 +1407,8 @@ packages:
     resolution: {integrity: sha512-QdNBodjhb2vAow49QgKAhSLk5W3GdVaXm49rhKcOFo1JsDLq4aducbO4OuVYFolClUIxaLEAq5djSyzgaCxlYg==}
     hasBin: true
 
-  browserslist@4.25.2:
-    resolution: {integrity: sha512-0si2SJK3ooGzIawRu61ZdPCO1IncZwS8IzuX73sPZsXW6EQ/w/DAfPyKI8l1ETTCr2MnvqWitmlCUxgdul45jA==}
+  browserslist@4.25.3:
+    resolution: {integrity: sha512-cDGv1kkDI4/0e5yON9yM5G/0A5u8sf5TnmdX5C9qHzI9PPu++sQ9zjm1k9NiOrf3riY4OkK0zSGqfvJyJsgCBQ==}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
 
@@ -1439,8 +1439,8 @@ packages:
   caniuse-api@3.0.0:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
 
-  caniuse-lite@1.0.30001735:
-    resolution: {integrity: sha512-EV/laoX7Wq2J9TQlyIXRxTJqIw4sxfXS4OYgudGxBYRuTv0q7AM6yMEpU/Vo1I94thg9U6EZ2NfZx9GJq83u7w==}
+  caniuse-lite@1.0.30001737:
+    resolution: {integrity: sha512-BiloLiXtQNrY5UyF0+1nSJLXUENuhka2pzy2Fx5pGxqavdrxSCW4U6Pn/PoG3Efspi2frRbHpBV2XsrPE6EDlw==}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -1883,8 +1883,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  electron-to-chromium@1.5.203:
-    resolution: {integrity: sha512-uz4i0vLhfm6dLZWbz/iH88KNDV+ivj5+2SA+utpgjKaj9Q0iDLuwk6Idhe9BTxciHudyx6IvTvijhkPvFGUQ0g==}
+  electron-to-chromium@1.5.208:
+    resolution: {integrity: sha512-ozZyibehoe7tOhNaf16lKmljVf+3npZcJIEbJRVftVsmAg5TeA1mGS9dVCZzOwr2xT7xK15V0p7+GZqSPgkuPg==}
 
   emoji-regex@10.4.0:
     resolution: {integrity: sha512-EC+0oUMY1Rqm4O6LLrgjtYDvcVYTy7chDnM4Q7030tP4Kwj3u/pR6gP9ygnp2CJMK5Gq+9Q2oqmrFJAz01DXjw==}
@@ -2325,8 +2325,8 @@ packages:
     resolution: {integrity: sha512-eSmmWE5bZTK2Nou4g0AI3zZ9rswp7GRKoKXS1BLUkvPviOqs4YTN1djQIqrXy9k5gEtdLPy86JjRwsNM9tnDcA==}
     engines: {node: '>=0.10.0'}
 
-  hookified@1.11.0:
-    resolution: {integrity: sha512-aDdIN3GyU5I6wextPplYdfmWCo+aLmjjVbntmX6HLD5RCi/xKsivYEBhnRD+d9224zFf008ZpLMPlWF0ZodYZw==}
+  hookified@1.12.0:
+    resolution: {integrity: sha512-hMr1Y9TCLshScrBbV2QxJ9BROddxZ12MX9KsCtuGGy/3SmmN5H1PllKerrVlSotur9dlE8hmUKAOSa3WDzsZmQ==}
 
   hosted-git-info@7.0.2:
     resolution: {integrity: sha512-puUZAUKT5m8Zzvs72XWy3HtvVbTWljRE66cP60bxJzAqf2DgICo7lYTY2IHUmLnNpjYvw5bvmoHvPc0QO2a62w==}
@@ -4368,8 +4368,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  ua-parser-js@1.0.40:
-    resolution: {integrity: sha512-z6PJ8Lml+v3ichVojCiB8toQJBuwR42ySM4ezjXIqXK3M0HczmKQ3LF4rhU55PfD99KEEXQG6yb7iOMyvYuHew==}
+  ua-parser-js@1.0.41:
+    resolution: {integrity: sha512-LbBDqdIC5s8iROCUjMbW1f5dJQTEFB1+KO9ogbvlb3nm9n4YHa5p4KTvFPWvh2Hs8gZMBuiB1/8+pdfe/tDPug==}
     hasBin: true
 
   uc.micro@2.1.0:
@@ -4700,7 +4700,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@11ty/eleventy-plugin-bundle@3.0.6(posthtml@0.16.6)':
+  '@11ty/eleventy-plugin-bundle@3.0.7(posthtml@0.16.6)':
     dependencies:
       '@11ty/eleventy-utils': 2.0.7
       debug: 4.4.1
@@ -4716,7 +4716,7 @@ snapshots:
       '@11ty/dependency-tree': 4.0.0
       '@11ty/dependency-tree-esm': 2.0.0
       '@11ty/eleventy-dev-server': 2.0.8
-      '@11ty/eleventy-plugin-bundle': 3.0.6(posthtml@0.16.6)
+      '@11ty/eleventy-plugin-bundle': 3.0.7(posthtml@0.16.6)
       '@11ty/eleventy-utils': 2.0.7
       '@11ty/lodash-custom': 4.17.21
       '@11ty/posthtml-urls': 1.0.1
@@ -4814,10 +4814,10 @@ snapshots:
     dependencies:
       '@cspell/dict-ada': 4.1.1
       '@cspell/dict-al': 1.1.1
-      '@cspell/dict-aws': 4.0.14
+      '@cspell/dict-aws': 4.0.15
       '@cspell/dict-bash': 4.2.1
-      '@cspell/dict-companies': 3.2.4
-      '@cspell/dict-cpp': 6.0.9
+      '@cspell/dict-companies': 3.2.5
+      '@cspell/dict-cpp': 6.0.10
       '@cspell/dict-cryptocurrencies': 5.0.5
       '@cspell/dict-csharp': 4.0.7
       '@cspell/dict-css': 4.0.18
@@ -4828,8 +4828,8 @@ snapshots:
       '@cspell/dict-dotnet': 5.0.10
       '@cspell/dict-elixir': 4.0.8
       '@cspell/dict-en-common-misspellings': 2.1.3
-      '@cspell/dict-en-gb-mit': 3.1.6
-      '@cspell/dict-en_us': 4.4.16
+      '@cspell/dict-en-gb-mit': 3.1.7
+      '@cspell/dict-en_us': 4.4.17
       '@cspell/dict-filetypes': 3.0.13
       '@cspell/dict-flutter': 1.1.1
       '@cspell/dict-fonts': 4.0.5
@@ -4863,7 +4863,7 @@ snapshots:
       '@cspell/dict-rust': 4.0.12
       '@cspell/dict-scala': 5.0.8
       '@cspell/dict-shell': 1.1.1
-      '@cspell/dict-software-terms': 5.1.5
+      '@cspell/dict-software-terms': 5.1.6
       '@cspell/dict-sql': 2.2.1
       '@cspell/dict-svelte': 1.0.7
       '@cspell/dict-swift': 2.0.6
@@ -4889,15 +4889,15 @@ snapshots:
 
   '@cspell/dict-al@1.1.1': {}
 
-  '@cspell/dict-aws@4.0.14': {}
+  '@cspell/dict-aws@4.0.15': {}
 
   '@cspell/dict-bash@4.2.1':
     dependencies:
       '@cspell/dict-shell': 1.1.1
 
-  '@cspell/dict-companies@3.2.4': {}
+  '@cspell/dict-companies@3.2.5': {}
 
-  '@cspell/dict-cpp@6.0.9': {}
+  '@cspell/dict-cpp@6.0.10': {}
 
   '@cspell/dict-cryptocurrencies@5.0.5': {}
 
@@ -4919,9 +4919,9 @@ snapshots:
 
   '@cspell/dict-en-common-misspellings@2.1.3': {}
 
-  '@cspell/dict-en-gb-mit@3.1.6': {}
+  '@cspell/dict-en-gb-mit@3.1.7': {}
 
-  '@cspell/dict-en_us@4.4.16': {}
+  '@cspell/dict-en_us@4.4.17': {}
 
   '@cspell/dict-filetypes@3.0.13': {}
 
@@ -4996,7 +4996,7 @@ snapshots:
 
   '@cspell/dict-shell@1.1.1': {}
 
-  '@cspell/dict-software-terms@5.1.5': {}
+  '@cspell/dict-software-terms@5.1.6': {}
 
   '@cspell/dict-sql@2.2.1': {}
 
@@ -5683,8 +5683,8 @@ snapshots:
 
   autoprefixer@10.4.21(postcss@8.5.6):
     dependencies:
-      browserslist: 4.25.2
-      caniuse-lite: 1.0.30001735
+      browserslist: 4.25.3
+      caniuse-lite: 1.0.30001737
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.1
@@ -5804,7 +5804,7 @@ snapshots:
       serve-static: 1.16.2
       server-destroy: 1.0.1
       socket.io: 4.8.1
-      ua-parser-js: 1.0.40
+      ua-parser-js: 1.0.41
       yargs: 17.7.2
     transitivePeerDependencies:
       - bufferutil
@@ -5814,15 +5814,15 @@ snapshots:
 
   browserslist-lint@0.3.3:
     dependencies:
-      browserslist: 4.25.2
+      browserslist: 4.25.3
       picocolors: 1.1.1
 
-  browserslist@4.25.2:
+  browserslist@4.25.3:
     dependencies:
-      caniuse-lite: 1.0.30001735
-      electron-to-chromium: 1.5.203
+      caniuse-lite: 1.0.30001737
+      electron-to-chromium: 1.5.208
       node-releases: 2.0.19
-      update-browserslist-db: 1.1.3(browserslist@4.25.2)
+      update-browserslist-db: 1.1.3(browserslist@4.25.3)
 
   bs-recipes@1.3.4: {}
 
@@ -5837,7 +5837,7 @@ snapshots:
 
   cacheable@1.10.4:
     dependencies:
-      hookified: 1.11.0
+      hookified: 1.12.0
       keyv: 5.5.0
 
   callsites@3.1.0: {}
@@ -5846,12 +5846,12 @@ snapshots:
 
   caniuse-api@3.0.0:
     dependencies:
-      browserslist: 4.25.2
-      caniuse-lite: 1.0.30001735
+      browserslist: 4.25.3
+      caniuse-lite: 1.0.30001737
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
 
-  caniuse-lite@1.0.30001735: {}
+  caniuse-lite@1.0.30001737: {}
 
   ccount@2.0.1: {}
 
@@ -6159,7 +6159,7 @@ snapshots:
 
   cssnano-preset-default@7.0.9(postcss@8.5.6):
     dependencies:
-      browserslist: 4.25.2
+      browserslist: 4.25.3
       css-declaration-sorter: 7.2.0(postcss@8.5.6)
       cssnano-utils: 5.0.1(postcss@8.5.6)
       postcss: 8.5.6
@@ -6346,7 +6346,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.5.203: {}
+  electron-to-chromium@1.5.208: {}
 
   emoji-regex@10.4.0: {}
 
@@ -6634,7 +6634,7 @@ snapshots:
     dependencies:
       cacheable: 1.10.4
       flatted: 3.3.3
-      hookified: 1.11.0
+      hookified: 1.12.0
 
   flatted@3.3.3: {}
 
@@ -6891,7 +6891,7 @@ snapshots:
     dependencies:
       parse-passwd: 1.0.0
 
-  hookified@1.11.0: {}
+  hookified@1.12.0: {}
 
   hosted-git-info@7.0.2:
     dependencies:
@@ -8064,7 +8064,7 @@ snapshots:
 
   postcss-colormin@7.0.4(postcss@8.5.6):
     dependencies:
-      browserslist: 4.25.2
+      browserslist: 4.25.3
       caniuse-api: 3.0.0
       colord: 2.9.3
       postcss: 8.5.6
@@ -8072,7 +8072,7 @@ snapshots:
 
   postcss-convert-values@7.0.7(postcss@8.5.6):
     dependencies:
-      browserslist: 4.25.2
+      browserslist: 4.25.3
       postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
@@ -8111,7 +8111,7 @@ snapshots:
 
   postcss-merge-rules@7.0.6(postcss@8.5.6):
     dependencies:
-      browserslist: 4.25.2
+      browserslist: 4.25.3
       caniuse-api: 3.0.0
       cssnano-utils: 5.0.1(postcss@8.5.6)
       postcss: 8.5.6
@@ -8131,7 +8131,7 @@ snapshots:
 
   postcss-minify-params@7.0.4(postcss@8.5.6):
     dependencies:
-      browserslist: 4.25.2
+      browserslist: 4.25.3
       cssnano-utils: 5.0.1(postcss@8.5.6)
       postcss: 8.5.6
       postcss-value-parser: 4.2.0
@@ -8173,7 +8173,7 @@ snapshots:
 
   postcss-normalize-unicode@7.0.4(postcss@8.5.6):
     dependencies:
-      browserslist: 4.25.2
+      browserslist: 4.25.3
       postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
@@ -8195,7 +8195,7 @@ snapshots:
 
   postcss-reduce-initial@7.0.4(postcss@8.5.6):
     dependencies:
-      browserslist: 4.25.2
+      browserslist: 4.25.3
       caniuse-api: 3.0.0
       postcss: 8.5.6
 
@@ -9514,7 +9514,7 @@ snapshots:
 
   stylehacks@7.0.6(postcss@8.5.6):
     dependencies:
-      browserslist: 4.25.2
+      browserslist: 4.25.3
       postcss: 8.5.6
       postcss-selector-parser: 7.1.0
 
@@ -9735,7 +9735,7 @@ snapshots:
 
   typescript@5.9.2: {}
 
-  ua-parser-js@1.0.40: {}
+  ua-parser-js@1.0.41: {}
 
   uc.micro@2.1.0: {}
 
@@ -9883,9 +9883,9 @@ snapshots:
 
   unpipe@1.0.0: {}
 
-  update-browserslist-db@1.1.3(browserslist@4.25.2):
+  update-browserslist-db@1.1.3(browserslist@4.25.3):
     dependencies:
-      browserslist: 4.25.2
+      browserslist: 4.25.3
       escalade: 3.2.0
       picocolors: 1.1.1
 
