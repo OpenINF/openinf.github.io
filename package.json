@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.2",
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.3.1",
     "@cspell/dict-lorem-ipsum": "4.0.5",
     "@isaacs/catcher": "1.0.4",
     "@openinf/gh-file-importer": "2.0.1",
