@@ -3,10 +3,10 @@
   "author": "The OpenINF Authors & Friends",
   "private": "true",
   "description": "The OpenINF portal, other static resources, and more static electricity",
-  "packageManager": "pnpm@10.25.0",
+  "packageManager": "pnpm@10.26.1",
   "engines": {
     "node": "22.21.1",
-    "pnpm": "10.25.0"
+    "pnpm": "10.26.1"
   },
   "exports": {
     "./build/constants": "./build/shared/constants.mjs",
@@ -34,9 +34,9 @@
     "@types/console-log-level": "1.4.5",
     "@types/gulp": "4.0.18",
     "@types/js-yaml": "4.0.9",
-    "@types/node": "22.19.2",
+    "@types/node": "22.19.3",
     "@yarnpkg/shell": "4.1.3",
-    "autoprefixer": "10.4.22",
+    "autoprefixer": "10.4.23",
     "bootstrap": "5.3.8",
     "browser-sync": "3.0.4",
     "browserslist-lint": "0.3.3",
