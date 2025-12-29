@@ -54,8 +54,8 @@ importers:
         specifier: 3.0.4
         version: 3.0.4
       browserslist-lint:
-        specifier: 0.3.3
-        version: 0.3.3
+        specifier: 0.4.0
+        version: 0.4.0
       console-log-level:
         specifier: 1.4.1
         version: 1.4.1
@@ -1440,8 +1440,8 @@ packages:
     engines: {node: '>= 8.0.0'}
     hasBin: true
 
-  browserslist-lint@0.3.3:
-    resolution: {integrity: sha512-QdNBodjhb2vAow49QgKAhSLk5W3GdVaXm49rhKcOFo1JsDLq4aducbO4OuVYFolClUIxaLEAq5djSyzgaCxlYg==}
+  browserslist-lint@0.4.0:
+    resolution: {integrity: sha512-cxCb8cPLvywT4mF8tDWN0hIetR/BmQpk13Zw0+sDI0i7NfxL6cnmcdmBE9Ml6pggkWzrev1NH97LwkW0BxDgAQ==}
     hasBin: true
 
   browserslist@4.28.1:
@@ -5874,7 +5874,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  browserslist-lint@0.3.3:
+  browserslist-lint@0.4.0:
     dependencies:
       browserslist: 4.28.1
       picocolors: 1.1.1
