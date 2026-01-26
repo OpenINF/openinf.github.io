@@ -25,7 +25,7 @@ importers:
         version: 2.0.1
       '@shopify/prettier-plugin-liquid':
         specifier: 1.10.0
-        version: 1.10.0(prettier@3.8.0)
+        version: 1.10.0(prettier@3.8.1)
       '@tsconfig/node-lts':
         specifier: 22.0.4
         version: 22.0.4
@@ -123,8 +123,8 @@ importers:
         specifier: 5.10.0
         version: 5.10.0
       prettier:
-        specifier: 3.8.0
-        version: 3.8.0
+        specifier: 3.8.1
+        version: 3.8.1
       remark:
         specifier: 15.0.1
         version: 15.0.1
@@ -202,7 +202,7 @@ importers:
         version: 7.0.1
       remark-preset-prettier:
         specifier: 2.0.2
-        version: 2.0.2(prettier@3.8.0)
+        version: 2.0.2(prettier@3.8.1)
       remark-retext:
         specifier: 6.0.1
         version: 6.0.1
@@ -3560,8 +3560,8 @@ packages:
   prefix-matches@1.0.1:
     resolution: {integrity: sha512-VXwWx7Ws2VSKIYXBPDGjhh1fTgNkeVwWGV+Ysi9mEnduw763FuDQBSUSRKtZ7ZUUEUFAvkbUpUEwgw4g1r1m+A==}
 
-  prettier@3.8.0:
-    resolution: {integrity: sha512-yEPsovQfpxYfgWNhCfECjG5AQaO+K3dp6XERmOepyPDVqcJm+bjyCVO3pmU+nAPe0N5dDvekfGezt/EIiRe1TA==}
+  prettier@3.8.1:
+    resolution: {integrity: sha512-UOnG6LftzbdaHZcKoPFtOcCKztrQ57WkHDeRD9t/PTQtmT0NHSeWWepj6pS0z/N7+08BHFDQVUrfmfMRcZwbMg==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -5484,11 +5484,11 @@ snapshots:
       line-column: 1.0.2
       ohm-js: 17.3.0
 
-  '@shopify/prettier-plugin-liquid@1.10.0(prettier@3.8.0)':
+  '@shopify/prettier-plugin-liquid@1.10.0(prettier@3.8.1)':
     dependencies:
       '@shopify/liquid-html-parser': 2.9.0
       html-styles: 1.0.0
-      prettier: 3.8.0
+      prettier: 3.8.1
 
   '@sindresorhus/merge-streams@2.3.0': {}
 
@@ -8362,7 +8362,7 @@ snapshots:
       is-object: 1.0.2
       starts-with: 1.0.2
 
-  prettier@3.8.0: {}
+  prettier@3.8.1: {}
 
   proc-log@4.2.0: {}
 
@@ -9085,9 +9085,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  remark-preset-prettier@2.0.2(prettier@3.8.0):
+  remark-preset-prettier@2.0.2(prettier@3.8.1):
     dependencies:
-      prettier: 3.8.0
+      prettier: 3.8.1
 
   remark-retext@6.0.1:
     dependencies:

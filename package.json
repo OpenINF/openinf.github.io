@@ -3,10 +3,10 @@
   "author": "The OpenINF Authors & Friends",
   "private": "true",
   "description": "The OpenINF portal, other static resources, and more static electricity",
-  "packageManager": "pnpm@10.28.0",
+  "packageManager": "pnpm@10.28.1",
   "engines": {
     "node": "22.22.0",
-    "pnpm": "10.28.0"
+    "pnpm": "10.28.1"
   },
   "exports": {
     "./build/constants": "./build/shared/constants.mjs",
@@ -62,7 +62,7 @@
     "markdownlint-cli2": "0.20.0",
     "markdownlint-cli2-formatter-default": "0.0.6",
     "nps": "5.10.0",
-    "prettier": "3.8.0",
+    "prettier": "3.8.1",
     "remark": "15.0.1",
     "remark-cli": "12.0.1",
     "remark-directive": "4.0.0",
