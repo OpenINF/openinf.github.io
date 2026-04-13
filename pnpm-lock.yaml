@@ -25,7 +25,7 @@ importers:
         version: 2.0.1
       '@shopify/prettier-plugin-liquid':
         specifier: 1.10.2
-        version: 1.10.2(prettier@3.8.1)
+        version: 1.10.2(prettier@3.8.2)
       '@tsconfig/node-lts':
         specifier: 22.0.4
         version: 22.0.4
@@ -39,8 +39,8 @@ importers:
         specifier: 4.0.9
         version: 4.0.9
       '@types/node':
-        specifier: 22.19.15
-        version: 22.19.15
+        specifier: 22.19.17
+        version: 22.19.17
       '@yarnpkg/shell':
         specifier: 4.1.3
         version: 4.1.3(typanion@3.14.0)
@@ -69,8 +69,8 @@ importers:
         specifier: 4.0.0
         version: 4.0.0
       dprint:
-        specifier: 0.53.2
-        version: 0.53.2
+        specifier: 0.54.0
+        version: 0.54.0
       editorconfig-checker:
         specifier: 6.1.1
         version: 6.1.1
@@ -123,8 +123,8 @@ importers:
         specifier: 5.10.0
         version: 5.10.0
       prettier:
-        specifier: 3.8.1
-        version: 3.8.1
+        specifier: 3.8.2
+        version: 3.8.2
       remark:
         specifier: 15.0.1
         version: 15.0.1
@@ -202,7 +202,7 @@ importers:
         version: 7.0.1
       remark-preset-prettier:
         specifier: 2.0.2
-        version: 2.0.2(prettier@3.8.1)
+        version: 2.0.2(prettier@3.8.2)
       remark-retext:
         specifier: 6.0.1
         version: 6.0.1
@@ -650,65 +650,65 @@ packages:
     peerDependencies:
       postcss-selector-parser: ^7.0.0
 
-  '@dprint/darwin-arm64@0.53.2':
-    resolution: {integrity: sha512-ecKRF+mFE59layJPpX5AnYN7a9XNovX3f5QlPSdr+BmweoarOV2ieODyJklD5Tob9WiMv8jQyXYak5QH7fxByg==}
+  '@dprint/darwin-arm64@0.54.0':
+    resolution: {integrity: sha512-yqRI4enH+BDp+4+ZsPVdZM5h873JK1lN7li9l9A5u4C4cvh1oEsiBWAzEPccRkJ2ctF8LgaizBSxO38sqEVYbw==}
     cpu: [arm64]
     os: [darwin]
 
-  '@dprint/darwin-x64@0.53.2':
-    resolution: {integrity: sha512-sHe7bsPU9BXnBPovjsq+98S1g64W7ZhyfGKMSVMTwP1BCL+IqOltfd5p7xTvAaRkL8cwRzqPYlj+kmCf24Qydw==}
+  '@dprint/darwin-x64@0.54.0':
+    resolution: {integrity: sha512-W9BARpgHypcQwatg5mnHaCpX6pLX5dBxxiv+tZKruhOmq8MKYOrAYDXlceMuHSowmWREfUF5yL4SRgXDGI6WQw==}
     cpu: [x64]
     os: [darwin]
 
-  '@dprint/linux-arm64-glibc@0.53.2':
-    resolution: {integrity: sha512-K0aj5bLtPlSsTDAtLwEjwDGPIVpc8lgmvpLzf6IdASJn1kMkowPoZSCNUvmUUJTTmANscMugLsi9XGVbBzkE6Q==}
+  '@dprint/linux-arm64-glibc@0.54.0':
+    resolution: {integrity: sha512-VhM7p70VFuNqxZMdiv1e+nMboPj/hMFlTIBWrRaX7+6VThs9mJr9+94wrUeXgfnfsyaEKSbRFa/dru1PINoSNw==}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  '@dprint/linux-arm64-musl@0.53.2':
-    resolution: {integrity: sha512-209yb6BGMiohPuB12wgnodULEs3JC1epLaHyN5s2XpDU7rWi6WqWkzeSuuN2TTAbDz4Z51tqe5KJSRsF0yi+Dg==}
+  '@dprint/linux-arm64-musl@0.54.0':
+    resolution: {integrity: sha512-QS1A74Lv60/L9oemHCzbHgOLbV2smSJG5IxS5fjf8ZWetyUt918WDzIHBilz/+uiB+OlW2UVTsm952UG0YOrLw==}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
 
-  '@dprint/linux-loong64-glibc@0.53.2':
-    resolution: {integrity: sha512-IngXJ6c7n/DYd2j1CssLHqxtGILMv0BEQZplx8kIYedGyVbzLSxJu7XpqgThnCuLQjh4elfRkT67Q8g7l//m0Q==}
+  '@dprint/linux-loong64-glibc@0.54.0':
+    resolution: {integrity: sha512-8Myka2/0KbhuZnEKL6jagPXTgDKVpd/tfXDRa0oibUBgaqOSku6iRMzHGa/PhqHL+s14Gcp+/cIHz0zU3Tkgug==}
     cpu: [loong64]
     os: [linux]
     libc: [glibc]
 
-  '@dprint/linux-loong64-musl@0.53.2':
-    resolution: {integrity: sha512-ExtcNOjSbXgpoWw5efAO00xYTOlEsEyz58v/HPJzEV5tfn9J7vozSVxTdXLDkTgg+USEQLaZ9qTnXxc1kbraiQ==}
+  '@dprint/linux-loong64-musl@0.54.0':
+    resolution: {integrity: sha512-/AN3xCuMhC4PK7Pbj7/4zBuhFGr4m0OHV/5uGTfzpkKX/3+AXoyKl7PbT2VlNMGXAK0kuRThfjtx23gIwlWk7Q==}
     cpu: [loong64]
     os: [linux]
     libc: [musl]
 
-  '@dprint/linux-riscv64-glibc@0.53.2':
-    resolution: {integrity: sha512-2UTqXMkIhyK7rYdpBY7tE3x1R36msWjX3lU3MdYM9HauldnsHJx2EhZofIYzHBICH8eziw/W7aY8HWo4oLdJ/A==}
+  '@dprint/linux-riscv64-glibc@0.54.0':
+    resolution: {integrity: sha512-Aw2vXzzwFDpPbXh6ajsSabVCkCc66C3hCyMKprR/IxYvFtjYX80nh1ox0c7iaw6c4HacHMRLGw7FUSXvomPaEQ==}
     cpu: [riscv64]
     os: [linux]
     libc: [glibc]
 
-  '@dprint/linux-x64-glibc@0.53.2':
-    resolution: {integrity: sha512-hO4O7d20IALUCFbFG2H7kvP5Di3/G8fqrMXzX9Fdps4ccM4Kg3Cr9LZ/G+mif4Q9WwwUnkOJ0oXBxeqJ8S65ng==}
+  '@dprint/linux-x64-glibc@0.54.0':
+    resolution: {integrity: sha512-zZqj3wQELOX8n6QfT2uuWoMf64Wv0lMXNyam3btm+PKkg0P6a54TPL09Bs9XsViOdxgTcamsiQ7HlErt/LEjIA==}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@dprint/linux-x64-musl@0.53.2':
-    resolution: {integrity: sha512-XHqYE5nFz1s5Z2J1E9j8JYHE4ISp5KCfaYT7fs4lW14G2B8U/CtutUGWzvP5aYRGfLc6CYGrWgKAQppn846vUQ==}
+  '@dprint/linux-x64-musl@0.54.0':
+    resolution: {integrity: sha512-it6Qdt06dyW2adbAXpOCb7/KQLxlm4i1UphUAWqWsZk4t3EYetyAza9J0g3Vu9itIWSEIo9MnccgANckQJ6+qw==}
     cpu: [x64]
     os: [linux]
     libc: [musl]
 
-  '@dprint/win32-arm64@0.53.2':
-    resolution: {integrity: sha512-Z8N2iwhFN91wK0SlR+oGHGF8rrwOw7BiZTAKwR8E7Fr2lKSTsjbRv3Nr1znk2pHkmRyZ1/6PwzTiVF5sSZcIXQ==}
+  '@dprint/win32-arm64@0.54.0':
+    resolution: {integrity: sha512-F5kjV/6I9YtNOTDWHUpTqM2HHHS510BPL7z4NJuU0nDnaVeks7GwNEltGr56CcsG8XQYhkiAsqZytPu6AhA2hQ==}
     cpu: [arm64]
     os: [win32]
 
-  '@dprint/win32-x64@0.53.2':
-    resolution: {integrity: sha512-xdOOm4ZG9pqKdnVvgFMp8/c9Ylkt2LcTFqjmxF1CoCZNNYGMUrH60YQl/M9R9wJXSSQOv6K+7Ub+hOWcIlxIjw==}
+  '@dprint/win32-x64@0.54.0':
+    resolution: {integrity: sha512-AAr2ye/DtgYXDplRoPS+5U++x7T6W4a3I9FvTFWFxziFmUptvAg5G2c4FcXoAduSruhYZJvjDZrLseR2c3IwXg==}
     cpu: [x64]
     os: [win32]
 
@@ -1181,8 +1181,8 @@ packages:
   '@types/nlcst@2.0.3':
     resolution: {integrity: sha512-vSYNSDe6Ix3q+6Z7ri9lyWqgGhJTmzRjZRqyq15N0Z/1/UnVsno9G/N40NBijoYx2seFDIl0+B2mgAb9mezUCA==}
 
-  '@types/node@22.19.15':
-    resolution: {integrity: sha512-F0R/h2+dsy5wJAUe3tAU6oqa2qbWY5TpNfL/RGmo1y38hiyO1w3x2jPtt76wmuaJI4DQnOBu21cNXQ2STIUUWg==}
+  '@types/node@22.19.17':
+    resolution: {integrity: sha512-wGdMcf+vPYM6jikpS/qhg6WiqSV/OhG+jeeHT/KlVqxYfD40iYJf9/AE1uQxVWFvU7MipKRkRv8NSHiCGgPr8Q==}
 
   '@types/picomatch@4.0.3':
     resolution: {integrity: sha512-iG0T6+nYJ9FAPmx9SsUlnwcq1ZVRuCXcVEvWnntoPlrOpwtSTKNDC9uVAxTsC3PUvJ+99n4RpAcNgBbHX3JSnQ==}
@@ -1920,8 +1920,8 @@ packages:
   domutils@3.2.2:
     resolution: {integrity: sha512-6kZKyUajlDuqlHKVX1w7gyslj9MPIXzIFiz/rGu35uC1wMi+kMhQwGhl4lt9unC9Vb9INnY9Z3/ZA3+FhASLaw==}
 
-  dprint@0.53.2:
-    resolution: {integrity: sha512-3uF+X66vm3UmDG5tbBKUAyetc/FsBn+2fswfVzFlbrIlE2l0BgwRLEssYqW/o93lYn6A39i3lP2+wHA4B+usDg==}
+  dprint@0.54.0:
+    resolution: {integrity: sha512-sIy25poR2gRP/tWPTgP0MPeJoJcpv0xzYDcsboapvthbEt1Qw3Al252CA0xFyIh2cYEGGKyBJtKokryv4ERlJw==}
     hasBin: true
 
   duplexer@0.1.2:
@@ -3594,8 +3594,8 @@ packages:
   prefix-matches@1.0.1:
     resolution: {integrity: sha512-VXwWx7Ws2VSKIYXBPDGjhh1fTgNkeVwWGV+Ysi9mEnduw763FuDQBSUSRKtZ7ZUUEUFAvkbUpUEwgw4g1r1m+A==}
 
-  prettier@3.8.1:
-    resolution: {integrity: sha512-UOnG6LftzbdaHZcKoPFtOcCKztrQ57WkHDeRD9t/PTQtmT0NHSeWWepj6pS0z/N7+08BHFDQVUrfmfMRcZwbMg==}
+  prettier@3.8.2:
+    resolution: {integrity: sha512-8c3mgTe0ASwWAJK+78dpviD+A8EqhndQPUBpNUIPt6+xWlIigCwfN01lWr9MAede4uqXGTEKeQWTvzb3vjia0Q==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -5144,37 +5144,37 @@ snapshots:
     dependencies:
       postcss-selector-parser: 7.1.1
 
-  '@dprint/darwin-arm64@0.53.2':
+  '@dprint/darwin-arm64@0.54.0':
     optional: true
 
-  '@dprint/darwin-x64@0.53.2':
+  '@dprint/darwin-x64@0.54.0':
     optional: true
 
-  '@dprint/linux-arm64-glibc@0.53.2':
+  '@dprint/linux-arm64-glibc@0.54.0':
     optional: true
 
-  '@dprint/linux-arm64-musl@0.53.2':
+  '@dprint/linux-arm64-musl@0.54.0':
     optional: true
 
-  '@dprint/linux-loong64-glibc@0.53.2':
+  '@dprint/linux-loong64-glibc@0.54.0':
     optional: true
 
-  '@dprint/linux-loong64-musl@0.53.2':
+  '@dprint/linux-loong64-musl@0.54.0':
     optional: true
 
-  '@dprint/linux-riscv64-glibc@0.53.2':
+  '@dprint/linux-riscv64-glibc@0.54.0':
     optional: true
 
-  '@dprint/linux-x64-glibc@0.53.2':
+  '@dprint/linux-x64-glibc@0.54.0':
     optional: true
 
-  '@dprint/linux-x64-musl@0.53.2':
+  '@dprint/linux-x64-musl@0.54.0':
     optional: true
 
-  '@dprint/win32-arm64@0.53.2':
+  '@dprint/win32-arm64@0.54.0':
     optional: true
 
-  '@dprint/win32-x64@0.53.2':
+  '@dprint/win32-x64@0.54.0':
     optional: true
 
   '@dual-bundle/import-meta-resolve@4.2.1': {}
@@ -5535,11 +5535,11 @@ snapshots:
       line-column: 1.0.2
       ohm-js: 17.5.0
 
-  '@shopify/prettier-plugin-liquid@1.10.2(prettier@3.8.1)':
+  '@shopify/prettier-plugin-liquid@1.10.2(prettier@3.8.2)':
     dependencies:
       '@shopify/liquid-html-parser': 2.9.2
       html-styles: 1.0.0
-      prettier: 3.8.1
+      prettier: 3.8.2
 
   '@sindresorhus/merge-streams@2.3.0': {}
 
@@ -5560,13 +5560,13 @@ snapshots:
 
   '@types/concat-stream@2.0.3':
     dependencies:
-      '@types/node': 22.19.15
+      '@types/node': 22.19.17
 
   '@types/console-log-level@1.4.5': {}
 
   '@types/cors@2.8.19':
     dependencies:
-      '@types/node': 22.19.15
+      '@types/node': 22.19.17
 
   '@types/debug@4.1.13':
     dependencies:
@@ -5582,13 +5582,13 @@ snapshots:
 
   '@types/glob-stream@8.0.3':
     dependencies:
-      '@types/node': 22.19.15
+      '@types/node': 22.19.17
       '@types/picomatch': 4.0.3
       '@types/streamx': 2.9.5
 
   '@types/gulp@4.0.18':
     dependencies:
-      '@types/node': 22.19.15
+      '@types/node': 22.19.17
       '@types/undertaker': 1.2.12
       '@types/vinyl-fs': 3.0.7
       chokidar: 3.6.0
@@ -5624,7 +5624,7 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
-  '@types/node@22.19.15':
+  '@types/node@22.19.17':
     dependencies:
       undici-types: 6.21.0
 
@@ -5634,7 +5634,7 @@ snapshots:
 
   '@types/streamx@2.9.5':
     dependencies:
-      '@types/node': 22.19.15
+      '@types/node': 22.19.17
 
   '@types/supports-color@8.1.3': {}
 
@@ -5644,7 +5644,7 @@ snapshots:
 
   '@types/undertaker@1.2.12':
     dependencies:
-      '@types/node': 22.19.15
+      '@types/node': 22.19.17
       '@types/undertaker-registry': 1.0.4
       async-done: 1.3.2
 
@@ -5655,17 +5655,17 @@ snapshots:
   '@types/vinyl-fs@3.0.7':
     dependencies:
       '@types/glob-stream': 8.0.3
-      '@types/node': 22.19.15
+      '@types/node': 22.19.17
       '@types/vinyl': 2.0.12
 
   '@types/vinyl@2.0.12':
     dependencies:
       '@types/expect': 1.20.4
-      '@types/node': 22.19.15
+      '@types/node': 22.19.17
 
   '@types/ws@8.18.1':
     dependencies:
-      '@types/node': 22.19.15
+      '@types/node': 22.19.17
 
   '@ungap/structured-clone@1.3.0': {}
 
@@ -6430,19 +6430,19 @@ snapshots:
       domelementtype: 2.3.0
       domhandler: 5.0.3
 
-  dprint@0.53.2:
+  dprint@0.54.0:
     optionalDependencies:
-      '@dprint/darwin-arm64': 0.53.2
-      '@dprint/darwin-x64': 0.53.2
-      '@dprint/linux-arm64-glibc': 0.53.2
-      '@dprint/linux-arm64-musl': 0.53.2
-      '@dprint/linux-loong64-glibc': 0.53.2
-      '@dprint/linux-loong64-musl': 0.53.2
-      '@dprint/linux-riscv64-glibc': 0.53.2
-      '@dprint/linux-x64-glibc': 0.53.2
-      '@dprint/linux-x64-musl': 0.53.2
-      '@dprint/win32-arm64': 0.53.2
-      '@dprint/win32-x64': 0.53.2
+      '@dprint/darwin-arm64': 0.54.0
+      '@dprint/darwin-x64': 0.54.0
+      '@dprint/linux-arm64-glibc': 0.54.0
+      '@dprint/linux-arm64-musl': 0.54.0
+      '@dprint/linux-loong64-glibc': 0.54.0
+      '@dprint/linux-loong64-musl': 0.54.0
+      '@dprint/linux-riscv64-glibc': 0.54.0
+      '@dprint/linux-x64-glibc': 0.54.0
+      '@dprint/linux-x64-musl': 0.54.0
+      '@dprint/win32-arm64': 0.54.0
+      '@dprint/win32-x64': 0.54.0
 
   duplexer@0.1.2: {}
 
@@ -6500,7 +6500,7 @@ snapshots:
   engine.io@6.6.6:
     dependencies:
       '@types/cors': 2.8.19
-      '@types/node': 22.19.15
+      '@types/node': 22.19.17
       '@types/ws': 8.18.1
       accepts: 1.3.8
       base64id: 2.0.0
@@ -8416,7 +8416,7 @@ snapshots:
       is-object: 1.0.2
       starts-with: 1.0.2
 
-  prettier@3.8.1: {}
+  prettier@3.8.2: {}
 
   proc-log@4.2.0: {}
 
@@ -9139,9 +9139,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  remark-preset-prettier@2.0.2(prettier@3.8.1):
+  remark-preset-prettier@2.0.2(prettier@3.8.2):
     dependencies:
-      prettier: 3.8.1
+      prettier: 3.8.2
 
   remark-retext@6.0.1:
     dependencies:
@@ -9924,7 +9924,7 @@ snapshots:
       '@types/concat-stream': 2.0.3
       '@types/debug': 4.1.13
       '@types/is-empty': 1.2.3
-      '@types/node': 22.19.15
+      '@types/node': 22.19.17
       '@types/unist': 3.0.3
       concat-stream: 2.0.0
       debug: 4.4.3
