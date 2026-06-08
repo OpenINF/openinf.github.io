@@ -3,10 +3,10 @@
   "author": "The OpenINF Authors & Friends",
   "private": "true",
   "description": "The OpenINF portal, other static resources, and more static electricity",
-  "packageManager": "pnpm@10.33.4",
+  "packageManager": "pnpm@10.34.1",
   "engines": {
     "node": "22.22.3",
-    "pnpm": "10.33.4"
+    "pnpm": "10.34.1"
   },
   "exports": {
     "./build/constants": "./build/shared/constants.mjs",
@@ -24,7 +24,7 @@
     "test": "nps test"
   },
   "devDependencies": {
-    "@11ty/eleventy": "3.1.5",
+    "@11ty/eleventy": "3.1.6",
     "@biomejs/biome": "1.9.4",
     "@cspell/dict-lorem-ipsum": "4.0.5",
     "@isaacs/catcher": "1.0.4",
@@ -52,7 +52,7 @@
     "gulp-postcss": "10.0.0",
     "gulp-rename": "2.1.0",
     "gulp-sourcemaps": "3.0.0",
-    "markdown-it": "14.1.1",
+    "markdown-it": "14.2.0",
     "markdown-it-abbr": "2.0.0",
     "markdown-it-anchor": "9.2.0",
     "markdown-it-footnote": "4.0.0",
@@ -106,7 +106,7 @@
     "stylelint": "16.26.1",
     "stylelint-config-recess-order": "6.1.0",
     "stylelint-config-standard-scss": "14.0.0",
-    "tsx": "4.22.3",
+    "tsx": "4.22.4",
     "typescript": "5.9.3",
     "unified": "11.0.5",
     "vnu-jar": "24.10.17",
