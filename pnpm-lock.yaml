@@ -24,8 +24,8 @@ importers:
         specifier: 2.0.1
         version: 2.0.1
       '@shopify/prettier-plugin-liquid':
-        specifier: 1.10.2
-        version: 1.10.2(prettier@3.8.3)
+        specifier: 1.10.3
+        version: 1.10.3(prettier@3.8.4)
       '@tsconfig/node-lts':
         specifier: 22.0.4
         version: 22.0.4
@@ -39,8 +39,8 @@ importers:
         specifier: 4.0.9
         version: 4.0.9
       '@types/node':
-        specifier: 22.19.19
-        version: 22.19.19
+        specifier: 22.19.21
+        version: 22.19.21
       '@yarnpkg/shell':
         specifier: 4.1.3
         version: 4.1.3(typanion@3.14.0)
@@ -123,8 +123,8 @@ importers:
         specifier: 5.10.0
         version: 5.10.0
       prettier:
-        specifier: 3.8.3
-        version: 3.8.3
+        specifier: 3.8.4
+        version: 3.8.4
       remark:
         specifier: 15.0.1
         version: 15.0.1
@@ -202,7 +202,7 @@ importers:
         version: 7.0.1
       remark-preset-prettier:
         specifier: 2.0.2
-        version: 2.0.2(prettier@3.8.3)
+        version: 2.0.2(prettier@3.8.4)
       remark-retext:
         specifier: 6.0.1
         version: 6.0.1
@@ -1094,8 +1094,8 @@ packages:
   '@shopify/liquid-html-parser@2.9.2':
     resolution: {integrity: sha512-2XJYqHaZxEBwuufGhzIZ0M6m9YA4HS7YlVOiZtYanFgkmoQeJm1c0JhKcuCXU5C1pc2M0rt1XzBX8SgWv7l8Ww==}
 
-  '@shopify/prettier-plugin-liquid@1.10.2':
-    resolution: {integrity: sha512-yzC+6bJemVnrEgddztLuX5I7zSoRrxXgS5j7BVS6HzVs9sMf8Fx+bdIEDkKu4bBBBKSzuen1SLVfq9u3z9L1wQ==}
+  '@shopify/prettier-plugin-liquid@1.10.3':
+    resolution: {integrity: sha512-MSI3e3+EksyrkeP4Mk7WnZkySterxukyi7U1pPLUIVaE2zhxLIMEDLA2Ew7fFFNNQ0P2FXF0nzqk+aN/Hi2/IA==}
     peerDependencies:
       prettier: ^2.0.0 || ^3.0.0
 
@@ -1181,8 +1181,8 @@ packages:
   '@types/nlcst@2.0.3':
     resolution: {integrity: sha512-vSYNSDe6Ix3q+6Z7ri9lyWqgGhJTmzRjZRqyq15N0Z/1/UnVsno9G/N40NBijoYx2seFDIl0+B2mgAb9mezUCA==}
 
-  '@types/node@22.19.19':
-    resolution: {integrity: sha512-dyh/xO2Fh5bYrfWaaqGrRQQGkNdmYw6AmaAUvYeUMNTWQtvb796ikLdmTchRmOlOiIJ1TDXfWgVx1QkUlQ6Hew==}
+  '@types/node@22.19.21':
+    resolution: {integrity: sha512-VMeFBSCKQKmm2swI2kW51SFusDqekC6q9trBCvJ/JliDchFSuoYYKN7yVNjPthP1HKZcx3U1gI/wTcEBjEFKTA==}
 
   '@types/picomatch@4.0.3':
     resolution: {integrity: sha512-iG0T6+nYJ9FAPmx9SsUlnwcq1ZVRuCXcVEvWnntoPlrOpwtSTKNDC9uVAxTsC3PUvJ+99n4RpAcNgBbHX3JSnQ==}
@@ -3599,8 +3599,8 @@ packages:
   prefix-matches@1.0.1:
     resolution: {integrity: sha512-VXwWx7Ws2VSKIYXBPDGjhh1fTgNkeVwWGV+Ysi9mEnduw763FuDQBSUSRKtZ7ZUUEUFAvkbUpUEwgw4g1r1m+A==}
 
-  prettier@3.8.3:
-    resolution: {integrity: sha512-7igPTM53cGHMW8xWuVTydi2KO233VFiTNyF5hLJqpilHfmn8C8gPf+PS7dUT64YcXFbiMGZxS9pCSxL/Dxm/Jw==}
+  prettier@3.8.4:
+    resolution: {integrity: sha512-N2MylSdi48+5N/6S5j+maeHbUSIzzZ5uOcX5Hm4QpV8Dkb1HFjfAKTKX6yNPJQD9AhcT3ifHNB66tWTTJDi11Q==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -5533,11 +5533,11 @@ snapshots:
       line-column: 1.0.2
       ohm-js: 17.5.0
 
-  '@shopify/prettier-plugin-liquid@1.10.2(prettier@3.8.3)':
+  '@shopify/prettier-plugin-liquid@1.10.3(prettier@3.8.4)':
     dependencies:
       '@shopify/liquid-html-parser': 2.9.2
       html-styles: 1.0.0
-      prettier: 3.8.3
+      prettier: 3.8.4
 
   '@sindresorhus/merge-streams@2.3.0': {}
 
@@ -5558,13 +5558,13 @@ snapshots:
 
   '@types/concat-stream@2.0.3':
     dependencies:
-      '@types/node': 22.19.19
+      '@types/node': 22.19.21
 
   '@types/console-log-level@1.4.5': {}
 
   '@types/cors@2.8.19':
     dependencies:
-      '@types/node': 22.19.19
+      '@types/node': 22.19.21
 
   '@types/debug@4.1.13':
     dependencies:
@@ -5580,13 +5580,13 @@ snapshots:
 
   '@types/glob-stream@8.0.3':
     dependencies:
-      '@types/node': 22.19.19
+      '@types/node': 22.19.21
       '@types/picomatch': 4.0.3
       '@types/streamx': 2.9.5
 
   '@types/gulp@4.0.18':
     dependencies:
-      '@types/node': 22.19.19
+      '@types/node': 22.19.21
       '@types/undertaker': 1.2.12
       '@types/vinyl-fs': 3.0.7
       chokidar: 3.6.0
@@ -5622,7 +5622,7 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
-  '@types/node@22.19.19':
+  '@types/node@22.19.21':
     dependencies:
       undici-types: 6.21.0
 
@@ -5632,7 +5632,7 @@ snapshots:
 
   '@types/streamx@2.9.5':
     dependencies:
-      '@types/node': 22.19.19
+      '@types/node': 22.19.21
 
   '@types/supports-color@8.1.3': {}
 
@@ -5642,7 +5642,7 @@ snapshots:
 
   '@types/undertaker@1.2.12':
     dependencies:
-      '@types/node': 22.19.19
+      '@types/node': 22.19.21
       '@types/undertaker-registry': 1.0.4
       async-done: 1.3.2
 
@@ -5653,17 +5653,17 @@ snapshots:
   '@types/vinyl-fs@3.0.7':
     dependencies:
       '@types/glob-stream': 8.0.3
-      '@types/node': 22.19.19
+      '@types/node': 22.19.21
       '@types/vinyl': 2.0.12
 
   '@types/vinyl@2.0.12':
     dependencies:
       '@types/expect': 1.20.4
-      '@types/node': 22.19.19
+      '@types/node': 22.19.21
 
   '@types/ws@8.18.1':
     dependencies:
-      '@types/node': 22.19.19
+      '@types/node': 22.19.21
 
   '@ungap/structured-clone@1.3.1': {}
 
@@ -6492,7 +6492,7 @@ snapshots:
   engine.io@6.6.8:
     dependencies:
       '@types/cors': 2.8.19
-      '@types/node': 22.19.19
+      '@types/node': 22.19.21
       '@types/ws': 8.18.1
       accepts: 1.3.8
       base64id: 2.0.0
@@ -8417,7 +8417,7 @@ snapshots:
       is-object: 1.0.2
       starts-with: 1.0.2
 
-  prettier@3.8.3: {}
+  prettier@3.8.4: {}
 
   proc-log@4.2.0: {}
 
@@ -9140,9 +9140,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  remark-preset-prettier@2.0.2(prettier@3.8.3):
+  remark-preset-prettier@2.0.2(prettier@3.8.4):
     dependencies:
-      prettier: 3.8.3
+      prettier: 3.8.4
 
   remark-retext@6.0.1:
     dependencies:
@@ -9921,7 +9921,7 @@ snapshots:
       '@types/concat-stream': 2.0.3
       '@types/debug': 4.1.13
       '@types/is-empty': 1.2.3
-      '@types/node': 22.19.19
+      '@types/node': 22.19.21
       '@types/unist': 3.0.3
       concat-stream: 2.0.0
       debug: 4.4.3
