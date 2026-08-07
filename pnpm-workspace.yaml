@@ -1,0 +1,17 @@
+# pnpm 11 requires an explicit decision for every dependency that wants to run
+# an install script, and fails the install until it gets one. This repository
+# already asked for those scripts to be skipped -- `.npmrc` sets
+# `ignore-dep-scripts` -- so the answer is no across the board.
+#
+# Nothing needs them. biome, dprint and esbuild ship their platform binaries as
+# optional dependencies rather than fetching them from a postinstall hook,
+# vnu-jar ships its jar inside the package, and es5-ext's script only prints a
+# funding notice. Verified by running the full build and the verify tasks with
+# every one of these denied.
+allowBuilds:
+  '@biomejs/biome': false
+  '@parcel/watcher': false
+  dprint: false
+  es5-ext: false
+  esbuild: false
+  vnu-jar: false
