@@ -1,2 +1,11 @@
-defaults
+# `defaults` is `> 0.5%, last 2 versions, Firefox ESR, not dead`, which leaves
+# coverage under 80% in ten countries of over 10 million people -- as low as
+# 53% in Uzbekistan and 63% in China -- which is what browserslist-lint's
+# countryWasIgnored rule reports. Dropping the share threshold to 0.1% brings
+# every one of those countries above 80%, the lowest then being Poland at 84%.
+# Only autoprefixer consumes this; the JavaScript is copied, not compiled.
+> 0.1%
+last 2 versions
+Firefox ESR
+not dead
 maintained node versions
