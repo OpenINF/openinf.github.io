@@ -4,7 +4,12 @@
   "IgnoreDefaults": true,
   "SpacesAftertabs": false,
   "NoColor": false,
-  "Exclude": ["pnpm-lock.yaml", ".markdownlint.jsonc", "LICENSE/"],
+  "Exclude": [
+    "js/vendor/",
+    "pnpm-lock.yaml",
+    ".markdownlint.jsonc",
+    "LICENSE/"
+  ],
   "AllowedContentTypes": [],
   "PassedFiles": [],
   "Disable": {
