@@ -6,10 +6,6 @@ scripts:
     buildStyles: tsx build/tasks/compile/build-styles.mts
     siteifyHealthFiles: tsx build/tasks/compile/siteify-health-files.mts
   verify:
-    # A shell `for` loop exits with the status of its last command, so the
-    # previous form reported success whenever verify-yaml.mts passed, no
-    # matter how many tasks before it had failed. Every task still runs, so
-    # one failure does not hide the rest.
     all: 'rc=0; for i in build/tasks/verify/*.mts; do tsx "$i" || rc=1; done; exit $rc'
     browserslist: tsx build/tasks/verify/verify-browserslist.mts
     scss: tsx build/tasks/verify/verify-scss.mts
