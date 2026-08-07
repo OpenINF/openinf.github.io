@@ -1,13 +1,14 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
-    "ignore": [
-      "**/_site/",
-      "**/.git/",
-      "**/node_modules/",
-      "**/package.json",
-      "**/pnpm-lock.yaml",
-      "assets/js/vendor/"
+    "includes": [
+      "**",
+      "!**/_site/",
+      "!**/.git/",
+      "!**/node_modules/",
+      "!**/package.json",
+      "!**/pnpm-lock.yaml",
+      "!**/assets/js/vendor/**"
     ]
   },
   "formatter": {
@@ -19,11 +20,11 @@
     "lineWidth": 80,
     "attributePosition": "auto"
   },
-  "organizeImports": { "enabled": true },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "style": {
         "useNamingConvention": {
           "level": "error",
@@ -53,12 +54,12 @@
     }
   },
   "overrides": [
-    { "include": ["*.svg"] },
-    { "include": ["*.json"] },
+    { "includes": ["**/*.svg"] },
+    { "includes": ["**/*.json"] },
     {
-      "include": ["*.html"],
+      "includes": ["**/*.html"],
       "javascript": { "formatter": { "quoteStyle": "double" } }
     },
-    { "include": ["*.md"] }
+    { "includes": ["**/*.md"] }
   ]
 }

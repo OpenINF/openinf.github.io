@@ -16,7 +16,9 @@ import {
   relative as pathRelative,
 } from 'node:path';
 import { execute } from '@yarnpkg/shell';
+
 export { globby as glob } from 'globby';
+
 import { catchWrap } from '@isaacs/catcher';
 
 // -----------------------------------------------------------------------------
