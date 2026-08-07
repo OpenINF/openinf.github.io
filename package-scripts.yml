@@ -6,7 +6,7 @@ scripts:
     buildStyles: tsx build/tasks/compile/build-styles.mts
     siteifyHealthFiles: tsx build/tasks/compile/siteify-health-files.mts
   verify:
-    all: for i in build/tasks/verify/*.mts; do tsx "$i"; done
+    all: 'rc=0; for i in build/tasks/verify/*.mts; do tsx "$i" || rc=1; done; exit $rc'
     browserslist: tsx build/tasks/verify/verify-browserslist.mts
     scss: tsx build/tasks/verify/verify-scss.mts
     dockerfile: tsx build/tasks/verify/verify-dockerfile.mts
@@ -23,7 +23,7 @@ scripts:
     validForSC: tsx build/tasks/verify/verify-valid-for-sc.mts
     yaml: tsx build/tasks/verify/verify-yaml.mts
   format:
-    all: for i in build/tasks/format/*.mts; do tsx "$i"; done
+    all: 'rc=0; for i in build/tasks/format/*.mts; do tsx "$i" || rc=1; done; exit $rc'
     scss: tsx build/tasks/format/format-scss.mts
     dockerfile: tsx build/tasks/format/format-dockerfile.mts
     js: tsx build/tasks/format/format-js.mts

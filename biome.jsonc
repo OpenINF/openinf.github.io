@@ -8,7 +8,7 @@
       "!**/node_modules/",
       "!**/package.json",
       "!**/pnpm-lock.yaml",
-      "!**/assets/js/vendor/**"
+      "!**/assets/js/vendor"
     ]
   },
   "formatter": {
