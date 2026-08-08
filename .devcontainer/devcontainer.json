@@ -1,19 +1,57 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options,
-// see documentation located at the following URL:
-// https://github.com/OpenINF/docker-fisher
+// see https://containers.dev.
 {
-  "name": "🦞 OpenINF GrimesAI Salvage Tex: Lunar (OpenINF Community)",
+  "name": "OpenINF portal",
+
+  // A stock image plus features. The Dockerfile beside this file adds exactly
+  // one thing on top of that image -- fish, which trixie packages itself -- and
+  // is not a return to maintaining a base image.
   "build": {
-    "dockerfile": "./experimental/Dockerfile"
+    "dockerfile": "Dockerfile"
   },
-  "runArgs": [],
-  // Configure tool-specific properties.
+
+  // No Node version appears in this file on purpose. It lives in package.json's
+  // `engines.node` and in .nvmrc -- the first is what pnpm enforces, the second
+  // is what nvm.fish reads for a bare `nvm use`. Both files are needed by their
+  // own tool, so post-create.sh checks they agree rather than adding a third
+  // copy here.
+  "features": {
+    // pnpm self-manages to the version in `packageManager`, so any recent
+    // release is enough to bootstrap.
+    "ghcr.io/devcontainers-extra/features/pnpm:2": {},
+    // Required by vnu-jar, which backs `verify.svg` and
+    // `verify.htmlValidForVNU`. Without it both tasks fail with
+    // `command not found: java`.
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "21",
+      "installMaven": false,
+      "installGradle": false
+    },
+    // .gitattributes routes archives, images and fonts through LFS.
+    "ghcr.io/devcontainers/features/git-lfs:1": {}
+  },
+
+  // browser-sync, started by `pnpm start`, serves on 3000 with its UI on 3001.
+  "forwardPorts": [3000, 3001],
+
+  // So `dprint`, `biome`, `nps`, `eleventy` and friends work when typed
+  // directly, not only under `pnpm exec`. The old setup did this with
+  // `fish_add_path (pnpm bin)` in config.fish, which left every non-fish
+  // caller -- CI, editor tasks, agents -- without them. Here it applies to the
+  // whole container, which is also how the workflows do it (they append
+  // node_modules/.bin to GITHUB_PATH).
+  "remoteEnv": {
+    "PATH": "${containerWorkspaceFolder}/node_modules/.bin:${containerEnv:PATH}"
+  },
+
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+
   "customizations": {
-    // Configure properties specific to VS Code.
     "vscode": {
-      // Set *default* container-specific settings.json values on container
-      // create.
       "settings": {
+        // Declared, not just selected. VS Code can usually discover fish from
+        // /etc/shells on its own, but the previous configuration named it
+        // explicitly and there is no reason to depend on the discovery.
         "terminal.integrated.profiles.linux": {
           "fish": {
             "path": "fish"
@@ -21,7 +59,6 @@
         },
         "terminal.integrated.defaultProfile.linux": "fish"
       },
-      // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
         // https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments
         "aaron-bond.better-comments",
@@ -41,8 +78,6 @@
         "KatjanaKosic.vscode-json5",
         // https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml
         "redhat.vscode-xml",
-        // https://marketplace.visualstudio.com/items?itemName=rubocop.vscode-rubocop
-        // "rubocop.vscode-rubocop",
         // https://marketplace.visualstudio.com/items?itemName=Shopify.theme-check-vscode
         "Shopify.theme-check-vscode",
         // https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
@@ -54,26 +89,6 @@
       ]
     }
   },
-  // Use 'forwardPorts' to make a list of ports inside the container available
-  // locally.
-  "forwardPorts": [
-    4000, // Jekyll server
-    35729, // Live reload server
-    2222 // OpenSSH server
-  ],
-  "overrideCommand": false,
 
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
-  "workspaceFolder": "/workspace",
-
-  // Use 'postCreateCommand' to run commands after creating the container.
-  // https://code.visualstudio.com/docs/devcontainers/create-dev-container#_rebuild
-  "postCreateCommand": "fish -i '${containerWorkspaceFolder}/tools/devcontainer/post-create.fish'",
-  "postStartCommand": "fish -i '${containerWorkspaceFolder}/tools/devcontainer/post-start.fish'",
-  "remoteEnv": {
-    "PATH": "${containerEnv:PATH}:~/.rbenv/shims/"
-  },
-  // Comment out to connect as root instead.
-  // More info: https://aka.ms/vscode-remote/containers/non-root.
-  "remoteUser": "vscode"
+  "remoteUser": "node"
 }
