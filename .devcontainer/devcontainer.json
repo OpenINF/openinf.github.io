@@ -25,12 +25,17 @@
     },
     // .gitattributes routes archives, images and fonts through LFS.
     "ghcr.io/devcontainers/features/git-lfs:1": {},
-    // The interactive shell. Its own fisher install is disabled because it
-    // pulls fisher from `main`; post-create.sh installs a pinned tag instead,
-    // then adds nvm.fish so `nvm use` reads .nvmrc the fish way.
-    "ghcr.io/meaningful-ooo/devcontainer-features/fish:1": {
-      "fisher": false
-    }
+    // The interactive shell, from Debian's own repository. The obvious
+    // alternative, meaningful-ooo/fish, adds an openSUSE Build Service apt
+    // source instead -- and its v1 points at the fish 3 repo, which returns 404
+    // for Debian 13 and fails the build outright. Its v2 moved to the fish 4
+    // repo, which does resolve, but that leaves the container depending on OBS
+    // publishing for every future Debian release. Trixie ships fish 4.0.2
+    // itself, so no third-party apt source is needed for it.
+    //
+    // Neither feature installs fisher the way this repository wants it:
+    // post-create.sh installs a pinned tag, then adds nvm.fish on top.
+    "ghcr.io/devcontainers-extra/features/fish-apt-get:1": {}
   },
 
   // browser-sync, started by `pnpm start`, serves on 3000 with its UI on 3001.
