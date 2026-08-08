@@ -23,7 +23,13 @@
 
 set -euo pipefail
 
+# These are pinned because the fisher bootstrap below is remote code being
+# sourced, and a pin nothing watches is how a version ends up four years
+# stale. The annotations let renovate track them; see customManagers in
+# .renovaterc.json5.
+# renovate: datasource=github-releases depName=jorgebucaran/fisher
 readonly FISHER_VERSION=4.4.8
+# renovate: datasource=github-releases depName=jorgebucaran/nvm.fish
 readonly NVM_FISH_VERSION=2.2.17
 
 # .nvmrc is what nvm.fish reads; engines.node is what pnpm enforces. Both files

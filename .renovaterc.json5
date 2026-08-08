@@ -25,6 +25,32 @@
   semanticCommits: "enabled",
   commitMessageAction: "bump",
   commitMessageTopic: "{{depName}}",
+  // Nothing else watches these two files. Everything installed through npm is
+  // covered by the managers above, but a version pinned in a URL or a shell
+  // variable is invisible to renovate without being told -- which is how the
+  // dprint dockerfile plugin reached four years out of date and stopped being
+  // able to parse a digest-pinned FROM line.
+  customManagers: [
+    {
+      customType: "regex",
+      description: "dprint plugins, pinned by URL in dprint.json",
+      managerFilePatterns: ["/^dprint\\.json$/"],
+      matchStrings: [
+        "https://plugins\\.dprint\\.dev/(?<depName>[a-z-]+)-(?<currentValue>\\d+\\.\\d+\\.\\d+)\\.wasm",
+      ],
+      depNameTemplate: "dprint/dprint-plugin-{{{depName}}}",
+      datasourceTemplate: "github-releases",
+    },
+    {
+      customType: "regex",
+      description: "fish tooling pinned in the dev container post-create script",
+      managerFilePatterns: ["/^\\.devcontainer/post-create\\.sh$/"],
+      matchStrings: [
+        "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\sreadonly \\w+=(?<currentValue>\\S+)",
+      ],
+    },
+  ],
+
   packageRules: [
     {
       matchUpdateTypes: ["minor", "patch", "pin", "digest"],
