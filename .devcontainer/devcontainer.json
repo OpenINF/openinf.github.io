@@ -3,8 +3,12 @@
 {
   "name": "OpenINF portal",
 
-  // A stock image plus features, rather than a bespoke Dockerfile.
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:4-24-trixie",
+  // A stock image plus features. The Dockerfile beside this file adds exactly
+  // one thing on top of that image -- fish, which trixie packages itself -- and
+  // is not a return to maintaining a base image.
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
 
   // No Node version appears in this file on purpose. It lives in package.json's
   // `engines.node` and in .nvmrc -- the first is what pnpm enforces, the second
@@ -24,18 +28,7 @@
       "installGradle": false
     },
     // .gitattributes routes archives, images and fonts through LFS.
-    "ghcr.io/devcontainers/features/git-lfs:1": {},
-    // The interactive shell, from Debian's own repository. The obvious
-    // alternative, meaningful-ooo/fish, adds an openSUSE Build Service apt
-    // source instead -- and its v1 points at the fish 3 repo, which returns 404
-    // for Debian 13 and fails the build outright. Its v2 moved to the fish 4
-    // repo, which does resolve, but that leaves the container depending on OBS
-    // publishing for every future Debian release. Trixie ships fish 4.0.2
-    // itself, so no third-party apt source is needed for it.
-    //
-    // Neither feature installs fisher the way this repository wants it:
-    // post-create.sh installs a pinned tag, then adds nvm.fish on top.
-    "ghcr.io/devcontainers-extra/features/fish-apt-get:1": {}
+    "ghcr.io/devcontainers/features/git-lfs:1": {}
   },
 
   // browser-sync, started by `pnpm start`, serves on 3000 with its UI on 3001.
