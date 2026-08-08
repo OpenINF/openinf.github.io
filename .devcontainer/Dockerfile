@@ -8,6 +8,13 @@
 # size of the package it installs, for a package the distribution already has.
 FROM mcr.microsoft.com/devcontainers/typescript-node:4-24-trixie
 
+# DL3008 wants `fish=4.0.2-1`. Pinning an apt package is not the same bargain
+# as pinning an npm one: Debian drops superseded versions from the archive, so
+# the first security update to fish would leave this asking for a version that
+# no longer exists and fail the build outright. Nothing tracks apt pins to
+# raise a PR the way renovate does for everything else here. The previous
+# Dockerfile suppressed this same rule for the same reason.
+# skipcq: DOK-DL3008
 RUN apt-get update \
   && apt-get install -y --no-install-recommends fish \
   && apt-get clean \

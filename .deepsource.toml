@@ -20,4 +20,4 @@ environment = [
 name = "docker"
 
 [analyzers.meta]
-dockerfile_paths = [".devcontainer/experimental/Dockerfile"]
+dockerfile_paths = [".devcontainer/Dockerfile"]
