@@ -15,3 +15,10 @@ allowBuilds:
   es5-ext: false
   esbuild: false
   vnu-jar: false
+
+# The dprint VS Code extension resolves its executable from
+# node_modules/@dprint/<platform>. That package is an optionalDependency of
+# dprint, so pnpm keeps it in the virtual store where the extension cannot see
+# it -- which is why the extension used to need a separately installed dprint.
+publicHoistPattern:
+  - '@dprint/*'
