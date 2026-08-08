@@ -49,6 +49,14 @@
   "customizations": {
     "vscode": {
       "settings": {
+        // Declared, not just selected. VS Code can usually discover fish from
+        // /etc/shells on its own, but the previous configuration named it
+        // explicitly and there is no reason to depend on the discovery.
+        "terminal.integrated.profiles.linux": {
+          "fish": {
+            "path": "fish"
+          }
+        },
         "terminal.integrated.defaultProfile.linux": "fish"
       },
       "extensions": [
