@@ -24,6 +24,7 @@
 set -euo pipefail
 
 readonly FISHER_VERSION=4.4.8
+readonly NVM_FISH_VERSION=2.2.17
 
 # .nvmrc is what nvm.fish reads; engines.node is what pnpm enforces. Both files
 # have to exist for their own tool, so the only thing to guard is that they say
@@ -89,12 +90,19 @@ pnpm install
 
 echo "==> fish tooling"
 
-# The old base image shipped fisher; a stock image does not. Pinned rather than
-# tracking main, since this is a remote script being sourced.
+# The old base image shipped fisher; a stock image does not. The curl is
+# fisher's own bootstrap: it defines the function in memory, which is then used
+# to install fisher properly so it survives into later sessions. Both are
+# pinned rather than tracking a branch, since this is remote code being sourced.
+#
+# nvm.fish comes from upstream. The OpenINF fork it used to come from is
+# byte-identical to it -- zero commits ahead or behind -- so the fork bought
+# nothing and cost a second source to keep watching.
+#
+# One `fisher install` for both, rather than one each, so this is a single pass.
 fish -c "
   curl -fsSL https://raw.githubusercontent.com/jorgebucaran/fisher/${FISHER_VERSION}/functions/fisher.fish | source
-  and fisher install jorgebucaran/fisher@${FISHER_VERSION}
-  and fisher install OpenINF/openinf-nvm.fish
+  and fisher install jorgebucaran/fisher@${FISHER_VERSION} jorgebucaran/nvm.fish@${NVM_FISH_VERSION}
 "
 
 # Install the pinned version into nvm.fish's own store so a bare `nvm use`
