@@ -6,7 +6,10 @@ scripts:
     buildStyles: tsx build/tasks/compile/build-styles.mts
     siteifyHealthFiles: tsx build/tasks/compile/siteify-health-files.mts
   verify:
-    all: 'rc=0; for i in build/tasks/verify/*.mts; do tsx "$i" || rc=1; done; exit $rc'
+    # Announces each task and names the ones that failed. Without this the
+    # output is a wall of tool chatter with no indication of which of the
+    # thirteen produced it.
+    all: 'rc=0; failed=; for i in build/tasks/verify/*.mts; do echo "==> $i"; tsx "$i" || { rc=1; failed="$failed $i"; }; done; [ -z "$failed" ] || echo "FAILED:$failed" >&2; exit $rc'
     browserslist: tsx build/tasks/verify/verify-browserslist.mts
     scss: tsx build/tasks/verify/verify-scss.mts
     dockerfile: tsx build/tasks/verify/verify-dockerfile.mts

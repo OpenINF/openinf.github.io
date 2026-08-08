@@ -10,6 +10,14 @@ import vnu from 'vnu-jar';
 
 const htmlFiles = await glob(['_site/**.html', '!node_modules/']);
 
+// vnu responds to being given no files by printing its entire usage page and
+// exiting non-zero, which buries the actual problem: this task checks the
+// built site, and there is nothing built to check.
+if (htmlFiles.length === 0) {
+  console.error('No HTML under _site/ to check. Run `nps build` first.');
+  process.exit(1);
+}
+
 let exitCode = 0;
 const scripts = [`java -jar ${vnu} ${htmlFiles.join(' ')}`];
 
