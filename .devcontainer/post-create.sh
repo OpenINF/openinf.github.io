@@ -47,18 +47,47 @@ fi
 # Container-wide baseline, for everything that is not a fish session.
 # ------------------------------------------------------------------------------
 
-# shellcheck source=/dev/null
-. "${NVM_DIR}/nvm.sh"
-nvm install "${required}" >/dev/null
-nvm alias default "${required}" >/dev/null
-nvm use "${required}" >/dev/null
+# Nothing below is silenced. nvm reports several failures through nvm_echo,
+# which writes to stdout, so redirecting it away turns a diagnosable problem
+# into a bare non-zero exit -- `nvm use` on a version that is not installed
+# returns 3 and says why, but only if you let it speak.
 
+echo "==> Node ${required} (image ships $(node -v))"
+
+# Sourcing nvm.sh is allowed to fail. It auto-detects .nvmrc in the working
+# directory and tries to activate that version as it loads; in a container
+# where nothing is installed yet, that resolves to N/A and returns 3. Under
+# `set -e` that killed this script before it reached the install below, with no
+# message, because the explanation goes through nvm_echo to stdout.
+# shellcheck source=/dev/null
+. "${NVM_DIR}/nvm.sh" || true
+
+if ! nvm install "${required}"; then
+  echo "Failed to install Node ${required} via ${NVM_DIR}." >&2
+  exit 1
+fi
+
+nvm alias default "${required}"
+nvm use "${required}"
+
+if [ "$(node -v)" != "v${required}" ]; then
+  echo "Expected v${required} after nvm use, got $(node -v)." >&2
+  exit 1
+fi
+
+echo "==> Dependencies"
+
+# Corepack prompts before fetching the pinned pnpm, which fails where there is
+# no terminal to answer it.
+export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
 corepack enable
 pnpm install
 
 # ------------------------------------------------------------------------------
 # fish tooling
 # ------------------------------------------------------------------------------
+
+echo "==> fish tooling"
 
 # The old base image shipped fisher; a stock image does not. Pinned rather than
 # tracking main, since this is a remote script being sourced.
