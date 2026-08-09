@@ -156,7 +156,7 @@ Two things it deliberately does not attempt:
   verification][], and note that a key has to be added as a **signing** key
   there, separately from the same key added for authentication.
 
-### When show-signature says "No signature"
+### When show-signature says No signature
 
 If the allowed-signers file is missing or unconfigured,
 `git log --show-signature` prints (wrapped here for width):
@@ -207,11 +207,21 @@ If you use an actual OpenPGP key instead:
   git config --global user.signingkey ~/.ssh/id_ed25519.pub
   ```
 
-- **It worked before, stopped working after a container rebuild** -- the file
-  `post-start.sh` writes, and the `user.signingkey` override pointing at it,
-  both live in the container's filesystem, not a volume, so a rebuild removes
-  them along with the host's copied-in gitconfig. Both get rewritten on the next
-  attach as long as the agent still has exactly one identity at that point.
+- **It worked before, stopped working after a container rebuild** -- the signing
+  key and `allowed_signers` files `post-start.sh` writes, and the
+  `user.signingkey`/`gpg.ssh.allowedSignersFile` overrides pointing at them, all
+  live in the container's filesystem, not a volume, so a rebuild removes them
+  along with the host's copied-in gitconfig. Everything gets rewritten on the
+  next attach as long as the agent still has exactly one identity at that point.
+- **`post-start.sh` says "Signature verification NOT configured: no
+  user.email"** -- it needs `user.email` to know which principal to list against
+  your key in `allowed_signers`, and won't guess one. Set it (globally, on the
+  host, same as the other signing settings) and reattach:
+
+  ```console
+  git config --global user.email you@example.com
+  ```
+
 - **`git log --show-signature` says `No signature`** -- establish that the
   commit is actually unsigned before treating it as a signing problem, since
   that message is also what a verifier that could not run prints.
