@@ -40,17 +40,23 @@ That gap matters because of how the two signing formats differ:
   `ssh-keygen -Y sign -f <user.signingkey> ...`. That `-f` argument is a **file
   path**, and `user.signingkey` in a gitconfig copied from your host points at a
   host path (typically `~/.ssh/id_ed25519.pub`) that has never existed in the
-  container. The forwarded agent doesn't help until that file exists.
+  container. The forwarded agent doesn't help until that file exists -- and the
+  container's non-root user usually can't even create it: a Mac's
+  `/Users/<you>` or a Linux host's `/home/<you>` both live under a root-owned
+  directory this container's `node` user has no write access to, so recreating
+  the host's path byte-for-byte fails with a permissions error regardless of
+  host OS.
 
 `.devcontainer/post-start.sh` closes that second gap. It runs on every container
 **start/attach**, unlike `post-create.sh`, which only ever runs once, when the
 container is first built -- too early, since the forwarded agent socket is a
 fresh, per-session thing set up on each attach. If `gpg.format` is `ssh` and the
 forwarded agent is holding exactly one identity, `post-start.sh` writes that
-public key out to `user.signingkey`'s path. It deliberately does nothing if the
-agent has zero identities (nothing to write) or more than one (no reliable way
-to know which one you mean) -- watch its output on attach to see which case
-you're in.
+public key to a path under `$HOME/.ssh` in the container (not the host path
+copied into `user.signingkey`) and repoints the container's own
+`user.signingkey` at it. It deliberately does nothing if the agent has zero
+identities (nothing to write) or more than one (no reliable way to know which
+one you mean) -- watch its output on attach to see which case you're in.
 
 Either way, the actual cryptographic signing still happens on the host, via the
 forwarded agent. No private key material is ever copied into the container.
@@ -101,8 +107,11 @@ and involves nothing on your machine.
 
 Use an ordinary `ssh-keygen`-generated key pair here. Keys that exist only
 inside a Secure Enclave or an external agent, with no public key file on disk,
-are a poor fit: `user.signingkey` has to name a real path, on the host and in
-the container both.
+are a poor fit: `user.signingkey` has to name a real path on the host, and
+`post-start.sh` needs a public key it can write out in the container. The two
+paths don't need to match -- `post-start.sh` retargets the container's own
+copy of `user.signingkey` to wherever it actually writes the file, under
+`$HOME/.ssh`.
 
 To confirm signing is actually working locally rather than assuming it, commit
 and then check that the object really carries a signature:
@@ -142,17 +151,20 @@ If you use an actual OpenPGP key instead:
   fact, not a container problem. Add the key on the host and reattach.
 - **`post-start.sh` reports more than one identity** -- it won't guess. Either
   unload the extra identities from the agent for this session, or, inside the
-  container, write the file yourself from the one you mean (path from
-  `git config --global user.signingkey`):
+  container, write the file yourself from the one you mean, then point
+  `user.signingkey` at it:
 
   ```console
-  ssh-add -L | grep <comment-or-fingerprint> > <path-to-signingkey>
+  ssh-add -L | grep <comment-or-fingerprint> > ~/.ssh/id_ed25519.pub
+  git config --global user.signingkey ~/.ssh/id_ed25519.pub
   ```
 
 - **It worked before, stopped working after a container rebuild** -- the file
-  `post-start.sh` writes lives in the container's filesystem, not a volume, so a
-  rebuild removes it. It gets rewritten on the next attach as long as the agent
-  still has exactly one identity at that point.
+  `post-start.sh` writes, and the `user.signingkey` override pointing at it,
+  both live in the container's filesystem, not a volume, so a rebuild removes
+  them along with the host's copied-in gitconfig. Both get rewritten on the
+  next attach as long as the agent still has exactly one identity at that
+  point.
 - **Everything looks configured, but commits still come out unsigned** -- check
   for a per-repository override before re-checking anything global:
 
