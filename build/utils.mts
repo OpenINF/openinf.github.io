@@ -25,11 +25,23 @@ import { execute } from '@yarnpkg/shell';
 export const exec = catchWrap(execute, 99);
 
 /**
- * Matches files by glob pattern, `globby`-style: patterns prefixed with `!`
- * are treated as exclusions rather than being passed to `fs.promises.glob`,
- * which has no concept of negation.
+ * Expands a trailing-slash directory pattern (e.g. `_site/`) to cover
+ * everything beneath it. On its own, a trailing slash matches just the one
+ * directory entry, which is never what a build task means by naming a
+ * directory.
+ * @param {string} pattern The glob pattern to expand.
+ * @returns {string} The pattern, expanded if it named a bare directory.
+ */
+const expandDirPattern = (pattern) =>
+  pattern.endsWith('/') ? `${pattern}**` : pattern;
+
+/**
+ * Matches files by glob pattern, `globby`-style. Two of globby's conveniences
+ * that `fs.promises.glob` lacks are reproduced here: `!`-prefixed patterns act
+ * as exclusions (the native API takes those as a separate option), and only
+ * files are returned (the native API yields directories alongside them).
  * @param {string | string[]} patterns Glob patterns to include, optionally mixed with `!`-prefixed patterns to exclude.
- * @returns {Promise<string[]>} The matched file paths.
+ * @returns {Promise<string[]>} The matched file paths, relative to the cwd.
  */
 export async function glob(patterns) {
   const include = [];
@@ -37,16 +49,23 @@ export async function glob(patterns) {
 
   for (const pattern of [patterns].flat()) {
     if (pattern.startsWith('!')) {
-      const excluded = pattern.slice(1);
-      // A bare directory (e.g. `_site/`) only matches the directory itself;
-      // `**` is needed so everything under it is excluded too.
-      exclude.push(excluded.endsWith('/') ? `${excluded}**` : excluded);
+      exclude.push(expandDirPattern(pattern.slice(1)));
     } else {
-      include.push(pattern);
+      include.push(expandDirPattern(pattern));
     }
   }
 
-  return Array.fromAsync(nodeGlob(include, { exclude }));
+  const entries = await Array.fromAsync(
+    nodeGlob(include, { exclude, withFileTypes: true })
+  );
+
+  // Every caller pastes these paths into a formatter or linter invocation, so
+  // the directories the native API matches have to be filtered back out.
+  return entries
+    .filter((entry) => entry.isFile())
+    .map((entry) =>
+      pathRelative(process.cwd(), pathJoin(entry.parentPath, entry.name))
+    );
 }
 
 /**
