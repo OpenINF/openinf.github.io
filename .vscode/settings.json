@@ -263,7 +263,11 @@
   // Dprint
   /////////////////////////////////////////////
 
-  "dprint.path": "~/.dprint/bin/dprint",
+  // No "dprint.path" here on purpose. The extension (0.12.0+) auto-resolves
+  // node_modules/.bin/dprint when present, which is where pnpm installs the
+  // exact version package.json pins -- pointing this at a separately
+  // installed global binary would drift from that pin instead of tracking
+  // it.
 
   // EditorConfig (https://editorconfig.org/)
   /////////////////////////////////////////////
