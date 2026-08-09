@@ -60,6 +60,8 @@ Potenti
 PowerShell
 Quux
 Renovatebot
+repoints
+retargets
 rubocop
 screencap
 scssify
@@ -73,3 +75,4 @@ SLOCs
 smartcard
 soonish
 UI
+unconfigured
