@@ -74,7 +74,7 @@
         // (Homebrew puts it in /opt/homebrew/bin). Being wrong there is
         // harmless -- the extension falls through on a failed existsSync --
         // but it would be stating something untrue of that environment.
-        "todo-tree.ripgrep": "/usr/bin/rg"
+        "todo-tree.ripgrep.ripgrep": "/usr/bin/rg"
       },
       "extensions": [
         // https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments
