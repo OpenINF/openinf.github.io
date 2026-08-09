@@ -8,7 +8,7 @@
 import { exec, glob } from '@openinf/portal/build/utils';
 
 const markdownFiles = await glob([
-  '**.md',
+  '**/*.md',
   '!node_modules/',
   '!**/COPYING.md',
   '!_site/',

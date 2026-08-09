@@ -7,7 +7,12 @@
 
 import { exec, glob } from '@openinf/portal/build/utils';
 
-const tsFiles = await glob(['**.ts', '**.mts', '!_site/', '!node_modules/']);
+const tsFiles = await glob([
+  '**/*.ts',
+  '**/*.mts',
+  '!_site/',
+  '!node_modules/',
+]);
 
 let exitCode = 0;
 const scripts = [`biome check ${tsFiles.join(' ')}`];

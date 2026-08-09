@@ -9,23 +9,45 @@
 // Requirements
 // -----------------------------------------------------------------------------
 
-import { copyFile, mkdir } from 'node:fs/promises';
+import { copyFile, mkdir, glob as nodeGlob } from 'node:fs/promises';
 import {
   dirname as pathDirname,
   join as pathJoin,
   relative as pathRelative,
 } from 'node:path';
-import { execute } from '@yarnpkg/shell';
-
-export { globby as glob } from 'globby';
-
 import { catchWrap } from '@isaacs/catcher';
+import { execute } from '@yarnpkg/shell';
 
 // -----------------------------------------------------------------------------
 // Helpers
 // -----------------------------------------------------------------------------
 
 export const exec = catchWrap(execute, 99);
+
+/**
+ * Matches files by glob pattern, `globby`-style: patterns prefixed with `!`
+ * are treated as exclusions rather than being passed to `fs.promises.glob`,
+ * which has no concept of negation.
+ * @param {string | string[]} patterns Glob patterns to include, optionally mixed with `!`-prefixed patterns to exclude.
+ * @returns {Promise<string[]>} The matched file paths.
+ */
+export async function glob(patterns) {
+  const include = [];
+  const exclude = [];
+
+  for (const pattern of [patterns].flat()) {
+    if (pattern.startsWith('!')) {
+      const excluded = pattern.slice(1);
+      // A bare directory (e.g. `_site/`) only matches the directory itself;
+      // `**` is needed so everything under it is excluded too.
+      exclude.push(excluded.endsWith('/') ? `${excluded}**` : excluded);
+    } else {
+      include.push(pattern);
+    }
+  }
+
+  return Array.fromAsync(nodeGlob(include, { exclude }));
+}
 
 /**
  * Copies a file while preserving its directory structure.

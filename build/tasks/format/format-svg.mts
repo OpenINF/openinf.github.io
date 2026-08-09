@@ -7,7 +7,7 @@
 
 import { exec, glob } from '@openinf/portal/build/utils';
 
-const svgFiles = await glob(['**.svg', '!_site/', '!node_modules/']);
+const svgFiles = await glob(['**/*.svg', '!_site/', '!node_modules/']);
 
 let exitCode = 0;
 const scripts = [`prettier --write ${svgFiles.join(' ')}`];

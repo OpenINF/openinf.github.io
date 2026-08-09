@@ -8,9 +8,9 @@
 import { exec, glob } from '@openinf/portal/build/utils';
 
 const jsonFiles = await glob([
-  '**.json',
-  '**.json5',
-  '**.jsonc',
+  '**/*.json',
+  '**/*.json5',
+  '**/*.jsonc',
   '!_site/',
   '!node_modules/',
 ]);
