@@ -73,36 +73,35 @@ configured: commits made or squash-merged through github.com are signed
 server-side with GitHub's own web-flow key, which looks identical on the site
 and involves nothing on your machine.
 
-1. Make sure the key you want to sign with is loaded into your platform's SSH
-   agent:
+- Make sure the key you want to sign with is loaded into your platform's SSH
+  agent:
 
-   ```console
-   ssh-add -l
-   ```
+  ```console
+  ssh-add -l
+  ```
 
-   If it isn't listed, add it. On macOS, add `--apple-use-keychain` so it
-   survives a reboot instead of needing `ssh-add` again every session:
+  If it isn't listed, add it. On macOS, add `--apple-use-keychain` so it
+  survives a reboot instead of needing `ssh-add` again every session:
 
-   ```console
-   ssh-add --apple-use-keychain ~/.ssh/id_ed25519
-   ```
+  ```console
+  ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+  ```
 
-2. Point Git at it. Run this **on the host**, in a host terminal -- the
-   container gets its own copy of `~/.gitconfig` at build time, so running it
-   inside the container configures only the container and silently leaves the
-   Mac unchanged:
+- Point Git at it. Run this **on the host**, in a host terminal -- the container
+  gets its own copy of `~/.gitconfig` at build time, so running it inside the
+  container configures only the container and silently leaves the Mac unchanged:
 
-   ```console
-   git config --global gpg.format ssh
-   git config --global user.signingkey ~/.ssh/id_ed25519.pub
-   git config --global commit.gpgsign true
-   ```
+  ```console
+  git config --global gpg.format ssh
+  git config --global user.signingkey ~/.ssh/id_ed25519.pub
+  git config --global commit.gpgsign true
+  ```
 
-3. Reopen or rebuild the devcontainer and watch `post-start.sh`'s output on
-   attach. `Commit signing ready` means the public key was found in the
-   forwarded agent and written into the container. Anything else means the agent
-   forwarded into _this_ session doesn't have exactly one identity -- check
-   `ssh-add -l` on the host first.
+- Reopen or rebuild the devcontainer and watch `post-start.sh`'s output on
+  attach. `Commit signing ready` means the public key was found in the forwarded
+  agent and written into the container. Anything else means the agent forwarded
+  into _this_ session doesn't have exactly one identity -- check `ssh-add -l` on
+  the host first.
 
 Use an ordinary `ssh-keygen`-generated key pair here. Keys that exist only
 inside a Secure Enclave or an external agent, with no public key file on disk,
@@ -163,7 +162,7 @@ If the allowed-signers file is missing or unconfigured,
 
 ```console
 error: gpg.ssh.allowedSignersFile needs to be configured and exist
-       for ssh signature verification
+  for ssh signature verification
 No signature
 ```
 
@@ -180,18 +179,18 @@ above the commit, or when a pager or tool shows only the commit body.
 
 If you use an actual OpenPGP key instead:
 
-1. Make sure `gpg-agent` on the host has your key and is reachable the normal
-   way (`gpg --list-secret-keys` should show it).
-2. Leave `gpg.format` unset (or set it to `openpgp`), and set:
+- Make sure `gpg-agent` on the host has your key and is reachable the normal way
+  (`gpg --list-secret-keys` should show it).
+- Leave `gpg.format` unset (or set it to `openpgp`), and set:
 
-   ```console
-   git config --global user.signingkey <your-key-id>
-   git config --global commit.gpgsign true
-   ```
+  ```console
+  git config --global user.signingkey <your-key-id>
+  git config --global commit.gpgsign true
+  ```
 
-3. Nothing in this repo's devcontainer needs configuring beyond what's already
-   there: `gnupg` ships in the base image, and the forwarded agent socket is all
-   `gpg` needs.
+- Nothing in this repo's devcontainer needs configuring beyond what's already
+  there: `gnupg` ships in the base image, and the forwarded agent socket is all
+  `gpg` needs.
 
 ## Troubleshooting
 
