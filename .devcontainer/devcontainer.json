@@ -61,7 +61,20 @@
             "path": "fish"
           }
         },
-        "terminal.integrated.defaultProfile.linux": "fish"
+        "terminal.integrated.defaultProfile.linux": "fish",
+
+        // Where the Dockerfile's apt install puts ripgrep. Todo Tree probes
+        // only four hardcoded paths inside VS Code itself and never looks at
+        // PATH, so installing the binary does not on its own make the
+        // extension find it -- see the Dockerfile for the full reasoning.
+        //
+        // This lives here rather than in .vscode/settings.json because it is
+        // an absolute container path. That file is shared with anyone opening
+        // the repo outside this container, where /usr/bin/rg is usually wrong
+        // (Homebrew puts it in /opt/homebrew/bin). Being wrong there is
+        // harmless -- the extension falls through on a failed existsSync --
+        // but it would be stating something untrue of that environment.
+        "todo-tree.ripgrep": "/usr/bin/rg"
       },
       "extensions": [
         // https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments
