@@ -6,7 +6,7 @@
 # which downloads the 20 MB nanolayer binary and runs it as root to invoke a
 # second feature that runs exactly the apt call below -- more than twice the
 # size of the package it installs, for a package the distribution already has.
-FROM mcr.microsoft.com/devcontainers/typescript-node:4-24-trixie@sha256:0cbad76d1987fd35fd78cbc58cbe8c2aa93a8daa45411e52c6c6b63ea2dae202
+FROM mcr.microsoft.com/devcontainers/typescript-node:5-24-trixie@sha256:b55b444f6658dd2370d430c12d4bc9540c8ed0d3d5b05e4c247161173666954f
 
 # DL3008 wants `fish=4.0.2-1`. Pinning an apt package is not the same bargain
 # as pinning an npm one: Debian drops superseded versions from the archive, so
