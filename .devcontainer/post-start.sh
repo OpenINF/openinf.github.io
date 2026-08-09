@@ -55,6 +55,36 @@ if [ "$(git config --global gpg.format 2>/dev/null || true)" = "ssh" ]; then
       if [ "${signingkey}" != "${container_signingkey}" ]; then
         git config --global user.signingkey "${container_signingkey}"
       fi
+
+      # Signing and verifying are separate switches, and leaving the second one
+      # off makes the first one look broken. With only the above, `git commit
+      # -S` really does produce a signature -- `git cat-file commit HEAD` shows
+      # the `BEGIN SSH SIGNATURE` header -- but `git log --show-signature`
+      # answers:
+      #
+      #   error: gpg.ssh.allowedSignersFile needs to be configured and exist
+      #          for ssh signature verification
+      #   No signature
+      #
+      # ssh-format verification needs a file mapping principals to the keys
+      # they may sign with, and Git ships no default location for one, so the
+      # verifier cannot run at all. `No signature` is it reporting that -- not
+      # a report about the commit, which is signed. Read as the latter, it
+      # sends you back to re-check signing settings that were correct the whole
+      # time, so write the file rather than leave that trap set.
+      email="$(git config --global user.email 2>/dev/null || true)"
+      if [ -n "${email}" ]; then
+        allowed_signers="${HOME}/.ssh/allowed_signers"
+        # Fields 1 and 2 only: `ssh-add -L` ends each line with the key's
+        # comment, and the allowed-signers grammar has no slot for one.
+        printf '%s %s\n' "${email}" \
+          "$(awk '{print $1, $2}' "${container_signingkey}")" \
+          >"${allowed_signers}"
+        git config --global gpg.ssh.allowedSignersFile "${allowed_signers}"
+      else
+        echo "==> Signature verification NOT configured: no user.email to attribute ${container_signingkey} to" >&2
+      fi
+
       echo "==> Commit signing ready (${container_signingkey}, from forwarded SSH agent)"
     fi
   fi
