@@ -153,6 +153,19 @@ If you use an actual OpenPGP key instead:
   `post-start.sh` writes lives in the container's filesystem, not a volume, so a
   rebuild removes it. It gets rewritten on the next attach as long as the agent
   still has exactly one identity at that point.
+- **Everything looks configured, but commits still come out unsigned** -- check
+  for a per-repository override before re-checking anything global:
+
+  ```console
+  git config --local --get commit.gpgsign
+  ```
+
+  `false` here beats `commit.gpgsign = true` in your global config, silently and
+  for every tool touching the clone. It is worth ruling out early: `.git/config`
+  isn't version controlled, so nothing in a PR can fix it and nothing in a diff
+  reveals it, and because the working tree is bind-mounted from the host, a
+  `--local` setting applied inside the container is applied to the host clone
+  too. Clear it with `git config --local --unset commit.gpgsign`.
 
 <!-- prettier-ignore-start -->
 <!-- LINK LABEL DEFINITIONS - START -->
