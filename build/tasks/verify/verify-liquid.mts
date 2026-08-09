@@ -8,8 +8,8 @@
 import { exec, glob } from '@openinf/portal/build/utils';
 
 const liquidFiles = await glob([
-  '**.html',
-  '**.liquid',
+  '**/*.html',
+  '**/*.liquid',
   '!_site/',
   '!node_modules/',
 ]);

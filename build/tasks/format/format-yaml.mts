@@ -8,8 +8,8 @@
 import { exec, glob } from '@openinf/portal/build/utils';
 
 const yamlFiles = await glob([
-  '**.yml',
-  '**.yaml',
+  '**/*.yml',
+  '**/*.yaml',
   '!_site/',
   '!node_modules/',
 ]);

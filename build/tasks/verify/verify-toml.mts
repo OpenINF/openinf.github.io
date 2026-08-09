@@ -7,7 +7,7 @@
 
 import { exec, glob } from '@openinf/portal/build/utils';
 
-const tomlFiles = await glob(['**.toml', '!_site/', '!node_modules/']);
+const tomlFiles = await glob(['**/*.toml', '!_site/', '!node_modules/']);
 
 let exitCode = 0;
 const scripts = [`dprint check ${tomlFiles.join(' ')}`];

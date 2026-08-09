@@ -8,8 +8,8 @@
 import { exec, glob } from '@openinf/portal/build/utils';
 
 const jsFiles = await glob([
-  '**.js',
-  '**.mjs',
+  '**/*.js',
+  '**/*.mjs',
   '!_assets/js/vendor/',
   '!_site/',
   '!node_modules/',

@@ -8,7 +8,7 @@
 import { exec, glob } from '@openinf/portal/build/utils';
 import vnu from 'vnu-jar';
 
-const svgFiles = await glob(['**.svg', '!_site/', '!node_modules/']);
+const svgFiles = await glob(['**/*.svg', '!_site/', '!node_modules/']);
 
 let exitCode = 0;
 const scripts = [

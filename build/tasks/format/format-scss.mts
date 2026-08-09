@@ -7,7 +7,7 @@
 
 import { exec, glob } from '@openinf/portal/build/utils';
 
-const scssFiles = await glob(['**.scss', '!_site/', '!node_modules/']);
+const scssFiles = await glob(['**/*.scss', '!_site/', '!node_modules/']);
 
 let exitCode = 0;
 const scripts = [
