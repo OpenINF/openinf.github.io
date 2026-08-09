@@ -31,6 +31,7 @@ gpg
 gpg4win
 Gpg4win
 gpgconf
+gpgsign
 gpgsm
 gpgtunnel
 Grault
@@ -51,11 +52,11 @@ OpenINF
 openinfbot
 OpenINFbot
 OpenINFBot
+openpgp
 outro
 pinentry
 Potenti
 PowerShell
-psusan
 Quux
 Renovatebot
 rubocop
@@ -64,10 +65,10 @@ scssify
 sdcard
 SDK
 Servagility
+signingkey
 siteify
 skipcq
 SLOCs
 smartcard
 soonish
 UI
-updatestartuptty
