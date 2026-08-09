@@ -45,6 +45,10 @@
   },
 
   "postCreateCommand": "bash .devcontainer/post-create.sh",
+  // Unlike postCreateCommand, this runs on every attach, not just the first.
+  // Forwarded agent sockets are per-session, so anything that depends on one
+  // (see post-start.sh) has to be re-checked here.
+  "postStartCommand": "bash .devcontainer/post-start.sh",
 
   "customizations": {
     "vscode": {

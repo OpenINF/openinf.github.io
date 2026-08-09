@@ -3,299 +3,250 @@ title: OpenINF Next-Gen Guidance on Agent Forwarding
 category: contributing
 permalink: /docs/dev/internals/contributing/agent-forwarding/
 relevant_urls:
-  - https://github.com/OpenINF/docker-fisher/issues/5 # psusan + auth awkwardness
-  - https://dev.gnupg.org/T3883 # Win32-OpenSSH support for gpg-agent's ssh-agent
+  - https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials
+  - https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification
 toc: true
 draft: true
 ---
 
-Additional setup procedures may be necessary for the chosen few who hold core
-OpenINF membership to sign any potential Git commits or tags. This guide will be
-especially relevant for those developing inside the container provided as there
-will likely be snafus to overcome before connecting to the devcontainer.
+Core OpenINF members who sign their commits or tags need a couple of things
+forwarded from the host into the devcontainer: a running SSH or GPG agent, and,
+for SSH-format signing, a public key file. This guide covers how that forwarding
+works today and what to do when it doesn't.
 
-## Connecting to GitHub with SSH
+The devcontainer changed substantially in [#1775][]: it no longer runs its own
+`sshd` on a forwarded port, and there is no more `vscode` user or manual
+`RemoteForward` tunnel to configure. Everything below reflects that container.
+If you find instructions elsewhere -- including an old revision of this file --
+mentioning port 2222 or a `gpgtunnel` SSH host, they predate that change and no
+longer apply.
 
-You can connect to GitHub using the Secure Shell Protocol (SSH), which provides
-a secure channel over an unsecured network.
+## How forwarding works here
 
-Using the SSH protocol, you can connect and authenticate to remote servers and
-services. With SSH keys, you can connect to GitHub without supplying your
-username and personal access token at each visit.
+VS Code (and compatible tools like the Dev Containers CLI) forwards your
+_running_ SSH agent into the container automatically; no devcontainer.json
+configuration is required for it. What it does **not** do is copy any key
+material in -- not the private key, and, for SSH-format signing, not even the
+public key file. See VS Code's own docs on [sharing Git credentials][] for the
+authoritative description.
 
-When one sets up SSH, it's necessary to first generate a new SSH key and then
-add it to the **[`ssh-agent`][]**. One must add the SSH key to their account on
-GitHub before any usage of the key to authenticate may occur.
+That gap matters because of how the two signing formats differ:
 
-### 1.1.1     Generating a new SSH key and adding it to the ssh-agent
+- **`gpg.format=openpgp`** (classic GPG): the forwarded agent alone is enough.
+  `gpg` talks to the agent socket and never needs a local copy of anything.
+  `post-create.sh` runs `gpg --list-keys` once so the container's keyring files
+  exist; beyond that, there is nothing this repo needs to do.
+- **`gpg.format=ssh`**: Git shells out to
+  `ssh-keygen -Y sign -f <user.signingkey> ...`. That `-f` argument is a **file
+  path**, and `user.signingkey` in a gitconfig copied from your host points at a
+  host path (typically `~/.ssh/id_ed25519.pub`) that has never existed in the
+  container. The forwarded agent doesn't help until that file exists -- and the
+  container's non-root user usually can't even create it: a Mac's `/Users/<you>`
+  or a Linux host's `/home/<you>` both live under a root-owned directory this
+  container's `node` user has no write access to, so recreating the host's path
+  byte-for-byte fails with a permissions error regardless of host OS.
 
-If you don't already have an SSH key, you must generate a new one for
-authentication. You can check for existing keys if you are unsure whether you
-already have an SSH key. For more information, see "[Checking for existing SSH
-keys][]".
+`.devcontainer/post-start.sh` closes that second gap. It runs on every container
+**start/attach**, unlike `post-create.sh`, which only ever runs once, when the
+container is first built -- too early, since the forwarded agent socket is a
+fresh, per-session thing set up on each attach. If `gpg.format` is `ssh` and the
+forwarded agent is holding exactly one identity, `post-start.sh` writes that
+public key to a path under `$HOME/.ssh` in the container (not the host path
+copied into `user.signingkey`) and repoints the container's own
+`user.signingkey` at it. It deliberately does nothing if the agent has zero
+identities (nothing to write) or more than one (no reliable way to know which
+one you mean) -- watch its output on attach to see which case you're in.
 
-If you don't want to reenter your passphrase every time you use your SSH key,
-you can add your key to the SSH agent, which will manage your SSH keys and
-remember your passphrases.
+Either way, the actual cryptographic signing still happens on the host, via the
+forwarded agent. No private key material is ever copied into the container.
 
-#### 1.1.1.1    Working with SSH key passphrases
+## Setting up SSH-format signing (recommended)
 
-You can secure your SSH keys and configure an authentication agent so that you
-won't have to reenter your passphrase every time you use your SSH keys.
+Recommended because it's the less fiddly of the two to get working across host
+and container, not because any tool requires it.
 
-With SSH keys, if someone gains access to your computer, they also gain access
-to every system that uses that key. To add an extra layer of security, you can
-add a passphrase to your SSH key. You can use `ssh``-agent` to save your
-passphrase securely, so you don't have to reenter it.
+Note that GitHub Desktop has no commit-signing setting of its own and no key of
+its own. It shells out to Git and inherits whatever `git config` says, so the
+steps below are the entire setup whether you commit from Desktop or from a
+terminal. A "Verified" badge on GitHub is _not_ evidence that local signing is
+configured: commits made or squash-merged through github.com are signed
+server-side with GitHub's own web-flow key, which looks identical on the site
+and involves nothing on your machine.
 
-## 1.2    Adding or changing a passphrase
+- Make sure the key you want to sign with is loaded into your platform's SSH
+  agent:
 
-### 1.2.1     Adding a new SSH key to your GitHub account
+  ```console
+  ssh-add -l
+  ```
 
-You can further secure your SSH key by using a hardware security key, which
-requires the physical hardware security key to be attached to your computer when
-the key pair is used to authenticate with SSH. You can also secure your SSH key
-by adding your key to the ssh-agent and using a passphrase. For more
-information, see "[Working with SSH key passphrases][]".
+  If it isn't listed, add it. On macOS, add `--apple-use-keychain` so it
+  survives a reboot instead of needing `ssh-add` again every session:
 
-## 1.3    Auto-start of the gpg-agent
+  ```console
+  ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+  ```
 
-The _gpg-agent_ is the central part of the GnuPG system. It takes care of all
-private (secret) keys and, if required, diverts operations to a smartcard or
-other token. It also supports Secure Shell (SSH) by implementing the ssh-agent
-protocol.
+- Point Git at it. Run this **on the host**, in a host terminal -- the container
+  gets its own copy of `~/.gitconfig` at build time, so running it inside the
+  container configures only the container and silently leaves the Mac unchanged:
 
-The traditional way to run _gpg-agent_ on \*nix systems is by launching it at
-login time and using an environment variable (GPG_AGENT_INFO) to tell the other
-GnuPG modules how to connect to the agent. However, correctly managing the
-startup and this environment variable is cumbersome, so a more straightforward
-method is required. Since GnuPG 2.0.16, the --use-standard-socket option already
-allowed starting the agent on the fly; however, the environment variable was
-still needed.
+  ```console
+  git config --global gpg.format ssh
+  git config --global user.signingkey ~/.ssh/id_ed25519.pub
+  git config --global commit.gpgsign true
+  ```
 
-With GnuPG 2.1, the need for GPG_AGENT_INFO has been completely removed, and the
-variable is ignored.
+- Reopen or rebuild the devcontainer and watch `post-start.sh`'s output on
+  attach. `Commit signing ready` means the public key was found in the forwarded
+  agent and written into the container. Anything else means the agent forwarded
+  into _this_ session doesn't have exactly one identity -- check `ssh-add -l` on
+  the host first.
 
-Instead, a fixed _Unix domain socket_ named S.gpg-agent in the GnuPG home
-directory (by default ~/.gnupg) is used. The agent is also started on-demand by
-all tools requiring services from the agent.
+Use an ordinary `ssh-keygen`-generated key pair here. Keys that exist only
+inside a Secure Enclave or an external agent, with no public key file on disk,
+are a poor fit: `user.signingkey` has to name a real path on the host, and
+`post-start.sh` needs a public key it can write out in the container. The two
+paths don't need to match -- `post-start.sh` retargets the container's own copy
+of `user.signingkey` to wherever it actually writes the file, under
+`$HOME/.ssh`.
 
-If the option `--enable-ssh-support` is used, the auto-start mechanism does not
-work because _ssh_ does not know about this mechanism. Instead, the environment
-variable `SSH_AUTH_SOCK` must be set to the `S.gpg-agent.ssh` socket in the
-GnuPG home directory. Further, `gpg-agent` must be started by either using a
-GnuPG command that implicitly starts `gpg-agent` or by using
-`gpgconf --launch gpg-agent` to explicitly start it without first having to use
-a GnuPG command.
-
-`gpg-agent` is a daemon to manage secret (private) keys independently from any
-protocol. It is a backend for gpg, gpgsm, and other utilities.
-
-GPG Agent Configuration
-
-There are a few configuration files needed for the operation of the agent. They
-may all be found in the current GnuPG home directory, which defaults
-to ~/.gnupg.
-
-:::windows
-
-However, there may be problems on Windows systems with Gpg4Win installed;
-**Gpg4Win may have changed this default GnuPG home directory location** to an
-AppData subdirectory (i.e., `C:\Users\<username>\AppData\Roaming\gnupg`). This
-location, however, is not the location our GPG agent will be using, so to
-reaffirm our preference for the default location, we will set
-the GNUPGHOME environment variable to ~/.gnupg in the Git Bash startup script by
-running the following.
-
-echo 'export GNUPGHOME="~/.gnupg"' >> .bashrc
-
-:::
-
-Setting environment variables
-
-Add the following lines to your .bashrc or whatever initialization file is used
-for all shell invocations:
-
-GPG_TTY=$(tty)
-
-export GPG_TTY
-
-This variable may only be helpful if you use `pinentry-curses` (the
-terminal-based pin entry program).
-
-:::windows
-
-On Windows systems, you should add the above lines to the ~/.bashrc file for use
-by Git Bash.
-
-:::
-
-GnuPG configuration
-
-It's important to note that GnuPG on the remote system still needs your public
-GPG keys to work correctly. So you have to ensure they are available on the
-remote system even if your secret keys are not.
-
-:::note{.note}
-
-If you use VSCode with the remote extension pack, you may skip this step and
-move on to the next section. This step of copying over your local public GPG
-keyring into the remote container gets done automatically by the extension.
-
-:::
-
-:::excerpt{.quote} <!-- TODO(DerekNonGeneric): link to source of below -->
-
-<abbr title="Secure Copy Protocol">[SCP]{#scp .dfn}</abbr> is a means of
-securely transferring [computer files][] between a local [host][] and a remote
-host or between two remote hosts. It is based on the [Secure Shell][] (SSH)
-protocol.[^1] "SCP" commonly refers to both the Secure Copy Protocol and the
-program itself.[^2]
-
-<!-- TODO(DerekNonGeneric): include how SCP's not:
-- preferable over using SFTP for remote file transfer
-- a bad choice for quick local transfers btwx host and guest vm/container(s)
--->
-
-:::
-
-During _**[`ssh-agent`][]** initialization_, the extra socket (named
-**`S.gpg-agent.extra`** by default) gets created in the GnuPG home directory.
-
-The intended use for this extra socket is to set up a _Unix domain socket_
-forwarding from a remote machine to this socket on the local device.
-A gpg process running on the remote box (or, in our case, in the devcontainer)
-may connect to the local gpg-agent and use its private keys. This activity
-enables decrypting or signing data on a remote machine without exposing the
-private keys to the remote box. Although this technique is usually taken as a
-precaution when the connection between two systems goes over a hostile network,
-it is convenient to avoid transferring private keys to the devcontainer.
-
-### 1.3.1.1    Manually specify GPG agent configuration
-
-To guarantee that the connection (going over a kernel IPC channel) between the
-two systems goes to the right place, it is advisable to explicitly specify the
-local filename (in full) of the extra socket in the GPG agent config file. Do so
-by adding the following line to the `gpg-agent.conf` file in the GnuPG home
-directory.
-
-```text
-extra-socket /c/Users/<username>/.gnupg/S.gpg-agent.extra
-```
-
-This extra socket is the one our local `gpg-agent` will be using rather than
-S.gpg-agent because its limitations theoretically make it more secure.
-
-Enable GPG agent support of SSH
-
-Add the following line to your GPG-agent config file.
-
-```text
-enable-ssh-support
-```
-
-The OpenSSH Agent protocol is always enabled, but `gpg-agent` will only set
-the `SSH_AUTH_SOCK` environment variable with this option specified.
-
-In this mode of operation, the agent implements both the `gpg-agent` protocol
-and the agent protocol used by OpenSSH (through a separate socket).
-Consequently, using the `gpg-agent` as a drop-in replacement for the
-well-known `ssh-agent` should be possible.
-
-SSH keys, intended for use through the agent, need to be added to the
-gpg-agent initially through the ssh-add utility. Upon adding a key, ssh-add will
-ask for the password of the provided key file and send the unprotected key
-material to the agent. This routine will cause the gpg-agent to ask for a
-passphrase, which it will use to encrypt the newly-received key and store it in
-a gpg-agent-specific directory for later use. Once an SSH key has been added to
-the gpg-agent in this manner, the gpg-agent will be ready to use the newly-added
-key.
-
-:::note{.note}
-
-If the `gpg-agent` receives a signature request, the user may need prompting for
-a passphrase, which is necessary to decrypt any SSH keys stored. Since
-the ssh-agent protocol does not contain a mechanism for telling the agent on
-which display/terminal it's running, gpg-agent's ssh-support will use the TTY or
-X display where gpg-agent started. To switch this display to the current one,
-you may use the following command.
+To confirm signing is actually working locally rather than assuming it, commit
+and then check that the object really carries a signature:
 
 ```console
-gpg-connect-agent updatestartuptty /bye
+git cat-file commit HEAD | head -20
 ```
 
-:::
+A locally signed commit has a `gpgsig` header (`BEGIN SSH SIGNATURE` for this
+format). No header means the commit is unsigned no matter what the settings say.
 
-Although all GnuPG components try to start the **[`gpg-agent`][]** as needed,
-this is not possible for _the **[`ssh`][]** support_ because **[`ssh`][]** does
-not know about it. Thus, if no GnuPG tool, that usually accesses the
-**[`gpg-agent`][]** (causing the initial start of it) ever ran, there is no
-guarantee that **[`ssh`][]** can use **[`gpg-agent`][]** for authentication. To
-fix this, one may start **[`gpg-agent`][]** , if needed, by using this simple
-command:
+Prefer that check over `git log --show-signature` when the question is whether
+_signing_ works: `cat-file` reads the commit, while `--show-signature` also has
+to verify it, which is a separate mechanism that can fail on its own. See
+[below](#when-show-signature-says-no-signature) for what that looks like.
+
+## Verifying signatures locally
+
+Verification is a distinct mechanism from signing, with its own configuration
+and its own failure modes -- a commit can be perfectly signed and still fail to
+verify here. For SSH-format signatures, Git needs an [allowed signers][] file
+mapping each principal (an email address) to the keys it may sign with. Unlike
+GPG, where the keyring is discovered automatically, Git has no default location
+for this file, so verification cannot run at all until
+`gpg.ssh.allowedSignersFile` names one.
+
+`post-start.sh` writes `$HOME/.ssh/allowed_signers` alongside the signing key it
+already sets up, listing your `user.email` against that key, and points the
+config at it. That is enough for `git log --show-signature` to report
+`Good "git" signature`.
+
+Two things it deliberately does not attempt:
+
+- **Anyone else's commits.** The file lists your key and no one else's, so other
+  contributors' signed commits report `No principal matched`. Verifying those
+  means maintaining a shared allowed-signers file, which is a project-wide
+  decision rather than something a container script should invent.
+- **Trust beyond your own attestation.** You are asserting that this key belongs
+  to this address. That makes local verification meaningful for catching a
+  misconfigured or swapped key; it is not third-party attestation the way
+  GitHub's "Verified" badge is. GitHub does its own check against the keys
+  registered on your account -- see its docs on [commit signature
+  verification][], and note that a key has to be added as a **signing** key
+  there, separately from the same key added for authentication.
+
+### When show-signature says No signature
+
+If the allowed-signers file is missing or unconfigured,
+`git log --show-signature` prints (wrapped here for width):
 
 ```console
-gpg-connect-agent /bye
+error: gpg.ssh.allowedSignersFile needs to be configured and exist
+  for ssh signature verification
+No signature
 ```
 
-:::note{.tip}
+`No signature` here is the verifier reporting that it could not run -- not a
+statement about the commit, which may well be signed. The wording invites the
+opposite reading, and acting on it means re-checking `commit.gpgsign`,
+`user.signingkey` and the agent, all of which were fine. Confirm with
+`git cat-file commit HEAD` before changing any signing setting: a
+`BEGIN SSH SIGNATURE` header means signing works and only verification needs
+attention. Note that the `error:` line is easy to miss when it scrolls past
+above the commit, or when a pager or tool shows only the commit body.
 
-Adding the `--verbose` flag shows the progress of starting the agent.
+## Setting up GPG-format signing
 
-:::
+If you use an actual OpenPGP key instead:
 
-### Correctly managing the startup of the GPG agent
+- Make sure `gpg-agent` on the host has your key and is reachable the normal way
+  (`gpg --list-secret-keys` should show it).
+- Leave `gpg.format` unset (or set it to `openpgp`), and set:
 
-The traditional way to run _gpg-agent_ on \*nix systems is by launching it at
-login time.
+  ```console
+  git config --global user.signingkey <your-key-id>
+  git config --global commit.gpgsign true
+  ```
 
-To be sure, we will add the following line to&hellip;
+- Nothing in this repo's devcontainer needs configuring beyond what's already
+  there: `gnupg` ships in the base image, and the forwarded agent socket is all
+  `gpg` needs.
 
-:::windows
+## Troubleshooting
 
-The `--enable-putty-support` flag is only available under Windows and allows the
-use of gpg-agent with the PuTTY implementation of SSH. This usage is similar to
-the regular ssh-agent, which supports OpenSSH implementations of SSH on \*nix
-systems, but differs in its use of Windows Message Queues as PuTTY requires.
+- **`ssh-add -l` says "The agent has no identities"** -- this is a host-side
+  fact, not a container problem. Add the key on the host and reattach.
+- **`post-start.sh` reports more than one identity** -- it won't guess. Either
+  unload the extra identities from the agent for this session, or, inside the
+  container, write the file yourself from the one you mean, then point
+  `user.signingkey` at it:
 
-:::
+  ```console
+  ssh-add -L | grep <comment-or-fingerprint> > ~/.ssh/id_ed25519.pub
+  git config --global user.signingkey ~/.ssh/id_ed25519.pub
+  ```
 
-to load configuration details
+- **It worked before, stopped working after a container rebuild** -- the signing
+  key and `allowed_signers` files `post-start.sh` writes, and the
+  `user.signingkey`/`gpg.ssh.allowedSignersFile` overrides pointing at them, all
+  live in the container's filesystem, not a volume, so a rebuild removes them
+  along with the host's copied-in gitconfig. Everything gets rewritten on the
+  next attach as long as the agent still has exactly one identity at that point.
+- **`post-start.sh` says "Signature verification NOT configured: no
+  user.email"** -- it needs `user.email` to know which principal to list against
+  your key in `allowed_signers`, and won't guess one. Set it (globally, on the
+  host, same as the other signing settings) and reattach:
 
-#### 1.3.1.2    specify SSH configuration
+  ```console
+  git config --global user.email you@example.com
+  ```
 
-SSH configuration
+- **`git log --show-signature` says `No signature`** -- establish that the
+  commit is actually unsigned before treating it as a signing problem, since
+  that message is also what a verifier that could not run prints.
+  `git cat-file commit HEAD` settles it; see
+  [above](#when-show-signature-says-no-signature).
+- **Everything looks configured, but commits still come out unsigned** -- check
+  for a per-repository override before re-checking anything global:
 
-Add the following to the file located at ~/.ssh/config. If it does not yet
-exist, create it.
+  ```console
+  git config --local --get commit.gpgsign
+  ```
 
-```text
-host gpgtunnel
-
-hostname localhost
-
-port 2222
-
-User vscode
-
-RemoteForward /home/vscode/.gnupg/S.gpg-agent
-/c/Users/<username>/.gnupg/S.gpg-agent.extra
-```
+  `false` here beats `commit.gpgsign = true` in your global config, silently and
+  for every tool touching the clone. It is worth ruling out early: `.git/config`
+  isn't version controlled, so nothing in a PR can fix it and nothing in a diff
+  reveals it, and because the working tree is bind-mounted from the host, a
+  `--local` setting applied inside the container is applied to the host clone
+  too. Clear it with `git config --local --unset commit.gpgsign`.
 
 <!-- prettier-ignore-start -->
 <!-- LINK LABEL DEFINITIONS - START -->
 
-[^1]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-1
-[^2]: https://en.wikipedia.org/wiki/Secure_copy_protocol#cite_note-Pechanec-2
-
-[`ssh`]: https://en.wikipedia.org/wiki/Secure_Shell
-[`ssh-agent`]: https://en.wikipedia.org/wiki/Ssh-agent
-[`gpg-agent`]: https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
-[Checking for existing SSH keys]: https://docs.github.com/en/github/authenticating-to-github/checking-for-existing-ssh-keys
-[computer files]: https://en.wikipedia.org/wiki/Computer_file
-[host]: https://en.wikipedia.org/wiki/Server_(computing)
-[Secure Shell]: https://en.wikipedia.org/wiki/Secure_Shell
-[Working with SSH key passphrases]: https://docs.github.com/en/github/authenticating-to-github/working-with-ssh-key-passphrases
+[#1775]: https://github.com/OpenINF/openinf.github.io/pull/1775
+[allowed signers]: https://man.openbsd.org/ssh-keygen#ALLOWED_SIGNERS
+[sharing Git credentials]: https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials
+[commit signature verification]: https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification
 
 <!-- LINK LABEL DEFINITIONS - END -->
 <!-- prettier-ignore-end -->

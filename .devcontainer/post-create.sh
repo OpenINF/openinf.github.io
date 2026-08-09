@@ -135,6 +135,4 @@ Ready, on Node $(node -v).
 
 In fish, \`nvm use\` reads .nvmrc. Switching there affects that session only;
 the container baseline stays on the version package.json pins.
-
-To sign commits: git config --global commit.gpgsign true
 EOF
