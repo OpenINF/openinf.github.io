@@ -59,8 +59,10 @@ export async function glob(patterns) {
     nodeGlob(include, { exclude, withFileTypes: true })
   );
 
-  // Every caller pastes these paths into a formatter or linter invocation, so
-  // the directories the native API matches have to be filtered back out.
+  // Callers join these into shell commands like `prettier --write <paths>`,
+  // where a directory argument would make the tool recurse and quietly undo
+  // the exclusions above — so drop directories, and rebuild the cwd-relative
+  // strings that matching with `withFileTypes` traded away.
   return entries
     .filter((entry) => entry.isFile())
     .map((entry) =>
