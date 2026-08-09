@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6",
-    "@biomejs/biome": "2.5.6",
+    "@biomejs/biome": "2.5.7",
     "@cspell/dict-lorem-ipsum": "4.0.5",
     "@isaacs/catcher": "1.0.4",
     "@openinf/gh-file-importer": "2.0.1",
@@ -42,7 +42,7 @@
     "browserslist-lint": "0.4.0",
     "console-log-level": "1.4.1",
     "cspell": "10.0.1",
-    "cssnano": "8.0.2",
+    "cssnano": "8.0.4",
     "dictionary-en": "4.0.0",
     "dprint": "0.55.2",
     "editorconfig-checker": "6.1.1",
@@ -106,10 +106,10 @@
     "stylelint": "17.14.1",
     "stylelint-config-recess-order": "7.7.0",
     "stylelint-config-standard-scss": "17.0.0",
-    "tsx": "4.23.5",
+    "tsx": "4.23.9",
     "typescript": "7.0.2",
     "unified": "11.0.5",
-    "vnu-jar": "26.8.3",
+    "vnu-jar": "26.8.4",
     "zod": "4.4.3",
     "zod-validation-error": "5.0.0"
   }
