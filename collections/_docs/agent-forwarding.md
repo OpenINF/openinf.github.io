@@ -57,8 +57,16 @@ forwarded agent. No private key material is ever copied into the container.
 
 ## Setting up SSH-format signing (recommended)
 
-This is what GitHub Desktop's own "Automatically sign commits" preference
-configures, so if you sign from Desktop, use this format.
+Recommended because it's the less fiddly of the two to get working across host
+and container, not because any tool requires it.
+
+Note that GitHub Desktop has no commit-signing setting of its own and no key of
+its own. It shells out to Git and inherits whatever `git config` says, so the
+steps below are the entire setup whether you commit from Desktop or from a
+terminal. A "Verified" badge on GitHub is _not_ evidence that local signing is
+configured: commits made or squash-merged through github.com are signed
+server-side with GitHub's own web-flow key, which looks identical on the site
+and involves nothing on your machine.
 
 1. Make sure the key you want to sign with is loaded into your platform's SSH
    agent:
@@ -74,8 +82,10 @@ configures, so if you sign from Desktop, use this format.
    ssh-add --apple-use-keychain ~/.ssh/id_ed25519
    ```
 
-2. Point Git at it. GitHub Desktop's signing preference does this for you; run
-   it by hand if you sign from the CLI instead:
+2. Point Git at it. Run this **on the host**, in a host terminal -- the
+   container gets its own copy of `~/.gitconfig` at build time, so running it
+   inside the container configures only the container and silently leaves the
+   Mac unchanged:
 
    ```console
    git config --global gpg.format ssh
@@ -89,9 +99,20 @@ configures, so if you sign from Desktop, use this format.
    forwarded into _this_ session doesn't have exactly one identity -- check
    `ssh-add -l` on the host first.
 
-GitHub Desktop needs the key to exist as a real file on disk; it does not work
-with agent-only or Secure Enclave-backed keys. A plain `ssh-keygen`-generated
-key pair works better here than a hardware-backed one.
+Use an ordinary `ssh-keygen`-generated key pair here. Keys that exist only
+inside a Secure Enclave or an external agent, with no public key file on disk,
+are a poor fit: `user.signingkey` has to name a real path, on the host and in
+the container both.
+
+To confirm signing is actually working locally rather than assuming it, commit
+and then check that the object really carries a signature:
+
+```console
+git cat-file commit HEAD | head -20
+```
+
+A locally signed commit has a `gpgsig` header (`BEGIN SSH SIGNATURE` for this
+format). No header means the commit is unsigned no matter what the settings say.
 
 Signature _verification_ (`git log --show-signature`, the "Verified" badge on
 GitHub) is a separate concern from signing and isn't covered above -- see
