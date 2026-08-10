@@ -10,3 +10,7 @@ collections/_docs/contributing.md
 collections/_docs/security.md
 collections/_docs/support.md
 collections/_pages/vision.md
+
+# Placeholder posts. The prose is Latin filler, so the natural-language
+# rules have nothing useful to say about it.
+collections/_posts/*lorem-ipsum*.md

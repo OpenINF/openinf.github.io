@@ -123,10 +123,10 @@ choices, separated from each other by pipes.
   In this example, there are also two options:
 
   - Left side of pipe: If the source code is deployed from a cloud repository,
-    **--source** cloud-source **--source-url** source-url is required.
+    **--source** `cloud-source` **--source-url** `source-url` is required.
   - Right side of pipe: If the source code is in a local directory:
-    - **--bucket** bucket is required.
-    - **--source** local-source is optional, as specified by the square
+    - **--bucket** `bucket` is required.
+    - **--source** `local-source` is optional, as specified by the square
       brackets.
 
 ### Arguments that can repeat
