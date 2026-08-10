@@ -13,13 +13,13 @@ import { resolve as pathResolve } from 'node:path';
 import { PATHS } from '@openinf/portal/build/constants';
 import { copyFileWithDirStructure, glob } from '@openinf/portal/build/utils';
 
-const jsFiles = await glob(PATHS.jsFilesGlob);
-
 // -----------------------------------------------------------------------------
 // Task
 // -----------------------------------------------------------------------------
 
 export const jsify = async () => {
+  const jsFiles = await glob(PATHS.jsFilesGlob);
+
   for (const jsFile of jsFiles) {
     await copyFileWithDirStructure(
       jsFile,

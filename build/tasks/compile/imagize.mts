@@ -13,13 +13,13 @@ import { resolve as pathResolve } from 'node:path';
 import { PATHS } from '@openinf/portal/build/constants';
 import { copyFileWithDirStructure, glob } from '@openinf/portal/build/utils';
 
-const imageFiles = await glob(PATHS.imageFilesGlob);
-
 // -----------------------------------------------------------------------------
 // Task
 // -----------------------------------------------------------------------------
 
 export const imagize = async () => {
+  const imageFiles = await glob(PATHS.imageFilesGlob);
+
   for (const imageFile of imageFiles) {
     await copyFileWithDirStructure(
       imageFile,

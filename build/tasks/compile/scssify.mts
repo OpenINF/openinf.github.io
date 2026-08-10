@@ -12,6 +12,7 @@
 // Requirements
 // -----------------------------------------------------------------------------
 
+import { finished } from 'node:stream/promises';
 import { PATHS } from '@openinf/portal/build/constants';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
@@ -24,8 +25,8 @@ import rename from 'gulp-rename';
 // Task
 // -----------------------------------------------------------------------------
 
-export const scssify = () => {
-  src(`${PATHS.sassFiles}/main.scss`, { sourcemaps: true })
+export const scssify = async () => {
+  const stylesheets = src(`${PATHS.sassFiles}/main.scss`, { sourcemaps: true })
     .pipe(sass().on('error', sass.logError))
     // For dev: outputs the non-minified version (into ./assets/styles).
     .pipe(dest(PATHS.eleventyCssFiles))
@@ -35,6 +36,10 @@ export const scssify = () => {
     // after the pre-rename file and the stylesheet points at nothing.
     .pipe(rename({ extname: '.min.css' }))
     .pipe(dest(PATHS.siteCssFiles, { sourcemaps: './maps' }));
+
+  // Eleventy copies `assets/` as part of the build it runs this from, so it
+  // has to be told when the stylesheet is actually on disk.
+  await finished(stylesheets);
 };
 
 export default scssify;

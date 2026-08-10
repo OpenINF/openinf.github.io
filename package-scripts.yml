@@ -40,5 +40,5 @@ scripts:
     yaml: node build/tasks/format/format-yaml.mts
   build: nps compile.buildPortal
   test: nps verify.all
-  start: node server.mts
+  start: eleventy --serve
   default: nps start

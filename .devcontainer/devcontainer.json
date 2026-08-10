@@ -31,8 +31,8 @@
     "ghcr.io/devcontainers/features/git-lfs:1": {}
   },
 
-  // browser-sync, started by `pnpm start`, serves on 3000 with its UI on 3001.
-  "forwardPorts": [3000, 3001],
+  // Eleventy's dev server, started by `pnpm start`, serves on 3000.
+  "forwardPorts": [3000],
 
   // So `dprint`, `biome`, `nps`, `eleventy` and friends work when typed
   // directly, not only under `pnpm exec`. The old setup did this with

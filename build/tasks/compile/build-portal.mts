@@ -13,12 +13,10 @@ let exitCode = 0;
 
 process.env.ELEVENTY_ENV = 'production';
 
-const scripts = [
-  'nps compile.buildStyles',
-  'nps compile.buildImages',
-  'nps compile.buildJs',
-  'eleventy',
-];
+// Eleventy compiles the assets itself, from an `eleventy.before` hook, so
+// that its watching build keeps them current too. Running them here as well
+// would just do the same work twice.
+const scripts = ['eleventy'];
 
 // Only siteify health files in _this_ task if they're missing.
 if (!existsSync('collections/_docs/support.md')) {

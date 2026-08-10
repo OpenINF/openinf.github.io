@@ -38,7 +38,6 @@
     "@yarnpkg/shell": "4.1.3",
     "autoprefixer": "10.5.4",
     "bootstrap": "5.3.8",
-    "browser-sync": "3.0.4",
     "browserslist-lint": "0.4.0",
     "console-log-level": "1.4.1",
     "cspell": "10.0.1",
