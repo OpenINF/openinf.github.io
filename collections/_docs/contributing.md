@@ -43,14 +43,14 @@ labels on the issue you’re interested in.
 
 Once you have identified an issue you would like to work on, follow these steps:
 
-1. Comment on it and say you would like to work on that issue.
-2. Wait for someone to confirm that you may work on the issue before writing any
-   code. The person who confirms will add a
-   <https://github.com/OpenINF/.github/labels/wip> label to the issue to
-   indicate that the issue has been assigned.
-3. Once the issue has been labeled as a _work in progress_, write your code and
-   submit your PR.
-4. Wait for code review and address any issues raised as soon as you can.
+1.  Comment on it and say you would like to work on that issue.
+2.  Wait for someone to confirm that you may work on the issue before writing
+    any code. The person who confirms will add a
+    <https://github.com/OpenINF/.github/labels/wip> label to the issue to
+    indicate that the issue has been assigned.
+3.  Once the issue has been labeled as a _work in progress_, write your code and
+    submit your PR.
+4.  Wait for code review and address any issues raised as soon as you can.
 
 Even if you are not done with the issue, create a [draft pull request][] and
 push your code [early and often][]. If we haven’t heard from you in over a week
@@ -80,16 +80,15 @@ your pull request merged:
 
 Contributions to this project are [released][contrib-license] to the public
 under the project’s open-source license(s). The license(s) for a project may be
-located within the `LICENSE` folder in the root directory of the repository (and
-elsewhere).
+located within the [`LICENSE`][] folder in the root directory of the repository.
 
 <!-- TODO: Guidance on SPDX corpus text files using `.txt` extension. -->
 
 ## Project Documentation
 
-The `README.md` in the root of the repository should contain or link to project
-documentation. If you cannot find the documentation you’re looking for, please
-file a GitHub issue with details of what you’d like to see documented.
+The [`README.md`][] in the root of the repository should contain or link to
+project documentation. If you cannot find the documentation you’re looking for,
+please file a GitHub issue with details of what you’d like to see documented.
 
 ## Questions or Thoughts?
 
@@ -106,7 +105,7 @@ on Twitter.
 ## Code of Conduct
 
 By participating in this project, you are expected to uphold our Code of
-Conduct. Please see our Code of Conduct for expected behavior.
+Conduct. Please see the [`CODE_OF_CONDUCT.md`][] file for expected behavior.
 
 ## Developer’s Certificate of Origin 1.1
 
@@ -133,25 +132,46 @@ By making a contribution to this project, I certify that:
 
 ## Reporting Security Issues
 
-Please see the OpenINF Security Policies.
+Please see the [`SECURITY.md`][] file.
 
 ## Attribution
 
 [Developer Certificate of Origin Legal Text](https://developercertificate.org/)
 
-<!-- prettier-ignore-start -->
-<!-- LINK DEFINITION LABELS - START -->
+<!-- BEGIN LINK DEFINITIONS -->
 
-[contrib-license]: https://help.github.com/articles/github-terms-of-service/#6-contributions-under-repository-license
-[draft pull request]: https://help.github.com/en/articles/about-pull-requests#draft-pull-requests
+[^1]:
+    <https://docs.github.com/en/free-pro-team@latest/github/building-a-strong-community/setting-guidelines-for-repository-contributors>
+
+[`CODE_OF_CONDUCT.md`]:
+  https://github.com/OpenINF/.github/blob/HEAD/CODE_OF_CONDUCT.md
+  'Standards for how to engage with the project community'
+[`LICENSE`]:
+  https://github.com/OpenINF/.github/tree/HEAD/LICENSE
+  'The open source software license(s) associated with this project'
+[`README.md`]:
+  https://github.com/OpenINF/.github/blob/HEAD/README.md
+  'The landing/home page of this project'
+[`SECURITY.md`]:
+  https://github.com/OpenINF/.github/blob/HEAD/SECURITY.md
+  'Instructions on how to report security vulnerabilities for this project'
+[contrib-license]:
+  https://help.github.com/articles/github-terms-of-service/#6-contributions-under-repository-license
+[draft pull request]:
+  https://help.github.com/en/articles/about-pull-requests#draft-pull-requests
 [early and often]: https://www.worklytics.co/blog/commit-early-push-often/
-[good commit message]: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
-[i-gfi]: https://github.com/search?q=org%3Aopeninf+is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
-[i-help]: https://github.com/search?q=org%3Aopeninf+is%3Aissue+is%3Aopen+label%3A%22help+wanted%22
+[good commit message]:
+  http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+[i-gfi]:
+  https://github.com/search?q=org%3Aopeninf+is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
+[i-help]:
+  https://github.com/search?q=org%3Aopeninf+is%3Aissue+is%3Aopen+label%3A%22help+wanted%22
 [twitter-account]: https://twitter.com/OpenINF
-[GitHub issue]: http://help.github.com/en/github/managing-your-work-on-github/creating-an-issue
-[pr-help]: https://github.com/search?q=org%3Aopeninf+is%3Apr+is%3Aopen+label%3A%22help+wanted%22
-[pull request]: https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request
+[GitHub issue]:
+  http://help.github.com/en/github/managing-your-work-on-github/creating-an-issue
+[pr-help]:
+  https://github.com/search?q=org%3Aopeninf+is%3Apr+is%3Aopen+label%3A%22help+wanted%22
+[pull request]:
+  https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request
 
-<!-- LINK DEFINITION LABELS - END -->
-<!-- prettier-ignore-end -->
+<!-- END LINK DEFINITIONS -->
