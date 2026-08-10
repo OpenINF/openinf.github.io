@@ -261,8 +261,8 @@ importers:
         specifier: 11.0.5
         version: 11.0.5
       vnu-jar:
-        specifier: 26.8.4
-        version: 26.8.4
+        specifier: 26.8.6
+        version: 26.8.6
       zod:
         specifier: 4.4.3
         version: 4.4.3
@@ -4734,8 +4734,8 @@ packages:
     resolution: {integrity: sha512-0QwqXteBNXgnLCdWdvPQBX6FXRHtIH3VhJPTd5Lwn28tJXc34YqSCWUmkOvtJHBmB3gGoPtrOKk3Ts8/kEZ9aA==}
     engines: {node: '>=10.13.0'}
 
-  vnu-jar@26.8.4:
-    resolution: {integrity: sha512-MQ3fuZMaH0miBQBPrvbfWauM5LM96wQsuJrciFdWJagZGMK+3GakoS74kyt/MGbyHyX17uwaLey5OuJ/Hd3ECg==}
+  vnu-jar@26.8.6:
+    resolution: {integrity: sha512-P7f2yd+4GObCYt8kCDe+ERdPZ7PlHE1GXp8wSqclQm/VBlxyic0ME6wPqeEq9G6ZlpkR/CdygVgRth4FvL/jMw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -10346,7 +10346,7 @@ snapshots:
       - bare-abort-controller
       - react-native-b4a
 
-  vnu-jar@26.8.4: {}
+  vnu-jar@26.8.6: {}
 
   vscode-languageserver-textdocument@1.0.12: {}
 
