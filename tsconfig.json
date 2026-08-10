@@ -1,6 +1,7 @@
 {
   "extends": "@tsconfig/node-lts/tsconfig.json",
   "compilerOptions": {
+    "erasableSyntaxOnly": true,
     "typeRoots": ["${configDir}/node_modules/@types"]
   }
 }
