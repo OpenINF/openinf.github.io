@@ -65,7 +65,7 @@
   >
   <link
     rel='stylesheet'
-    href='/assets/styles/main.css'
+    href='/assets/styles/main{% if env == "production" %}.min{% endif %}.css'
   >
   <link rel='canonical' href='{{ siteUrl }}{{ page.url }}'>
   {% if page.url == '/' %}

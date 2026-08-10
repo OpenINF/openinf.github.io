@@ -1,9 +1,6 @@
 scripts:
   compile:
-    buildImages: node build/tasks/compile/build-images.mts
-    buildJs: node build/tasks/compile/build-js.mts
     buildPortal: node build/tasks/compile/build-portal.mts
-    buildStyles: node build/tasks/compile/build-styles.mts
     siteifyHealthFiles: node build/tasks/compile/siteify-health-files.mts
   verify:
     # Announces each task and names the ones that failed. Without this the
@@ -40,5 +37,5 @@ scripts:
     yaml: node build/tasks/format/format-yaml.mts
   build: nps compile.buildPortal
   test: nps verify.all
-  start: node server.mts
+  start: eleventy --serve
   default: nps start
