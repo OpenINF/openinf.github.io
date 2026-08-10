@@ -251,9 +251,6 @@ importers:
       stylelint-config-standard-scss:
         specifier: 17.0.0
         version: 17.0.0(postcss@8.5.26)(stylelint@17.14.1(supports-color@10.2.2)(typescript@7.0.2))
-      tsx:
-        specifier: 4.23.9
-        version: 4.23.9
       typescript:
         specifier: 7.0.2
         version: 7.0.2
@@ -6779,6 +6776,7 @@ snapshots:
       '@esbuild/win32-arm64': 0.28.2
       '@esbuild/win32-ia32': 0.28.2
       '@esbuild/win32-x64': 0.28.2
+    optional: true
 
   escalade@3.2.0: {}
 
@@ -10058,6 +10056,7 @@ snapshots:
       esbuild: 0.28.2
     optionalDependencies:
       fsevents: 2.3.3
+    optional: true
 
   typanion@3.14.0: {}
 

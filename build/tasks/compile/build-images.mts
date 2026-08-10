@@ -1,3 +1,3 @@
-import { imagize } from './imagize.mjs';
+import { imagize } from './imagize.mts';
 
 await imagize();
