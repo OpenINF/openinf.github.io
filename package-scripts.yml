@@ -1,9 +1,6 @@
 scripts:
   compile:
-    buildImages: node build/tasks/compile/build-images.mts
-    buildJs: node build/tasks/compile/build-js.mts
     buildPortal: node build/tasks/compile/build-portal.mts
-    buildStyles: node build/tasks/compile/build-styles.mts
     siteifyHealthFiles: node build/tasks/compile/siteify-health-files.mts
   verify:
     # Announces each task and names the ones that failed. Without this the

@@ -1,13 +1,17 @@
+import { parse as pathParse } from 'node:path';
 import { EleventyI18nPlugin } from '@11ty/eleventy';
 import { PATHS } from '@openinf/portal/build/constants';
-import { imagize } from '@openinf/portal/build/tasks/imagize';
-import { jsify } from '@openinf/portal/build/tasks/jsify';
-import { scssify } from '@openinf/portal/build/tasks/scssify';
+import autoprefixer from 'autoprefixer';
+import cssnano from 'cssnano';
 import markdownItAnchor from 'markdown-it-anchor';
 import markdownItFootnote from 'markdown-it-footnote';
+import postcss from 'postcss';
+import * as sass from 'sass';
 
 // skipcq: JS-0116
 export default async function (eleventyConfig) {
+  const isProduction = process.env.ELEVENTY_ENV === 'production';
+
   eleventyConfig.amendLibrary('md', (md) => {
     md.use(markdownItAnchor);
     md.use(markdownItFootnote);
@@ -17,18 +21,63 @@ export default async function (eleventyConfig) {
   // Order matters, leave this at top of configuration file.
   eleventyConfig.setLayoutsDirectory('_layouts'); // relative to input dir
   eleventyConfig.setUseGitIgnore(false);
-  eleventyConfig.addPassthroughCopy('assets');
-
-  // The stylesheets, images and scripts under `_assets/` are compiled into
-  // `assets/`, which the passthrough copy above then carries into the site.
-  // Doing that from here rather than from tasks run ahead of Eleventy is what
-  // lets `--serve` rebuild them on change, with no second watcher to keep in
-  // step.
-  eleventyConfig.on('eleventy.before', async () => {
-    await Promise.all([scssify(), imagize(), jsify()]);
+  // Images and scripts go straight from source into the site. Eleventy tracks
+  // what it copies, so `--serve` reloads on a change without a watcher of our
+  // own, and nothing is written back into a directory it is watching.
+  eleventyConfig.addPassthroughCopy({
+    [`${PATHS.assetsDir}${PATHS.imageFolder}`]: `${PATHS.eleventyAssetsDir}${PATHS.imageFolder}`,
+    [`${PATHS.assetsDir}${PATHS.scriptFolder}`]: `${PATHS.eleventyAssetsDir}${PATHS.scriptFolder}`,
   });
 
-  eleventyConfig.addWatchTarget(PATHS.assetsDir);
+  // The stylesheet is compiled by Eleventy as a template of its own, which is
+  // what puts it in the dependency graph: editing a partial recompiles
+  // `main.scss` and the browser is told to swap the stylesheet. Compiling it
+  // outside Eleventy leaves it invisible to that graph, so no reload is sent.
+  eleventyConfig.addTemplateFormats('scss');
+  eleventyConfig.addExtension('scss', {
+    outputFileExtension: 'css',
+    useLayouts: false,
+    compile: function (inputContent, inputPath) {
+      const parsed = pathParse(inputPath);
+
+      // Sass partials are compiled through whatever imports them.
+      if (parsed.name.startsWith('_')) return;
+
+      const result = sass.compileString(inputContent, {
+        loadPaths: [parsed.dir || '.', this.config.dir.includes],
+      });
+
+      // Without this, editing a partial rebuilds nothing.
+      this.addDependencies(inputPath, result.loadedUrls);
+
+      return async () => {
+        // Prefixing follows .browserslistrc, so it belongs in both builds;
+        // minifying only earns its keep in the one that gets published.
+        const plugins = [autoprefixer()];
+
+        if (isProduction) plugins.push(cssnano());
+
+        const processed = await postcss(plugins).process(result.css, {
+          from: inputPath,
+          to: `${PATHS.stylesFolder}/${parsed.name}.css`,
+        });
+
+        return processed.css;
+      };
+    },
+    compileOptions: {
+      // Without this the stylesheet would land beside its source, under
+      // `_assets/`, rather than where the pages ask for it.
+      permalink: (_contents, inputPath) => {
+        const parsed = pathParse(inputPath);
+
+        return () =>
+          parsed.name.startsWith('_')
+            ? false
+            : `/${PATHS.eleventyAssetsDir}${PATHS.stylesFolder}/${parsed.name}.css`;
+      },
+    },
+  });
 
   // 3000 is where the previous server sat, so it is what the devcontainer
   // forwards and what the docs tell people to open.

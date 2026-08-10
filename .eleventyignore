@@ -1,4 +1,5 @@
-_assets/
+_assets/img/
+_assets/js/
 .github/
 **/LICENSE/**
 **/README.md
