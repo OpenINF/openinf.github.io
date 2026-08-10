@@ -19,23 +19,22 @@ import { dest, src } from 'gulp';
 import sass from 'gulp-dart-sass';
 import postcss from 'gulp-postcss';
 import rename from 'gulp-rename';
-import sourcemaps from 'gulp-sourcemaps';
 
 // -----------------------------------------------------------------------------
 // Task
 // -----------------------------------------------------------------------------
 
 export const scssify = () => {
-  src(`${PATHS.sassFiles}/main.scss`)
-    .pipe(sourcemaps.init())
+  src(`${PATHS.sassFiles}/main.scss`, { sourcemaps: true })
     .pipe(sass().on('error', sass.logError))
     // For dev: outputs the non-minified version (into ./assets/styles).
     .pipe(dest(PATHS.eleventyCssFiles))
     // For prod: optimizes, renames to foo.min.css (into ./_site/assets/styles).
     .pipe(postcss([autoprefixer(), cssnano()]))
-    .pipe(sourcemaps.write('./maps'))
+    // Renaming has to happen before the map is written, or the map is named
+    // after the pre-rename file and the stylesheet points at nothing.
     .pipe(rename({ extname: '.min.css' }))
-    .pipe(dest(PATHS.siteCssFiles));
+    .pipe(dest(PATHS.siteCssFiles, { sourcemaps: './maps' }));
 };
 
 export default scssify;
