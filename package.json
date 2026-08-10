@@ -50,7 +50,6 @@
     "gulp-dart-sass": "1.1.0",
     "gulp-postcss": "10.0.0",
     "gulp-rename": "2.1.0",
-    "gulp-sourcemaps": "3.0.0",
     "markdown-it": "15.0.0",
     "markdown-it-abbr": "2.0.0",
     "markdown-it-anchor": "9.2.1",
