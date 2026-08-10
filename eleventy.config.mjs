@@ -67,14 +67,17 @@ export default async function (eleventyConfig) {
     },
     compileOptions: {
       // Without this the stylesheet would land beside its source, under
-      // `_assets/`, rather than where the pages ask for it.
+      // `_assets/`, rather than where the pages ask for it. Only the build
+      // that minifies claims `.min`, so the name never overstates what is in
+      // the file; head.liquid picks the matching one by `env`.
       permalink: (_contents, inputPath) => {
         const parsed = pathParse(inputPath);
+        const suffix = isProduction ? '.min' : '';
 
         return () =>
           parsed.name.startsWith('_')
             ? false
-            : `/${PATHS.eleventyAssetsDir}${PATHS.stylesFolder}/${parsed.name}.css`;
+            : `/${PATHS.eleventyAssetsDir}${PATHS.stylesFolder}/${parsed.name}${suffix}.css`;
       },
     },
   });
