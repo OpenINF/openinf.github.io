@@ -8,7 +8,7 @@
 import { exec, glob } from '@openinf/portal/build/utils';
 import vnu from 'vnu-jar';
 
-const htmlFiles = await glob(['_site/**.html', '!node_modules/']);
+const htmlFiles = await glob(['_site/**/*.html', '!node_modules/']);
 
 // vnu responds to being given no files by printing its entire usage page and
 // exiting non-zero, which buries the actual problem: this task checks the
