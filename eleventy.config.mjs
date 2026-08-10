@@ -1,7 +1,14 @@
 import { EleventyI18nPlugin } from '@11ty/eleventy';
+import markdownItAnchor from 'markdown-it-anchor';
+import markdownItFootnote from 'markdown-it-footnote';
 
 // skipcq: JS-0116
 export default async function (eleventyConfig) {
+  eleventyConfig.amendLibrary('md', (md) => {
+    md.use(markdownItAnchor);
+    md.use(markdownItFootnote);
+  });
+
   // Configure Eleventy.
   // Order matters, leave this at top of configuration file.
   eleventyConfig.setLayoutsDirectory('_layouts'); // relative to input dir
