@@ -29,6 +29,13 @@ export default async function (eleventyConfig) {
     [`${PATHS.assetsDir}${PATHS.scriptFolder}`]: `${PATHS.eleventyAssetsDir}${PATHS.scriptFolder}`,
   });
 
+  // Ignoring these directories outright, as .eleventyignore used to, also
+  // takes them out of the watch, so an edited image sat there until the next
+  // restart. Only the licence notice among the icons needs keeping out, and
+  // only from being rendered as a page -- passthrough still publishes it
+  // beside the icons it covers.
+  eleventyConfig.ignores.add(`${PATHS.assetsDir}**/*.md`);
+
   // The stylesheet is compiled by Eleventy as a template of its own, which is
   // what puts it in the dependency graph: editing a partial recompiles
   // `main.scss` and the browser is told to swap the stylesheet. Compiling it
