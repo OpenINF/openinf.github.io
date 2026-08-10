@@ -65,9 +65,6 @@ importers:
       cssnano:
         specifier: 8.0.4
         version: 8.0.4(postcss@8.5.26)
-      dictionary-en:
-        specifier: 4.0.0
-        version: 4.0.0
       dprint:
         specifier: 0.55.2
         version: 0.55.2
@@ -209,9 +206,6 @@ importers:
       retext-equality:
         specifier: 7.1.0
         version: 7.1.0
-      retext-passive:
-        specifier: 5.0.0
-        version: 5.0.0
       retext-profanities:
         specifier: 8.0.0
         version: 8.0.0
@@ -227,18 +221,12 @@ importers:
       retext-simplify:
         specifier: 8.0.0
         version: 8.0.0
-      retext-spell:
-        specifier: 6.1.0
-        version: 6.1.0
       retext-syntax-mentions:
         specifier: 4.0.0
         version: 4.0.0
       retext-syntax-urls:
         specifier: 4.0.0
         version: 4.0.0
-      strip-comments:
-        specifier: 2.0.1
-        version: 2.0.1
       stylelint:
         specifier: 17.14.1
         version: 17.14.1(supports-color@10.2.2)(typescript@7.0.2)
@@ -1813,9 +1801,6 @@ packages:
   devlop@1.1.0:
     resolution: {integrity: sha512-RWmIqhcFf1lRYBvNmr7qTNuyCt/7/ns2jbpp1+PalgE/rDQcBT0fioSMUpJ93irlUhC5hrg4cYqe6U+0ImW0rA==}
 
-  dictionary-en@4.0.0:
-    resolution: {integrity: sha512-3NHnE1uq33ZE/CIwaZ6gqxa4BnglHnxeAcTM0GJ7cmtRGcvX9InMK/IqLtYcUMFCUpUNgybH+DzkqdgAo3F1zg==}
-
   dom-serializer@1.4.1:
     resolution: {integrity: sha512-VHwB3KfrcOOkelEG2ZOfxqLZdfkil8PtJi4P8N2MMXucZq2yLp75ClViUlOVwyoHEDjYU433Aq+5zWP61+RGag==}
 
@@ -2429,10 +2414,6 @@ packages:
   is-binary-path@2.1.0:
     resolution: {integrity: sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw==}
     engines: {node: '>=8'}
-
-  is-buffer@2.0.5:
-    resolution: {integrity: sha512-i2R6zNFDwgEHJyQUtJEk0XFi1i0dPFn/oqjK3/vPCcDeJvW5NQ83V8QbicfF1SupOaB0h8ntgBC2YiE7dfyctQ==}
-    engines: {node: '>=4'}
 
   is-core-module@2.16.2:
     resolution: {integrity: sha512-evOr8xfXKxE6qSR0hSXL2r3sd7ALj8+7jQEUvPYcm5sgZFdJ+AYzT6yNmJenvIYQBgIGwfwz08sL8zoL7yq2BA==}
@@ -3089,9 +3070,6 @@ packages:
   nps@5.10.0:
     resolution: {integrity: sha512-tye+0hoKq3pB6NhykoPcOzwn4nEvwVvh1kJEDc+21gYordNdaBlkPv8ZlrZkuEWLUeujvS8VQ56KO9QGoPKkEA==}
     hasBin: true
-
-  nspell@2.1.5:
-    resolution: {integrity: sha512-PSStyugKMiD9mHmqI/CR5xXrSIGejUXPlo88FBRq5Og1kO5QwQ5Ilu8D8O5I/SHpoS+mibpw6uKA8rd3vXd2Sg==}
 
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
@@ -3853,9 +3831,6 @@ packages:
   retext-equality@7.1.0:
     resolution: {integrity: sha512-YzrGxIfubNetpi5xEZXFaWKaQNdDHYal0JNaIllTRO+vkjO0FRuGgLoYixR1BYR3vx7k6p7c+MdVM1NxTlC+MQ==}
 
-  retext-passive@5.0.0:
-    resolution: {integrity: sha512-N9PpBPvE37Z5h/hvgfSIFJNB4E/iYJ9EHr848t53hbKRJkD7hWJf4D+UOIj5fxjOOO/WQKX53xLypEQxHWuCtA==}
-
   retext-profanities@8.0.0:
     resolution: {integrity: sha512-fuKCUqpXnzSimirk5iBL3vwJJhxzypxMiEfI6FHJ3xafsD8KfPjdd7v0z65PHf+VuekGAIGv4wW34UAM1w9ihw==}
 
@@ -3870,9 +3845,6 @@ packages:
 
   retext-simplify@8.0.0:
     resolution: {integrity: sha512-epr9GOhYAqyG34WRpt6irnlNpG7TKZhxzZR2VsdgpfqTafy/VUo0GlnZAC8qXJNgi7y3ZQGC3bTYAUoNnWQorA==}
-
-  retext-spell@6.1.0:
-    resolution: {integrity: sha512-gUW1hrMIlm5pVI/tOZ/q+nb9hgBRf9DflQxNHdaJHDi3V5Ku8f2fg5OlMnX29NzIKq+NACNDeyGuGf+y2TgRLw==}
 
   retext-syntax-mentions@4.0.0:
     resolution: {integrity: sha512-5Zs47KXzk+p8aC8wrYhPOk951dDH30aZNIgq0nR+CcIpIoeogm3OfUZ4LYQ6XgNYYEDyM0iV6gTiHWIgfkuDow==}
@@ -4145,10 +4117,6 @@ packages:
     resolution: {integrity: sha512-uCC2VHvQRYu+lMh4My/sFNmF2klFymLX1wHJeXnbEJERpV/ZsVuonzerjfrGpIGF7LBVa1O7i9kjiWvJiFck8g==}
     engines: {node: '>=0.10.0'}
 
-  strip-comments@2.0.1:
-    resolution: {integrity: sha512-ZprKx+bBLXv067WTCALv8SSz5l2+XhpYCsVtSqlMnkAXMWDq+/ekVbl1ghqP9rUHTzv6sm/DwCOiYutU/yp1fw==}
-    engines: {node: '>=10'}
-
   stylehacks@8.0.2:
     resolution: {integrity: sha512-3d5vjQODiMc4VwED1w24fAYSfeAjdIRLy88cJQ9NAYkZr/6ozCVbusda5N+0kXsfGWW3pizUgYK2TOZxiU0cSQ==}
     engines: {node: ^22.11.0 || ^24.11.0 || >=26.0}
@@ -4377,9 +4345,6 @@ packages:
 
   unist-builder@2.0.3:
     resolution: {integrity: sha512-f98yt5pnlMWlzP539tPc4grGMsFaQQlP/vM396b00jngsiINumNmsY8rkXjfoi1c6QaM8nQ3vaGDuoKWbe/1Uw==}
-
-  unist-util-find-before@4.0.1:
-    resolution: {integrity: sha512-hfpCNqPbCOseOjHU8oBkRXM8gDQ++Ua3dN7sDYz7VJ+1alt+yd/I+ECZDhv1aqpJ1x47AHbzP/xA0jWf4omAIw==}
 
   unist-util-inspect@8.1.0:
     resolution: {integrity: sha512-mOlg8Mp33pR0eeFpo5d2902ojqFFOKMMG2hF8bmH7ZlhnmjFgh0NI3/ZDwdaBJNbvrS7LZFVrBVtIE9KZ9s7vQ==}
@@ -6212,8 +6177,6 @@ snapshots:
     dependencies:
       dequal: 2.0.3
 
-  dictionary-en@4.0.0: {}
-
   dom-serializer@1.4.1:
     dependencies:
       domelementtype: 2.3.0
@@ -6914,8 +6877,6 @@ snapshots:
   is-binary-path@2.1.0:
     dependencies:
       binary-extensions: 2.3.0
-
-  is-buffer@2.0.5: {}
 
   is-core-module@2.16.2:
     dependencies:
@@ -7795,10 +7756,6 @@ snapshots:
       spawn-command-with-kill: 1.0.2
       type-detect: 4.1.0
       yargs: 14.2.0
-
-  nspell@2.1.5:
-    dependencies:
-      is-buffer: 2.0.5
 
   nth-check@2.1.1:
     dependencies:
@@ -9010,15 +8967,6 @@ snapshots:
       unist-util-visit: 5.1.0
       vfile: 6.0.3
 
-  retext-passive@5.0.0:
-    dependencies:
-      '@types/nlcst': 2.0.3
-      nlcst-search: 4.0.0
-      nlcst-to-string: 4.0.0
-      unist-util-find-before: 4.0.1
-      unist-util-position: 5.0.0
-      vfile: 6.0.3
-
   retext-profanities@8.0.0:
     dependencies:
       '@types/nlcst': 2.0.3
@@ -9069,17 +9017,6 @@ snapshots:
       nlcst-to-string: 4.0.0
       quotation: 2.0.3
       unist-util-position: 5.0.0
-      vfile: 6.0.3
-
-  retext-spell@6.1.0:
-    dependencies:
-      '@types/nlcst': 2.0.3
-      nlcst-is-literal: 3.0.0
-      nlcst-to-string: 4.0.0
-      nspell: 2.1.5
-      quotation: 2.0.3
-      unified: 11.0.5
-      unist-util-visit: 5.1.0
       vfile: 6.0.3
 
   retext-syntax-mentions@4.0.0:
@@ -9410,8 +9347,6 @@ snapshots:
       ansi-regex: 6.2.2
 
   strip-bom-string@1.0.0: {}
-
-  strip-comments@2.0.1: {}
 
   stylehacks@8.0.2(postcss@8.5.26):
     dependencies:
@@ -9749,11 +9684,6 @@ snapshots:
       vfile: 6.0.3
 
   unist-builder@2.0.3: {}
-
-  unist-util-find-before@4.0.1:
-    dependencies:
-      '@types/unist': 3.0.3
-      unist-util-is: 6.0.1
 
   unist-util-inspect@8.1.0:
     dependencies:

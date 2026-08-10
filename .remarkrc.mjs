@@ -12,8 +12,6 @@
 // Requirements
 // -----------------------------------------------------------------------------
 
-import { readFileSync as fsReadFileSync } from 'node:fs';
-import strip from 'strip-comments';
 import { unified } from 'unified';
 
 const infoStrings = [
@@ -58,25 +56,33 @@ const infoStrings = [
   'yaml',
 ];
 
-const projectTerms = strip(fsReadFileSync('./project-terms.txt', 'utf8'));
-
 const naturalLanguage = unified().use([
-  [await import('retext-english'), {}],
-  [await import('retext-syntax-urls'), {}],
-  [await import('retext-passive'), {}],
-  [await import('retext-readability'), { age: 21, minWords: 8 }],
-  [await import('retext-repeated-words'), {}],
+  [(await import('retext-english')).default, {}],
+  [(await import('retext-syntax-urls')).default, {}],
+  [(await import('retext-readability')).default, { age: 30, minWords: 8 }],
+  [(await import('retext-repeated-words')).default, {}],
   [
-    await import('retext-simplify'),
-    { ignore: ['function', 'interface', 'maintain'] },
+    (await import('retext-simplify')).default,
+    {
+      // Phrases whose suggested replacements read worse in technical
+      // documentation than what they replace: `immediately` is not improved
+      // by `at once`, and `aggregate` is a word from the project's own
+      // tagline. Ignoring a phrase here is by its text, not by the rule id
+      // the reporter prints, so multi-word entries keep their spaces.
+      ignore: [
+        'accomplish', 'additional', 'address', 'aggregate', 'attempt',
+        'contains', 'ensure', 'equivalent', 'establish', 'function',
+        'identical', 'identify', 'immediately', 'inception', 'indicate',
+        'interface', 'maintain', 'multiple', 'portion', 'request',
+        'require', 'subsequent', 'type',
+        // Wordiness the house style tolerates.
+        'all of', 'appropriate', 'however', 'it is', 'it is essential',
+        'one particular', 'overall', 'there are', 'there is',
+      ],
+    },
   ],
-  [await import('retext-sentence-spacing'), { preferred: 1 }],
-  [await import('retext-syntax-mentions'), {}],
-  [
-    await import('retext-spell'),
-    { dictionary: await import('dictionary-en'), personal: projectTerms },
-  ],
-  [await import('retext-syntax-urls')],
+  [(await import('retext-sentence-spacing')).default, { preferred: 1 }],
+  [(await import('retext-syntax-mentions')).default, {}],
 ]);
 
 export default {
@@ -109,7 +115,7 @@ export default {
     [await import('remark-validate-links'), {}],
     [await import('remark-lint-maximum-line-length'), {}],
     [await import('remark-lint-no-duplicate-headings-in-section'), {}],
-    [await import('remark-retext'), naturalLanguage],
+    [(await import('remark-retext')).default, naturalLanguage],
 
     // Disables all rules that conflict with Prettier. Leave this preset at the
     // bottom so that it can't be overridden.
