@@ -1,44 +1,44 @@
 scripts:
   compile:
-    buildImages: tsx build/tasks/compile/build-images.mts
-    buildJs: tsx build/tasks/compile/build-js.mts
-    buildPortal: tsx build/tasks/compile/build-portal.mts
-    buildStyles: tsx build/tasks/compile/build-styles.mts
-    siteifyHealthFiles: tsx build/tasks/compile/siteify-health-files.mts
+    buildImages: node build/tasks/compile/build-images.mts
+    buildJs: node build/tasks/compile/build-js.mts
+    buildPortal: node build/tasks/compile/build-portal.mts
+    buildStyles: node build/tasks/compile/build-styles.mts
+    siteifyHealthFiles: node build/tasks/compile/siteify-health-files.mts
   verify:
     # Announces each task and names the ones that failed. Without this the
     # output is a wall of tool chatter with no indication of which of the
     # thirteen produced it.
-    all: 'rc=0; failed=; for i in build/tasks/verify/*.mts; do echo "==> $i"; tsx "$i" || { rc=1; failed="$failed $i"; }; done; [ -z "$failed" ] || echo "FAILED:$failed" >&2; exit $rc'
-    browserslist: tsx build/tasks/verify/verify-browserslist.mts
-    scss: tsx build/tasks/verify/verify-scss.mts
-    dockerfile: tsx build/tasks/verify/verify-dockerfile.mts
-    htmlValidForVNU: tsx build/tasks/verify/verify-html-valid-for-vnu.mts
-    js: tsx build/tasks/verify/verify-js.mts
-    json: tsx build/tasks/verify/verify-json.mts
-    liquid: tsx build/tasks/verify/verify-liquid.mts
-    md: tsx build/tasks/verify/verify-md.mts
-    ruby: tsx build/tasks/verify/verify-ruby.mts
-    svg: tsx build/tasks/verify/verify-svg.mts
-    toml: tsx build/tasks/verify/verify-toml.mts
-    ts: tsx build/tasks/verify/verify-ts.mts
-    validForEC: tsx build/tasks/verify/verify-valid-for-ec.mts
-    validForSC: tsx build/tasks/verify/verify-valid-for-sc.mts
-    yaml: tsx build/tasks/verify/verify-yaml.mts
+    all: 'rc=0; failed=; for i in build/tasks/verify/*.mts; do echo "==> $i"; node "$i" || { rc=1; failed="$failed $i"; }; done; [ -z "$failed" ] || echo "FAILED:$failed" >&2; exit $rc'
+    browserslist: node build/tasks/verify/verify-browserslist.mts
+    scss: node build/tasks/verify/verify-scss.mts
+    dockerfile: node build/tasks/verify/verify-dockerfile.mts
+    htmlValidForVNU: node build/tasks/verify/verify-html-valid-for-vnu.mts
+    js: node build/tasks/verify/verify-js.mts
+    json: node build/tasks/verify/verify-json.mts
+    liquid: node build/tasks/verify/verify-liquid.mts
+    md: node build/tasks/verify/verify-md.mts
+    ruby: node build/tasks/verify/verify-ruby.mts
+    svg: node build/tasks/verify/verify-svg.mts
+    toml: node build/tasks/verify/verify-toml.mts
+    ts: node build/tasks/verify/verify-ts.mts
+    validForEC: node build/tasks/verify/verify-valid-for-ec.mts
+    validForSC: node build/tasks/verify/verify-valid-for-sc.mts
+    yaml: node build/tasks/verify/verify-yaml.mts
   format:
-    all: 'rc=0; for i in build/tasks/format/*.mts; do tsx "$i" || rc=1; done; exit $rc'
-    scss: tsx build/tasks/format/format-scss.mts
-    dockerfile: tsx build/tasks/format/format-dockerfile.mts
-    js: tsx build/tasks/format/format-js.mts
-    json: tsx build/tasks/format/format-json.mts
-    liquid: tsx build/tasks/format/format-liquid.mts
-    md: tsx build/tasks/format/format-md.mts
-    ruby: tsx build/tasks/format/format-ruby.mts
-    svg: tsx build/tasks/format/format-svg.mts
-    toml: tsx build/tasks/format/format-toml.mts
-    ts: tsx build/tasks/format/format-ts.mts
-    yaml: tsx build/tasks/format/format-yaml.mts
+    all: 'rc=0; for i in build/tasks/format/*.mts; do node "$i" || rc=1; done; exit $rc'
+    scss: node build/tasks/format/format-scss.mts
+    dockerfile: node build/tasks/format/format-dockerfile.mts
+    js: node build/tasks/format/format-js.mts
+    json: node build/tasks/format/format-json.mts
+    liquid: node build/tasks/format/format-liquid.mts
+    md: node build/tasks/format/format-md.mts
+    ruby: node build/tasks/format/format-ruby.mts
+    svg: node build/tasks/format/format-svg.mts
+    toml: node build/tasks/format/format-toml.mts
+    ts: node build/tasks/format/format-ts.mts
+    yaml: node build/tasks/format/format-yaml.mts
   build: nps compile.buildPortal
   test: nps verify.all
-  start: tsx server.mts
+  start: node server.mts
   default: nps start
