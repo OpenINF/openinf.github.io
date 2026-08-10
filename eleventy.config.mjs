@@ -4,11 +4,6 @@ import markdownItFootnote from 'markdown-it-footnote';
 
 // skipcq: JS-0116
 export default async function (eleventyConfig) {
-  // Both of these have been dependencies without ever being handed to the
-  // markdown library, so the syntax they exist to support was being rendered
-  // by whatever markdown-it does in their absence: headings came out without
-  // ids, and a footnote reference fell back to being read as a link
-  // reference, printing its own `^2` marker mid-sentence.
   eleventyConfig.amendLibrary('md', (md) => {
     md.use(markdownItAnchor);
     md.use(markdownItFootnote);
