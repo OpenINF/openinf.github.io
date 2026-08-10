@@ -6,7 +6,7 @@ import cssnano from 'cssnano';
 import markdownItAnchor from 'markdown-it-anchor';
 import markdownItFootnote from 'markdown-it-footnote';
 import postcss from 'postcss';
-import * as sass from 'sass';
+import { compileString } from 'sass';
 
 // skipcq: JS-0116
 export default async function (eleventyConfig) {
@@ -44,13 +44,14 @@ export default async function (eleventyConfig) {
   eleventyConfig.addExtension('scss', {
     outputFileExtension: 'css',
     useLayouts: false,
-    compile: function (inputContent, inputPath) {
+    compile(inputContent, inputPath) {
       const parsed = pathParse(inputPath);
 
-      // Sass partials are compiled through whatever imports them.
-      if (parsed.name.startsWith('_')) return;
+      // Sass partials are compiled through whatever imports them, and
+      // returning undefined is how Eleventy is told to skip a file.
+      if (parsed.name.startsWith('_')) return undefined;
 
-      const result = sass.compileString(inputContent, {
+      const result = compileString(inputContent, {
         loadPaths: [parsed.dir || '.', this.config.dir.includes],
       });
 
