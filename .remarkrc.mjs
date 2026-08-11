@@ -56,6 +56,8 @@ const infoStrings = [
   'yaml',
 ];
 
+// These are handed straight to unified, which -- unlike remark-cli -- does not
+// resolve plugin names, so they have to be the functions themselves.
 const naturalLanguage = unified().use([
   [(await import('retext-english')).default, {}],
   [(await import('retext-syntax-urls')).default, {}],
@@ -87,38 +89,44 @@ const naturalLanguage = unified().use([
 
 export default {
   plugins: [
-    await import('remark-lint'),
+    'remark-lint',
     ['remark-gfm'],
     ['remark-frontmatter'],
-    [await import('remark-preset-lint-consistent'), {}],
+    ['remark-preset-lint-consistent', {}],
     // Leave this preset at the top so that it can be overridden.
-    [await import('remark-preset-lint-recommended'), {}],
+    ['remark-preset-lint-recommended', {}],
     [
-      await import('remark-lint-checkbox-character-style'),
+      'remark-lint-checkbox-character-style',
       {
         checked: 'x',
         unchecked: ' ',
       },
     ],
-    [await import('remark-lint-checkbox-content-indent')],
+    ['remark-lint-checkbox-content-indent'],
 
     // Remark Lint Style Guide preset and overrides.
-    [await import('remark-preset-lint-markdown-style-guide')],
+    ['remark-preset-lint-markdown-style-guide'],
     ['remark-lint-no-file-name-consecutive-dashes', true],
     ['remark-lint-fenced-code-flag', { flags: infoStrings }],
     ['remark-lint-no-heading-punctuation', ':.,;'],
     ['remark-lint-no-file-name-mixed-case', false],
     ['remark-lint-no-file-name-irregular-characters', false],
     ['remark-lint-first-heading-level', 2],
+    // GitHub renders these as callouts; to remark they look like references
+    // to definitions that were never written.
+    ['remark-lint-no-undefined-references', { allow: ['!NOTE', '!WARNING'] }],
+    // A bold label introducing a code sample is the house style here, not a
+    // heading that lost its hashes.
+    ['remark-lint-no-emphasis-as-heading', false],
 
     // Third-party plugins.
-    [await import('remark-validate-links'), {}],
-    [await import('remark-lint-maximum-line-length'), {}],
-    [await import('remark-lint-no-duplicate-headings-in-section'), {}],
-    [(await import('remark-retext')).default, naturalLanguage],
+    ['remark-validate-links', {}],
+    ['remark-lint-maximum-line-length', {}],
+    ['remark-lint-no-duplicate-headings-in-section', {}],
+    ['remark-retext', naturalLanguage],
 
     // Disables all rules that conflict with Prettier. Leave this preset at the
     // bottom so that it can't be overridden.
-    [await import('remark-preset-prettier'), {}],
+    ['remark-preset-prettier', {}],
   ],
 };
