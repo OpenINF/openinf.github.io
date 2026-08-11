@@ -1,7 +1,12 @@
+# pnpm 10 onwards reads .npmrc for auth and registry only, so settings have to
+# live here to have any effect. Every dependency in this repository is pinned,
+# and this is what keeps it that way.
+saveExact: true
+
 # pnpm 11 requires an explicit decision for every dependency that wants to run
-# an install script, and fails the install until it gets one. This repository
-# already asked for those scripts to be skipped -- `.npmrc` sets
-# `ignore-dep-scripts` -- so the answer is no across the board.
+# an install script, and fails the install until it gets one. The answer is no
+# across the board. (This used to cite `ignore-dep-scripts` in .npmrc as the
+# reason; pnpm never read it.)
 #
 # Nothing needs them. biome, dprint and esbuild ship their platform binaries as
 # optional dependencies rather than fetching them from a postinstall hook,
