@@ -10,6 +10,12 @@
     ":semanticCommitTypeAll(chore)",
     "schedule:earlyMondays",
   ],
+  // `config:best-practices` pulls in `abandonments:recommended`, which calls a
+  // package abandoned after a year without a release. Most of what that flags
+  // here is the unified ecosystem, where packages are small and finished
+  // rather than neglected -- 23 of the 49 it listed had shipped within the
+  // previous two years. Per-package community overrides still apply.
+  abandonmentThreshold: "2 years",
   groupName: "all",
   ignorePresets: [":prHourlyLimit2"],
   vulnerabilityAlerts: {
