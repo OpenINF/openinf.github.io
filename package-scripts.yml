@@ -15,12 +15,10 @@ scripts:
     json: node build/tasks/verify/verify-json.mts
     liquid: node build/tasks/verify/verify-liquid.mts
     md: node build/tasks/verify/verify-md.mts
-    ruby: node build/tasks/verify/verify-ruby.mts
     svg: node build/tasks/verify/verify-svg.mts
     toml: node build/tasks/verify/verify-toml.mts
     ts: node build/tasks/verify/verify-ts.mts
     validForEC: node build/tasks/verify/verify-valid-for-ec.mts
-    validForSC: node build/tasks/verify/verify-valid-for-sc.mts
     yaml: node build/tasks/verify/verify-yaml.mts
   format:
     all: 'rc=0; for i in build/tasks/format/*.mts; do node "$i" || rc=1; done; exit $rc'
@@ -30,7 +28,6 @@ scripts:
     json: node build/tasks/format/format-json.mts
     liquid: node build/tasks/format/format-liquid.mts
     md: node build/tasks/format/format-md.mts
-    ruby: node build/tasks/format/format-ruby.mts
     svg: node build/tasks/format/format-svg.mts
     toml: node build/tasks/format/format-toml.mts
     ts: node build/tasks/format/format-ts.mts
