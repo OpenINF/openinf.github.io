@@ -56,9 +56,9 @@ comprising our style guide handbook uses the CC BY-SA 4.0 license.
 
 <br />
 
-[!['Project Type: Prototype'][project-type-badge--shields]](./##)
-[!['Prototyping Scheme: Evolutionary'][prototyping-scheme-badge--shields]](./##)
-[!['Status: Under construction'][project-status-badge--shields]](./##)
+!['Project Type: Prototype'][project-type-badge--shields]
+!['Prototyping Scheme: Evolutionary'][prototyping-scheme-badge--shields]
+!['Status: Under construction'][project-status-badge--shields]
 
 <br /><br />
 
