@@ -28,7 +28,7 @@ export const exec = catchWrap(execute, 99);
  * @param {string} pattern The glob pattern to expand.
  * @returns {string} The pattern, expanded if it named a bare directory.
  */
-const expandDirPattern = (pattern) =>
+const expandDirPattern = (pattern: string) =>
   pattern.endsWith('/') ? `${pattern}**` : pattern;
 
 /**
@@ -39,7 +39,7 @@ const expandDirPattern = (pattern) =>
  * @param {string | string[]} patterns Glob patterns to include, optionally mixed with `!`-prefixed patterns to exclude.
  * @returns {Promise<string[]>} The matched file paths, relative to the cwd.
  */
-export async function glob(patterns) {
+export async function glob(patterns: string | string[]) {
   const include = [];
   const exclude = [];
 

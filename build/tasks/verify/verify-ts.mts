@@ -15,7 +15,10 @@ const tsFiles = await glob([
 ]);
 
 let exitCode = 0;
-const scripts = [`biome check ${tsFiles.join(' ')}`];
+// tsc reads its file list from tsconfig.json rather than taking one, and
+// `erasableSyntaxOnly` there is what stops syntax node refuses to strip from
+// reaching a task script.
+const scripts = [`biome check ${tsFiles.join(' ')}`, 'tsc --noEmit'];
 
 for (const element of scripts) {
   exitCode = await exec(element);

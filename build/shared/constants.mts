@@ -5,16 +5,16 @@
  * @module {type ES6Module} build/shared/constants
  */
 
-const PATHS = {};
+const PATHS = {
+  // Directory locations.
+  assetsDir: '_assets/', // The sources Eleventy compiles or copies.
+  eleventyAssetsDir: 'assets/', // Where those land in the built site.
+  siteDir: '_site/', // The resulting static site.
 
-// Directory locations.
-PATHS.assetsDir = '_assets/'; // The sources Eleventy compiles or copies.
-PATHS.eleventyAssetsDir = 'assets/'; // Where those land in the built site.
-PATHS.siteDir = '_site/'; // The resulting static site.
-
-// Folder naming conventions.
-PATHS.imageFolder = 'img';
-PATHS.scriptFolder = 'js';
-PATHS.stylesFolder = 'styles';
+  // Folder naming conventions.
+  imageFolder: 'img',
+  scriptFolder: 'js',
+  stylesFolder: 'styles',
+};
 
 export { PATHS };
