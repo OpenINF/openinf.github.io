@@ -4,7 +4,7 @@
     "erasableSyntaxOnly": true,
     "typeRoots": ["${configDir}/node_modules/@types"]
   },
-  // Without this the project takes in the built site and the vendored script
+  // Without this the project takes in the built site and the vendored scripts
   // as well. That costs nothing while only .ts and .mts are read, but it means
   // anyone reaching for allowJs starts type-checking build output and
   // third-party code by accident.
