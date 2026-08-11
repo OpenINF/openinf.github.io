@@ -3,6 +3,12 @@
 # and this is what keeps it that way.
 saveExact: true
 
+# engines pins an exact node and pnpm, and this is what makes the pins mean
+# something. Both workflows now let corepack resolve the pinned pnpm from
+# packageManager rather than activating whatever is latest, which this would
+# otherwise reject the day pnpm publishes.
+engineStrict: true
+
 # pnpm 11 requires an explicit decision for every dependency that wants to run
 # an install script, and fails the install until it gets one. The answer is no
 # across the board. (This used to cite `ignore-dep-scripts` in .npmrc as the

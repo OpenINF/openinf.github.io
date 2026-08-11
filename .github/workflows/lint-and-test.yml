@@ -16,8 +16,10 @@ jobs:
           node-version-file: 'package.json'
       - name: Install
         run: |
+          # Corepack prompts before fetching the pinned pnpm, and there is
+          # no terminal here to answer it. packageManager names the version.
+          export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
           corepack enable
-          corepack prepare pnpm@latest --activate
           pnpm install
           echo "$(pwd)/node_modules/.bin" >> $GITHUB_PATH
       - name: Build
