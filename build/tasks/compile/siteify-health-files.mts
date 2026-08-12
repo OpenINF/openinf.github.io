@@ -48,7 +48,7 @@ const importHealthFiles = async () => {
  * @param {string} file
  * @returns {string}
  */
-const getHealthFileContents = (file) => {
+const getHealthFileContents = (file: string) => {
   const healthFilePath = nodePath.join(ghFileImporterOptions.destDir, file);
 
   if (!existsSync(healthFilePath)) {
@@ -64,12 +64,20 @@ const getHealthFileContents = (file) => {
  * @param {string} destDir
  * @param {!(Object | undefined)} frontmatterOverrides
  */
-const siteifyFile = (file, destDir, frontmatterOverrides = {}) => {
+const siteifyFile = (
+  file: string,
+  destDir: string,
+  frontmatterOverrides = {}
+) => {
   let title = '';
   let healthFileContents = getHealthFileContents(file);
 
   try {
-    title = healthFileContents.match(/^#{1,2} (.*)$/m)[1];
+    const heading = healthFileContents.match(/^#{1,2} (.*)$/m);
+
+    if (heading === null) throw new Error(`${file} opens with no heading`);
+
+    title = heading[1];
     // Lifting the title out leaves the layout to render it, so it goes. Only
     // the first heading does: the `g` this once carried would take every
     // heading of the same level with it, which since OpenINF/.github#885 is
@@ -136,6 +144,6 @@ for (const value of healthFiles) {
       });
       break;
     default:
-      siteifyFile(value);
+      throw new Error(`${value} has no destination configured`);
   }
 }
