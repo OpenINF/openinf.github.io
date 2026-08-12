@@ -28,7 +28,13 @@
       "installGradle": false
     },
     // .gitattributes routes archives, images and fonts through LFS.
-    "ghcr.io/devcontainers/features/git-lfs:1": {}
+    "ghcr.io/devcontainers/features/git-lfs:1": {},
+    // Reading and opening pull requests without leaving the container. This
+    // installs the binary only: `gh` keeps its own credentials and does not
+    // read git's, so a first use still wants `gh auth login`. The token the
+    // editor supplies to git is not a substitute -- `gh auth login
+    // --with-token` rejects it for want of the `read:org` scope.
+    "ghcr.io/devcontainers/features/github-cli:1": {}
   },
 
   // Eleventy's dev server, started by `pnpm start`, serves on 3000.
