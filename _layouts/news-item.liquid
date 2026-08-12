@@ -47,7 +47,7 @@ body_classes:
     </article>
     {%- assign prev_post = collections.posts | getPreviousCollectionItem -%}
     {%- assign next_post = collections.posts | getNextCollectionItem -%}
-    <nav class='single-post-pager'>
+    <nav class='single-post-pager' aria-label='Post'>
       {% if prev_post %}
         <a class='pager-link newer-post' href='{{ prev_post.url }}'>
           <span class='pager-direction'>Newer</span>
