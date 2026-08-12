@@ -113,8 +113,12 @@ export default {
     ['remark-lint-no-file-name-irregular-characters', false],
     ['remark-lint-first-heading-level', 2],
     // GitHub renders these as callouts; to remark they look like references
-    // to definitions that were never written.
-    ['remark-lint-no-undefined-references', { allow: ['!NOTE', '!WARNING'] }],
+    // to definitions that were never written. All five it supports are listed,
+    // not just the two in use, so reaching for another is not a lint failure.
+    [
+      'remark-lint-no-undefined-references',
+      { allow: ['!CAUTION', '!IMPORTANT', '!NOTE', '!TIP', '!WARNING'] },
+    ],
     // A bold label introducing a code sample is the house style here, not a
     // heading that lost its hashes.
     ['remark-lint-no-emphasis-as-heading', false],
