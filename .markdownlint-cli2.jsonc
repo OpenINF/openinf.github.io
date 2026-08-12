@@ -2,9 +2,6 @@
   // Include a custom rule package
   "customRules": [],
 
-  // Fix any fixable errors
-  "fix": true,
-
   // Define glob expressions to use (only valid at root)
   "globs": ["**.md"],
 
