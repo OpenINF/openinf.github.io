@@ -71,5 +71,24 @@
       commitMessagePrefix: "build(deps-dev):",
       labels: ["dependencies", "build", "deps-dev"],
     },
+    // `config:best-practices` already waits, through
+    // `security:minimumReleaseAgeNpm`, but only three days and only for npm --
+    // leaving the action digests and the URL-pinned dprint plugins with no
+    // wait at all. A preset's rules are merged ahead of these, and the last
+    // matching rule wins, so raising the figure has to happen here.
+    {
+      description: "Let a new release be looked at before taking it",
+      matchPackageNames: ["*"],
+      minimumReleaseAge: "7 days",
+    },
+    {
+      // Restores what the preset set and the rule above would undo: renovate
+      // cannot apply the wait to the transitive versions a lockfile refresh
+      // picks up. pnpm enforces it there instead, during the install renovate
+      // runs to produce the branch.
+      description: "Lock file maintenance resolves through the package manager",
+      matchUpdateTypes: ["lockFileMaintenance"],
+      minimumReleaseAge: null,
+    },
   ],
 }
