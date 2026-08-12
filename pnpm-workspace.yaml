@@ -1,24 +1,23 @@
-# pnpm 11 requires an explicit decision for every dependency that wants to run
-# an install script, and fails the install until it gets one. This repository
-# already asked for those scripts to be skipped -- `.npmrc` sets
-# `ignore-dep-scripts` -- so the answer is no across the board.
-#
-# Nothing needs them. biome, dprint and esbuild ship their platform binaries as
-# optional dependencies rather than fetching them from a postinstall hook,
-# vnu-jar ships its jar inside the package, and es5-ext's script only prints a
-# funding notice. Verified by running the full build and the verify tasks with
-# every one of these denied.
+# pnpm 10 onwards reads .npmrc for auth and registry only; everything else
+# belongs here.
+saveExact: true
+
+# Makes the exact node and pnpm in engines requirements rather than notes.
+engineStrict: true
+
+# pnpm wants an explicit decision for every dependency that asks to run an
+# install script, and fails until it gets one. The answer is no throughout:
+# nothing here needs a script to work, because the binaries either arrive as
+# optional dependencies per platform or ship inside the package. Confirm that
+# with a full build and the verify tasks before allowing any.
 allowBuilds:
   '@biomejs/biome': false
   '@parcel/watcher': false
   dprint: false
   es5-ext: false
-  esbuild: false
   vnu-jar: false
 
-# The dprint VS Code extension resolves its executable from
-# node_modules/@dprint/<platform>. That package is an optionalDependency of
-# dprint, so pnpm keeps it in the virtual store where the extension cannot see
-# it -- which is why the extension used to need a separately installed dprint.
+# The dprint VS Code extension looks for node_modules/@dprint/<platform>, which
+# pnpm keeps in the virtual store where the extension cannot see it.
 publicHoistPattern:
   - '@dprint/*'
