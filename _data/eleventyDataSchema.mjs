@@ -1,10 +1,11 @@
 import { z } from 'zod';
 import { fromZodError } from 'zod-validation-error';
-// Eleventy calls whatever a data file exports and keeps the result, so this
-// has to hand back the validator rather than be it. Exporting the validator
-// directly meant Eleventy ran it once over the global data and stored the
-// undefined it returned, leaving every page unvalidated.
-export default () => (data) => {
+
+/**
+ * Checks one page's data, and is handed every page's in turn by Eleventy.
+ * @param {object} data The data cascade for a single template.
+ */
+const validate = (data) => {
   // Draft content, validate `draft` front matter
   const result = z
     .object({
@@ -14,7 +15,14 @@ export default () => (data) => {
       draft: z.boolean().optional(),
     })
     .safeParse(data);
+
   if (result.error) {
     throw fromZodError(result.error);
   }
 };
+
+// A file in `_data/` is named after the key it provides, and Eleventy calls
+// whatever it exports to find the value. So this exports a function that
+// returns the validator; exporting the validator itself made Eleventy run it
+// once, against the global data, and store the undefined that came back.
+export default () => validate;
