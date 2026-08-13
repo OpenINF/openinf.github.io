@@ -41,12 +41,11 @@ const expandDirPattern = (pattern: string) =>
  * A dot directory nested inside another (`.a/.b/`) is past what the syntax
  * can express; there is none here, and one would have to be named outright.
  * @param {string} pattern The glob pattern to widen.
- * @returns {string} The pattern, with its wildcards made dot-aware.
+ * @returns {string[]} Patterns which between them match what the one did, dot names included.
  */
 const expandDotPattern = (pattern: string) => {
   const segments = pattern.split('/');
-
-  return segments
+  const widened = segments
     .map((segment, index) => {
       if (segment === '**') return '{**,**/.*/**}';
 
@@ -57,6 +56,13 @@ const expandDotPattern = (pattern: string) => {
       return isBasename && segment.startsWith('*') ? `{,.}${segment}` : segment;
     })
     .join('/');
+
+  // A pattern whose own tail is `**` -- which is what naming a directory
+  // expands to -- has no basename segment to have been widened, so the dot
+  // files directly beneath it need a pattern of their own.
+  return segments.at(-1) === '**'
+    ? [widened, `${segments.slice(0, -1).join('/')}/**/{,.}*`]
+    : [widened];
 };
 
 /**
@@ -79,7 +85,7 @@ export async function glob(patterns: string | string[]) {
     if (pattern.startsWith('!')) {
       exclude.push(expandDirPattern(pattern.slice(1)));
     } else {
-      include.push(expandDotPattern(expandDirPattern(pattern)));
+      include.push(...expandDotPattern(expandDirPattern(pattern)));
     }
   }
 
