@@ -29,7 +29,12 @@ const tracked = execFileSync('git', ['ls-files', '--stage', '-z'], {
  * @returns {Promise<boolean>} Whether the file opens with `#!`.
  */
 const hasShebang = async (path: string) => {
-  const file = await open(path);
+  // Tracked but not on disk, which is what a half-finished `git rm` or an
+  // interrupted checkout leaves behind. Nothing to read, and the mode of a
+  // file that is not there is not this task's argument to make.
+  const file = await open(path).catch(() => undefined);
+
+  if (file === undefined) return undefined;
 
   try {
     const { buffer, bytesRead } = await file.read(Buffer.alloc(2), 0, 2, 0);
@@ -49,6 +54,8 @@ for (const { mode, path } of tracked) {
 
   const executable = mode === '100755';
   const runnable = await hasShebang(path);
+
+  if (runnable === undefined) continue;
 
   if (executable && !runnable) {
     offenders.push(`  ${path} is executable but has no \`#!\` line`);
