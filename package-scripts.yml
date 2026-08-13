@@ -19,6 +19,7 @@ scripts:
     svg: node build/tasks/verify/verify-svg.mts
     toml: node build/tasks/verify/verify-toml.mts
     ts: node build/tasks/verify/verify-ts.mts
+    unit: node build/tasks/verify/verify-unit.mts
     validForEC: node build/tasks/verify/verify-valid-for-ec.mts
     yaml: node build/tasks/verify/verify-yaml.mts
   format:
