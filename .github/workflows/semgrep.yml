@@ -2,12 +2,12 @@ on:
   pull_request: {}
   push:
     branches:
-    - main
-    - master
+      - main
+      - master
     paths:
-    - .github/workflows/semgrep.yml
+      - .github/workflows/semgrep.yml
   schedule:
-  - cron: '0 0 * * 0'
+    - cron: '0 0 * * 0'
 name: Semgrep
 jobs:
   semgrep:
@@ -18,5 +18,5 @@ jobs:
     container:
       image: returntocorp/semgrep@sha256:98c2572fced2474539fd27cab3207ebd8e95e4e7aab4c3b381fdc5e2641d9941 # latest
     steps:
-    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-    - run: semgrep ci
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - run: semgrep ci
