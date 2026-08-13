@@ -54,6 +54,7 @@ export const BODY_MAX = 72;
 export const TRAILER_ORDER = [
   'Co-authored-by',
   'Signed-off-by',
+  'Assisted-by',
   'PR-URL',
   'Fixes',
   'Refs',
@@ -104,6 +105,14 @@ const countGraphemes = (text: string) =>
  * trailer is recognised as one and can be reported as misspelt.
  */
 const TRAILER_LINE = /^(?<token>[A-Za-z][\w-]*):[ \t]*(?<value>.*)$/;
+
+/**
+ * `Assisted-by` names a tool, not a person, and so takes neither a name nor an
+ * address: the Linux kernel defines it as `AGENT_NAME:MODEL_VERSION` followed
+ * by any specialised analysis tools, and nodejs/node lands it that way. Basic
+ * development tools are left out.
+ */
+const ASSISTED_BY_VALUE = /^\S+:\S+( \S+)*$/;
 
 /**
  * Checks the subject against the vocabulary and the length limit.
@@ -240,13 +249,23 @@ const checkTrailers = (lines: string[]) => {
 
   if (isTrailerBlock) {
     for (const line of last) {
-      const token = line.match(TRAILER_LINE)?.groups?.token;
+      const found = line.match(TRAILER_LINE)?.groups;
+      const token = found?.token;
 
       if (token === undefined) {
         problems.push(
           `“${line}” sits among the trailers without being one; that disqualifies the whole block`
         );
         continue;
+      }
+
+      if (
+        token.toLowerCase() === 'assisted-by' &&
+        !ASSISTED_BY_VALUE.test(found?.value ?? '')
+      ) {
+        problems.push(
+          `“Assisted-by: ${found?.value}” names a tool, not a person: write it as agent:model-version, as in “Assisted-by: Claude-Code:claude-opus-5”`
+        );
       }
 
       // Case is part of the spelling. git and GitHub would match these either

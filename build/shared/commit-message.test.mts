@@ -180,6 +180,27 @@ describe('validateCommitMessage: the trailers', () => {
     );
   });
 
+  test('accepts an assistant named the way the kernel defines it', () => {
+    deepStrictEqual(
+      validateCommitMessage(
+        '🏗️🔧：fix it\n\nAssisted-by: Claude-Code:claude-opus-5'
+      ),
+      []
+    );
+  });
+
+  test('rejects an assistant written as a person', () => {
+    // What this repository had been carrying. `Assisted-by` names a tool, so
+    // an address makes a claim about authorship that the trailer exists to
+    // avoid making.
+    match(
+      soleProblem(
+        '🏗️🔧：fix it\n\nAssisted-by: Claude Opus 5 <noreply@anthropic.com>'
+      ),
+      /names a tool, not a person/
+    );
+  });
+
   test('rejects a token this project does not use', () => {
     match(
       soleProblem('🏗️🔧：fix it\n\nCloses: https://x/1'),

@@ -94,6 +94,7 @@ Metadata goes at the end, as git trailers: one paragraph, every line of the form
 | :---------------- | :----------------------------------------- |
 | `Co-authored-by:` | someone who wrote part of the change       |
 | `Signed-off-by:`  | a Developer Certificate of Origin sign-off |
+| `Assisted-by:`    | an AI tool that helped write it            |
 | `PR-URL:`         | the pull request the commit landed through |
 | `Fixes:`          | an issue this closes                       |
 | `Refs:`           | an issue or pull request worth reading     |
@@ -107,6 +108,29 @@ throughout rather than about being understood.
 
 `PR-URL:` and `Reviewed-by:` are added when the commit lands. The others belong
 in the commit as you write it.
+
+### Disclosing an AI assistant
+
+An AI tool that helped write a change is disclosed with `Assisted-by:`, and
+takes neither a name nor an address, because it names a tool rather than a
+person:
+
+```text
+Assisted-by: agent-name:model-version [tool] [tool]
+```
+
+The trailing tools are for specialized analysis tools, if any were used;
+everyday ones — git, a compiler, an editor — are left out. For example:
+
+```text
+Assisted-by: Claude-Code:claude-opus-5
+```
+
+`Co-authored-by:` is for people. An assistant does not go there, and does
+**not** get a `Signed-off-by:` either: only a human can certify the [Developer
+Certificate of Origin][], and saying a tool helped is not a transfer of
+responsibility. You are answerable for every line in your pull request, whatever
+wrote it.
 
 > [!WARNING]\
 > git only looks for trailers in the **last** paragraph of the message, and only
@@ -137,6 +161,7 @@ template][].
 <!-- prettier-ignore-start -->
 <!-- LINK DEFINITION LABELS - START -->
 
+[Developer Certificate of Origin]: https://developercertificate.org/
 [pull request template]: https://github.com/OpenINF/openinf.github.io/blob/HEAD/.github/PULL_REQUEST_TEMPLATE.md
 
 <!-- LINK DEFINITION LABELS - END -->
