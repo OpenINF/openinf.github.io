@@ -57,7 +57,7 @@ export const TRAILER_ORDER = [
   'PR-URL',
   'Fixes',
   'Refs',
-  'Reviewed-By',
+  'Reviewed-by',
 ];
 
 /** U+FF1A, which separates the emoji from the description. */

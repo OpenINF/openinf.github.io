@@ -126,7 +126,7 @@ describe('validateCommitMessage: the trailers', () => {
   test('accepts a block in the documented order', () => {
     deepStrictEqual(
       validateCommitMessage(
-        '🏗️🔧：fix it\n\nCo-authored-by: A <a@b>\nPR-URL: https://x/1\nReviewed-By: B <b@c>'
+        '🏗️🔧：fix it\n\nCo-authored-by: A <a@b>\nPR-URL: https://x/1\nReviewed-by: B <b@c>'
       ),
       []
     );
@@ -159,7 +159,7 @@ describe('validateCommitMessage: the trailers', () => {
 
   test('rejects trailers out of order', () => {
     match(
-      soleProblem('🏗️🔧：fix it\n\nReviewed-By: B <b@c>\nPR-URL: https://x/1'),
+      soleProblem('🏗️🔧：fix it\n\nReviewed-by: B <b@c>\nPR-URL: https://x/1'),
       /out of order/
     );
   });

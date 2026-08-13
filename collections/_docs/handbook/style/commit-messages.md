@@ -97,13 +97,15 @@ Metadata goes at the end, as git trailers: one paragraph, every line of the form
 | `PR-URL:`         | the pull request the commit landed through |
 | `Fixes:`          | an issue this closes                       |
 | `Refs:`           | an issue or pull request worth reading     |
-| `Reviewed-By:`    | someone who approved it, as `Name <email>` |
+| `Reviewed-by:`    | someone who approved it, as `Name <email>` |
 
-Spell them exactly as above, including the capitals. git and GitHub match
-trailer tokens without regard for case, so this is about a history that reads
-the same throughout rather than about being understood.
+Spell them exactly as above, including the lowercase `by`. That is what git
+generates for `Signed-off-by`, what GitHub documents for `Co-authored-by`, and
+what the Linux kernel established for all of them. git and GitHub would match a
+token whatever its case, so this is about a history that reads the same
+throughout rather than about being understood.
 
-`PR-URL:` and `Reviewed-By:` are added when the commit lands. The others belong
+`PR-URL:` and `Reviewed-by:` are added when the commit lands. The others belong
 in the commit as you write it.
 
 > [!WARNING]\
