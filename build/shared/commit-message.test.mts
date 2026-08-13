@@ -44,9 +44,17 @@ describe('validateCommitMessage: the subject', () => {
     match(soleProblem('🦄：fix the thing'), /not a category emoji/);
   });
 
-  test('rejects a bare character where an emoji is meant', () => {
-    // U+1F3D7 without U+FE0F is drawn as text, and is a different string.
-    match(soleProblem('🏗🔧：fix the thing'), /not a category emoji/);
+  test('names the text form for what it is', () => {
+    // 🏗🔧 means an infrastructure fix as plainly as 🏗️🔧 does. It is still
+    // the wrong string: U+1F3D7 on its own is drawn as a flat glyph, so the
+    // complaint has to be about the selector and not about the vocabulary.
+    match(soleProblem('🏗🔧：fix the thing'), /is the text form of “🏗️”/);
+  });
+
+  test('rejects a variation selector that is not needed', () => {
+    // ♿ is drawn as an emoji already, so a U+FE0F after it is a second
+    // spelling of the same thing.
+    match(soleProblem('♿️：name the landmarks'), /does not need; drop it/);
   });
 
   test('counts an emoji as the one character it looks like', () => {
@@ -124,11 +132,12 @@ describe('validateCommitMessage: the trailers', () => {
     );
   });
 
-  test('does not mind the case of a token', () => {
-    // git and GitHub match these without regard for case.
-    deepStrictEqual(
-      validateCommitMessage('🏗️🔧：fix it\n\nCo-Authored-By: A <a@b>'),
-      []
+  test('insists on the documented spelling of a token', () => {
+    // git and GitHub would match this either way; the point is a history that
+    // reads the same throughout.
+    match(
+      soleProblem('🏗️🔧：fix it\n\nCo-Authored-By: A <a@b>'),
+      /is spelt “Co-authored-by:” here/
     );
   });
 
@@ -211,6 +220,23 @@ describe('validateCommitMessage: against what landed', () => {
 });
 
 describe('the vocabulary', () => {
+  test('is spelt so that every entry is drawn as an emoji', () => {
+    // A character whose default rendering is text needs U+FE0F, and one that
+    // is already an emoji must not carry a redundant one. Either mistake is a
+    // second spelling of the same symbol.
+    for (const emoji of [...Object.keys(CATEGORIES), ...Object.keys(ACTIONS)]) {
+      const [base = ''] = [...emoji];
+      const selected = emoji.endsWith('️');
+      const drawnAsEmoji = /\p{Emoji_Presentation}/u.test(base);
+
+      deepStrictEqual(
+        selected,
+        !drawnAsEmoji,
+        `${emoji} ${selected ? 'has' : 'lacks'} U+FE0F but its base character ${drawnAsEmoji ? 'is' : 'is not'} drawn as an emoji`
+      );
+    }
+  });
+
   test('matches the list contributors are shown', async () => {
     // The template is where the emoji are documented, so drift between it and
     // the rules is worth failing over rather than discovering in review.

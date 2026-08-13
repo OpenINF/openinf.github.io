@@ -60,6 +60,39 @@ export const TRAILER_ORDER = [
 /** U+FF1A, which separates the emoji from the description. */
 const IDEOGRAPHIC_COLON = '：';
 
+/** U+FE0F, which asks for the emoji rendering of a character that has two. */
+const EMOJI_SELECTOR = '️';
+
+const VOCABULARY = { ...CATEGORIES, ...ACTIONS };
+
+/**
+ * The spellings that mean the right thing but are not the right string, kept
+ * so that they can be reported as themselves rather than as gibberish. A
+ * character with two renderings gets the text one by default -- `🏗` is the
+ * same character as `🏗️` and not the same emoji, and a terminal or a browser
+ * will draw it as flat monochrome glyph.
+ */
+const NEAR_MISSES = new Map(
+  Object.keys(VOCABULARY).map((emoji) =>
+    emoji.endsWith(EMOJI_SELECTOR)
+      ? [emoji.slice(0, -EMOJI_SELECTOR.length), emoji]
+      : [`${emoji}${EMOJI_SELECTOR}`, emoji]
+  )
+);
+
+/**
+ * Says how a near miss differs from the spelling the vocabulary uses.
+ * @param {string} cluster What was written.
+ * @returns {string} A description of the difference.
+ */
+const describeNearMiss = (cluster: string) => {
+  const intended = NEAR_MISSES.get(cluster) ?? '';
+
+  return intended.endsWith(EMOJI_SELECTOR)
+    ? `“${cluster}” is the text form of “${intended}”; it needs U+FE0F after it to be drawn as an emoji`
+    : `“${cluster}” carries a U+FE0F that “${intended}” does not need; drop it`;
+};
+
 const countGraphemes = (text: string) =>
   [...new Intl.Segmenter().segment(text)].length;
 
@@ -102,15 +135,23 @@ const checkSubject = (subject: string) => {
       const [first, second] = clusters;
 
       if (first !== undefined && !(first in CATEGORIES)) {
-        problems.push(
-          first in ACTIONS
-            ? `“${first}” is an action, not a category; a category comes first`
-            : `“${first}” is not a category emoji`
-        );
+        if (NEAR_MISSES.has(first)) {
+          problems.push(describeNearMiss(first));
+        } else if (first in ACTIONS) {
+          problems.push(
+            `“${first}” is an action, not a category; a category comes first`
+          );
+        } else {
+          problems.push(`“${first}” is not a category emoji`);
+        }
       }
 
       if (second !== undefined && !(second in ACTIONS)) {
-        problems.push(`“${second}” is not an action emoji`);
+        problems.push(
+          NEAR_MISSES.has(second)
+            ? describeNearMiss(second)
+            : `“${second}” is not an action emoji`
+        );
       }
     }
 
@@ -206,18 +247,22 @@ const checkTrailers = (lines: string[]) => {
         continue;
       }
 
-      const canonical = TRAILER_ORDER.find(
-        (known) => known.toLowerCase() === token.toLowerCase()
-      );
+      // Case is part of the spelling. git and GitHub would match these either
+      // way, so this is about a history that reads the same throughout rather
+      // than about being understood.
+      if (!TRAILER_ORDER.includes(token)) {
+        const canonical = TRAILER_ORDER.find(
+          (known) => known.toLowerCase() === token.toLowerCase()
+        );
 
-      // Case is not checked. git and GitHub both match trailer tokens without
-      // regard for it, so insisting would be churn for no effect -- and the
-      // landing tooling writes these, which is where consistency comes from.
-      if (canonical === undefined) {
-        problems.push(`“${token}:” is not a trailer this project uses`);
+        problems.push(
+          canonical === undefined
+            ? `“${token}:” is not a trailer this project uses`
+            : `“${token}:” is spelt “${canonical}:” here`
+        );
       }
 
-      tokens.push(canonical ?? token);
+      tokens.push(token);
     }
 
     const ranks = tokens
