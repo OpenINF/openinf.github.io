@@ -5,6 +5,13 @@ saveExact: true
 # Makes the exact node and pnpm in engines requirements rather than notes.
 engineStrict: true
 
+# A week, in minutes, between a version being published and this project
+# installing it -- covering the transitive versions a lockfile refresh picks
+# up, which is past what renovate can hold back. Setting this turns on
+# minimumReleaseAgeStrict, so an immature pick fails the install rather than
+# quietly adding itself to minimumReleaseAgeExclude.
+minimumReleaseAge: 10080
+
 # pnpm wants an explicit decision for every dependency that asks to run an
 # install script, and fails until it gets one. The answer is no throughout:
 # nothing here needs a script to work, because the binaries either arrive as

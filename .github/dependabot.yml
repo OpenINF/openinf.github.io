@@ -5,3 +5,8 @@ updates:
     schedule:
       interval: daily
     open-pull-requests-limit: 10
+    # A week between a version being published and being proposed here, which
+    # is the window in which a compromised release tends to be caught and
+    # pulled. Security updates are not held back by this.
+    cooldown:
+      default-days: 7

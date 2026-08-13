@@ -35,7 +35,7 @@
     "browserslist-lint": "0.4.0",
     "console-log-level": "1.4.1",
     "cspell": "10.0.1",
-    "cssnano": "8.0.4",
+    "cssnano": "8.0.3",
     "dprint": "0.55.2",
     "editorconfig-checker": "6.1.1",
     "js-yaml": "5.2.3",
@@ -48,7 +48,7 @@
     "markdownlint-cli2": "0.23.2",
     "markdownlint-cli2-formatter-default": "0.0.6",
     "nps": "5.10.0",
-    "postcss": "8.5.26",
+    "postcss": "8.5.25",
     "prettier": "3.9.6",
     "remark": "15.0.1",
     "remark-cli": "12.0.1",
@@ -86,7 +86,7 @@
     "stylelint-config-standard-scss": "17.0.0",
     "typescript": "7.0.2",
     "unified": "11.0.5",
-    "vnu-jar": "26.8.6",
+    "vnu-jar": "26.8.4",
     "zod": "4.4.3",
     "zod-validation-error": "5.0.0"
   }
