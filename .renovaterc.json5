@@ -59,9 +59,6 @@
 
   packageRules: [
     {
-      matchUpdateTypes: ["minor", "patch", "pin", "digest"],
-    },
-    {
       matchDepTypes: ["dependencies"],
       commitMessagePrefix: "chore(deps):",
       labels: ["dependencies", "deps-prod"],
