@@ -1,0 +1,42 @@
+# The title and description of a pull request are written by whoever opened
+# it, so both are read from the environment rather than interpolated into a
+# command: a title pasted into a shell is a title that can run as code.
+#
+# Actions are pinned by commit, never by tag.
+name: Pull Request Policy
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+
+# A title is often fixed two or three times in a row. Only the last attempt
+# is worth reporting on.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  title_and_description:
+    name: Title and description
+    # Renovate writes `chore(deps): …` and dependabot writes `Bump x from y to
+    # z`. Neither is this project's format, and neither is ours to change --
+    # the same allowance verify.commits makes for their commit messages.
+    if: ${{ !endsWith(github.event.pull_request.user.login, '[bot]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out project repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Set up Node.js runtime
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: 'package.json'
+      # No install step: the task imports one module from this package and
+      # nothing from node_modules, and node resolves that by itself.
+      - name: Verify title and description
+        run: node build/tasks/verify-pull-request.mts
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
