@@ -21,6 +21,7 @@ const FIXTURE = [
   'a.md',
   '.hidden.md', // a dot file beside ordinary ones
   'sub/b.md',
+  'sub/.hidden-too.md', // a dot file under a directory named outright
   'sub/nested/c.md',
   '.dotdir/d.md', // a dot directory to descend through
   '.dotdir/deep/e.md',
@@ -71,8 +72,11 @@ describe('glob', () => {
 
   test('a trailing slash covers a whole subtree, not one entry', async () => {
     // `sub/` on its own matches the directory and nothing in it, which is
-    // never what naming a directory is meant to mean.
+    // never what naming a directory is meant to mean. Dot files included:
+    // the pattern this expands to has no basename for the dot alternative to
+    // attach to, so they went missing until it was given one of its own.
     deepStrictEqual(sorted(await glob('sub/')), [
+      'sub/.hidden-too.md',
       'sub/b.md',
       'sub/nested/c.md',
     ]);
