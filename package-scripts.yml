@@ -8,6 +8,7 @@ scripts:
     # produced it.
     all: 'rc=0; failed=; for i in build/tasks/verify/*.mts; do echo "==> $i"; node "$i" || { rc=1; failed="$failed $i"; }; done; [ -z "$failed" ] || echo "FAILED:$failed" >&2; exit $rc'
     browserslist: node build/tasks/verify/verify-browserslist.mts
+    commits: node build/tasks/verify/verify-commits.mts
     scss: node build/tasks/verify/verify-scss.mts
     dockerfile: node build/tasks/verify/verify-dockerfile.mts
     fileModes: node build/tasks/verify/verify-file-modes.mts
