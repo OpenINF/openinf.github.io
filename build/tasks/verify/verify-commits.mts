@@ -11,6 +11,12 @@ import {
   validateCommitMessage,
 } from '@openinf/portal/build/commit-message';
 
+/**
+ * A GitHub app commits as `<id>+<name>[bot]@users.noreply.github.com`, and the
+ * `[bot]` is the part that is reserved -- an account cannot be named with it.
+ */
+const BOT_AUTHOR = /\[bot\]@users\.noreply\.github\.com$/;
+
 const git = (...args: string[]) =>
   execFileSync('git', args, { encoding: 'utf8' }).trim();
 
@@ -52,8 +58,18 @@ if (base === '') {
     .split('\n')
     .filter(Boolean);
   let failed = 0;
+  let skipped = 0;
 
   for (const sha of shas) {
+    // Renovate writes `chore(deps): …` and dependabot writes `Bump x from y
+    // to z`, neither of which is this format, and neither of which is theirs
+    // to change. Holding them to it would leave every dependency update
+    // failing its checks and, since they automerge on green, never landing.
+    if (BOT_AUTHOR.test(git('log', '-1', '--format=%ae', sha))) {
+      skipped += 1;
+      continue;
+    }
+
     const message = git('log', '-1', '--format=%B', sha);
     const problems = validateCommitMessage(message);
 
@@ -81,8 +97,11 @@ if (base === '') {
     }
   }
 
+  const checked = shas.length - skipped;
+
   console.log(
-    `Checked ${shas.length} commit${shas.length === 1 ? '' : 's'} in ${range}.`
+    `Checked ${checked} commit${checked === 1 ? '' : 's'} in ${range}` +
+      (skipped > 0 ? `, leaving ${skipped} written by a bot.` : '.')
   );
 
   if (failed > 0) process.exitCode = 1;
