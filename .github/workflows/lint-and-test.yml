@@ -10,6 +10,10 @@ jobs:
     steps:
       - name: Check out project repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # `verify.commits` compares against the base branch, which a
+          # single-commit checkout does not contain.
+          fetch-depth: 0
       - name: Set up Node.js runtime
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -62,6 +66,11 @@ jobs:
             yaml:
               - '**/*.yml'
               - '**/*.yaml'
+
+      # Not behind a filter: every pull request has commit messages, whatever
+      # it touches.
+      - name: Verify commit messages
+        run: nps verify.commits
 
       # Use the filter to check if files with a specific file type were changed
       # in the PR. If they were, run the relevant linters. Otherwise, skip.

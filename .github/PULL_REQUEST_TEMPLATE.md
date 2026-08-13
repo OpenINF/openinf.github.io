@@ -34,7 +34,15 @@ https://github.com/OpenINF/.github/blob/HEAD/CONTRIBUTING.md.
 
 ## Emojis for categorizing pull requests
 
-_Copy and paste one of the following emoji into description_
+The title becomes the subject of the commit that lands, so it has to hold
+to the same rules. They are written up, with the reasoning, at
+https://open.inf.is/docs/handbook/style/commit-messages/ -- in short: a
+category emoji, then optionally an action, then `：` (U+FF1A), then what
+the change does, in 50 characters or fewer and with no `#NNNN` on the end.
+
+_Copy and paste one of the following emoji into description_ -- copy
+rather than type, since some have a lookalike spelling that is not the
+one recognized here.
 
 🏷️ meta
 🐋 dev container
