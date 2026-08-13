@@ -6,11 +6,13 @@
  */
 
 import { deepStrictEqual, match, ok } from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
 import { readFile } from 'node:fs/promises';
 import { describe, test } from 'node:test';
 import {
   ACTIONS,
   CATEGORIES,
+  readTrailers,
   validateCommitMessage,
 } from '@openinf/portal/build/commit-message';
 
@@ -173,10 +175,53 @@ describe('validateCommitMessage: the trailers', () => {
     );
   });
 
-  test('rejects prose mixed into the block', () => {
+  test('rejects prose mixed in with a trailer', () => {
     match(
       soleProblem('🏗️🔧：fix it\n\nPR-URL: https://x/1\nand one more thing'),
-      /without being one/
+      /not all trailers, so git reads none of them/
+    );
+  });
+
+  test('leaves a closing paragraph of prose alone', () => {
+    // git reads no trailers in a paragraph that is not all trailers, so
+    // neither does this. Rejecting it was a false positive found in review:
+    // any commit ending on an explanatory line with a colon in it was refused.
+    deepStrictEqual(
+      validateCommitMessage(
+        '🏗️🔧：fix it\n\nCloses the loop.\n\nNote: this only affects staging.\nNothing else changes here.'
+      ),
+      []
+    );
+  });
+
+  test('allows a trailer folded onto an indented line', () => {
+    // git's own syntax for a long trailer value, and it parses this as one
+    // trailer. Rejecting it was a false positive found in review.
+    deepStrictEqual(
+      validateCommitMessage(
+        '🏗️🔧：fix it\n\nCo-authored-by: Jane Doe\n    <jane@example.com>'
+      ),
+      []
+    );
+  });
+
+  test('judges a message with carriage returns the same way', () => {
+    // git reads trailers straight through CRLF. Before this, a `\r` made the
+    // blank line look non-blank and hid every trailer problem behind it.
+    match(
+      soleProblem(
+        '🏗️🔧：fix it\r\n\r\nBody line.\r\n\r\nReviewed-by: A <a@e>\r\nPR-URL: https://x/1\r\n'
+      ),
+      /out of order/
+    );
+  });
+
+  test('does not mind a trailer repeated', () => {
+    deepStrictEqual(
+      validateCommitMessage(
+        '🏗️🔧：fix it\n\nCo-authored-by: A <a@e>\nCo-authored-by: B <b@e>\nReviewed-by: C <c@e>\nReviewed-by: D <d@e>'
+      ),
+      []
     );
   });
 
@@ -237,6 +282,41 @@ describe('validateCommitMessage: against what landed', () => {
     ok(problems.some((problem) => /one side of it/.test(problem)));
     ok(problems.some((problem) => /the limit is 50/.test(problem)));
     ok(problems.some((problem) => /PR-URL:` carries that/.test(problem)));
+  });
+});
+
+describe('readTrailers', () => {
+  test('agrees with git about where the trailers are', () => {
+    // The rules describe git's behaviour, so git is the thing to check them
+    // against. Every disagreement found in review is in this table.
+    const messages = [
+      '🏗️🔧：fix it',
+      '🏗️🔧：fix it\n\nPR-URL: https://x/1',
+      '🏗️🔧：fix it\n\nCo-authored-by: A <a@e>\nPR-URL: https://x/1',
+      '🏗️🔧：fix it\n\nCo-authored-by: Jane Doe\n    <jane@example.com>',
+      '🏗️🔧：fix it\n\nNote: only staging.\nNothing else changes.',
+      '🏗️🔧：fix it\n\nPR-URL: https://x/1\nand one more thing',
+      '🏗️🔧：fix it\n\nrefs: not a trailer\n\nThe body.',
+      '🏗️🔧：fix it\r\n\r\nBody.\r\n\r\nPR-URL: https://x/1\r\n',
+      '🏗️🔧：fix it\n\n-------\n\nPR-URL: https://x/1',
+      '🏗️🔧：fix it\n\nPR URL: https://x/1\nReviewed-by: A <a@e>',
+      '🏗️🔧：fix it\n\nhttps://example.com/p',
+    ];
+
+    for (const message of messages) {
+      const theirs = execFileSync('git', ['interpret-trailers', '--parse'], {
+        encoding: 'utf8',
+        input: message,
+      })
+        .split('\n')
+        .filter(Boolean);
+
+      deepStrictEqual(
+        readTrailers(message).length,
+        theirs.length,
+        `git reads ${theirs.length} trailers in ${JSON.stringify(message)}`
+      );
+    }
   });
 });
 

@@ -114,6 +114,43 @@ const TRAILER_LINE = /^(?<token>[A-Za-z][\w-]*):[ \t]*(?<value>.*)$/;
  */
 const ASSISTED_BY_VALUE = /^\S+:\S+( \S+)*$/;
 
+/** git folds a trailer whose value runs onto an indented line beneath it. */
+const CONTINUATION_LINE = /^\s/;
+
+/**
+ * Splits a message body into paragraphs of non-empty lines.
+ * @param {string[]} lines Every line after the subject.
+ * @returns {string[][]} The paragraphs, in order.
+ */
+const paragraphsOf = (lines: string[]) =>
+  lines
+    .join('\n')
+    .split(/\n{2,}/)
+    .map((paragraph) => paragraph.split('\n').filter(Boolean))
+    .filter((paragraph) => paragraph.length > 0);
+
+/**
+ * Reads the trailer block out of a message, agreeing with git about whether
+ * there is one: the last paragraph, every line of it either a trailer or a
+ * continuation of the one above, and the first of them a trailer. A paragraph
+ * that merely contains a colon somewhere is prose, and git reads no trailers
+ * in it -- so neither does this.
+ * @param {string} message The whole commit message.
+ * @returns {string[]} The trailer lines, one per trailer, empty if there is no block.
+ */
+export function readTrailers(message: string) {
+  const [, ...rest] = message.replace(/[\r\n]+$/, '').split(/\r?\n/);
+  const last = paragraphsOf(rest).at(-1) ?? [];
+  const isBlock =
+    last.length > 0 &&
+    TRAILER_LINE.test(last[0] ?? '') &&
+    last.every(
+      (line) => TRAILER_LINE.test(line) || CONTINUATION_LINE.test(line)
+    );
+
+  return isBlock ? last.filter((line) => !CONTINUATION_LINE.test(line)) : [];
+}
+
 /**
  * Checks the subject against the vocabulary and the length limit.
  * @param {string} subject The first line of the message.
@@ -202,11 +239,7 @@ const checkSubject = (subject: string) => {
  */
 const checkTrailers = (lines: string[]) => {
   const problems: string[] = [];
-  const paragraphs = lines
-    .join('\n')
-    .split(/\n{2,}/)
-    .map((paragraph) => paragraph.split('\n').filter(Boolean))
-    .filter((paragraph) => paragraph.length > 0);
+  const paragraphs = paragraphsOf(lines);
   const last = paragraphs.at(-1) ?? [];
 
   // `PR URL:` is the mistake worth naming outright: the space means git reads
@@ -245,19 +278,29 @@ const checkTrailers = (lines: string[]) => {
   }
 
   const tokens: string[] = [];
-  const isTrailerBlock = last.some((line) => TRAILER_LINE.test(line));
+  const block = readTrailers(['', ...lines].join('\n'));
 
-  if (isTrailerBlock) {
+  // A last paragraph that is not a clean block is prose, and git reads no
+  // trailers in it. Saying so is only worth doing for a line that was plainly
+  // meant as one of ours, since it is going unread.
+  if (block.length === 0) {
     for (const line of last) {
-      const found = line.match(TRAILER_LINE)?.groups;
-      const token = found?.token;
+      const token = line.match(TRAILER_LINE)?.groups?.token ?? '';
 
-      if (token === undefined) {
+      if (
+        TRAILER_ORDER.some(
+          (known) => known.toLowerCase() === token.toLowerCase()
+        )
+      ) {
         problems.push(
-          `“${line}” sits among the trailers without being one; that disqualifies the whole block`
+          `“${token}:” sits in a paragraph that is not all trailers, so git reads none of them`
         );
-        continue;
       }
+    }
+  } else {
+    for (const line of block) {
+      const found = line.match(TRAILER_LINE)?.groups;
+      const token = found?.token ?? '';
 
       if (
         token.toLowerCase() === 'assisted-by' &&
@@ -309,8 +352,10 @@ const checkTrailers = (lines: string[]) => {
  */
 export function validateCommitMessage(message: string) {
   // A trailing newline is how git hands the message over and says nothing
-  // about the message itself.
-  const lines = message.replace(/\n+$/, '').split('\n');
+  // about the message itself. Carriage returns say nothing either: git reads
+  // trailers through them, so a message written on Windows must not be judged
+  // differently from the same message written anywhere else.
+  const lines = message.replace(/[\r\n]+$/, '').split(/\r?\n/);
   const [subject = '', ...rest] = lines;
   const problems = checkSubject(subject);
 

@@ -7,7 +7,7 @@
 
 import { execFileSync } from 'node:child_process';
 import {
-  TRAILER_ORDER,
+  readTrailers,
   validateCommitMessage,
 } from '@openinf/portal/build/commit-message';
 
@@ -66,17 +66,11 @@ if (base === '') {
     })
       .split('\n')
       .filter(Boolean);
-    const expected = message
-      .split('\n')
-      .filter((line) =>
-        TRAILER_ORDER.some((token) =>
-          line.toLowerCase().startsWith(`${token.toLowerCase()}:`)
-        )
-      );
+    const expected = readTrailers(message);
 
     if (problems.length === 0 && parsed.length !== expected.length) {
       problems.push(
-        `git reads ${parsed.length} of the ${expected.length} trailer lines here; the rest are not where it looks`
+        `git reads ${parsed.length} trailers here where the rules read ${expected.length}; the two have drifted apart`
       );
     }
 
