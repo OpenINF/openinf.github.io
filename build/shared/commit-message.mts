@@ -8,9 +8,12 @@
 /**
  * What the change is about. Kept in step with the list in
  * .github/PULL_REQUEST_TEMPLATE.md, which is where a contributor reads it;
- * a test fails if the two drift apart. Several are text-default characters
- * that need U+FE0F to be drawn as emoji, so the selector is part of the
- * vocabulary rather than an optional flourish.
+ * a test fails if the two drift apart.
+ *
+ * Each is spelt so that it is drawn as an emoji and no more: the characters
+ * that would otherwise come out as flat text carry U+FE0F, and the ones
+ * already drawn in colour do not carry one they have no use for. A test holds
+ * the list to that.
  */
 export const CATEGORIES: Record<string, string> = {
   '🏷️': 'meta',
@@ -60,17 +63,18 @@ export const TRAILER_ORDER = [
 /** U+FF1A, which separates the emoji from the description. */
 const IDEOGRAPHIC_COLON = '：';
 
-/** U+FE0F, which asks for the emoji rendering of a character that has two. */
+/** The invisible character that distinguishes two spellings of one emoji. */
 const EMOJI_SELECTOR = '️';
 
-const VOCABULARY = { ...CATEGORIES, ...ACTIONS };
+/** Where the emoji are laid out for copying. */
+const HANDBOOK_URL = 'https://open.inf.is/docs/handbook/style/commit-messages/';
+
+const VOCABULARY: Record<string, string> = { ...CATEGORIES, ...ACTIONS };
 
 /**
- * The spellings that mean the right thing but are not the right string, kept
- * so that they can be reported as themselves rather than as gibberish. A
- * character with two renderings gets the text one by default -- `🏗` is the
- * same character as `🏗️` and not the same emoji, and a terminal or a browser
- * will draw it as flat monochrome glyph.
+ * Emoji that come out of a keyboard or a picker looking right while being a
+ * different string from the one the vocabulary uses. The answer is always to
+ * copy the emoji rather than to reason about which spelling it is.
  */
 const NEAR_MISSES = new Map(
   Object.keys(VOCABULARY).map((emoji) =>
@@ -81,16 +85,14 @@ const NEAR_MISSES = new Map(
 );
 
 /**
- * Says how a near miss differs from the spelling the vocabulary uses.
+ * Points at the spelling to use, since the two look alike.
  * @param {string} cluster What was written.
- * @returns {string} A description of the difference.
+ * @returns {string} What to write instead.
  */
 const describeNearMiss = (cluster: string) => {
   const intended = NEAR_MISSES.get(cluster) ?? '';
 
-  return intended.endsWith(EMOJI_SELECTOR)
-    ? `“${cluster}” is the text form of “${intended}”; it needs U+FE0F after it to be drawn as an emoji`
-    : `“${cluster}” carries a U+FE0F that “${intended}” does not need; drop it`;
+  return `“${cluster}” is not the emoji for ${VOCABULARY[intended]}; copy “${intended}” from ${HANDBOOK_URL}`;
 };
 
 const countGraphemes = (text: string) =>

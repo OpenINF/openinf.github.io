@@ -40,9 +40,9 @@ https://open.inf.is/docs/handbook/style/commit-messages/ -- in short: a
 category emoji, then optionally an action, then `：` (U+FF1A), then what
 the change does, in 50 characters or fewer and with no `#NNNN` on the end.
 
-_Copy and paste one of the following emoji into description_ -- copying
-matters, since five of them are drawn as plain glyphs without the
-variation selector that comes with them here.
+_Copy and paste one of the following emoji into description_ -- copy
+rather than type, since some have a lookalike spelling that is not the
+one recognized here.
 
 🏷️ meta
 🐋 dev container

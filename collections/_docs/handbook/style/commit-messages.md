@@ -37,6 +37,10 @@ Every subject opens with a category emoji saying what area the change is in. A
 second emoji may follow to say what is being done to it; leave it off when no
 single action fits.
 
+**Copy the emoji from the tables below rather than typing them.** Several have
+more than one spelling that looks identical, and only the one here is
+recognized.
+
 Categories:
 
 | Emoji | Area                     |
@@ -70,16 +74,8 @@ Actions:
 The category comes first. `🔧：` on its own is rejected: it says what is
 happening without saying where.
 
-> [!IMPORTANT]\
-> Five of these characters have two renderings, and the one you get by default
-> is the wrong one. `🏗` and `🏗️` are the same character, but only the second
-> carries U+FE0F to ask for the emoji; the first is drawn as a flat monochrome
-> glyph. Copy the emoji from this page rather than typing them, and the selector
-> comes along.
-
-The five that need U+FE0F are 🏷️, 🏗️, ⚕️, ❄️ and ♻️. The rest already draw as
-emoji, and must **not** carry a selector — a redundant one is a second spelling
-of the same symbol.
+If `nps verify.commits` says an emoji is not the right one when it looks right,
+that is the lookalike problem — copy it from the table again.
 
 ## Body
 

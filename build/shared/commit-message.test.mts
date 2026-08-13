@@ -44,17 +44,17 @@ describe('validateCommitMessage: the subject', () => {
     match(soleProblem('🦄：fix the thing'), /not a category emoji/);
   });
 
-  test('names the text form for what it is', () => {
-    // 🏗🔧 means an infrastructure fix as plainly as 🏗️🔧 does. It is still
-    // the wrong string: U+1F3D7 on its own is drawn as a flat glyph, so the
-    // complaint has to be about the selector and not about the vocabulary.
-    match(soleProblem('🏗🔧：fix the thing'), /is the text form of “🏗️”/);
+  // The two emoji below are deliberately the wrong spelling -- they are what
+  // the check has to catch, so leave them be.
+  test('points at the emoji to copy when a lookalike is used', () => {
+    // 🏗🔧 means an infrastructure fix as plainly as 🏗️🔧 does, and is a
+    // different string. Saying so is not worth a paragraph about Unicode: the
+    // message shows what to copy.
+    match(soleProblem('🏗🔧：fix the thing'), /copy “🏗️” from https:/);
   });
 
-  test('rejects a variation selector that is not needed', () => {
-    // ♿ is drawn as an emoji already, so a U+FE0F after it is a second
-    // spelling of the same thing.
-    match(soleProblem('♿️：name the landmarks'), /does not need; drop it/);
+  test('does the same for the other direction', () => {
+    match(soleProblem('♿️：name the landmarks'), /copy “♿” from https:/);
   });
 
   test('counts an emoji as the one character it looks like', () => {
@@ -220,10 +220,11 @@ describe('validateCommitMessage: against what landed', () => {
 });
 
 describe('the vocabulary', () => {
-  test('is spelt so that every entry is drawn as an emoji', () => {
-    // A character whose default rendering is text needs U+FE0F, and one that
-    // is already an emoji must not carry a redundant one. Either mistake is a
-    // second spelling of the same symbol.
+  test('is spelt so that every entry is drawn as an emoji, and no more', () => {
+    // Two ways to get this wrong, and both leave a second spelling of one
+    // symbol: a character that needs U+FE0F to be drawn in colour and does
+    // not carry it, and one drawn in colour already that carries a selector
+    // it has no use for.
     for (const emoji of [...Object.keys(CATEGORIES), ...Object.keys(ACTIONS)]) {
       const [base = ''] = [...emoji];
       const selected = emoji.endsWith('️');
@@ -232,7 +233,9 @@ describe('the vocabulary', () => {
       deepStrictEqual(
         selected,
         !drawnAsEmoji,
-        `${emoji} ${selected ? 'has' : 'lacks'} U+FE0F but its base character ${drawnAsEmoji ? 'is' : 'is not'} drawn as an emoji`
+        drawnAsEmoji
+          ? `${emoji} carries a selector it does not need`
+          : `${emoji} is drawn as text without a selector`
       );
     }
   });
