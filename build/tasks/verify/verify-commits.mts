@@ -7,6 +7,7 @@
 
 import { execFileSync } from 'node:child_process';
 import {
+  checkSignOff,
   readTrailers,
   validateCommitMessage,
 } from '@openinf/portal/build/commit-message';
@@ -71,7 +72,10 @@ if (base === '') {
     }
 
     const message = git('log', '-1', '--format=%B', sha);
-    const problems = validateCommitMessage(message);
+    const problems = [
+      ...validateCommitMessage(message),
+      ...checkSignOff(message, git('log', '-1', '--format=%an <%ae>', sha)),
+    ];
 
     // git has the final say on what counts as a trailer, so the rules above
     // are cross-checked against it rather than trusted on their own. A

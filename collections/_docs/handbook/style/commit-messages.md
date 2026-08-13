@@ -109,6 +109,13 @@ throughout rather than about being understood.
 `PR-URL:` and `Reviewed-by:` are added when the commit lands. The others belong
 in the commit as you write it.
 
+`Signed-off-by:` is **required**, and has to name the commit's own author —
+`git commit -s` writes it for you. It is how you certify the [Developer
+Certificate of Origin][]: that you have the right to contribute this change. A
+tool cannot do that on your behalf, and neither can a bot, which is why the
+check compares the name against the author rather than merely looking for the
+line.
+
 ### Disclosing an AI assistant
 
 An AI tool that helped write a change is disclosed with `Assisted-by:`, and

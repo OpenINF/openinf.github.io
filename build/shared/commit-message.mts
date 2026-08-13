@@ -386,3 +386,30 @@ export function validateCommitMessage(message: string) {
 
   return problems;
 }
+
+/**
+ * Checks that a human certified the change. Only the person named as author
+ * can do that: an assistant discloses itself with `Assisted-by` and does not
+ * sign anything, and a bot certifying on someone's behalf is the thing this
+ * exists to stop.
+ * @param {string} message The whole commit message.
+ * @param {string} author The commit's author, as `Name <email>`.
+ * @returns {string[]} What is wrong with it, empty if nothing.
+ */
+export function checkSignOff(message: string, author: string) {
+  const signed = readTrailers(message)
+    .filter((line) => /^Signed-off-by:/.test(line))
+    .map((line) => line.slice(line.indexOf(':') + 1).trim());
+
+  if (signed.length === 0) {
+    return [
+      `no “Signed-off-by: ${author}”; the Developer Certificate of Origin is certified by the author, and “Assisted-by:” is what discloses a tool`,
+    ];
+  }
+
+  return signed.includes(author)
+    ? []
+    : [
+        `\`Signed-off-by:\` names ${signed.join(', ')}, but the author is ${author}`,
+      ];
+}
