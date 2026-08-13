@@ -9,6 +9,7 @@
     "pnpm": "11.20.0"
   },
   "exports": {
+    "./build/commit-message": "./build/shared/commit-message.mts",
     "./build/constants": "./build/shared/constants.mts",
     "./build/utils": "./build/utils.mts"
   },
