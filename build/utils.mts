@@ -76,10 +76,17 @@ const expandDotPattern = (pattern: string) => {
  */
 export async function glob(patterns: string | string[]) {
   const include = [];
-  // Matching dot names is what puts `.git/` in reach of a plain `**`, and no
-  // task has any business reading it. Excluded directories are pruned whole,
-  // dot entries included, so callers need not widen their own exclusions.
-  const exclude = ['.git/**'];
+  // Matching dot names is what puts these in reach of a plain `**`, and no
+  // task has any business reading either. Excluded directories are pruned
+  // whole, dot entries included, so callers need not widen their own
+  // exclusions.
+  //
+  // `.pnpm-store/` is the package store, which lives in the project because
+  // the home directory is on another filesystem and hard links cannot cross
+  // one. It holds other people's files, including the copy of pnpm that
+  // `packageManager` asks for, so a check that reads it is checking the
+  // registry rather than this repository.
+  const exclude = ['.git/**', '.pnpm-store/**'];
 
   for (const pattern of [patterns].flat()) {
     if (pattern.startsWith('!')) {

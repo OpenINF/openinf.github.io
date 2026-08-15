@@ -8,5 +8,10 @@
       "path": "./project-terms.txt"
     }
   ],
-  "ignorePaths": ["_site/**", "node_modules/**", "**/COPYING.md"]
+  "ignorePaths": [
+    "_site/**",
+    "node_modules/**",
+    ".pnpm-store/**",
+    "**/COPYING.md"
+  ]
 }
