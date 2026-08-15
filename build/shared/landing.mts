@@ -11,7 +11,7 @@
  * the repositories in this organization do not agree on that yet.
  */
 
-import { TRAILER_ORDER } from '@openinf/portal/build/commit-message';
+import { linesOf, TRAILER_ORDER } from '@openinf/portal/build/commit-message';
 
 /** One commit's message, split into the parts a landed message reuses. */
 export type CommitParts = {
@@ -30,9 +30,7 @@ const tokenOf = (line: string) => line.match(/^([A-Za-z][\w-]*):/)?.[1] ?? '';
  * @returns {CommitParts} Its subject, its body, and the trailers it carried.
  */
 export function partsOfMessage(message: string): CommitParts {
-  const [subject = '', ...rest] = message
-    .replace(/[\r\n]+$/, '')
-    .split(/\r?\n/);
+  const [subject = '', ...rest] = linesOf(message);
   const body: string[] = [];
   const trailers: string[] = [];
 

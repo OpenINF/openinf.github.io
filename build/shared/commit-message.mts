@@ -96,8 +96,13 @@ const describeNearMiss = (cluster: string) => {
   return `“${cluster}” is not the emoji for ${VOCABULARY[intended]}; copy “${intended}” from ${HANDBOOK_URL}`;
 };
 
-const countGraphemes = (text: string) =>
-  [...new Intl.Segmenter().segment(text)].length;
+/**
+ * One segmenter, not one per line. Building a new one for every line of a
+ * message is most of the time spent reading a long one.
+ */
+const SEGMENTER = new Intl.Segmenter();
+
+const countGraphemes = (text: string) => [...SEGMENTER.segment(text)].length;
 
 /**
  * A trailer is `Token: value` with no whitespace in the token. Written out
@@ -112,10 +117,33 @@ const TRAILER_LINE = /^(?<token>[A-Za-z][\w-]*):[ \t]*(?<value>.*)$/;
  * by any specialised analysis tools, and nodejs/node lands it that way. Basic
  * development tools are left out.
  */
-const ASSISTED_BY_VALUE = /^\S+:\S+( \S+)*$/;
+const ASSISTED_BY_VALUE = /^[^\s:]+:\S+( \S+)*$/;
 
 /** git folds a trailer whose value runs onto an indented line beneath it. */
 const CONTINUATION_LINE = /^\s/;
+
+/**
+ * Splits a commit message into its lines, without the blank ones git leaves
+ * at the end. Written as a scan rather than as `/[\r\n]+$/`, which takes time
+ * proportional to the square of the run of newlines it is asked about: a
+ * message is written by whoever opened the pull request, so a million of them
+ * is a thing somebody can send.
+ * @param {string} message The whole commit message.
+ * @returns {string[]} Its lines, however they were ended.
+ */
+export function linesOf(message: string) {
+  let end = message.length;
+
+  while (end > 0) {
+    const last = message[end - 1];
+
+    if (last !== '\n' && last !== '\r') break;
+
+    end -= 1;
+  }
+
+  return message.slice(0, end).split(/\r?\n/);
+}
 
 /**
  * Splits a message body into paragraphs of non-empty lines.
@@ -139,7 +167,7 @@ const paragraphsOf = (lines: string[]) =>
  * @returns {string[]} The trailer lines, one per trailer, empty if there is no block.
  */
 export function readTrailers(message: string) {
-  const [, ...rest] = message.replace(/[\r\n]+$/, '').split(/\r?\n/);
+  const [, ...rest] = linesOf(message);
   const last = paragraphsOf(rest).at(-1) ?? [];
   const isBlock =
     last.length > 0 &&
@@ -169,7 +197,7 @@ const checkSubject = (subject: string) => {
     const description = subject.slice(colon + IDEOGRAPHIC_COLON.length);
     // The variation selector belongs to the character before it, so the
     // prefix has to be read as grapheme clusters and not code points.
-    const clusters = [...new Intl.Segmenter().segment(prefix)].map(
+    const clusters = [...SEGMENTER.segment(prefix)].map(
       (entry) => entry.segment
     );
 
@@ -355,7 +383,7 @@ export function validateCommitMessage(message: string) {
   // about the message itself. Carriage returns say nothing either: git reads
   // trailers through them, so a message written on Windows must not be judged
   // differently from the same message written anywhere else.
-  const lines = message.replace(/[\r\n]+$/, '').split(/\r?\n/);
+  const lines = linesOf(message);
   const [subject = '', ...rest] = lines;
   const problems = checkSubject(subject);
 
