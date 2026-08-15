@@ -1,0 +1,76 @@
+# Landing a pull request when it is labelled `commit-queue`.
+#
+# `pull_request_target` runs in the context of the base branch and can reach
+# secrets, which `pull_request` cannot do for a fork. That is only safe
+# because nothing here checks out or executes the pull request's code: the
+# checkout below is the base branch, and the branch under review is fetched
+# only so that its commit messages can be read. Never add a build, an install
+# or a test step to this workflow -- those belong in the checks it waits for,
+# which run without a token that can write anything.
+#
+# Actions are pinned by commit, never by tag.
+name: Commit Queue
+
+on:
+  pull_request_target:
+    types: [labeled]
+
+permissions:
+  contents: read
+
+# Two labels applied in quick succession should not race each other into the
+# same merge.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  land:
+    name: Land
+    if: github.event.label.name == 'commit-queue'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mint a token for the app
+        id: token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.LAND_APP_ID }}
+          private-key: ${{ secrets.LAND_APP_PRIVATE_KEY }}
+
+      - name: Check out the base branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # The base, deliberately, not the pull request. Full history so that
+          # the range between the two can be read.
+          ref: ${{ github.event.pull_request.base.ref }}
+          fetch-depth: 0
+
+      - name: Set up Node.js runtime
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: 'package.json'
+
+      - name: Fetch the commits under review
+        env:
+          NUMBER: ${{ github.event.pull_request.number }}
+        run: git fetch --quiet origin "pull/${NUMBER}/head"
+
+      - name: Land it
+        id: land
+        env:
+          GH_TOKEN: ${{ steps.token.outputs.token }}
+          # Whoever applied the label, whose right to push is checked before
+          # anything is merged. Applying a label needs only triage.
+          LAND_ACTOR: ${{ github.event.sender.login }}
+          NUMBER: ${{ github.event.pull_request.number }}
+        run: node build/tasks/land-pull-request.mts "${NUMBER}"
+
+      - name: Say why it did not land
+        if: failure()
+        env:
+          GH_TOKEN: ${{ steps.token.outputs.token }}
+          NUMBER: ${{ github.event.pull_request.number }}
+          RUN: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh pr edit "$NUMBER" --remove-label commit-queue
+          gh pr comment "$NUMBER" --body "The commit queue did not land this. See $RUN — the label has been removed, so re-apply it once the reason is dealt with."

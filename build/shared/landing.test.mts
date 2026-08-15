@@ -10,6 +10,7 @@ import { execFileSync } from 'node:child_process';
 import { describe, test } from 'node:test';
 import { validateCommitMessage } from '@openinf/portal/build/commit-message';
 import {
+  checksVerdict,
   composeLandingMessage,
   partsOfMessage,
 } from '@openinf/portal/build/landing';
@@ -172,6 +173,71 @@ describe('the message that comes out', () => {
         `🏗️✨：one\n\n${composeLandingMessage(parts, URL_)}`
       ).join(),
       /the limit is 72/
+    );
+  });
+});
+
+describe('checksVerdict', () => {
+  const run = (
+    name: string,
+    conclusion: string | null,
+    status = 'completed'
+  ) => ({
+    name,
+    status,
+    conclusion,
+  });
+
+  test('says nothing when everything passed', () => {
+    deepStrictEqual(checksVerdict([run('Lint and test', 'success')], []), '');
+  });
+
+  test('counts anything still running against it', () => {
+    // A label applied while a check was in flight says nothing about how that
+    // check turned out.
+    match(
+      checksVerdict([run('Lint and test', null, 'in_progress')], []),
+      /have not finished: Lint and test/
+    );
+  });
+
+  test('reports a failure by name', () => {
+    match(
+      checksVerdict([run('CodeQL', 'failure')], []),
+      /did not pass: CodeQL/
+    );
+  });
+
+  test('treats neutral and skipped as no complaint', () => {
+    deepStrictEqual(
+      checksVerdict(
+        [run('Pages changed', 'neutral'), run('Deploy', 'skipped')],
+        []
+      ),
+      ''
+    );
+  });
+
+  test('reads the older commit statuses too', () => {
+    // Some services on this repository report these rather than check runs,
+    // so looking only at check runs would call a red commit green.
+    match(
+      checksVerdict([], [{ context: 'ci/legacy', state: 'failure' }]),
+      /did not pass: ci\/legacy/
+    );
+  });
+
+  test('holds a pending status back as well', () => {
+    match(
+      checksVerdict([], [{ context: 'ci/legacy', state: 'pending' }]),
+      /have not finished: ci\/legacy/
+    );
+  });
+
+  test('reports everything wrong, not just the first', () => {
+    match(
+      checksVerdict([run('A', 'failure'), run('B', 'timed_out')], []),
+      /did not pass: A, B/
     );
   });
 });

@@ -92,3 +92,52 @@ export function composeLandingMessage(parts: CommitParts[], prUrl: string) {
     ),
   ].join('\n');
 }
+
+/** What GitHub reports about one check run on a commit. */
+export type CheckRun = {
+  name: string;
+  status: string;
+  conclusion: string | null;
+};
+
+/** What GitHub reports about one commit status, which is the older kind. */
+export type CommitStatus = { context: string; state: string };
+
+/**
+ * Says why the checks on a commit are not a reason to land it. Anything still
+ * running counts against it: a label applied while a check was in flight says
+ * nothing about how that check turned out. Neutral and skipped do not count
+ * against it, since neither is a complaint.
+ * @param {CheckRun[]} runs The check runs reported on the commit.
+ * @param {CommitStatus[]} statuses The commit statuses reported on it.
+ * @returns {string} The reason, or an empty string if there is none.
+ */
+export function checksVerdict(runs: CheckRun[], statuses: CommitStatus[]) {
+  const pending = [
+    ...runs.filter((run) => run.status !== 'completed').map((run) => run.name),
+    ...statuses
+      .filter((status) => status.state === 'pending')
+      .map((status) => status.context),
+  ];
+
+  if (pending.length > 0) {
+    return `these have not finished: ${pending.sort().join(', ')}`;
+  }
+
+  const failed = [
+    ...runs
+      .filter(
+        (run) =>
+          run.conclusion !== null &&
+          !['success', 'neutral', 'skipped'].includes(run.conclusion)
+      )
+      .map((run) => run.name),
+    ...statuses
+      .filter((status) => !['success', 'pending'].includes(status.state))
+      .map((status) => status.context),
+  ];
+
+  return failed.length > 0
+    ? `these did not pass: ${failed.sort().join(', ')}`
+    : '';
+}
