@@ -20,10 +20,11 @@ jobs:
           node-version-file: 'package.json'
       - name: Install
         run: |
-          # Corepack prompts before fetching the pinned pnpm, and there is
-          # no terminal here to answer it. packageManager names the version.
-          export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
-          corepack enable
+          # No corepack: node is unbundling it, and pnpm reads
+          # `packageManager` and fetches that version itself. Installing the
+          # named one rather than the newest saves fetching pnpm twice.
+          npm install --global "pnpm@$(node -p "require('./package.json').packageManager.replace('pnpm@','').split('+')[0]")"
+          pnpm --version
           pnpm install
           echo "$(pwd)/node_modules/.bin" >> $GITHUB_PATH
       - name: Build

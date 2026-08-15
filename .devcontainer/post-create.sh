@@ -84,10 +84,10 @@ fi
 
 echo "==> Dependencies"
 
-# Corepack prompts before fetching the pinned pnpm, which fails where there is
-# no terminal to answer it.
-export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
-corepack enable
+# No corepack: node is unbundling it, and pnpm does the job it was here for.
+# The pnpm feature installs whatever is current, and pnpm reads
+# `packageManager` and fetches that version itself -- which since pnpm 11 is
+# what `pmOnFail: download` does by default.
 pnpm install
 
 # ------------------------------------------------------------------------------
