@@ -6,6 +6,7 @@
  */
 
 import { validateCommitMessage } from '@openinf/portal/build/commit-message';
+import { visibleText } from '@openinf/portal/build/pull-request';
 
 // Read from the environment rather than interpolated into a command by the
 // workflow: a title is written by whoever opened the pull request, and pasting
@@ -32,7 +33,7 @@ if (process.env.PR_TITLE === undefined) {
   // The template is one long HTML comment, so a pull request opened without a
   // word written renders as nothing at all. That is what this looks for --
   // not what the description says, only that there is one.
-  if (body.replaceAll(/<!--[\s\S]*?-->/g, '').trim() === '') {
+  if (visibleText(body) === '') {
     problems.push(
       'description: say why the change is needed and what it does. The ' +
         'template is a comment, so a description that is only the template ' +
