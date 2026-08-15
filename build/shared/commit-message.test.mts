@@ -365,3 +365,38 @@ describe('the vocabulary', () => {
     );
   });
 });
+
+describe('a message written to be slow', () => {
+  // A commit message comes from whoever opened the pull request, and the
+  // commit queue reads it holding credentials that can write here. Taking
+  // time proportional to the square of its length is a way to stop the queue
+  // working, so these hold the rules to reading it in linear time.
+  // Generous, because the work itself is linear and CI is slow. What it
+  // separates is linear from quadratic: at this size the regexes these
+  // replaced took twenty seconds and ninety seconds respectively.
+  const budget = 3000;
+
+  test('reads a long run of newlines quickly', () => {
+    const message = `🏗️🔧：fix it\n\nA body.${'\n'.repeat(200_000)}x`;
+    const started = performance.now();
+
+    validateCommitMessage(message);
+
+    const spent = performance.now() - started;
+
+    ok(spent < budget, `took ${spent.toFixed(0)}ms, budget ${budget}ms`);
+  });
+
+  test('reads a long Assisted-by value quickly', () => {
+    // `\S` matches a colon, so the obvious spelling of agent:model lets the
+    // engine try every colon as the split point.
+    const message = `🏗️🔧：fix it\n\nAssisted-by: ${'a:'.repeat(100_000)} `;
+    const started = performance.now();
+
+    validateCommitMessage(message);
+
+    const spent = performance.now() - started;
+
+    ok(spent < budget, `took ${spent.toFixed(0)}ms, budget ${budget}ms`);
+  });
+});
