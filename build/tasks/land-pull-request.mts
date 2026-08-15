@@ -14,6 +14,7 @@
 import { execFileSync } from 'node:child_process';
 import { validateCommitMessage } from '@openinf/portal/build/commit-message';
 import {
+  checksVerdict,
   composeLandingMessage,
   partsOfMessage,
 } from '@openinf/portal/build/landing';
@@ -28,9 +29,6 @@ type PullRequest = {
   mergeableState: string;
 };
 
-const REPOSITORY = 'OpenINF/openinf.github.io';
-const DEFAULT_BRANCH = 'live';
-
 const [number, ...flags] = process.argv.slice(2);
 const dryRun = flags.includes('--dry-run');
 
@@ -38,6 +36,26 @@ const gh = (...args: string[]) =>
   execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 1 << 24 }).trim();
 const git = (...args: string[]) =>
   execFileSync('git', args, { encoding: 'utf8', maxBuffer: 1 << 24 }).trim();
+
+// Nothing here names a repository. A workflow sets GITHUB_REPOSITORY, and a
+// terminal has a remote to read it from, so a copy of this file lands in
+// another repository without being edited first.
+const REPOSITORY =
+  process.env.GITHUB_REPOSITORY ??
+  git('remote', 'get-url', 'origin').match(
+    /github\.com[/:](?<repo>[^/]+\/[^/]+?)(?:\.git)?$/
+  )?.groups?.repo ??
+  '';
+
+const DEFAULT_BRANCH = gh(
+  'api',
+  `repos/${REPOSITORY}`,
+  '--jq',
+  '.default_branch'
+);
+
+/** Who is asking for this to land: the labeller, or whoever is at the keyboard. */
+const ACTOR = process.env.LAND_ACTOR ?? gh('api', 'user', '--jq', '.login');
 
 /**
  * Reads the pull request, waiting for GitHub to work out whether it merges.
@@ -76,6 +94,52 @@ const readPull = async (pull: string): Promise<PullRequest> => {
 };
 
 /**
+ * Fetches what GitHub reports about a commit, and asks whether it is a reason
+ * to land. Both kinds are read: some services on this repository still report
+ * the older commit statuses rather than check runs.
+ * @param {string} sha The commit the pull request is at.
+ * @returns {string} The reason not to land, or an empty string if there is none.
+ */
+const checksRefuse = (sha: string) =>
+  checksVerdict(
+    JSON.parse(
+      gh(
+        'api',
+        `repos/${REPOSITORY}/commits/${sha}/check-runs`,
+        '--jq',
+        '[.check_runs[] | {name, status, conclusion}]'
+      )
+    ),
+    JSON.parse(
+      gh(
+        'api',
+        `repos/${REPOSITORY}/commits/${sha}/status`,
+        '--jq',
+        '[.statuses[] | {context, state}]'
+      )
+    )
+  );
+
+/**
+ * Says why the person asking is not entitled to land anything. Applying a
+ * label needs only triage, which does not carry the right to push -- so
+ * without this, the label would quietly hand out that right.
+ * @returns {string} The reason, or an empty string if there is none.
+ */
+const actorRefuses = () => {
+  const permission = gh(
+    'api',
+    `repos/${REPOSITORY}/collaborators/${ACTOR}/permission`,
+    '--jq',
+    '.permission'
+  );
+
+  return ['admin', 'maintain', 'write'].includes(permission)
+    ? ''
+    : `${ACTOR} has ${permission} access, which does not carry the right to push`;
+};
+
+/**
  * Says why a pull request cannot be landed as it stands.
  * @param {PullRequest} pull What GitHub reports about it.
  * @returns {string} The reason, or an empty string if there is none.
@@ -97,7 +161,13 @@ const refuse = (pull: PullRequest) => {
     return 'GitHub has not worked out whether it merges yet; try again shortly';
   }
 
-  return '';
+  const actor = actorRefuses();
+
+  if (actor !== '') return actor;
+
+  const checks = checksRefuse(pull.head);
+
+  return checks === '' ? '' : `${checks}`;
 };
 
 if (number === undefined || !/^\d+$/.test(number)) {
