@@ -72,12 +72,23 @@ jobs:
       # `unlabeled` is not among the events above, so taking it off cannot
       # start another run. Failing to take it off is not worth failing a run
       # that has already merged, hence the `|| true`.
+      # Both of these go through the REST API rather than `gh pr edit` and
+      # `gh pr comment`, which reach for GraphQL and so want organization
+      # permissions neither task needs. The app happens to satisfy them today;
+      # tightening its permissions, or installing it somewhere with fewer,
+      # would break these silently behind the `|| true`. The endpoints below
+      # need only the pull request permission the app already has, and the
+      # label one names a single label rather than trusting a flag to be
+      # subtractive.
       - name: Take the label back off
         if: always() && steps.token.outcome == 'success'
         env:
           GH_TOKEN: ${{ steps.token.outputs.token }}
           NUMBER: ${{ github.event.pull_request.number }}
-        run: gh pr edit "$NUMBER" --remove-label commit-queue || true
+        run: |
+          gh api --silent -X DELETE \
+            "repos/${GITHUB_REPOSITORY}/issues/${NUMBER}/labels/commit-queue" \
+            || true
 
       - name: Say why it did not land
         if: failure() && steps.token.outcome == 'success'
@@ -86,4 +97,6 @@ jobs:
           NUMBER: ${{ github.event.pull_request.number }}
           RUN: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          gh pr comment "$NUMBER" --body "The commit queue did not land this. See $RUN — the label has been taken back off, so re-applying it is a deliberate second try."
+          gh api --silent -X POST \
+            "repos/${GITHUB_REPOSITORY}/issues/${NUMBER}/comments" \
+            -f "body=The commit queue did not land this. See ${RUN} — the label has been taken back off, so re-applying it is a deliberate second try."
