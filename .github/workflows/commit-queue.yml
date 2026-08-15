@@ -65,12 +65,25 @@ jobs:
           NUMBER: ${{ github.event.pull_request.number }}
         run: node build/tasks/land-pull-request.mts "${NUMBER}"
 
+      # The label is a request, not a state: once the queue has answered it,
+      # one way or the other, it has been spent. Leaving it on a landed pull
+      # request would say the queue still had something to do.
+      #
+      # `unlabeled` is not among the events above, so taking it off cannot
+      # start another run. Failing to take it off is not worth failing a run
+      # that has already merged, hence the `|| true`.
+      - name: Take the label back off
+        if: always() && steps.token.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ steps.token.outputs.token }}
+          NUMBER: ${{ github.event.pull_request.number }}
+        run: gh pr edit "$NUMBER" --remove-label commit-queue || true
+
       - name: Say why it did not land
-        if: failure()
+        if: failure() && steps.token.outcome == 'success'
         env:
           GH_TOKEN: ${{ steps.token.outputs.token }}
           NUMBER: ${{ github.event.pull_request.number }}
           RUN: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          gh pr edit "$NUMBER" --remove-label commit-queue
-          gh pr comment "$NUMBER" --body "The commit queue did not land this. See $RUN — the label has been removed, so re-apply it once the reason is dealt with."
+          gh pr comment "$NUMBER" --body "The commit queue did not land this. See $RUN — the label has been taken back off, so re-applying it is a deliberate second try."
