@@ -225,19 +225,22 @@ try {
       console.error(`#${number} cannot be landed: ${reason}.`);
       process.exitCode = 1;
     } else {
-      // Oldest first, so the landed message reads in the order the work was
-      // done rather than the order git lists it.
-      const shas = git(
-        'rev-list',
-        '--reverse',
-        '--no-merges',
-        `origin/${defaultBranch()}..${pull.head}`
-      )
-        .split('\n')
-        .filter(Boolean);
-      const parts = shas.map((sha) =>
-        partsOfMessage(git('log', '-1', '--format=%B', sha))
+      // Asked of the API rather than of git, so that the branch under review
+      // never has to be fetched. Running as `pull_request_target`, this holds
+      // credentials that can write to the repository, and the safest thing to
+      // do with a stranger's commits is to not have them on disk at all.
+      // GitHub returns them oldest first, which is the order to read them in,
+      // and merges are dropped since their messages say nothing.
+      const messages: string[] = JSON.parse(
+        gh(
+          'api',
+          '--paginate',
+          `repos/${repository()}/pulls/${number}/commits`,
+          '--jq',
+          '[.[] | select(.parents | length < 2) | .commit.message]'
+        )
       );
+      const parts = messages.map((message) => partsOfMessage(message));
       const message = composeLandingMessage(
         parts,
         `https://github.com/${repository()}/pull/${number}`
@@ -247,10 +250,10 @@ try {
 
       console.log(`${rule}\n${pull.title}\n\n${message}\n${rule}`);
       console.log(
-        `#${number}: ${shas.length} commit${shas.length === 1 ? '' : 's'}, ${pull.mergeableState}`
+        `#${number}: ${messages.length} commit${messages.length === 1 ? '' : 's'}, ${pull.mergeableState}`
       );
 
-      if (shas.length === 0) {
+      if (messages.length === 0) {
         console.error(`\n#${number} has no commits over ${defaultBranch()}.`);
         process.exitCode = 1;
       } else if (problems.length > 0) {

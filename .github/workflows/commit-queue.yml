@@ -1,11 +1,13 @@
 # Landing a pull request when it is labelled `commit-queue`.
 #
 # `pull_request_target` runs in the context of the base branch and can reach
-# secrets, which `pull_request` cannot do for a fork. That is only safe
-# because nothing here checks out or executes the pull request's code: the
-# checkout below is the base branch, and the branch under review is fetched
-# only so that its commit messages can be read. Never add a build, an install
-# or a test step to this workflow -- those belong in the checks it waits for,
+# secrets, which `pull_request` cannot do for a fork. That is only safe while
+# nothing from the pull request reaches this runner, and nothing does: the
+# checkout is this repository at the base branch, and the commit messages
+# being read come from the API rather than from a fetch.
+#
+# Never add a build, an install or a test step here, and never check out the
+# branch under review. Those belong in the checks this workflow waits for,
 # which run without a token that can write anything.
 #
 # Actions are pinned by commit, never by tag.
@@ -37,23 +39,22 @@ jobs:
           app-id: ${{ secrets.LAND_APP_ID }}
           private-key: ${{ secrets.LAND_APP_PRIVATE_KEY }}
 
-      - name: Check out the base branch
+      # No `ref:`. For this event the default is already the base branch, and
+      # naming it explicitly, even as `base.ref`, is indistinguishable to a
+      # reader -- and to a scanner -- from naming the branch under review.
+      # Nothing from that branch is fetched at all: its commit messages are
+      # asked of the API, so a stranger's code never reaches this runner.
+      - name: Check out this repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          # The base, deliberately, not the pull request. Full history so that
-          # the range between the two can be read.
-          ref: ${{ github.event.pull_request.base.ref }}
-          fetch-depth: 0
+          # Nothing here pushes, and a token left in .git/config is one more
+          # thing that could be picked up by something that should not have it.
+          persist-credentials: false
 
       - name: Set up Node.js runtime
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version-file: 'package.json'
-
-      - name: Fetch the commits under review
-        env:
-          NUMBER: ${{ github.event.pull_request.number }}
-        run: git fetch --quiet origin "pull/${NUMBER}/head"
 
       - name: Land it
         id: land
