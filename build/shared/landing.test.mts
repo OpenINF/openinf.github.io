@@ -241,3 +241,36 @@ describe('checksVerdict', () => {
     );
   });
 });
+
+describe('checksVerdict and its own run', () => {
+  test('does not wait for the queue that is doing the asking', () => {
+    // The queue reports as a check itself, so counting it would mean waiting
+    // for a job that cannot finish until it stops waiting.
+    const own = {
+      name: 'Land',
+      status: 'in_progress',
+      conclusion: null,
+      detailsUrl: 'https://github.com/o/r/actions/runs/999/job/1',
+    };
+
+    deepStrictEqual(
+      checksVerdict(
+        [own, { name: 'Lint', status: 'completed', conclusion: 'success' }],
+        [],
+        '999'
+      ),
+      ''
+    );
+  });
+
+  test('still waits for a different run', () => {
+    const other = {
+      name: 'Lint',
+      status: 'in_progress',
+      conclusion: null,
+      detailsUrl: 'https://github.com/o/r/actions/runs/1000/job/1',
+    };
+
+    match(checksVerdict([other], [], '999'), /have not finished: Lint/);
+  });
+});
