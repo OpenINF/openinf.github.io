@@ -32,30 +32,69 @@ type PullRequest = {
 const [number, ...flags] = process.argv.slice(2);
 const dryRun = flags.includes('--dry-run');
 
-const gh = (...args: string[]) =>
-  execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 1 << 24 }).trim();
-const git = (...args: string[]) =>
-  execFileSync('git', args, { encoding: 'utf8', maxBuffer: 1 << 24 }).trim();
+const run = (command: string, args: string[]) =>
+  execFileSync(command, args, { encoding: 'utf8', maxBuffer: 1 << 24 }).trim();
+
+/**
+ * Runs `gh`, and tries a second time before giving up. A read that fails
+ * because GitHub returned a 502 or throttled the request is not a reason to
+ * refuse to land, and it happens often enough to have happened here: an
+ * earlier version crashed on one and worked when run again unchanged.
+ * @param {...string} args What to pass to `gh`.
+ * @returns {string} Its output.
+ */
+const gh = (...args: string[]) => {
+  try {
+    return run('gh', args);
+  } catch (first) {
+    // A merge is not safe to repeat blindly: if the first attempt reached
+    // GitHub, the second would report an already-merged pull request as a
+    // failure. Reads are.
+    if (args.includes('PUT')) throw first;
+
+    return run('gh', args);
+  }
+};
+
+const git = (...args: string[]) => run('git', args);
+
+/**
+ * Works something out once, the first time it is wanted. Asked for at the top
+ * of the file instead, these would run before anything could catch them
+ * failing, and a broken `gh` would print a stack trace rather than a reason.
+ * @param {() => T} work How to find the answer.
+ * @returns {() => T} A function returning it, computed at most once.
+ */
+const once = <T,>(work: () => T) => {
+  let answer: T | undefined;
+
+  return () => {
+    answer ??= work();
+
+    return answer;
+  };
+};
 
 // Nothing here names a repository. A workflow sets GITHUB_REPOSITORY, and a
 // terminal has a remote to read it from, so a copy of this file lands in
 // another repository without being edited first.
-const REPOSITORY =
-  process.env.GITHUB_REPOSITORY ??
-  git('remote', 'get-url', 'origin').match(
-    /github\.com[/:](?<repo>[^/]+\/[^/]+?)(?:\.git)?$/
-  )?.groups?.repo ??
-  '';
+const repository = once(
+  () =>
+    process.env.GITHUB_REPOSITORY ??
+    git('remote', 'get-url', 'origin').match(
+      /github\.com[/:](?<repo>[^/]+\/[^/]+?)(?:\.git)?$/
+    )?.groups?.repo ??
+    ''
+);
 
-const DEFAULT_BRANCH = gh(
-  'api',
-  `repos/${REPOSITORY}`,
-  '--jq',
-  '.default_branch'
+const defaultBranch = once(() =>
+  gh('api', `repos/${repository()}`, '--jq', '.default_branch')
 );
 
 /** Who is asking for this to land: the labeller, or whoever is at the keyboard. */
-const ACTOR = process.env.LAND_ACTOR ?? gh('api', 'user', '--jq', '.login');
+const actor = once(
+  () => process.env.LAND_ACTOR ?? gh('api', 'user', '--jq', '.login')
+);
 
 /**
  * Reads the pull request, waiting for GitHub to work out whether it merges.
@@ -69,7 +108,7 @@ const readPull = async (pull: string): Promise<PullRequest> => {
     JSON.parse(
       gh(
         'api',
-        `repos/${REPOSITORY}/pulls/${pull}`,
+        `repos/${repository()}/pulls/${pull}`,
         '--jq',
         '{title, base: .base.ref, head: .head.sha, state, draft, mergeableState: .mergeable_state}'
       )
@@ -105,7 +144,7 @@ const checksRefuse = (sha: string) =>
     JSON.parse(
       gh(
         'api',
-        `repos/${REPOSITORY}/commits/${sha}/check-runs`,
+        `repos/${repository()}/commits/${sha}/check-runs`,
         '--jq',
         '[.check_runs[] | {name, status, conclusion}]'
       )
@@ -113,7 +152,7 @@ const checksRefuse = (sha: string) =>
     JSON.parse(
       gh(
         'api',
-        `repos/${REPOSITORY}/commits/${sha}/status`,
+        `repos/${repository()}/commits/${sha}/status`,
         '--jq',
         '[.statuses[] | {context, state}]'
       )
@@ -129,14 +168,14 @@ const checksRefuse = (sha: string) =>
 const actorRefuses = () => {
   const permission = gh(
     'api',
-    `repos/${REPOSITORY}/collaborators/${ACTOR}/permission`,
+    `repos/${repository()}/collaborators/${actor()}/permission`,
     '--jq',
     '.permission'
   );
 
   return ['admin', 'maintain', 'write'].includes(permission)
     ? ''
-    : `${ACTOR} has ${permission} access, which does not carry the right to push`;
+    : `${actor()} has ${permission} access, which does not carry the right to push`;
 };
 
 /**
@@ -150,10 +189,10 @@ const refuse = (pull: PullRequest) => {
   }
 
   if (pull.mergeableState === 'dirty') {
-    return `it conflicts with ${DEFAULT_BRANCH}; rebase the branch onto it and push first`;
+    return `it conflicts with ${defaultBranch()}; rebase the branch onto it and push first`;
   }
 
-  if (pull.base !== DEFAULT_BRANCH) {
+  if (pull.base !== defaultBranch()) {
     return `it targets ${pull.base}; retarget it, or land its base first`;
   }
 
@@ -161,87 +200,97 @@ const refuse = (pull: PullRequest) => {
     return 'GitHub has not worked out whether it merges yet; try again shortly';
   }
 
-  const actor = actorRefuses();
+  const unentitled = actorRefuses();
 
-  if (actor !== '') return actor;
+  if (unentitled !== '') return unentitled;
 
   const checks = checksRefuse(pull.head);
 
   return checks === '' ? '' : `${checks}`;
 };
 
-if (number === undefined || !/^\d+$/.test(number)) {
-  console.error('Usage: nps "land <number> [--dry-run]"');
-  process.exitCode = 1;
-} else {
-  const pull = await readPull(number);
-  const reason = refuse(pull);
-
-  if (reason !== '') {
-    console.error(`#${number} cannot be landed: ${reason}.`);
+// Anything unexpected -- a network failure that outlived its retry, a
+// command that is not installed -- should say so in a line rather than
+// print a stack trace at whoever applied a label.
+try {
+  if (number === undefined || !/^\d+$/.test(number)) {
+    console.error('Usage: nps "land <number> [--dry-run]"');
     process.exitCode = 1;
   } else {
-    // Oldest first, so the landed message reads in the order the work was
-    // done rather than the order git lists it.
-    const shas = git(
-      'rev-list',
-      '--reverse',
-      '--no-merges',
-      `origin/${DEFAULT_BRANCH}..${pull.head}`
-    )
-      .split('\n')
-      .filter(Boolean);
-    const parts = shas.map((sha) =>
-      partsOfMessage(git('log', '-1', '--format=%B', sha))
-    );
-    const message = composeLandingMessage(
-      parts,
-      `https://github.com/${REPOSITORY}/pull/${number}`
-    );
-    const problems = validateCommitMessage(`${pull.title}\n\n${message}`);
-    const rule = '='.repeat(72);
+    const pull = await readPull(number);
+    const reason = refuse(pull);
 
-    console.log(`${rule}\n${pull.title}\n\n${message}\n${rule}`);
-    console.log(
-      `#${number}: ${shas.length} commit${shas.length === 1 ? '' : 's'}, ${pull.mergeableState}`
-    );
-
-    if (shas.length === 0) {
-      console.error(`\n#${number} has no commits over ${DEFAULT_BRANCH}.`);
+    if (reason !== '') {
+      console.error(`#${number} cannot be landed: ${reason}.`);
       process.exitCode = 1;
-    } else if (problems.length > 0) {
-      console.error(
-        '\nThe message this would land does not pass its own rules:'
-      );
-      for (const problem of problems) console.error(`  ${problem}`);
-      process.exitCode = 1;
-    } else if (dryRun) {
-      console.log('\nDry run; nothing landed.');
     } else {
-      const merged = JSON.parse(
-        gh(
-          'api',
-          '-X',
-          'PUT',
-          `repos/${REPOSITORY}/pulls/${number}/merge`,
-          '-f',
-          'merge_method=squash',
-          '-f',
-          `commit_title=${pull.title}`,
-          '-f',
-          `commit_message=${message}`,
-          '-f',
-          `sha=${pull.head}`,
-          '--jq',
-          '{merged, sha}'
-        )
+      // Oldest first, so the landed message reads in the order the work was
+      // done rather than the order git lists it.
+      const shas = git(
+        'rev-list',
+        '--reverse',
+        '--no-merges',
+        `origin/${defaultBranch()}..${pull.head}`
+      )
+        .split('\n')
+        .filter(Boolean);
+      const parts = shas.map((sha) =>
+        partsOfMessage(git('log', '-1', '--format=%B', sha))
+      );
+      const message = composeLandingMessage(
+        parts,
+        `https://github.com/${repository()}/pull/${number}`
+      );
+      const problems = validateCommitMessage(`${pull.title}\n\n${message}`);
+      const rule = '='.repeat(72);
+
+      console.log(`${rule}\n${pull.title}\n\n${message}\n${rule}`);
+      console.log(
+        `#${number}: ${shas.length} commit${shas.length === 1 ? '' : 's'}, ${pull.mergeableState}`
       );
 
-      if (merged.merged === true) console.log(`\nLanded as ${merged.sha}`);
-      else {
-        console.error(`\n#${number} did not merge.`);
+      if (shas.length === 0) {
+        console.error(`\n#${number} has no commits over ${defaultBranch()}.`);
         process.exitCode = 1;
+      } else if (problems.length > 0) {
+        console.error(
+          '\nThe message this would land does not pass its own rules:'
+        );
+        for (const problem of problems) console.error(`  ${problem}`);
+        process.exitCode = 1;
+      } else if (dryRun) {
+        console.log('\nDry run; nothing landed.');
+      } else {
+        const merged = JSON.parse(
+          gh(
+            'api',
+            '-X',
+            'PUT',
+            `repos/${repository()}/pulls/${number}/merge`,
+            '-f',
+            'merge_method=squash',
+            '-f',
+            `commit_title=${pull.title}`,
+            '-f',
+            `commit_message=${message}`,
+            '-f',
+            `sha=${pull.head}`,
+            '--jq',
+            '{merged, sha}'
+          )
+        );
+
+        if (merged.merged === true) console.log(`\nLanded as ${merged.sha}`);
+        else {
+          console.error(`\n#${number} did not merge.`);
+          process.exitCode = 1;
+        }
       }
     }
   }
+} catch (error) {
+  console.error(
+    `Could not land #${number}: ${error instanceof Error ? error.message.split(String.fromCharCode(10))[0] : String(error)}`
+  );
+  process.exitCode = 1;
 }
