@@ -146,7 +146,7 @@ const checksRefuse = (sha: string) =>
         'api',
         `repos/${repository()}/commits/${sha}/check-runs`,
         '--jq',
-        '[.check_runs[] | {name, status, conclusion}]'
+        '[.check_runs[] | {name, status, conclusion, detailsUrl: .details_url}]'
       )
     ),
     JSON.parse(
@@ -156,7 +156,8 @@ const checksRefuse = (sha: string) =>
         '--jq',
         '[.statuses[] | {context, state}]'
       )
-    )
+    ),
+    process.env.GITHUB_RUN_ID ?? ''
   );
 
 /**

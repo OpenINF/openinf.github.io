@@ -98,6 +98,7 @@ export type CheckRun = {
   name: string;
   status: string;
   conclusion: string | null;
+  detailsUrl?: string;
 };
 
 /** What GitHub reports about one commit status, which is the older kind. */
@@ -108,11 +109,25 @@ export type CommitStatus = { context: string; state: string };
  * running counts against it: a label applied while a check was in flight says
  * nothing about how that check turned out. Neutral and skipped do not count
  * against it, since neither is a complaint.
+ * The queue is itself a check, so its own run is left out. Waiting for it
+ * would be waiting for a job that cannot finish until it stops waiting.
  * @param {CheckRun[]} runs The check runs reported on the commit.
  * @param {CommitStatus[]} statuses The commit statuses reported on it.
+ * @param {string} ownRunId The workflow run doing the asking, if it is one.
  * @returns {string} The reason, or an empty string if there is none.
  */
-export function checksVerdict(runs: CheckRun[], statuses: CommitStatus[]) {
+export function checksVerdict(
+  all: CheckRun[],
+  statuses: CommitStatus[],
+  ownRunId = ''
+) {
+  const runs =
+    ownRunId === ''
+      ? all
+      : all.filter(
+          (run) =>
+            !(run.detailsUrl ?? '').includes(`/actions/runs/${ownRunId}/`)
+        );
   const pending = [
     ...runs.filter((run) => run.status !== 'completed').map((run) => run.name),
     ...statuses
