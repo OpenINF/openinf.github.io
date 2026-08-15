@@ -39,6 +39,9 @@ scripts:
     toml: node build/tasks/format/format-toml.mts
     ts: node build/tasks/format/format-ts.mts
     yaml: node build/tasks/format/format-yaml.mts
+  # Squash a pull request into one commit with a message built from the
+  # commits it contains. Takes a number, and --dry-run to see it first.
+  land: node build/tasks/land-pull-request.mts
   build: nps compile.buildPortal
   test: nps verify.all
   start: eleventy --serve
