@@ -5,7 +5,6 @@ permalink: /docs/dev/internals/contributing/agent-forwarding/
 relevant_urls:
   - https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials
   - https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification
-toc: true
 draft: true
 ---
 
