@@ -129,7 +129,7 @@ cat <<EOF
 
 Ready, on Node $(node -v).
 
-  pnpm start   browser-sync dev server on http://localhost:3000
+  pnpm start   Eleventy dev server on http://localhost:3000
   pnpm build   production build into _site/
   pnpm test    the full verify suite
 
