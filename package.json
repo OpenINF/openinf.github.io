@@ -2,7 +2,7 @@
   "name": "@openinf/portal",
   "author": "The OpenINF Authors & Friends",
   "private": "true",
-  "description": "The OpenINF portal, other static resources, and more static electricity",
+  "description": "The front door to everything OpenINF makes",
   "packageManager": "pnpm@11.21.0",
   "engines": {
     "node": "24.19.0",
@@ -16,7 +16,7 @@
     "./build/utils": "./build/utils.mts"
   },
   "homepage": "open.inf.is",
-  "repository": "OpenINF/open.inf.is",
+  "repository": "OpenINF/openinf.github.io",
   "scripts": {
     "build": "nps build",
     "start": "nps",

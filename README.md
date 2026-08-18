@@ -1,48 +1,87 @@
 ## `open.inf.is`
 
-> ⚡🐋 The OpenINF portal, other static resources, and more static electricity
+> The front door to everything OpenINF makes
+
+[![Lint and test][lint-badge-img]][lint-badge-url]
+[![Deploy][deploy-badge-img]][deploy-badge-url]
 
 <br />
 
-[!['Netlify Status: Dynamic'][netlify-badge-img]][netlify-badge-url]
+The source of the OpenINF portal: the community website, the news archive, the
+OpenINF SDK reference documentation, and the style handbook. One [Eleventy][]
+build serves them all.
 
-<br />
-
-The high-level goal of this project is to build and maintain a community portal
-that serves content and assets. Although this portal is still in its infancy, it
-is intended to support a separation of concerns between hosting our community
-website, SDK documentation, and more. We are constantly working to improve this
-work, so please feel free to contribute if you notice any omissions or errors.
-
-Thanks!
+The portal is in its infancy, so expect gaps and rough edges. Finding one is a
+good reason to open a pull request.
 
 <br /><br />
 
----
+### Quick start
 
 <br />
+
+Open the repository in the [dev container][] and the toolchain is already
+installed. Otherwise, install Node and pnpm at the versions [package.json][]
+pins.
+
+```console
+pnpm install
+pnpm start
+```
+
+`pnpm start` prints the address to open, and rebuilds as you edit. `pnpm build`
+makes a production build, and `pnpm test` runs the checks a pull request has to
+pass.
+
+<br /><br />
+
+### Where things live
+
+<br />
+
+| Path                      | What is there                         |
+| :------------------------ | :------------------------------------ |
+| `collections/_pages/`     | Home, about, docs, and news pages     |
+| `collections/_posts/`     | The news archive, one file per entry  |
+| `collections/_docs/`      | Documentation, and the style handbook |
+| `_layouts/`, `_includes/` | Liquid templates and partials         |
+| `_assets/`                | Sass, browser JavaScript, and images  |
+| `build/`                  | The build and verify tasks            |
+
+The code of conduct, contributing guide, security policy, and support document
+are not edited here. They come from [OpenINF/.github][] as the site builds.
+
+<br /><br />
 
 ### Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to
-discuss what you would like to change. If for whatever reason you spot something
-to fix but cannot patch it yourself, please [open an issue][].
-
 <br />
+
+Pull requests are welcome. A typo fix needs no ceremony; anything larger is
+worth an issue first, so nobody writes the same change twice.
+
+Two documents are worth reading beforehand: the [contributing guide][], and the
+[style handbook][], which covers prose, code samples, and commit messages.
+
+If you spot something to fix but cannot patch it yourself, [open an issue][].
+
+<br /><br />
 
 ### License
 
-It is essential always to read the license for all code and content in question.
-Each source code and content directory typically contains the appropriate
-license file(s) for that directory's source code and/or content. The code and
-content files themselves also typically contain licensing and authorship
-metadata.
+<br />
 
-Most of the repository's source code is permissively licensed under MIT, Apache
-2.0, or Blue Oak 1.0.0. The IDK reference documentation content uses the CC
-BY-NC-SA 4.0 license, while the embedded source code snippets and examples use
-the public domain equivalent 0BSD license. The collection of documents
-comprising our style guide handbook uses the CC BY-SA 4.0 license.
+| What                           | License                              |
+| :----------------------------- | :----------------------------------- |
+| Source code                    | `MIT OR Apache-2.0 OR BlueOak-1.0.0` |
+| OpenINF SDK reference docs     | CC BY-NC-SA 4.0                      |
+| Code samples inside those docs | 0BSD                                 |
+| Style handbook                 | CC BY-SA 4.0                         |
+
+Read the license that applies before reusing anything here, because source,
+docs, and the handbook do not share one. Source files name theirs in an
+`@license` tag, and the docs and the handbook each keep the full text beside
+them.
 
 <br /><br />
 
@@ -75,25 +114,28 @@ comprising our style guide handbook uses the CC BY-SA 4.0 license.
 
 <br /><br />
 
+<!-- prettier-ignore-start -->
 <!-- LINK LABEL DEFINITIONS - START -->
 
-[Roadmap]: https://github.com/OpenINF/open.inf.is/issues 'Roadmap'
+[Changelog]: https://github.com/OpenINF/openinf.github.io/commits/live 'Changelog'
+[Credits]: https://github.com/OpenINF/openinf.github.io/graphs/contributors 'Credits'
 [Development]: ./collections/_docs/README.md 'Development'
-[Issue Tracker]: https://github.com/OpenINF/open.inf.is/issues 'Issue Tracker'
-[Changelog]: https://github.com/OpenINF/open.inf.is/commits/live 'Changelog'
-[Credits]: https://github.com/OpenINF/open.inf.is/graphs/contributors 'Credits'
-[project-type-badge--shields]:
-  https://img.shields.io/badge/type-prototype-blue.svg
-[prototyping-scheme-badge--shields]:
-  https://img.shields.io/badge/scheme-evolutionary-blue.svg
-[project-status-badge--shields]:
-  https://img.shields.io/badge/status-under%20construction-yellow.svg
-[open an issue]: https://github.com/OpenINF/open.inf.is/issues
-[netlify-badge-url]:
-  https://app.netlify.com/sites/gh-pages-openinf/deploys?branch=live
-  'Netlify Status: Dynamic'
-[netlify-badge-img]:
-  https://api.netlify.com/api/v1/badges/d7db7490-f2de-40c6-9236-ce4fcbdaeafd/deploy-status?branch=live
-  'Netlify Status: Dynamic'
+[Eleventy]: https://www.11ty.dev/
+[Issue Tracker]: https://github.com/OpenINF/openinf.github.io/issues 'Issue Tracker'
+[OpenINF/.github]: https://github.com/OpenINF/.github
+[Roadmap]: https://github.com/OpenINF/openinf.github.io/issues 'Roadmap'
+[contributing guide]: https://github.com/OpenINF/.github/blob/HEAD/CONTRIBUTING.md
+[dev container]: ./.devcontainer/devcontainer.json
+[open an issue]: https://github.com/OpenINF/openinf.github.io/issues
+[package.json]: ./package.json
+[style handbook]: ./collections/_docs/handbook/style/
+[deploy-badge-img]: https://github.com/OpenINF/openinf.github.io/actions/workflows/deploy.yml/badge.svg?branch=live
+[deploy-badge-url]: https://github.com/OpenINF/openinf.github.io/actions/workflows/deploy.yml
+[lint-badge-img]: https://github.com/OpenINF/openinf.github.io/actions/workflows/lint-and-test.yml/badge.svg
+[lint-badge-url]: https://github.com/OpenINF/openinf.github.io/actions/workflows/lint-and-test.yml
+[project-status-badge--shields]: https://img.shields.io/badge/status-under%20construction-yellow.svg
+[project-type-badge--shields]: https://img.shields.io/badge/type-prototype-blue.svg
+[prototyping-scheme-badge--shields]: https://img.shields.io/badge/scheme-evolutionary-blue.svg
 
 <!-- LINK LABEL DEFINITIONS - END -->
+<!-- prettier-ignore-end -->
