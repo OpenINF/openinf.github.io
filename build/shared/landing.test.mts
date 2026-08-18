@@ -273,4 +273,39 @@ describe('checksVerdict and its own run', () => {
 
     match(checksVerdict([other], [], '999'), /have not finished: Lint/);
   });
+
+  test('does not cite the refusal it left behind last time', () => {
+    // A refusal exits non-zero, so an attempt made while a check was still
+    // running leaves a failed check of its own on the commit. Counting it
+    // would mean the first refusal decided every later one, and the pull
+    // request could never be landed from that commit again.
+    const earlier = {
+      name: 'Land',
+      status: 'completed',
+      conclusion: 'failure',
+      detailsUrl: 'https://github.com/o/r/actions/runs/998/job/1',
+    };
+
+    deepStrictEqual(
+      checksVerdict(
+        [earlier, { name: 'Lint', status: 'completed', conclusion: 'success' }],
+        [],
+        '999',
+        'Land'
+      ),
+      ''
+    );
+  });
+
+  test('still reports a failure that is not the queue', () => {
+    match(
+      checksVerdict(
+        [{ name: 'Lint', status: 'completed', conclusion: 'failure' }],
+        [],
+        '999',
+        'Land'
+      ),
+      /did not pass: Lint/
+    );
+  });
 });

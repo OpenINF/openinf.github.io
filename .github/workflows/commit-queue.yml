@@ -64,6 +64,10 @@ jobs:
           # anything is merged. Applying a label needs only triage.
           LAND_ACTOR: ${{ github.event.sender.login }}
           NUMBER: ${{ github.event.pull_request.number }}
+          # What this job reports as, which is the `name:` above. A refusal
+          # exits non-zero and leaves a failed check behind, so without this
+          # the first one would be cited by every attempt after it.
+          LAND_CHECK_NAME: Land
         run: node build/tasks/land-pull-request.mts "${NUMBER}"
 
       # The label is a request, not a state: once the queue has answered it,
