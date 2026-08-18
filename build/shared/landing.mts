@@ -107,25 +107,30 @@ export type CommitStatus = { context: string; state: string };
  * running counts against it: a label applied while a check was in flight says
  * nothing about how that check turned out. Neutral and skipped do not count
  * against it, since neither is a complaint.
- * The queue is itself a check, so its own run is left out. Waiting for it
- * would be waiting for a job that cannot finish until it stops waiting.
- * @param {CheckRun[]} runs The check runs reported on the commit.
+ *
+ * The queue is itself a check, and none of its runs count -- neither the one
+ * doing the asking, which cannot finish until it stops waiting, nor any run
+ * before it. A refusal exits non-zero and so leaves a failed check of its own
+ * behind, and counting that would let the first refusal decide every later
+ * one: label a pull request while a check is in flight, and the queue would
+ * go on citing its own complaint for as long as the branch sat at that commit.
+ * @param {CheckRun[]} all The check runs reported on the commit.
  * @param {CommitStatus[]} statuses The commit statuses reported on it.
  * @param {string} ownRunId The workflow run doing the asking, if it is one.
+ * @param {string} ownCheckName What the queue reports as, if it knows.
  * @returns {string} The reason, or an empty string if there is none.
  */
 export function checksVerdict(
   all: CheckRun[],
   statuses: CommitStatus[],
-  ownRunId = ''
+  ownRunId = '',
+  ownCheckName = ''
 ) {
-  const runs =
-    ownRunId === ''
-      ? all
-      : all.filter(
-          (run) =>
-            !(run.detailsUrl ?? '').includes(`/actions/runs/${ownRunId}/`)
-        );
+  const isOwn = (run: CheckRun) =>
+    (ownRunId !== '' &&
+      (run.detailsUrl ?? '').includes(`/actions/runs/${ownRunId}/`)) ||
+    (ownCheckName !== '' && run.name === ownCheckName);
+  const runs = all.filter((run) => !isOwn(run));
   const pending = [
     ...runs.filter((run) => run.status !== 'completed').map((run) => run.name),
     ...statuses

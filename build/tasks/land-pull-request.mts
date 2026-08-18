@@ -157,7 +157,8 @@ const checksRefuse = (sha: string) =>
         '[.statuses[] | {context, state}]'
       )
     ),
-    process.env.GITHUB_RUN_ID ?? ''
+    process.env.GITHUB_RUN_ID ?? '',
+    process.env.LAND_CHECK_NAME ?? ''
   );
 
 /**
