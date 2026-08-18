@@ -1,7 +1,14 @@
 name: Lint and test
 
-# By default, runs when a pull request is opened, synchronized, or reopened.
-on: pull_request
+# Also on live, for two reasons: a pull-request-only workflow leaves the
+# default branch with no status, so the README badge reports whichever branch
+# ran last; and the queue squashes without rebuilding, so nothing else sees
+# what actually landed.
+on:
+  pull_request:
+  push:
+    branches:
+      - live
 
 jobs:
   lint_and_test:
@@ -119,7 +126,8 @@ jobs:
         if: ${{ steps.filter.outputs.yaml == 'true' }}
         run: nps verify.yaml
 
-      # Only run tests if the PR touches behavior-related files.
+      # Only run tests if the PR touches behavior-related files. On live
+      # everything runs, since nothing else checks what landed.
       - name: Test
-        if: ${{ steps.filter.outputs.js == 'true' || steps.filter.outputs.json == 'true' || steps.filter.outputs.ts == 'true' }}
+        if: ${{ github.event_name == 'push' || steps.filter.outputs.js == 'true' || steps.filter.outputs.json == 'true' || steps.filter.outputs.ts == 'true' }}
         run: nps test
