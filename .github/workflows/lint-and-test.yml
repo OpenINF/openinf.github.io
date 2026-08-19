@@ -130,4 +130,11 @@ jobs:
       # everything runs, since nothing else checks what landed.
       - name: Test
         if: ${{ github.event_name == 'push' || steps.filter.outputs.js == 'true' || steps.filter.outputs.json == 'true' || steps.filter.outputs.ts == 'true' }}
+        # verify.validForEC fetches the editorconfig-checker binary from the
+        # GitHub API on first use, and node_modules is new on every run here.
+        # Unauthenticated that is 60 requests an hour shared with every other
+        # job leaving this address, which is a job failing for no reason of
+        # its own. The wrapper reads GITHUB_TOKEN and the runner is given one.
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: nps test
