@@ -1,3 +1,7 @@
+// The fixed navbar's height: the brand mark plus the padding around it.
+// _custom.scss offsets the page by the same number.
+$navbar-height: 74px;
+
 .navbar-toggler svg {
   height: 24px;
 }
@@ -5,7 +9,7 @@
 .navbar-toggler-wrapper {
   display: flex;
   flex-direction: row-reverse;
-  height: 74px;
+  height: $navbar-height;
 }
 
 bento-sidebar {
@@ -20,4 +24,26 @@ bento-sidebar {
   .nav-link.active {
     border-left-color: $primary;
   }
+}
+
+// 78% white is 10.93:1 on the ink, and stays back from the current page.
+.navbar-dark {
+  --bs-navbar-color: rgb(255 255 255 / 78%);
+  --bs-navbar-hover-color: #fff;
+}
+
+// Full height, so the current-page rule lands on the bar's bottom edge. The
+// negative margin reaches out through the navbar's padding, and reads it
+// rather than repeating it.
+.navbar-dark .navbar-nav .nav-link {
+  display: flex;
+  align-items: center;
+  height: $navbar-height;
+  padding-block: 0;
+  margin-block: calc(var(--bs-navbar-padding-y) * -1);
+}
+
+// Marks the current page beside `aria-current`, so it is not colour alone.
+.navbar-dark .nav-link.active {
+  border-bottom: 2px solid $primary;
 }

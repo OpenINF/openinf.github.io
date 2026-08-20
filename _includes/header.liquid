@@ -23,6 +23,9 @@
               <a
                 class='nav-link{% if body_classes contains link.class %} active{% endif %}'
                 href='/{{ link.permalink }}'
+                {% if body_classes contains link.class %}
+                  aria-current='page'
+                {% endif %}
               >
                 {{ link.text }}
               </a>
@@ -54,6 +57,9 @@
           <a
             class='nav-link{% if body_classes contains link.class %} active{% endif %}'
             href='/{{ link.permalink }}'
+            {% if body_classes contains link.class %}
+              aria-current='page'
+            {% endif %}
           >
             {{ link.text }}
           </a>
