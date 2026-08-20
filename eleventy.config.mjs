@@ -99,6 +99,11 @@ export default async function (eleventyConfig) {
     'Aggregate, curate, disseminate, and apply information derived from diverse sources.'
   );
   eleventyConfig.addGlobalData('siteUrl', 'https://open.inf.is');
+  // What Jekyll called `site.time`: the moment the site was generated. The
+  // footer still asks for it through a `date` filter, so this is the instant
+  // rather than a formatted year, and anything else wanting a build date can
+  // format it its own way.
+  eleventyConfig.addGlobalData('buildTime', () => new Date());
   eleventyConfig.addGlobalData(
     'env',
     process.env.ELEVENTY_ENV || 'development'
