@@ -41,12 +41,12 @@ Rules) _and_ our [Code of Conduct][coc].
     <https://help.github.com/en/github/building-a-strong-community/adding-support-resources-to-your-project>
 
 [coc]: https://github.com/OpenINF/.github/blob/HEAD/CODE_OF_CONDUCT.md
-[`#off-topic` channel]: https://discord.gg/ACMjssFV
-[`#support` channel]: https://discord.gg/eZZtnHKN
-[`#general` channel]: https://discord.gg/gUPTCPjd
+[`#off-topic` channel]: https://discord.gg/TN52kzH9wR
+[`#support` channel]: https://discord.gg/Cgqgwu3FVR
+[`#general` channel]: https://discord.gg/uMZ54v4qDm
 [docs-site]: https://open.inf.is
 [matrix-channel]: https://matrix.to/#/%23openinf:matrix.org
-[support-channel-discord]: https://discord.gg/CYJSYxjN
+[support-channel-discord]: https://discord.gg/Cgqgwu3FVR
 [x-twitter-account]: https://twitter.com/OpenINF
 [x-twitter-rules]: https://help.twitter.com/en/rules-and-policies/x-rules
 
