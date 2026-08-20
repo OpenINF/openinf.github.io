@@ -4,4 +4,289 @@ layout: default
 permalink: /
 body_classes:
   - home
+eleventyImport:
+  collections: ['post']
 ---
+<main class="flex-shrink-0">
+  <!-- ================= masthead: what it is + how to take part ======== -->
+  <section class="masthead">
+    <!--
+      The ring off the logogram, not the logogram: the navbar already
+      carries the mark, and a second copy under it only reads as a
+      repeat.
+    -->
+    <div class="masthead-ring" aria-hidden="true">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="xMidYMid meet">
+        <circle
+          cx="50"
+          cy="50"
+          r="45"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="10"
+        />
+      </svg>
+    </div>
+
+    <div class="wrap masthead-grid">
+      <div class="masthead-lead">
+        <h1 class="masthead-title">
+          OpenINF is an open source community building tools that help
+          developers <em>aggregate</em>, <em>curate</em>, <em>disseminate</em>,
+          and <em>apply</em> information.
+        </h1>
+
+        <p class="masthead-lede">
+          Every package, every page of documentation, and the discussion around
+          both are public. It is early, and most of what this becomes is still
+          open to argument.
+        </p>
+      </div>
+
+      <!-- The way in. Same visual weight as the statement beside it. -->
+      <aside class="join" aria-labelledby="join-title">
+        <div class="join-head">
+          {% include 'assets/img/community/discord.svg' %}
+          <h2 class="join-title" id="join-title">Take part</h2>
+          <p class="join-note">Discord preferred</p>
+        </div>
+
+        <ul class="join-channels">
+          <li>
+            <a
+              class="channel channel-primary"
+              href="https://discord.gg/Cgqgwu3FVR">
+              <span class="channel-name">#support</span>
+              <span class="channel-what">Questions and troubleshooting</span>
+            </a>
+          </li>
+          <li>
+            <a class="channel" href="https://discord.gg/uMZ54v4qDm">
+              <span class="channel-name">#general</span>
+              <span class="channel-what">Conversation and collaboration</span>
+            </a>
+          </li>
+          <li>
+            <a class="channel" href="https://discord.gg/TN52kzH9wR">
+              <span class="channel-name">#off-topic</span>
+              <span class="channel-what">Everything else</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="join-row">
+          {% include 'assets/img/community/github.svg' %}
+          <p>
+            <a href="https://github.com/OpenINF">github.com/OpenINF</a> —
+            issues, pull requests, and every repository
+          </p>
+        </div>
+
+        <p class="join-coc">
+          Both spaces run under our
+          <a href="/docs/code-of-conduct/">Code of Conduct</a>.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= what the community is building ================= -->
+  <section class="sdk" aria-labelledby="sdk-title">
+    <div class="sdk-rail">
+      <div class="wrap sdk-rail-inner">
+        <p class="rail-head">
+          <span class="rail-name">OpenINF SDK</span>
+          <span class="tag tag-when">Q4 2026</span>
+        </p>
+        <dl class="stats">
+          <div class="stat">
+            <dt>Packages</dt>
+            <dd>10</dd>
+          </div>
+          <div class="stat">
+            <dt>Already on npm</dt>
+            <dd>6 <span class="stat-qual">since April 2022</span></dd>
+          </div>
+          <div class="stat">
+            <dt>Never published, joining them</dt>
+            <dd>4</dd>
+          </div>
+          <div class="stat">
+            <dt>Carry no third-party runtime dependency</dt>
+            <dd>9 <span class="stat-qual">of 10</span></dd>
+          </div>
+          <div class="stat">
+            <dt>Builds per package, both typed</dt>
+            <dd>2 <span class="stat-qual">CJS and ESM</span></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="sdk-body">
+      <div class="wrap">
+        <h2 class="sdk-title" id="sdk-title">
+          Ten small TypeScript packages for the unglamorous middle of Node.js
+          work
+        </h2>
+        <p class="sdk-lede">
+          None of it is the interesting part of your program. All of it is the
+          part you end up writing again on every project.
+        </p>
+
+        <ol class="areas">
+          <li class="area">
+            <span class="area-num">01</span>
+            <h3 class="area-name">Type guards and argument validation</h3>
+            <p class="area-what">
+              Narrow unknown input, and reject what does not belong.
+            </p>
+          </li>
+          <li class="area">
+            <span class="area-num">02</span>
+            <h3 class="area-name">Structured errors</h3>
+            <p class="area-what">
+              Errors with structure behind them, not just a message.
+            </p>
+          </li>
+          <li class="area">
+            <span class="area-num">03</span>
+            <h3 class="area-name">Object and array helpers</h3>
+            <p class="area-what">The small operations you keep rewriting.</p>
+          </li>
+          <li class="area">
+            <span class="area-num">04</span>
+            <h3 class="area-name">Terminal-friendly text</h3>
+            <p class="area-what">Text that behaves itself in a terminal.</p>
+          </li>
+        </ol>
+        <p class="areas-note">Plus a couple of things that fit nowhere else.</p>
+
+        <div class="install">
+          <div class="install-head">
+            <span class="install-label">Install</span>
+            <span class="tag tag-soon">Not yet published</span>
+          </div>
+          <pre class="install-code"><code><span class="prompt">$</span> npm install @openinf/&hellip;</code></pre>
+          <p class="install-note">
+            The ten ship together in Q4 2026, and package names are announced at
+            release. Six already live on npm under the
+            <code>@openinf</code> scope, in TypeScript with type declarations
+            from the start.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= latest: collections.posts | first ============== -->
+  <section class="band" aria-labelledby="latest-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="section-title" id="latest-title">Latest</h2>
+        <a class="section-more" href="/news/">All news</a>
+      </div>
+
+      {%- assign latest = collections.posts | first -%}
+      {%- if latest %}
+        <a class="post" href="{{ latest.url }}">
+          <span class="post-meta">
+            <span class="post-cat">{{ latest.data.category }}</span>
+            <span class="post-date">
+              <time datetime="{{ latest.date | date: '%Y-%m-%d' }}">
+                {{- latest.date | date_to_string -}}
+              </time>
+            </span>
+          </span>
+          <span class="post-body">
+            <span class="post-title">{{ latest.data.title }}</span>
+            <span class="post-excerpt">
+              {%- if latest.data.excerpt -%}
+                {{- latest.data.excerpt -}}
+              {%- else -%}
+                {{- latest.templateContent | strip_html | truncatewords: 30 -}}
+              {%- endif -%}
+            </span>
+          </span>
+        </a>
+      {%- endif %}
+    </div>
+  </section>
+
+  <!-- ================= how the community works ======================== -->
+  <section class="band" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="section-title" id="work-title">How we work</h2>
+        <a class="section-more" href="/about/vision/">Vision</a>
+      </div>
+
+      <ul class="work-list">
+        <li class="work-item">
+          <p class="work-name">
+            <a href="/docs/dev/internals/contributing/">Contributing</a>
+          </p>
+          <p class="work-what">
+            How issues get claimed, what makes a pull request easy to merge, and
+            the sign-off every contribution carries.
+          </p>
+        </li>
+        <li class="work-item">
+          <p class="work-name">
+            <a
+              href="https://github.com/search?q=org%3Aopeninf+is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22"
+              >Good first issues</a
+            >
+          </p>
+          <p class="work-what">
+            Open issues across the organisation marked as suitable to pick up.
+            See also
+            <a
+              href="https://github.com/search?q=org%3Aopeninf+is%3Aissue+is%3Aopen+label%3A%22help+wanted%22"
+              >help wanted</a
+            >.
+          </p>
+        </li>
+        <li class="work-item">
+          <!-- No handbook index page exists yet; point at one when it does. -->
+          <p class="work-name">
+            <a href="/docs/handbook/style/commit-messages/">Style handbook</a>
+          </p>
+          <p class="work-what">
+            The house style our documentation and commit messages follow.
+          </p>
+        </li>
+        <li class="work-item">
+          <p class="work-name">
+            <a href="/docs/code-of-conduct/">Code of Conduct</a>
+          </p>
+          <p class="work-what">
+            Respect people, their identities, their culture, and their work.
+            Listen before responding.
+          </p>
+        </li>
+        <li class="work-item">
+          <p class="work-name">
+            <a href="/docs/dev/faq/support/">Support</a>
+          </p>
+          <p class="work-what">Where to ask, in the order worth trying.</p>
+        </li>
+        <li class="work-item">
+          <p class="work-name">
+            <a href="/docs/dev/internals/security/">Security</a>
+          </p>
+          <p class="work-what">How to report a vulnerability privately.</p>
+        </li>
+      </ul>
+
+      <p class="elsewhere">
+        Elsewhere: <a href="https://twitter.com/OpenINF">@OpenINF on X</a>. A
+        <a href="https://matrix.to/#/%23openinf:matrix.org">Matrix room</a>
+        exists but is mostly defunct in favour of Discord.
+      </p>
+    </div>
+  </section>
+</main>

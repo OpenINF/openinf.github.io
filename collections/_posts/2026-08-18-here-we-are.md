@@ -2,6 +2,9 @@
 title: Here We Are
 author: DerekNonGeneric
 category: meta
+excerpt:
+  That work has a name and a date now. The OpenINF SDK arrives in Q4 2026, ten
+  small TypeScript packages for the unglamorous middle of Node.js work.
 ---
 
 Hello everyone! I'm passionate about building tools that empower the open-source
