@@ -1,0 +1,681 @@
+// The home page: a community front door. What OpenINF is, how to take part,
+// what is being built, and how the work is done.
+
+// It does not use the 48ch column the rest of the site reads in, so it sets
+// its own `.wrap` and its own offset under the fixed navbar.
+
+// Tokens come from _sublime-theme.scss. The two derived ones exist because
+// $primary does not clear 4.5:1 either way for small text: too light on ink,
+// too dark on parchment.
+
+.home {
+  --primary: #{$primary};
+  --secondary: #{$secondary};
+  --tertiary: #{$tertiary};
+  --quaternary: #{$quaternary};
+  --ink: #{$body-color};
+  --parchment: #{$body-bg};
+  --primary-tint: #{tint-color($primary, 30%)};
+  --primary-deep: #{shade-color($primary, 25%)};
+  --nav-h: 74px;
+  --sans: #{$font-family-sans-serif};
+  --mono: #{$font-family-monospace};
+  --wrap: 1200px;
+  --gutter: clamp(1rem, 4vw, 3rem);
+}
+
+// Scoped to `main` so the page's own resets stay inside the page. The navbar
+// and footer come from the layout and are styled with the rest of the site.
+// The footer carries `margin-top: -60px !important`, which the rest of the
+// site absorbs with the bottom padding on `main > .container`. This page has
+// no such container, so it needs the room itself or the footer sits on top of
+// the last section.
+.home main {
+  padding-bottom: 104px;
+}
+
+.home main h1,
+.home main h2,
+.home main h3,
+.home main p,
+.home main ul,
+.home main ol,
+.home main dl,
+.home main dd {
+  margin: 0;
+}
+
+.home main ul,
+.home main ol {
+  padding: 0;
+  list-style: none;
+}
+
+.home main a {
+  color: var(--primary-deep);
+}
+
+.home main :focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+// The masthead and the rail are ink, and so is the ring above, so it would be
+// invisible over exactly the section holding the links people are meant to
+// follow.
+.home .masthead :focus-visible,
+.home .sdk-rail :focus-visible {
+  outline-color: var(--parchment);
+}
+
+// `wrap` is a common enough name that another page could take it later and
+// silently inherit these, and the widths it reads are only declared on .home.
+.home .wrap {
+  max-width: var(--wrap);
+  padding-inline: var(--gutter);
+  margin-inline: auto;
+}
+
+/* --- Masthead ------------------------------------------------------ */
+
+// The navbar is fixed, so the room for it is taken here rather than on
+// `main`. Padding on `main` would sit above this section and show the body's
+// parchment through it, putting a pale band between the dark navbar and the
+// dark masthead.
+.masthead {
+  position: relative;
+  padding-top: calc(var(--nav-h) + clamp(2.5rem, 6vw, 4.5rem));
+  padding-bottom: clamp(2.5rem, 6vw, 4.5rem);
+  overflow: hidden;
+  color: var(--parchment);
+  background-color: var(--ink);
+}
+
+// The ring, oversized and run off the corner so only an arc of it lands on
+// the page. Same geometry as the mark in the navbar, which is the point: it
+// belongs to the same drawing without being a second copy of it.
+// Offset by transform rather than by `top` and `right`, because those resolve
+// against the section and this resolves against the ring. Below 960px the
+// grid stacks and the section grows tall while the ring, sized off the
+// viewport, gets smaller: a percentage of the section pushed it almost
+// entirely out of frame on a phone. A percentage of itself does not move.
+.masthead-ring {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  width: min(72vw, 620px);
+  aspect-ratio: 1;
+  color: var(--primary-tint);
+  pointer-events: none;
+  opacity: 0.14;
+
+  // Up by a fifth, not a third. At a third the circle's centre sits behind
+  // the fixed navbar on a phone, so all that shows is the cap below its
+  // widest point, and a cap reads as an oval. A fifth keeps the centre clear
+  // of the navbar at every width, so the curve is legible as a circle.
+  transform: translate(30%, -20%);
+}
+
+// `height: auto` rather than `100%`: with a viewBox the SVG carries its own
+// 1:1 ratio, so it squares itself off its width and does not depend on the
+// parent's height resolving to anything in particular.
+.masthead-ring svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+// Positioned children paint over static ones, so the content says outright
+// that it sits above the ring rather than relying on source order.
+.masthead-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.85fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+// _custom.scss makes every h1 a flex row and draws a rule after it, which is
+// right for a page heading and wrong for a sentence. This one is a sentence,
+// and as a flex container its words would lay out as siblings in a row.
+.masthead-title {
+  display: block;
+  max-width: 22ch;
+  font-size: clamp(1.75rem, 3.6vw, 3rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.masthead-title::after {
+  content: none;
+}
+
+/* The four verbs are the project's own statement of what it is for. */
+.masthead-title em {
+  font-style: normal;
+  color: var(--primary-tint);
+}
+
+.home .masthead-lede {
+  max-width: 46ch;
+  margin-top: 1.5rem;
+  font-size: clamp(1rem, 1.3vw, 1.125rem);
+  color: rgb(231 231 214 / 76%);
+}
+
+/* --- Take part (in the masthead, at hero weight) ------------------- */
+
+.join {
+  padding: 1.25rem 1.25rem 1.125rem;
+  background-color: rgb(231 231 214 / 4%);
+  border: 1px solid rgb(231 231 214 / 20%);
+}
+
+.join-head {
+  display: flex;
+  gap: 0.625rem;
+  align-items: center;
+  padding-bottom: 0.875rem;
+  border-bottom: 1px solid rgb(231 231 214 / 16%);
+}
+
+.join-head svg {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  fill: var(--primary-tint);
+}
+
+.join-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.home .join-note {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  color: var(--tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.home .join-channels {
+  margin-block: 0.625rem 0.875rem;
+}
+
+.channel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.125rem 0.75rem;
+  align-items: baseline;
+  padding: 0.5rem 0.625rem;
+  text-decoration: none;
+  border-left: 3px solid transparent;
+}
+
+.channel:hover {
+  background-color: rgb(231 231 214 / 8%);
+}
+
+/* #support is the venue the docs point at first. */
+.channel-primary {
+  background-color: rgb(0 136 153 / 22%);
+  border-left-color: var(--primary);
+}
+
+.channel-primary:hover {
+  background-color: rgb(0 136 153 / 34%);
+}
+
+.channel-name {
+  font-family: var(--mono);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--primary-tint);
+}
+
+.channel-primary .channel-name {
+  color: #fff;
+}
+
+.channel-what {
+  font-size: 0.8125rem;
+  color: rgb(231 231 214 / 70%);
+}
+
+.join-row {
+  display: flex;
+  gap: 0.625rem;
+  align-items: baseline;
+  padding-top: 0.875rem;
+  border-top: 1px solid rgb(231 231 214 / 16%);
+}
+
+.join-row svg {
+  flex: none;
+  width: 17px;
+  height: 17px;
+  fill: var(--parchment);
+  transform: translateY(2px);
+}
+
+.join-row p {
+  font-size: 0.875rem;
+  color: rgb(231 231 214 / 70%);
+}
+
+.join-row a {
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--parchment);
+}
+
+.home .join-coc {
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  color: rgb(231 231 214 / 58%);
+}
+
+.join-coc a {
+  color: rgb(231 231 214 / 82%);
+}
+
+/* --- SDK: numbers rail --------------------------------------------- */
+
+.sdk-rail {
+  padding-block: 1.125rem;
+  color: var(--parchment);
+  background-color: #14110f;
+  border-top: 1px solid rgb(231 231 214 / 12%);
+}
+
+.sdk-rail-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem clamp(1.25rem, 3vw, 2.75rem);
+  align-items: center;
+}
+
+.rail-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+}
+
+.rail-name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.tag-when {
+  color: var(--ink);
+  background-color: var(--primary-tint);
+}
+
+.stats {
+  display: grid;
+  flex: 1 1 30rem;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: 1rem 1.5rem;
+}
+
+// `align-self: start` is what keeps the numbers on one line. A grid item
+// stretches to the tallest cell by default, and in `column-reverse` the
+// content packs toward the bottom of it, so the labels lined up and the
+// numbers floated at whatever height each label's wrapping left them. The
+// labels run from one line to four, so that was four different heights, and
+// worse at narrow widths where they wrap more.
+.stat {
+  display: flex;
+  flex-direction: column-reverse; /* value reads above its label */
+  gap: 0.375rem;
+  align-self: start;
+}
+
+// Bootstrap's reboot bolds every dt; these dl/dt/dd pairs are borrowed for
+// their pairing model, not for definition-list emphasis, and the bold belongs
+// on the value (dd), not the label.
+.stat dt {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--tertiary);
+}
+
+.stat dd {
+  font-family: var(--mono);
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--primary-tint);
+}
+
+.stat-qual {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: rgb(231 231 214 / 62%);
+}
+
+/* --- SDK: body ------------------------------------------------------ */
+
+.sdk-body {
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+  background-color: var(--secondary);
+}
+
+.sdk-title {
+  max-width: 26ch;
+  font-size: clamp(1.375rem, 2.4vw, 2rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+}
+
+.home .sdk-lede {
+  max-width: 58ch;
+  margin-top: 1rem;
+  font-size: 1.0625rem;
+}
+
+// Counted, not fitted. The taupe behind the cells is what draws the hairline
+// between them, so an empty cell is a slab of it: `auto-fit` chose three
+// columns for everything from roughly 780px to 1030px, and three columns
+// leaves two of the four boxes' worth of space bare. Four items divide evenly
+// by four, two and one, so those are the only counts offered.
+.home .areas {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 2.25rem;
+  background-color: rgb(167 151 139 / 55%);
+  border: 1px solid rgb(167 151 139 / 55%);
+}
+
+.area {
+  padding: 1.125rem 1.25rem 1.25rem;
+  background-color: var(--secondary);
+}
+
+.area-num {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--primary-deep);
+}
+
+.home .area-name {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.home .area-what {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #4b433c;
+}
+
+.home .areas-note {
+  margin-top: 0.875rem;
+  font-size: 0.875rem;
+  color: #4b433c;
+}
+
+/* --- Forthcoming install ------------------------------------------- */
+
+.install {
+  margin-top: 2.25rem;
+}
+
+.install-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+  padding: 0.5rem 0.875rem;
+  background-color: var(--ink);
+}
+
+.install-label {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  color: var(--tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.tag-soon {
+  margin-left: auto;
+  color: var(--parchment);
+  background-color: var(--quaternary);
+}
+
+.install-code {
+  margin: 0;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 0.9375rem;
+  color: rgb(231 231 214 / 55%); /* dimmed: it does not work yet */
+  background-color: var(--ink);
+  border-top: 1px solid rgb(231 231 214 / 12%);
+}
+
+.install-code code {
+  display: block;
+  padding: 0.875rem;
+}
+
+.install-code .prompt {
+  color: var(--quaternary);
+  user-select: none;
+}
+
+.home .install-note {
+  max-width: 60ch;
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: #4b433c;
+}
+
+.install-note code {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+}
+
+/* --- Shared section furniture --------------------------------------- */
+
+.band {
+  padding-block: clamp(2.5rem, 5vw, 3.75rem);
+}
+
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--ink);
+}
+
+.section-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.section-more {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+}
+
+/* --- Latest ---------------------------------------------------------- */
+
+.home .post {
+  display: grid;
+  grid-template-columns: minmax(0, 10rem) minmax(0, 1fr);
+  gap: 0.375rem 1.5rem;
+  padding: 1.25rem 0;
+  text-decoration: none;
+  border-bottom: 1px solid rgb(167 151 139 / 55%);
+}
+
+.home .post:hover .post-title {
+  text-decoration: underline;
+}
+
+.home .post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.home .post-cat {
+  padding: 0.0625rem 0.4375rem;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  color: var(--parchment);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background-color: var(--tertiary);
+}
+
+.home .post-date {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: #6b6259;
+}
+
+// Both are spans, kept for the grid's sake (see `.post`), but not blockified
+// by it: only `.post-body`, the direct grid item, is. Left as spans they run
+// on as one paragraph, title-text-then-excerpt, and `margin-top` below does
+// nothing — inline boxes do not take vertical margin.
+.home .post-title {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--primary-deep);
+}
+
+.home .post-excerpt {
+  display: block;
+  max-width: 62ch;
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
+  color: var(--ink);
+}
+
+/* --- How we work ------------------------------------------------------ */
+
+// Counted for the same reason as the boxes above, on the same two widths.
+// Six divides by three, two and one, and `auto-fit` reached four at desktop,
+// which left the last row two short and its underline stopping halfway.
+.home .work-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 0.5rem;
+}
+
+.work-item {
+  padding: 1.125rem 1.5rem 1.125rem 0;
+  border-bottom: 1px solid rgb(167 151 139 / 55%);
+}
+
+.work-name {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.home .work-what {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #4b433c;
+}
+
+.home .elsewhere {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: #4b433c;
+}
+
+/* --- Narrow ------------------------------------------------------------ */
+
+// Where four columns stop being 15rem apiece, which is the width the boxes
+// were drawn for.
+@media (width < 1040px) {
+  .home .areas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home .work-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width < 960px) {
+  .masthead-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .masthead-title {
+    max-width: none;
+  }
+}
+
+@media (width < 560px) {
+  .home .areas,
+  .home .work-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  // At this width the stacked grid shows only a small corner of the ring,
+  // below the fixed navbar, with the two-column join panel it otherwise
+  // crosses nowhere in sight. 14% reads clearly next to that panel's own
+  // text; alone in the corner it needs more ink to still read as deliberate.
+  .masthead-ring {
+    opacity: 0.2;
+  }
+
+  .post {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home .join-note {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .join-head {
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
