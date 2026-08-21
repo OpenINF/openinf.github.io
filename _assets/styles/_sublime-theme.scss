@@ -15,6 +15,10 @@ $body-color: #1d1916;
 // our warm ink and it reads as a mistake. Our dark is the ink.
 $dark: $body-color;
 $body-bg: #e7e7d6;
+
+// The fixed navbar's height: the brand mark plus the padding around it. The
+// page offsets itself by this, and the navbar's own links fill it.
+$navbar-height: 74px;
 $pagination-border-width: 2px;
 $pagination-border-color: $tertiary;
 $pagination-active-bg: $tertiary;

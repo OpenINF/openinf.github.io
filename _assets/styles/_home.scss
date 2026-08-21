@@ -17,7 +17,7 @@
   --parchment: #{$body-bg};
   --primary-tint: #{tint-color($primary, 30%)};
   --primary-deep: #{shade-color($primary, 25%)};
-  --nav-h: 74px;
+  --nav-h: #{$navbar-height};
   --sans: #{$font-family-sans-serif};
   --mono: #{$font-family-monospace};
   --wrap: 1200px;
@@ -529,7 +529,7 @@
 
 /* --- Latest ---------------------------------------------------------- */
 
-.home .post {
+.home .latest {
   display: grid;
   grid-template-columns: minmax(0, 10rem) minmax(0, 1fr);
   gap: 0.375rem 1.5rem;
@@ -538,18 +538,18 @@
   border-bottom: 1px solid rgb(167 151 139 / 55%);
 }
 
-.home .post:hover .post-title {
+.home .latest:hover .latest-title {
   text-decoration: underline;
 }
 
-.home .post-meta {
+.home .latest-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   align-items: baseline;
 }
 
-.home .post-cat {
+.home .latest-cat {
   padding: 0.0625rem 0.4375rem;
   font-family: var(--mono);
   font-size: 0.6875rem;
@@ -559,17 +559,17 @@
   background-color: var(--tertiary);
 }
 
-.home .post-date {
+.home .latest-date {
   font-family: var(--mono);
   font-size: 0.75rem;
   color: #6b6259;
 }
 
-// Both are spans, kept for the grid's sake (see `.post`), but not blockified
-// by it: only `.post-body`, the direct grid item, is. Left as spans they run
+// Both are spans, kept for the grid's sake (see `.latest`), but not blockified
+// by it: only `.latest-body`, the direct grid item, is. Left as spans they run
 // on as one paragraph, title-text-then-excerpt, and `margin-top` below does
 // nothing — inline boxes do not take vertical margin.
-.home .post-title {
+.home .latest-title {
   display: block;
   font-size: 1.25rem;
   font-weight: 700;
@@ -577,7 +577,7 @@
   color: var(--primary-deep);
 }
 
-.home .post-excerpt {
+.home .latest-excerpt {
   display: block;
   max-width: 62ch;
   margin-top: 0.5rem;
@@ -657,7 +657,7 @@
     opacity: 0.2;
   }
 
-  .post {
+  .latest {
     grid-template-columns: minmax(0, 1fr);
   }
 
