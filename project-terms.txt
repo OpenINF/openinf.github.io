@@ -9,7 +9,6 @@ code.visualstudio.com
 codebase
 consectetuer
 convos
-Corge
 dereknongeneric
 devcontainer
 dorny
@@ -24,7 +23,6 @@ expressjs
 extename
 fontvault
 freenode
-Garply
 GFIs
 GNUPGHOME
 gpg
@@ -35,7 +33,6 @@ gpgsig
 gpgsign
 gpgsm
 gpgtunnel
-Grault
 Grimes
 https
 imagize
@@ -45,7 +42,6 @@ isaacs
 jsify
 macOS
 Maintainership
-metasyntactic
 MSYS
 omakase
 openinf
@@ -58,7 +54,6 @@ outro
 pinentry
 Potenti
 PowerShell
-Quux
 Renovatebot
 repoints
 retargets
