@@ -1,5 +1,11 @@
 // Custom Styles
 
+// The navbar is fixed, so an anchor lands behind it without this. The extra
+// room keeps the target clear of the bar rather than flush against it.
+html {
+  scroll-padding-top: calc(#{$navbar-height} + 1rem);
+}
+
 main {
   min-height: 100%;
 }

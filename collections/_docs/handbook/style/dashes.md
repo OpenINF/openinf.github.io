@@ -1,6 +1,7 @@
 ---
 title: Dashes
 key_point: Which dash to use, and how it differs from a colon.
+stub: true
 ---
 
 > [!NOTE]\

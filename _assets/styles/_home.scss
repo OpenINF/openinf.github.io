@@ -270,7 +270,13 @@
   color: rgb(231 231 214 / 70%);
 }
 
-.join-row a {
+// Links on the ink. `.home main a` is (0,1,2), so a band rule needs `main`
+// to reach them.
+.home main .masthead a {
+  color: var(--parchment);
+}
+
+.home main .join-row a {
   font-family: var(--mono);
   font-weight: 700;
   color: var(--parchment);
@@ -282,7 +288,8 @@
   color: rgb(231 231 214 / 58%);
 }
 
-.join-coc a {
+// Same weight as the rule above it, so this stays below it in the file.
+.home main .join-coc a {
   color: rgb(231 231 214 / 82%);
 }
 

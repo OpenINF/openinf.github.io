@@ -14,7 +14,7 @@
   >
   <meta
     name='description'
-    content='{{ siteDescription }}'
+    content='{{ description | default: siteDescription }}'
   >
   <meta name='format-detection' content='telephone=no'>
   {% if status == 'unpublished' %}

@@ -1,6 +1,7 @@
 ---
 title: Code in Text
 key_point: What to set in code font, and how to explain placeholders.
+stub: true
 ---
 
 > [!NOTE]\
