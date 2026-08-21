@@ -17,7 +17,7 @@
   --parchment: #{$body-bg};
   --primary-tint: #{tint-color($primary, 30%)};
   --primary-deep: #{shade-color($primary, 25%)};
-  --nav-h: 74px;
+  --nav-h: #{$navbar-height};
   --sans: #{$font-family-sans-serif};
   --mono: #{$font-family-monospace};
   --wrap: 1200px;
