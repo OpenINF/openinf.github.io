@@ -31,11 +31,7 @@ eleventyImport:
         </p>
       </div>
 
-      <!--
-        The gap in the handbook, stated as an invitation. Every number
-        here is computed from the same collection the full list further
-        down is built from, so the two can never disagree.
-      -->
+      <!-- The handbook's gap, stated as an invitation. -->
       <aside class="invite" aria-labelledby="invite-title">
         <p class="invite-eyebrow">The handbook</p>
         {%- if open_count > 0 %}
@@ -44,8 +40,8 @@ eleventyImport:
             {{ rule_word }} with no page yet
           </h2>
           <p class="invite-what">
-            Each has a title and the rule it means to make, and nothing else. A
-            small, self-contained thing to write.
+            Each names its rule but has no page beneath it yet. Small,
+            self-contained things to write.
           </p>
         {%- else %}
           <h2 class="invite-title" id="invite-title">
@@ -89,12 +85,9 @@ eleventyImport:
   </section>
 
   <!--
-    ================= the handbook ===================================
-    Each entry carries its own rule, so the list reads as the handbook in
-    miniature and most lookups end here rather than a page in. Order
-    follows the collection (alphabetical by title): this is reference
-    material, consulted by looking things up, so a predictable order
-    matters more than a curated reading path would.
+    ================= the handbook ==================================
+    Each entry carries its own rule, so most lookups end here. Alphabetical,
+    because reference is consulted by looking things up.
   -->
   <section
     class="band band-quiet"
@@ -109,9 +102,8 @@ eleventyImport:
       </div>
 
       <p class="handbook-lede">
-        The house style our documentation and commit messages follow. One rule
-        to a page, and the rule is below, so most of the time you need not open
-        the page at all.
+        The house style our documentation and commit messages follow, one rule
+        to a page. Each rule is stated below, so you can find the one you need.
       </p>
 
       <dl class="rule-list">
@@ -136,8 +128,8 @@ eleventyImport:
 
       {%- if open_count > 0 %}
         <p class="handbook-gap">
-          The unwritten pages hold a title and the rule they mean to make, and
-          nothing else yet. Each is a small, self-contained thing to pick up.
+          The rules marked unwritten have their line here but no page yet. Any
+          one of them is a contained piece of work.
           <a href="/docs/dev/internals/contributing/">How to contribute</a>.
         </p>
       {%- endif %}

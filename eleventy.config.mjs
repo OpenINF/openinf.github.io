@@ -129,11 +129,9 @@ export default async function (eleventyConfig) {
       );
   });
 
-  // The index at /docs/ shows these two groups, so they arrive as two
-  // collections rather than one the template has to sort back out. Reference
-  // is read by looking things up, so the handbook goes alphabetical; the
-  // community docs keep the reading order their `order` sets, and a doc
-  // without one stays off the index until somebody places it.
+  // The two groups the index at /docs/ shows. The handbook is alphabetical,
+  // being reference; the community docs follow their `order`, and a doc
+  // without one stays off the index.
   eleventyConfig.addCollection('handbook', (collectionApi) => {
     return collectionApi
       .getFilteredByGlob('collections/_docs/handbook/**/*.md')

@@ -2,34 +2,10 @@
 
 // The docs index: what is written, and what is still open.
 
-// Family resemblance with _home.scss is deliberate throughout: the same
-// $docs-wrap/$docs-gutter proportions, the same ink band offset under the
-// fixed navbar, the same translucent-on-ink aside box for the page's one
-// call to act. This page still reads a size class quieter than the home
-// page -- it is the second door, not the front one -- and spends its one
-// bold gesture on a single computed number rather than on a graphic.
-
-// Colours come from the Sass variables in _sublime-theme.scss rather than
-// from custom properties scoped to `.home`, matching this file's own prior
-// convention. $docs-muted reuses the literal tone _home.scss repeats for
-// secondary copy (#4b433c) rather than re-deriving a slightly different one
-// from $tertiary, so the two pages read as the same ink at a glance.
-
-// Every contrast pair below is a foreground/background this file actually
-// paints, verified against the true composited colour (translucent ink
-// overlays included), not the nominal one:
-//   ink / parchment                          13.97:1
-//   ink / band-quiet                         12.77:1
-//   $docs-link / parchment                    5.34:1
-//   $docs-link / band-quiet                   4.88:1
-//   $docs-muted / parchment                   7.75:1
-//   $docs-muted / band-quiet                  7.09:1
-//   $docs-flag-text / $docs-flag-bg           6.91:1
-//   parchment (solid) / ink                  13.97:1
-//   $docs-primary-tint / ink                  6.57:1
-//   $docs-primary-tint / .invite's own bg     6.01:1
-//   tertiary (solid) / ink                    6.19:1
-//   parchment @70% / ink                      7.37:1
+// This page reads wider than the 48ch column the rest of the site uses, so it
+// sets its own width and its own offset under the fixed navbar. Colours come
+// from _sublime-theme.scss; $docs-muted is the tone _home.scss gives secondary
+// copy, so the two pages read alike.
 
 $docs-wrap: 1200px;
 $docs-gutter: clamp(1rem, 4vw, 3rem);
@@ -38,21 +14,13 @@ $docs-primary-tint: tint-color($primary, 30%);
 $docs-muted: #4b433c;
 $docs-hairline: rgb(167 151 139 / 55%);
 
-// A pale wash of $quaternary with its own deep-shade text, rather than
-// $quaternary as a solid fill: solid $quaternary under $body-bg text (what
-// `.tag-soon` uses on the home page) measures 4.33:1, under the 4.5:1 floor
-// for text this size. This pairing keeps the same "not yet" hue and clears
-// AA with room to spare.
+// A pale wash with deep-shade text, so the chip clears AA at this size.
 $docs-flag-bg: tint-color($quaternary, 88%);
 $docs-flag-text: shade-color($quaternary, 25%);
 
-// Scoped to `main` so the page's resets stay inside the page and leave the
-// navbar and footer to the rest of the site. `.docs a` or `.docs
-// :focus-visible` would also match the navbar -- it is `main`'s sibling
-// under the same body class -- which is exactly how the navbar went teal
-// and lost its focus ring before. The footer's negative top margin is
-// absorbed elsewhere by the padding on `main > .container`; there is no
-// such container here, so the room is taken directly.
+// Scoped to `main` to keep the resets off the navbar and footer, which are
+// its siblings under the same body class. The padding replaces what
+// `main > .container` gives the footer elsewhere.
 .docs main {
   padding-bottom: 104px;
 }
@@ -88,11 +56,8 @@ $docs-flag-text: shade-color($quaternary, 25%);
 
 /* --- Head -------------------------------------------------------------- */
 
-// Ink, so it carries on from the navbar above it rather than letting the
-// body's parchment show as a pale band between the two. Shorter than the
-// home page's masthead and without its ring graphic -- this is the second
-// door, not the front one -- so the one flourish here is the numeral in
-// `.invite`, not a second motif competing with it.
+// Ink, so it carries on from the navbar rather than leaving a pale band
+// between the two.
 .docs-head {
   padding-top: calc(#{$navbar-height} + clamp(2rem, 5vw, 3.5rem));
   padding-bottom: clamp(2.25rem, 5vw, 3.5rem);
@@ -111,11 +76,8 @@ $docs-flag-text: shade-color($quaternary, 25%);
   align-items: start;
 }
 
-// _custom.scss makes every h1 a flex row and draws a rule after it, which
-// suits a plain page heading (see every handbook page's title) and is
-// wrong beside a two-column grid: the rule would run only to this column's
-// edge, reading as an accidental underline against `.invite` rather than a
-// deliberate one.
+// _custom.scss draws a rule after every h1. Beside a two-column grid it
+// would stop at this column's edge, so it is off here.
 .docs-title {
   display: block;
   font-size: clamp(1.875rem, 4.5vw, 2.75rem);
@@ -137,13 +99,8 @@ $docs-flag-text: shade-color($quaternary, 25%);
 }
 
 /* --- Head: the invite -----------------------------------------------
-  Same shape as `.join` on the home page -- a labelled box, a headline
-  statement, a closing line with a link -- carrying this page's own content
-  instead: the handbook's own gap, not a repeat of the home page's Discord
-  invite. A visitor who wants Discord already saw it one click back; a
-  visitor reading the docs is closer to being able to act on this one. Both
-  branches below read from the same count the full list further down is
-  built from, so the two can never disagree.
+  The shape `.join` has on the home page, carrying the handbook's own gap.
+  Both branches read the count the list further down is built from.
 */
 
 .invite {
@@ -192,9 +149,17 @@ $docs-flag-text: shade-color($quaternary, 25%);
   border-top: 1px solid rgb(231 231 214 / 16%);
 }
 
-.invite-row a {
+// Links on the ink. `.docs main a` is (0,1,2), so a band rule needs `main`
+// to reach them.
+.docs main .docs-head a {
+  color: $body-bg;
+}
+
+// The treatment `.join-row a` gives the home page's equivalent link.
+.docs main .invite-row a {
+  font-family: $font-family-monospace;
   font-weight: 700;
-  color: $docs-primary-tint;
+  color: $body-bg;
 }
 
 /* --- Shared section furniture ------------------------------------------ */
@@ -203,8 +168,7 @@ $docs-flag-text: shade-color($quaternary, 25%);
   padding-block: clamp(2.5rem, 6vw, 4rem);
 }
 
-// The handbook is the substance of this page, so it sits on its own
-// ground.
+// The handbook is the substance of this page, so it sits on its own ground.
 .docs .band-quiet {
   background-color: color.mix($tertiary, $body-bg, 12%);
   border-block: 1px solid $docs-hairline;
@@ -240,11 +204,8 @@ $docs-flag-text: shade-color($quaternary, 25%);
 }
 
 /* --- Taking part --------------------------------------------------------
-  A plain divided list, not a numbered tile grid: these four are process
-  and community links, the same kind of thing as the home page's own
-  "How we work" list, not a catalogue of product areas. The numbered-tile
-  treatment stays reserved for the SDK's package areas on the home page,
-  so the two forms keep meaning something different from each other.
+  A plain divided list: process and community links, the same kind of thing
+  as the home page's "How we work".
 */
 
 .docs .part-list {
@@ -272,12 +233,8 @@ $docs-flag-text: shade-color($quaternary, 25%);
 }
 
 /* --- The handbook -------------------------------------------------------
-  Alphabetical, one row per rule, name and point side by side so the column
-  of names reads as an index and the point sits where the eye lands after
-  it. The index numeral borrows `.area-num`'s exact recipe from the home
-  page (mono, small, the same teal); a reference list earns the numbering a
-  catalogue-style tile grid would not, because unlike "Taking part" this
-  one really is consulted the way an index is: by looking something up.
+  Alphabetical, one row per rule, name and point side by side so the names
+  read as an index. The numeral uses `.area-num`'s recipe from the home page.
 */
 
 .docs .handbook-lede {
@@ -304,11 +261,8 @@ $docs-flag-text: shade-color($quaternary, 25%);
   border-top: 1px solid rgb(167 151 139 / 35%);
 }
 
-// A grid, not one flex-wrap row: the numeral has to stay in its own
-// column so it stays pinned beside the first line of the title rather
-// than wrapping away with it. "Documenting Command-Line Syntax" and
-// "Prefer People/Person-First Language When Appropriate" are long enough
-// to wrap on their own regardless -- the numeral should not follow them.
+// A grid, so the numeral keeps its own column and stays beside the first
+// line of a title long enough to wrap.
 .docs .rule-name {
   display: grid;
   grid-template-columns: 1.375rem minmax(0, 1fr);
@@ -337,10 +291,7 @@ $docs-flag-text: shade-color($quaternary, 25%);
   line-height: 1.6;
 }
 
-// Unwritten pages are marked by this chip alone -- text, not colour alone,
-// so the state does not rest on the wash of colour behind it. The point
-// beside it stays at full weight and full contrast in every row: the rule
-// is exactly as real on a page that is not written yet.
+// The chip carries the state in text, so it does not rest on colour alone.
 .docs .rule-flag {
   padding: 0.0625rem 0.4375rem;
   font-family: $font-family-monospace;
@@ -361,9 +312,8 @@ $docs-flag-text: shade-color($quaternary, 25%);
 }
 
 /* --- Not here yet --------------------------------------------------------
-  Quieter than the two sections above on purpose: its whole point is that
-  there is not much to say yet, and a heading the same size as "Taking
-  part" would promise a third pillar this page does not have.
+  Quieter than the sections above: a heading at their size would promise a
+  third pillar the page does not have.
 */
 
 .docs .band-tail {
@@ -400,8 +350,7 @@ $docs-flag-text: shade-color($quaternary, 25%);
     grid-template-columns: minmax(0, 1fr);
   }
 
-  // The name column stops earning its width once the point beside it
-  // wraps to three or four lines.
+  // The name column stops earning its width once the point beside it wraps.
   .docs .rule {
     grid-template-columns: minmax(0, 1fr);
     gap: 0.375rem;
