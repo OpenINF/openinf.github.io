@@ -11,10 +11,6 @@ collections/_docs/security.md
 collections/_docs/support.md
 collections/_pages/vision.md
 
-# Placeholder posts. The prose is Latin filler, so the natural-language
-# rules have nothing useful to say about it.
-collections/_posts/*lorem-ipsum*.md
-
 # The package store, which lives in the project because hard links cannot
 # cross a filesystem. It holds other people's files.
 .pnpm-store/
