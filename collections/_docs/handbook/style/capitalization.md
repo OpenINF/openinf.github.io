@@ -1,6 +1,7 @@
 ---
 title: Capitalization
 key_point: When to capitalize, and when to leave a word lowercase.
+stub: true
 ---
 
 > [!NOTE]\

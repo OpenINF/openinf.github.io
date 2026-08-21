@@ -129,6 +129,24 @@ export default async function (eleventyConfig) {
       );
   });
 
+  // The index at /docs/ shows these two groups, so they arrive as two
+  // collections rather than one the template has to sort back out. Reference
+  // is read by looking things up, so the handbook goes alphabetical; the
+  // community docs keep the reading order their `order` sets, and a doc
+  // without one stays off the index until somebody places it.
+  eleventyConfig.addCollection('handbook', (collectionApi) => {
+    return collectionApi
+      .getFilteredByGlob('collections/_docs/handbook/**/*.md')
+      .sort((a, b) => a.data.title.localeCompare(b.data.title));
+  });
+
+  eleventyConfig.addCollection('communityDocs', (collectionApi) => {
+    return collectionApi
+      .getFilteredByGlob('collections/_docs/*.md')
+      .filter((doc) => typeof doc.data.order === 'number')
+      .sort((a, b) => a.data.order - b.data.order);
+  });
+
   eleventyConfig.addPlugin(EleventyI18nPlugin, {
     // Any valid BCP 47-compatible language tag is supported.
     defaultLanguage: 'en', // required

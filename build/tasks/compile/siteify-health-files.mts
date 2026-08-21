@@ -114,18 +114,28 @@ for (const value of healthFiles) {
     case 'CODE_OF_CONDUCT.md':
       siteifyFile(value, 'collections/_docs', {
         title: 'OpenINF Code of Conduct',
+        description:
+          'Respect people, their identities, their culture, and their work. ' +
+          'Listen before responding.',
+        order: 2,
         editable: false,
       });
       break;
     case 'CONTRIBUTING.md':
       siteifyFile(value, 'collections/_docs', {
         title: 'Contributing to OpenINF',
+        description:
+          'How issues get claimed, what makes a pull request easy to merge, ' +
+          'and the sign-off every contribution carries.',
+        order: 1,
         permalink: '/docs/dev/internals/contributing/',
       });
       break;
     case 'SECURITY.md': {
       siteifyFile(value, 'collections/_docs', {
         title: 'OpenINF Security Policies',
+        description: 'How to report a vulnerability privately.',
+        order: 4,
         permalink: '/docs/dev/internals/security/',
       });
       break;
@@ -133,6 +143,8 @@ for (const value of healthFiles) {
     case 'SUPPORT.md':
       siteifyFile(value, 'collections/_docs', {
         title: 'Support • Frequently Asked Questions',
+        description: 'Where to ask, in the order worth trying.',
+        order: 3,
         permalink: '/docs/dev/faq/support/',
       });
       break;

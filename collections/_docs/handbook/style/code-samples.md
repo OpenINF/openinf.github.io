@@ -1,6 +1,7 @@
 ---
 title: Code Samples
 key_point: How to introduce and present a code sample.
+stub: true
 ---
 
 > [!NOTE]\

@@ -1,6 +1,7 @@
 ---
 title: Lists
 key_point: How to introduce and punctuate lists.
+stub: true
 ---
 
 > [!NOTE]\
