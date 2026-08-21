@@ -1,10 +1,90 @@
 ---
 title: About
+layout: default
 permalink: /about/
+description:
+  The question OpenINF formed around, how the work is organised, and where
+  things currently stand.
 body_classes:
   - about
 ---
-<p class="lead">
-  Check out the <a href="/about/vision">OpenINF Vision</a> to see what we are
-  about.
-</p>
+<main class="flex-shrink-0">
+  <!-- ================= the question =================================== -->
+  <section class="about-head">
+    <div class="about-pattern" aria-hidden="true"></div>
+
+    <div class="wrap about-head-inner">
+      <h1 class="about-title">About</h1>
+      <p class="about-lede">
+        OpenINF formed around a question. The tools to answer it did not exist,
+        so building them became the work.
+      </p>
+
+      <p class="about-question">
+        How can we help open source developers <em>aggregate</em>,
+        <em>curate</em>, <em>disseminate</em>, and <em>apply</em> information
+        more effectively?
+      </p>
+    </div>
+  </section>
+
+  <!--
+    ================= how it is organised ============================
+    Three things true of the community itself, rather than of anything it
+    publishes. The home page covers what is being built.
+  -->
+  <section
+    class="band band-quiet"
+    id="practice"
+    aria-labelledby="practice-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="section-title" id="practice-title">In practice</h2>
+        <a class="section-more" href="/about/vision/">Vision</a>
+      </div>
+
+      <dl class="tenet-list">
+        <div class="tenet">
+          <dt class="tenet-name">The rules are written down</dt>
+          <dd class="tenet-what">
+            How prose is styled, how a commit is worded, how a change gets
+            reviewed. It lives in the <a href="/docs/#handbook">handbook</a>,
+            not in the head of whoever reviews you.
+          </dd>
+        </div>
+        <div class="tenet">
+          <dt class="tenet-name">The community documents have one home</dt>
+          <dd class="tenet-what">
+            The code of conduct, security policy, and the rest are written once,
+            in
+            <a href="https://github.com/OpenINF/.github">OpenINF/.github</a>,
+            then mirrored into each repository as it builds. They cannot drift
+            apart from one another.
+          </dd>
+        </div>
+        <div class="tenet">
+          <dt class="tenet-name">The portal is built in the open</dt>
+          <dd class="tenet-what">
+            Its
+            <a href="https://github.com/OpenINF/openinf.github.io">source</a>,
+            its issues, and the review behind every change are public. That
+            includes how this page came to be.
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ================= the honest bit ================================= -->
+  <section class="band band-tail" aria-labelledby="standing-title">
+    <div class="wrap">
+      <h2 class="tail-title" id="standing-title">Where it stands</h2>
+      <p class="tail-what">
+        In its infancy, and it shows: gaps, half-finished pages, rules with
+        nothing written under them yet. What we know about is marked as such.
+        Finding something we have missed is a good reason to
+        <a href="/docs/dev/internals/contributing/">open a pull request</a>.
+      </p>
+    </div>
+  </section>
+</main>

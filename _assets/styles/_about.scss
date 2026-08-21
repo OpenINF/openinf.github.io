@@ -1,0 +1,247 @@
+// The about page: the question the project started from, how the community
+// is organised, and where things stand.
+
+// It reads at the same 1200px width as docs and home, and sets its own
+// offset under the fixed navbar. Colours come from _sublime-theme.scss;
+// $about-muted matches the tone _home.scss and _docs.scss give secondary
+// copy, so all three pages read alike.
+
+$about-wrap: 1200px;
+$about-gutter: clamp(1rem, 4vw, 3rem);
+$about-link: shade-color($primary, 25%);
+$about-primary-tint: tint-color($primary, 30%);
+$about-muted: #4b433c;
+$about-hairline: rgb(167 151 139 / 55%);
+
+// Scoped to `main` to keep the resets off the navbar and footer, which are
+// its siblings under the same body class. The padding replaces what
+// `main > .container` gives the footer elsewhere.
+.about main {
+  padding-bottom: 104px;
+}
+
+.about main h1,
+.about main h2,
+.about main p,
+.about main ul,
+.about main dl,
+.about main dd {
+  margin: 0;
+}
+
+.about main ul {
+  padding: 0;
+  list-style: none;
+}
+
+.about main a {
+  color: $about-link;
+}
+
+.about main :focus-visible {
+  outline: 2px solid $body-color;
+  outline-offset: 2px;
+}
+
+.about .wrap {
+  max-width: $about-wrap;
+  padding-inline: $about-gutter;
+  margin-inline: auto;
+}
+
+/* --- Head: the question -------------------------------------------------- */
+
+// Ink, so it carries on from the navbar rather than leaving a pale band
+// between the two.
+.about-head {
+  position: relative;
+  padding-top: calc(#{$navbar-height} + clamp(2rem, 5vw, 3.5rem));
+  padding-bottom: clamp(2.25rem, 5vw, 3.5rem);
+  overflow: hidden;
+  color: $body-bg;
+  background-color: $body-color;
+}
+
+// The flower of life, run off the corner so an arc of it lands on the page.
+// Offset by transform, which resolves against the pattern; `inset` would
+// resolve against the section and move as the section grows.
+.about-pattern {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  z-index: 0;
+  width: min(88vw, 760px);
+  aspect-ratio: 1;
+  background-image: url('/assets/img/sublime-theme/flower-of-life.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.1;
+  transform: translate(24%, -20%);
+}
+
+.about-head-inner {
+  position: relative;
+  z-index: 1;
+}
+
+// _custom.scss draws a rule after every h1, sized for its 1.5rem default;
+// wrong at this scale.
+.about-title {
+  display: block;
+  font-size: clamp(1.875rem, 4.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.about-title::after {
+  content: none;
+}
+
+.about-lede {
+  max-width: 54ch;
+  margin-top: 1rem !important;
+  font-size: clamp(1rem, 1.6vw, 1.0625rem);
+  line-height: 1.6;
+  color: rgb(231 231 214 / 76%);
+}
+
+// The measure sits on the same element as the type size, so the `ch` it reads
+// is the one the question is actually set in.
+.about-question {
+  max-width: 30ch;
+  margin-top: clamp(2.25rem, 5vw, 3.5rem) !important;
+  font-size: clamp(1.75rem, 4.6vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+// The four verbs recur sitewide, coloured here as home colours them in its
+// masthead.
+.about-question em {
+  font-style: normal;
+  color: $about-primary-tint;
+}
+
+/* --- Shared section furniture -------------------------------------------- */
+
+.about .band {
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+}
+
+.about .section-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.about .section-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.about .section-more {
+  font-family: $font-family-monospace;
+  font-size: 0.8125rem;
+}
+
+/* --- In practice -----------------------------------------------------------
+  The page's substance, so it sits on its own ground: the same secondary tone
+  home gives its SDK section.
+*/
+
+.about .band-quiet {
+  background-color: $secondary;
+  border-block: 1px solid $about-hairline;
+}
+
+.about .tenet-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  row-gap: clamp(1.5rem, 4vw, 2rem);
+  margin-top: 1.75rem;
+}
+
+// A rule between the columns rather than above each: the three are parallel
+// and carry equal weight. Spacing comes from padding rather than a column
+// gap, so the rule sits centred between two columns and the outer edges stay
+// flush with the heading above.
+.about .tenet {
+  padding-inline: clamp(1rem, 2.2vw, 2rem);
+  border-inline-start: 1px solid $about-hairline;
+}
+
+.about .tenet:first-child {
+  padding-inline-start: 0;
+  border-inline-start: 0;
+}
+
+.about .tenet:last-child {
+  padding-inline-end: 0;
+}
+
+.about .tenet-name {
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+.about .tenet-what {
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: $about-muted;
+}
+
+/* --- Where it stands --------------------------------------------------------
+  Quieter than the sections above: a heading at their size would promise a
+  fourth pillar this page does not have.
+*/
+
+.about .band-tail {
+  padding-block: clamp(1.5rem, 3vw, 2rem);
+}
+
+.about .tail-title {
+  font-family: $font-family-monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: $about-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.about .tail-what {
+  max-width: 60ch;
+  margin-top: 0.625rem;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: $about-muted;
+}
+
+/* --- Narrow -------------------------------------------------------------- */
+
+// Straight from three to one: two columns would leave a row of one. Stacked,
+// the rule between them turns to sit above, which is how the rest of the site
+// divides a list.
+@media (width < 860px) {
+  .about .tenet-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about .tenet {
+    padding-block-start: clamp(1.5rem, 4vw, 2rem);
+    padding-inline: 0;
+    border-block-start: 1px solid $about-hairline;
+    border-inline-start: 0;
+  }
+
+  .about .tenet:first-child {
+    padding-block-start: 0;
+    border-block-start: 0;
+  }
+}
