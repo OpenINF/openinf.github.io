@@ -192,18 +192,18 @@ eleventyImport:
 
       {%- assign latest = collections.posts | first -%}
       {%- if latest %}
-        <a class="post" href="{{ latest.url }}">
-          <span class="post-meta">
-            <span class="post-cat">{{ latest.data.category }}</span>
-            <span class="post-date">
+        <a class="latest" href="{{ latest.url }}">
+          <span class="latest-meta">
+            <span class="latest-cat">{{ latest.data.category }}</span>
+            <span class="latest-date">
               <time datetime="{{ latest.date | date: '%Y-%m-%d' }}">
                 {{- latest.date | date_to_string -}}
               </time>
             </span>
           </span>
-          <span class="post-body">
-            <span class="post-title">{{ latest.data.title }}</span>
-            <span class="post-excerpt">
+          <span class="latest-body">
+            <span class="latest-title">{{ latest.data.title }}</span>
+            <span class="latest-excerpt">
               {%- if latest.data.excerpt -%}
                 {{- latest.data.excerpt -}}
               {%- else -%}
