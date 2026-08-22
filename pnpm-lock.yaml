@@ -14,9 +14,6 @@ importers:
       '@biomejs/biome':
         specifier: 2.5.7
         version: 2.5.7
-      '@cspell/dict-lorem-ipsum':
-        specifier: 4.0.5
-        version: 4.0.5
       '@isaacs/catcher':
         specifier: 1.0.4
         version: 1.0.4
