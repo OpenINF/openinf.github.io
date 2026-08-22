@@ -6,68 +6,67 @@ body_classes:
 ---
 {%- assign author = authors[author] -%}
 <main class='flex-shrink-0'>
-  <div class='container'>
-    <article class='pb-4' itemscope itemtype='http://schema.org/Article'>
-      <h1 class='post-title mt-5 mb-4' itemprop='headline'>
-        {{- title -}}
-      </h1>
-      <span class='post-category'>
-        <span class='label'>
-          {{- category -}}
-        </span>
-      </span>
-      <div class='post-meta'>
-        <span
-          class='post-date'
-          itemprop='datePublished'
-          content='{{ page.date | date: "%Y-%m-%d" }}'
-        >
-          {{- page.date | date_to_string -}}
-        </span>
+  <article itemscope itemtype='http://schema.org/Article'>
+    <!-- ================= title and byline ============================ -->
+    <header class='entry-head'>
+      <div class='wrap'>
+        <p class='entry-meta'>
+          <span class='entry-cat'>{{ category }}</span>
+          <time
+            class='entry-date'
+            itemprop='datePublished'
+            datetime='{{ page.date | date: '%Y-%m-%d' }}'
+          >
+            {{- page.date | date_to_string -}}
+          </time>
+        </p>
+        <h1 class='entry-title' itemprop='headline'>{{ title }}</h1>
         <a
+          class='entry-author'
           href='{{ author.url }}'
-          class='post-author'
           itemprop='author'
           itemscope
           itemtype='http://schema.org/Person'
         >
           <img
-            class='avatar avatar-small'
+            class='entry-avatar'
             src='{{ author.avatar }}'
-            alt='{{ author.alias }}'
+            alt=''
             width='24'
             height='24'
+          >
+          <span itemprop='name'>{{ author.name }}</span>
+        </a>
+      </div>
+    </header>
 
-          ><span class='author-name' itemprop='name'>{{ author.name }}</span>
-        </a>
+    <!-- ================= the post ==================================== -->
+    <div class='entry-body' itemprop='articleBody'>
+      <div class='wrap'>
+        <div class='entry-prose'>{{ content }}</div>
       </div>
-      <div class='post-content' itemprop='articleBody'>
-        {{ content }}
+    </div>
+  </article>
+
+  {%- assign prev_post = collections.posts | getPreviousCollectionItem -%}
+  {%- assign next_post = collections.posts | getNextCollectionItem -%}
+  {%- if prev_post or next_post %}
+    <!-- ================= what sits either side ======================= -->
+    <nav class='entry-nav' aria-label='Other posts'>
+      <div class='wrap entry-nav-grid'>
+        {%- if next_post %}
+          <a class='entry-step entry-step-older' href='{{ next_post.url }}'>
+            <span class='entry-step-dir'>Older</span>
+            <span class='entry-step-title'>{{ next_post.data.title }}</span>
+          </a>
+        {%- endif %}
+        {%- if prev_post %}
+          <a class='entry-step entry-step-newer' href='{{ prev_post.url }}'>
+            <span class='entry-step-dir'>Newer</span>
+            <span class='entry-step-title'>{{ prev_post.data.title }}</span>
+          </a>
+        {%- endif %}
       </div>
-    </article>
-    {%- assign prev_post = collections.posts | getPreviousCollectionItem -%}
-    {%- assign next_post = collections.posts | getNextCollectionItem -%}
-    <nav class='single-post-pager' aria-label='Post'>
-      {% if prev_post %}
-        <a class='pager-link newer-post' href='{{ prev_post.url }}'>
-          <span class='pager-direction'>Newer</span>
-          <span class='pager-title'>{{- prev_post.data.title -}}</span>
-          <span class='pager-date'>
-            {{- prev_post.date | date_to_string -}}
-          </span>
-          <span class='pager-chevron'>&#8249;</span>
-        </a>
-      {% endif %}
-      {% if next_post %}
-        <a class='pager-link older-post' href='{{ next_post.url }} '>
-          <span class='pager-direction'>Older</span>
-          <span class='pager-title'>{{- next_post.data.title -}}</span>
-          <span class='pager-date'>
-            {{- next_post.date | date_to_string -}}
-          </span>
-          <span class='pager-chevron'>&#8250;</span>
-        </a>
-      {% endif %}
     </nav>
-  </div>
+  {%- endif %}
 </main>

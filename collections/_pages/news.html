@@ -1,93 +1,177 @@
 ---
-title: News Archive
+title: News
+layout: default
 body_classes:
   - news
-layout: page
+description: What OpenINF is building, and the thinking behind it.
 permalink: "/news/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | plus: 1 }}/{% endif %}"
 eleventyImport:
   collections: ["post"]
 pagination:
   data: collections.posts
   alias: posts
-  size: 3
+  size: 5
 eleventyComputed:
   title: "{{ title }}{% if pagination.pageNumber > 0 %} &middot; page {{ pagination.pageNumber | plus: 1 }}{% endif %}"
 ---
-{%- for post in posts -%}
-  {%- include 'news-archive-item.liquid' -%}
-{%- endfor -%}
+{%- comment -%}
+  The newest post leads the first page, so one post reads as the news rather
+  than as an archive holding a single row. Later pages are all rows.
+{%- endcomment -%}
+{%- assign skip = 0 -%}
+{%- if pagination.pageNumber == 0 and posts.size > 0 -%}
+  {%- assign skip = 1 -%}
+  {%- assign featured = posts[0] -%}
+{%- endif -%}
+{%- assign rowCount = posts.size | minus: skip -%}
+<main class="flex-shrink-0">
+  <!-- ================= what this is ================================== -->
+  <section class="news-head">
+    <div class="news-head-ring" aria-hidden="true">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="xMidYMid meet">
+        <circle
+          cx="50"
+          cy="50"
+          r="45"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="10"
+        />
+      </svg>
+    </div>
 
-{%- assign trailSize = 2 -%}
-{% comment %} Start and end page numbers based on trail size. {% endcomment %}
+    <div class="wrap news-head-inner">
+      <h1 class="news-title">News</h1>
+      <p class="news-lede">What is being built, and the thinking behind it.</p>
+    </div>
+  </section>
 
-{%- assign firstPageIndex = 0 -%}
-{%- assign currentPageIndex = pagination.pageNumber -%}
-{%- assign lastPageIndex = pagination.pages.length | minus: 1 -%}
+  {%- if featured %}
+    <!--
+      ================= the newest post ==============================
+      The featured/rows split exists so one post still reads as the news,
+      not as an archive with a single lonely row. It gets the section's own
+      ground, same as the substance of any other page.
+    -->
+    <section class="band band-quiet" aria-labelledby="featured-title">
+      <div class="wrap">
+        <article class="featured">
+          <p class="featured-meta">
+            <span class="featured-cat">{{ featured.data.category }}</span>
+            <time
+              class="featured-date"
+              datetime="{{ featured.date | date: '%Y-%m-%d' }}">
+              {{- featured.date | date_to_string -}}
+            </time>
+          </p>
+          <h2 class="featured-title" id="featured-title">
+            <a href="{{ featured.url }}">{{ featured.data.title }}</a>
+          </h2>
+          <p class="featured-excerpt">
+            {%- if featured.data.excerpt -%}
+              {{- featured.data.excerpt -}}
+            {%- else -%}
+              {{- featured.templateContent | strip_html | truncatewords: 40 -}}
+            {%- endif -%}
+          </p>
+          <p class="featured-more">
+            <a class="featured-link" href="{{ featured.url }}">
+              Read it
+              <span class="featured-link-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </p>
+        </article>
+      </div>
+    </section>
+  {%- endif %}
 
-{%- assign startPageIndex = currentPageIndex
-  | minus: trailSize
-  | at_least: firstPageIndex
--%}
-{%- assign endPageIndex = currentPageIndex
-  | plus: trailSize
-  | at_most: lastPageIndex
--%}
+  {%- if rowCount > 0 %}
+    <!-- ================= everything else ============================= -->
+    <section class="band" aria-labelledby="archive-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title" id="archive-title">
+            {%- if featured -%}Earlier{%- else -%}Posts{%- endif -%}
+          </h2>
+        </div>
 
-{% if pagination.pages.length > 1 %}
-  <nav class="pagination-container" aria-label="Blog pages">
-    <ul class="pagination justify-content-center">
-      {% if pagination.href.previous %}
-        <li class="page-item">
-          <a
-            class="page-link"
-            href="{{ pagination.href.previous }}"
-            tabindex="-1"
-            >&#x23F4;</a
-          >
-        </li>
-      {% else %}
-        <li class="page-item disabled">
-          <span
-            class="page-link"
-            tabindex="-1"
-            >&#x23F4;</span
-          >
-        </li>
-      {% endif %}
+        <ul class="archive-list">
+          {%- for post in posts offset: skip %}
+            <li class="archive-item">
+              <p class="archive-meta">
+                <span class="archive-cat">{{ post.data.category }}</span>
+                <time
+                  class="archive-date"
+                  datetime="{{ post.date | date: '%Y-%m-%d' }}">
+                  {{- post.date | date_to_string -}}
+                </time>
+              </p>
+              <div class="archive-body">
+                <p class="archive-name">
+                  <a href="{{ post.url }}">{{ post.data.title }}</a>
+                </p>
+                <p class="archive-excerpt">
+                  {%- if post.data.excerpt -%}
+                    {{- post.data.excerpt -}}
+                  {%- else -%}
+                    {{-
+                      post.templateContent
+                      | strip_html
+                      | truncatewords: 28
+                    -}}
+                  {%- endif -%}
+                </p>
+              </div>
+            </li>
+          {%- endfor %}
+        </ul>
 
-      {% comment %} Display the pagination trail. {% endcomment %}
-      {%- for pageIndex in (startPageIndex..endPageIndex) %}
-        {%- assign pageEntry = pagination.pages[pageIndex] -%}
-        <li
-          class="page-item{% if page.url == pagination.hrefs[pageIndex] %} active{% endif %}">
-          <a
-            class="page-link"
-            href="{{ pagination.hrefs[pageIndex] }}"
-            {% if page.url == pagination.hrefs[pageIndex] %}
-              aria-current="page"
-            {% endif %}
-            title="{{ pageEntry.title }}">
-            {{- pageIndex | plus: 1 -}}
-          </a>
-        </li>
-      {% endfor %}
+        {%- if pagination.pages.length > 1 %}
+          {%- assign trailSize = 2 -%}
+          {%- assign firstPageIndex = 0 -%}
+          {%- assign currentPageIndex = pagination.pageNumber -%}
+          {%- assign lastPageIndex = pagination.pages.length | minus: 1 -%}
+          {%- assign startPageIndex = currentPageIndex
+            | minus: trailSize
+            | at_least: firstPageIndex
+          -%}
+          {%- assign endPageIndex = currentPageIndex
+            | plus: trailSize
+            | at_most: lastPageIndex
+          -%}
+          <nav class="pager" aria-label="News pages">
+            <ul class="pager-list">
+              {%- for pageIndex in (startPageIndex..endPageIndex) %}
+                <li class="pager-item">
+                  <a
+                    class="pager-link{% if page.url == pagination.hrefs[pageIndex] %} pager-current{% endif %}"
+                    href="{{ pagination.hrefs[pageIndex] }}"
+                    {% if page.url == pagination.hrefs[pageIndex] %}
+                      aria-current="page"
+                    {% endif %}>
+                    {{- pageIndex | plus: 1 -}}
+                  </a>
+                </li>
+              {%- endfor %}
+            </ul>
+          </nav>
+        {%- endif %}
+      </div>
+    </section>
+  {%- endif %}
 
-      {% if pagination.href.next %}
-        <li class="page-item">
-          <a
-            class="page-link"
-            href="{{ pagination.href.next }}"
-            >&#x23F5;</a
-          >
-        </li>
-      {% else %}
-        <li class="page-item">
-          <span
-            class="page-link disabled"
-            >&#x23F5;</span
-          >
-        </li>
-      {% endif %}
-    </ul>
-  </nav>
-{% endif %}
+  <!-- ================= the honest bit ================================= -->
+  <section class="band band-tail" aria-labelledby="news-tail-title">
+    <div class="wrap">
+      <h2 class="tail-title" id="news-tail-title">Between posts</h2>
+      <p class="tail-what">
+        Posts go up when there is something worth writing down, not on a
+        schedule. The community channels move faster than this page — see
+        <a href="/docs/dev/faq/support/">Support</a> for how to reach them.
+      </p>
+    </div>
+  </section>
+</main>
