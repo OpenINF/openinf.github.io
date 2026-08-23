@@ -7,7 +7,6 @@ btwx
 changelog
 code.visualstudio.com
 codebase
-consectetuer
 convos
 dereknongeneric
 devcontainer
@@ -52,7 +51,6 @@ OpenINFBot
 openpgp
 outro
 pinentry
-Potenti
 PowerShell
 Renovatebot
 repoints
