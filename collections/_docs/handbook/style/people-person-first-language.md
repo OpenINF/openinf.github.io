@@ -6,7 +6,8 @@ key_point:
 stub: true
 ---
 
-> [!NOTE]\
+> [!NOTE]
+>
 > This page is a placeholder. The rule below stands; the guidance that would
 > follow it is yet to be written.
 

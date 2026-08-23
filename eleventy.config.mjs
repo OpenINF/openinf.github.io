@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import { parse as pathParse } from 'node:path';
 import { EleventyI18nPlugin } from '@11ty/eleventy';
 import { PATHS } from '@openinf/portal/build/constants';
@@ -5,6 +6,7 @@ import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import markdownItAnchor from 'markdown-it-anchor';
 import markdownItFootnote from 'markdown-it-footnote';
+import markdownItGitHubAlerts from 'markdown-it-github-alerts';
 import postcss from 'postcss';
 import { compileString } from 'sass';
 
@@ -15,6 +17,84 @@ export default async function (eleventyConfig) {
   eleventyConfig.amendLibrary('md', (md) => {
     md.use(markdownItAnchor);
     md.use(markdownItFootnote);
+    // `> [!NOTE]` and the rest become a titled callout rather than a
+    // blockquote opening on the literal marker. The icons it ships with come
+    // through as well; _docs-page.scss draws them in the title's own color.
+    md.use(markdownItGitHubAlerts);
+  });
+
+  // When a page last changed, read from git rather than the file's mtime,
+  // which a checkout sets to the moment it ran. A shallow clone holds one
+  // commit and would date every page to the build, so it reports nothing
+  // instead and the layouts leave the line off.
+  const gitIsShallow = (() => {
+    try {
+      return (
+        execFileSync('git', ['rev-parse', '--is-shallow-repository'], {
+          encoding: 'utf8',
+          stdio: ['ignore', 'pipe', 'ignore'],
+        }).trim() === 'true'
+      );
+    } catch {
+      return true;
+    }
+  })();
+
+  const lastChanged = new Map();
+  eleventyConfig.addFilter('gitLastUpdated', (inputPath) => {
+    if (gitIsShallow || !inputPath) return null;
+    const file = String(inputPath).replace(/^\.\//, '');
+    if (!lastChanged.has(file)) {
+      let iso = '';
+      try {
+        iso = execFileSync('git', ['log', '-1', '--format=%cI', '--', file], {
+          encoding: 'utf8',
+          stdio: ['ignore', 'pipe', 'ignore'],
+        }).trim();
+      } catch {
+        iso = '';
+      }
+      lastChanged.set(file, iso ? new Date(iso) : null);
+    }
+
+    return lastChanged.get(file);
+  });
+
+  // The trail to a page, built from somewhere a reader can actually go
+  // rather than from the slashes in its URL. `/docs/handbook/style/colons/`
+  // has no page at `/docs/handbook/` or `/docs/handbook/style/`, so a trail
+  // split off the URL would link twice into nothing, and a post's date
+  // directories would do it three times. A step appears here only if a page
+  // sits at that URL, or `_data/sections.json` names somewhere else it can
+  // point. The trail always terminates at the front page, and stops short of
+  // the page it is on, whose title is the heading directly below it.
+  eleventyConfig.addFilter('breadcrumb', (url, all, sections) => {
+    if (typeof url !== 'string' || url === '/') return [];
+
+    const titles = new Map(
+      (all ?? [])
+        .filter((item) => item?.url && item.data?.title)
+        .map((item) => [item.url, item.data.title])
+    );
+    // Keyed lookup by name, so a segment called `__proto__` finds nothing
+    // rather than the object prototype.
+    const named = new Map(Object.entries(sections ?? {}));
+    // The front page is titled for its own heading, not for this list.
+    const trail = [{ title: 'Home', url: '/' }];
+    const parts = url.split('/').filter(Boolean);
+
+    for (const [index, part] of parts.slice(0, -1).entries()) {
+      const ancestor = `/${parts.slice(0, index + 1).join('/')}/`;
+      const section = named.get(part);
+
+      if (titles.has(ancestor)) {
+        trail.push({ title: titles.get(ancestor), url: ancestor });
+      } else if (section?.name && section?.url) {
+        trail.push({ title: section.name, url: section.url });
+      }
+    }
+
+    return trail;
   });
 
   // Configure Eleventy.
@@ -99,6 +179,11 @@ export default async function (eleventyConfig) {
     'Aggregate, curate, disseminate, and apply information derived from diverse sources.'
   );
   eleventyConfig.addGlobalData('siteUrl', 'https://open.inf.is');
+  // The branch an "Improve this page" link opens against. Fixed rather than
+  // read from the checkout, which during a pull request build is the branch
+  // under review; GitHub's editor also wants a branch it can commit to, and
+  // takes no symbolic ref.
+  eleventyConfig.addGlobalData('repoBranch', 'live');
   // What Jekyll called `site.time`: the moment the site was generated. The
   // footer still asks for it through a `date` filter, so this is the instant
   // rather than a formatted year, and anything else wanting a build date can

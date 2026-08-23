@@ -1,20 +1,126 @@
 ---
-layout: deep-page.liquid
+layout: default
 body_classes:
   - docs
+  - doc-page
+editable: true
 ---
-<div class='grid'>
-  <div class='unit four-fifths'>
-    <article>
-      {% if editable != false %}
-        <div class='improve right'>
-          <a
-            href='https://github.com/OpenINF/openinf.github.io/edit/HEAD/{{ page.inputPath }}'
-            >Edit</a
-          >
-        </div>
-      {% endif %}
-      {{ content }}
-    </article>
-  </div>
-</div>
+{%- comment -%}
+  Which license the page states: the handbook is share-alike, the rest of
+  the documentation is share-alike and non-commercial.
+{%- endcomment -%}
+{%- assign inHandbook = false -%}
+{%- if page.url contains '/docs/handbook/' -%}
+  {%- assign inHandbook = true -%}
+{%- endif -%}
+{%- comment -%}
+  A page adapted from Google's style guide says so with `google: true`, which
+  reads the source page off its own filename. Where the two differ, name
+  Google's slug instead: `google: inclusive-documentation`.
+{%- endcomment -%}
+{%- if google -%}
+  {%- assign googleSlug = page.fileSlug -%}
+  {%- unless google == true -%}
+    {%- assign googleSlug = google -%}
+  {%- endunless -%}
+  {%- assign googleUrl = 'https://developers.google.com/style/'
+    | append: googleSlug
+  -%}
+{%- endif -%}
+<main class='flex-shrink-0'>
+  <article>
+    <header class='doc-head'>
+      <div class='wrap'>
+        {% include 'breadcrumb.liquid' %}
+        <h1 class='doc-title'>{{ title }}</h1>
+        {%- if key_point %}
+          <p class='doc-key'>{{ key_point }}</p>
+        {%- endif %}
+      </div>
+    </header>
+
+    <div class='doc-body'>
+      <div class='wrap'>
+        <div class='doc-prose'>{{ content }}</div>
+      </div>
+    </div>
+  </article>
+
+  <footer class='doc-foot'>
+    <div class='wrap doc-foot-grid'>
+      <div class='doc-terms-block'>
+        {%- comment -%}
+          The buttons name the terms the sentence below spells out, so they
+          are decorative here and the sentence carries the link.
+        {%- endcomment -%}
+        <p class='doc-cc' aria-hidden='true'>
+          {% include 'assets/img/cc/cc-logo.svg' %}
+          {% include 'assets/img/cc/cc-by.svg' %}
+          {%- unless inHandbook %}
+            {% include 'assets/img/cc/cc-nc.svg' %}
+          {%- endunless %}
+          {% include 'assets/img/cc/cc-sa.svg' %}
+        </p>
+        <p class='doc-terms'>
+          {%- if google %}
+            Portions of this page are reproduced from work
+            <a
+              href='https://developers.google.com/site-policies'
+              rel='nofollow noopener noreferrer'
+              >shared by Google</a
+            >
+            under
+            <a
+              href='https://creativecommons.org/licenses/by/4.0/'
+              rel='license nofollow noopener noreferrer'
+              >CC BY 4.0</a
+            >, from
+            <a
+              href='{{ googleUrl }}'
+              title='Google developer documentation style guide'
+              rel='nofollow noopener noreferrer'
+              >the original page</a
+            >.
+          {%- endif %}
+          Except where noted, this page is published under
+          {%- if inHandbook %}
+            <a
+              href='https://creativecommons.org/licenses/by-sa/4.0/'
+              rel='license nofollow noopener noreferrer'
+              >CC BY-SA 4.0</a
+            >.
+          {%- else %}
+            <a
+              href='https://creativecommons.org/licenses/by-nc-sa/4.0/'
+              rel='license nofollow noopener noreferrer'
+              >CC BY-NC-SA 4.0</a
+            >.
+          {%- endif %}
+        </p>
+      </div>
+
+      <div class='doc-foot-aside'>
+        {%- assign updated = page.inputPath | gitLastUpdated -%}
+        {%- if updated %}
+          <p class='doc-updated'>
+            Last updated
+            <time datetime='{{ updated | date: "%Y-%m-%d" }}'>
+              {{- updated | date: '%Y-%m-%d' -}}
+            </time>
+            UTC
+          </p>
+        {%- endif %}
+        {%- if editable != false %}
+          <p class='doc-edit'>
+            <a
+              href='https://github.com/OpenINF/openinf.github.io/edit/{{ repoBranch }}/{{ page.inputPath | remove_first: './' }}'
+            >
+              {% include 'assets/img/octicons/pencil.svg' %}
+              Improve this page
+            </a>
+          </p>
+        {%- endif %}
+      </div>
+    </div>
+  </footer>
+</main>

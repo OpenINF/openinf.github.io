@@ -1,0 +1,498 @@
+@use 'sass:color';
+
+// A documentation page: the head band and the foot read at the same 1200px
+// width as the rest of the site; the prose between them sits at a reading
+// measure instead, because these fourteen pages are for reading. Covers both
+// docs.liquid's thirteen pages and deep-page.liquid's /about/vision/, which
+// carries the same doc-page body class but renders no breadcrumb, no Key
+// Point, and no foot.
+
+// Colors come from _sublime-theme.scss and reuse the exact tones
+// _news-item.scss and _docs.scss give a reading page and a quiet section, so
+// a handbook page agrees with the rest of the site on what a link, a muted
+// caption, and an aside look like.
+
+$doc-wrap: 1200px;
+$doc-gutter: clamp(1rem, 4vw, 3rem);
+$doc-link: shade-color($primary, 25%);
+$doc-muted: #4b433c;
+$doc-hairline: rgb(167 151 139 / 55%);
+
+// Raw $tertiary is too pale to serve as a rule on parchment; shaded, it
+// still reads as the same neutral and holds up as one.
+$doc-rule: shade-color($tertiary, 20%);
+
+// The wash _docs.scss and _news.scss give a quiet section, reused here at
+// prose scale: a callout's fill, an inline code chip, and the flash a
+// heading gets when it is the page's `:target`.
+$doc-quiet: color.mix($tertiary, $body-bg, 12%);
+
+// $quaternary as solid text on parchment fails AA; shaded, it clears it. The
+// unshaded color still suits the "not recommended" rule below, which only
+// has to clear the lower non-text minimum.
+$doc-bad-text: shade-color($quaternary, 25%);
+
+// Scoped to `main` to keep the resets off the navbar and footer, which are
+// its siblings under the same body class. The padding replaces what
+// `main > .container` gives the footer elsewhere.
+.doc-page main {
+  padding-bottom: 104px;
+}
+
+.doc-page main a {
+  color: $doc-link;
+}
+
+.doc-page main :focus-visible {
+  outline: 2px solid $body-color;
+  outline-offset: 2px;
+}
+
+.doc-page .wrap {
+  max-width: $doc-wrap;
+  padding-inline: $doc-gutter;
+  margin-inline: auto;
+}
+
+/* --- Head: breadcrumb, title, Key Point ---------------------------------
+  A flat stack, not a grid: unlike the masthead, there is no second panel
+  beside it.
+*/
+
+// Ink, so it carries on from the navbar rather than leaving a pale band
+// between the two.
+.doc-page .doc-head {
+  padding-top: calc(#{$navbar-height} + clamp(2rem, 5vw, 3.5rem));
+  padding-bottom: clamp(2.25rem, 5vw, 3.5rem);
+  color: $body-bg;
+  background-color: $body-color;
+}
+
+// The band opens flush, with no borrowed margin above its first element.
+.doc-page .doc-head .wrap > :first-child {
+  margin-top: 0;
+}
+
+.doc-page .breadcrumb-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0;
+  padding: 0;
+  margin: 0;
+  font-family: $font-family-monospace;
+  font-size: 0.8125rem;
+  list-style: none;
+}
+
+.doc-page .breadcrumb-step + .breadcrumb-step::before {
+  margin-inline: 0.4375em;
+  content: '›';
+}
+
+// Links on the ink. `.doc-page main a` is (0,1,2), so this needs `main` too.
+.doc-page main .breadcrumb-step a {
+  color: rgb(231 231 214 / 82%);
+}
+
+.doc-page main .breadcrumb-step a:hover {
+  color: $body-bg;
+}
+
+// _custom.scss makes every h1 a flex row and draws a rule after it, which is
+// right for a page heading and wrong at this scale.
+.doc-page .doc-title {
+  display: block;
+  max-width: 40ch;
+  margin-top: 1rem;
+  font-size: clamp(1.875rem, 4.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.doc-page .doc-title::after {
+  content: none;
+}
+
+// The measure sits on the element that carries the font-size, so the `ch` it
+// reads is the one the Key Point is actually set in.
+.doc-page .doc-key {
+  max-width: 42ch;
+  margin-top: 1rem;
+  font-size: clamp(1rem, 1.6vw, 1.0625rem);
+  line-height: 1.6;
+  color: rgb(231 231 214 / 76%);
+}
+
+/* --- Body: the prose ------------------------------------------------------
+  The measure sits on `.doc-prose` itself, alongside its own font-size, for
+  the same reason.
+*/
+
+.doc-page .doc-body {
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+}
+
+// contributing.md autolinks a couple of bare GitHub label URLs; as visible
+// link text they are one unbroken token long enough to push past 390px.
+.doc-page .doc-prose {
+  max-width: 65ch;
+  margin-inline: auto;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  overflow-wrap: break-word;
+}
+
+.doc-page .doc-prose > :first-child {
+  margin-top: 0;
+}
+
+.doc-page .doc-prose > :last-child {
+  margin-bottom: 0;
+}
+
+.doc-page .doc-prose p,
+.doc-page .doc-prose ul,
+.doc-page .doc-prose ol,
+.doc-page .doc-prose table,
+.doc-page .doc-prose pre {
+  margin-block: 1.375em;
+}
+
+.doc-page .doc-prose h2,
+.doc-page .doc-prose h3 {
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.doc-page .doc-prose h2 {
+  margin-top: 2.5em;
+  margin-bottom: 0.75em;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.doc-page .doc-prose h3 {
+  margin-top: 1.75em;
+  margin-bottom: 0.625em;
+  font-size: 1.1875rem;
+}
+
+// Headings carry an id and no visible affordance; a cross-page anchor link
+// (the handbook is full of them) needs something to confirm on arrival.
+.doc-page .doc-prose :is(h2, h3):target {
+  padding-inline-start: 0.625em;
+  margin-inline-start: -0.625em;
+  background-color: $doc-quiet;
+}
+
+.doc-page .doc-prose ul,
+.doc-page .doc-prose ol {
+  padding-inline-start: 1.25em;
+}
+
+.doc-page .doc-prose li + li {
+  margin-top: 0.5em;
+}
+
+// contributing.md's Developer Certificate of Origin list is loose (each item
+// is its own paragraph); the item, not the paragraph inside it, carries the
+// rhythm.
+.doc-page .doc-prose li > p {
+  margin-block: 0;
+}
+
+.doc-page .doc-prose li > ul,
+.doc-page .doc-prose li > ol {
+  margin-block: 0.5em 0;
+}
+
+.doc-page .doc-prose strong {
+  font-weight: 700;
+}
+
+.doc-page .doc-prose em {
+  font-style: italic;
+}
+
+.doc-page .doc-prose a {
+  text-decoration: underline;
+}
+
+.doc-page .doc-prose abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+// Reboot gives bare `code` Bootstrap's own pink (`--bs-code-color`); this is
+// prose, not a diff, so it reads in the page's own ink instead.
+.doc-page .doc-prose code {
+  padding: 0.15em 0.375em;
+  font-family: $font-family-monospace;
+  font-size: 0.875em;
+  color: $body-color;
+  background-color: $doc-quiet;
+}
+
+.doc-page .doc-prose pre {
+  padding: 1rem;
+  overflow-x: auto;
+  background-color: $secondary;
+}
+
+.doc-page .doc-prose pre code {
+  padding: 0;
+  font-size: 0.875em;
+  background-color: transparent;
+}
+
+/* --- Examples: Google's recommended / not-recommended pairs --------------
+  `.example` always wraps exactly one `.compare-better` or `.compare-worse`
+  span; `:has()` reads which, so the rule and the label agree without a
+  second class on the paragraph.
+*/
+
+.doc-page .doc-prose .example {
+  padding-inline-start: 1.25em;
+  margin-block: 1.375em;
+  border-inline-start: 3px solid $doc-rule;
+}
+
+// A pair reads as one comparison, not two paragraphs in the ordinary rhythm.
+.doc-page .doc-prose .example + .example {
+  margin-block-start: 0.625em;
+}
+
+.doc-page .doc-prose .example:has(.compare-better) {
+  border-inline-start-color: $primary;
+}
+
+.doc-page .doc-prose .example:has(.compare-worse) {
+  border-inline-start-color: $quaternary;
+}
+
+.doc-page .doc-prose .compare-better,
+.doc-page .doc-prose .compare-worse {
+  font-weight: 700;
+}
+
+.doc-page .doc-prose .compare-better {
+  color: $doc-link;
+}
+
+.doc-page .doc-prose .compare-worse {
+  color: $doc-bad-text;
+}
+
+/* --- Callouts -------------------------------------------------------------
+  markdown-it-github-alerts turns `> [!NOTE]` into a titled block. The rule
+  and the title carry the kind, so the wash stays the same for all of them
+  and the text keeps one contrast against one ground.
+*/
+
+.doc-page .doc-prose .markdown-alert {
+  padding: 0.875rem 1.125rem;
+  margin-block: 1.375em;
+  color: $doc-muted;
+  background-color: $doc-quiet;
+  border-inline-start: 3px solid $doc-rule;
+}
+
+.doc-page .doc-prose .markdown-alert > :first-child {
+  margin-top: 0;
+}
+
+.doc-page .doc-prose .markdown-alert > :last-child {
+  margin-bottom: 0;
+}
+
+.doc-page .doc-prose .markdown-alert-title {
+  display: flex;
+  gap: 0.4375rem;
+  align-items: center;
+  margin-bottom: 0.375em;
+  font-family: $font-family-monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: $body-color;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+// The octicons carry no fill of their own, so they take the title's color
+// and change with it.
+.doc-page .doc-prose .markdown-alert-title svg {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  fill: currentcolor;
+}
+
+// Warning and caution are the two that mean stop and read. They take the
+// same red the not-recommended examples use.
+.doc-page .doc-prose .markdown-alert-warning,
+.doc-page .doc-prose .markdown-alert-caution {
+  border-inline-start-color: $quaternary;
+}
+
+.doc-page .doc-prose .markdown-alert-warning .markdown-alert-title,
+.doc-page .doc-prose .markdown-alert-caution .markdown-alert-title {
+  color: $doc-bad-text;
+}
+
+// A pure-parchment chip on the callout's wash reads as a cutout rather than
+// a second, muddier wash stacked on the first.
+.doc-page .doc-prose .markdown-alert code {
+  background-color: $body-bg;
+}
+
+/* --- Tables ---------------------------------------------------------------
+  `display: block` hands the table its own scroll container without a
+  wrapper element markdown never gives it; the internal table layout is
+  unaffected, since `border-collapse` still reaches `th`/`td`.
+*/
+
+.doc-page .doc-prose table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  margin-block: 1.375em;
+  overflow-x: auto;
+  font-size: 0.9375rem;
+  border-collapse: collapse;
+}
+
+.doc-page .doc-prose th,
+.doc-page .doc-prose td {
+  padding: 0.5rem 0.875rem;
+  text-align: left;
+  border-bottom: 1px solid $doc-hairline;
+}
+
+.doc-page .doc-prose th {
+  font-weight: 700;
+  border-bottom: 2px solid $body-color;
+}
+
+/* --- Footnotes -------------------------------------------------------- */
+
+.doc-page .doc-prose .footnote-ref a {
+  text-decoration: none;
+}
+
+.doc-page .doc-prose .footnotes-sep {
+  height: 0;
+  margin-block: 2.25em 1.25em;
+  border: 0;
+  border-top: 1px solid $doc-hairline;
+}
+
+.doc-page .doc-prose .footnotes {
+  font-size: 0.9375rem;
+  color: $doc-muted;
+}
+
+.doc-page .doc-prose .footnotes-list {
+  padding-inline-start: 1.25em;
+}
+
+.doc-page .doc-prose .footnote-backref {
+  margin-inline-start: 0.375em;
+  text-decoration: none;
+}
+
+/* --- Foot: license, attribution, edit link --------------------------------
+  Absent on /about/vision/: deep-page.liquid renders no foot at all.
+*/
+
+.doc-page .doc-foot {
+  padding-block: clamp(1.5rem, 3vw, 2rem);
+  border-top: 1px solid $doc-hairline;
+}
+
+.doc-page .doc-foot-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+// The buttons name the same terms the sentence under them states, so they
+// sit at caption weight rather than as a badge.
+.doc-page .doc-cc {
+  display: flex;
+  gap: 0.3125rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  color: $doc-muted;
+}
+
+.doc-page .doc-cc svg {
+  width: 1.375rem;
+  height: 1.375rem;
+}
+
+.doc-page .doc-terms {
+  max-width: 58ch;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: $doc-muted;
+}
+
+.doc-page .doc-foot-aside {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  align-items: baseline;
+}
+
+.doc-page .doc-updated {
+  font-family: $font-family-monospace;
+  font-size: 0.75rem;
+  color: $doc-muted;
+}
+
+// The one thing in the foot a reader can act on, so it takes a button's
+// shape while the terms beside it stay at caption weight.
+.doc-page .doc-edit a {
+  display: inline-flex;
+  gap: 0.4375rem;
+  align-items: center;
+  padding: 0.4375rem 0.875rem;
+  font-family: $font-family-monospace;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid $doc-link;
+}
+
+.doc-page .doc-edit a:hover {
+  color: $body-bg;
+  background-color: $doc-link;
+}
+
+.doc-page .doc-edit svg {
+  flex: none;
+  width: 0.9375rem;
+  height: 0.9375rem;
+  fill: currentcolor;
+}
+
+.doc-page .doc-edit {
+  flex: none;
+  font-family: $font-family-monospace;
+  font-size: 0.8125rem;
+}
+
+/* --- Narrow ---------------------------------------------------------------
+  Below 480px the foot's two columns no longer both fit on one line even
+  wrapped; `space-between` would otherwise justify a single stacked item
+  away from the text it follows.
+*/
+
+@media (width < 480px) {
+  .doc-page .doc-foot-grid {
+    justify-content: flex-start;
+  }
+}
