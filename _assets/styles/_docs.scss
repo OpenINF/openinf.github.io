@@ -21,34 +21,34 @@ $docs-flag-text: shade-color($quaternary, 25%);
 // Scoped to `main` to keep the resets off the navbar and footer, which are
 // its siblings under the same body class. The padding replaces what
 // `main > .container` gives the footer elsewhere.
-.docs main {
+.docs-index main {
   padding-bottom: 104px;
 }
 
-.docs main h1,
-.docs main h2,
-.docs main p,
-.docs main dl,
-.docs main dd,
-.docs main ul {
+.docs-index main h1,
+.docs-index main h2,
+.docs-index main p,
+.docs-index main dl,
+.docs-index main dd,
+.docs-index main ul {
   margin: 0;
 }
 
-.docs main ul {
+.docs-index main ul {
   padding: 0;
   list-style: none;
 }
 
-.docs main a {
+.docs-index main a {
   color: $docs-link;
 }
 
-.docs main :focus-visible {
+.docs-index main :focus-visible {
   outline: 2px solid $body-color;
   outline-offset: 2px;
 }
 
-.docs .wrap {
+.docs-index .wrap {
   max-width: $docs-wrap;
   padding-inline: $docs-gutter;
   margin-inline: auto;
@@ -151,12 +151,12 @@ $docs-flag-text: shade-color($quaternary, 25%);
 
 // Links on the ink. `.docs main a` is (0,1,2), so a band rule needs `main`
 // to reach them.
-.docs main .docs-head a {
+.docs-index main .docs-head a {
   color: $body-bg;
 }
 
 // The treatment `.join-row a` gives the home page's equivalent link.
-.docs main .invite-row a {
+.docs-index main .invite-row a {
   font-family: $font-family-monospace;
   font-weight: 700;
   color: $body-bg;
@@ -164,17 +164,17 @@ $docs-flag-text: shade-color($quaternary, 25%);
 
 /* --- Shared section furniture ------------------------------------------ */
 
-.docs .band {
+.docs-index .band {
   padding-block: clamp(2.5rem, 6vw, 4rem);
 }
 
 // The handbook is the substance of this page, so it sits on its own ground.
-.docs .band-quiet {
+.docs-index .band-quiet {
   background-color: color.mix($tertiary, $body-bg, 12%);
   border-block: 1px solid $docs-hairline;
 }
 
-.docs .section-head {
+.docs-index .section-head {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1rem;
@@ -184,18 +184,18 @@ $docs-flag-text: shade-color($quaternary, 25%);
   border-bottom: 2px solid $body-color;
 }
 
-.docs .section-title {
+.docs-index .section-title {
   font-size: 1.125rem;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 
-.docs .section-more {
+.docs-index .section-more {
   font-family: $font-family-monospace;
   font-size: 0.8125rem;
 }
 
-.docs .section-count {
+.docs-index .section-count {
   font-family: $font-family-monospace;
   font-size: 0.8125rem;
   color: $docs-muted;
@@ -208,24 +208,24 @@ $docs-flag-text: shade-color($quaternary, 25%);
   as the home page's "How we work".
 */
 
-.docs .part-list {
+.docs-index .part-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0 clamp(1.5rem, 4vw, 3rem);
   margin-top: 1.75rem !important;
 }
 
-.docs .part-item {
+.docs-index .part-item {
   padding-block: 1.375rem;
   border-bottom: 1px solid $docs-hairline;
 }
 
-.docs .part-name {
+.docs-index .part-name {
   font-size: 1.0625rem;
   font-weight: 700;
 }
 
-.docs .part-what {
+.docs-index .part-what {
   margin-top: 0.375rem !important;
   font-size: 0.9375rem;
   line-height: 1.6;
@@ -237,7 +237,7 @@ $docs-flag-text: shade-color($quaternary, 25%);
   read as an index. The numeral uses `.area-num`'s recipe from the home page.
 */
 
-.docs .handbook-lede {
+.docs-index .handbook-lede {
   max-width: 60ch;
   margin-top: 1.25rem !important;
   font-size: 0.9375rem;
@@ -245,11 +245,11 @@ $docs-flag-text: shade-color($quaternary, 25%);
   color: $docs-muted;
 }
 
-.docs .rule-list {
+.docs-index .rule-list {
   margin-top: 1.75rem !important;
 }
 
-.docs .rule {
+.docs-index .rule {
   display: grid;
   grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
   gap: 0.25rem 2rem;
@@ -257,13 +257,13 @@ $docs-flag-text: shade-color($quaternary, 25%);
   border-bottom: 1px solid rgb(167 151 139 / 35%);
 }
 
-.docs .rule:first-child {
+.docs-index .rule:first-child {
   border-top: 1px solid rgb(167 151 139 / 35%);
 }
 
 // A grid, so the numeral keeps its own column and stays beside the first
 // line of a title long enough to wrap.
-.docs .rule-name {
+.docs-index .rule-name {
   display: grid;
   grid-template-columns: 1.375rem minmax(0, 1fr);
   gap: 0.5rem;
@@ -272,27 +272,27 @@ $docs-flag-text: shade-color($quaternary, 25%);
   font-weight: 700;
 }
 
-.docs .rule-num {
+.docs-index .rule-num {
   font-family: $font-family-monospace;
   font-size: 0.75rem;
   font-weight: 400;
   color: $docs-link;
 }
 
-.docs .rule-heading {
+.docs-index .rule-heading {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   align-items: baseline;
 }
 
-.docs .rule-point {
+.docs-index .rule-point {
   font-size: 0.9375rem;
   line-height: 1.6;
 }
 
 // The chip carries the state in text, so it does not rest on colour alone.
-.docs .rule-flag {
+.docs-index .rule-flag {
   padding: 0.0625rem 0.4375rem;
   font-family: $font-family-monospace;
   font-size: 0.6875rem;
@@ -303,7 +303,7 @@ $docs-flag-text: shade-color($quaternary, 25%);
   background-color: $docs-flag-bg;
 }
 
-.docs .handbook-gap {
+.docs-index .handbook-gap {
   max-width: 60ch;
   margin-top: 1.5rem !important;
   font-size: 0.9375rem;
@@ -316,11 +316,11 @@ $docs-flag-text: shade-color($quaternary, 25%);
   third pillar the page does not have.
 */
 
-.docs .band-tail {
+.docs-index .band-tail {
   padding-block: clamp(1.5rem, 3vw, 2rem);
 }
 
-.docs .tail-title {
+.docs-index .tail-title {
   font-family: $font-family-monospace;
   font-size: 0.75rem;
   font-weight: 700;
@@ -329,7 +329,7 @@ $docs-flag-text: shade-color($quaternary, 25%);
   letter-spacing: 0.08em;
 }
 
-.docs .tail-what {
+.docs-index .tail-what {
   max-width: 60ch;
   margin-top: 0.625rem !important;
   font-size: 0.9375rem;
@@ -346,12 +346,12 @@ $docs-flag-text: shade-color($quaternary, 25%);
 }
 
 @media (width < 760px) {
-  .docs .part-list {
+  .docs-index .part-list {
     grid-template-columns: minmax(0, 1fr);
   }
 
   // The name column stops earning its width once the point beside it wraps.
-  .docs .rule {
+  .docs-index .rule {
     grid-template-columns: minmax(0, 1fr);
     gap: 0.375rem;
   }
