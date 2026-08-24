@@ -16,10 +16,6 @@ $about-hairline: rgb(167 151 139 / 55%);
 // Scoped to `main` to keep the resets off the navbar and footer, which are
 // its siblings under the same body class. The padding replaces what
 // `main > .container` gives the footer elsewhere.
-.about main {
-  padding-bottom: 104px;
-}
-
 .about main h1,
 .about main h2,
 .about main p,
@@ -32,21 +28,6 @@ $about-hairline: rgb(167 151 139 / 55%);
 .about main ul {
   padding: 0;
   list-style: none;
-}
-
-.about main a {
-  color: $about-link;
-}
-
-.about main :focus-visible {
-  outline: 2px solid $body-color;
-  outline-offset: 2px;
-}
-
-.about .wrap {
-  max-width: $about-wrap;
-  padding-inline: $about-gutter;
-  margin-inline: auto;
 }
 
 /* --- Head: the question -------------------------------------------------- */
@@ -127,27 +108,12 @@ $about-hairline: rgb(167 151 139 / 55%);
 
 /* --- Shared section furniture -------------------------------------------- */
 
-.about .band {
-  padding-block: clamp(2.5rem, 6vw, 4rem);
-}
-
 .about .section-head {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1rem;
   align-items: baseline;
   justify-content: space-between;
-}
-
-.about .section-title {
-  font-size: 1.125rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
-
-.about .section-more {
-  font-family: $font-family-monospace;
-  font-size: 0.8125rem;
 }
 
 /* --- In practice -----------------------------------------------------------

@@ -15,24 +15,6 @@ $news-item-hairline: rgb(167 151 139 / 55%);
 // Scoped to `main` to keep the resets off the navbar and footer, which are
 // its siblings under the same body class. The padding replaces what
 // `main > .container` gives the footer elsewhere.
-.news-item main {
-  padding-bottom: 104px;
-}
-
-.news-item main a {
-  color: $news-item-link;
-}
-
-.news-item main :focus-visible {
-  outline: 2px solid $body-color;
-  outline-offset: 2px;
-}
-
-.news-item .wrap {
-  max-width: $news-item-wrap;
-  padding-inline: $news-item-gutter;
-  margin-inline: auto;
-}
 
 /* --- Head: title, category, date, byline ----------------------------
   Three elements, each given its own margin directly; the prose below keeps

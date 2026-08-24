@@ -21,10 +21,6 @@ $docs-flag-text: shade-color($quaternary, 25%);
 // Scoped to `main` to keep the resets off the navbar and footer, which are
 // its siblings under the same body class. The padding replaces what
 // `main > .container` gives the footer elsewhere.
-.docs-index main {
-  padding-bottom: 104px;
-}
-
 .docs-index main h1,
 .docs-index main h2,
 .docs-index main p,
@@ -37,21 +33,6 @@ $docs-flag-text: shade-color($quaternary, 25%);
 .docs-index main ul {
   padding: 0;
   list-style: none;
-}
-
-.docs-index main a {
-  color: $docs-link;
-}
-
-.docs-index main :focus-visible {
-  outline: 2px solid $body-color;
-  outline-offset: 2px;
-}
-
-.docs-index .wrap {
-  max-width: $docs-wrap;
-  padding-inline: $docs-gutter;
-  margin-inline: auto;
 }
 
 /* --- Head -------------------------------------------------------------- */
@@ -164,35 +145,10 @@ $docs-flag-text: shade-color($quaternary, 25%);
 
 /* --- Shared section furniture ------------------------------------------ */
 
-.docs-index .band {
-  padding-block: clamp(2.5rem, 6vw, 4rem);
-}
-
 // The handbook is the substance of this page, so it sits on its own ground.
 .docs-index .band-quiet {
   background-color: color.mix($tertiary, $body-bg, 12%);
   border-block: 1px solid $docs-hairline;
-}
-
-.docs-index .section-head {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-  align-items: baseline;
-  justify-content: space-between;
-  padding-bottom: 0.75rem;
-  border-bottom: 2px solid $body-color;
-}
-
-.docs-index .section-title {
-  font-size: 1.125rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
-
-.docs-index .section-more {
-  font-family: $font-family-monospace;
-  font-size: 0.8125rem;
 }
 
 .docs-index .section-count {

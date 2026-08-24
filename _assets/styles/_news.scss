@@ -18,10 +18,6 @@ $news-quiet-bg: color.mix($tertiary, $body-bg, 12%);
 // Scoped to `main` to keep the resets off the navbar and footer, which are
 // its siblings under the same body class. The padding replaces what
 // `main > .container` gives the footer elsewhere.
-.news main {
-  padding-bottom: 104px;
-}
-
 .news main h1,
 .news main h2,
 .news main h3,
@@ -37,25 +33,6 @@ $news-quiet-bg: color.mix($tertiary, $body-bg, 12%);
 .news main ol {
   padding: 0;
   list-style: none;
-}
-
-.news main a {
-  color: $news-link;
-}
-
-.news main :focus-visible {
-  outline: 2px solid $body-color;
-  outline-offset: 2px;
-}
-
-.news .wrap {
-  max-width: $news-wrap;
-  padding-inline: $news-gutter;
-  margin-inline: auto;
-}
-
-.news .band {
-  padding-block: clamp(2.5rem, 6vw, 4rem);
 }
 
 /* --- Head ---------------------------------------------------------- */
@@ -215,22 +192,6 @@ $news-quiet-bg: color.mix($tertiary, $body-bg, 12%);
   A plain divided list; it recedes so the featured post above keeps the
   weight.
 */
-
-.news .section-head {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-  align-items: baseline;
-  justify-content: space-between;
-  padding-bottom: 0.75rem;
-  border-bottom: 2px solid $body-color;
-}
-
-.news .section-title {
-  font-size: 1.125rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
 
 .news .archive-list {
   margin-top: 1.75rem;

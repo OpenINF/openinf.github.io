@@ -32,10 +32,6 @@
 // site absorbs with the bottom padding on `main > .container`. This page has
 // no such container, so it needs the room itself or the footer sits on top of
 // the last section.
-.home main {
-  padding-bottom: 104px;
-}
-
 .home main h1,
 .home main h2,
 .home main h3,
@@ -53,15 +49,6 @@
   list-style: none;
 }
 
-.home main a {
-  color: var(--primary-deep);
-}
-
-.home main :focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 2px;
-}
-
 // The masthead and the rail are ink, and so is the ring above, so it would be
 // invisible over exactly the section holding the links people are meant to
 // follow.
@@ -72,11 +59,6 @@
 
 // `wrap` is a common enough name that another page could take it later and
 // silently inherit these, and the widths it reads are only declared on .home.
-.home .wrap {
-  max-width: var(--wrap);
-  padding-inline: var(--gutter);
-  margin-inline: auto;
-}
 
 /* --- Masthead ------------------------------------------------------ */
 
@@ -513,31 +495,6 @@
 }
 
 /* --- Shared section furniture --------------------------------------- */
-
-.band {
-  padding-block: clamp(2.5rem, 5vw, 3.75rem);
-}
-
-.section-head {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-  align-items: baseline;
-  justify-content: space-between;
-  padding-bottom: 0.75rem;
-  border-bottom: 2px solid var(--ink);
-}
-
-.section-title {
-  font-size: 1.125rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
-
-.section-more {
-  font-family: var(--mono);
-  font-size: 0.8125rem;
-}
 
 /* --- Latest ---------------------------------------------------------- */
 

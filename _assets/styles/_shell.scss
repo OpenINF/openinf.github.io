@@ -1,0 +1,59 @@
+// The shell every page reads in: a centered column of a fixed maximum width,
+// the sections that stack down it, and the resets that keep a page's own
+// styling from reaching the navbar and the footer.
+
+$wrap-width: 1200px;
+$wrap-gutter: clamp(1rem, 4vw, 3rem);
+$shell-link: shade-color($primary, 25%);
+
+// The footer carries `margin-top: -60px !important`, so a page has to leave
+// the room itself.
+main {
+  padding-bottom: 104px;
+}
+
+// The error page centers its content absolutely against the viewport and has
+// no flow to pad.
+.error main {
+  padding-bottom: 0;
+}
+
+main a {
+  color: $shell-link;
+}
+
+main :focus-visible {
+  outline: 2px solid $body-color;
+  outline-offset: 2px;
+}
+
+.wrap {
+  max-width: $wrap-width;
+  padding-inline: $wrap-gutter;
+  margin-inline: auto;
+}
+
+.band {
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+}
+
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid $body-color;
+}
+
+.section-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.section-more {
+  font-family: $font-family-monospace;
+  font-size: 0.8125rem;
+}
