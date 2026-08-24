@@ -188,8 +188,43 @@ describe('checksVerdict', () => {
     conclusion,
   });
 
+  const at = (
+    name: string,
+    conclusion: string | null,
+    startedAt: string,
+    status = 'completed'
+  ) => ({ name, conclusion, startedAt, status });
+
   test('says nothing when everything passed', () => {
     deepStrictEqual(checksVerdict([run('Lint and test', 'success')], []), '');
+  });
+
+  test('reads only the newest run of a check', () => {
+    // A workflow that cancels superseded runs leaves the cancelled one on the
+    // commit beside the run that replaced it.
+    deepStrictEqual(
+      checksVerdict(
+        [
+          at('Title and description', 'cancelled', '2026-08-24T02:03:54Z'),
+          at('Title and description', 'success', '2026-08-24T02:03:58Z'),
+        ],
+        []
+      ),
+      ''
+    );
+  });
+
+  test('still reports a check whose newest run failed', () => {
+    match(
+      checksVerdict(
+        [
+          at('Lint and test', 'success', '2026-08-24T02:00:00Z'),
+          at('Lint and test', 'failure', '2026-08-24T02:10:00Z'),
+        ],
+        []
+      ),
+      /did not pass: Lint and test/
+    );
   });
 
   test('counts anything still running against it', () => {

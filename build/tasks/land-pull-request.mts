@@ -146,7 +146,7 @@ const checksRefuse = (sha: string) =>
         'api',
         `repos/${repository()}/commits/${sha}/check-runs`,
         '--jq',
-        '[.check_runs[] | {name, status, conclusion, detailsUrl: .details_url}]'
+        '[.check_runs[] | {name, status, conclusion, detailsUrl: .details_url, startedAt: .started_at}]'
       )
     ),
     JSON.parse(
