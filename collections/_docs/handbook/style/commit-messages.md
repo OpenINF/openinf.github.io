@@ -144,7 +144,8 @@ Certificate of Origin][], and saying a tool helped is not a transfer of
 responsibility. You are answerable for every line in your pull request, whatever
 wrote it.
 
-> [!WARNING]\
+> [!WARNING]
+>
 > git only looks for trailers in the **last** paragraph of the message, and only
 > if every line in it is a trailer. Three consequences, each of which has
 > silently cost this project its metadata:

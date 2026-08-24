@@ -1,6 +1,7 @@
 ---
 title: Documenting Command-Line Syntax
 key_point: Recommendations for documenting command-line tools.
+google: true
 ---
 
 ## Placeholder variables

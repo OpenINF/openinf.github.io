@@ -4,7 +4,8 @@ key_point: What to set in code font, and how to explain placeholders.
 stub: true
 ---
 
-> [!NOTE]\
+> [!NOTE]
+>
 > This page is a placeholder. The sections below are linked from elsewhere in
 > the handbook and are yet to be written.
 

@@ -1,12 +1,24 @@
 ---
 layout: default
-editable: true
+body_classes:
+  - doc-page
 ---
+{%- comment -%}
+  A page below the top level: it opens on the trail that leads to it.
+{%- endcomment -%}
 <main class='flex-shrink-0'>
-  <div class='container'>
-    {%- if page.permalink != '/' -%}
-      <h1 class='mt-5'>{{ title }}</h1>
-    {%- endif -%}
-    {{ content }}
-  </div>
+  <article>
+    <header class='doc-head'>
+      <div class='wrap'>
+        {% include 'breadcrumb.liquid' %}
+        <h1 class='doc-title'>{{ title }}</h1>
+      </div>
+    </header>
+
+    <div class='doc-body'>
+      <div class='wrap'>
+        <div class='doc-prose'>{{ content }}</div>
+      </div>
+    </div>
+  </article>
 </main>

@@ -1,0 +1,38 @@
+{%- assign trail = page.url | breadcrumb: collections.all, sections -%}
+{%- if trail.size > 0 -%}
+  <nav class='breadcrumb' aria-label='Breadcrumb'>
+    <ol class='breadcrumb-list'>
+      {%- for step in trail %}
+        <li class='breadcrumb-step'>
+          <a href='{{ step.url }}'>{{ step.title }}</a>
+        </li>
+      {%- endfor %}
+    </ol>
+  </nav>
+  {%- comment -%}
+    The page itself closes the list here, though not above: search results
+    want the whole trail, while on the page its title is the heading a line
+    below and would only be read twice.
+  {%- endcomment -%}
+  <script type='application/ld+json'>
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {%- for step in trail %}
+          {
+            "@type": "ListItem",
+            "position": {{ forloop.index }},
+            "name": {{ step.title | jsonify }},
+            "item": {{ siteUrl | append: step.url | jsonify }}
+          },
+        {%- endfor %}
+        {
+          "@type": "ListItem",
+          "position": {{ trail.size | plus: 1 }},
+          "name": {{ title | jsonify }}
+        }
+      ]
+    }
+  </script>
+{%- endif -%}
