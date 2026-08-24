@@ -35,24 +35,6 @@ $doc-bad-text: shade-color($quaternary, 25%);
 // Scoped to `main` to keep the resets off the navbar and footer, which are
 // its siblings under the same body class. The padding replaces what
 // `main > .container` gives the footer elsewhere.
-.doc-page main {
-  padding-bottom: 104px;
-}
-
-.doc-page main a {
-  color: $doc-link;
-}
-
-.doc-page main :focus-visible {
-  outline: 2px solid $body-color;
-  outline-offset: 2px;
-}
-
-.doc-page .wrap {
-  max-width: $doc-wrap;
-  padding-inline: $doc-gutter;
-  margin-inline: auto;
-}
 
 /* --- Head: breadcrumb, title, Key Point ---------------------------------
   A flat stack, not a grid: unlike the masthead, there is no second panel
