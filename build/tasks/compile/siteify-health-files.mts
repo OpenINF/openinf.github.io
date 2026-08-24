@@ -59,7 +59,7 @@ const getHealthFileContents = (file: string) => {
 };
 
 /**
- * Add site metdata to document frontmatter and copy to collection dir.
+ * Add site metadata to document frontmatter and copy to collection dir.
  * @param {string} file
  * @param {string} destDir
  * @param {!(Object | undefined)} frontmatterOverrides

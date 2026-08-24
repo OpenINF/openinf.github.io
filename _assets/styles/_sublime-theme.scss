@@ -10,7 +10,7 @@ $spacer: 1rem;
 $body-color: #1d1916;
 
 // The navbar is `bg-dark`, which until now meant Bootstrap's own #212529: a
-// colour this palette never chose. Against parchment nobody could tell, but
+// color this palette never chose. Against parchment nobody could tell, but
 // a page with a dark section under the navbar puts a cool grey directly on
 // our warm ink and it reads as a mistake. Our dark is the ink.
 $dark: $body-color;

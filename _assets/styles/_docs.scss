@@ -3,7 +3,7 @@
 // The docs index: what is written, and what is still open.
 
 // This page reads wider than the 48ch column the rest of the site uses, so it
-// sets its own width and its own offset under the fixed navbar. Colours come
+// sets its own width and its own offset under the fixed navbar. Colors come
 // from _sublime-theme.scss; $docs-muted is the tone _home.scss gives secondary
 // copy, so the two pages read alike.
 
@@ -291,7 +291,7 @@ $docs-flag-text: shade-color($quaternary, 25%);
   line-height: 1.6;
 }
 
-// The chip carries the state in text, so it does not rest on colour alone.
+// The chip carries the state in text, so it does not rest on color alone.
 .docs-index .rule-flag {
   padding: 0.0625rem 0.4375rem;
   font-family: $font-family-monospace;

@@ -11,6 +11,13 @@
     "_site/**",
     "node_modules/**",
     ".pnpm-store/**",
-    "**/COPYING.md"
+    "**/COPYING.md",
+    "**/LICENSE/**",
+    "pnpm-lock.yaml",
+    "collections/_docs/code-of-conduct.md",
+    "collections/_docs/contributing.md",
+    "collections/_docs/security.md",
+    "collections/_docs/support.md",
+    "collections/_pages/vision.md"
   ]
 }
