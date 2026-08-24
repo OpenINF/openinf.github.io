@@ -97,6 +97,7 @@ export type CheckRun = {
   status: string;
   conclusion: string | null;
   detailsUrl?: string;
+  startedAt?: string;
 };
 
 /** What GitHub reports about one commit status, which is the older kind. */
@@ -130,7 +131,18 @@ export function checksVerdict(
     (ownRunId !== '' &&
       (run.detailsUrl ?? '').includes(`/actions/runs/${ownRunId}/`)) ||
     (ownCheckName !== '' && run.name === ownCheckName);
-  const runs = all.filter((run) => !isOwn(run));
+  // A workflow that cancels superseded runs leaves the cancelled one on the
+  // commit beside the run that replaced it. Both carry the same name, and
+  // only the newest says how that check turned out.
+  const newest = new Map<string, CheckRun>();
+  for (const run of all.filter((run) => !isOwn(run))) {
+    const seen = newest.get(run.name);
+    if (seen === undefined || (run.startedAt ?? '') >= (seen.startedAt ?? '')) {
+      newest.set(run.name, run);
+    }
+  }
+
+  const runs = [...newest.values()];
   const pending = [
     ...runs.filter((run) => run.status !== 'completed').map((run) => run.name),
     ...statuses
