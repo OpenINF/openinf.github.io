@@ -111,7 +111,7 @@ export default async function (eleventyConfig) {
 
   // Ignoring these directories outright, as .eleventyignore used to, also
   // takes them out of the watch, so an edited image sat there until the next
-  // restart. Only the licence notice among the icons needs keeping out, and
+  // restart. Only the license notice among the icons needs keeping out, and
   // only from being rendered as a page -- passthrough still publishes it
   // beside the icons it covers.
   eleventyConfig.ignores.add(`${PATHS.assetsDir}**/*.md`);

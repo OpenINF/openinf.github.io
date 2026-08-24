@@ -1,8 +1,8 @@
 // The about page: the question the project started from, how the community
-// is organised, and where things stand.
+// is organized, and where things stand.
 
 // It reads at the same 1200px width as docs and home, and sets its own
-// offset under the fixed navbar. Colours come from _sublime-theme.scss;
+// offset under the fixed navbar. Colors come from _sublime-theme.scss;
 // $about-muted matches the tone _home.scss and _docs.scss give secondary
 // copy, so all three pages read alike.
 
@@ -118,7 +118,7 @@ $about-hairline: rgb(167 151 139 / 55%);
   text-wrap: balance;
 }
 
-// The four verbs recur sitewide, coloured here as home colours them in its
+// The four verbs recur sitewide, colored here as home colors them in its
 // masthead.
 .about-question em {
   font-style: normal;
@@ -169,7 +169,7 @@ $about-hairline: rgb(167 151 139 / 55%);
 
 // A rule between the columns rather than above each: the three are parallel
 // and carry equal weight. Spacing comes from padding rather than a column
-// gap, so the rule sits centred between two columns and the outer edges stay
+// gap, so the rule sits centered between two columns and the outer edges stay
 // flush with the heading above.
 .about .tenet {
   padding-inline: clamp(1rem, 2.2vw, 2rem);

@@ -17,7 +17,7 @@ const KEBAB_CASE = /^_?[a-z0-9]+(?:-[a-z0-9]+)*$/;
 /**
  * The shouted names convention reserves for metadata that sits beside the
  * work rather than being part of it: `README.md`, `AUTHORS`, `LICENSE/`, and
- * the licence identifiers inside it, such as `CC-BY-SA-4.0.txt`.
+ * the license identifiers inside it, such as `CC-BY-SA-4.0.txt`.
  */
 const METADATA_CASE = /^[A-Z][A-Z0-9_-]*$/;
 

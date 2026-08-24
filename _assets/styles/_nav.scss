@@ -39,7 +39,7 @@ bento-sidebar {
   margin-block: calc(var(--bs-navbar-padding-y) * -1);
 }
 
-// Marks the current page beside `aria-current`, so it is not colour alone.
+// Marks the current page beside `aria-current`, so it is not color alone.
 .navbar-dark .nav-link.active {
   border-bottom: 2px solid $primary;
 }

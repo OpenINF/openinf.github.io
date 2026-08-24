@@ -2,7 +2,7 @@
 // the same 1200px width as the rest of the site; the prose between them sits
 // at a reading measure instead, because this page is for reading.
 
-// Colours come from _sublime-theme.scss and match the tone _news.scss gives
+// Colors come from _sublime-theme.scss and match the tone _news.scss gives
 // the archive, so the two pages agree on what a category and a date look
 // like.
 $news-item-wrap: 1200px;
@@ -70,7 +70,7 @@ $news-item-hairline: rgb(167 151 139 / 55%);
   margin: 0;
 }
 
-// The same flat, opaque chip as the archive's, recoloured for the ink it
+// The same flat, opaque chip as the archive's, recolored for the ink it
 // sits on: ink text on the light accent.
 .news-item .entry-cat {
   display: inline-block;
@@ -213,7 +213,7 @@ $news-item-hairline: rgb(167 151 139 / 55%);
 }
 
 /* --- Foot: prev/next ----------------------------------------------------
-  Only rendered when a neighbour exists (see the layout's own condition), so
+  Only rendered when a neighbor exists (see the layout's own condition), so
   it never shows on a lone post.
 */
 

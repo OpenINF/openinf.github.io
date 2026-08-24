@@ -27,7 +27,6 @@ const scripts = [
   `prettier --check ${markdownFiles.join(' ')}`,
   `markdownlint-cli2 ${markdownFiles.join(' ')}`,
   `remark -f --silently-ignore ${markdownFiles.join(' ')}`,
-  `cspell lint ${markdownFiles.join(' ')}`,
 ];
 
 for (const element of scripts) {

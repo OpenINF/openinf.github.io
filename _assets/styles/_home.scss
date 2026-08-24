@@ -110,9 +110,9 @@
   pointer-events: none;
   opacity: 0.14;
 
-  // Up by a fifth, not a third. At a third the circle's centre sits behind
+  // Up by a fifth, not a third. At a third the circle's center sits behind
   // the fixed navbar on a phone, so all that shows is the cap below its
-  // widest point, and a cap reads as an oval. A fifth keeps the centre clear
+  // widest point, and a cap reads as an oval. A fifth keeps the center clear
   // of the navbar at every width, so the curve is legible as a circle.
   transform: translate(30%, -20%);
 }

@@ -307,9 +307,6 @@
   // Enable / Disable compound words like 'errormessage'.
   "cSpell.allowCompoundWords": true,
 
-  // Words to be ignored and not suggested.
-  "cSpell.ignoreWords": ["behaviour"],
-
   // Specify paths/files to ignore.
   "cSpell.ignorePaths": [".git/", "node_modules/"],
 

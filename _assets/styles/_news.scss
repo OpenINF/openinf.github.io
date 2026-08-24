@@ -4,7 +4,7 @@
 // earlier as a plain list. Reads at the same 1200px width as home, docs, and
 // about, with its own offset under the fixed navbar.
 
-// Colours come from _sublime-theme.scss. $news-muted matches the tone the
+// Colors come from _sublime-theme.scss. $news-muted matches the tone the
 // other pages give secondary copy; $news-link doubles as the category chip's
 // fill, so the chip and every link on the page draw from one dark teal.
 $news-wrap: 1200px;
@@ -120,7 +120,7 @@ $news-quiet-bg: color.mix($tertiary, $body-bg, 12%);
 }
 
 /* --- Category chip ---------------------------------------------------
-  Flat and opaque: one fixed pair of colours, so it reads the same in the
+  Flat and opaque: one fixed pair of colors, so it reads the same in the
   featured band and in the list below.
 */
 

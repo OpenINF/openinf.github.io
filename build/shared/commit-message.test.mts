@@ -287,7 +287,7 @@ describe('validateCommitMessage: against what landed', () => {
 
 describe('readTrailers', () => {
   test('agrees with git about where the trailers are', () => {
-    // The rules describe git's behaviour, so git is the thing to check them
+    // The rules describe git's behavior, so git is the thing to check them
     // against. Every disagreement found in review is in this table.
     const messages = [
       '🏗️🔧：fix it',
@@ -323,8 +323,8 @@ describe('readTrailers', () => {
 describe('the vocabulary', () => {
   test('is spelt so that every entry is drawn as an emoji, and no more', () => {
     // Two ways to get this wrong, and both leave a second spelling of one
-    // symbol: a character that needs U+FE0F to be drawn in colour and does
-    // not carry it, and one drawn in colour already that carries a selector
+    // symbol: a character that needs U+FE0F to be drawn in color and does
+    // not carry it, and one drawn in color already that carries a selector
     // it has no use for.
     for (const emoji of [...Object.keys(CATEGORIES), ...Object.keys(ACTIONS)]) {
       const [base = ''] = [...emoji];

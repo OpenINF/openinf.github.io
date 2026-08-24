@@ -12,7 +12,7 @@
  *
  * Each is spelt so that it is drawn as an emoji and no more: the characters
  * that would otherwise come out as flat text carry U+FE0F, and the ones
- * already drawn in colour do not carry one they have no use for. A test holds
+ * already drawn in color do not carry one they have no use for. A test holds
  * the list to that.
  */
 export const CATEGORIES: Record<string, string> = {
@@ -107,14 +107,14 @@ const countGraphemes = (text: string) => [...SEGMENTER.segment(text)].length;
 /**
  * A trailer is `Token: value` with no whitespace in the token. Written out
  * rather than taken from a list of known tokens, so that a line *meant* as a
- * trailer is recognised as one and can be reported as misspelt.
+ * trailer is recognized as one and can be reported as misspelt.
  */
 const TRAILER_LINE = /^(?<token>[A-Za-z][\w-]*):[ \t]*(?<value>.*)$/;
 
 /**
  * `Assisted-by` names a tool, not a person, and so takes neither a name nor an
  * address: the Linux kernel defines it as `AGENT_NAME:MODEL_VERSION` followed
- * by any specialised analysis tools, and nodejs/node lands it that way. Basic
+ * by any specialized analysis tools, and nodejs/node lands it that way. Basic
  * development tools are left out.
  */
 const ASSISTED_BY_VALUE = /^[^\s:]+:\S+( \S+)*$/;
