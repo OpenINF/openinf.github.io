@@ -5,16 +5,34 @@
 </footer>
 
 <script>
-  (async () => {
-    const sidebar = document.querySelector('#sidebar');
-    await customElements.whenDefined('bento-sidebar');
-    const api = await sidebar.getApi();
+  // Bento arrives from a CDN, so the page draws and takes taps before the
+  // runtime lands. The buttons are bound here and wait on the API inside the
+  // handler, so a tap made in that gap opens the sidebar rather than falling
+  // on the floor.
+  const sidebarReady = customElements
+    .whenDefined('bento-sidebar')
+    .then(() => document.querySelector('#sidebar').getApi());
 
-    // set up button actions
-    const matches = document.querySelectorAll('.navbar-toggler');
+  // Bento slides the sidebar in over 350ms, and the panel and its backdrop
+  // both cross the button on the way. A tap during that stretch lands on
+  // whatever is passing underneath, so the sidebar stops taking taps and the
+  // toggle is ignored until it settles.
+  const slideDuration = 350;
+  let busy = false;
 
-    matches.forEach((match) => {
-      match.onclick = () => api.toggle(0);
+  for (const button of document.querySelectorAll('.navbar-toggler')) {
+    button.addEventListener('click', async () => {
+      if (busy) return;
+      busy = true;
+      document.documentElement.dataset.sidebarBusy = '';
+
+      const api = await sidebarReady;
+      api.toggle();
+
+      setTimeout(() => {
+        busy = false;
+        delete document.documentElement.dataset.sidebarBusy;
+      }, slideDuration);
     });
-  })();
+  }
 </script>

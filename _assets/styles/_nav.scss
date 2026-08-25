@@ -8,6 +8,14 @@
   height: $navbar-height;
 }
 
+// The panel and its backdrop both cross the toggle while the sidebar slides,
+// so a tap in that beat would land on whichever one is passing. Sealing the
+// sidebar off sends it back to the button, which ignores it until the slide
+// settles. The footer script sets the attribute.
+[data-sidebar-busy] bento-sidebar {
+  pointer-events: none;
+}
+
 bento-sidebar {
   background-color: $secondary;
 
