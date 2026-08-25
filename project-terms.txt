@@ -2,6 +2,7 @@ Aftertabs
 Anson
 autolinks
 backref
+bento
 bibtex
 biomejs
 blockified

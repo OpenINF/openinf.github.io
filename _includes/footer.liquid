@@ -49,6 +49,10 @@
 
   backdrop.addEventListener('click', close);
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') close();
+    if (!open || event.key !== 'Escape') return;
+    // The press is spent on the drawer; nothing else acts on it.
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    close();
   });
 </script>

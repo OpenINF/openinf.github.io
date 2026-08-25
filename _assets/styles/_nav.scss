@@ -1,3 +1,7 @@
+// A sharp decelerate: the panel arrives, then settles.
+$sidebar-slide-time: 350ms;
+$sidebar-slide: $sidebar-slide-time cubic-bezier(0, 0, 0.21, 1);
+
 // Without `manipulation`, Safari holds a tap for a third of a second in
 // case a double-tap to zoom follows, and a second tap inside that wait
 // cancels both. iOS ignores the viewport's scale limits, so nothing else
@@ -42,19 +46,25 @@
   visibility: hidden;
   width: min(15rem, 70vw);
   padding-top: $navbar-height;
-  overflow-y: auto;
+  overflow: hidden auto;
   overscroll-behavior: contain;
   background-color: $secondary;
   transform: translateX(100%);
   transition:
-    transform 0.3s ease,
-    visibility 0s linear 0.3s;
+    transform $sidebar-slide,
+    visibility 0s linear $sidebar-slide-time;
+}
+
+// The trailing edge is the left one in a page that reads right to left, so
+// the panel leaves that way.
+[dir='rtl'] .sidebar {
+  transform: translateX(-100%);
 }
 
 .sidebar.is-open {
   visibility: visible;
   transform: none;
-  transition: transform 0.3s ease;
+  transition: transform $sidebar-slide;
 }
 
 .sidebar .nav-link {
@@ -72,17 +82,21 @@
   inset: 0;
   z-index: $zindex-fixed - 10;
   visibility: hidden;
+
+  // A drag here scrolls nothing: `overflow: hidden` on the body does not
+  // hold on iOS.
+  touch-action: none;
   background-color: rgb(0 0 0 / 50%);
   opacity: 0;
   transition:
-    opacity 0.3s ease,
-    visibility 0s linear 0.3s;
+    opacity $sidebar-slide,
+    visibility 0s linear $sidebar-slide-time;
 }
 
 .sidebar-backdrop.is-open {
   visibility: visible;
   opacity: 1;
-  transition: opacity 0.3s ease;
+  transition: opacity $sidebar-slide;
 }
 
 // The drawer scrolls itself, so the page behind it should not.
