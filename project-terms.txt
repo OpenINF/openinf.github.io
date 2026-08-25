@@ -2,7 +2,6 @@ Aftertabs
 Anson
 autolinks
 backref
-bento
 bibtex
 biomejs
 blockified
@@ -46,9 +45,7 @@ Kosic
 lede
 middot
 noarchive
-nodisplay
 noindex
-nomodule
 nonoptional
 noopener
 noreferrer
@@ -77,9 +74,11 @@ sitewide
 skipcq
 stylesheet
 Sysnative
+tabindex
 tamasfe
 trixie
 unconfigured
 unentitled
 unifiedjs
 windir
+zindex

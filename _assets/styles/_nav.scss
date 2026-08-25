@@ -22,23 +22,78 @@
   height: 24px;
 }
 
-.navbar-toggler-wrapper {
-  display: flex;
-  flex-direction: row-reverse;
-  height: $navbar-height;
+// Focus lands on both of these without a press. Only a keyboard needs the
+// ring.
+.navbar-toggler:focus:not(:focus-visible) {
+  box-shadow: none;
 }
 
-bento-sidebar {
+.sidebar:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// Under the navbar, so the button keeps its place and the panel never
+// crosses it.
+.sidebar {
+  position: fixed;
+  inset-block: 0;
+  inset-inline-end: 0;
+  z-index: $zindex-fixed - 5;
+  visibility: hidden;
+  width: min(15rem, 70vw);
+  padding-top: $navbar-height;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   background-color: $secondary;
+  transform: translateX(100%);
+  transition:
+    transform 0.3s ease,
+    visibility 0s linear 0.3s;
+}
 
-  .nav-link {
-    padding-left: 2rem;
-    line-height: 32px;
-    border-left: 2px solid transparent;
-  }
+.sidebar.is-open {
+  visibility: visible;
+  transform: none;
+  transition: transform 0.3s ease;
+}
 
-  .nav-link.active {
-    border-left-color: $primary;
+.sidebar .nav-link {
+  padding-left: 2rem;
+  line-height: 32px;
+  border-left: 2px solid transparent;
+}
+
+.sidebar .nav-link.active {
+  border-left-color: $primary;
+}
+
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: $zindex-fixed - 10;
+  visibility: hidden;
+  background-color: rgb(0 0 0 / 50%);
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    visibility 0s linear 0.3s;
+}
+
+.sidebar-backdrop.is-open {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+// The drawer scrolls itself, so the page behind it should not.
+body.sidebar-open {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .sidebar-backdrop {
+    transition: none;
   }
 }
 
