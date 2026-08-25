@@ -1,3 +1,23 @@
+// Without `manipulation`, Safari holds a tap for a third of a second in
+// case a double-tap to zoom follows, and a second tap inside that wait
+// cancels both. iOS ignores the viewport's scale limits, so nothing else
+// turns it off.
+.navbar-toggler {
+  position: relative;
+  touch-action: manipulation;
+}
+
+// 48px is the smallest tap target recommended. The reach grows past the
+// button, so nothing drawn changes.
+.navbar-toggler::after {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 48px;
+  height: 48px;
+  content: '';
+  transform: translate(-50%, -50%);
+}
+
 .navbar-toggler svg {
   height: 24px;
 }

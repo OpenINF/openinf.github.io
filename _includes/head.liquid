@@ -1,9 +1,10 @@
 <head>
   <meta charset='utf-8'>
-  <meta
-    name='viewport'
-    content='width=device-width,maximum-scale=1,minimum-scale=1,initial-scale=1'
-  >
+  {%- comment -%}
+    No scale limits: iOS ignores them, and elsewhere they take pinch-zoom
+    from anyone who needs it.
+  {%- endcomment -%}
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link
     type='image/svg+xml'
     rel='shortcut icon preload'
