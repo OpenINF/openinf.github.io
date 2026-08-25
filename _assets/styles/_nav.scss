@@ -1,24 +1,113 @@
+// A sharp decelerate: the panel arrives, then settles.
+$sidebar-slide-time: 350ms;
+$sidebar-slide: $sidebar-slide-time cubic-bezier(0, 0, 0.21, 1);
+
+// Without `manipulation`, Safari holds a tap for a third of a second in
+// case a double-tap to zoom follows, and a second tap inside that wait
+// cancels both. iOS ignores the viewport's scale limits, so nothing else
+// turns it off.
+.navbar-toggler {
+  position: relative;
+  touch-action: manipulation;
+}
+
+// 48px is the smallest tap target recommended. The reach grows past the
+// button, so nothing drawn changes.
+.navbar-toggler::after {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 48px;
+  height: 48px;
+  content: '';
+  transform: translate(-50%, -50%);
+}
+
 .navbar-toggler svg {
   height: 24px;
 }
 
-.navbar-toggler-wrapper {
-  display: flex;
-  flex-direction: row-reverse;
-  height: $navbar-height;
+// Focus lands on both of these without a press. Only a keyboard needs the
+// ring.
+.navbar-toggler:focus:not(:focus-visible) {
+  box-shadow: none;
 }
 
-bento-sidebar {
+.sidebar:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// Under the navbar, so the button keeps its place and the panel never
+// crosses it.
+.sidebar {
+  position: fixed;
+  inset-block: 0;
+  inset-inline-end: 0;
+  z-index: $zindex-fixed - 5;
+  visibility: hidden;
+  width: min(15rem, 70vw);
+  padding-top: $navbar-height;
+  overflow: hidden auto;
+  overscroll-behavior: contain;
   background-color: $secondary;
+  transform: translateX(100%);
+  transition:
+    transform $sidebar-slide,
+    visibility 0s linear $sidebar-slide-time;
+}
 
-  .nav-link {
-    padding-left: 2rem;
-    line-height: 32px;
-    border-left: 2px solid transparent;
-  }
+// The trailing edge is the left one in a page that reads right to left, so
+// the panel leaves that way.
+[dir='rtl'] .sidebar {
+  transform: translateX(-100%);
+}
 
-  .nav-link.active {
-    border-left-color: $primary;
+.sidebar.is-open {
+  visibility: visible;
+  transform: none;
+  transition: transform $sidebar-slide;
+}
+
+.sidebar .nav-link {
+  padding-left: 2rem;
+  line-height: 32px;
+  border-left: 2px solid transparent;
+}
+
+.sidebar .nav-link.active {
+  border-left-color: $primary;
+}
+
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: $zindex-fixed - 10;
+  visibility: hidden;
+
+  // A drag here scrolls nothing: `overflow: hidden` on the body does not
+  // hold on iOS.
+  touch-action: none;
+  background-color: rgb(0 0 0 / 50%);
+  opacity: 0;
+  transition:
+    opacity $sidebar-slide,
+    visibility 0s linear $sidebar-slide-time;
+}
+
+.sidebar-backdrop.is-open {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity $sidebar-slide;
+}
+
+// The drawer scrolls itself, so the page behind it should not.
+body.sidebar-open {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .sidebar-backdrop {
+    transition: none;
   }
 }
 

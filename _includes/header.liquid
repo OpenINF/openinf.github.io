@@ -8,9 +8,12 @@
         {% include 'assets/img/logogram-color.svg' %}
       </a>
       <button
+        id='sidebar-toggle'
         class='navbar-toggler'
         type='button'
         aria-label='Toggle navigation'
+        aria-controls='sidebar'
+        aria-expanded='false'
       >
         {% include 'assets/img/sublime-theme/hamburger-secondary.svg' %}
       </button>
@@ -36,21 +39,12 @@
     </div>
   </nav>
 </header>
-<bento-sidebar
-  id='sidebar'
-  side='right'
-  layout='nodisplay'
->
+{%- comment -%}
+  The header's button is the only control, so nothing moves under a finger.
+{%- endcomment -%}
+<div class='sidebar-backdrop' hidden></div>
+<div id='sidebar' class='sidebar' tabindex='-1' hidden>
   <nav class='navbar py-0' aria-label='Sidebar'>
-    <div class='navbar-toggler-wrapper container-fluid'>
-      <button
-        class='navbar-toggler'
-        type='button'
-        aria-label='Toggle navigation'
-      >
-        {% include 'assets/img/sublime-theme/hamburger-primary.svg' %}
-      </button>
-    </div>
     <ul class='navbar-nav me-auto mb-2 mb-md-0 w-100'>
       {% for link in menu %}
         <li class='nav-item'>
@@ -67,4 +61,4 @@
       {% endfor %}
     </ul>
   </nav>
-</bento-sidebar>
+</div>

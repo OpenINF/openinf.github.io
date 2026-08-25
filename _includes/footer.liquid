@@ -5,16 +5,54 @@
 </footer>
 
 <script>
-  (async () => {
-    const sidebar = document.querySelector('#sidebar');
-    await customElements.whenDefined('bento-sidebar');
-    const api = await sidebar.getApi();
+  // The drawer is markup and CSS, so the button works the moment this runs.
+  const toggle = document.querySelector('#sidebar-toggle');
+  const sidebar = document.querySelector('#sidebar');
+  const backdrop = document.querySelector('.sidebar-backdrop');
 
-    // set up button actions
-    const matches = document.querySelectorAll('.navbar-toggler');
+  // A menu that cannot open is worse than none, so the markup ships hidden.
+  // From here the stylesheet holds the closed state.
+  sidebar.hidden = false;
+  backdrop.hidden = false;
 
-    matches.forEach((match) => {
-      match.onclick = () => api.toggle(0);
-    });
-  })();
+  let open = false;
+
+  const setOpen = (next) => {
+    open = next;
+    sidebar.classList.toggle('is-open', open);
+    backdrop.classList.toggle('is-open', open);
+    document.body.classList.toggle('sidebar-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    // Off screen either way: keep it out of the tab order and off a screen
+    // reader's path.
+    sidebar.inert = !open;
+  };
+
+  // Follows the drawer, so the next tab goes where the eye already is. Only
+  // on a press: the setup below has to leave focus where the reader left it.
+  const moveFocus = () => {
+    (open ? sidebar : toggle).focus();
+  };
+
+  setOpen(false);
+
+  toggle.addEventListener('click', () => {
+    setOpen(!open);
+    moveFocus();
+  });
+
+  const close = () => {
+    if (!open) return;
+    setOpen(false);
+    moveFocus();
+  };
+
+  backdrop.addEventListener('click', close);
+  document.addEventListener('keydown', (event) => {
+    if (!open || event.key !== 'Escape') return;
+    // The press is spent on the drawer; nothing else acts on it.
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    close();
+  });
 </script>
