@@ -19,12 +19,13 @@
   groupName: "all",
   ignorePresets: [":prHourlyLimit2"],
   vulnerabilityAlerts: {
-    labels: ["security"],
+    labels: ["🗝️ Type: Security"],
     automerge: true,
     assignees: ["@DerekNonGeneric"],
   },
   lockFileMaintenance: {
     enabled: true,
+    labels: ["📦 Type: Dependencies", "🔧 Type: Maintenance"],
   },
   platformCommit: "enabled",
   rangeStrategy: "pin",
@@ -61,12 +62,12 @@
     {
       matchDepTypes: ["dependencies"],
       commitMessagePrefix: "chore(deps):",
-      labels: ["dependencies", "deps-prod"],
+      labels: ["📦 Type: Dependencies"],
     },
     {
       matchDepTypes: ["devDependencies"],
       commitMessagePrefix: "build(deps-dev):",
-      labels: ["dependencies", "build", "deps-dev"],
+      labels: ["📦 Type: Developer Dependencies", "🏗️ Category: Build"],
     },
     // `config:best-practices` already waits, through
     // `security:minimumReleaseAgeNpm`, but only three days and only for npm --
