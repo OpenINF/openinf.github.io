@@ -36,27 +36,38 @@ $sidebar-slide: $sidebar-slide-time cubic-bezier(0, 0, 0.21, 1);
   outline: none;
 }
 
+// The default ring is tuned for parchment and vanishes on ink.
+.sidebar :focus-visible {
+  outline-color: $body-bg;
+}
+
 // Under the navbar, so the button keeps its place and the panel never
-// crosses it.
+// crosses it. Ink, like every surface that meets the navbar head-on.
 .sidebar {
   position: fixed;
   inset-block: 0;
   inset-inline-end: 0;
   z-index: $zindex-fixed - 5;
   visibility: hidden;
-  width: min(15rem, 70vw);
+  width: min(20rem, 82vw);
   padding-top: $navbar-height;
   overflow: hidden auto;
   overscroll-behavior: contain;
-  background-color: $secondary;
+  color: $body-bg;
+  background-color: $body-color;
+
+  // Ink on a dimmed ink page is one mass, so the panel marks its own edge.
+  // The shadow is symmetric so it holds when the page reads right to left.
+  border-inline-start: 1px solid rgba($body-bg, 0.14);
+  box-shadow: 0 0 2.5rem rgb(0 0 0 / 55%);
   transform: translateX(100%);
   transition:
     transform $sidebar-slide,
     visibility 0s linear $sidebar-slide-time;
 }
 
-// The trailing edge is the left one in a page that reads right to left, so
-// the panel leaves that way.
+// The trailing edge is the left one when the page reads right to left. Only
+// the transform is physical; `inset-inline-end` handles the rest.
 [dir='rtl'] .sidebar {
   transform: translateX(-100%);
 }
@@ -67,14 +78,86 @@ $sidebar-slide: $sidebar-slide-time cubic-bezier(0, 0, 0.21, 1);
   transition: transform $sidebar-slide;
 }
 
-.sidebar .nav-link {
-  padding-left: 2rem;
-  line-height: 32px;
-  border-left: 2px solid transparent;
+// Fills the panel below the navbar offset, so the sign-off sits at the foot
+// on a short menu.
+.sidebar-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
+// The label voice `.tail-title` and `.install-label` use.
+.sidebar-kicker {
+  padding: 1.5rem 1.75rem 0.5rem;
+  font-family: $font-family-monospace;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: $tertiary;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+// Two spans need their own alignment, and 56px clears the 48px tap target.
+.sidebar .nav-link {
+  display: flex;
+  gap: 0.875rem;
+  align-items: center;
+  min-height: 56px;
+  padding-inline: 1.75rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: $body-bg;
+  text-decoration: none;
+  border-inline-start: 3px solid transparent;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link:focus-visible {
+  background-color: rgba($body-bg, 0.06);
+}
+
+// The numbered voice `.area-num` uses on the home page. `aria-hidden`, so
+// the number stays out of the link's name.
+.sidebar .nav-link-index {
+  font-family: $font-family-monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: $tertiary;
+}
+
+// Color backs up the border and `aria-current`; it never stands alone.
 .sidebar .nav-link.active {
-  border-left-color: $primary;
+  background-color: rgba($primary, 0.1);
+  border-inline-start-color: $primary;
+}
+
+.sidebar .nav-link.active .nav-link-index,
+.sidebar .nav-link.active .nav-link-text {
+  color: tint-color($primary, 30%);
+}
+
+// A quiet signature at the foot. No `text-transform`: the name is written
+// OpenINF everywhere else.
+.sidebar-sign {
+  display: flex;
+  gap: 0.625rem;
+  align-items: center;
+  padding: 1.25rem 1.75rem;
+  margin-top: auto;
+  font-family: $font-family-monospace;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: rgba($body-bg, 0.6);
+  border-block-start: 1px solid rgba($body-bg, 0.14);
+}
+
+.sidebar-sign svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
 }
 
 .sidebar-backdrop {
@@ -86,7 +169,9 @@ $sidebar-slide: $sidebar-slide-time cubic-bezier(0, 0, 0.21, 1);
   // A drag here scrolls nothing: `overflow: hidden` on the body does not
   // hold on iOS.
   touch-action: none;
-  background-color: rgb(0 0 0 / 50%);
+
+  // Ink, so the scrim reads warm before the panel arrives.
+  background-color: rgba($body-color, 0.66);
   opacity: 0;
   transition:
     opacity $sidebar-slide,

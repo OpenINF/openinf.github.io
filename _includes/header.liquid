@@ -44,21 +44,31 @@
 {%- endcomment -%}
 <div class='sidebar-backdrop' hidden></div>
 <div id='sidebar' class='sidebar' tabindex='-1' hidden>
-  <nav class='navbar py-0' aria-label='Sidebar'>
-    <ul class='navbar-nav me-auto mb-2 mb-md-0 w-100'>
-      {% for link in menu %}
-        <li class='nav-item'>
-          <a
-            class='nav-link{% if body_classes contains link.class %} active{% endif %}'
-            href='/{{ link.permalink }}'
-            {% if body_classes contains link.class %}
-              aria-current='page'
-            {% endif %}
-          >
-            {{ link.text }}
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  </nav>
+  <div class='sidebar-body'>
+    <p class='sidebar-kicker'>Navigate</p>
+    <nav class='navbar py-0' aria-label='Sidebar'>
+      <ul class='navbar-nav me-auto mb-2 mb-md-0 w-100'>
+        {% for link in menu %}
+          <li class='nav-item'>
+            <a
+              class='nav-link{% if body_classes contains link.class %} active{% endif %}'
+              href='/{{ link.permalink }}'
+              {% if body_classes contains link.class %}
+                aria-current='page'
+              {% endif %}
+            >
+              <span class='nav-link-index' aria-hidden='true'
+                >0{{ forloop.index -}}
+              </span>
+              <span class='nav-link-text'>{{ link.text }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <p class='sidebar-sign'>
+      {% include 'assets/img/logogram.svg' %}
+      OpenINF
+    </p>
+  </div>
 </div>
