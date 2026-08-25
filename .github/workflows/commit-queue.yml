@@ -29,12 +29,9 @@ concurrency:
 jobs:
   land:
     name: Land
-    # Both spellings, so the label can be renamed without a window in
-    # which nothing lands: the workflow that runs is the one on the base
-    # branch, not the one under review.
-    if: >-
-      github.event.label.name == 'commit-queue' ||
-      github.event.label.name == '🚀 Status: Commit Queue'
+    # Quoted whole: the label name contains a colon, which an unquoted
+    # scalar would read as a mapping.
+    if: "github.event.label.name == '🚀 Status: Commit Queue'"
     runs-on: ubuntu-latest
     steps:
       - name: Mint a token for the app
@@ -97,8 +94,8 @@ jobs:
           NUMBER: ${{ github.event.pull_request.number }}
           LABEL: ${{ github.event.label.name }}
         run: |
-          # Whichever spelling triggered this, percent-encoded: the name sits
-          # in a URL path and an emoji one would not survive it raw.
+          # The name sits in a URL path, where an emoji would not survive
+          # being interpolated raw.
           gh api --silent -X DELETE \
             "repos/${GITHUB_REPOSITORY}/issues/${NUMBER}/labels/$(jq -rn --arg l "$LABEL" '$l|@uri')" \
             || true
