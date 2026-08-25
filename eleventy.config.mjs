@@ -4,6 +4,7 @@ import { EleventyI18nPlugin } from '@11ty/eleventy';
 import { PATHS } from '@openinf/portal/build/constants';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
+import { minify as minifyHtml } from 'html-minifier-terser';
 import markdownItAnchor from 'markdown-it-anchor';
 import markdownItFootnote from 'markdown-it-footnote';
 import markdownItGitHubAlerts from 'markdown-it-github-alerts';
@@ -169,6 +170,38 @@ export default async function (eleventyConfig) {
       },
     },
   });
+
+  // Only the build that publishes. A reader downloads this output; a
+  // developer reads `_site` in a diff.
+  if (isProduction) {
+    eleventyConfig.addTransform('minifyHtml', function (content) {
+      // Sass partials output nothing, and their `outputPath` is `false`
+      // rather than absent, which optional chaining does not catch.
+      const output = this.page.outputPath;
+
+      if (typeof output !== 'string' || !output.endsWith('.html')) {
+        return content;
+      }
+
+      return minifyHtml(content, {
+        // `<pre>` and `<textarea>` are left alone by the minifier itself.
+        collapseWhitespace: true,
+        // SVG attributes are camelCase -- `viewBox`, `preserveAspectRatio` --
+        // and lowercasing them stops the browser seeing them.
+        caseSensitive: true,
+        collapseBooleanAttributes: true,
+        // biome-ignore lint/style/useNamingConvention: the minifier's name
+        minifyCSS: true,
+        // biome-ignore lint/style/useNamingConvention: the minifier's name
+        minifyJS: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        sortAttributes: true,
+        sortClassName: true,
+        useShortDoctype: true,
+      });
+    });
+  }
 
   // 3000 is where the previous server sat, so it is what the devcontainer
   // forwards and what the docs tell people to open.
