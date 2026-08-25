@@ -35,4 +35,16 @@
       }, slideDuration);
     });
   }
+
+  // The buttons say which state they are in. Reading it off the element keeps
+  // the answer right when the sidebar closes on the backdrop or on Escape.
+  const sidebar = document.querySelector('#sidebar');
+  const togglers = document.querySelectorAll('.navbar-toggler');
+
+  new MutationObserver(() => {
+    const expanded = String(sidebar.hasAttribute('open'));
+    for (const toggler of togglers) {
+      toggler.setAttribute('aria-expanded', expanded);
+    }
+  }).observe(sidebar, { attributeFilter: ['open'] });
 </script>
