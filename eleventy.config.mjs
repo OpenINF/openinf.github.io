@@ -1,7 +1,9 @@
 import { execFileSync } from 'node:child_process';
-import { parse as pathParse } from 'node:path';
+import { readdir, readFile, writeFile } from 'node:fs/promises';
+import { join, parse as pathParse } from 'node:path';
 import { EleventyI18nPlugin } from '@11ty/eleventy';
 import { PATHS } from '@openinf/portal/build/constants';
+import { hasViewBox, replaceInlineSvg } from '@openinf/portal/build/inline-svg';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import { minify as minifyHtml } from 'html-minifier-terser';
@@ -10,6 +12,7 @@ import markdownItFootnote from 'markdown-it-footnote';
 import markdownItGitHubAlerts from 'markdown-it-github-alerts';
 import postcss from 'postcss';
 import { compileString } from 'sass';
+import { optimize as optimizeSvg } from 'svgo';
 
 // skipcq: JS-0116
 export default async function (eleventyConfig) {
@@ -171,9 +174,71 @@ export default async function (eleventyConfig) {
     },
   });
 
+  // Shortening an id is safe in a file of its own, where it is the only
+  // thing that can hold one. A page holds every mark at once, and the
+  // shortest name free in each is the same name, so two marks that arrived
+  // with different ids would leave with one between them and `url(#…)` in
+  // the second would reach into the first.
+  const inline = {
+    multipass: true,
+    plugins: [
+      { name: 'preset-default', params: { overrides: { cleanupIds: false } } },
+    ],
+  };
+
+  /**
+   * Optimizes one SVG. Every mark here is written in this repository, so a
+   * failure is a broken file rather than bad input, and stopping the build
+   * is the answer to both that and a dropped `viewBox`: these marks are
+   * sized on one axis and take their ratio from the box, so losing it
+   * leaves one drawing at no size on a page that still validates.
+   * @param {string} svg The markup to optimize.
+   * @param {object} [config] What to pass the optimizer.
+   * @returns {string} The optimized markup.
+   */
+  const shrinkSvg = (svg, config = { multipass: true }) => {
+    const optimized = optimizeSvg(svg, config).data;
+
+    if (hasViewBox(svg) && !hasViewBox(optimized)) {
+      throw new Error('SVG optimization dropped a viewBox');
+    }
+
+    return optimized;
+  };
+
   // Only the build that publishes. A reader downloads this output; a
   // developer reads `_site` in a diff.
   if (isProduction) {
+    // Two in five bytes of a page here are an inlined mark, and the HTML
+    // minifier does not read inside one.
+    eleventyConfig.addTransform('optimizeInlineSvg', function (content) {
+      const output = this.page.outputPath;
+
+      if (typeof output !== 'string' || !output.endsWith('.html')) {
+        return content;
+      }
+
+      return replaceInlineSvg(content, (svg) => shrinkSvg(svg, inline));
+    });
+
+    // Images are copied rather than rendered, so no transform reaches them.
+    eleventyConfig.on('eleventy.after', async ({ dir }) => {
+      const entries = await readdir(dir.output, {
+        recursive: true,
+        withFileTypes: true,
+      });
+
+      await Promise.all(
+        entries
+          .filter((entry) => entry.isFile() && entry.name.endsWith('.svg'))
+          .map(async (entry) => {
+            const file = join(entry.parentPath, entry.name);
+
+            await writeFile(file, shrinkSvg(await readFile(file, 'utf8')));
+          })
+      );
+    });
+
     eleventyConfig.addTransform('minifyHtml', function (content) {
       // Sass partials output nothing, and their `outputPath` is `false`
       // rather than absent, which optional chaining does not catch.

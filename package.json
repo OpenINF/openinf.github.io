@@ -11,6 +11,7 @@
   "exports": {
     "./build/commit-message": "./build/shared/commit-message.mts",
     "./build/constants": "./build/shared/constants.mts",
+    "./build/inline-svg": "./build/shared/inline-svg.mts",
     "./build/landing": "./build/shared/landing.mts",
     "./build/pull-request": "./build/shared/pull-request.mts",
     "./build/utils": "./build/utils.mts"
@@ -41,6 +42,7 @@
     "dprint": "0.55.2",
     "editorconfig-checker": "6.1.1",
     "html-minifier-terser": "7.2.0",
+    "htmlparser2": "12.0.0",
     "js-yaml": "5.3.0",
     "markdown-it-abbr": "2.0.0",
     "markdown-it-anchor": "9.2.1",
@@ -88,6 +90,7 @@
     "stylelint": "17.14.1",
     "stylelint-config-recess-order": "7.8.0",
     "stylelint-config-standard-scss": "17.0.0",
+    "svgo": "4.0.2",
     "typescript": "7.0.2",
     "unified": "11.0.5",
     "vnu-jar": "26.8.15",
