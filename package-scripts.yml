@@ -21,6 +21,9 @@ scripts:
     # Outside verify/ on purpose: it needs a pull request in the environment,
     # and verify.all runs everything in that directory.
     pullRequest: node build/tasks/verify-pull-request.mts
+    # Outside it for the same reason: this one reaches the network, and an
+    # upstream that is slow or moved would fail unrelated changes.
+    vendored: node build/tasks/check-vendored.mts
     svg: node build/tasks/verify/verify-svg.mts
     toml: node build/tasks/verify/verify-toml.mts
     ts: node build/tasks/verify/verify-ts.mts
