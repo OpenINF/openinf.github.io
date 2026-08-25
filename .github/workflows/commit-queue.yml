@@ -1,4 +1,4 @@
-# Landing a pull request when it is labelled `commit-queue`.
+# Landing a pull request when it is labelled for the queue.
 #
 # `pull_request_target` runs in the context of the base branch and can reach
 # secrets, which `pull_request` cannot do for a fork. That is only safe while
@@ -29,7 +29,12 @@ concurrency:
 jobs:
   land:
     name: Land
-    if: github.event.label.name == 'commit-queue'
+    # Both spellings, so the label can be renamed without a window in
+    # which nothing lands: the workflow that runs is the one on the base
+    # branch, not the one under review.
+    if: >-
+      github.event.label.name == 'commit-queue' ||
+      github.event.label.name == '🚀 Status: Commit Queue'
     runs-on: ubuntu-latest
     steps:
       - name: Mint a token for the app
@@ -90,9 +95,12 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.token.outputs.token }}
           NUMBER: ${{ github.event.pull_request.number }}
+          LABEL: ${{ github.event.label.name }}
         run: |
+          # Whichever spelling triggered this, percent-encoded: the name sits
+          # in a URL path and an emoji one would not survive it raw.
           gh api --silent -X DELETE \
-            "repos/${GITHUB_REPOSITORY}/issues/${NUMBER}/labels/commit-queue" \
+            "repos/${GITHUB_REPOSITORY}/issues/${NUMBER}/labels/$(jq -rn --arg l "$LABEL" '$l|@uri')" \
             || true
 
       - name: Say why it did not land
