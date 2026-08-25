@@ -11,9 +11,9 @@ request. Nothing here is a matter of taste that the checker is unaware of: if it
 passes, the message conforms.
 
 What lands is built from these messages rather than typed again at merge time.
-Labelling a pull request `commit-queue` squashes it into one commit whose body
-keeps every message it contained, with the trailers gathered where git reads
-them and `PR-URL` added.
+Labelling a pull request `🚀 Status: Commit Queue` squashes it into one commit
+whose body keeps every message it contained, with the trailers gathered where
+git reads them and `PR-URL` added.
 
 ## Subject
 
