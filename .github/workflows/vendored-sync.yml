@@ -1,0 +1,94 @@
+# Watching the third-party files kept in this repository for drift.
+#
+# A vendored copy is upstream's bytes and nothing else, so whether it has
+# fallen behind is a comparison rather than a judgement. Weekly rather than on
+# every pull request, because this reaches the network: an upstream that is
+# slow, moved or unreachable would otherwise fail changes that have nothing to
+# do with it.
+#
+# It opens an issue rather than a pull request, for two reasons. A pull
+# request raised with `GITHUB_TOKEN` does not start the checks, so the queue
+# could never land it. And a file fetched from the internet is worth a person
+# reading before it arrives, which is why the dependency scanners are here at
+# all.
+#
+# Actions are pinned by commit, never by tag.
+name: Vendored sync
+
+on:
+  schedule:
+    # Wednesday, clear of the other two scheduled runs.
+    - cron: '0 5 * * 3'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+# A scheduled run and a hand-started one should not both file the same report.
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Check vendored files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out project repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Set up Node.js runtime
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: 'package.json'
+      # The task reads only what node ships with, so there is nothing to
+      # install and no lockfile to resolve before it can run.
+      - name: Compare against upstream
+        id: compare
+        run: |
+          node build/tasks/check-vendored.mts > report.md || code=$?
+          cat report.md
+
+          # Both bits are read: one file drifting says nothing about whether
+          # another was reachable, so neither answer is allowed to hide the
+          # other. Reported after the issue is filed, so a file nobody could
+          # reach cannot hold back a report about one that drifted.
+          echo "drifted=$(( (${code:-0} & 1) != 0 ))" >> "$GITHUB_OUTPUT"
+          echo "unchecked=$(( (${code:-0} & 2) != 0 ))" >> "$GITHUB_OUTPUT"
+      - name: Say so, once
+        if: steps.compare.outputs.drifted == '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TITLE: 📦 a vendored file has drifted from upstream
+        run: |
+          # Matched against the open issues themselves rather than through
+          # search, which is an index and lags behind what was just written.
+          # `gh` pages until it has as many as asked for, and the number is
+          # far past what this repository will hold, so the report cannot be
+          # missed and a duplicate filed beside it.
+          # One issue at a time: a weekly comment on a report nobody has acted
+          # on yet says nothing the report did not.
+          open=$(gh issue list --state open --limit 1000 --json number,title \
+            --jq 'map(select(.title == env.TITLE)) | .[0].number // empty')
+
+          if [ -n "$open" ]; then
+            echo "already reported in #${open}"
+            exit 0
+          fi
+
+          {
+            echo 'A copy kept in this repository no longer matches what'
+            echo 'upstream serves. Read what changed before taking it.'
+            echo
+            cat report.md
+          } > body.md
+
+          gh issue create --title "$TITLE" --body-file body.md \
+            --label '📦 Type: Dependencies'
+      - name: Fail if anything could not be compared
+        # `always()`, so this runs after a report has been filed rather than
+        # instead of one.
+        if: always() && steps.compare.outputs.unchecked == '1'
+        run: |
+          echo '::error::a vendored file could not be compared'
+          exit 1
