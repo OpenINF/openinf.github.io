@@ -35,6 +35,7 @@ gpgsign
 gpgtunnel
 Gruntfuggly
 hrefs
+htmlparser
 itemprop
 itemscope
 itemtype
@@ -53,6 +54,8 @@ noreferrer
 nvmrc
 objc
 onclick
+onclosetag
+onopentag
 openinf
 openpgp
 recompiles
