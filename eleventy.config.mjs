@@ -1,6 +1,6 @@
 import { execFileSync } from 'node:child_process';
 import { readdir, readFile, writeFile } from 'node:fs/promises';
-import { join, parse as pathParse } from 'node:path';
+import { extname, join, parse as pathParse } from 'node:path';
 import { EleventyI18nPlugin } from '@11ty/eleventy';
 import { PATHS } from '@openinf/portal/build/constants';
 import { hasViewBox, replaceInlineSvg } from '@openinf/portal/build/inline-svg';
@@ -13,6 +13,7 @@ import markdownItGitHubAlerts from 'markdown-it-github-alerts';
 import postcss from 'postcss';
 import { compileString } from 'sass';
 import { optimize as optimizeSvg } from 'svgo';
+import { minify as minifyJs } from 'terser';
 
 // skipcq: JS-0116
 export default async function (eleventyConfig) {
@@ -221,7 +222,32 @@ export default async function (eleventyConfig) {
       return replaceInlineSvg(content, (svg) => shrinkSvg(svg, inline));
     });
 
-    // Images are copied rather than rendered, so no transform reaches them.
+    // What a script says about its own license has to reach whoever receives
+    // it. The vendored counter is ISC, which asks for the notice in every
+    // copy, and a minifier drops comments unless told which ones are not
+    // decoration.
+    const License = /@license|@preserve|ISC license|GoatCounter:/;
+
+    /**
+     * Minifies a script, keeping whatever states its terms.
+     * @param {string} code The script.
+     * @returns {Promise<string>} The minified script.
+     */
+    const shrinkJs = async (code) => {
+      const { code: minified } = await minifyJs(code, {
+        format: { comments: (_node, comment) => License.test(comment.value) },
+      });
+
+      return minified ?? code;
+    };
+
+    /** What is squeezed on the way out, and how. */
+    const squeezers = {
+      '.svg': shrinkSvg,
+      '.js': shrinkJs,
+    };
+
+    // Assets are copied rather than rendered, so no transform reaches them.
     eleventyConfig.on('eleventy.after', async ({ dir }) => {
       const entries = await readdir(dir.output, {
         recursive: true,
@@ -229,13 +255,15 @@ export default async function (eleventyConfig) {
       });
 
       await Promise.all(
-        entries
-          .filter((entry) => entry.isFile() && entry.name.endsWith('.svg'))
-          .map(async (entry) => {
-            const file = join(entry.parentPath, entry.name);
+        entries.map(async (entry) => {
+          const squeeze = squeezers[extname(entry.name)];
 
-            await writeFile(file, shrinkSvg(await readFile(file, 'utf8')));
-          })
+          if (!entry.isFile() || squeeze === undefined) return;
+
+          const file = join(entry.parentPath, entry.name);
+
+          await writeFile(file, await squeeze(await readFile(file, 'utf8')));
+        })
       );
     });
 

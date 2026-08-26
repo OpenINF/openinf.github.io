@@ -209,6 +209,9 @@ importers:
       svgo:
         specifier: 4.0.2
         version: 4.0.2
+      terser:
+        specifier: 5.50.0
+        version: 5.50.0
       typescript:
         specifier: 7.0.2
         version: 7.0.2
