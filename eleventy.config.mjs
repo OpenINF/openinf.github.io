@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { readdir, readFile, writeFile } from 'node:fs/promises';
+import { readdir, readFile, unlink, writeFile } from 'node:fs/promises';
 import { extname, join, parse as pathParse } from 'node:path';
 import { EleventyI18nPlugin } from '@11ty/eleventy';
 import { PATHS } from '@openinf/portal/build/constants';
@@ -243,8 +243,19 @@ export default async function (eleventyConfig) {
 
     /** What is squeezed on the way out, and how. */
     const squeezers = {
-      '.svg': shrinkSvg,
-      '.js': shrinkJs,
+      '.svg': async (file) => {
+        await writeFile(file, shrinkSvg(await readFile(file, 'utf8')));
+      },
+      // `.min` in a name is a claim about what is inside it, so only the
+      // build that minifies makes one, and head.liquid asks for whichever
+      // matches. The stylesheet is named the same way.
+      '.js': async (file) => {
+        await writeFile(
+          file.replace(/\.js$/, '.min.js'),
+          await shrinkJs(await readFile(file, 'utf8'))
+        );
+        await unlink(file);
+      },
     };
 
     // Assets are copied rather than rendered, so no transform reaches them.
@@ -258,11 +269,11 @@ export default async function (eleventyConfig) {
         entries.map(async (entry) => {
           const squeeze = squeezers[extname(entry.name)];
 
+          // A name that already says `.min` was minified by whoever wrote it.
           if (!entry.isFile() || squeeze === undefined) return;
+          if (entry.name.endsWith('.min.js')) return;
 
-          const file = join(entry.parentPath, entry.name);
-
-          await writeFile(file, await squeeze(await readFile(file, 'utf8')));
+          await squeeze(join(entry.parentPath, entry.name));
         })
       );
     });
