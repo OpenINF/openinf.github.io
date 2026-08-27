@@ -180,10 +180,26 @@ export default async function (eleventyConfig) {
   // shortest name free in each is the same name, so two marks that arrived
   // with different ids would leave with one between them and `url(#…)` in
   // the second would reach into the first.
+  // `inlineStyles` folds a stylesheet into the attributes it applies to and
+  // drops what is left, which for a mark answering to `prefers-color-scheme`
+  // means keeping one theme and losing the other.
+  const svgo = {
+    multipass: true,
+    plugins: [
+      {
+        name: 'preset-default',
+        params: { overrides: { inlineStyles: false } },
+      },
+    ],
+  };
+
   const inline = {
     multipass: true,
     plugins: [
-      { name: 'preset-default', params: { overrides: { cleanupIds: false } } },
+      {
+        name: 'preset-default',
+        params: { overrides: { cleanupIds: false, inlineStyles: false } },
+      },
     ],
   };
 
@@ -197,7 +213,7 @@ export default async function (eleventyConfig) {
    * @param {object} [config] What to pass the optimizer.
    * @returns {string} The optimized markup.
    */
-  const shrinkSvg = (svg, config = { multipass: true }) => {
+  const shrinkSvg = (svg, config = svgo) => {
     const optimized = optimizeSvg(svg, config).data;
 
     if (hasViewBox(svg) && !hasViewBox(optimized)) {
