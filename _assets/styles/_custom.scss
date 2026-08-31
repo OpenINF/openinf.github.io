@@ -51,4 +51,10 @@ h1::after {
 
 .site-footer {
   margin-top: -60px !important;
+
+  // The link sits in a line of small print, so it reads as part of it.
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
 }
