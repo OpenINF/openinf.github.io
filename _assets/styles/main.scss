@@ -1,3 +1,6 @@
+// `map.get` below needs the module; `@use` has to precede every import.
+@use 'sass:map';
+
 // Functions first.
 @import '../../node_modules/bootstrap/scss/functions';
 
@@ -15,7 +18,6 @@
 @import '../../node_modules/bootstrap/scss/buttons';
 @import '../../node_modules/bootstrap/scss/nav';
 @import '../../node_modules/bootstrap/scss/navbar';
-@import '../../node_modules/bootstrap/scss/pagination';
 @import 'about';
 @import 'shell';
 @import 'docs';
@@ -30,8 +32,27 @@
 @import '../../node_modules/bootstrap/scss/utilities';
 @import '../../node_modules/bootstrap/scss/reboot';
 @import '../../node_modules/bootstrap/scss/containers';
-@import '../../node_modules/bootstrap/scss/grid';
 @import '../../node_modules/bootstrap/scss/helpers';
+
+// The API below generates a class for every value of every utility it is
+// handed, which came to two thirds of the stylesheet. Handing it only the
+// groups the markup uses costs a line here when a new one is wanted.
+$utilities: (
+  'background-color': map.get($utilities, 'background-color'),
+  'color': map.get($utilities, 'color'),
+  'display': map.get($utilities, 'display'),
+  'flex-direction': map.get($utilities, 'flex-direction'),
+  'flex-shrink': map.get($utilities, 'flex-shrink'),
+  'height': map.get($utilities, 'height'),
+  'margin-bottom': map.get($utilities, 'margin-bottom'),
+  'margin-end': map.get($utilities, 'margin-end'),
+  'margin-top': map.get($utilities, 'margin-top'),
+  'margin-y': map.get($utilities, 'margin-y'),
+  'padding-y': map.get($utilities, 'padding-y'),
+  'text-align': map.get($utilities, 'text-align'),
+  'width': map.get($utilities, 'width'),
+);
+
 @import '../../node_modules/bootstrap/scss/utilities/api';
 
 // Miscellaneous custom styles.
