@@ -75,12 +75,12 @@ For information about when it's better to use colons than dashes, see
 <!-- prettier-ignore-start -->
 <!-- LINK DEFINITION LABELS - START -->
 
-[Some specific items to put in code font]: ./code-in-text.md#some-specific-items-to-put-in-code-font
-[capitalization]: ./capitalization.md
-[Classification]: ./commit-messages.md#classification
-[list introductions]: ./lists.md#intros
-[code-sample introductions]: ./code-samples.md#intros
-[Dashes]: ./dashes.md#colons
+[Some specific items to put in code font]: https://open.inf.is/docs/handbook/style/code-in-text/#some-specific-items-to-put-in-code-font
+[capitalization]: https://open.inf.is/docs/handbook/style/capitalization/
+[Classification]: https://open.inf.is/docs/handbook/style/commit-messages/#classification
+[list introductions]: https://open.inf.is/docs/handbook/style/lists/#intros
+[code-sample introductions]: https://open.inf.is/docs/handbook/style/code-samples/#intros
+[Dashes]: https://open.inf.is/docs/handbook/style/dashes/#colons
 [the Japanese colon]: https://wikipedia.org/wiki/Japanese_punctuation#Colon
 
 <!-- LINK DEFINITION LABELS - END -->
