@@ -3,10 +3,10 @@
   "author": "The OpenINF Authors & Friends",
   "private": "true",
   "description": "The front door to everything OpenINF makes",
-  "packageManager": "pnpm@11.22.0",
+  "packageManager": "pnpm@11.23.0",
   "engines": {
     "node": "24.19.0",
-    "pnpm": "11.22.0"
+    "pnpm": "11.23.0"
   },
   "exports": {
     "./build/commit-message": "./build/shared/commit-message.mts",
@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6",
-    "@biomejs/biome": "2.5.8",
+    "@biomejs/biome": "2.5.10",
     "@isaacs/catcher": "1.0.4",
     "@openinf/gh-file-importer": "2.0.1",
     "@shopify/prettier-plugin-liquid": "1.11.0",
@@ -38,8 +38,8 @@
     "browserslist-lint": "0.4.0",
     "console-log-level": "1.4.1",
     "cspell": "10.0.1",
-    "cssnano": "8.0.6",
-    "dprint": "0.55.2",
+    "cssnano": "8.0.8",
+    "dprint": "0.56.1",
     "editorconfig-checker": "6.1.1",
     "html-minifier-terser": "7.2.0",
     "htmlparser2": "12.0.0",
@@ -86,7 +86,7 @@
     "retext-simplify": "8.0.0",
     "retext-syntax-mentions": "4.0.0",
     "retext-syntax-urls": "4.0.0",
-    "sass": "1.102.0",
+    "sass": "1.103.1",
     "stylelint": "17.14.1",
     "stylelint-config-recess-order": "7.8.0",
     "stylelint-config-standard-scss": "17.0.0",
@@ -94,7 +94,7 @@
     "terser": "5.50.0",
     "typescript": "7.0.2",
     "unified": "11.0.5",
-    "vnu-jar": "26.8.15",
+    "vnu-jar": "26.8.21",
     "zod": "4.4.3",
     "zod-validation-error": "5.0.0"
   }
