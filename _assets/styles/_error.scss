@@ -44,12 +44,55 @@
     width: 100%;
     font-size: 10rem;
     transform: translateY(-50%);
+  }
+}
 
-    .btn {
-      width: fit-content;
-      margin: 0 auto;
-      color: $secondary;
-      text-transform: uppercase;
-    }
+/* The site draws in strokes: the ring is stroked rather than filled, a
+  heading carries a rule, a link carries an underline. So this is a box at
+  rest that fills only under the pointer, the way the news chips read. The
+  wrapper sets a 10rem font size for the ghosted numerals, so the size here
+  is stated rather than inherited.
+*/
+
+.error .error-home {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  align-self: center;
+  padding: 0.6875rem 1.25rem;
+  font-family: $font-family-monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  color: $body-color;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  background-color: transparent;
+  border: 2px solid $body-color;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.error .error-home:hover,
+.error .error-home:focus-visible {
+  color: $body-bg;
+  background-color: $body-color;
+}
+
+.error .error-home-arrow {
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+
+.error .error-home:hover .error-home-arrow {
+  transform: translateX(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .error .error-home,
+  .error .error-home-arrow {
+    transition: none;
   }
 }
