@@ -16,7 +16,7 @@ works today and what to do when it doesn't.
 The devcontainer changed substantially in [#1775][]: it no longer runs its own
 `sshd` on a forwarded port, and there is no more `vscode` user or manual
 `RemoteForward` tunnel to configure. Everything below reflects that container.
-If you find instructions elsewhere -- including an old revision of this file --
+If you find instructions elsewhere — including an old revision of this file —
 mentioning port 2222 or a `gpgtunnel` SSH host, they predate that change and no
 longer apply.
 
@@ -25,7 +25,7 @@ longer apply.
 VS Code (and compatible tools like the Dev Containers CLI) forwards your
 _running_ SSH agent into the container automatically; no devcontainer.json
 configuration is required for it. What it does **not** do is copy any key
-material in -- not the private key, and, for SSH-format signing, not even the
+material in — not the private key, and, for SSH-format signing, not even the
 public key file. See VS Code's own docs on [sharing Git credentials][] for the
 authoritative description.
 
@@ -39,7 +39,7 @@ That gap matters because of how the two signing formats differ:
   `ssh-keygen -Y sign -f <user.signingkey> ...`. That `-f` argument is a **file
   path**, and `user.signingkey` in a gitconfig copied from your host points at a
   host path (typically `~/.ssh/id_ed25519.pub`) that has never existed in the
-  container. The forwarded agent doesn't help until that file exists -- and the
+  container. The forwarded agent doesn't help until that file exists — and the
   container's non-root user usually can't even create it: a Mac's `/Users/<you>`
   or a Linux host's `/home/<you>` both live under a root-owned directory this
   container's `node` user has no write access to, so recreating the host's path
@@ -47,14 +47,14 @@ That gap matters because of how the two signing formats differ:
 
 `.devcontainer/post-start.sh` closes that second gap. It runs on every container
 **start/attach**, unlike `post-create.sh`, which only ever runs once, when the
-container is first built -- too early, since the forwarded agent socket is a
+container is first built — too early, since the forwarded agent socket is a
 fresh, per-session thing set up on each attach. If `gpg.format` is `ssh` and the
 forwarded agent is holding exactly one identity, `post-start.sh` writes that
 public key to a path under `$HOME/.ssh` in the container (not the host path
 copied into `user.signingkey`) and repoints the container's own
 `user.signingkey` at it. It deliberately does nothing if the agent has zero
 identities (nothing to write) or more than one (no reliable way to know which
-one you mean) -- watch its output on attach to see which case you're in.
+one you mean) — watch its output on attach to see which case you're in.
 
 Either way, the actual cryptographic signing still happens on the host, via the
 forwarded agent. No private key material is ever copied into the container.
@@ -86,7 +86,7 @@ and involves nothing on your machine.
   ssh-add --apple-use-keychain ~/.ssh/id_ed25519
   ```
 
-- Point Git at it. Run this **on the host**, in a host terminal -- the container
+- Point Git at it. Run this **on the host**, in a host terminal — the container
   gets its own copy of `~/.gitconfig` at build time, so running it inside the
   container configures only the container and silently leaves the Mac unchanged:
 
@@ -99,14 +99,14 @@ and involves nothing on your machine.
 - Reopen or rebuild the devcontainer and watch `post-start.sh`'s output on
   attach. `Commit signing ready` means the public key was found in the forwarded
   agent and written into the container. Anything else means the agent forwarded
-  into _this_ session doesn't have exactly one identity -- check `ssh-add -l` on
+  into _this_ session doesn't have exactly one identity — check `ssh-add -l` on
   the host first.
 
 Use an ordinary `ssh-keygen`-generated key pair here. Keys that exist only
 inside a Secure Enclave or an external agent, with no public key file on disk,
 are a poor fit: `user.signingkey` has to name a real path on the host, and
 `post-start.sh` needs a public key it can write out in the container. The two
-paths don't need to match -- `post-start.sh` retargets the container's own copy
+paths don't need to match — `post-start.sh` retargets the container's own copy
 of `user.signingkey` to wherever it actually writes the file, under
 `$HOME/.ssh`.
 
@@ -128,7 +128,7 @@ to verify it, which is a separate mechanism that can fail on its own. See
 ## Verifying signatures locally
 
 Verification is a distinct mechanism from signing, with its own configuration
-and its own failure modes -- a commit can be perfectly signed and still fail to
+and its own failure modes — a commit can be perfectly signed and still fail to
 verify here. For SSH-format signatures, Git needs an [allowed signers][] file
 mapping each principal (an email address) to the keys it may sign with. Unlike
 GPG, where the keyring is discovered automatically, Git has no default location
@@ -150,7 +150,7 @@ Two things it deliberately does not attempt:
   to this address. That makes local verification meaningful for catching a
   misconfigured or swapped key; it is not third-party attestation the way
   GitHub's "Verified" badge is. GitHub does its own check against the keys
-  registered on your account -- see its docs on [commit signature
+  registered on your account — see its docs on [commit signature
   verification][], and note that a key has to be added as a **signing** key
   there, separately from the same key added for authentication.
 
@@ -165,7 +165,7 @@ error: gpg.ssh.allowedSignersFile needs to be configured and exist
 No signature
 ```
 
-`No signature` here is the verifier reporting that it could not run -- not a
+`No signature` here is the verifier reporting that it could not run — not a
 statement about the commit, which may well be signed. The wording invites the
 opposite reading, and acting on it means re-checking `commit.gpgsign`,
 `user.signingkey` and the agent, all of which were fine. Confirm with
@@ -193,9 +193,9 @@ If you use an actual OpenPGP key instead:
 
 ## Troubleshooting
 
-- **`ssh-add -l` says "The agent has no identities"** -- this is a host-side
+- **`ssh-add -l` says "The agent has no identities"** — this is a host-side
   fact, not a container problem. Add the key on the host and reattach.
-- **`post-start.sh` reports more than one identity** -- it won't guess. Either
+- **`post-start.sh` reports more than one identity** — it won't guess. Either
   unload the extra identities from the agent for this session, or, inside the
   container, write the file yourself from the one you mean, then point
   `user.signingkey` at it:
@@ -205,14 +205,14 @@ If you use an actual OpenPGP key instead:
   git config --global user.signingkey ~/.ssh/id_ed25519.pub
   ```
 
-- **It worked before, stopped working after a container rebuild** -- the signing
+- **It worked before, stopped working after a container rebuild** — the signing
   key and `allowed_signers` files `post-start.sh` writes, and the
   `user.signingkey`/`gpg.ssh.allowedSignersFile` overrides pointing at them, all
   live in the container's filesystem, not a volume, so a rebuild removes them
   along with the host's copied-in gitconfig. Everything gets rewritten on the
   next attach as long as the agent still has exactly one identity at that point.
 - **`post-start.sh` says "Signature verification NOT configured: no
-  user.email"** -- it needs `user.email` to know which principal to list against
+  user.email"** — it needs `user.email` to know which principal to list against
   your key in `allowed_signers`, and won't guess one. Set it (globally, on the
   host, same as the other signing settings) and reattach:
 
@@ -220,12 +220,12 @@ If you use an actual OpenPGP key instead:
   git config --global user.email you@example.com
   ```
 
-- **`git log --show-signature` says `No signature`** -- establish that the
-  commit is actually unsigned before treating it as a signing problem, since
-  that message is also what a verifier that could not run prints.
+- **`git log --show-signature` says `No signature`** — establish that the commit
+  is actually unsigned before treating it as a signing problem, since that
+  message is also what a verifier that could not run prints.
   `git cat-file commit HEAD` settles it; see
   [above](#when-show-signature-says-no-signature).
-- **Everything looks configured, but commits still come out unsigned** -- check
+- **Everything looks configured, but commits still come out unsigned** — check
   for a per-repository override before re-checking anything global:
 
   ```console

@@ -1,10 +1,10 @@
 ---
 title: Colons
-key_point: A colon indicates that closely-related information follows.
+key_point: A colon indicates that closely related information follows.
 google: true
 ---
 
-## Introductory Phrase Preceding Colon
+## Introductory phrase preceding colon
 
 When a colon introduces a list, the text that precedes the colon _**should**
 ordinarily_ be able to stand alone as a complete sentence.
@@ -19,34 +19,50 @@ ordinarily_ be able to stand alone as a complete sentence.
   <span class="compare-worse">Not recommended:</span> The fields are:
 </p>
 
-## Proper Etiquette for Use of Japanese Colon
+## The Japanese colon in commit subjects
 
-We at OpenINF are always interested in finding ways to optimize things and be
-more efficient. One particular use case of **[the Japanese colon][]** that we
-have picked-up is in its placement immediately after the _**[Classification][]**
-portion_ in the titles of commit messages written sure to be abiding by our
-commit message format and style guidelines.
+A commit subject separates its **[Classification][]** from the rest with **[the
+Japanese colon][]** — `：`, the fullwidth colon at U+FF1A — rather than with the
+ASCII one.
 
-Rather than using an ordinary colon from the ANSI, ASCII, or Unicode character
-sets, we use the Japanese colon as it is both less size (in memory) and can
-accomplish the task of both a colon character and the subsequent space all at
-once.
+<p class="example">
+  <span class="compare-better">Recommended:</span>
+  <code>🏗️🔧：let the glob see dot files</code> — U+FF1A, no space after it
+</p>
+<p class="example">
+  <span class="compare-worse">Not recommended:</span>
+  <code>🏗️🔧: let the glob see dot files</code> — U+003A and a space
+</p>
 
-## Bold and Italic Text Preceding Colons
+Those two lines are within a few pixels of each other on screen, which is the
+whole difficulty: the mark is one to copy rather than to type.
+`nps verify.commits` refuses a subject that lacks it, so a colon typed by hand
+fails the pull request rather than landing.
 
-When _non-italic_ (also known as _Roman_) text (that precedes a colon is
-**bold**), the colon _should **not**_ be made _bold_, _italic_, or _otherwise_
+The mark is fullwidth, so the gap a space would give is already inside the
+glyph, and no space follows it. An ASCII colon is narrow enough that the emoji
+crowds the first word, and the space that would fix the crowding spends one of
+the fifty characters a subject is allowed.
+
+It is not chosen for size. `：` takes three bytes in UTF-8 where a colon and a
+space take two. What it buys is a subject that reads at the same width as the
+emoji beside it, in a terminal and on a page alike.
+
+## Bold and italic text preceding colons
+
+When _non-italic_ (also known as _Roman_) text that precedes a colon is
+**bold**, the colon _should **not**_ be made _bold_, _italic_, or _otherwise_
 (e.g., _color-stylized_, etc.). This, however, _is **not**_ a hard and fast
 rule. In general, use _best intuition_.
 
-## Code Text Preceding Colons
+## Code text preceding colons
 
 When text that precedes a colon is tagged as `<code>`, don't include the colon
 in the **`<code>`** tagging **_unless_** it is _already_ part of the code
 itself. For more information about formatting code, see **[Some specific items
 to put in code font][]**.
 
-## Colons Within Sentences
+## Colons within sentences
 
 In general, the first word in the text that follows a colon should be in
 lowercase. For exceptions, see **[capitalization][]**.
@@ -64,7 +80,7 @@ lowercase. For exceptions, see **[capitalization][]**.
   work, and request a developmental edit if you feel it's warranted.
 </p>
 
-## See Also
+## See also
 
 For more information about how to punctuate introductory material, see the
 sections on [list introductions][] and [code-sample introductions][].
@@ -80,7 +96,7 @@ For information about when it's better to use colons than dashes, see
 [Classification]: https://open.inf.is/docs/handbook/style/commit-messages/#classification
 [list introductions]: https://open.inf.is/docs/handbook/style/lists/#intros
 [code-sample introductions]: https://open.inf.is/docs/handbook/style/code-samples/#intros
-[Dashes]: https://open.inf.is/docs/handbook/style/dashes/#colons
+[Dashes]: https://open.inf.is/docs/handbook/style/dashes/#when-a-colon-is-better
 [the Japanese colon]: https://wikipedia.org/wiki/Japanese_punctuation#Colon
 
 <!-- LINK DEFINITION LABELS - END -->

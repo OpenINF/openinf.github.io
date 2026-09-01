@@ -34,7 +34,7 @@ describe('validateCommitMessage: the subject', () => {
     deepStrictEqual(validateCommitMessage('📖：write it down'), []);
   });
 
-  test('wants the ideographic colon', () => {
+  test('wants the fullwidth colon', () => {
     match(soleProblem('🏗️🔧: fix the thing'), /U\+FF1A/);
   });
 

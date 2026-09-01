@@ -16,7 +16,7 @@
 
 <br /><br />
 
-### Install Dependencies
+### Install dependencies
 
 <br />
 
@@ -29,7 +29,7 @@ pnpm install
 
 <br /><br />
 
-### Running Locally
+### Running locally
 
 One can preview contributions before opening a pull request.
 
@@ -81,7 +81,7 @@ credit, so a page carrying any of it says where it came from:
 ```yaml
 ---
 title: Colons
-key_point: A colon indicates that closely-related information follows.
+key_point: A colon indicates that closely related information follows.
 google: true
 ---
 ```

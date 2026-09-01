@@ -1,3 +1,4 @@
+abled
 Aftertabs
 Anson
 autolinks
@@ -29,6 +30,7 @@ extensionless
 extensionpack
 forloop
 frontmatter
+fullwidth
 goatcounter
 gpgsig
 gpgsign

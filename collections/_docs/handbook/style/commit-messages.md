@@ -23,8 +23,10 @@ The first line names a classification and then says what the change does:
 🏗️🔧：let the glob see dot files
 ```
 
-An ideographic colon, `：` (U+FF1A), separates the two. It is not the ASCII
-colon; the wide character keeps the emoji from crowding the words after it.
+A fullwidth colon, `：` (U+FF1A), separates the two. It is not the ASCII colon;
+the wide character keeps the emoji from crowding the words after it.
+
+Four rules bind the line:
 
 - At most **50 characters**, counting an emoji as the one character it looks
   like.
@@ -166,7 +168,7 @@ git log -1 --format=%B | git interpret-trailers --parse
 
 Anything that does not come back is not a trailer.
 
-## See Also
+## See also
 
 For the emoji as they appear when opening a pull request, see the [pull request
 template][].
