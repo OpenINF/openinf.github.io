@@ -62,7 +62,7 @@ export const TRAILER_ORDER = [
 ];
 
 /** U+FF1A, which separates the emoji from the description. */
-const IDEOGRAPHIC_COLON = '：';
+const FULLWIDTH_COLON = '：';
 
 /** The invisible character that distinguishes two spellings of one emoji. */
 const EMOJI_SELECTOR = '️';
@@ -186,15 +186,15 @@ export function readTrailers(message: string) {
  */
 const checkSubject = (subject: string) => {
   const problems: string[] = [];
-  const colon = subject.indexOf(IDEOGRAPHIC_COLON);
+  const colon = subject.indexOf(FULLWIDTH_COLON);
 
   if (colon === -1) {
     problems.push(
-      `subject needs an emoji prefix and “${IDEOGRAPHIC_COLON}” (U+FF1A), as in “🏗️🔧${IDEOGRAPHIC_COLON}fix the thing”`
+      `subject needs an emoji prefix and “${FULLWIDTH_COLON}” (U+FF1A), as in “🏗️🔧${FULLWIDTH_COLON}fix the thing”`
     );
   } else {
     const prefix = subject.slice(0, colon);
-    const description = subject.slice(colon + IDEOGRAPHIC_COLON.length);
+    const description = subject.slice(colon + FULLWIDTH_COLON.length);
     // The variation selector belongs to the character before it, so the
     // prefix has to be read as grapheme clusters and not code points.
     const clusters = [...SEGMENTER.segment(prefix)].map(
