@@ -1,0 +1,116 @@
+---
+title: Style Handbook
+layout: default
+permalink: /docs/handbook/style/
+description:
+  The house style OpenINF documentation and commit messages follow, one rule
+  to a page.
+body_classes:
+  - docs
+  - handbook-index
+eleventyImport:
+  collections: ['handbook']
+---
+{%- assign handbook_total = collections.handbook | size -%}
+{%- assign written = collections.handbook
+  | where_exp: 'doc', 'doc.data.stub != true'
+-%}
+{%- assign written_count = written | size -%}
+{%- assign open_count = handbook_total | minus: written_count -%}
+<main class="flex-shrink-0">
+  <!-- ================= what this is =================================== -->
+  <section class="hb-head">
+    <div class="hb-ring" aria-hidden="true">
+      {% include 'assets/img/ring.svg' %}
+    </div>
+
+    <div class="wrap hb-head-grid">
+      <div class="hb-head-lead">
+        <h1 class="hb-title">Style Handbook</h1>
+        <p class="hb-lede">
+          The house style our documentation and commit messages follow, one rule
+          to a page. Each rule is stated below, so you can find the one you need
+          without reading the rest.
+        </p>
+      </div>
+
+      <aside class="hb-stat" aria-labelledby="hb-stat-title">
+        <p class="hb-stat-eyebrow">The handbook</p>
+        {%- if open_count > 0 %}
+          <h2 class="hb-stat-title" id="hb-stat-title">
+            <span class="hb-stat-num">{{ open_count }}</span>
+            {%- if open_count == 1 %} rule{% else %} rules{% endif %} still
+            unwritten
+          </h2>
+          <p class="hb-stat-what">
+            Each has a page that states its rule and stops there. Small,
+            self-contained things to write.
+          </p>
+        {%- else %}
+          <h2 class="hb-stat-title" id="hb-stat-title">
+            <span class="hb-stat-num">{{ handbook_total }}</span>
+            rules, one to a page
+          </h2>
+          <p class="hb-stat-what">
+            Look up the one you need; nothing here depends on the rest.
+          </p>
+        {%- endif %}
+        {%- if open_count > 0 %}
+          <div class="hb-progress" aria-hidden="true">
+            {%- for doc in collections.handbook %}
+              <span
+                class="hb-progress-cell{% if doc.data.stub %} hb-progress-cell-open{% endif %}"></span>
+            {%- endfor %}
+          </div>
+        {%- endif %}
+        <p class="hb-stat-row">
+          <a href="/docs/">The rest of the docs</a>
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= the rules: one card a rule ====================== -->
+  <section class="band band-quiet" aria-labelledby="rules-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="section-title" id="rules-title">Every rule</h2>
+        {%- if open_count > 0 %}
+          <p class="section-count">
+            {{ written_count }} of {{ handbook_total }} written
+          </p>
+        {%- endif %}
+      </div>
+
+      <ol class="rule-grid">
+        {%- for doc in collections.handbook %}
+          <li>
+            <a
+              class="rule-card{% if doc.data.stub %} rule-card-unwritten{% endif %}"
+              href="{{ doc.url }}">
+              <span class="rule-card-num" aria-hidden="true">
+                {%- if forloop.index < 10 -%}0{%- endif -%}
+                {{- forloop.index -}}
+              </span>
+              <span class="rule-card-heading">
+                <span class="rule-card-title">{{ doc.data.title }}</span>
+                {%- if doc.data.stub %}
+                  <span class="rule-card-flag">Unwritten</span>
+                {%- endif %}
+              </span>
+              <span class="rule-card-point">{{ doc.data.key_point }}</span>
+            </a>
+          </li>
+        {%- endfor %}
+      </ol>
+
+      {%- if open_count > 0 %}
+        <p class="hb-gap">
+          A rule marked unwritten has its page; the page states the rule and
+          stops. Any one of them is a contained piece of work.
+          <a href="/docs/dev/internals/contributing/">How to contribute</a>.
+        </p>
+      {%- endif %}
+    </div>
+  </section>
+</main>
