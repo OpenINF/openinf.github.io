@@ -1,0 +1,326 @@
+@use 'sass:color';
+
+// The handbook index: the front door to the nine rules. It shares the
+// two-column hero and the count `_docs.scss` gives the rest of the site's
+// index pages, but the rules themselves are the point of this one page, so
+// they get the room a plain list does not: a grid of cards, drawn the way
+// the SDK areas are drawn on the home page — hairline dividers between cells
+// that share the section's own ground, not a border around each one.
+
+// Colors come from _sublime-theme.scss and reuse the exact tones
+// _docs.scss, _about.scss, and _news.scss give a hero band and a quiet
+// section, so this page agrees with the rest of the site on what a link, a
+// muted caption, and a wash look like.
+
+$hb-wrap: 1200px;
+$hb-gutter: clamp(1rem, 4vw, 3rem);
+$hb-link: shade-color($primary, 25%);
+$hb-primary-tint: tint-color($primary, 30%);
+$hb-muted: #4b433c;
+$hb-hairline: rgb(167 151 139 / 55%);
+
+// A pale wash with deep-shade text, so the flag clears AA at this size.
+$hb-flag-bg: tint-color($quaternary, 88%);
+$hb-flag-text: shade-color($quaternary, 25%);
+
+// The wash `_docs.scss` gives its own quiet section, reused here as the
+// ground the rule grid sits on.
+$hb-quiet: color.mix($tertiary, $body-bg, 12%);
+
+// Scoped to `main` to keep the resets off the navbar and footer, which are
+// its siblings under the same body class. The padding replaces what
+// `main > .container` gives the footer elsewhere.
+.handbook-index main h1,
+.handbook-index main h2,
+.handbook-index main p,
+.handbook-index main dl,
+.handbook-index main dd,
+.handbook-index main ol,
+.handbook-index main ul {
+  margin: 0;
+}
+
+.handbook-index main ol,
+.handbook-index main ul {
+  padding: 0;
+  list-style: none;
+}
+
+/* --- Head ---------------------------------------------------------------
+  The same hero shape `.docs-head` and `.about-head` use: ink, the ring off
+  the logogram bleeding from the corner, a lede on one side and a stat on the
+  other. Its own classes, because the content beside the ring — a live count
+  of rules, not a link out — is what makes this page a destination rather
+  than a repeat of the index it is reached from.
+*/
+
+.hb-head {
+  position: relative;
+  padding-top: calc(#{$navbar-height} + clamp(2rem, 5vw, 3.5rem));
+  padding-bottom: clamp(2.25rem, 5vw, 3.5rem);
+  overflow: hidden;
+  color: $body-bg;
+  background-color: $body-color;
+}
+
+.hb-head :focus-visible {
+  outline-color: $body-bg;
+}
+
+// The ring off the logogram, the same drawing the home masthead and the news
+// head use, tuned for this band: lower and further into the corner than
+// home's, since it sits behind a narrower second column here.
+.hb-ring {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  z-index: 0;
+  width: min(52vw, 400px);
+  aspect-ratio: 1;
+  color: $hb-primary-tint;
+  pointer-events: none;
+  opacity: 0.12;
+  transform: translate(24%, -26%);
+}
+
+.hb-ring svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hb-head-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.85fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+// _custom.scss draws a rule after every h1. Beside a two-column grid it
+// would stop at this column's edge, so it is off here.
+.hb-title {
+  display: block;
+  font-size: clamp(1.875rem, 4.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.hb-title::after {
+  content: none;
+}
+
+.hb-lede {
+  max-width: 42ch;
+  margin-top: 1rem !important;
+  font-size: clamp(1rem, 1.6vw, 1.0625rem);
+  line-height: 1.6;
+  color: rgb(231 231 214 / 76%);
+}
+
+/* --- Head: the stat -------------------------------------------------------
+  How much of the handbook is written, read at a glance, with the same
+  progress a reader would otherwise have to count from the grid below.
+*/
+
+.hb-stat {
+  padding: 1.25rem 1.375rem 1.375rem;
+  background-color: rgb(231 231 214 / 4%);
+  border: 1px solid rgb(231 231 214 / 20%);
+}
+
+.hb-stat-eyebrow {
+  font-family: $font-family-monospace;
+  font-size: 0.6875rem;
+  color: $tertiary;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hb-stat-title {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: baseline;
+  margin-top: 0.625rem !important;
+  font-size: 1.1875rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: $body-bg;
+}
+
+.hb-stat-num {
+  font-family: $font-family-monospace;
+  font-size: clamp(2.25rem, 5vw, 2.75rem);
+  line-height: 0.9;
+  color: $hb-primary-tint;
+}
+
+.hb-stat-what {
+  margin-top: 0.75rem !important;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: rgb(231 231 214 / 70%);
+}
+
+// One square a rule, filled once it is written. The same information the
+// numeral above states in words, read a second way.
+.hb-progress {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.875rem !important;
+}
+
+.hb-progress-cell {
+  width: 0.625rem;
+  height: 0.625rem;
+  background-color: $hb-primary-tint;
+  border: 1px solid $hb-primary-tint;
+}
+
+.hb-progress-cell-open {
+  background-color: transparent;
+  border-color: rgb(231 231 214 / 30%);
+}
+
+.hb-stat-row {
+  padding-top: 0.875rem;
+  margin-top: 1rem !important;
+  border-top: 1px solid rgb(231 231 214 / 16%);
+}
+
+// Links on the ink. `.handbook-index main a` is (0,1,2), so a band rule needs
+// `main` to reach them.
+.handbook-index main .hb-head .hb-stat-row a {
+  font-family: $font-family-monospace;
+  font-weight: 700;
+  color: $body-bg;
+}
+
+/* --- Shared section furniture ------------------------------------------ */
+
+.handbook-index .band-quiet {
+  background-color: $hb-quiet;
+  border-block: 1px solid $hb-hairline;
+}
+
+.handbook-index .section-count {
+  font-family: $font-family-monospace;
+  font-size: 0.8125rem;
+  color: $hb-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* --- The rules: a grid, not a list ---------------------------------------
+  Nine rules divide evenly into three columns of three, so the grid is
+  counted rather than fitted: the same reasoning `_home.scss` gives the SDK
+  areas. The 1px gap over the hairline background is what draws the lines
+  between cells; each cell's own background matches the section's, so the
+  grid reads as one drawn surface rather than nine boxes set on top of it.
+*/
+
+.rule-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 1.75rem !important;
+  background-color: $hb-hairline;
+  border: 1px solid $hb-hairline;
+}
+
+.rule-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  height: 100%;
+  padding: 1.375rem 1.5rem 1.5rem;
+  color: inherit;
+  text-decoration: none;
+  background-color: $hb-quiet;
+  transition: background-color 150ms ease;
+}
+
+// Lighter than the wash it sits on, so the card the pointer is over reads as
+// lifted rather than tinted; this is what keeps the title's contrast well
+// clear of AA rather than trading it away for a coloured hover.
+.rule-card:hover,
+.rule-card:focus-visible {
+  background-color: $body-bg;
+}
+
+.rule-card-num {
+  display: block;
+  font-family: $font-family-monospace;
+  font-size: 0.75rem;
+  color: $hb-link;
+}
+
+.rule-card-heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.rule-card-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: $hb-link;
+}
+
+.rule-card:hover .rule-card-title,
+.rule-card:focus-visible .rule-card-title {
+  text-decoration: underline;
+}
+
+// The flag carries the state in text, so it does not rest on color alone.
+.rule-card-flag {
+  padding: 0.0625rem 0.4375rem;
+  font-family: $font-family-monospace;
+  font-size: 0.6875rem;
+  font-weight: 400;
+  color: $hb-flag-text;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background-color: $hb-flag-bg;
+}
+
+.rule-card-point {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: $hb-muted;
+}
+
+.hb-gap {
+  max-width: 60ch;
+  margin-top: 1.5rem !important;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: $hb-muted;
+}
+
+/* --- Narrow -------------------------------------------------------------- */
+
+@media (width < 960px) {
+  .hb-head-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (width < 760px) {
+  .rule-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rule-card {
+    transition: none;
+  }
+}

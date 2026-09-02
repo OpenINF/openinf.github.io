@@ -16,6 +16,8 @@ eleventyImport:
 -%}
 {%- assign written_count = written | size -%}
 {%- assign open_count = handbook_total | minus: written_count -%}
+{%- assign community_count = collections.communityDocs | size -%}
+{%- assign total_pages = community_count | plus: handbook_total -%}
 {%- assign rule_word = 'rules' -%}
 {%- if open_count == 1 -%}
   {%- assign rule_word = 'rule' -%}
@@ -23,6 +25,10 @@ eleventyImport:
 <main class="flex-shrink-0">
   <!-- ================= what is here =================================== -->
   <section class="docs-head">
+    <div class="docs-head-ring" aria-hidden="true">
+      {% include 'assets/img/ring.svg' %}
+    </div>
+
     <div class="wrap docs-head-grid">
       <div class="docs-head-lead">
         <h1 class="docs-title">Docs</h1>
@@ -32,33 +38,19 @@ eleventyImport:
         </p>
       </div>
 
-      <!-- The handbook's gap, stated as an invitation. -->
-      <aside class="invite" aria-labelledby="invite-title">
-        <p class="invite-eyebrow">The handbook</p>
-        {%- if open_count > 0 %}
-          <h2 class="invite-title" id="invite-title">
-            <span class="invite-num">{{ open_count }}</span>
-            {{ rule_word }} with no page yet
-          </h2>
-          <p class="invite-what">
-            Each names its rule but has no page beneath it yet. Small,
-            self-contained things to write.
-          </p>
-        {%- else %}
-          <h2 class="invite-title" id="invite-title">
-            <span class="invite-num">{{ handbook_total }}</span>
-            rules, all written
-          </h2>
-          <p class="invite-what">Every rule in the handbook has its page.</p>
-        {%- endif %}
-        <p class="invite-row">
-          <a href="/docs/dev/internals/contributing/">
-            {%- if open_count > 0 -%}
-              How to contribute
-            {%- else -%}
-              Other ways to help
-            {%- endif -%}
-          </a>
+      <aside class="docs-glance" aria-labelledby="glance-title">
+        <p class="docs-glance-eyebrow">At a glance</p>
+        <h2 class="docs-glance-title" id="glance-title">
+          <span class="docs-glance-num">{{ total_pages }}</span>
+          pages of documentation
+        </h2>
+        <p class="docs-glance-what">
+          {{ community_count }} guides on taking part, and
+          {%- if open_count > 0 %}
+            {{ written_count }} of {{ handbook_total }} style rules written.
+          {%- else %}
+            {{ handbook_total }} style rules.
+          {%- endif %}
         </p>
       </aside>
     </div>
@@ -75,6 +67,10 @@ eleventyImport:
       <ul class="part-list">
         {%- for doc in collections.communityDocs %}
           <li class="part-item">
+            <span class="part-num" aria-hidden="true">
+              {%- if forloop.index < 10 -%}0{%- endif -%}
+              {{- forloop.index -}}
+            </span>
             <p class="part-name">
               <a href="{{ doc.url }}">{{ doc.data.title }}</a>
             </p>
@@ -87,8 +83,8 @@ eleventyImport:
 
   <!--
     ================= the handbook ==================================
-    Each entry carries its own rule, so most lookups end here. Alphabetical,
-    because reference is consulted by looking things up.
+    The rules have their own page now. This says what is there and how much of
+    it, and sends the reader on.
   -->
   <section
     class="band band-quiet"
@@ -97,43 +93,25 @@ eleventyImport:
     <div class="wrap">
       <div class="section-head">
         <h2 class="section-title" id="handbook-title">The style handbook</h2>
-        <p class="section-count">
-          {{ written_count }} of {{ handbook_total }} written
-        </p>
+        {%- if open_count > 0 %}
+          <p class="section-count">
+            {{ written_count }} of {{ handbook_total }} written
+          </p>
+        {%- endif %}
       </div>
 
       <p class="handbook-lede">
         The house style our documentation and commit messages follow, one rule
-        to a page. Each rule is stated below, so you can find the one you need.
+        to a page, so a question about how something is written has one place to
+        be answered.
       </p>
 
-      <dl class="rule-list">
-        {%- for doc in collections.handbook %}
-          <div class="rule{% if doc.data.stub %} rule-unwritten{% endif %}">
-            <dt class="rule-name">
-              <span class="rule-num" aria-hidden="true">
-                {%- if forloop.index < 10 -%}0{%- endif -%}
-                {{- forloop.index -}}
-              </span>
-              <span class="rule-heading">
-                <a href="{{ doc.url }}">{{ doc.data.title }}</a>
-                {%- if doc.data.stub %}
-                  <span class="rule-flag">Unwritten</span>
-                {%- endif %}
-              </span>
-            </dt>
-            <dd class="rule-point">{{ doc.data.key_point }}</dd>
-          </div>
-        {%- endfor %}
-      </dl>
-
-      {%- if open_count > 0 %}
-        <p class="handbook-gap">
-          The rules marked unwritten have their line here but no page yet. Any
-          one of them is a contained piece of work.
-          <a href="/docs/dev/internals/contributing/">How to contribute</a>.
-        </p>
-      {%- endif %}
+      <p class="handbook-more">
+        <a class="handbook-link" href="/docs/handbook/style/">
+          Read the handbook
+          <span class="handbook-link-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </p>
     </div>
   </section>
 
