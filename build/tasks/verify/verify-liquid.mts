@@ -5,7 +5,7 @@
  * @module {type ES6Module} build/tasks/verify/verify-liquid
  */
 
-import { exec, glob } from '@openinf/portal/build/utils';
+import { exec, glob, quote } from '@openinf/portal/build/utils';
 
 const liquidFiles = await glob([
   '**/*.html',
@@ -15,7 +15,7 @@ const liquidFiles = await glob([
 ]);
 
 let exitCode = 0;
-const scripts = [`prettier --check ${liquidFiles.join(' ')}`];
+const scripts = [`prettier --check ${quote(liquidFiles)}`];
 
 for (const element of scripts) {
   exitCode = await exec(element);

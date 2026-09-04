@@ -5,7 +5,7 @@
  * @module {type ES6Module} build/tasks/format/format-liquid
  */
 
-import { exec, glob } from '@openinf/portal/build/utils';
+import { exec, glob, quote } from '@openinf/portal/build/utils';
 
 const LiquidFiles = await glob([
   '**/*.html',
@@ -15,7 +15,7 @@ const LiquidFiles = await glob([
 ]);
 
 let exitCode = 0;
-const scripts = [`prettier --write ${LiquidFiles.join(' ')}`];
+const scripts = [`prettier --write ${quote(LiquidFiles)}`];
 
 for (const element of scripts) {
   exitCode = await exec(element);

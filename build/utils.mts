@@ -21,6 +21,37 @@ import { execute } from '@yarnpkg/shell';
 export const exec = catchWrap(execute, 99);
 
 /**
+ * Quotes paths for the shell `exec` runs them through. Every task builds its
+ * command as one string, so a path is shell text by the time the tool sees it
+ * -- a space in a filename splits one argument into two, and a `$(...)` or a
+ * `;` in one is a command of somebody else's choosing running in CI. Names
+ * like that are what `verify.filenames` exists to catch, but it cannot be the
+ * guard here: it is one task among the rest, and a failing one does not stop
+ * the others from being handed what it just objected to.
+ *
+ * Single quotes, because inside them a shell expands nothing at all. The one
+ * character they cannot hold is a single quote, which is why an embedded one
+ * closes the run, escapes itself, and opens the next.
+ * @param {string | string[]} paths The paths to pass to a command.
+ * @returns {string} Them, quoted and joined by spaces, ready to interpolate.
+ */
+export const quote = (paths: string | string[]) =>
+  [paths]
+    .flat()
+    .map((path) => {
+      // Quoting settles what the shell does with a name and nothing about
+      // what the tool then makes of it: `'--write.md'` arrives at prettier as
+      // `--write.md`, which it reads as an option. It answered that one by
+      // printing an error and exiting 0 -- a check that passed having checked
+      // nothing. A leading `./` says the argument is a path and costs a
+      // relative name two characters.
+      const safe = path.startsWith('-') ? `./${path}` : path;
+
+      return `'${safe.replaceAll("'", "'\\''")}'`;
+    })
+    .join(' ');
+
+/**
  * Expands a trailing-slash directory pattern (e.g. `_site/`) to cover
  * everything beneath it. On its own, a trailing slash matches just the one
  * directory entry, which is never what a build task means by naming a

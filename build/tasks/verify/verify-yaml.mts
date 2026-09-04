@@ -5,7 +5,7 @@
  * @module {type ES6Module} build/tasks/verify/verify-yaml
  */
 
-import { exec, glob } from '@openinf/portal/build/utils';
+import { exec, glob, quote } from '@openinf/portal/build/utils';
 
 const yamlFiles = await glob([
   '**/*.yml',
@@ -15,7 +15,7 @@ const yamlFiles = await glob([
 ]);
 
 let exitCode = 0;
-const scripts = [`prettier --check ${yamlFiles.join(' ')}`];
+const scripts = [`prettier --check ${quote(yamlFiles)}`];
 
 for (const element of scripts) {
   exitCode = await exec(element);

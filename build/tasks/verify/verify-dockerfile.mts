@@ -5,7 +5,7 @@
  * @module {type ES6Module} build/tasks/verify/verify-dockerfile
  */
 
-import { exec, glob } from '@openinf/portal/build/utils';
+import { exec, glob, quote } from '@openinf/portal/build/utils';
 
 const dockerfileFiles = await glob([
   '.devcontainer/**/Dockerfile',
@@ -14,7 +14,7 @@ const dockerfileFiles = await glob([
 ]);
 
 let exitCode = 0;
-const scripts = [`dprint check ${dockerfileFiles.join(' ')}`];
+const scripts = [`dprint check ${quote(dockerfileFiles)}`];
 
 for (const element of scripts) {
   exitCode = await exec(element);

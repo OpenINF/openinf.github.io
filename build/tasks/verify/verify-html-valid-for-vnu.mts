@@ -5,7 +5,7 @@
  * @module {type ES6Module} build/tasks/verify/verify-html-valid-for-vnu
  */
 
-import { exec, glob } from '@openinf/portal/build/utils';
+import { exec, glob, quote } from '@openinf/portal/build/utils';
 import vnu from 'vnu-jar';
 
 const htmlFiles = await glob(['_site/**/*.html', '!node_modules/']);
@@ -19,7 +19,7 @@ if (htmlFiles.length === 0) {
 }
 
 let exitCode = 0;
-const scripts = [`java -jar ${vnu} ${htmlFiles.join(' ')}`];
+const scripts = [`java -jar ${quote(vnu)} ${quote(htmlFiles)}`];
 
 for (const element of scripts) {
   exitCode = await exec(element);

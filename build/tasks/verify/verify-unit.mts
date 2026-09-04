@@ -5,7 +5,7 @@
  * @module {type ES6Module} build/tasks/verify/verify-unit
  */
 
-import { exec, glob } from '@openinf/portal/build/utils';
+import { exec, glob, quote } from '@openinf/portal/build/utils';
 
 const testFiles = await glob(['**/*.test.mts', '!_site/', '!node_modules/']);
 
@@ -18,7 +18,7 @@ if (testFiles.length === 0) {
   process.exitCode = 1;
 } else {
   let exitCode = 0;
-  const scripts = [`node --test ${testFiles.join(' ')}`];
+  const scripts = [`node --test ${quote(testFiles)}`];
 
   for (const element of scripts) {
     exitCode = await exec(element);

@@ -24,6 +24,17 @@ overrides:
       singleAttributePerLine: false
       singleQuote: false
   - files:
+      - '*.json5'
+    options:
+      parser: json5
+      # Biome has no JSON5 parser and skips these files without saying so,
+      # which left `verify.json` claiming a coverage it did not have. Prettier
+      # is what reads them now -- for syntax and layout, not to restyle them:
+      # `.renovaterc.json5` is written the way renovate documents it, and that
+      # spelling is not ours to change.
+      quoteProps: preserve
+      singleQuote: false
+  - files:
       - '*.md'
     options:
       parser: markdown

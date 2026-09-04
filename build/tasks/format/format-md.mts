@@ -5,7 +5,7 @@
  * @module {type ES6Module} build/tasks/format/format-md
  */
 
-import { exec, glob } from '@openinf/portal/build/utils';
+import { exec, glob, quote } from '@openinf/portal/build/utils';
 
 const markdownFiles = await glob([
   '**/*.md',
@@ -24,8 +24,8 @@ const markdownFiles = await glob([
 
 let exitCode = 0;
 const scripts = [
-  `prettier --write ${markdownFiles.join(' ')}`,
-  `markdownlint-cli2 --fix ${markdownFiles.join(' ')}`,
+  `prettier --write ${quote(markdownFiles)}`,
+  `markdownlint-cli2 --fix ${quote(markdownFiles)}`,
 ];
 
 for (const element of scripts) {
