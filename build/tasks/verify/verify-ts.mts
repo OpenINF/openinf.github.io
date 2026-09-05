@@ -5,7 +5,7 @@
  * @module {type ES6Module} build/tasks/verify/verify-ts
  */
 
-import { exec, glob } from '@openinf/portal/build/utils';
+import { exec, glob, quote } from '@openinf/portal/build/utils';
 
 const tsFiles = await glob([
   '**/*.ts',
@@ -18,7 +18,7 @@ let exitCode = 0;
 // tsc reads its file list from tsconfig.json rather than taking one, and
 // `erasableSyntaxOnly` there is what stops syntax node refuses to strip from
 // reaching a task script.
-const scripts = [`biome check ${tsFiles.join(' ')}`, 'tsc --noEmit'];
+const scripts = [`biome check ${quote(tsFiles)}`, 'tsc --noEmit'];
 
 for (const element of scripts) {
   exitCode = await exec(element);

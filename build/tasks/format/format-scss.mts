@@ -5,14 +5,14 @@
  * @module {type ES6Module} build/tasks/format/format-scss
  */
 
-import { exec, glob } from '@openinf/portal/build/utils';
+import { exec, glob, quote } from '@openinf/portal/build/utils';
 
 const scssFiles = await glob(['**/*.scss', '!_site/', '!node_modules/']);
 
 let exitCode = 0;
 const scripts = [
-  `prettier --write ${scssFiles.join(' ')}`,
-  `stylelint --fix ${scssFiles.join(' ')}`,
+  `prettier --write ${quote(scssFiles)}`,
+  `stylelint --fix ${quote(scssFiles)}`,
 ];
 
 for (const element of scripts) {

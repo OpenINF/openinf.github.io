@@ -6,11 +6,11 @@
  */
 
 import { deepStrictEqual, ok } from 'node:assert/strict';
-import { mkdir, mkdtemp, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { dirname, join as pathJoin } from 'node:path';
 import { after, before, describe, test } from 'node:test';
-import { glob } from '@openinf/portal/build/utils';
+import { exec, glob, quote } from '@openinf/portal/build/utils';
 
 // Every pattern a build task writes is relative to the directory the task
 // runs in, so the fixture has to become that directory.
@@ -111,5 +111,70 @@ describe('glob', () => {
     // The exclusion is written without regard for dot entries, so pruning
     // has to cover them or matching dot names would reopen what it closed.
     ok(!(await glob(['**/*.md', '!skipped/'])).includes('skipped/.g.md'));
+  });
+});
+
+describe('quote', () => {
+  test('keeps a path with a space as one argument', () => {
+    deepStrictEqual(
+      quote(['sub/a b.md', 'sub/c.md']),
+      "'sub/a b.md' 'sub/c.md'"
+    );
+  });
+
+  test('takes a lone path as well as a list', () => {
+    deepStrictEqual(quote('a.md'), "'a.md'");
+  });
+
+  test('gives the shell nothing to expand', () => {
+    // Inside single quotes a shell expands nothing, so each of these reaches
+    // the tool as the filename it is rather than as syntax.
+    for (const name of ['$(id).md', '`id`.md', ';id;.md', 'a|b.md', 'a&b.md']) {
+      deepStrictEqual(quote(name), `'${name}'`);
+    }
+  });
+
+  test('escapes a single quote by closing and reopening the run', () => {
+    // The one character single quotes cannot hold. `'\''` is a closing
+    // quote, an escaped quote, and an opening quote.
+    deepStrictEqual(quote("it's.md"), "'it'\\''s.md'");
+  });
+
+  test('keeps a name that looks like an option from being read as one', () => {
+    // Quoting alone leaves `--write.md` arriving at the tool as `--write.md`.
+    deepStrictEqual(quote('--write.md'), "'./--write.md'");
+    deepStrictEqual(quote('-'), "'./-'");
+  });
+
+  test('leaves an ordinary path alone', () => {
+    deepStrictEqual(quote('doc/adr/0001-a.md'), "'doc/adr/0001-a.md'");
+    deepStrictEqual(quote('/abs/path.jar'), "'/abs/path.jar'");
+  });
+
+  test('survives a round trip through the shell it is written for', async () => {
+    // The escaping is only worth anything if the shell `exec` uses agrees
+    // with it, so this asks that shell rather than a model of it.
+    const home = await mkdtemp(pathJoin(tmpdir(), 'openinf-quote-'));
+    const names = ['a b.md', "it's.md", '$(id).md', ';id;.md'];
+    const here = process.cwd();
+
+    for (const name of names) await writeFile(pathJoin(home, name), '');
+
+    process.chdir(home);
+
+    try {
+      // `ls -1` prints one name per line, redirected by the same shell that
+      // parsed the quoting, so what lands in the file is exactly what the
+      // command received: one argument each, and nothing expanded.
+      deepStrictEqual(await exec(`ls -1 ${quote(names)} > out.txt`), 0);
+
+      const seen = (await readFile(pathJoin(home, 'out.txt'), 'utf8'))
+        .split('\n')
+        .filter(Boolean);
+
+      deepStrictEqual(seen.sort(), [...names].sort());
+    } finally {
+      process.chdir(here);
+    }
   });
 });

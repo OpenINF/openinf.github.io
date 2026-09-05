@@ -5,12 +5,12 @@
  * @module {type ES6Module} build/tasks/verify/verify-toml
  */
 
-import { exec, glob } from '@openinf/portal/build/utils';
+import { exec, glob, quote } from '@openinf/portal/build/utils';
 
 const tomlFiles = await glob(['**/*.toml', '!_site/', '!node_modules/']);
 
 let exitCode = 0;
-const scripts = [`dprint check ${tomlFiles.join(' ')}`];
+const scripts = [`dprint check ${quote(tomlFiles)}`];
 
 for (const element of scripts) {
   exitCode = await exec(element);

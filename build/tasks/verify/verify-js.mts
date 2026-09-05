@@ -5,7 +5,7 @@
  * @module {type ES6Module} build/tasks/verify/verify-js
  */
 
-import { exec, glob } from '@openinf/portal/build/utils';
+import { exec, glob, quote } from '@openinf/portal/build/utils';
 
 const jsFiles = await glob([
   '**/*.js',
@@ -16,7 +16,7 @@ const jsFiles = await glob([
 ]);
 
 let exitCode = 0;
-const scripts = [`biome check ${jsFiles.join(' ')}`];
+const scripts = [`biome check ${quote(jsFiles)}`];
 
 for (const element of scripts) {
   exitCode = await exec(element);

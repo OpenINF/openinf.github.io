@@ -5,12 +5,12 @@
  * @module {type ES6Module} build/tasks/format/format-svg
  */
 
-import { exec, glob } from '@openinf/portal/build/utils';
+import { exec, glob, quote } from '@openinf/portal/build/utils';
 
 const svgFiles = await glob(['**/*.svg', '!_site/', '!node_modules/']);
 
 let exitCode = 0;
-const scripts = [`prettier --write ${svgFiles.join(' ')}`];
+const scripts = [`prettier --write ${quote(svgFiles)}`];
 
 for (const element of scripts) {
   exitCode = await exec(element);

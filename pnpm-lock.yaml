@@ -57,8 +57,8 @@ importers:
         specifier: 0.56.1
         version: 0.56.1
       editorconfig-checker:
-        specifier: 6.1.1
-        version: 6.1.1
+        specifier: 7.0.0
+        version: 7.0.0
       html-minifier-terser:
         specifier: 7.2.0
         version: 7.2.0
@@ -1635,9 +1635,9 @@ packages:
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
-  editorconfig-checker@6.1.1:
-    resolution: {integrity: sha512-kiOb6qaWpMNt7Z/43ba0Pa1Inhr2/t9nKbvEKtCeXJ5AesztoM9AgLOOQVB4QUv/nGjgz3xkbx4pcogVRD2NWw==}
-    engines: {node: '>=20.11.0'}
+  editorconfig-checker@7.0.0:
+    resolution: {integrity: sha512-bqTCyzjz6Qbah4hBO032mQiwGstrHL/jwsnlFvlqrDcpv8rv2pSgLo00Fnji1u6PGtSdY6uydzVLUdHupbpNBQ==}
+    engines: {node: '>=24.14.0'}
     hasBin: true
 
   ee-first@1.1.1:
@@ -5221,7 +5221,7 @@ snapshots:
 
   eastasianwidth@0.2.0: {}
 
-  editorconfig-checker@6.1.1: {}
+  editorconfig-checker@7.0.0: {}
 
   ee-first@1.1.1: {}
 

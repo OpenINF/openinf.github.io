@@ -5,7 +5,7 @@
  * @module {type ES6Module} build/tasks/format/format-ts
  */
 
-import { exec, glob } from '@openinf/portal/build/utils';
+import { exec, glob, quote } from '@openinf/portal/build/utils';
 
 const tsFiles = await glob([
   '**/*.ts',
@@ -15,7 +15,7 @@ const tsFiles = await glob([
 ]);
 
 let exitCode = 0;
-const scripts = [`biome check --write ${tsFiles.join(' ')}`];
+const scripts = [`biome check --write ${quote(tsFiles)}`];
 
 for (const element of scripts) {
   exitCode = await exec(element);
