@@ -12,6 +12,8 @@ const yamlFiles = await glob([
   '**/*.yaml',
   '!_site/',
   '!node_modules/',
+  // Written by pnpm, not by hand.
+  '!pnpm-lock.yaml',
 ]);
 
 let exitCode = 0;

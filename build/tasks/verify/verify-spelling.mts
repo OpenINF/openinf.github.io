@@ -10,8 +10,14 @@ import { exec, glob, matched, quote } from '@openinf/portal/build/utils';
 // Comments and template prose are read as often as the documentation is, and
 // cspell's `en` dictionary is the American one, so this is also what holds the
 // project to American spelling: a British variant is an unknown word to it.
+// Named once rather than written twice. The glob and the complaint about it
+// matching nothing were separate copies of this string, and they had already
+// drifted apart by an extension.
+const SPELLCHECKED =
+  '**/*.{md,html,liquid,scss,mts,mjs,json,json5,jsonc,yml,yaml,sh}';
+
 const files = await glob([
-  '**/*.{md,html,liquid,scss,mts,mjs,json,yml,yaml,sh}',
+  SPELLCHECKED,
   '!node_modules/',
   '!_site/',
   '!.pnpm-store/',
@@ -30,9 +36,6 @@ const files = await glob([
   '!collections/_pages/vision.md',
 ]);
 
-process.exitCode = matched(
-  files,
-  '**/*.{md,html,liquid,scss,mts,mjs,json,yml,yaml,sh}'
-)
+process.exitCode = matched(files, SPELLCHECKED)
   ? await exec(`cspell lint ${quote(files)}`)
   : 1;
