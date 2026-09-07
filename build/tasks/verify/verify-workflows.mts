@@ -71,7 +71,7 @@ function usesIn(text: string) {
   // The plain-function visitor rather than the keyed one: `{ Pair() {} }` is
   // the library's own spelling, and the naming rule reads it as a method that
   // should be camelCase.
-  visit(parseDocument(text), (_, node) => {
+  visit(parseDocument(text), (_, node, path) => {
     if (!isPair(node)) return;
 
     const { key, value } = node as { key: unknown; value: unknown };
@@ -82,6 +82,27 @@ function usesIn(text: string) {
       !isScalar(value) ||
       typeof value.value !== 'string' ||
       value.range == null
+    ) {
+      return;
+    }
+
+    // `with:` and `env:` hold values whose names the action being called
+    // chose, so a step passing an input that happens to be called `uses` is
+    // passing a string rather than naming an action. Read as one, an
+    // ordinary workflow fails a check it has no way to satisfy.
+    //
+    // Only those two are skipped, and the walk stays broad everywhere else on
+    // purpose. A step written once under a YAML anchor and aliased into a job
+    // is a scalar only where the anchor is defined, which is nowhere near
+    // `jobs.<id>.steps`; narrowing this to the two paths GitHub executes from
+    // would stop reading the one place such a reference is written down.
+    if (
+      path.some(
+        (ancestor) =>
+          isPair(ancestor) &&
+          isScalar(ancestor.key) &&
+          (ancestor.key.value === 'with' || ancestor.key.value === 'env')
+      )
     ) {
       return;
     }
