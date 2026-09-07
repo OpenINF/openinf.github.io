@@ -5,10 +5,20 @@ exclude_patterns = [
 ]
 
 [[analyzers]]
+name = "test-coverage"
+enabled = false
+
+[[analyzers]]
+name = "shell"
+enabled = true
+
+[[analyzers]]
 name = "secrets"
+enabled = true
 
 [[analyzers]]
 name = "javascript"
+enabled = true
 
 [analyzers.meta]
 environment = [
@@ -18,6 +28,11 @@ environment = [
 
 [[analyzers]]
 name = "docker"
+enabled = true
 
 [analyzers.meta]
 dockerfile_paths = [".devcontainer/Dockerfile"]
+
+[[transformers]]
+name = "prettier"
+enabled = false

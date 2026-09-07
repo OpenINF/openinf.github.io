@@ -9,3 +9,9 @@ indent_size = 2
 indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
+
+[*.md]
+# Markdown decides its own indentation: a `1. ` list item continues at three
+# columns, which is not a multiple of anything above. Left to the linters,
+# which read the document as Markdown rather than as lines.
+indent_size = unset
