@@ -31,16 +31,25 @@ if [ "$(git config --global gpg.format 2>/dev/null || true)" = "ssh" ]; then
     # Matched by key type. `^ssh-` misses ECDSA and security keys; counting
     # non-blank lines instead would read "The agent has no identities." as an
     # identity and write that sentence out as the key.
-    count="$(printf '%s\n' "${identities}" |
-      grep -cE '^(ssh-(rsa|dss|ed25519)|ecdsa-sha2-nistp[0-9]+|sk-(ssh-ed25519|ecdsa-sha2-nistp[0-9]+)@openssh\.com) ' ||
+    #
+    # Kept rather than counted, because the two are not the same list. An
+    # agent forwarding a certificate alongside the key it belongs to offers
+    # `ssh-ed25519-cert-v01@openssh.com`, which is deliberately not a type
+    # this accepts -- so the count is one while `ssh-add -L` printed two
+    # lines. Writing the unfiltered output would put two keys in a file
+    # `ssh-keygen -Y sign -f` reads one from, and give allowed_signers a
+    # second line where its grammar has room for none.
+    matched="$(printf '%s\n' "${identities}" |
+      grep -E '^(ssh-(rsa|dss|ed25519)|ecdsa-sha2-nistp[0-9]+|sk-(ssh-ed25519|ecdsa-sha2-nistp[0-9]+)@openssh\.com) ' ||
       true)"
+    count="$(printf '%s\n' "${matched}" | grep -c . || true)"
 
     if [ "${count}" -eq 1 ]; then
       # Split because -m applies only to the deepest directory (SC2174), and
       # unconditional because ssh refuses a world-writable ~/.ssh.
       mkdir -p "$(dirname "${container_signingkey}")"
       chmod 700 "$(dirname "${container_signingkey}")"
-      printf '%s\n' "${identities}" >"${container_signingkey}"
+      printf '%s\n' "${matched}" >"${container_signingkey}"
       chmod 644 "${container_signingkey}"
 
       if [ "${signingkey}" != "${container_signingkey}" ]; then
