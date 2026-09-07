@@ -5,7 +5,7 @@
  * @module {type ES6Module} build/tasks/format/format-dockerfile
  */
 
-import { exec, glob, quote } from '@openinf/portal/build/utils';
+import { exec, glob, matched, quote } from '@openinf/portal/build/utils';
 
 const dockerfileFiles = await glob([
   '.devcontainer/**/Dockerfile',
@@ -14,7 +14,9 @@ const dockerfileFiles = await glob([
 ]);
 
 let exitCode = 0;
-const scripts = [`dprint fmt ${quote(dockerfileFiles)}`];
+const scripts = matched(dockerfileFiles, '.devcontainer/**/Dockerfile')
+  ? [`dprint fmt ${quote(dockerfileFiles)}`]
+  : [];
 
 for (const element of scripts) {
   exitCode = await exec(element);

@@ -5,7 +5,7 @@
  * @module {type ES6Module} build/tasks/verify/verify-json
  */
 
-import { exec, glob, quote } from '@openinf/portal/build/utils';
+import { exec, glob, matched, quote } from '@openinf/portal/build/utils';
 
 const EXCLUDED = ['!_site/', '!node_modules/'];
 
@@ -17,10 +17,14 @@ const jsonFiles = await glob(['**/*.json', '**/*.jsonc', ...EXCLUDED]);
 const json5Files = await glob(['**/*.json5', ...EXCLUDED]);
 
 let exitCode = 0;
-const scripts = [
-  `biome check ${quote(jsonFiles)}`,
-  ...(json5Files.length > 0 ? [`prettier --check ${quote(json5Files)}`] : []),
-];
+const scripts = matched(jsonFiles, '**/*.json, **/*.jsonc')
+  ? [
+      `biome check ${quote(jsonFiles)}`,
+      ...(json5Files.length > 0
+        ? [`prettier --check ${quote(json5Files)}`]
+        : []),
+    ]
+  : [];
 
 for (const element of scripts) {
   exitCode = await exec(element);

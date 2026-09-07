@@ -5,7 +5,7 @@
  * @module {type ES6Module} build/tasks/verify/verify-spelling
  */
 
-import { exec, glob, quote } from '@openinf/portal/build/utils';
+import { exec, glob, matched, quote } from '@openinf/portal/build/utils';
 
 // Comments and template prose are read as often as the documentation is, and
 // cspell's `en` dictionary is the American one, so this is also what holds the
@@ -30,4 +30,9 @@ const files = await glob([
   '!collections/_pages/vision.md',
 ]);
 
-process.exitCode = await exec(`cspell lint ${quote(files)}`);
+process.exitCode = matched(
+  files,
+  '**/*.{md,html,liquid,scss,mts,mjs,json,yml,yaml,sh}'
+)
+  ? await exec(`cspell lint ${quote(files)}`)
+  : 1;

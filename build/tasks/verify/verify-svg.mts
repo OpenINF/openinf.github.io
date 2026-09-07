@@ -5,16 +5,18 @@
  * @module {type ES6Module} build/tasks/verify/verify-svg
  */
 
-import { exec, glob, quote } from '@openinf/portal/build/utils';
+import { exec, glob, matched, quote } from '@openinf/portal/build/utils';
 import vnu from 'vnu-jar';
 
 const svgFiles = await glob(['**/*.svg', '!_site/', '!node_modules/']);
 
 let exitCode = 0;
-const scripts = [
-  `prettier --check ${quote(svgFiles)}`,
-  `java -jar ${quote(vnu)} --svg ${quote(svgFiles)}`,
-];
+const scripts = matched(svgFiles, '**/*.svg')
+  ? [
+      `prettier --check ${quote(svgFiles)}`,
+      `java -jar ${quote(vnu)} --svg ${quote(svgFiles)}`,
+    ]
+  : [];
 
 for (const element of scripts) {
   exitCode = await exec(element);

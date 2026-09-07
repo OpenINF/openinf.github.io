@@ -5,15 +5,17 @@
  * @module {type ES6Module} build/tasks/format/format-scss
  */
 
-import { exec, glob, quote } from '@openinf/portal/build/utils';
+import { exec, glob, matched, quote } from '@openinf/portal/build/utils';
 
 const scssFiles = await glob(['**/*.scss', '!_site/', '!node_modules/']);
 
 let exitCode = 0;
-const scripts = [
-  `prettier --write ${quote(scssFiles)}`,
-  `stylelint --fix ${quote(scssFiles)}`,
-];
+const scripts = matched(scssFiles, '**/*.scss')
+  ? [
+      `prettier --write ${quote(scssFiles)}`,
+      `stylelint --fix ${quote(scssFiles)}`,
+    ]
+  : [];
 
 for (const element of scripts) {
   exitCode = await exec(element);

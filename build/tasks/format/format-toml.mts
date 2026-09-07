@@ -5,12 +5,14 @@
  * @module {type ES6Module} build/tasks/format/format-toml
  */
 
-import { exec, glob, quote } from '@openinf/portal/build/utils';
+import { exec, glob, matched, quote } from '@openinf/portal/build/utils';
 
 const tomlFiles = await glob(['**/*.toml', '!_site/', '!node_modules/']);
 
 let exitCode = 0;
-const scripts = [`dprint fmt ${quote(tomlFiles)}`];
+const scripts = matched(tomlFiles, '**/*.toml')
+  ? [`dprint fmt ${quote(tomlFiles)}`]
+  : [];
 
 for (const element of scripts) {
   exitCode = await exec(element);

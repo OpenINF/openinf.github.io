@@ -52,6 +52,37 @@ export const quote = (paths: string | string[]) =>
     .join(' ');
 
 /**
+ * Says whether a task has anything to work on, and objects when it has not.
+ *
+ * A tool handed no files does not fail. `prettier --check` with an empty
+ * argument list prints `No parser and no file path given` and exits 0;
+ * `node --test` given a pattern matching nothing exits 0 having run no tests.
+ * Either way the task reports success over nothing, which is the one answer a
+ * check must never give -- a glob that stopped matching, because a directory
+ * was renamed or an extension changed, would go green for ever.
+ *
+ * `verify.unit` has guarded itself this way from the start. This is the same
+ * guard, said once.
+ *
+ * A project that genuinely has none of a kind should delete the task rather
+ * than leave it matching nothing. Deleting it is how a repository says so out
+ * loud, and this is what makes staying quiet impossible.
+ * @param {string[]} files What the glob found.
+ * @param {string} what The patterns it looked for, named in the complaint.
+ * @returns {boolean} Whether there is anything to check.
+ */
+export function matched(files: string[], what: string) {
+  if (files.length > 0) return true;
+
+  console.error(
+    `Nothing matched ${what}. A check that read no files has not passed; if this project has none, delete the task rather than let it report success over an empty list.`
+  );
+  process.exitCode = 1;
+
+  return false;
+}
+
+/**
  * Expands a trailing-slash directory pattern (e.g. `_site/`) to cover
  * everything beneath it. On its own, a trailing slash matches just the one
  * directory entry, which is never what a build task means by naming a
