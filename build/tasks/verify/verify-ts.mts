@@ -18,9 +18,15 @@ let exitCode = 0;
 // tsc reads its file list from tsconfig.json rather than taking one, and
 // `erasableSyntaxOnly` there is what stops syntax node refuses to strip from
 // reaching a task script.
-const scripts = matched(tsFiles, '**/*.ts, **/*.mts')
-  ? [`biome check ${quote(tsFiles)}`, 'tsc --noEmit']
-  : [];
+// Only Biome is handed the list. tsc reads its own from tsconfig.json, whose
+// input set is wider than this glob, so gating it on this list would let a
+// checkout of nothing this glob names go unchecked.
+const scripts = [
+  ...(matched(tsFiles, '**/*.ts, **/*.mts')
+    ? [`biome check ${quote(tsFiles)}`]
+    : []),
+  'tsc --noEmit',
+];
 
 for (const element of scripts) {
   exitCode = await exec(element);
