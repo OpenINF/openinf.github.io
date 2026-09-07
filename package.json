@@ -3,10 +3,10 @@
   "author": "The OpenINF Authors & Friends",
   "private": "true",
   "description": "The front door to everything OpenINF makes",
-  "packageManager": "pnpm@11.25.0",
+  "packageManager": "pnpm@12.1.0",
   "engines": {
     "node": "24.20.0",
-    "pnpm": "11.25.0"
+    "pnpm": "12.1.0"
   },
   "exports": {
     "./build/commit-message": "./build/shared/commit-message.mts",
@@ -38,7 +38,7 @@
     "browserslist-lint": "0.4.0",
     "console-log-level": "1.4.1",
     "cspell": "10.1.0",
-    "cssnano": "8.0.10",
+    "cssnano": "9.0.1",
     "dprint": "0.57.0",
     "editorconfig-checker": "7.0.0",
     "html-minifier-terser": "7.2.0",
