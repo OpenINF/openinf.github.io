@@ -25,8 +25,10 @@ FROM mcr.microsoft.com/devcontainers/typescript-node:5-24-trixie@sha256:b55b444f
 # this asking for a version that no longer exists and fail the build outright.
 # Nothing tracks apt pins to raise a PR the way renovate does for everything
 # else here. The previous Dockerfile suppressed this same rule for the same
-# reason.
+# reason. Two pragmas because DeepSource and Codacy's hadolint each read only
+# their own.
 # skipcq: DOK-DL3008
+# hadolint ignore=DL3008
 RUN apt-get update \
   && apt-get install -y --no-install-recommends fish ripgrep \
   && apt-get clean \
