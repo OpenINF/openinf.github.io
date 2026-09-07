@@ -11,7 +11,7 @@ import { exec, glob, matched, quote } from '@openinf/portal/build/utils';
 // cspell's `en` dictionary is the American one, so this is also what holds the
 // project to American spelling: a British variant is an unknown word to it.
 const files = await glob([
-  '**/*.{md,html,liquid,scss,mts,mjs,json,yml,yaml,sh}',
+  '**/*.{md,html,liquid,scss,mts,mjs,json,json5,jsonc,yml,yaml,sh}',
   '!node_modules/',
   '!_site/',
   '!.pnpm-store/',
