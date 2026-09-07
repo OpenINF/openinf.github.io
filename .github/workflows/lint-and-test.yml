@@ -10,6 +10,12 @@ on:
     branches:
       - live
 
+# Stated, not inherited: paths-filter needs `pull-requests: read`, and naming
+# any permission drops the rest to none.
+permissions:
+  contents: read
+  pull-requests: read
+
 jobs:
   lint_and_test:
     name: Lint and test
@@ -21,6 +27,10 @@ jobs:
           # `verify.commits` compares against the base branch, which a
           # single-commit checkout does not contain.
           fetch-depth: 0
+          # Otherwise the token stays in .git/config while `pnpm install` and
+          # the linters run. Nothing downstream needs it: no step pushes, and
+          # no dependency is git-hosted.
+          persist-credentials: false
       - name: Set up Node.js runtime
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:

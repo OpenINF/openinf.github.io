@@ -26,6 +26,9 @@ jobs:
       - name: Check out project repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          # Nothing here pushes: the build uploads an artifact and
+          # deploy-pages authenticates with its own id-token.
+          persist-credentials: false
           # The docs pages date themselves from when git last touched them,
           # which a single-commit checkout cannot answer.
           fetch-depth: 0
