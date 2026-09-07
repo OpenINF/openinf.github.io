@@ -29,6 +29,7 @@ scripts:
     ts: node build/tasks/verify/verify-ts.mts
     unit: node build/tasks/verify/verify-unit.mts
     validForEC: node build/tasks/verify/verify-valid-for-ec.mts
+    workflows: node build/tasks/verify/verify-workflows.mts
     yaml: node build/tasks/verify/verify-yaml.mts
   format:
     all: 'rc=0; for i in build/tasks/format/*.mts; do node "$i" || rc=1; done; exit $rc'
