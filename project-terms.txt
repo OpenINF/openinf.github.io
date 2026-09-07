@@ -48,6 +48,7 @@ keygen
 Kosic
 lede
 middot
+nistp
 noarchive
 noindex
 nonoptional

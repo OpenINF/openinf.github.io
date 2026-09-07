@@ -4,79 +4,58 @@
 # License: MIT OR Apache-2.0 OR BlueOak-1.0.0
 # ------------------------------------------------------------------------------
 #
-# Runs on every container start/attach, not just the first. Agent forwarding
-# is per-session -- VS Code opens a fresh SSH_AUTH_SOCK each time it attaches
-# -- so anything that depends on it belongs here rather than in
-# post-create.sh, which never runs again after the container is built.
+# Runs on every attach. Agent forwarding is per-session, so anything depending
+# on SSH_AUTH_SOCK belongs here rather than in post-create.sh.
 
 set -uo pipefail
 
-# Under gpg.format=ssh, `git commit -S` shells out to
-# `ssh-keygen -Y sign -f <user.signingkey> ...`, which reads that file for the
-# public key and then asks the running agent (SSH_AUTH_SOCK) to sign with the
-# matching private key. VS Code forwards the agent itself but, per
-# https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials,
-# never copies key files into the container -- so a signingkey path copied
-# verbatim from the host's gitconfig points at a file that has never existed
-# here, and signing fails with "Couldn't load public key ...: No such file or
-# directory" no matter how many times post-create.sh's `commit.gpgsign true`
-# hint is followed.
+# VS Code forwards the agent but never copies key files in, so a signingkey
+# path inherited from the host's gitconfig names a file that does not exist
+# here and `git commit -S` fails on it. Recreating that path is not an option
+# either -- /Users/<user> and /home/<user> sit under root-owned directories the
+# `node` user cannot write. So point user.signingkey, in this container only,
+# at a path under $HOME and write the forwarded public key there.
 #
-# That copied path is also, almost always, a path this container's non-root
-# user cannot create: a Mac's /Users/<user> or a Linux host's /home/<user>
-# both live under a root-owned directory the container's `node` user has no
-# write access to, so a bare `mkdir -p` on the host's literal path fails with
-# EACCES regardless of host OS. So this retargets `user.signingkey`, in the
-# container's own copy of the gitconfig only, at a path under $HOME that
-# `node` actually owns, and writes the forwarded public key there instead of
-# trying to recreate the host's path byte-for-byte.
-#
-# If the forwarded agent is holding exactly one identity, write it out so that
-# path resolves. This can't sign with the wrong key even if it guessed wrong:
-# the actual signature still goes through the agent, keyed by fingerprint, so
-# a mismatched file just makes ssh-keygen report no matching identity instead
-# of silently mis-signing.
+# A wrong guess cannot mis-sign: the signature goes through the agent by
+# fingerprint, so a stale file yields "no matching identity" rather than
+# someone else's signature.
 if [ "$(git config --global gpg.format 2>/dev/null || true)" = "ssh" ]; then
   signingkey="$(git config --global user.signingkey 2>/dev/null || true)"
   if [ -n "${signingkey}" ]; then
     container_signingkey="${HOME}/.ssh/$(basename "${signingkey}")"
-    if [ ! -f "${container_signingkey}" ]; then
-      identities="$(ssh-add -L 2>/dev/null || true)"
-      count="$(printf '%s\n' "${identities}" | grep -c '^ssh-' || true)"
-      if [ "${count}" -eq 1 ]; then
-        mkdir -p -m 700 "$(dirname "${container_signingkey}")"
-        printf '%s\n' "${identities}" >"${container_signingkey}"
-        chmod 644 "${container_signingkey}"
-      else
-        echo "==> Commit signing NOT ready: forwarded SSH agent has ${count} identities, need exactly 1 to write ${container_signingkey}" >&2
-      fi
-    fi
-    if [ -f "${container_signingkey}" ]; then
+
+    # Every attach, not just when the file is absent: the forwarded identity
+    # can change between sessions, so an existing file proves nothing.
+    identities="$(ssh-add -L 2>/dev/null || true)"
+
+    # Matched by key type. `^ssh-` misses ECDSA and security keys; counting
+    # non-blank lines instead would read "The agent has no identities." as an
+    # identity and write that sentence out as the key.
+    count="$(printf '%s\n' "${identities}" |
+      grep -cE '^(ssh-(rsa|dss|ed25519)|ecdsa-sha2-nistp[0-9]+|sk-(ssh-ed25519|ecdsa-sha2-nistp[0-9]+)@openssh\.com) ' ||
+      true)"
+
+    if [ "${count}" -eq 1 ]; then
+      # Split because -m applies only to the deepest directory (SC2174), and
+      # unconditional because ssh refuses a world-writable ~/.ssh.
+      mkdir -p "$(dirname "${container_signingkey}")"
+      chmod 700 "$(dirname "${container_signingkey}")"
+      printf '%s\n' "${identities}" >"${container_signingkey}"
+      chmod 644 "${container_signingkey}"
+
       if [ "${signingkey}" != "${container_signingkey}" ]; then
         git config --global user.signingkey "${container_signingkey}"
       fi
 
-      # Signing and verifying are separate switches, and leaving the second one
-      # off makes the first one look broken. With only the above, `git commit
-      # -S` really does produce a signature -- `git cat-file commit HEAD` shows
-      # the `BEGIN SSH SIGNATURE` header -- but `git log --show-signature`
-      # answers:
-      #
-      #   error: gpg.ssh.allowedSignersFile needs to be configured and exist
-      #          for ssh signature verification
-      #   No signature
-      #
-      # ssh-format verification needs a file mapping principals to the keys
-      # they may sign with, and Git ships no default location for one, so the
-      # verifier cannot run at all. `No signature` is it reporting that -- not
-      # a report about the commit, which is signed. Read as the latter, it
-      # sends you back to re-check signing settings that were correct the whole
-      # time, so write the file rather than leave that trap set.
+      # Without an allowed-signers file the verifier cannot run at all, and
+      # `git log --show-signature` answers "No signature" for commits that are
+      # in fact signed -- which reads as a signing problem and sends you back
+      # to settings that were right all along.
       email="$(git config --global user.email 2>/dev/null || true)"
       if [ -n "${email}" ]; then
         allowed_signers="${HOME}/.ssh/allowed_signers"
-        # Fields 1 and 2 only: `ssh-add -L` ends each line with the key's
-        # comment, and the allowed-signers grammar has no slot for one.
+        # Fields 1 and 2 only; the grammar has no slot for ssh-add's trailing
+        # comment.
         printf '%s %s\n' "${email}" \
           "$(awk '{print $1, $2}' "${container_signingkey}")" \
           >"${allowed_signers}"
@@ -86,6 +65,14 @@ if [ "$(git config --global gpg.format 2>/dev/null || true)" = "ssh" ]; then
       fi
 
       echo "==> Commit signing ready (${container_signingkey}, from forwarded SSH agent)"
+    else
+      echo "==> Commit signing NOT ready: forwarded SSH agent has ${count} identities, need exactly 1 to write ${container_signingkey}" >&2
+
+      # Kept, not deleted: it cannot mis-sign, and one attach that raced the
+      # agent socket should not discard a working setup.
+      if [ -f "${container_signingkey}" ]; then
+        echo "==>   ${container_signingkey} is from an earlier session and was NOT re-verified; signing works only if that same agent is forwarded again" >&2
+      fi
     fi
   fi
 fi

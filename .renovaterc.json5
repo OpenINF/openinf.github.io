@@ -52,8 +52,10 @@
       customType: "regex",
       description: "fish tooling pinned in the dev container post-create script",
       managerFilePatterns: ["/^\\.devcontainer/post-create\\.sh$/"],
+      // Both halves: moving one and leaving the other would leave the file
+      // naming a release it does not install.
       matchStrings: [
-        "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\sreadonly \\w+=(?<currentValue>\\S+)",
+        "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\sreadonly \\w+=(?<currentDigest>[0-9a-f]{40}) # (?<currentValue>\\S+)",
       ],
     },
   ],
