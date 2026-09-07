@@ -5,7 +5,7 @@
  * @module {type ES6Module} build/tasks/format/format-md
  */
 
-import { exec, glob, quote } from '@openinf/portal/build/utils';
+import { exec, glob, matched, quote } from '@openinf/portal/build/utils';
 
 const markdownFiles = await glob([
   '**/*.md',
@@ -23,10 +23,12 @@ const markdownFiles = await glob([
 ]);
 
 let exitCode = 0;
-const scripts = [
-  `prettier --write ${quote(markdownFiles)}`,
-  `markdownlint-cli2 --fix ${quote(markdownFiles)}`,
-];
+const scripts = matched(markdownFiles, '**/*.md')
+  ? [
+      `prettier --write ${quote(markdownFiles)}`,
+      `markdownlint-cli2 --fix ${quote(markdownFiles)}`,
+    ]
+  : [];
 
 for (const element of scripts) {
   exitCode = await exec(element);

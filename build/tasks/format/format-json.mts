@@ -5,7 +5,7 @@
  * @module {type ES6Module} build/tasks/format/format-json
  */
 
-import { exec, glob, quote } from '@openinf/portal/build/utils';
+import { exec, glob, matched, quote } from '@openinf/portal/build/utils';
 
 const EXCLUDED = ['!_site/', '!node_modules/'];
 
@@ -17,9 +17,15 @@ const jsonFiles = await glob(['**/*.json', '**/*.jsonc', ...EXCLUDED]);
 const json5Files = await glob(['**/*.json5', ...EXCLUDED]);
 
 let exitCode = 0;
+// Two lists, two tools, and a guard each: JSON5 going unformatted because no
+// plain JSON matched would be the silence this guard exists to prevent.
 const scripts = [
-  `biome check --write ${quote(jsonFiles)}`,
-  ...(json5Files.length > 0 ? [`prettier --write ${quote(json5Files)}`] : []),
+  ...(matched(jsonFiles, '**/*.json, **/*.jsonc')
+    ? [`biome check --write ${quote(jsonFiles)}`]
+    : []),
+  ...(matched(json5Files, '**/*.json5')
+    ? [`prettier --write ${quote(json5Files)}`]
+    : []),
 ];
 
 for (const element of scripts) {

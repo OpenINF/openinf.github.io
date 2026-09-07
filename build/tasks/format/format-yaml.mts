@@ -5,7 +5,7 @@
  * @module {type ES6Module} build/tasks/format/format-yaml
  */
 
-import { exec, glob, quote } from '@openinf/portal/build/utils';
+import { exec, glob, matched, quote } from '@openinf/portal/build/utils';
 
 const yamlFiles = await glob([
   '**/*.yml',
@@ -15,7 +15,9 @@ const yamlFiles = await glob([
 ]);
 
 let exitCode = 0;
-const scripts = [`prettier --write ${quote(yamlFiles)}`];
+const scripts = matched(yamlFiles, '**/*.yml, **/*.yaml')
+  ? [`prettier --write ${quote(yamlFiles)}`]
+  : [];
 
 for (const element of scripts) {
   exitCode = await exec(element);

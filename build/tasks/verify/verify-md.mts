@@ -5,7 +5,7 @@
  * @module {type ES6Module} build/tasks/verify/verify-md
  */
 
-import { exec, glob, quote } from '@openinf/portal/build/utils';
+import { exec, glob, matched, quote } from '@openinf/portal/build/utils';
 
 const markdownFiles = await glob([
   '**/*.md',
@@ -23,11 +23,13 @@ const markdownFiles = await glob([
 ]);
 
 let exitCode = 0;
-const scripts = [
-  `prettier --check ${quote(markdownFiles)}`,
-  `markdownlint-cli2 ${quote(markdownFiles)}`,
-  `remark -f --silently-ignore ${quote(markdownFiles)}`,
-];
+const scripts = matched(markdownFiles, '**/*.md')
+  ? [
+      `prettier --check ${quote(markdownFiles)}`,
+      `markdownlint-cli2 ${quote(markdownFiles)}`,
+      `remark -f --silently-ignore ${quote(markdownFiles)}`,
+    ]
+  : [];
 
 for (const element of scripts) {
   exitCode = await exec(element);

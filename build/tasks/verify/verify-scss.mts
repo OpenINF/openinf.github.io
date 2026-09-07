@@ -5,15 +5,14 @@
  * @module {type ES6Module} build/tasks/verify/verify-scss
  */
 
-import { exec, glob, quote } from '@openinf/portal/build/utils';
+import { exec, glob, matched, quote } from '@openinf/portal/build/utils';
 
 const scssFiles = await glob(['**/*.scss', '!_site/', '!node_modules/']);
 
 let exitCode = 0;
-const scripts = [
-  `prettier --check ${quote(scssFiles)}`,
-  `stylelint ${quote(scssFiles)}`,
-];
+const scripts = matched(scssFiles, '**/*.scss')
+  ? [`prettier --check ${quote(scssFiles)}`, `stylelint ${quote(scssFiles)}`]
+  : [];
 
 for (const element of scripts) {
   exitCode = await exec(element);
