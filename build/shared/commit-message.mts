@@ -123,6 +123,16 @@ const ASSISTED_BY_VALUE = /^[^\s:]+:\S+( \S+)*$/;
 const CONTINUATION_LINE = /^\s/;
 
 /**
+ * Each known token with the pattern that also matches it misspelt with a
+ * space where a hyphen belongs. Built here because the check that uses them
+ * runs for every line of the last paragraph.
+ */
+const SPACED_TRAILER_TOKENS = TRAILER_ORDER.map((token) => ({
+  token,
+  spaced: new RegExp(`^${token.replaceAll('-', '[ -]')}:`, 'i'),
+}));
+
+/**
  * Splits a commit message into its lines, without the blank ones git leaves
  * at the end. Written as a scan rather than as `/[\r\n]+$/`, which takes time
  * proportional to the square of the run of newlines it is asked about: a
@@ -146,29 +156,42 @@ export function linesOf(message: string) {
 }
 
 /**
- * Splits a message body into paragraphs of non-empty lines.
+ * Splits a message body into paragraphs of non-empty lines. Walks the lines
+ * it is given, so nothing copies the message.
  * @param {string[]} lines Every line after the subject.
  * @returns {string[][]} The paragraphs, in order.
  */
-const paragraphsOf = (lines: string[]) =>
-  lines
-    .join('\n')
-    .split(/\n{2,}/)
-    .map((paragraph) => paragraph.split('\n').filter(Boolean))
-    .filter((paragraph) => paragraph.length > 0);
+const paragraphsOf = (lines: string[]) => {
+  const paragraphs: string[][] = [];
+  let paragraph: string[] = [];
+
+  for (const line of lines) {
+    if (line === '') {
+      if (paragraph.length > 0) {
+        paragraphs.push(paragraph);
+        paragraph = [];
+      }
+    } else {
+      paragraph.push(line);
+    }
+  }
+
+  if (paragraph.length > 0) paragraphs.push(paragraph);
+
+  return paragraphs;
+};
 
 /**
- * Reads the trailer block out of a message, agreeing with git about whether
- * there is one: the last paragraph, every line of it either a trailer or a
- * continuation of the one above, and the first of them a trailer. A paragraph
- * that merely contains a colon somewhere is prose, and git reads no trailers
- * in it -- so neither does this.
- * @param {string} message The whole commit message.
+ * Reads the trailer block out of a message's paragraphs, agreeing with git
+ * about whether there is one: the last paragraph, every line of it either a
+ * trailer or a continuation of the one above, and the first of them a
+ * trailer. A paragraph that merely contains a colon somewhere is prose, and
+ * git reads no trailers in it -- so neither does this.
+ * @param {string[][]} paragraphs The paragraphs after the subject.
  * @returns {string[]} The trailer lines, one per trailer, empty if there is no block.
  */
-export function readTrailers(message: string) {
-  const [, ...rest] = linesOf(message);
-  const last = paragraphsOf(rest).at(-1) ?? [];
+const trailerBlockOf = (paragraphs: string[][]) => {
+  const last = paragraphs.at(-1) ?? [];
   const isBlock =
     last.length > 0 &&
     TRAILER_LINE.test(last[0] ?? '') &&
@@ -177,6 +200,17 @@ export function readTrailers(message: string) {
     );
 
   return isBlock ? last.filter((line) => !CONTINUATION_LINE.test(line)) : [];
+};
+
+/**
+ * Reads the trailer block out of a whole message.
+ * @param {string} message The whole commit message.
+ * @returns {string[]} The trailer lines, one per trailer, empty if there is no block.
+ */
+export function readTrailers(message: string) {
+  const [, ...rest] = linesOf(message);
+
+  return trailerBlockOf(paragraphsOf(rest));
 }
 
 /**
@@ -276,9 +310,7 @@ const checkTrailers = (lines: string[]) => {
   // known tokens with their hyphens loosened, since a looser test than that
   // flags any body sentence containing a colon.
   for (const line of last) {
-    for (const token of TRAILER_ORDER) {
-      const spaced = new RegExp(`^${token.replaceAll('-', '[ -]')}:`, 'i');
-
+    for (const { token, spaced } of SPACED_TRAILER_TOKENS) {
       if (
         spaced.test(line) &&
         !line.toLowerCase().startsWith(`${token.toLowerCase()}:`)
@@ -306,7 +338,7 @@ const checkTrailers = (lines: string[]) => {
   }
 
   const tokens: string[] = [];
-  const block = readTrailers(['', ...lines].join('\n'));
+  const block = trailerBlockOf(paragraphs);
 
   // A last paragraph that is not a clean block is prose, and git reads no
   // trailers in it. Saying so is only worth doing for a line that was plainly
@@ -403,10 +435,18 @@ export function validateCommitMessage(message: string) {
 
     // An unbreakable line -- a URL, near enough always -- cannot be wrapped,
     // and reflowing one to fit would break it.
-    if (countGraphemes(line) > BODY_MAX && /\s/.test(line.trim())) {
-      problems.push(
-        `line is ${countGraphemes(line)} characters; the limit is ${BODY_MAX}: “${line.slice(0, 40)}…”`
-      );
+    //
+    // No grapheme is fewer than one code unit, so a line of BODY_MAX code
+    // units or fewer is within the limit whatever it is made of, and the
+    // segmenter need not see it.
+    if (line.length > BODY_MAX && /\s/.test(line.trim())) {
+      const width = countGraphemes(line);
+
+      if (width > BODY_MAX) {
+        problems.push(
+          `line is ${width} characters; the limit is ${BODY_MAX}: “${line.slice(0, 40)}…”`
+        );
+      }
     }
   }
 

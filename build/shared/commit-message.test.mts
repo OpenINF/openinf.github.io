@@ -368,35 +368,179 @@ describe('the vocabulary', () => {
 
 describe('a message written to be slow', () => {
   // A commit message comes from whoever opened the pull request, and the
-  // commit queue reads it holding credentials that can write here. Taking
-  // time proportional to the square of its length is a way to stop the queue
-  // working, so these hold the rules to reading it in linear time.
-  // Generous, because the work itself is linear and CI is slow. What it
-  // separates is linear from quadratic: at this size the regexes these
-  // replaced took twenty seconds and ninety seconds respectively.
-  const budget = 3000;
+  // commit queue reads it holding credentials that can write here. How long
+  // it can be made to take is therefore a security property, and these hold
+  // the rules to it.
+  //
+  // Each is a ratio between two measurements taken on the same machine
+  // moments apart, one of them work known to be linear. A machine that is
+  // slow, or busy, raises both and leaves the ratio alone, where a figure in
+  // milliseconds would measure the machine as much as the code.
 
-  test('reads a long run of newlines quickly', () => {
-    const message = `🏗️🔧：fix it\n\nA body.${'\n'.repeat(200_000)}x`;
-    const started = performance.now();
+  /** Timings to take for each measurement, of which the fastest is kept. */
+  const runs = 5;
 
-    validateCommitMessage(message);
+  /** Times to measure both sides of a ratio, alternating between them. */
+  const rounds = 3;
 
-    const spent = performance.now() - started;
+  /** The size of the messages measured, in lines or in repetitions. */
+  const size = 100_000;
 
-    ok(spent < budget, `took ${spent.toFixed(0)}ms, budget ${budget}ms`);
+  /**
+   * How long something takes, at its fastest out of a few goes.
+   *
+   * The fastest, because everything that happens to a timing on a shared
+   * machine -- losing the processor, waiting on a collection, sharing a core
+   * -- adds to it and nothing takes away. The smallest of several is the
+   * closest to what the work itself costs.
+   * @param {() => unknown} work What to measure.
+   * @returns {number} The smallest of `runs` timings, in milliseconds.
+   */
+  const spentOn = (work: () => unknown) => {
+    let fastest = Infinity;
+
+    for (let run = 0; run < runs; run += 1) {
+      const started = performance.now();
+
+      work();
+
+      fastest = Math.min(fastest, performance.now() - started);
+    }
+
+    return fastest;
+  };
+
+  /**
+   * What one piece of work costs in multiples of another.
+   * @param {() => unknown} measured The work being judged.
+   * @param {() => unknown} baseline The work it is judged against.
+   * @returns {number} The multiple.
+   */
+  const ratioOf = (measured: () => unknown, baseline: () => unknown) => {
+    // Leaves both compiled before either is measured.
+    measured();
+    baseline();
+
+    let cost = Infinity;
+    let floor = Infinity;
+
+    // Alternated, so that a machine getting busier partway through raises
+    // both sides.
+    for (let round = 0; round < rounds; round += 1) {
+      floor = Math.min(floor, spentOn(baseline));
+      cost = Math.min(cost, spentOn(measured));
+    }
+
+    return cost / floor;
+  };
+
+  /**
+   * The floor: split a message into lines and look at each one once. Reading
+   * a message cannot cost less than this, so it stands in for how fast this
+   * machine is at the work in question.
+   *
+   * Written out here rather than taken from the module, so that a change to
+   * the module's own splitting moves the measurement without moving the
+   * floor.
+   * @param {string} message The message to read.
+   * @returns {number} How many lines were a run of dashes, which is beside the point.
+   */
+  const readEveryLine = (message: string) => {
+    let seen = 0;
+
+    for (const line of message.split(/\r?\n/)) {
+      if (/^-{3,}$/.test(line)) seen += 1;
+    }
+
+    return seen;
+  };
+
+  /**
+   * What reading a message costs against looking at every line of it once.
+   * @param {string} message The message to read.
+   * @returns {number} The multiple.
+   */
+  const costOfReading = (message: string) =>
+    ratioOf(
+      () => validateCommitMessage(message),
+      () => readEveryLine(message)
+    );
+
+  /**
+   * A message of blank lines gives the reading almost nothing to do beyond
+   * splitting, so its cost sits just above the floor and anything spent per
+   * line shows at once. Costs about 1, and 9 with a stray second pass over
+   * the lines.
+   */
+  const blankLineCeiling = 5;
+
+  /**
+   * A message that is all one paragraph is trailer candidates from top to
+   * bottom, so the reading has real work to do and the ratio is both higher
+   * and looser under load. A bound on the whole rather than a fine measure.
+   */
+  const paragraphCeiling = 30;
+
+  test('reads a body of many lines without looking at each one twice', () => {
+    const message = [
+      '🏗️🔧：fix it',
+      '',
+      ...Array.from({ length: size }, () => 'x'),
+    ].join('\n');
+    const factor = costOfReading(message);
+
+    ok(
+      factor < paragraphCeiling,
+      `reading cost ${factor.toFixed(1)}x looking at every line, ceiling ${paragraphCeiling}x`
+    );
   });
 
-  test('reads a long Assisted-by value quickly', () => {
+  test('reads a long run of blank lines without segmenting each one', () => {
+    const message = `🏗️🔧：fix it\n\nA body.${'\n'.repeat(size)}x`;
+    const factor = costOfReading(message);
+
+    ok(
+      factor < blankLineCeiling,
+      `reading cost ${factor.toFixed(1)}x looking at every line, ceiling ${blankLineCeiling}x`
+    );
+  });
+
+  test('strips a trailing run of newlines without backtracking', () => {
+    // A run of newlines ending on something else is what a regex written to
+    // strip it backtracks over; `linesOf` scans. The floor splits the same
+    // message without that cost, so such a change shows here.
+    const message = `🏗️🔧：fix it\n\nA body.${'\n'.repeat(size)}\nend`;
+    const factor = costOfReading(message);
+
+    ok(
+      factor < blankLineCeiling,
+      `reading cost ${factor.toFixed(1)}x looking at every line, ceiling ${blankLineCeiling}x`
+    );
+  });
+
+  test('reads an Assisted-by value that does not match, quickly', () => {
     // `\S` matches a colon, so the obvious spelling of agent:model lets the
-    // engine try every colon as the split point.
-    const message = `🏗️🔧：fix it\n\nAssisted-by: ${'a:'.repeat(100_000)} `;
-    const started = performance.now();
+    // engine try every colon as the split point. This value is built to fail,
+    // which is when a pattern that can backtrack does so.
+    //
+    // Judged against a value of the same length that matches at once: the
+    // message is one line, so splitting it measures nothing. Both sides do
+    // the same work but for the pattern.
+    const failing = `🏗️🔧：fix it\n\nAssisted-by: ${'a:'.repeat(size)} `;
+    const matching = `🏗️🔧：fix it\n\nAssisted-by: Claude-Code:${'a'.repeat(
+      2 * size - 12
+    )}`;
+    const factor = ratioOf(
+      () => validateCommitMessage(failing),
+      () => validateCommitMessage(matching)
+    );
 
-    validateCommitMessage(message);
+    // The two sit within a few percent of each other while the pattern holds.
+    const patternCeiling = 10;
 
-    const spent = performance.now() - started;
-
-    ok(spent < budget, `took ${spent.toFixed(0)}ms, budget ${budget}ms`);
+    ok(
+      factor < patternCeiling,
+      `the failing value cost ${factor.toFixed(1)}x the matching one, ceiling ${patternCeiling}x`
+    );
   });
 });
