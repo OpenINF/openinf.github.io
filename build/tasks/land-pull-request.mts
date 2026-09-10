@@ -232,15 +232,25 @@ try {
       // do with a stranger's commits is to not have them on disk at all.
       // GitHub returns them oldest first, which is the order to read them in,
       // and merges are dropped since their messages say nothing.
-      const messages: string[] = JSON.parse(
-        gh(
-          'api',
-          '--paginate',
-          `repos/${repository()}/pulls/${number}/commits`,
-          '--jq',
-          '[.[] | select(.parents | length < 2) | .commit.message]'
-        )
-      );
+      //
+      // `--jq` beside `--paginate` filters each page and prints the results
+      // one after another, so a branch past the first page of commits would
+      // hand `JSON.parse` several arrays in a row and land nothing. `--slurp`
+      // gathers the pages themselves into one array, and the filtering that
+      // `--jq` was doing happens here instead.
+      const pages: { parents: unknown[]; commit: { message: string } }[][] =
+        JSON.parse(
+          gh(
+            'api',
+            '--paginate',
+            '--slurp',
+            `repos/${repository()}/pulls/${number}/commits`
+          )
+        );
+      const messages = pages
+        .flat()
+        .filter((commit) => commit.parents.length < 2)
+        .map((commit) => commit.commit.message);
       const parts = messages.map((message) => partsOfMessage(message));
       const message = composeLandingMessage(
         parts,

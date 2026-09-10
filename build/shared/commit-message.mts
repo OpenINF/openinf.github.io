@@ -120,7 +120,7 @@ const TRAILER_LINE = /^(?<token>[A-Za-z][\w-]*):[ \t]*(?<value>.*)$/;
 const ASSISTED_BY_VALUE = /^[^\s:]+:\S+( \S+)*$/;
 
 /** git folds a trailer whose value runs onto an indented line beneath it. */
-const CONTINUATION_LINE = /^\s/;
+export const CONTINUATION_LINE = /^\s/;
 
 /**
  * Each known token with the pattern that also matches it misspelt with a
@@ -423,7 +423,19 @@ export function validateCommitMessage(message: string) {
     problems.push('the line after the subject has to be blank');
   }
 
-  for (const line of rest) {
+  // Where the trailer block starts, or past the end when there is none. A
+  // trailer is one line by construction here: git would read a folded value,
+  // but `readTrailers` keeps only the token line, so wrapping a long
+  // `Signed-off-by:` to fit would put the author out of reach of the sign-off
+  // check. The block is exempt from the width limit rather than made to fit
+  // inside it, which is also what the limit is for -- prose that is read.
+  const paragraphs = paragraphsOf(rest);
+  const blockStart =
+    trailerBlockOf(paragraphs).length > 0
+      ? rest.length - (paragraphs.at(-1)?.length ?? 0)
+      : rest.length;
+
+  for (const [index, line] of rest.entries()) {
     // A line of dashes is why the trailers in this project have been going
     // unread: `---` is where git stops looking for them, and any longer run
     // splits the block in two so that only the half below it counts.
@@ -439,7 +451,11 @@ export function validateCommitMessage(message: string) {
     // No grapheme is fewer than one code unit, so a line of BODY_MAX code
     // units or fewer is within the limit whatever it is made of, and the
     // segmenter need not see it.
-    if (line.length > BODY_MAX && /\s/.test(line.trim())) {
+    if (
+      index < blockStart &&
+      line.length > BODY_MAX &&
+      /\s/.test(line.trim())
+    ) {
       const width = countGraphemes(line);
 
       if (width > BODY_MAX) {

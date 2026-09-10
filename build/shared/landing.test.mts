@@ -344,3 +344,48 @@ describe('checksVerdict and its own run', () => {
     );
   });
 });
+
+describe('a folded trailer', () => {
+  const folded = [
+    '🏗️🔧：fix it',
+    '',
+    'A body line.',
+    '',
+    'Co-authored-by: Jane Doe',
+    '    <jane@example.com>',
+    'Signed-off-by: Derek Lewis <derek@example.com>',
+  ].join('\n');
+
+  test('is one trailer, not a trailer and a stranded line', () => {
+    const parts = partsOfMessage(folded);
+    deepStrictEqual(parts.body, ['A body line.']);
+    deepStrictEqual(parts.trailers, [
+      'Co-authored-by: Jane Doe\n    <jane@example.com>',
+      'Signed-off-by: Derek Lewis <derek@example.com>',
+    ]);
+  });
+
+  test('lands with its value still attached to it', () => {
+    const message = composeLandingMessage(
+      [partsOfMessage(folded)],
+      'https://example.com/pull/1'
+    );
+    deepStrictEqual(message.split('\n'), [
+      'A body line.',
+      '',
+      'Co-authored-by: Jane Doe',
+      '    <jane@example.com>',
+      'Signed-off-by: Derek Lewis <derek@example.com>',
+      'PR-URL: https://example.com/pull/1',
+    ]);
+    deepStrictEqual(validateCommitMessage(`🏗️🔧：fix it\n\n${message}`), []);
+  });
+
+  test('does not swallow an indented body line after prose', () => {
+    const parts = partsOfMessage(
+      '🏗️🔧：fix it\n\nA body line.\n    an indented one\n\nPR-URL: x'
+    );
+    deepStrictEqual(parts.body, ['A body line.', '    an indented one']);
+    deepStrictEqual(parts.trailers, ['PR-URL: x']);
+  });
+});

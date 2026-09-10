@@ -11,6 +11,7 @@ import { readFile } from 'node:fs/promises';
 import { describe, test } from 'node:test';
 import {
   ACTIONS,
+  BODY_MAX,
   CATEGORIES,
   readTrailers,
   validateCommitMessage,
@@ -363,6 +364,38 @@ describe('the vocabulary', () => {
       Object.keys(CATEGORIES).length + Object.keys(ACTIONS).length,
       'the template documents an emoji the rules do not know'
     );
+  });
+});
+
+describe('the width limit', () => {
+  test('leaves a trailer that cannot be wrapped alone', () => {
+    // Folding this to fit would put the author on a continuation line, where
+    // `readTrailers` does not look and so `checkSignOff` could not match it.
+    const long =
+      'Signed-off-by: Christopher Alexander Montgomery ' +
+      '<christopher.montgomery@example.org>';
+    ok(long.length > BODY_MAX);
+    deepStrictEqual(
+      validateCommitMessage(`🏗️🔧：fix it\n\nA body line.\n\n${long}`),
+      []
+    );
+  });
+
+  test('still holds prose to it, in the same message', () => {
+    const problems = validateCommitMessage(
+      `🏗️🔧：fix it\n\n${'word '.repeat(20)}end\n\n` +
+        'Signed-off-by: Derek Lewis <derek@example.com>'
+    );
+    deepStrictEqual(problems.length, 1);
+    match(problems[0] ?? '', /the limit is 72/);
+  });
+
+  test('holds a long line in a paragraph that only looks like trailers', () => {
+    // Not a block, so git reads no trailers in it and it is prose after all.
+    const problems = validateCommitMessage(
+      `🏗️🔧：fix it\n\nSigned-off-by: Derek Lewis <derek@example.com>\n${'word '.repeat(20)}end`
+    );
+    ok(problems.some((problem) => /the limit is 72/.test(problem)));
   });
 });
 
