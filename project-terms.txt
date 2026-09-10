@@ -13,6 +13,7 @@ browserslistrc
 davidanson
 dbaeumer
 deepsource
+describedby
 distros
 Dockerfiles
 dorny
@@ -69,6 +70,7 @@ repoints
 retarget
 retargets
 returntocorp
+rowspan
 rubocop
 screencap
 sdcard

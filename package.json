@@ -14,6 +14,7 @@
     "./build/inline-svg": "./build/shared/inline-svg.mts",
     "./build/landing": "./build/shared/landing.mts",
     "./build/pull-request": "./build/shared/pull-request.mts",
+    "./build/sdk-docs": "./build/shared/sdk-docs.mts",
     "./build/utils": "./build/utils.mts"
   },
   "homepage": "https://open.inf.is",
@@ -32,6 +33,7 @@
     "@tsconfig/node-lts": "24.0.1",
     "@types/console-log-level": "1.4.5",
     "@types/node": "24.13.3",
+    "@types/sanitize-html": "2.16.1",
     "@yarnpkg/shell": "4.1.3",
     "autoprefixer": "10.5.4",
     "bootstrap": "5.3.8",
@@ -86,6 +88,7 @@
     "retext-simplify": "8.0.0",
     "retext-syntax-mentions": "4.0.0",
     "retext-syntax-urls": "4.0.0",
+    "sanitize-html": "2.17.7",
     "sass": "1.103.1",
     "stylelint": "17.14.1",
     "stylelint-config-recess-order": "7.8.0",

@@ -34,6 +34,12 @@ const files = await glob([
   '!collections/_docs/security.md',
   '!collections/_docs/support.md',
   '!collections/_pages/vision.md',
+  // The SDK's API reference: TypeDoc's output, vendored as the release
+  // published it, and the pages the import task derives from that. Every
+  // name and word in it belongs to the SDK, and nothing here can change one.
+  '!vendor/sdk-api/*/',
+  '!collections/_sdk-api/',
+  '!_data/sdkApi.json',
 ]);
 
 process.exitCode = matched(files, SPELLCHECKED)

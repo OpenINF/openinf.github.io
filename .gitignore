@@ -11,3 +11,5 @@ node_modules/
 # Ignore generated build products.
 _site/
 /assets/
+/collections/_sdk-api/
+/_data/sdkApi.json

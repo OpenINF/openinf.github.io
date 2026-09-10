@@ -1,0 +1,33 @@
+---
+title: OpenINF SDK
+layout: deep-page.liquid
+permalink: /docs/sdk/
+description: API reference and package guides for the OpenINF SDK.
+body_classes: docs doc-page sdk-overview
+editable: false
+---
+The OpenINF SDK is the shared foundation for building dependable integrations
+with OpenINF. Its API reference is generated from the package source and
+rendered here in the same documentation system as the rest of the portal.
+
+{% if sdkApi and sdkApi.versions.size > 0 %}
+  <h2>API reference</h2>
+
+  {% for release in sdkApi.versions %}
+    <h3>{{ release.version }}</h3>
+
+    <p>
+      Built from SDK commit <code>{{ release.commit }}</code>.
+    </p>
+
+    <p><a href="{{ release.root }}">Browse the API reference</a></p>
+  {% endfor %}
+
+{% else %}
+  <h2>API reference</h2>
+
+  <p>
+    The complete reference for all OpenINF SDK packages will appear here with
+    the public SDK release.
+  </p>
+{% endif %}

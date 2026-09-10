@@ -29,9 +29,21 @@ const EXEMPT = new Set([
   // Eleventy takes the global data key from the filename, so kebab-casing
   // this one would quietly unhook the front matter validator.
   '_data/eleventyDataSchema.mjs',
+  // And this one, which the import task writes, is where the SDK layout and
+  // the SDK landing page read `sdkApi` from.
+  '_data/sdkApi.json',
 ]);
 
-const files = await glob(['**/*', '!_site/', '!node_modules/']);
+const files = await glob([
+  '**/*',
+  '!_site/',
+  '!node_modules/',
+  // The SDK's API reference: TypeDoc's output, vendored as the release
+  // published it, and the pages the import task derives from that. Every
+  // name and word in it belongs to the SDK, and nothing here can change one.
+  '!vendor/sdk-api/*/',
+  '!collections/_sdk-api/',
+]);
 
 // This one hands nothing to a tool, but `glob` finding nothing would still
 // leave it looping zero times and reporting success.
