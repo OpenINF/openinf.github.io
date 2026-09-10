@@ -11,7 +11,11 @@
  * the repositories in this organization do not agree on that yet.
  */
 
-import { linesOf, TRAILER_ORDER } from '@openinf/portal/build/commit-message';
+import {
+  CONTINUATION_LINE,
+  linesOf,
+  TRAILER_ORDER,
+} from '@openinf/portal/build/commit-message';
 
 /** One commit's message, split into the parts a landed message reuses. */
 export type CommitParts = {
@@ -34,9 +38,26 @@ export function partsOfMessage(message: string): CommitParts {
   const body: string[] = [];
   const trailers: string[] = [];
 
+  // A folded trailer travels with the line it belongs to. Read on its own an
+  // indented continuation carries no token, so it would be filed as body and
+  // stranded there -- and `Co-authored-by:` folded over two lines would land
+  // with the address left behind, which is attribution quietly lost.
+  let inTrailer = false;
+
   for (const line of rest) {
-    if (TRAILER_ORDER.includes(tokenOf(line))) trailers.push(line);
-    else body.push(line);
+    if (TRAILER_ORDER.includes(tokenOf(line))) {
+      trailers.push(line);
+      inTrailer = true;
+    } else if (
+      inTrailer &&
+      CONTINUATION_LINE.test(line) &&
+      line.trim() !== ''
+    ) {
+      trailers[trailers.length - 1] += `\n${line}`;
+    } else {
+      body.push(line);
+      inTrailer = false;
+    }
   }
 
   while (body.at(-1)?.trim() === '') body.pop();

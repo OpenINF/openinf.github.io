@@ -40,7 +40,7 @@ https://open.inf.is/docs/handbook/style/commit-messages/ -- in short: a
 category emoji, then optionally an action, then `：` (U+FF1A), then what
 the change does, in 50 characters or fewer and with no `#NNNN` on the end.
 
-_Copy and paste one of the following emoji into description_ -- copy
+_Copy and paste one of the following emoji into the title_ -- copy
 rather than type, since some have a lookalike spelling that is not the
 one recognized here.
 
