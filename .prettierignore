@@ -16,3 +16,7 @@ collections/_docs/contributing.md
 collections/_docs/security.md
 collections/_docs/support.md
 collections/_pages/vision.md
+
+# Derived from the vendored SDK API artifact by
+# compile.importSdkApiDocs, which rewrites them on every build.
+collections/_sdk-api/

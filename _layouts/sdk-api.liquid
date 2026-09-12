@@ -1,0 +1,111 @@
+---
+layout: default
+body_classes:
+  - docs
+  - doc-page
+  - sdk-api
+editable: false
+---
+{%- assign release = sdkApi.versions | where: 'version', api_version | first -%}
+<main class='flex-shrink-0'>
+  <article>
+    <header class='doc-head'>
+      <div class='wrap'>
+        <nav aria-label='Breadcrumb'>
+          <ol class='breadcrumb-list'>
+            <li class='breadcrumb-step'><a href='/'>Home</a></li>
+            <li class='breadcrumb-step'><a href='/docs/'>Docs</a></li>
+            <li class='breadcrumb-step'>
+              <a href='/docs/sdk/'>OpenINF SDK</a>
+            </li>
+            <li class='breadcrumb-step'>{{ api_version }}</li>
+          </ol>
+        </nav>
+        <p class='sdk-api-kicker'>API reference · {{ api_version }}</p>
+        <h1 class='doc-title'>{{ title | escape }}</h1>
+      </div>
+    </header>
+
+    <div class='doc-body'>
+      <div class='wrap sdk-api-grid'>
+        <div class='doc-prose'>{{ content | sanitizeSdkHtml }}</div>
+
+        {%- comment -%}
+          Every package, with the one this page belongs to opened beneath it to
+          show the symbols declared alongside it. TypeDoc's own theme keeps
+          that tree in a sidebar and expands it with script; a page here knows
+          its own package from its front matter, so the same reach costs none.
+          A closed package says how many symbols it holds, which its name does
+          not.
+        {%- endcomment -%}
+        {%- if release -%}
+          <nav class='sdk-api-nav' aria-label='API reference'>
+            <p class='sdk-api-nav-title'>Packages</p>
+            <ul class='sdk-api-nav-list'>
+              {%- for package in release.navigation -%}
+                {%- assign is_open = false -%}
+                {%- if package.title == api_package -%}
+                  {%- assign is_open = true -%}
+                {%- endif -%}
+                <li
+                  class='sdk-api-nav-package{% if is_open %} is-open{% endif %}'
+                >
+                  {%- if package.url -%}
+                    <a
+                      class='sdk-api-nav-package-name'
+                      href='{{ package.url | escape }}'
+                      {% if package.url == page.url %}
+                        aria-current='page'
+                      {% endif %}
+                    >
+                      {{- package.title | escape -}}
+                    </a>
+                  {%- else -%}
+                    <span class='sdk-api-nav-package-name'>
+                      {{- package.title | escape -}}
+                    </span>
+                  {%- endif -%}
+                  {%- if is_open -%}
+                    {%- for group in package.children -%}
+                      {%- if group.children -%}
+                        <p class='sdk-api-nav-group'>
+                          {{- group.title | escape -}}
+                        </p>
+                        <ul class='sdk-api-nav-symbols'>
+                          {%- for symbol in group.children -%}
+                            {%- if symbol.url -%}
+                              <li>
+                                <a
+                                  href='{{ symbol.url | escape }}'
+                                  {% if symbol.url == page.url %}
+                                    aria-current='page'
+                                  {% endif %}
+                                >
+                                  {{- symbol.title | escape -}}
+                                </a>
+                              </li>
+                            {%- endif -%}
+                          {%- endfor -%}
+                        </ul>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  {%- else -%}
+                    {%- assign symbols = 0 -%}
+                    {%- for group in package.children -%}
+                      {%- assign symbols = symbols
+                        | plus: group.children.size
+                      -%}
+                    {%- endfor -%}
+                    {%- if symbols > 0 -%}
+                      <span class='sdk-api-nav-count'>{{ symbols }}</span>
+                    {%- endif -%}
+                  {%- endif -%}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </nav>
+        {%- endif -%}
+      </div>
+    </div>
+  </article>
+</main>

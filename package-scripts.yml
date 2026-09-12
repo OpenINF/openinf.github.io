@@ -1,6 +1,7 @@
 scripts:
   compile:
     buildPortal: node build/tasks/compile/build-portal.mts
+    importSdkApiDocs: node build/tasks/compile/import-sdk-api-docs.mts
     siteifyHealthFiles: node build/tasks/compile/siteify-health-files.mts
   verify:
     # Announces each task and names the ones that failed. Without this the

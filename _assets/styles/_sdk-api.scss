@@ -1,0 +1,143 @@
+@use 'sass:color';
+
+// Generated API reference pages use the same reading typography as the
+// community documentation. Their one additional element is the navigation
+// beside them: ten package roots, with the symbols of whichever package the
+// page belongs to opened underneath it, so that a function is one click from
+// the ones declared beside it.
+
+$sdk-api-rule: color.mix($tertiary, $body-bg, 35%);
+
+.sdk-api .sdk-api-kicker {
+  margin: 1rem 0 0;
+  font-family: $font-family-monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgb(231 231 214 / 72%);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.sdk-api .sdk-api-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 65ch) minmax(11rem, 15rem);
+  gap: clamp(2rem, 5vw, 5rem);
+  justify-content: center;
+}
+
+.sdk-api .doc-prose {
+  width: 100%;
+  margin-inline: 0;
+}
+
+.sdk-api .sdk-api-nav {
+  align-self: start;
+  padding-inline-start: 1.25rem;
+  border-inline-start: 1px solid $sdk-api-rule;
+}
+
+.sdk-api .sdk-api-nav-title {
+  margin: 0;
+  font-family: $font-family-monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.sdk-api .sdk-api-nav-list {
+  padding: 0;
+  margin: 0.875rem 0 0;
+  list-style: none;
+}
+
+.sdk-api .sdk-api-nav-package + .sdk-api-nav-package {
+  margin-top: 0.5rem;
+}
+
+// The package a page belongs to is the one carrying a list, so it reads as a
+// heading over that list rather than as another item in the same column.
+.sdk-api .sdk-api-nav-package.is-open {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.sdk-api .sdk-api-nav-package.is-open > .sdk-api-nav-package-name {
+  font-weight: 700;
+}
+
+.sdk-api .sdk-api-nav-list a {
+  color: $doc-link;
+  text-decoration: none;
+}
+
+.sdk-api .sdk-api-nav-list a:hover,
+.sdk-api .sdk-api-nav-list a[aria-current='page'] {
+  text-decoration: underline;
+}
+
+.sdk-api .sdk-api-nav-list a[aria-current='page'] {
+  font-weight: 700;
+}
+
+// How many symbols a closed package holds, which its name does not say.
+.sdk-api .sdk-api-nav-count {
+  margin-inline-start: 0.5ch;
+  font-family: $font-family-monospace;
+  font-size: 0.75rem;
+  color: $doc-muted;
+}
+
+// What the open package's symbols are grouped by -- Functions, Classes, and
+// so on -- set quietly, since the names beneath are what is being scanned.
+.sdk-api .sdk-api-nav-group {
+  margin: 0.75rem 0 0;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: $doc-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+// Indented past the package names, against a rule, so that the column reads
+// as one package opened rather than as packages interrupted by a list.
+.sdk-api .sdk-api-nav-group,
+.sdk-api .sdk-api-nav-symbols {
+  padding-inline-start: 0.75rem;
+  border-inline-start: 1px solid $doc-hairline;
+}
+
+.sdk-api .sdk-api-nav-symbols {
+  margin: 0.25rem 0 0;
+  font-family: $font-family-monospace;
+  font-size: 0.8125rem;
+  list-style: none;
+}
+
+.sdk-api .sdk-api-nav-symbols li + li {
+  margin-top: 0.25rem;
+}
+
+// A package with eighty-odd symbols makes a column far taller than the prose
+// beside it, and navigation that scrolls away is navigation you have to go
+// back for. Only where there are two columns to begin with: stacked, it is
+// the end of the page and scrolls with it.
+@media (width >= 960px) {
+  .sdk-api .sdk-api-nav {
+    position: sticky;
+    top: calc(#{$navbar-height} + 1.5rem);
+    max-height: calc(100vh - #{$navbar-height} - 3rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+@media (width < 960px) {
+  .sdk-api .sdk-api-grid {
+    display: block;
+  }
+
+  .sdk-api .sdk-api-nav {
+    margin-top: 3rem;
+  }
+}

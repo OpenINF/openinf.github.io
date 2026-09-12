@@ -4,6 +4,7 @@ import { extname, join, parse as pathParse } from 'node:path';
 import { EleventyI18nPlugin } from '@11ty/eleventy';
 import { PATHS } from '@openinf/portal/build/constants';
 import { hasViewBox, replaceInlineSvg } from '@openinf/portal/build/inline-svg';
+import { sanitizeSdkHtml } from '@openinf/portal/build/sdk-docs';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import { minify as minifyHtml } from 'html-minifier-terser';
@@ -18,6 +19,9 @@ import { minify as minifyJs } from 'terser';
 // skipcq: JS-0116
 export default async function (eleventyConfig) {
   const isProduction = process.env.ELEVENTY_ENV === 'production';
+  // This registers a sanitizer callback, not a value containing HTML.
+  // eslint-disable-next-line xss/no-mixed-html
+  eleventyConfig.addFilter('sanitizeSdkHtml', sanitizeSdkHtml);
 
   eleventyConfig.amendLibrary('md', (md) => {
     md.use(markdownItAnchor);
@@ -120,6 +124,10 @@ export default async function (eleventyConfig) {
   // only from being rendered as a page -- passthrough still publishes it
   // beside the icons it covers.
   eleventyConfig.ignores.add(`${PATHS.assetsDir}**/*.md`);
+  // SDK release artifacts are transformed into the generated collection by a
+  // build task. Rendering their raw Markdown directly would publish every
+  // source path twice and leave TypeDoc's `.md` links intact.
+  eleventyConfig.ignores.add('vendor/sdk-api/**');
 
   // The stylesheet is compiled by Eleventy as a template of its own, which is
   // what puts it in the dependency graph: editing a partial recompiles

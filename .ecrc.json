@@ -13,7 +13,10 @@
     "collections/_docs/contributing.md",
     "collections/_docs/security.md",
     "collections/_docs/support.md",
-    "collections/_pages/vision.md"
+    "collections/_pages/vision.md",
+    "vendor/sdk-api/[^/]+/",
+    "collections/_sdk-api/",
+    "_data/sdkApi.json"
   ],
   "AllowedContentTypes": [],
   "PassedFiles": [],

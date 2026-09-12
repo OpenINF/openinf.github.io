@@ -7,7 +7,15 @@
 
 import { exec, glob, matched, quote } from '@openinf/portal/build/utils';
 
-const EXCLUDED = ['!_site/', '!node_modules/'];
+const EXCLUDED = [
+  '!_site/',
+  '!node_modules/',
+  // The SDK API artifact's manifest and navigation data are generated
+  // by the SDK, and the import task validates them on the way in.
+  '!vendor/sdk-api/*/',
+  '!collections/_sdk-api/',
+  '!_data/sdkApi.json',
+];
 
 const jsonFiles = await glob(['**/*.json', '**/*.jsonc', ...EXCLUDED]);
 // Biome has no JSON5 parser. Handed one it reports the path as ignored and

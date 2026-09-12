@@ -19,7 +19,11 @@
     "collections/_docs/contributing.md",
     "collections/_docs/security.md",
     "collections/_docs/support.md",
-    "collections/_pages/vision.md"
+    "collections/_pages/vision.md",
+    // The SDK's API reference: TypeDoc's output, vendored as the release
+    // published it, and the pages the import task derives from that.
+    "vendor/sdk-api/*/**",
+    "collections/_sdk-api/"
   ],
 
   "markdownItPlugins": [
