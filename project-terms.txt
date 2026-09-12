@@ -1,14 +1,15 @@
 abled
 Aftertabs
 Anson
+atrule
 autolinks
 backref
 bento
 bibtex
 biomejs
 blockified
-Browserslist
 browserslist
+Browserslist
 browserslistrc
 davidanson
 dbaeumer
@@ -74,9 +75,9 @@ rowspan
 rubocop
 screencap
 sdcard
+semgrep
 SEMGREP
 Semgrep
-semgrep
 Servagility
 signingkey
 siteify
