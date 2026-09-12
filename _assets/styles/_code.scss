@@ -1,0 +1,71 @@
+@use 'sass:color';
+
+// Token colors for the highlighting Prism does at build time. Code sits on
+// $secondary rather than on the page, so every color here is chosen against
+// that and not against parchment. The palette is the site's own, shaded for contrast rather than widened:
+// warm red for the words a language reserves, teal for the values written
+// literally, and the body's own muted ink for everything structural. Nothing
+// here invents a hue the rest of the site does not use.
+
+$code-structural: color.mix($body-color, $secondary, 74%);
+$code-comment: color.mix($body-color, $secondary, 72%);
+$code-keyword: shade-color($quaternary, 22%);
+$code-literal: shade-color($primary, 22%);
+$code-callable: shade-color($primary, 48%);
+
+.doc-page .doc-prose pre code .token.comment,
+.doc-page .doc-prose pre code .token.prolog,
+.doc-page .doc-prose pre code .token.cdata {
+  font-style: italic;
+  color: $code-comment;
+}
+
+.doc-page .doc-prose pre code .token.punctuation,
+.doc-page .doc-prose pre code .token.operator,
+.doc-page .doc-prose pre code .token.entity,
+.doc-page .doc-prose pre code .token.url {
+  color: $code-structural;
+}
+
+.doc-page .doc-prose pre code .token.keyword,
+.doc-page .doc-prose pre code .token.atrule,
+.doc-page .doc-prose pre code .token.rule,
+.doc-page .doc-prose pre code .token.important,
+.doc-page .doc-prose pre code .token.tag,
+.doc-page .doc-prose pre code .token.selector {
+  color: $code-keyword;
+}
+
+.doc-page .doc-prose pre code .token.string,
+.doc-page .doc-prose pre code .token.char,
+.doc-page .doc-prose pre code .token.number,
+.doc-page .doc-prose pre code .token.boolean,
+.doc-page .doc-prose pre code .token.constant,
+.doc-page .doc-prose pre code .token.regex,
+.doc-page .doc-prose pre code .token.attr-value {
+  color: $code-literal;
+}
+
+.doc-page .doc-prose pre code .token.function,
+.doc-page .doc-prose pre code .token.class-name,
+.doc-page .doc-prose pre code .token.builtin,
+.doc-page .doc-prose pre code .token.attr-name,
+.doc-page .doc-prose pre code .token.property,
+.doc-page .doc-prose pre code .token.symbol {
+  color: $code-callable;
+}
+
+// A shell session prints its prompt and its output in the same block. The
+// command is what a reader copies, so the rest recedes.
+.doc-page .doc-prose pre code .token.output,
+.doc-page .doc-prose pre code .token.shell-symbol {
+  color: $code-structural;
+}
+
+.doc-page .doc-prose pre code .token.deleted {
+  color: shade-color($quaternary, 22%);
+}
+
+.doc-page .doc-prose pre code .token.inserted {
+  color: shade-color($primary, 40%);
+}

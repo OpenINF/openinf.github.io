@@ -12,9 +12,60 @@ import markdownItAnchor from 'markdown-it-anchor';
 import markdownItFootnote from 'markdown-it-footnote';
 import markdownItGitHubAlerts from 'markdown-it-github-alerts';
 import postcss from 'postcss';
+import Prism from 'prismjs';
+import loadPrismLanguages from 'prismjs/components/index.js';
 import { compileString } from 'sass';
 import { optimize as optimizeSvg } from 'svgo';
 import { minify as minifyJs } from 'terser';
+
+// Highlighting happens here rather than in the browser: a page is static by
+// the time it is served, and shipping a highlighter to run over it again would
+// be work done twice. Grammars are loaded once, at build time.
+//
+// Only what the site's own pages and the SDK's generated corpus actually use.
+// Prism resolves `ts`, `js`, `sh` and `shell` through its own aliases, so this
+// is a list of grammars rather than of the flags a fence may carry.
+loadPrismLanguages([
+  'bash',
+  'diff',
+  'json',
+  'markdown',
+  'markup',
+  'shell-session',
+  'typescript',
+  'yaml',
+]);
+
+// Prism has no `console`; a prompt-and-output block is `shell-session` to it.
+const PRISM_ALIASES = new Map([['console', 'shell-session']]);
+
+// Every grammar that got loaded, by name, aliases included. A map rather than
+// `Prism.languages` itself, because looking a flag up on that object reaches
+// its prototype as readily as its grammars: a block flagged `constructor`
+// would find `Object`'s and be handed to the tokenizer as if it were one. The
+// three helpers Prism keeps alongside the grammars are functions, and drop out
+// on the same test.
+const PRISM_GRAMMARS = new Map(
+  Object.entries(Prism.languages).filter(
+    ([, grammar]) => typeof grammar === 'object'
+  )
+);
+
+/**
+ * Marks up one fenced block, or gives markdown-it nothing and lets it escape
+ * the code itself. An unknown flag is not an error here: `text` is a fence
+ * with nothing to highlight, and the generated corpus carries flags from
+ * declarations this repository does not write.
+ * @param {string} code The block's contents.
+ * @param {string} flag Its info string.
+ * @returns {string} Highlighted HTML, or an empty string.
+ */
+const highlight = (code, flag) => {
+  const language = PRISM_ALIASES.get(flag) ?? flag;
+  const grammar = PRISM_GRAMMARS.get(language);
+
+  return grammar === undefined ? '' : Prism.highlight(code, grammar, language);
+};
 
 // skipcq: JS-0116
 export default async function (eleventyConfig) {
@@ -24,6 +75,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter('sanitizeSdkHtml', sanitizeSdkHtml);
 
   eleventyConfig.amendLibrary('md', (md) => {
+    md.set({ highlight });
     md.use(markdownItAnchor);
     md.use(markdownItFootnote);
     // `> [!NOTE]` and the rest become a titled callout rather than a
