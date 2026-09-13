@@ -52,6 +52,7 @@ const infoStrings = [
   'scheme',
   'tex',
   'text',
+  'ts',
   'typescript',
   'yaml',
 ];
