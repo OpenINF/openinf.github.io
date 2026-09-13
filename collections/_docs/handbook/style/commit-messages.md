@@ -146,6 +146,19 @@ Certificate of Origin][], and saying a tool helped is not a transfer of
 responsibility. You are answerable for every line in your pull request, whatever
 wrote it.
 
+The check refuses a `Co-authored-by:` that names an assistant or a bot account,
+rather than leaving it to a reviewer to notice. An agent writing its own commit
+message reaches for that trailer by habit, and once a wrong one lands it is in
+the history for good.
+
+It refuses on three things: the `[bot]` suffix, which GitHub reserves so that no
+person can hold it; the addresses the agents commit under, which are theirs
+alone and not the ones their staff use; and a handful of product names. Only the
+last can reach a person, and realistically only `claude`, which is also a name
+people have. If it ever refuses a real co-author, narrow the pattern in the same
+pull request. Do not drop the credit -- a co-author belongs in the trailer,
+where GitHub reads it, and not in a sentence in the body.
+
 > [!WARNING]
 >
 > git only looks for trailers in the **last** paragraph of the message, and only
