@@ -199,6 +199,41 @@ describe('checksVerdict', () => {
     deepStrictEqual(checksVerdict([run('Lint and test', 'success')], []), '');
   });
 
+  test('refuses to land when GitHub reports no checks', () => {
+    // An empty answer read as a passing one. `main` carries no branch
+    // protection, so nothing else stood between the label and the merge.
+    match(checksVerdict([], []), /reported no checks/);
+  });
+
+  test('requires the configured checks to have reported', () => {
+    // A third-party status answers in seconds; this repository's workflows
+    // take longer to create their check runs. In between, the pull request
+    // looks green and has been built by nobody.
+    match(
+      checksVerdict(
+        [run('Lint and test', 'success')],
+        [{ context: 'Socket Security', state: 'success' }],
+        '',
+        '',
+        ['Lint and test', 'CodeQL']
+      ),
+      /have not reported: CodeQL/
+    );
+  });
+
+  test('accepts the configured checks once they pass', () => {
+    deepStrictEqual(
+      checksVerdict(
+        [run('Lint and test', 'success'), run('CodeQL', 'success')],
+        [],
+        '',
+        '',
+        ['Lint and test', 'CodeQL']
+      ),
+      ''
+    );
+  });
+
   test('reads only the newest run of a check', () => {
     // A workflow that cancels superseded runs leaves the cancelled one on the
     // commit beside the run that replaced it.

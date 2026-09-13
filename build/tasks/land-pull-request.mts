@@ -158,7 +158,11 @@ const checksRefuse = (sha: string) =>
       )
     ),
     process.env.GITHUB_RUN_ID ?? '',
-    process.env.LAND_CHECK_NAME ?? ''
+    process.env.LAND_CHECK_NAME ?? '',
+    (process.env.LAND_REQUIRED_CHECKS ?? '')
+      .split(',')
+      .map((name) => name.trim())
+      .filter((name) => name !== '')
   );
 
 /**

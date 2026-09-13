@@ -70,6 +70,12 @@ jobs:
           # exits non-zero and leaves a failed check behind, so without this
           # the first one would be cited by every attempt after it.
           LAND_CHECK_NAME: Land
+          # Do not read a check that has not reported as one that passed.
+          # These are this repository's own gates, and every pull request gets
+          # all of them, so one missing means the run has not started yet.
+          LAND_REQUIRED_CHECKS: >-
+            Lint and test,Analyze (javascript-typescript),CodeQL,Title and
+            description,Scan
         run: node build/tasks/land-pull-request.mts "${NUMBER}"
 
       # The label is a request, not a state: once the queue has answered it,

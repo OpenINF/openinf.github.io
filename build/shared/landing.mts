@@ -140,13 +140,15 @@ export type CommitStatus = { context: string; state: string };
  * @param {CommitStatus[]} statuses The commit statuses reported on it.
  * @param {string} ownRunId The workflow run doing the asking, if it is one.
  * @param {string} ownCheckName What the queue reports as, if it knows.
+ * @param {string[]} requiredChecks Check runs that must have reported.
  * @returns {string} The reason, or an empty string if there is none.
  */
 export function checksVerdict(
   all: CheckRun[],
   statuses: CommitStatus[],
   ownRunId = '',
-  ownCheckName = ''
+  ownCheckName = '',
+  requiredChecks: readonly string[] = []
 ) {
   const isOwn = (run: CheckRun) =>
     (ownRunId !== '' &&
@@ -164,6 +166,23 @@ export function checksVerdict(
   }
 
   const runs = [...newest.values()];
+
+  // A gate that has not reported is not a gate that passed. GitHub creates a
+  // check run when the workflow starts, not when the pull request opens, so
+  // between a third-party status answering in seconds and this repository's
+  // own workflows appearing there is a window where the only honest answer is
+  // that nothing has been checked yet.
+  const missing = requiredChecks.filter((name) => !newest.has(name));
+
+  if (missing.length > 0) {
+    return `these have not reported: ${missing.sort().join(', ')}`;
+  }
+
+  // And an empty answer is not a passing answer, whatever is required.
+  if (runs.length === 0 && statuses.length === 0) {
+    return 'GitHub reported no checks';
+  }
+
   const pending = [
     ...runs.filter((run) => run.status !== 'completed').map((run) => run.name),
     ...statuses
