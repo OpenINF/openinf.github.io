@@ -221,7 +221,25 @@ const trailerBlockOf = (paragraphs: string[][]) => {
       (line) => TRAILER_LINE.test(line) || CONTINUATION_LINE.test(line)
     );
 
-  return isBlock ? last.filter((line) => !CONTINUATION_LINE.test(line)) : [];
+  // A folded trailer is one trailer, not a trailer and a stray line. git
+  // joins the indented line onto the value, and `git interpret-trailers
+  // --parse` prints the two back as one, so this does the same. Dropping the
+  // continuation instead would put whatever got wrapped out of reach of every
+  // check below -- an address most of all, which is the half that says who a
+  // trailer names.
+  return isBlock
+    ? last.reduce<string[]>((folded, line) => {
+        const previous = folded.at(-1);
+
+        if (previous !== undefined && CONTINUATION_LINE.test(line)) {
+          folded[folded.length - 1] = `${previous} ${line.trim()}`;
+        } else {
+          folded.push(line);
+        }
+
+        return folded;
+      }, [])
+    : [];
 };
 
 /**
@@ -454,12 +472,12 @@ export function validateCommitMessage(message: string) {
     problems.push('the line after the subject has to be blank');
   }
 
-  // Where the trailer block starts, or past the end when there is none. A
-  // trailer is one line by construction here: git would read a folded value,
-  // but `readTrailers` keeps only the token line, so wrapping a long
-  // `Signed-off-by:` to fit would put the author out of reach of the sign-off
-  // check. The block is exempt from the width limit rather than made to fit
-  // inside it, which is also what the limit is for -- prose that is read.
+  // Where the trailer block starts, or past the end when there is none. The
+  // block is exempt from the width limit rather than made to fit inside it,
+  // which is what the limit is for -- prose that is read. A trailer long
+  // enough to need wrapping is wrapped by nobody here, and one that arrives
+  // wrapped anyway is read whole, since `trailerBlockOf` folds it back the
+  // way git does.
   const paragraphs = paragraphsOf(rest);
   const blockStart =
     trailerBlockOf(paragraphs).length > 0

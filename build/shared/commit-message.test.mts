@@ -13,6 +13,7 @@ import {
   ACTIONS,
   BODY_MAX,
   CATEGORIES,
+  checkSignOff,
   readTrailers,
   validateCommitMessage,
 } from '@openinf/portal/build/commit-message';
@@ -308,6 +309,31 @@ describe('validateCommitMessage: the trailers', () => {
     );
   });
 
+  test('rejects an assistant whose address is on a folded line', () => {
+    // git joins the indented line onto the value and reads one trailer, so a
+    // wrapped address is still the address. Keeping only the token line would
+    // have made folding a way around the check.
+    match(
+      soleProblem(
+        '🏗️🔧：fix it\n\nCo-authored-by: Some Person\n <noreply@anthropic.com>'
+      ),
+      /credits a tool with authorship/
+    );
+  });
+
+  test('reads a folded sign-off as the whole address', () => {
+    // The same fold, on the trailer whose value the sign-off check compares
+    // against the author. Dropping the continuation put the author out of
+    // reach and the sign-off passed for nobody.
+    deepStrictEqual(
+      checkSignOff(
+        '🏗️🔧：fix it\n\nSigned-off-by: Ada Lovelace\n <ada@example.com>',
+        'Ada Lovelace <ada@example.com>'
+      ),
+      []
+    );
+  });
+
   test('rejects a token this project does not use', () => {
     match(
       soleProblem('🏗️🔧：fix it\n\nCloses: https://x/1'),
@@ -430,8 +456,9 @@ describe('the vocabulary', () => {
 
 describe('the width limit', () => {
   test('leaves a trailer that cannot be wrapped alone', () => {
-    // Folding this to fit would put the author on a continuation line, where
-    // `readTrailers` does not look and so `checkSignOff` could not match it.
+    // Trailers are metadata rather than prose, and the limit is for prose.
+    // Folding this one to fit would be read correctly either way, but there
+    // is no reason to make somebody wrap an address to please a linter.
     const long =
       'Signed-off-by: Christopher Alexander Montgomery ' +
       '<christopher.montgomery@example.org>';
