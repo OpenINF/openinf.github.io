@@ -332,8 +332,8 @@ importers:
         specifier: 11.0.5
         version: 11.0.5
       vnu-jar:
-        specifier: 26.9.5
-        version: 26.9.5
+        specifier: 26.9.7
+        version: 26.9.7
       yaml:
         specifier: 2.9.0
         version: 2.9.0
@@ -3842,8 +3842,8 @@ packages:
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
 
-  vnu-jar@26.9.5:
-    resolution: {integrity: sha512-xvmIFokEw0eii/JipOpCXNJC27cw7x9OBRRXl8bQUF2JBfzmOJd4Pcipvb5uA6jiZIyENdCimaqVx2loLFnZ3g==}
+  vnu-jar@26.9.7:
+    resolution: {integrity: sha512-ZwoNfGQQBWCAEFMtz1fokv4PBC+WhF13QQA+Q/AFNyqnb57aAApnsyquMT+9dK8H96jzuGz9eydYMeaSisyYow==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -6890,9 +6890,9 @@ snapshots:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
-  postcss-sorting@10.0.0(postcss@8.5.26):
+  postcss-sorting@10.0.0(postcss@8.5.28):
     dependencies:
-      postcss: 8.5.26
+      postcss: 8.5.28
 
   postcss-svgo@9.0.2(postcss@8.5.28):
     dependencies:
@@ -7961,8 +7961,8 @@ snapshots:
 
   stylelint-order@8.1.1(stylelint@17.15.0(supports-color@10.2.2)(typescript@7.0.2)):
     dependencies:
-      postcss: 8.5.26
-      postcss-sorting: 10.0.0(postcss@8.5.26)
+      postcss: 8.5.28
+      postcss-sorting: 10.0.0(postcss@8.5.28)
       stylelint: 17.15.0(supports-color@10.2.2)(typescript@7.0.2)
 
   stylelint-scss@7.2.0(stylelint@17.15.0(supports-color@10.2.2)(typescript@7.0.2)):
@@ -8313,7 +8313,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vnu-jar@26.9.5: {}
+  vnu-jar@26.9.7: {}
 
   vscode-languageserver-textdocument@1.0.14: {}
 
