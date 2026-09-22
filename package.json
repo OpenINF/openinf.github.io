@@ -15,6 +15,7 @@
     "./build/landing": "./build/shared/landing.mts",
     "./build/pull-request": "./build/shared/pull-request.mts",
     "./build/sdk-docs": "./build/shared/sdk-docs.mts",
+    "./build/sdk-release": "./build/shared/sdk-release.mts",
     "./build/utils": "./build/utils.mts"
   },
   "homepage": "https://open.inf.is",

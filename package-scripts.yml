@@ -25,6 +25,10 @@ scripts:
     # Outside it for the same reason: this one reaches the network, and an
     # upstream that is slow or moved would fail unrelated changes.
     vendored: node build/tasks/check-vendored.mts
+    # Outside it for that reason too. Asks the SDK repository what it has
+    # released, and says whether a release's API reference never arrived
+    # here. The SDK API drift workflow runs it weekly.
+    sdkApiDrift: node build/tasks/check-sdk-api-drift.mts
     runtimes: node build/tasks/verify/verify-runtimes.mts
     svg: node build/tasks/verify/verify-svg.mts
     toml: node build/tasks/verify/verify-toml.mts
@@ -48,6 +52,11 @@ scripts:
   # Squash a pull request into one commit with a message built from the
   # commits it contains. Takes a number, and --dry-run to see it first.
   land: node build/tasks/land-pull-request.mts
+  # Place a downloaded `sdk-api-docs` artifact under vendor/sdk-api/, where
+  # compile.importSdkApiDocs reads it. Takes --from <directory>. The SDK API
+  # sync workflow runs this; by hand it is step 2 of "Publishing the API
+  # reference" in the SDK's RELEASING.md.
+  unpackSdkApiArtifact: node build/tasks/unpack-sdk-api-artifact.mts
   build: nps compile.buildPortal
   test: nps verify.all
   start: eleventy --serve

@@ -35,9 +35,26 @@ vendor/sdk-api/
 
 The SDK's **Release** workflow builds one on the run that publishes, from the
 versions that shipped and the commit they shipped from, and attaches it to that
-run as **sdk-api-docs**. Adding it here is a deliberate step, described under
-"Publishing the API reference" in the SDK's `RELEASING.md`: download the
-artifact, unzip it beside the releases already here, and open a pull request.
+run as **sdk-api-docs**.
+
+Bringing it here is the **SDK API sync** workflow, started with the ID of that
+run. It downloads the artifact, places it beside the releases already here,
+imports it to check this portal can render it, and opens a pull request. The
+check on that pull request is what confirms the reference will appear; a
+refused artifact fails the workflow instead of becoming one.
+
+This portal fetches rather than the SDK pushing. The SDK's release job holds
+the credential that publishes to the registry, and giving it a second one that
+could write here would widen what a mistake in that job reaches. Everything
+needed to refuse a bad artifact is already here, so the fetching is here too.
+
+Nothing makes that step happen. When it is missed the packages are published
+all the same and this portal simply never hears about them, so the **SDK API
+drift** workflow asks the SDK weekly what it has released and files an issue
+when a release is missing its reference here.
+
+By hand, the same three steps are described under "Publishing the API
+reference" in the SDK's `RELEASING.md`.
 
 A release adds a version rather than replacing one. Every release keeps the
 reference it was published with, so a link into an older version keeps

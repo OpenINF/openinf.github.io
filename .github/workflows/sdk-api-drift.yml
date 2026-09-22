@@ -1,0 +1,123 @@
+# Watching for an SDK release whose API reference never arrived here.
+#
+# Handing a release's reference over is a step of its own -- the **SDK API
+# sync** workflow beside this one, or the manual walk through "Publishing the
+# API reference" in the SDK's `RELEASING.md`. Nothing fails when it is missed.
+# The packages are on the registry either way, `/docs/sdk/` simply goes on
+# listing the releases it already had, and the omission keeps until somebody
+# notices the reference is a version behind. This is what notices.
+#
+# Weekly rather than on every pull request, because this reaches the network:
+# an API that is slow, rate-limiting or unreachable would otherwise fail
+# changes that have nothing to do with it. That is the same line
+# `vendored-sync.yml` draws, and the reason `check-sdk-api-drift.mts` sits
+# outside `verify/` with `check-vendored.mts`.
+#
+# It opens an issue rather than a pull request. What to do about a missing
+# reference is to run the sync workflow with a run ID only a person can look
+# up, so there is nothing here for a pull request to carry.
+#
+# Actions are pinned by commit, never by tag.
+name: SDK API drift
+
+on:
+  schedule:
+    # Friday, clear of the other three scheduled runs.
+    - cron: '0 5 * * 5'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+# A scheduled run and a hand-started one should not both file the same report.
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Check the published API reference
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out project repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Nothing here pushes, and a token left in .git/config is one more
+          # thing that could be picked up by something that should not have it.
+          persist-credentials: false
+
+      - name: Set up Node.js runtime
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: 'package.json'
+
+      # Unlike `vendored-sync.yml`, this one installs. The task orders
+      # releases with the same comparison `/docs/sdk/` lists them by, which
+      # lives beside the HTML sanitizing in `build/shared/sdk-docs.mts`, so
+      # node has `sanitize-html` to resolve before any of it runs. Sharing
+      # that comparison is worth an install on a weekly job; writing a second
+      # one that sorted 10.0.0 below 4.2.0 would not be.
+      - name: Install
+        run: |
+          # No corepack: node is unbundling it, and pnpm reads
+          # `packageManager` and fetches that version itself. Installing the
+          # named one rather than the newest saves fetching pnpm twice.
+          npm install --global "pnpm@$(node -p "require('./package.json').packageManager.replace('pnpm@','').split('+')[0]")"
+          pnpm install
+
+      - name: Compare against the SDK's releases
+        id: compare
+        env:
+          # The API rate-limits an anonymous caller by runner address, which
+          # is shared, so the tags are asked for as this repository.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node build/tasks/check-sdk-api-drift.mts > report.md || code=$?
+          cat report.md
+
+          # Both bits are read: being behind says nothing about whether the
+          # tags could be read, so neither answer is allowed to hide the
+          # other. Reported after the issue is filed, so an API nobody could
+          # reach cannot hold back a report about a reference that is missing.
+          echo "behind=$(( (${code:-0} & 1) != 0 ))" >> "$GITHUB_OUTPUT"
+          echo "unchecked=$(( (${code:-0} & 2) != 0 ))" >> "$GITHUB_OUTPUT"
+
+      - name: Say so, once
+        if: steps.compare.outputs.behind == '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TITLE: 📖 an SDK release is missing its API reference here
+        run: |
+          # Matched against the open issues themselves rather than through
+          # search, which is an index and lags behind what was just written.
+          # `gh` pages until it has as many as asked for, and the number is
+          # far past what this repository will hold, so the report cannot be
+          # missed and a duplicate filed beside it.
+          # One issue at a time: a weekly comment on a report nobody has acted
+          # on yet says nothing the report did not.
+          open=$(gh issue list --state open --limit 1000 --json number,title \
+            --jq 'map(select(.title == env.TITLE)) | .[0].number // empty')
+
+          if [ -n "$open" ]; then
+            echo "already reported in #${open}"
+            exit 0
+          fi
+
+          {
+            echo 'The SDK has published a release this portal does not'
+            echo 'document. Its reference is handed over separately from the'
+            echo 'packages, and nothing fails when that step is missed.'
+            echo
+            cat report.md
+          } > body.md
+
+          gh issue create --title "$TITLE" --body-file body.md
+
+      - name: Fail if the releases could not be read
+        # `always()`, so this runs after a report has been filed rather than
+        # instead of one.
+        if: always() && steps.compare.outputs.unchecked == '1'
+        run: |
+          echo '::error::the SDK'"'"'s releases could not be read'
+          exit 1

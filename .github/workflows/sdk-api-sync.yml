@@ -1,0 +1,198 @@
+# Bringing one SDK release's API reference into this repository.
+#
+# The SDK generates its reference as TypeDoc Markdown and attaches it to the
+# run that published, as `sdk-api-docs`. This portal renders it from
+# `vendor/sdk-api/<version>/`. Carrying it between the two was a person
+# downloading a zip and unpacking it here, and nothing failed when nobody did:
+# the packages went to the registry either way and the reference simply stayed
+# a release behind.
+#
+# This portal pulls rather than the SDK pushing. The SDK's Release job holds
+# the credential that publishes to the registry, and giving that same job a
+# second one that could write here would widen what a mistake in it reaches.
+# Everything needed to refuse a bad artifact is already in this repository, so
+# the fetching belongs here as well.
+#
+# It opens a pull request rather than pushing to the default branch, and mints
+# an app token to do it. A pull request raised with `GITHUB_TOKEN` does not
+# start the checks -- which is why `vendored-sync.yml` files an issue instead
+# -- and here the checks are the whole point: the import task refuses a corpus
+# this portal could not render, so a green pull request is what says the
+# reference will appear. An app token starts them.
+#
+# First-time setup. This needs a GitHub App of its own, installed on both
+# repositories, with its ID in `SDK_SYNC_APP_ID` and its private key in
+# `SDK_SYNC_APP_PRIVATE_KEY`:
+#
+#   - on `sdk`:              Actions: read  (to download the run's artifact)
+#   - on `openinf.github.io`: Contents: write, Pull requests: write
+#
+# Not the app `commit-queue.yml` uses. That one can merge to the default
+# branch, and the way to keep that narrow is to not hand it a second errand
+# in another repository.
+#
+# Actions are pinned by commit, never by tag.
+name: SDK API sync
+
+on:
+  workflow_dispatch:
+    inputs:
+      run-id:
+        description: 'The SDK Release run that published, by its run ID'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+# Two releases handed over at once would write into the same directory and
+# race each other onto the same branch.
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Import the release's API reference
+    runs-on: ubuntu-latest
+    steps:
+      # Two tokens, each as narrow as the one thing it does, because this job
+      # runs `pnpm install` in the middle of itself. Lifecycle scripts are a
+      # dependency's own code, and anything they can read they can send: a
+      # single credential that could write here, sitting in the environment
+      # or in .git/config while they run, is one an install away from being
+      # somebody else's. So the reading token cannot write, the writing token
+      # is not minted until every step that runs foreign code has finished,
+      # and neither is scoped to a repository it has no business in.
+      - name: Mint a token that can only read the SDK
+        id: read-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.SDK_SYNC_APP_ID }}
+          private-key: ${{ secrets.SDK_SYNC_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: sdk
+          # Without these it inherits every permission the app was installed
+          # with, which is more than downloading one artifact needs.
+          permission-actions: read
+
+      - name: Check out project repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Left out of .git/config the way every other workflow here leaves
+          # it out. The push below brings its own, once nothing foreign is
+          # left to run.
+          persist-credentials: false
+
+      - name: Set up Node.js runtime
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: 'package.json'
+
+      - name: Download the release's API reference
+        env:
+          GH_TOKEN: ${{ steps.read-token.outputs.token }}
+          # Read from the environment rather than interpolated into the
+          # command: an input is written by whoever started the run, and one
+          # pasted into a shell is one that can run as code.
+          RUN_ID: ${{ inputs.run-id }}
+          SDK: ${{ github.repository_owner }}/sdk
+        run: |
+          gh run download "$RUN_ID" --repo "$SDK" --name sdk-api-docs \
+            --dir "$RUNNER_TEMP/sdk-api-docs"
+
+      # No install step: the task reads only what node ships with, so there is
+      # nothing to resolve before it can refuse a bad artifact. What it
+      # enforces is what cannot be enforced afterwards -- that a release is
+      # added rather than replaced, that its directory is named for a release,
+      # and that nothing arrives by symbolic link.
+      - name: Place it under vendor/sdk-api/
+        id: unpack
+        run: |
+          node build/tasks/unpack-sdk-api-artifact.mts \
+            --from "$RUNNER_TEMP/sdk-api-docs"
+
+      - name: Install
+        run: |
+          # No corepack: node is unbundling it, and pnpm reads
+          # `packageManager` and fetches that version itself. Installing the
+          # named one rather than the newest saves fetching pnpm twice.
+          npm install --global "pnpm@$(node -p "require('./package.json').packageManager.replace('pnpm@','').split('+')[0]")"
+          pnpm install
+          echo "$(pwd)/node_modules/.bin" >> $GITHUB_PATH
+
+      # The real import, against the real artifact, before a pull request
+      # exists to review. It validates the manifest, confines every path the
+      # manifest names, and refuses a corpus it cannot map onto portal URLs.
+      # The same task runs again on the pull request; failing here means a
+      # refused artifact never becomes one.
+      - name: Check the portal can render it
+        run: nps compile.importSdkApiDocs
+
+      # Only now, with the download unpacked, the install done and the import
+      # run, is a credential that can write minted. Nothing after this point
+      # runs anybody else's code.
+      - name: Mint a token that can only write here
+        id: write-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.SDK_SYNC_APP_ID }}
+          private-key: ${{ secrets.SDK_SYNC_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: openinf.github.io
+          permission-contents: write
+          permission-pull-requests: write
+
+      - name: Open a pull request
+        env:
+          GH_TOKEN: ${{ steps.write-token.outputs.token }}
+          VERSIONS: ${{ steps.unpack.outputs.versions }}
+          RUN_ID: ${{ inputs.run-id }}
+          SDK: ${{ github.repository_owner }}/sdk
+          # What the app commits as. The `[bot]` suffix is reserved -- no
+          # account can be named with it -- and is what `verify.commits` reads
+          # to leave a machine's commit messages alone.
+          APP_SLUG: ${{ steps.write-token.outputs.app-slug }}
+          APP_ID: ${{ secrets.SDK_SYNC_APP_ID }}
+        run: |
+          branch="sdk-api/$(printf '%s' "$VERSIONS" | tr -d ' ' | tr ',' '-')"
+
+          git config user.name "${APP_SLUG}[bot]"
+          git config user.email \
+            "${APP_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
+
+          # The checkout kept no credentials, so the push is given one here.
+          # Through the credential helper rather than in the remote URL: a URL
+          # carrying a token is written into .git/config, printed by `git
+          # remote -v`, and copied into the output of anything that reports
+          # what it fetched.
+          git config credential.helper \
+            '!f() { echo "username=x-access-token"; echo "password=$GH_TOKEN"; }; f'
+
+          git switch -c "$branch"
+          git add vendor/sdk-api
+          git commit --file - <<COMMIT
+          📖✨：publish the SDK ${VERSIONS} API reference
+
+          Generated by the SDK's Release run ${RUN_ID}, from the versions that
+          shipped and the commit they were published from. The pages appear
+          below /docs/sdk/<version>/api/, and the release is listed on
+          /docs/sdk/.
+
+          A release adds a version rather than replacing one, so a link into
+          an older reference keeps describing the release it was published
+          with.
+          COMMIT
+
+          git push -u origin "$branch"
+
+          gh pr create --title "📖✨：publish the SDK ${VERSIONS} API reference" \
+            --body "Before: this portal documented no \`${VERSIONS}\` API reference, and a reader following a link to it found nothing.
+
+          After: \`/docs/sdk/${VERSIONS}/api/\` renders the reference the SDK published, in the portal's own documentation layout, and \`/docs/sdk/\` lists the release.
+
+          This is the generated TypeDoc Markdown from the SDK's Release run \`${RUN_ID}\`, which built it from the versions that shipped and the commit they were published from.
+
+          How: the artifact was downloaded from that run and placed under \`vendor/sdk-api/${VERSIONS}/\` unchanged. Nothing here is edited by hand. The build imports it, validating the manifest and refusing any page it cannot map onto a portal URL, so this pull request's own check is what confirms the reference renders.
+
+          Opened by the **SDK API sync** workflow."
