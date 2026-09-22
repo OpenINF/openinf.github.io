@@ -120,26 +120,33 @@ const TRAILER_LINE = /^(?<token>[A-Za-z][\w-]*):[ \t]*(?<value>.*)$/;
 const ASSISTED_BY_VALUE = /^[^\s:]+:\S+( \S+)*$/;
 
 /**
- * A `Co-authored-by` value naming something that is not a person. Authorship
- * is a claim only a person can make: the Developer Certificate of Origin is
- * certified by whoever wrote the code, and a tool certifies nothing. An
- * assistant is disclosed with `Assisted-by` instead, which says what was used
- * rather than who wrote it.
+ * A trailer value naming something that is not a person. Both trailers that
+ * name one are held to it: `Co-authored-by`, which says who wrote the change,
+ * and `Signed-off-by`, which certifies the Developer Certificate of Origin.
+ * Neither is a claim a tool can make. An assistant is disclosed with
+ * `Assisted-by` instead, which says what was used rather than who is
+ * answerable.
  *
  * `[bot]` cannot catch a person: GitHub reserves the suffix and no account may
  * be named with it, which is the same fact the commit checker relies on to
- * recognize a bot author. The agents' noreply addresses are theirs alone. Only
+ * recognize a bot author. It is matched where an account name ends -- before
+ * the `@` of an address, or at the end of the value -- because a trailer is
+ * free text and not an account name, so an unanchored `[bot]` would also find
+ * one sitting inside somebody's name. That mattered little while only a
+ * co-author was read this way and matters now: a sign-off cannot be dropped to
+ * get around a false positive, the way a co-author credited in error could be.
+ * The agents' noreply addresses are theirs alone. Only
  * the product names can reach a person, and only one of them realistically:
  * Claude is a name people have. That is the trade accepted here, since the
  * alternative is a tool standing in the history as an author. If it ever
- * refuses a real co-author, narrow the pattern rather than drop the credit.
+ * refuses a real contributor, narrow the pattern rather than drop the trailer.
  *
  * An agent whose integration commits as a `[bot]` account needs no name here.
  * Renovate and Dependabot are out of reach either way: their commits are
  * skipped whole, so their own `[bot]` co-authors are not this check's business.
  */
-const TOOL_COAUTHOR =
-  /\[bot]|\bnoreply@(?:anthropic|openai)\.com\b|\b(?:aider|chatgpt|claude|codex|copilot|cursor)\b/i;
+const TOOL_IDENTITY =
+  /\[bot](?=@|\s*(?:<[^>]*>)?\s*$)|\bnoreply@(?:anthropic|openai)\.com\b|\b(?:aider|chatgpt|claude|codex|copilot|cursor)\b/i;
 
 /** git folds a trailer whose value runs onto an indented line beneath it. */
 export const CONTINUATION_LINE = /^\s/;
@@ -413,10 +420,25 @@ const checkTrailers = (lines: string[]) => {
 
       if (
         token.toLowerCase() === 'co-authored-by' &&
-        TOOL_COAUTHOR.test(found?.value ?? '')
+        TOOL_IDENTITY.test(found?.value ?? '')
       ) {
         problems.push(
           `“Co-authored-by: ${found?.value}” credits a tool with authorship: an assistant is disclosed with “Assisted-by:” and co-authors nothing`
+        );
+      }
+
+      // `checkSignOff` compares this trailer against the author, which catches
+      // a tool signing on somebody's behalf and nothing else: an agent that
+      // commits under its own name satisfies it, because the two agree. The
+      // trailer has to name a person whoever the author is, and saying so here
+      // leaves an agent-authored commit no spelling that passes -- the sign-off
+      // is refused as a tool, or it is refused for not naming the author.
+      if (
+        token.toLowerCase() === 'signed-off-by' &&
+        TOOL_IDENTITY.test(found?.value ?? '')
+      ) {
+        problems.push(
+          `“Signed-off-by: ${found?.value}” certifies the Developer Certificate of Origin as a tool: only the person answerable for the change can sign it off, and an assistant is disclosed with “Assisted-by:”`
         );
       }
 
@@ -521,10 +543,12 @@ export function validateCommitMessage(message: string) {
 }
 
 /**
- * Checks that a human certified the change. Only the person named as author
- * can do that: an assistant discloses itself with `Assisted-by` and does not
- * sign anything, and a bot certifying on someone's behalf is the thing this
- * exists to stop.
+ * Checks that the sign-off names the commit's own author. Whether it names a
+ * person at all is `validateCommitMessage`'s to say, since that question needs
+ * no author to answer and the trailer is read the same way in a pull request
+ * body the commit queue is about to land. The two together leave an
+ * agent-authored commit nowhere to stand: sign off as itself and the trailer
+ * names a tool, sign off as anybody else and it is not the author.
  * @param {string} message The whole commit message.
  * @param {string} author The commit's author, as `Name <email>`.
  * @returns {string[]} What is wrong with it, empty if nothing.

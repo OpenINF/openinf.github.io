@@ -334,6 +334,94 @@ describe('validateCommitMessage: the trailers', () => {
     );
   });
 
+  test('rejects an assistant signing off as itself', () => {
+    // The hole the author comparison left open. An agent that commits under
+    // its own name and signs off to match is consistent with itself, so
+    // `checkSignOff` finds nothing to say, and the message went through.
+    const message =
+      '🏗️🔧：fix it\n\nSigned-off-by: Claude <noreply@anthropic.com>';
+
+    deepStrictEqual(
+      checkSignOff(message, 'Claude <noreply@anthropic.com>'),
+      []
+    );
+    match(
+      soleProblem(message),
+      /certifies the Developer Certificate of Origin as a tool/
+    );
+  });
+
+  test('rejects an assistant signing off for somebody else, twice over', () => {
+    // Refused by both halves now: it does not name the author, and it does
+    // not name a person. Only the second survives a change of author.
+    const message =
+      '🏗️🔧：fix it\n\nSigned-off-by: Claude Code <noreply@anthropic.com>';
+
+    match(
+      checkSignOff(message, 'Ada Lovelace <ada@example.com>')[0] ?? '',
+      /but the author is/
+    );
+    match(
+      soleProblem(message),
+      /certifies the Developer Certificate of Origin as a tool/
+    );
+  });
+
+  test('rejects a bot account signing off', () => {
+    match(
+      soleProblem(
+        '🏗️🔧：fix it\n\nSigned-off-by: some-app[bot] <1234+some-app[bot]@users.noreply.github.com>'
+      ),
+      /certifies the Developer Certificate of Origin as a tool/
+    );
+  });
+
+  test('leaves a person with [bot] inside their name or address alone', () => {
+    // `[bot]` is read where an account name ends, not wherever it appears. A
+    // trailer is free text, so an unanchored match also finds one sitting in
+    // the middle of somebody's name -- and a sign-off, unlike a co-author
+    // credit, cannot be dropped to get past a false positive.
+    deepStrictEqual(
+      validateCommitMessage(
+        '🏗️🔧：fix it\n\nSigned-off-by: Ada [bot] Smith <ada@example.com>'
+      ),
+      []
+    );
+    deepStrictEqual(
+      validateCommitMessage(
+        '🏗️🔧：fix it\n\nCo-authored-by: Ada Smith <ada[bot]smith@example.com>'
+      ),
+      []
+    );
+  });
+
+  test('still reads a bot account with no address to end it', () => {
+    match(
+      soleProblem('🏗️🔧：fix it\n\nCo-authored-by: some-app[bot]'),
+      /credits a tool with authorship/
+    );
+  });
+
+  test('leaves a person at one of those companies signing off alone', () => {
+    deepStrictEqual(
+      validateCommitMessage(
+        '🏗️🔧：fix it\n\nSigned-off-by: Ada Lovelace <ada@anthropic.com>'
+      ),
+      []
+    );
+  });
+
+  test('rejects an assistant whose sign-off address is on a folded line', () => {
+    // The fold hides the address on this trailer the same way it hides one on
+    // a co-author, and the value is read whole here too.
+    match(
+      soleProblem(
+        '🏗️🔧：fix it\n\nSigned-off-by: Some Person\n <noreply@anthropic.com>'
+      ),
+      /certifies the Developer Certificate of Origin as a tool/
+    );
+  });
+
   test('rejects a token this project does not use', () => {
     match(
       soleProblem('🏗️🔧：fix it\n\nCloses: https://x/1'),

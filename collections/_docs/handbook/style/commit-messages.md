@@ -118,10 +118,11 @@ in the commit as you write it.
 
 `Signed-off-by:` is **required**, and has to name the commit's own author —
 `git commit -s` writes it for you. It is how you certify the [Developer
-Certificate of Origin][]: that you have the right to contribute this change. A
-tool cannot do that on your behalf, and neither can a bot, which is why the
-check compares the name against the author rather than merely looking for the
-line.
+Certificate of Origin][]: that you have the right to contribute this change.
+Neither a tool nor a bot can certify it, on your behalf or on its own, so the
+check asks two things of the line: that it names the author, and that it names a
+person. The second is the one an agent writing its own commit message gets
+wrong, and it is covered below.
 
 ### Disclosing an AI assistant
 
@@ -146,18 +147,35 @@ Certificate of Origin][], and saying a tool helped is not a transfer of
 responsibility. You are answerable for every line in your pull request, whatever
 wrote it.
 
-The check refuses a `Co-authored-by:` that names an assistant or a bot account,
-rather than leaving it to a reviewer to notice. An agent writing its own commit
-message reaches for that trailer by habit, and once a wrong one lands it is in
-the history for good.
+**The author of a commit has to be a person as well.** That is the half of the
+rule that goes without saying to everybody except the reader it is aimed at. An
+agent running under its own git identity is the author of what it commits, and
+`-s` copies that identity into the sign-off, so the trailer names a tool and
+agrees with the author while doing it:
+
+```text
+Author:        Claude <noreply@anthropic.com>
+Signed-off-by: Claude <noreply@anthropic.com>
+```
+
+Nothing in that is inconsistent, which is the whole difficulty: for a while the
+check had nothing to object to, and a program stood in the history certifying
+the origin of the work. An agent committing on somebody's behalf commits _as
+them_ — `git config` set to their identity, or `--author` with the sign-off to
+match — and names itself in `Assisted-by:`.
+
+The check refuses an assistant or a bot account in either trailer, rather than
+leaving it to a reviewer to notice. An agent reaches for `Co-authored-by:` by
+habit and is handed `Signed-off-by:` by `-s`, and once a wrong one lands it is
+in the history for good.
 
 It refuses on three things: the `[bot]` suffix, which GitHub reserves so that no
 person can hold it; the addresses the agents commit under, which are theirs
 alone and not the ones their staff use; and a handful of product names. Only the
 last can reach a person, and realistically only `claude`, which is also a name
-people have. If it ever refuses a real co-author, narrow the pattern in the same
-pull request. Do not drop the credit -- a co-author belongs in the trailer,
-where GitHub reads it, and not in a sentence in the body.
+people have. If it ever refuses a real contributor, narrow the pattern in the
+same pull request. Do not drop the trailer — a co-author belongs where GitHub
+reads it and not in a sentence in the body, and a sign-off is not optional.
 
 > [!WARNING]
 >
