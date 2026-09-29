@@ -15,6 +15,11 @@
     "class": "docs"
   },
   {
+    "text": "SDK",
+    "permalink": "docs/sdk/",
+    "class": "sdk-section"
+  },
+  {
     "text": "About",
     "permalink": "about",
     "class": "about"

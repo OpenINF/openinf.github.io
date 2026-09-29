@@ -3,7 +3,8 @@ title: Docs
 layout: default
 permalink: /docs/
 description:
-  How to take part in OpenINF, and the house style the work is written in.
+  How to take part in OpenINF, the house style the work is written in, and the
+  API reference for the SDK.
 body_classes:
   - docs
   - docs-index
@@ -33,8 +34,8 @@ eleventyImport:
       <div class="docs-head-lead">
         <h1 class="docs-title">Docs</h1>
         <p class="docs-lede">
-          Two kinds of writing live here: how to take part in the work, and how
-          the work gets written down.
+          Three kinds of writing live here: how to take part in the work, how
+          the work gets written down, and the SDK's API reference.
         </p>
       </div>
 
@@ -115,14 +116,33 @@ eleventyImport:
     </div>
   </section>
 
-  <!-- ================= what is not here yet =========================== -->
-  <section class="band band-tail">
+  <!-- ================= the SDK reference ============================== -->
+  <section class="band" id="sdk" aria-labelledby="sdk-ref-title">
     <div class="wrap">
-      <h2 class="tail-title" id="soon-title">Not here yet</h2>
-      <p class="tail-what">
-        The OpenINF SDK arrives in Q4 2026, and its reference documentation
-        arrives with it.
-        <a href="/news/">Progress shows up in the news</a>.
+      <div class="section-head">
+        <h2 class="section-title" id="sdk-ref-title">The SDK reference</h2>
+      </div>
+
+      {%- if sdkApi and sdkApi.versions.size > 0 %}
+        {%- assign newest = sdkApi.versions | first %}
+        <p class="handbook-lede">
+          The API reference for every OpenINF SDK package, generated from the
+          source and kept for each release. The newest is
+          {{ newest.version }}.
+        </p>
+      {%- else %}
+        <p class="handbook-lede">
+          The API reference for every OpenINF SDK package, generated from the
+          source. It appears with the first release;
+          <a href="/news/">progress shows up in the news</a>.
+        </p>
+      {%- endif %}
+
+      <p class="handbook-more">
+        <a class="handbook-link" href="/docs/sdk/">
+          Browse the SDK reference
+          <span class="handbook-link-arrow" aria-hidden="true">&rarr;</span>
+        </a>
       </p>
     </div>
   </section>
