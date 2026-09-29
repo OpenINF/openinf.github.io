@@ -7,7 +7,6 @@
     ":gitSignOff",
     ":preserveSemverRanges",
     "mergeConfidence:all-badges",
-    ":semanticCommitTypeAll(chore)",
     "schedule:earlyMondays",
   ],
   // `config:best-practices` pulls in `abandonments:recommended`, which calls a
@@ -29,7 +28,19 @@
   },
   platformCommit: "enabled",
   rangeStrategy: "pin",
-  semanticCommits: "enabled",
+  // A dependency pull request lands as a commit like any other, so its title
+  // follows the organization's format: a category emoji, then `：` with no
+  // space after it. `commitMessagePrefix` cannot express that, because the
+  // default template puts a space between the prefix and the rest, and
+  // `commitMessageAction` cannot either, because pins, rollbacks, replacements
+  // and lock file maintenance each set their own. That leaves the template,
+  // which renovate warns is deprecated while offering nothing else that can
+  // put the emoji flush against the rest. The action is lowercased there
+  // because those same presets capitalize it ("Lock file maintenance", "Pin")
+  // and our subjects start lowercase; the topic keeps its case, since it is a
+  // package name.
+  semanticCommits: "disabled",
+  commitMessage: "📦：{{{lowercase commitMessageAction}}} {{{commitMessageTopic}}} {{{commitMessageExtra}}} {{{commitMessageSuffix}}}",
   commitMessageAction: "bump",
   commitMessageTopic: "{{depName}}",
   // Nothing else watches these two files. Everything installed through npm is
@@ -63,12 +74,10 @@
   packageRules: [
     {
       matchDepTypes: ["dependencies"],
-      commitMessagePrefix: "chore(deps):",
       labels: ["📦 Type: Dependencies"],
     },
     {
       matchDepTypes: ["devDependencies"],
-      commitMessagePrefix: "build(deps-dev):",
       labels: ["📦 Type: Developer Dependencies", "🏗️ Category: Build"],
     },
     // `config:best-practices` already waits, through
