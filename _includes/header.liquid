@@ -1,3 +1,13 @@
+{%- comment -%}
+  One link is current. The SDK's pages sit inside the docs, so both entries
+  match them; the menu lists SDK after Docs, and the last match wins.
+{%- endcomment -%}
+{%- assign current_link = '' -%}
+{%- for link in menu -%}
+  {%- if body_classes contains link.class -%}
+    {%- assign current_link = link.class -%}
+  {%- endif -%}
+{%- endfor -%}
 <header class='site-header'>
   <nav
     class='navbar navbar-expand-md navbar-dark fixed-top bg-dark'
@@ -24,9 +34,9 @@
           {% for link in menu %}
             <li class='nav-item'>
               <a
-                class='nav-link{% if body_classes contains link.class %} active{% endif %}'
+                class='nav-link{% if link.class == current_link %} active{% endif %}'
                 href='/{{ link.permalink }}'
-                {% if body_classes contains link.class %}
+                {% if link.class == current_link %}
                   aria-current='page'
                 {% endif %}
               >
@@ -51,9 +61,9 @@
         {% for link in menu %}
           <li class='nav-item'>
             <a
-              class='nav-link{% if body_classes contains link.class %} active{% endif %}'
+              class='nav-link{% if link.class == current_link %} active{% endif %}'
               href='/{{ link.permalink }}'
-              {% if body_classes contains link.class %}
+              {% if link.class == current_link %}
                 aria-current='page'
               {% endif %}
             >
