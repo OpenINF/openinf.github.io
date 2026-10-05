@@ -41,7 +41,7 @@
     "bootstrap": "5.3.8",
     "browserslist-lint": "0.4.0",
     "console-log-level": "1.4.1",
-    "cspell": "10.3.3",
+    "cspell": "10.3.5",
     "cssnano": "9.1.0",
     "dprint": "0.57.4",
     "editorconfig-checker": "7.0.0",
