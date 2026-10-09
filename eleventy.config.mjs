@@ -3,6 +3,7 @@ import { readdir, readFile, unlink, writeFile } from 'node:fs/promises';
 import { extname, join, parse as pathParse } from 'node:path';
 import { EleventyI18nPlugin } from '@11ty/eleventy';
 import { PATHS } from '@openinf/portal/build/constants';
+import { headingSlug } from '@openinf/portal/build/heading-slug';
 import { hasViewBox, replaceInlineSvg } from '@openinf/portal/build/inline-svg';
 import { sanitizeSdkHtml } from '@openinf/portal/build/sdk-docs';
 import autoprefixer from 'autoprefixer';
@@ -76,7 +77,7 @@ export default async function (eleventyConfig) {
 
   eleventyConfig.amendLibrary('md', (md) => {
     md.set({ highlight });
-    md.use(markdownItAnchor);
+    md.use(markdownItAnchor, { slugify: headingSlug });
     md.use(markdownItFootnote);
     // `> [!NOTE]` and the rest become a titled callout rather than a
     // blockquote opening on the literal marker. The icons it ships with come
