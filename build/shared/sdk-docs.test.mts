@@ -79,6 +79,18 @@ describe('stripTypeDocChrome', () => {
     );
   });
 
+  test('unescapes the Markdown punctuation in a generic type’s title', () => {
+    deepStrictEqual(
+      stripTypeDocChrome(
+        '[**OpenINF**](../../README.md)\n\n***\n\n[OpenINF](../../packages.md) / [@openinf/util-types](../README.md) / Guard\n\n# Type Alias: Guard\\<T\\>\n\n> **Guard**\\<`T`\\> = (`value`) => `value is T`\n'
+      ),
+      {
+        title: 'Type Alias: Guard<T>',
+        content: '> **Guard**\\<`T`\\> = (`value`) => `value is T`\n',
+      }
+    );
+  });
+
   test('handles a package readme with an HTML h1', () => {
     deepStrictEqual(
       stripTypeDocChrome(
