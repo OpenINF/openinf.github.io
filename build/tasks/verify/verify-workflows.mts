@@ -50,6 +50,15 @@ type Job = {
 type Use = { action: string; line: number; trailing: string };
 
 /**
+ * Whether a node is a pair under the given key.
+ * @param {unknown} node Anything the walk passed through.
+ * @param {string} name The key to look for.
+ * @returns {boolean} Whether `node` is `name: ...`.
+ */
+const isKeyed = (node: unknown, name: string) =>
+  isPair(node) && isScalar(node.key) && node.key.value === name;
+
+/**
  * Collects everything a workflow runs from somebody else's repository, and
  * where each is written.
  *
@@ -96,12 +105,14 @@ function usesIn(text: string) {
     // is a scalar only where the anchor is defined, which is nowhere near
     // `jobs.<id>.steps`; narrowing this to the two paths GitHub executes from
     // would stop reading the one place such a reference is written down.
+    //
+    // A key directly under `jobs:` is a job's id, which its author chose, so
+    // a job called `with` or `env` is still a job and its steps still run.
     if (
       path.some(
-        (ancestor) =>
-          isPair(ancestor) &&
-          isScalar(ancestor.key) &&
-          (ancestor.key.value === 'with' || ancestor.key.value === 'env')
+        (ancestor, index) =>
+          (isKeyed(ancestor, 'with') || isKeyed(ancestor, 'env')) &&
+          !isKeyed(path[index - 2], 'jobs')
       )
     ) {
       return;
