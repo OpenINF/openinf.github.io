@@ -318,7 +318,7 @@ const checkSubject = (subject: string) => {
       problems.push('subject has a space after the colon');
     }
 
-    if (/\s#\d+$/.test(description)) {
+    if (/\s(?:#\d+|\(#\d+\))$/.test(description)) {
       problems.push(
         'subject ends with a pull request number; `PR-URL:` carries that'
       );

@@ -82,6 +82,13 @@ describe('validateCommitMessage: the subject', () => {
     match(soleProblem('🏗️🔧：fix the thing #1803'), /PR-URL:` carries that/);
   });
 
+  test('rejects the number GitHub appends when it squashes', () => {
+    match(
+      soleProblem('📦：bump cspell to v10.3.6 (#938)'),
+      /PR-URL:` carries that/
+    );
+  });
+
   test('rejects a trailing full stop', () => {
     match(soleProblem('🏗️🔧：fix the thing.'), /full stop/);
   });
