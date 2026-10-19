@@ -18,7 +18,12 @@
     {% if page.url == '/' -%}
       {{- siteTitle -}}
     {%- else -%}
-      {{- title }} &middot; {{ siteTitle -}}
+      {%- comment -%}
+        Once, not plain escape: a hand-written title may already carry an
+        entity, while an SDK API title such as Guard<T> is plain text that
+        the minifier would otherwise read as a tag.
+      {%- endcomment -%}
+      {{- title | escape_once }} &middot; {{ siteTitle -}}
     {%- endif %}
   </title>
   {% if env == 'production' -%}

@@ -91,7 +91,9 @@ export function stripTypeDocChrome(markdown: string) {
 
   if (heading !== null) {
     return {
-      title: heading[1],
+      // TypeDoc escapes a heading's Markdown punctuation, as in `Guard\<T\>`,
+      // but the title is printed as plain text, where a backslash would show.
+      title: heading[1].replace(/\\([!-/:-@[-`{-~])/g, '$1'),
       content: content.slice(heading[0].length),
     };
   }
