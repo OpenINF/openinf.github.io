@@ -28,9 +28,9 @@
  * the directories in this checkout.
  *
  * The exit code carries both answers at once, the way `check-vendored.mts`
- * does: bit 1 is set when the portal is behind, bit 2 when the tags could not
- * be read. Being behind is a thing to act on and an unreachable host is not,
- * so neither hides the other.
+ * does: 0 when the portal is current, otherwise 16 with bit 1 set when it is
+ * behind and bit 2 when the tags could not be read. Being behind is a thing
+ * to act on and an unreachable host is not, so neither hides the other.
  */
 
 import { readdir } from 'node:fs/promises';
@@ -59,8 +59,14 @@ const TIMEOUT = 30_000;
 const PER_PAGE = 100;
 const PAGES = 20;
 
-/** Bits of the exit code. Both can be set; neither masks the other. */
+/**
+ * Bits of the exit code. Both can be set; neither masks the other. An answer
+ * also sets `ANSWERED`, so that none is a code node exits with of its own
+ * accord -- 1 for an uncaught exception, 13 for a top-level await that never
+ * settled -- and a run that crashed cannot be read as one that answered.
+ */
 const MATCHED = 0;
+const ANSWERED = 16;
 const BEHIND = 1;
 const UNCHECKED = 2;
 
@@ -161,6 +167,8 @@ if (answer.problem !== undefined) {
 }
 
 process.exitCode =
-  MATCHED |
-  (behind ? BEHIND : MATCHED) |
-  (answer.problem === undefined ? MATCHED : UNCHECKED);
+  !behind && answer.problem === undefined
+    ? MATCHED
+    : ANSWERED |
+      (behind ? BEHIND : MATCHED) |
+      (answer.problem === undefined ? MATCHED : UNCHECKED);

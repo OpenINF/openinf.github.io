@@ -10,9 +10,10 @@
  * that have nothing to do with it.
  *
  * The exit code carries both answers at once, since one file drifting says
- * nothing about whether another was reachable: bit 1 is set when a copy has
- * drifted, bit 2 when one could not be compared. Drift is a thing to act on
- * and an upstream nobody can reach is not, so neither hides the other.
+ * nothing about whether another was reachable: 0 when every copy matched,
+ * otherwise 16 with bit 1 set when a copy has drifted and bit 2 when one
+ * could not be compared. Drift is a thing to act on and an upstream nobody
+ * can reach is not, so neither hides the other.
  */
 
 import { readFile } from 'node:fs/promises';
@@ -43,8 +44,14 @@ const VENDORED: Vendored[] = [
 /** How long to wait on an upstream before giving up, in milliseconds. */
 const TIMEOUT = 30_000;
 
-/** Bits of the exit code. Both can be set; neither masks the other. */
+/**
+ * Bits of the exit code. Both can be set; neither masks the other. An answer
+ * also sets `ANSWERED`, so that none is a code node exits with of its own
+ * accord -- 1 for an uncaught exception, 13 for a top-level await that never
+ * settled -- and a run that crashed cannot be read as one that answered.
+ */
 const MATCHED = 0;
+const ANSWERED = 16;
 const DRIFTED = 1;
 const UNCHECKED = 2;
 
@@ -148,6 +155,8 @@ if (drifted.length > 0) {
 }
 
 process.exitCode =
-  MATCHED |
-  (drifted.length > 0 ? DRIFTED : MATCHED) |
-  (unchecked.length > 0 ? UNCHECKED : MATCHED);
+  drifted.length === 0 && unchecked.length === 0
+    ? MATCHED
+    : ANSWERED |
+      (drifted.length > 0 ? DRIFTED : MATCHED) |
+      (unchecked.length > 0 ? UNCHECKED : MATCHED);

@@ -76,12 +76,24 @@ jobs:
           node build/tasks/check-sdk-api-drift.mts > report.md || code=$?
           cat report.md
 
+          # An answer is 0, or 16 with a bit for each thing to report, so it
+          # never shares a number with node's own codes: 1 for an uncaught
+          # exception, 13 for a top-level await that never settled, above 128
+          # for a signal. Any other code is a run that crashed before it could
+          # answer, and is reported as one that could not check rather than
+          # read as one that found something.
+          code=${code:-0}
+          if [ "$code" -ne 0 ] && { [ "$code" -lt 17 ] || [ "$code" -gt 19 ]; }; then
+            echo "::error::the check exited ${code} without answering"
+            code=18
+          fi
+
           # Both bits are read: being behind says nothing about whether the
           # tags could be read, so neither answer is allowed to hide the
           # other. Reported after the issue is filed, so an API nobody could
           # reach cannot hold back a report about a reference that is missing.
-          echo "behind=$(( (${code:-0} & 1) != 0 ))" >> "$GITHUB_OUTPUT"
-          echo "unchecked=$(( (${code:-0} & 2) != 0 ))" >> "$GITHUB_OUTPUT"
+          echo "behind=$(( (code & 1) != 0 ))" >> "$GITHUB_OUTPUT"
+          echo "unchecked=$(( (code & 2) != 0 ))" >> "$GITHUB_OUTPUT"
 
       - name: Say so, once
         if: steps.compare.outputs.behind == '1'
