@@ -52,18 +52,18 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  sync:
-    name: Import the release's API reference
+  # The job that runs `pnpm install` is not the job that can write here.
+  # Lifecycle scripts are a dependency's own code, and a step that runs after
+  # them on the same runner inherits what they left behind: a `git` or `gh`
+  # earlier on the PATH, a hook under .git/hooks, a file in the workspace. A
+  # credential minted later in that job is one they can still read. A second
+  # job starts on a runner none of that touched.
+  check:
+    name: Check the portal can render the release's API reference
     runs-on: ubuntu-latest
     steps:
-      # Two tokens, each as narrow as the one thing it does, because this job
-      # runs `pnpm install` in the middle of itself. Lifecycle scripts are a
-      # dependency's own code, and anything they can read they can send: a
-      # single credential that could write here, sitting in the environment
-      # or in .git/config while they run, is one an install away from being
-      # somebody else's. So the reading token cannot write, the writing token
-      # is not minted until every step that runs foreign code has finished,
-      # and neither is scoped to a repository it has no business in.
+      # This token cannot write, and is not scoped to a repository it has no
+      # business in: anything the install can read it can send.
       - name: Mint a token that can only read the SDK
         id: read-token
         uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
@@ -80,8 +80,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           # Left out of .git/config the way every other workflow here leaves
-          # it out. The push below brings its own, once nothing foreign is
-          # left to run.
+          # it out. Nothing in this job pushes.
           persist-credentials: false
 
       - name: Set up Node.js runtime
@@ -107,7 +106,6 @@ jobs:
       # added rather than replaced, that its directory is named for a release,
       # and that nothing arrives by symbolic link.
       - name: Place it under vendor/sdk-api/
-        id: unpack
         run: |
           node build/tasks/unpack-sdk-api-artifact.mts \
             --from "$RUNNER_TEMP/sdk-api-docs"
@@ -129,9 +127,56 @@ jobs:
       - name: Check the portal can render it
         run: nps compile.importSdkApiDocs
 
-      # Only now, with the download unpacked, the install done and the import
-      # run, is a credential that can write minted. Nothing after this point
-      # runs anybody else's code.
+  pull-request:
+    name: Open a pull request for the release's API reference
+    needs: check
+    runs-on: ubuntu-latest
+    steps:
+      # The artifact is fetched and unpacked again rather than handed over
+      # from the job above. Anything that job uploaded would have passed
+      # through the install first, and this way what the pull request carries
+      # is the SDK's bytes, placed by this repository's own task, and nothing
+      # the install had the chance to change.
+      - name: Mint a token that can only read the SDK
+        id: read-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ secrets.SDK_SYNC_APP_ID }}
+          private-key: ${{ secrets.SDK_SYNC_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: sdk
+          permission-actions: read
+
+      - name: Check out project repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # The push below brings its own credential, and only for itself.
+          persist-credentials: false
+
+      - name: Set up Node.js runtime
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: 'package.json'
+
+      - name: Download the release's API reference
+        env:
+          GH_TOKEN: ${{ steps.read-token.outputs.token }}
+          RUN_ID: ${{ inputs.run-id }}
+          SDK: ${{ github.repository_owner }}/sdk
+        run: |
+          gh run download "$RUN_ID" --repo "$SDK" --name sdk-api-docs \
+            --dir "$RUNNER_TEMP/sdk-api-docs"
+
+      - name: Place it under vendor/sdk-api/
+        id: unpack
+        run: |
+          node build/tasks/unpack-sdk-api-artifact.mts \
+            --from "$RUNNER_TEMP/sdk-api-docs"
+
+      # Nothing in this job installs, so nothing in it runs anybody else's
+      # code: only the runner's own `git` and `gh`, the pinned actions, and
+      # the node-only task above. Only now is a credential that can write
+      # minted.
       - name: Mint a token that can only write here
         id: write-token
         uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
