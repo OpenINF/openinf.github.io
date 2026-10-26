@@ -3,10 +3,10 @@
   "author": "The OpenINF Authors & Friends",
   "private": true,
   "description": "The front door to everything OpenINF makes",
-  "packageManager": "pnpm@12.12.1",
+  "packageManager": "pnpm@12.14.0",
   "engines": {
-    "node": "24.21.0",
-    "pnpm": "12.12.1"
+    "node": "24.22.0",
+    "pnpm": "12.14.0"
   },
   "exports": {
     "./build/commit-message": "./build/shared/commit-message.mts",
@@ -27,7 +27,7 @@
     "test": "nps test"
   },
   "devDependencies": {
-    "@11ty/eleventy": "3.1.6",
+    "@11ty/eleventy": "3.1.7",
     "@biomejs/biome": "2.5.15",
     "@isaacs/catcher": "1.0.4",
     "@openinf/gh-file-importer": "2.0.1",
@@ -43,12 +43,12 @@
     "browserslist-lint": "0.4.0",
     "console-log-level": "1.4.1",
     "cspell": "10.3.6",
-    "cssnano": "9.6.0",
-    "dprint": "0.62.0",
+    "cssnano": "9.9.0",
+    "dprint": "0.64.0",
     "editorconfig-checker": "7.0.0",
     "html-minifier-terser": "7.2.0",
     "htmlparser2": "12.0.0",
-    "js-yaml": "5.4.3",
+    "js-yaml": "5.5.0",
     "markdown-it-abbr": "2.0.0",
     "markdown-it-anchor": "10.0.0",
     "markdown-it-footnote": "4.0.0",
@@ -59,7 +59,7 @@
     "markdownlint-cli2": "0.23.3",
     "markdownlint-cli2-formatter-default": "0.0.6",
     "nps": "5.10.0",
-    "postcss": "8.5.29",
+    "postcss": "8.5.31",
     "prettier": "3.9.10",
     "prismjs": "1.30.0",
     "remark": "15.0.1",
@@ -92,8 +92,8 @@
     "retext-simplify": "8.0.0",
     "retext-syntax-mentions": "4.0.0",
     "retext-syntax-urls": "4.0.0",
-    "sanitize-html": "2.18.0",
-    "sass": "1.105.1",
+    "sanitize-html": "2.18.1",
+    "sass": "1.105.2",
     "stylelint": "17.16.0",
     "stylelint-config-recess-order": "7.8.0",
     "stylelint-config-standard-scss": "17.0.0",
@@ -101,9 +101,9 @@
     "terser": "5.51.2",
     "typescript": "7.0.2",
     "unified": "11.0.5",
-    "vnu-jar": "26.10.11",
+    "vnu-jar": "26.10.12",
     "yaml": "2.9.1",
-    "zod": "4.6.6",
+    "zod": "4.6.7",
     "zod-validation-error": "5.0.0"
   }
 }
