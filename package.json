@@ -3,10 +3,10 @@
   "author": "The OpenINF Authors & Friends",
   "private": true,
   "description": "The front door to everything OpenINF makes",
-  "packageManager": "pnpm@12.14.0",
+  "packageManager": "pnpm@12.15.0",
   "engines": {
-    "node": "24.22.0",
-    "pnpm": "12.14.0"
+    "node": "24.22.1",
+    "pnpm": "12.15.0"
   },
   "exports": {
     "./build/commit-message": "./build/shared/commit-message.mts",
@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.7",
-    "@biomejs/biome": "2.5.15",
+    "@biomejs/biome": "2.6.3",
     "@isaacs/catcher": "1.0.4",
     "@openinf/gh-file-importer": "2.0.1",
     "@shopify/prettier-plugin-liquid": "1.11.2",
@@ -44,7 +44,7 @@
     "console-log-level": "1.4.1",
     "cspell": "10.4.0",
     "cssnano": "9.9.0",
-    "dprint": "0.64.0",
+    "dprint": "0.64.3",
     "editorconfig-checker": "7.0.0",
     "html-minifier-terser": "7.2.0",
     "htmlparser2": "12.0.0",
@@ -56,7 +56,7 @@
     "markdown-it-sub": "2.0.0",
     "markdown-it-sup": "2.0.0",
     "markdown-it-task-lists": "2.1.1",
-    "markdownlint-cli2": "0.23.3",
+    "markdownlint-cli2": "0.24.0",
     "markdownlint-cli2-formatter-default": "0.0.6",
     "nps": "5.10.0",
     "postcss": "8.5.31",
@@ -93,9 +93,9 @@
     "retext-syntax-mentions": "4.0.0",
     "retext-syntax-urls": "4.0.0",
     "sanitize-html": "2.18.1",
-    "sass": "1.105.2",
+    "sass": "1.106.1",
     "stylelint": "17.16.0",
-    "stylelint-config-recess-order": "7.8.0",
+    "stylelint-config-recess-order": "7.9.0",
     "stylelint-config-standard-scss": "17.0.0",
     "svgo": "4.1.0",
     "terser": "5.51.2",
