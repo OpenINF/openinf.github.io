@@ -409,6 +409,18 @@ describe('validateCommitMessage: the trailers', () => {
     );
   });
 
+  test('refuses a long run of spaces after [bot] in linear time', () => {
+    // Two runs of `\s*` side by side once split these spaces between them every
+    // possible way before giving up on the `x` at the end.
+    const spaces = ' '.repeat(200_000);
+    const started = performance.now();
+    const problems = validateCommitMessage(
+      `🏗️🔧：fix it\n\nCo-authored-by: Ada [bot]${spaces}x <ada@example.com>`
+    );
+    ok(performance.now() - started < 1000);
+    ok(!problems.some((problem) => /credits a tool/.test(problem)));
+  });
+
   test('leaves a person at one of those companies signing off alone', () => {
     deepStrictEqual(
       validateCommitMessage(
@@ -468,6 +480,9 @@ describe('validateCommitMessage: against what landed', () => {
   });
 });
 
+/** Read as a trailer called `https` by git before 2.56, and not since. */
+const BARE_LINK = '🏗️🔧：fix it\n\nhttps://example.com/p';
+
 describe('readTrailers', () => {
   test('agrees with git about where the trailers are', () => {
     // The rules describe git's behavior, so git is the thing to check them
@@ -483,10 +498,23 @@ describe('readTrailers', () => {
       '🏗️🔧：fix it\r\n\r\nBody.\r\n\r\nPR-URL: https://x/1\r\n',
       '🏗️🔧：fix it\n\n-------\n\nPR-URL: https://x/1',
       '🏗️🔧：fix it\n\nPR URL: https://x/1\nReviewed-by: A <a@e>',
-      '🏗️🔧：fix it\n\nhttps://example.com/p',
+      BARE_LINK,
     ];
+    // git 2.56 stopped reading a line that starts `token://` as a trailer. The
+    // rules keep the older reading, since a history is read by every git
+    // version and not only the newest, so a newer git is not asked about it.
+    const [major = 0, minor = 0] = (
+      /(\d+)\.(\d+)/.exec(
+        execFileSync('git', ['--version'], { encoding: 'utf8' })
+      ) ?? []
+    )
+      .slice(1)
+      .map(Number);
+    const readsLinksAsTrailers = major < 2 || (major === 2 && minor < 56);
 
     for (const message of messages) {
+      if (message === BARE_LINK && !readsLinksAsTrailers) continue;
+
       const theirs = execFileSync('git', ['interpret-trailers', '--parse'], {
         encoding: 'utf8',
         input: message,
