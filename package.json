@@ -34,7 +34,7 @@
     "@shopify/prettier-plugin-liquid": "1.11.2",
     "@tsconfig/node-lts": "24.0.1",
     "@types/console-log-level": "1.4.5",
-    "@types/node": "24.19.2",
+    "@types/node": "26.6.5",
     "@types/prismjs": "1.26.6",
     "@types/sanitize-html": "2.16.2",
     "@yarnpkg/shell": "4.1.3",
