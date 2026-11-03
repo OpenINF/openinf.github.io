@@ -141,12 +141,18 @@ const ASSISTED_BY_VALUE = /^[^\s:]+:\S+( \S+)*$/;
  * alternative is a tool standing in the history as an author. If it ever
  * refuses a real contributor, narrow the pattern rather than drop the trailer.
  *
+ * The whitespace after `[bot]` is matched once, with the address taking its
+ * own trailing whitespace along, because two runs of `\s*` side by side can
+ * split the same spaces between them every possible way: a long run of them
+ * after a `[bot]`, with something else at the end, took time quadratic in
+ * its length to refuse.
+ *
  * An agent whose integration commits as a `[bot]` account needs no name here.
  * Renovate and Dependabot are out of reach either way: their commits are
  * skipped whole, so their own `[bot]` co-authors are not this check's business.
  */
 const TOOL_IDENTITY =
-  /\[bot](?=@|\s*(?:<[^>]*>)?\s*$)|\bnoreply@(?:anthropic|openai)\.com\b|\b(?:aider|chatgpt|claude|codex|copilot|cursor)\b/i;
+  /\[bot](?=@|\s*(?:<[^>]*>\s*)?$)|\bnoreply@(?:anthropic|openai)\.com\b|\b(?:aider|chatgpt|claude|codex|copilot|cursor)\b/i;
 
 /** git folds a trailer whose value runs onto an indented line beneath it. */
 export const CONTINUATION_LINE = /^\s/;
