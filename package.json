@@ -5,7 +5,7 @@
   "description": "The front door to everything OpenINF makes",
   "packageManager": "pnpm@12.17.0",
   "engines": {
-    "node": "24.22.2",
+    "node": "26.13.0",
     "pnpm": "12.17.0"
   },
   "exports": {
