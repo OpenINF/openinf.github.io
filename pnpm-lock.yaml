@@ -7,153 +7,153 @@ importers:
     configDependencies: {}
     packageManagerDependencies:
       pnpm:
-        specifier: 12.15.0
-        version: 12.15.0
+        specifier: 12.17.0
+        version: 12.17.0
 
 packages:
 
-  '@pnpm/exe.android-arm64@12.15.0':
-    resolution: {integrity: sha512-eVCqmscY70LGvgRzu3mi8IBWBFGix+a6mNZoWmXxESsBdeiKEF9xQSuaeel10yn+zI7TXy2jlI63vFLzETk+aQ==}
+  '@pnpm/exe.android-arm64@12.17.0':
+    resolution: {integrity: sha512-gwu/F5YyoJp1bIbrIBl7B8JO3rkjkGlKikwQg9s0aVa5xWaBYIqPX+ZJqQ7I4D1YfbdI/Omfze0+6vnYiWHG6A==}
     cpu: [arm64]
     os: [android]
 
-  '@pnpm/exe.android-x64@12.15.0':
-    resolution: {integrity: sha512-Gx/WbkFcdUFUg8g8AShezcS9EiQxfYvdAm2hfKLO8sfJmJvKOCt5fzlgHWDzmGhoclibgW+tUGZ/KF4F4wOTCA==}
+  '@pnpm/exe.android-x64@12.17.0':
+    resolution: {integrity: sha512-qUNhCvWyeBrUByNWkqqQ3Koy1gIAQ8UV5HDHXxoo5NUWVTde0Ld2BxweNwWJw8CNKpqEGceCUdjZ506JYpTjJg==}
     cpu: [x64]
     os: [android]
 
-  '@pnpm/exe.darwin-arm64@12.15.0':
-    resolution: {integrity: sha512-N0ZykiDWCvqSBJvt71j7cSoBR993FqvYZFtmpCtqvW3pguiI+NAgraLPA5OTwu5mV+/d8hYpVcPktJA3xFDLtA==}
+  '@pnpm/exe.darwin-arm64@12.17.0':
+    resolution: {integrity: sha512-0nkEqRLIbrm7dWl+p2EPpmyNKyM0bbdPEovdtMhHYbhkO+Vls38S+6emkx8kSTAr75BNXYXkCl4RtGinGG4Erg==}
     cpu: [arm64]
     os: [darwin]
 
-  '@pnpm/exe.darwin-x64@12.15.0':
-    resolution: {integrity: sha512-7Ntr2HlBUxzwWOg7NwDxCbRW/3vXuqKO+hcXm+w3SBi9rrHY53li1wLqWVT7Gjxd+lVEHM1QJZo6WJEGFU8C6A==}
+  '@pnpm/exe.darwin-x64@12.17.0':
+    resolution: {integrity: sha512-w89cboNi4KCzmt/dSKrE4ijVNKICKiZsE9TcIWf77Tz+VpoDfuhPSmWPZK+iCHBvlI/9dIN+M3HiPPVsFnAx4Q==}
     cpu: [x64]
     os: [darwin]
 
-  '@pnpm/exe.freebsd-x64@12.15.0':
-    resolution: {integrity: sha512-btOiyL7fL7W4uQGH0aqFai2TNC3IoKcZ7gNHBVbEFZt2dWrnrD0SufL3iGs3fLlmb4OtuU35uf4Zpr9V9Jh9mA==}
+  '@pnpm/exe.freebsd-x64@12.17.0':
+    resolution: {integrity: sha512-DJ0FOaUDXc71icSgiuBFEvqReqoSiS/rmnC6kltoiC3MzPyw3awcGbT/7FnnYzi/ziuoTC7v6vfBh0Vzv7VKOQ==}
     cpu: [x64]
     os: [freebsd]
 
-  '@pnpm/exe.linux-arm64-musl@12.15.0':
-    resolution: {integrity: sha512-pNC38k+O+90FOjbPNSnw0E7apq1PKTmz3fFe1amn+lys/U5kL++uzir8bRiho8ONcyA3d9EU7wdqcY0DKkj+JA==}
+  '@pnpm/exe.linux-arm64-musl@12.17.0':
+    resolution: {integrity: sha512-w5ZwZ4j8S804DGhMYlLLpc+G3Kkc+5GlDO++LLvO/nDIXBTHRhdxPfQBQU08q31k0JYfp3wXCQk0Y7DnsuVF6w==}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
 
-  '@pnpm/exe.linux-arm64@12.15.0':
-    resolution: {integrity: sha512-qML/8aCXslh8td/w4U+HJNqUcZ2+m6EfTbWScIzZRmyPsRFN+xB4LP1U/hymxc1iSJiKtG56HJx2fvUErWFIGw==}
+  '@pnpm/exe.linux-arm64@12.17.0':
+    resolution: {integrity: sha512-Cj2nIzWTVm6ZuhQHqL9SiJ11scBnEGxJyNg7tYQPzh9fVF5UVRkv+LbyfwdftnAtJerK/7HDpK/55WeQqp8OkA==}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  '@pnpm/exe.linux-ppc64@12.15.0':
-    resolution: {integrity: sha512-tjRDUUl7RCJ6T/6eoNPxOqkwU4Mzi5RtTXmSAxujyz37OTwwsMU7Ps087Zk4gHcUvRSeyF40ZFsew3vtE+nmUA==}
+  '@pnpm/exe.linux-ppc64@12.17.0':
+    resolution: {integrity: sha512-Gb//Wm15fXl+qWcxjNQmwlYDjGiJOnLU/A9uRZYmtkyZie2Yx8AHI6XkUIJioQz99TwVDKQ87ywD5Jtk8zcgyg==}
     cpu: [ppc64]
     os: [linux]
     libc: [glibc]
 
-  '@pnpm/exe.linux-riscv64@12.15.0':
-    resolution: {integrity: sha512-bF1uBWEfbwaeryz6lIiaJ8AWD082otZfvzGX5l+6LZRpRwUEpJHUsJrORaYP5/cNMv5ZR2p6TvvcJcQzwtDzmw==}
+  '@pnpm/exe.linux-riscv64@12.17.0':
+    resolution: {integrity: sha512-+kItEcFjdVZEDzODsc7icb8cB+3AouCrEzOCezzxLITRhw86m9t3J/qyPdcFELBjeMnS+IXV8sJaSCQcpSqfgA==}
     cpu: [riscv64]
     os: [linux]
     libc: [glibc]
 
-  '@pnpm/exe.linux-s390x@12.15.0':
-    resolution: {integrity: sha512-zKMhIzsexYMToeLmqV5jPsvV/f9vwsJb2kUH2NFYzalbxImeBrlA4kL7GwF8gD4pagV6jYYcJb8RjbZIdjHptg==}
+  '@pnpm/exe.linux-s390x@12.17.0':
+    resolution: {integrity: sha512-jf5ghD2uDeknWQgK/EsCFNwlyL7BYLWfXe687g5UMVFclPLt524CREZ8Yl5hf4u7p3evCIPBN/m5I1QXUmJpHw==}
     cpu: [s390x]
     os: [linux]
     libc: [glibc]
 
-  '@pnpm/exe.linux-x64-musl@12.15.0':
-    resolution: {integrity: sha512-A9J0Jg0Rdx+qQU4qXtwyST5tto9IOu1zi4fDk35nbc6DWahggbcKtFvZPKFwL2qgUXGXOX//hXv6z/sp6emO8A==}
+  '@pnpm/exe.linux-x64-musl@12.17.0':
+    resolution: {integrity: sha512-JGxrGSxkDkqRAUD49T9dOnKyJkQ3bWBeHnYH4o4mvj09R9eUzhWFi8oa6WPNyCO0/7/Max2gsSfgXOHj3QW7ug==}
     cpu: [x64]
     os: [linux]
     libc: [musl]
 
-  '@pnpm/exe.linux-x64@12.15.0':
-    resolution: {integrity: sha512-yc+QlZR+9+nr29J4fRzhMoapgxTBDndq/+peyoq1XUufnQFnfbXUMFudDIKzHi545linGqmOmXfn0NoufNgcOg==}
+  '@pnpm/exe.linux-x64@12.17.0':
+    resolution: {integrity: sha512-vQAusDzMofc/Ee4KOUYjE6FWeHOlMGQyvhR7W39QSamVeJWS16co/n+bhjdjwjI3UFh8IWOpamvTS+b4lvQUog==}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@pnpm/exe.win32-arm64@12.15.0':
-    resolution: {integrity: sha512-fPXZxuY1VclkOga9bc53qNCXcegfeoBR8+Ue+AospDwKzuGGSHll0oDxkLfkmpjyRqpe7bH5DyQPYp/xSMaIVA==}
+  '@pnpm/exe.win32-arm64@12.17.0':
+    resolution: {integrity: sha512-qDQh8rmyK5sxlaCSCADcmPrvytJabMCbxtJ0nCitzRo2j3/8BhzLjlOcWF3C6iPGhR5CbIb+btNy+VCVhd06mQ==}
     cpu: [arm64]
     os: [win32]
 
-  '@pnpm/exe.win32-x64@12.15.0':
-    resolution: {integrity: sha512-nrd+Tp1We1DGj4DGG5Bea9lZNh9y1PjlLBdEwdInS4D0h0UIDtM7JaGGGDJhNzIwcHASyihWI7HLV+dtG+fhYg==}
+  '@pnpm/exe.win32-x64@12.17.0':
+    resolution: {integrity: sha512-qCo1OQlE3WrFZIAUK0O5EoupLaQ1fST7zNX8Qd+Tc4ojWgCvYA/ze0uP9hox8mSFC/JPAGRSG5o8gUBSq2rRxw==}
     cpu: [x64]
     os: [win32]
 
-  pnpm@12.15.0:
-    resolution: {integrity: sha512-s5UdbW/0qfE9x89WzSjSuOs328ycaOUuHhGRhz6p+CoBcoerULqtxczElPA2xnwOR+sTYIwvo29HcRth6hKOYQ==}
+  pnpm@12.17.0:
+    resolution: {integrity: sha512-uNIj6+wEtYContIG2qcdG8y2oe4dUu+pXMOw23UnFWHfjw2OLEOt05xewIAYr3qKlRCOcJD5Win4hye3pA/VPQ==}
     engines: {node: '>=18'}
     hasBin: true
 
 snapshots:
 
-  '@pnpm/exe.android-arm64@12.15.0':
+  '@pnpm/exe.android-arm64@12.17.0':
     optional: true
 
-  '@pnpm/exe.android-x64@12.15.0':
+  '@pnpm/exe.android-x64@12.17.0':
     optional: true
 
-  '@pnpm/exe.darwin-arm64@12.15.0':
+  '@pnpm/exe.darwin-arm64@12.17.0':
     optional: true
 
-  '@pnpm/exe.darwin-x64@12.15.0':
+  '@pnpm/exe.darwin-x64@12.17.0':
     optional: true
 
-  '@pnpm/exe.freebsd-x64@12.15.0':
+  '@pnpm/exe.freebsd-x64@12.17.0':
     optional: true
 
-  '@pnpm/exe.linux-arm64-musl@12.15.0':
+  '@pnpm/exe.linux-arm64-musl@12.17.0':
     optional: true
 
-  '@pnpm/exe.linux-arm64@12.15.0':
+  '@pnpm/exe.linux-arm64@12.17.0':
     optional: true
 
-  '@pnpm/exe.linux-ppc64@12.15.0':
+  '@pnpm/exe.linux-ppc64@12.17.0':
     optional: true
 
-  '@pnpm/exe.linux-riscv64@12.15.0':
+  '@pnpm/exe.linux-riscv64@12.17.0':
     optional: true
 
-  '@pnpm/exe.linux-s390x@12.15.0':
+  '@pnpm/exe.linux-s390x@12.17.0':
     optional: true
 
-  '@pnpm/exe.linux-x64-musl@12.15.0':
+  '@pnpm/exe.linux-x64-musl@12.17.0':
     optional: true
 
-  '@pnpm/exe.linux-x64@12.15.0':
+  '@pnpm/exe.linux-x64@12.17.0':
     optional: true
 
-  '@pnpm/exe.win32-arm64@12.15.0':
+  '@pnpm/exe.win32-arm64@12.17.0':
     optional: true
 
-  '@pnpm/exe.win32-x64@12.15.0':
+  '@pnpm/exe.win32-x64@12.17.0':
     optional: true
 
-  pnpm@12.15.0:
+  pnpm@12.17.0:
     optionalDependencies:
-      '@pnpm/exe.android-arm64': 12.15.0
-      '@pnpm/exe.android-x64': 12.15.0
-      '@pnpm/exe.darwin-arm64': 12.15.0
-      '@pnpm/exe.darwin-x64': 12.15.0
-      '@pnpm/exe.freebsd-x64': 12.15.0
-      '@pnpm/exe.linux-arm64': 12.15.0
-      '@pnpm/exe.linux-arm64-musl': 12.15.0
-      '@pnpm/exe.linux-ppc64': 12.15.0
-      '@pnpm/exe.linux-riscv64': 12.15.0
-      '@pnpm/exe.linux-s390x': 12.15.0
-      '@pnpm/exe.linux-x64': 12.15.0
-      '@pnpm/exe.linux-x64-musl': 12.15.0
-      '@pnpm/exe.win32-arm64': 12.15.0
-      '@pnpm/exe.win32-x64': 12.15.0
+      '@pnpm/exe.android-arm64': 12.17.0
+      '@pnpm/exe.android-x64': 12.17.0
+      '@pnpm/exe.darwin-arm64': 12.17.0
+      '@pnpm/exe.darwin-x64': 12.17.0
+      '@pnpm/exe.freebsd-x64': 12.17.0
+      '@pnpm/exe.linux-arm64': 12.17.0
+      '@pnpm/exe.linux-arm64-musl': 12.17.0
+      '@pnpm/exe.linux-ppc64': 12.17.0
+      '@pnpm/exe.linux-riscv64': 12.17.0
+      '@pnpm/exe.linux-s390x': 12.17.0
+      '@pnpm/exe.linux-x64': 12.17.0
+      '@pnpm/exe.linux-x64-musl': 12.17.0
+      '@pnpm/exe.win32-arm64': 12.17.0
+      '@pnpm/exe.win32-x64': 12.17.0
 
 ---
 lockfileVersion: '9.0'
@@ -170,8 +170,8 @@ importers:
         specifier: 3.1.7
         version: 3.1.7(supports-color@10.2.2)
       '@biomejs/biome':
-        specifier: 2.6.3
-        version: 2.6.3
+        specifier: 2.6.4
+        version: 2.6.4
       '@isaacs/catcher':
         specifier: 1.0.4
         version: 1.0.4
@@ -179,8 +179,8 @@ importers:
         specifier: 2.0.1
         version: 2.0.1
       '@shopify/prettier-plugin-liquid':
-        specifier: 1.11.2
-        version: 1.11.2(prettier@3.9.10)
+        specifier: 1.11.3
+        version: 1.11.3(prettier@3.9.10)
       '@tsconfig/node-lts':
         specifier: 24.0.1
         version: 24.0.1
@@ -188,8 +188,8 @@ importers:
         specifier: 1.4.5
         version: 1.4.5
       '@types/node':
-        specifier: 26.6.5
-        version: 26.6.5
+        specifier: 26.6.6
+        version: 26.6.6
       '@types/prismjs':
         specifier: 1.26.6
         version: 1.26.6
@@ -200,8 +200,8 @@ importers:
         specifier: 4.1.3
         version: 4.1.3(typanion@3.14.0)
       autoprefixer:
-        specifier: 10.6.1
-        version: 10.6.1(postcss@8.5.31)
+        specifier: 10.6.2
+        version: 10.6.2(postcss@8.5.32)
       bootstrap:
         specifier: 5.3.8
         version: 5.3.8(@popperjs/core@2.11.8)
@@ -216,7 +216,7 @@ importers:
         version: 10.4.0
       cssnano:
         specifier: 9.9.0
-        version: 9.9.0(postcss@8.5.31)
+        version: 9.9.0(postcss@8.5.32)
       dprint:
         specifier: 0.64.3
         version: 0.64.3
@@ -263,8 +263,8 @@ importers:
         specifier: 5.10.0
         version: 5.10.0
       postcss:
-        specifier: 8.5.31
-        version: 8.5.31
+        specifier: 8.5.32
+        version: 8.5.32
       prettier:
         specifier: 3.9.10
         version: 3.9.10
@@ -365,8 +365,8 @@ importers:
         specifier: 2.18.1
         version: 2.18.1
       sass:
-        specifier: 1.106.1
-        version: 1.106.1
+        specifier: 1.107.1
+        version: 1.107.1
       stylelint:
         specifier: 17.16.0
         version: 17.16.0(supports-color@10.2.2)(typescript@7.0.2)
@@ -375,7 +375,7 @@ importers:
         version: 7.9.0(stylelint-order@8.1.2(stylelint@17.16.0(supports-color@10.2.2)(typescript@7.0.2)))(stylelint@17.16.0(supports-color@10.2.2)(typescript@7.0.2))
       stylelint-config-standard-scss:
         specifier: 17.0.0
-        version: 17.0.0(postcss@8.5.31)(stylelint@17.16.0(supports-color@10.2.2)(typescript@7.0.2))
+        version: 17.0.0(postcss@8.5.32)(stylelint@17.16.0(supports-color@10.2.2)(typescript@7.0.2))
       svgo:
         specifier: 4.1.0
         version: 4.1.0
@@ -464,71 +464,71 @@ packages:
     resolution: {integrity: sha512-qehxGkRj55h/ff8EMaJ+cYhyaKlHIxqYDn682wQD7RNp9UujOQsHog2uS0r2vzr4pW+sXf90NeeayjcNaX3fFg==}
     engines: {node: '>=6.9.0'}
 
-  '@biomejs/biome@2.6.3':
-    resolution: {integrity: sha512-va/0xPku7wnfzv+D8Zpdm5uKiGJWiV8neqoEPnRjvNQQwhl4tVXS4fETs4H0CCB2rGeqJ4cu9y4iOZOnOYKAUA==}
+  '@biomejs/biome@2.6.4':
+    resolution: {integrity: sha512-8sKKwaNW4ot22awZ3lBjwWLHnUFXgXnrBPYS2gNlBAXRbDC++7kqjK2H7dR/FgCDtPvO1xfKpgEhJkGxAKYkxA==}
     engines: {node: '>=14.21.3'}
     hasBin: true
 
-  '@biomejs/cli-android-arm64@2.6.3':
-    resolution: {integrity: sha512-5JD7QQDEHxdeEb4sftEHG+lsuUyu8Cob/hVLqRELbgGlFl68Rldv/PPi2k4dRjERZ/EItJ3O6Xmv8lqsEtUBiw==}
+  '@biomejs/cli-android-arm64@2.6.4':
+    resolution: {integrity: sha512-jwrwigP4tBcHxzuV8izioX/BOUhJL/4e2rNSOE5nCjBkVC018LQAQUGiH+CNkFYvLtQ1dcZo5/xXERmaAGc7JQ==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [android]
 
-  '@biomejs/cli-android-x64@2.6.3':
-    resolution: {integrity: sha512-70WOGKCgpT+Uqg6LFdTLqefV54/DypdZg+LnBQDO6AWvkgXO+9xhVClajQyDsIHYjnXMtI1pRO5sP+zMXlS/bw==}
+  '@biomejs/cli-android-x64@2.6.4':
+    resolution: {integrity: sha512-HdGInPJ4nZFwHxzvEtcp2nmSBtUyJrurmtIK43upFckuS3+ZqVM05HtsxQWnqGsuy/pxckIAjyKWlEKRlBXUyA==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [android]
 
-  '@biomejs/cli-darwin-arm64@2.6.3':
-    resolution: {integrity: sha512-ezf+XEKeyJ2yYlBhrzyEEHLvfRYrhtNKc6maLzR/WcAcBccb4RVDeFxsymjBve2LO0bpIMRUAiS90D4bUBRT0A==}
+  '@biomejs/cli-darwin-arm64@2.6.4':
+    resolution: {integrity: sha512-0VvcUz46wbg59Q4TZ59KkIjDJrxEyu4Eoe79+F4SChxoWe+W7AEyIp6F5r72C9+p6MsB6dIovnZt1D30lGM3XA==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [darwin]
 
-  '@biomejs/cli-darwin-x64@2.6.3':
-    resolution: {integrity: sha512-Lg2tFdg4elJo+7i707PpLMs6N1hATVt4kqDo6MD/q/VnPs8rsKReKXsz1TA5GNdfRVAQNJ5GRiyK2EwNptK+MA==}
+  '@biomejs/cli-darwin-x64@2.6.4':
+    resolution: {integrity: sha512-fxmvkF81srlS3DiMyfm+aG3J0eG+6/BjaxRyjy57KbLSafnq0PO+hHfVWmtH2ty0S7nm6yDXBRwySfFeaRJKRQ==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [darwin]
 
-  '@biomejs/cli-linux-arm64-musl@2.6.3':
-    resolution: {integrity: sha512-dYU70A89OFHzakQPE9VOPbE60JNcQt4mtxvUGQl+EgTkGtqCFxLD2RUn1SbiMu8Mu5xFscS1bfYDpoasaUrqNA==}
+  '@biomejs/cli-linux-arm64-musl@2.6.4':
+    resolution: {integrity: sha512-31ZaH/MHqPX+O+evRwRrCHQ8W5/9adY+/eMytGGWZnRx1T41QsWIF09+/WujynLBhWZUxNGS5CtsWLwgOFTAyg==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
 
-  '@biomejs/cli-linux-arm64@2.6.3':
-    resolution: {integrity: sha512-8Stcvq98n1gs9VyLKuaWrnsd8kbXE2nKDAHtuLHGSYdGyNWN5JIIm5a28xdnmgdKzKHmiDgYyATetkEv7+zGow==}
+  '@biomejs/cli-linux-arm64@2.6.4':
+    resolution: {integrity: sha512-6+bK1Y/evmIUiJr7auertuMbiaYVicJhqA1bZyL47lCMWugv8l0gFQCqvR/gN1vZMHYm+HwoTKgeMxdNFCoQTg==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  '@biomejs/cli-linux-x64-musl@2.6.3':
-    resolution: {integrity: sha512-j6eFjUcWSphmgVTbrobEMA0wdbfNHKrGi8hRsFkc17jeS1n7nHwFACxp6jWqe9sxQqyFAeyOgt2/1bOGVcbATA==}
+  '@biomejs/cli-linux-x64-musl@2.6.4':
+    resolution: {integrity: sha512-bomSa2XdQAGGj6Cwdm4M13qE+lN9+AOlW8KtI4hdyVyRRF/Z71qPAi95T4wtdZK0QpBbkTW8hgbZZCwPi4xzIw==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [linux]
     libc: [musl]
 
-  '@biomejs/cli-linux-x64@2.6.3':
-    resolution: {integrity: sha512-CShmx0bO6BngywT3minv8K1xsQX1ig1vsBqYTLnmDY3mBiDYHlaLRIsdHoM1pEU9dV3BN5a0uiH0IGDtYh9TWA==}
+  '@biomejs/cli-linux-x64@2.6.4':
+    resolution: {integrity: sha512-tbFZMdL6dP/ws4edXxYG9WhvaVa1ZDzL4G5DzahnWW7Psib9H+VTdyU4XXVxpJk5j/nYZroSbvSNyYlpW3yCIw==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@biomejs/cli-win32-arm64@2.6.3':
-    resolution: {integrity: sha512-00SthDxBPwNiT7IL/mOneif6fiEU1PXK875zhr+InpeZjovY1mF5tCuDhXo1Hh0GYyiKHKzLbItzn58SAyLhJQ==}
+  '@biomejs/cli-win32-arm64@2.6.4':
+    resolution: {integrity: sha512-eCsqt8Ma3eVap+oyJCDnJZH60SIU464B66n3y38EUTJdM1T/HfZol1FJC9vb+sHToX0ix8XzqPcwJnOzyAJz0g==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [win32]
 
-  '@biomejs/cli-win32-x64@2.6.3':
-    resolution: {integrity: sha512-GhtOPphBWlnCepqpNk/w5eGN5oGRCzL20EbAkL1XCIpyboeVC9R642noyT43l8LSenGS4qz9IL8sKPfwY37V/Q==}
+  '@biomejs/cli-win32-x64@2.6.4':
+    resolution: {integrity: sha512-pYsMy5AThiHFOZAsngg8qN4PurM6nInKBhVX7sbj3eNpRQqo1Hb0MgCwPL7VqVMrmcEEMj9Ks3qbkallR65e8g==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [win32]
@@ -1140,11 +1140,11 @@ packages:
   '@popperjs/core@2.11.8':
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
 
-  '@shopify/liquid-html-parser@2.10.2':
-    resolution: {integrity: sha512-/qBtTT3tbzSFgFVMNTPhX2pPN14ShMSYTu9nzkCB1vorjNvm1G9mvgYW9jKod0mrki+TUVfMYi5d1H+QKrLnCA==}
+  '@shopify/liquid-html-parser@2.11.0':
+    resolution: {integrity: sha512-vgrCl9dxPXflxjbEshNXAi/n09pJpyh7RTvHHHQb5AlUw3p7Jz565v+8jNvsaGv8s85MiWkrSW8r9Ojzpx9yMw==}
 
-  '@shopify/prettier-plugin-liquid@1.11.2':
-    resolution: {integrity: sha512-KTWczMeDBHSOl7eJY1pCrCJ7x5xj4o/F7212J2mOrzB6BmbjtvroARVhPgBgQ7lWF+GqSxva+uLOwR4kd4UFXg==}
+  '@shopify/prettier-plugin-liquid@1.11.3':
+    resolution: {integrity: sha512-95I7LRTsSIT7RJ6SNjGNgb38y16EQokHFmZ/T3THpSOWTWOvOJ9EWTTjXEuTfQs2GjR5DHumMQwBqhr3SrNZsQ==}
     peerDependencies:
       prettier: ^2.0.0 || ^3.0.0
 
@@ -1211,8 +1211,8 @@ packages:
   '@types/node@22.20.5':
     resolution: {integrity: sha512-U2+DNr+wSjpsTS/wZGYHq7GcwfuSmKiKvoPvK22zwTlRhU91yOniN4qRR5KhIjvif7ysw/dz/hKmfDH0Ris4aA==}
 
-  '@types/node@26.6.5':
-    resolution: {integrity: sha512-uMzsv9stDdofIZBx4UGh4Z9ZgXnGC9seRDscilBcTHAeOFk67MZg/k9bWVfO+bk4qZmG+l52hRnLwUiH2LnJTg==}
+  '@types/node@26.6.6':
+    resolution: {integrity: sha512-MzQj+8Kx3XI40OmUAE6Qoh58ZMNstNNMwn2nfd3qWsfe7nDNSqJNzes4njhz6AHwrSHOffSLwXU6yb474Q4aog==}
 
   '@types/pluralize@0.0.29':
     resolution: {integrity: sha512-BYOID+l2Aco2nBik+iYS4SZX0Lf20KPILP5RGmM1IgzdwNdTs0eebiFriOPcej1sX9mLnSoiNte5zcFxssgpGA==}
@@ -1447,8 +1447,8 @@ packages:
   automated-readability@2.0.1:
     resolution: {integrity: sha512-/csT54oO/8qjtqaCZoNqA0srbHv3z1YAxj0ee4UQkYC7x6lb6jU0f9LIo7DLJKHWSEI4nsvnFyy34vILDqA7xw==}
 
-  autoprefixer@10.6.1:
-    resolution: {integrity: sha512-cL1Qz6ADZhcEbny/8HPfe99J6HhNoYtpX2LFLIbhgGE7Q1hlQVkYFdetDN7Id3KiQxhDrHwzlHr/YQCnZ8+xSA==}
+  autoprefixer@10.6.2:
+    resolution: {integrity: sha512-VOw9/yGTGwPPgzFcODtcv6zhEPIeIWkRSe10L2ri2f5vZ7ID7lCt6jZzRF5/ubgOZ+szYydmEF5AYsA5jxX1tA==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
     peerDependencies:
@@ -2954,12 +2954,8 @@ packages:
   postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
 
-  postcss@8.5.29:
-    resolution: {integrity: sha512-49cGhUbXj8Qenv0iTMxA1cFBzxXoctpC9Ujd77t1WcbJIr6nF/eI7g/8MgxrYldFRuAXvja7xQRwavoW7kgrxQ==}
-    engines: {node: ^10 || ^12 || >=14}
-
-  postcss@8.5.31:
-    resolution: {integrity: sha512-YUbWYCgErwnMAVkjUnYa+KlMBzGpHwiIt/DE7f0G33AuX2LH9UcTk6KgWxd3zRU+pN3u/C+Xl3EnMLM4Hea7Sg==}
+  postcss@8.5.32:
+    resolution: {integrity: sha512-LJlKCCAUFKOuZxipUdYw1NzIITEsPcgyOG9LkvRJvuKj/bRzbuRY0ARXvL0pWGpsZvn8jku+LMep2eU0seHp8g==}
     engines: {node: ^10 || ^12 || >=14}
 
   posthtml-match-helper@2.0.3:
@@ -3329,8 +3325,8 @@ packages:
     resolution: {integrity: sha512-2X5lC8fYla8YaT8g73Nj+HcLWXan5dLyCWLgVvaOmfw7JI78IRsyNtIDytTHdn7hBQbIkCah7Zbmd5jabzeDig==}
     engines: {node: '>=22.12.0'}
 
-  sass@1.106.1:
-    resolution: {integrity: sha512-kD+Gi66vycZcbJt+42NC4z4PXNMcCajVrJPhqoKKXy5cOBMmJQt052CxIBcRjwYXeImHYOpu/ydWWGZQIenl7A==}
+  sass@1.107.1:
+    resolution: {integrity: sha512-aJ1/LvxOOb04YhmiBjzZn3jVwdHKol+OVhoMV6fFl02fF9T3i+5Mg9l/CnzqtM+NX5Jn5o3lAbs/ZJivTCLHfQ==}
     engines: {node: '>=20.19.0'}
     hasBin: true
 
@@ -3974,47 +3970,47 @@ snapshots:
 
   '@babel/helper-validator-identifier@7.29.7': {}
 
-  '@biomejs/biome@2.6.3':
+  '@biomejs/biome@2.6.4':
     optionalDependencies:
-      '@biomejs/cli-android-arm64': 2.6.3
-      '@biomejs/cli-android-x64': 2.6.3
-      '@biomejs/cli-darwin-arm64': 2.6.3
-      '@biomejs/cli-darwin-x64': 2.6.3
-      '@biomejs/cli-linux-arm64': 2.6.3
-      '@biomejs/cli-linux-arm64-musl': 2.6.3
-      '@biomejs/cli-linux-x64': 2.6.3
-      '@biomejs/cli-linux-x64-musl': 2.6.3
-      '@biomejs/cli-win32-arm64': 2.6.3
-      '@biomejs/cli-win32-x64': 2.6.3
+      '@biomejs/cli-android-arm64': 2.6.4
+      '@biomejs/cli-android-x64': 2.6.4
+      '@biomejs/cli-darwin-arm64': 2.6.4
+      '@biomejs/cli-darwin-x64': 2.6.4
+      '@biomejs/cli-linux-arm64': 2.6.4
+      '@biomejs/cli-linux-arm64-musl': 2.6.4
+      '@biomejs/cli-linux-x64': 2.6.4
+      '@biomejs/cli-linux-x64-musl': 2.6.4
+      '@biomejs/cli-win32-arm64': 2.6.4
+      '@biomejs/cli-win32-x64': 2.6.4
 
-  '@biomejs/cli-android-arm64@2.6.3':
+  '@biomejs/cli-android-arm64@2.6.4':
     optional: true
 
-  '@biomejs/cli-android-x64@2.6.3':
+  '@biomejs/cli-android-x64@2.6.4':
     optional: true
 
-  '@biomejs/cli-darwin-arm64@2.6.3':
+  '@biomejs/cli-darwin-arm64@2.6.4':
     optional: true
 
-  '@biomejs/cli-darwin-x64@2.6.3':
+  '@biomejs/cli-darwin-x64@2.6.4':
     optional: true
 
-  '@biomejs/cli-linux-arm64-musl@2.6.3':
+  '@biomejs/cli-linux-arm64-musl@2.6.4':
     optional: true
 
-  '@biomejs/cli-linux-arm64@2.6.3':
+  '@biomejs/cli-linux-arm64@2.6.4':
     optional: true
 
-  '@biomejs/cli-linux-x64-musl@2.6.3':
+  '@biomejs/cli-linux-x64-musl@2.6.4':
     optional: true
 
-  '@biomejs/cli-linux-x64@2.6.3':
+  '@biomejs/cli-linux-x64@2.6.4':
     optional: true
 
-  '@biomejs/cli-win32-arm64@2.6.3':
+  '@biomejs/cli-win32-arm64@2.6.4':
     optional: true
 
-  '@biomejs/cli-win32-x64@2.6.3':
+  '@biomejs/cli-win32-x64@2.6.4':
     optional: true
 
   '@cacheable/memory@2.2.0':
@@ -4607,13 +4603,13 @@ snapshots:
 
   '@popperjs/core@2.11.8': {}
 
-  '@shopify/liquid-html-parser@2.10.2':
+  '@shopify/liquid-html-parser@2.11.0':
     dependencies:
       line-column: 1.0.2
 
-  '@shopify/prettier-plugin-liquid@1.11.2(prettier@3.9.10)':
+  '@shopify/prettier-plugin-liquid@1.11.3(prettier@3.9.10)':
     dependencies:
-      '@shopify/liquid-html-parser': 2.10.2
+      '@shopify/liquid-html-parser': 2.11.0
       html-styles: 1.0.0
       prettier: 3.9.10
 
@@ -4632,7 +4628,7 @@ snapshots:
 
   '@types/concat-stream@2.0.3':
     dependencies:
-      '@types/node': 26.6.5
+      '@types/node': 26.6.6
 
   '@types/console-log-level@1.4.5': {}
 
@@ -4679,7 +4675,7 @@ snapshots:
     dependencies:
       undici-types: 6.21.0
 
-  '@types/node@26.6.5':
+  '@types/node@26.6.6':
     dependencies:
       undici-types: 8.9.0
 
@@ -4841,13 +4837,13 @@ snapshots:
 
   automated-readability@2.0.1: {}
 
-  autoprefixer@10.6.1(postcss@8.5.31):
+  autoprefixer@10.6.2(postcss@8.5.32):
     dependencies:
       browserslist: 4.29.3
       caniuse-lite: 1.0.30001815
       fraction.js: 5.3.4
       picocolors: 1.1.1
-      postcss: 8.5.31
+      postcss: 8.5.32
       postcss-value-parser: 4.2.0
 
   bail@2.0.2: {}
@@ -5182,14 +5178,14 @@ snapshots:
 
   cssesc@3.0.0: {}
 
-  cssnano@9.9.0(postcss@8.5.31):
+  cssnano@9.9.0(postcss@8.5.32):
     dependencies:
       '@colordx/core': 7.3.0
       '@csstools/css-tokenizer': 4.0.2
       browserslist: 4.29.3
       caniuse-api: 4.0.0
-      postcss: 8.5.31
-      postcss-calc: 11.2.3(postcss@8.5.31)
+      postcss: 8.5.32
+      postcss-calc: 11.2.3(postcss@8.5.32)
 
   csso@5.0.5:
     dependencies:
@@ -6638,41 +6634,35 @@ snapshots:
 
   pluralize@8.0.0: {}
 
-  postcss-calc@11.2.3(postcss@8.5.31):
+  postcss-calc@11.2.3(postcss@8.5.32):
     dependencies:
       '@csstools/css-tokenizer': 4.0.2
-      postcss: 8.5.31
+      postcss: 8.5.32
 
   postcss-media-query-parser@0.2.3: {}
 
   postcss-resolve-nested-selector@0.1.7: {}
 
-  postcss-safe-parser@7.1.0(postcss@8.5.31):
+  postcss-safe-parser@7.1.0(postcss@8.5.32):
     dependencies:
-      postcss: 8.5.31
+      postcss: 8.5.32
 
-  postcss-scss@4.0.9(postcss@8.5.31):
+  postcss-scss@4.0.9(postcss@8.5.32):
     dependencies:
-      postcss: 8.5.31
+      postcss: 8.5.32
 
   postcss-selector-parser@7.1.6:
     dependencies:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
-  postcss-sorting@10.0.0(postcss@8.5.31):
+  postcss-sorting@10.0.0(postcss@8.5.32):
     dependencies:
-      postcss: 8.5.31
+      postcss: 8.5.32
 
   postcss-value-parser@4.2.0: {}
 
-  postcss@8.5.29:
-    dependencies:
-      nanoid: 3.3.20
-      picocolors: 1.1.1
-      source-map-js: 1.2.2
-
-  postcss@8.5.31:
+  postcss@8.5.32:
     dependencies:
       nanoid: 3.3.20
       picocolors: 1.1.1
@@ -7506,9 +7496,9 @@ snapshots:
       is-plain-object: 5.1.0
       launder: 1.7.2
       parse-srcset: 1.0.2
-      postcss: 8.5.29
+      postcss: 8.5.32
 
-  sass@1.106.1:
+  sass@1.107.1:
     dependencies:
       chokidar: 5.0.0
       immutable: 5.1.9
@@ -7682,26 +7672,26 @@ snapshots:
       stylelint: 17.16.0(supports-color@10.2.2)(typescript@7.0.2)
       stylelint-order: 8.1.2(stylelint@17.16.0(supports-color@10.2.2)(typescript@7.0.2))
 
-  stylelint-config-recommended-scss@17.0.1(postcss@8.5.31)(stylelint@17.16.0(supports-color@10.2.2)(typescript@7.0.2)):
+  stylelint-config-recommended-scss@17.0.1(postcss@8.5.32)(stylelint@17.16.0(supports-color@10.2.2)(typescript@7.0.2)):
     dependencies:
-      postcss-scss: 4.0.9(postcss@8.5.31)
+      postcss-scss: 4.0.9(postcss@8.5.32)
       stylelint: 17.16.0(supports-color@10.2.2)(typescript@7.0.2)
       stylelint-config-recommended: 18.0.0(stylelint@17.16.0(supports-color@10.2.2)(typescript@7.0.2))
       stylelint-scss: 7.3.0(stylelint@17.16.0(supports-color@10.2.2)(typescript@7.0.2))
     optionalDependencies:
-      postcss: 8.5.31
+      postcss: 8.5.32
 
   stylelint-config-recommended@18.0.0(stylelint@17.16.0(supports-color@10.2.2)(typescript@7.0.2)):
     dependencies:
       stylelint: 17.16.0(supports-color@10.2.2)(typescript@7.0.2)
 
-  stylelint-config-standard-scss@17.0.0(postcss@8.5.31)(stylelint@17.16.0(supports-color@10.2.2)(typescript@7.0.2)):
+  stylelint-config-standard-scss@17.0.0(postcss@8.5.32)(stylelint@17.16.0(supports-color@10.2.2)(typescript@7.0.2)):
     dependencies:
       stylelint: 17.16.0(supports-color@10.2.2)(typescript@7.0.2)
-      stylelint-config-recommended-scss: 17.0.1(postcss@8.5.31)(stylelint@17.16.0(supports-color@10.2.2)(typescript@7.0.2))
+      stylelint-config-recommended-scss: 17.0.1(postcss@8.5.32)(stylelint@17.16.0(supports-color@10.2.2)(typescript@7.0.2))
       stylelint-config-standard: 40.0.0(stylelint@17.16.0(supports-color@10.2.2)(typescript@7.0.2))
     optionalDependencies:
-      postcss: 8.5.31
+      postcss: 8.5.32
 
   stylelint-config-standard@40.0.0(stylelint@17.16.0(supports-color@10.2.2)(typescript@7.0.2)):
     dependencies:
@@ -7710,8 +7700,8 @@ snapshots:
 
   stylelint-order@8.1.2(stylelint@17.16.0(supports-color@10.2.2)(typescript@7.0.2)):
     dependencies:
-      postcss: 8.5.31
-      postcss-sorting: 10.0.0(postcss@8.5.31)
+      postcss: 8.5.32
+      postcss-sorting: 10.0.0(postcss@8.5.32)
       stylelint: 17.16.0(supports-color@10.2.2)(typescript@7.0.2)
 
   stylelint-scss@7.3.0(stylelint@17.16.0(supports-color@10.2.2)(typescript@7.0.2)):
@@ -7757,8 +7747,8 @@ snapshots:
       micromatch: 4.0.8
       normalize-path: 3.0.0
       picocolors: 1.1.1
-      postcss: 8.5.31
-      postcss-safe-parser: 7.1.0(postcss@8.5.31)
+      postcss: 8.5.32
+      postcss-safe-parser: 7.1.0(postcss@8.5.32)
       postcss-selector-parser: 7.1.6
       postcss-value-parser: 4.2.0
       string-width: 8.3.0
